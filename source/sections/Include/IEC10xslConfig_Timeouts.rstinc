@@ -1,0 +1,35 @@
+
+Timeouts attributes
+^^^^^^^^^^^^^^^^^^^
+
+Timeout values can be specified using attributes of :include-arg:`1` element node.
+
+Please see sample :include-arg:`1` node and the table listing all available attributes below.
+
+.. code-block:: none
+
+   <Timeouts Application="30" Command="10" Select="30" />
+
+:include-arg:`2`
+
+.. field-list-table:: :include-arg:`3`
+   :class: table table-condensed table-bordered longtable
+   :spec: |C{0.20}|C{0.25}|S{0.55}|
+   :header-rows: 1
+
+   * :attr,10:  Attribute
+     :val,15:   Values or range
+     :desc,75:  Description
+     
+   * :attr:     :xmlref:`Application`
+     :val:      1...2\ :sup:`32`\  - 1
+     :desc:     Application timeout is a delay in seconds for how long communication protocol instance waits response from the destination (e.g. downstream station) after it has forwarded the control command received from an upstream Master station. If no response is received within a configured timeout, command is considered to be failed and communication protocol instance generates negative response to the upstream Master station. In general application timeout is used to terminate pending control commands, if communication to the destination (e.g. downstream station) is lost. (default 30 seconds)
+
+   * :attr:     :xmlref:`Command`
+     :val:      1...2\ :sup:`32`\  - 1
+     :desc:     Command timeout is a delay in seconds for how long communication protocol instance attempts to send command response to the upstream Master station. If it is impossible to send a response within a configured timeout, command is considered to be failed and processing is terminated (command gets removed from the buffer). In general command timeout is used to terminate pending control commands, if communication to the upstream Master station is lost. (default 10 seconds)
+
+   * :attr:     :xmlref:`Select`
+     :val:      1...2\ :sup:`32`\  - 1
+     :desc:     Select timeout is a maximal delay in seconds between received Select and Execute commands. If an Execute command is not received within a configured timeout, command is automatically de-selected, Execute command will not be accepted and new Select command is required. In general Select timeout is used to test reliability of the communication channel before executing control commands to prevent major delays due to intermittent communications (default 30 seconds)
+

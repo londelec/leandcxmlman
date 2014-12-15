@@ -1,0 +1,52 @@
+
+.. _ref-CommsFlags:
+
+CommsFlags attribute
+^^^^^^^^^^^^^^^^^^^^
+
+Communication flags are used to configure initialization settings of some communication protocol instances. For 
+example, outstation polling can be disabled on leandc startup and enabled by user later on issuing a service 
+command.
+
+.. _ref-CommsFlagsAttribute:
+
+.. field-list-table:: CommsFlags attribute
+   :class: table table-condensed table-bordered longtable
+   :header-rows: 1
+   :spec: |C{0.20}|C{0.25}|S{0.55}|
+
+   * :attr,10: Bits
+     :val,15:  Values
+     :desc,75: Description
+
+   * :attr:    :xmlref:`CommsFlags` [xxxx.xxxx]
+     :val:     0...0xFF
+     :desc:    CommsFlags is 8 bit encoded variable.
+
+   * :attr:    Bit 3
+     :val:     xxxx.0xxx
+     :desc:    **Reject** new incoming connection to TCP server if protocol instance is already connected (default value)
+
+   * :(attr):
+     :val:     xxxx.1xxx
+     :desc:    **Always accept** new incoming connection to TCP server and terminate previous connection if protocol instance is already connected
+
+   * :attr:    Bit 4
+     :val:     xxx0.xxxx
+     :desc:    IEC 60870-5-104 controlling station (Master) communication protocol instance **sends** [STARTDT_act] to outstation upon leandc startup (default value)
+
+   * :(attr):
+     :val:     xxx1.xxxx
+     :desc:    IEC 60870-5-104 controlling station (Master) communication protocol instance **doesn't** send [STARTDT_act] to outstation upon leandc startup
+
+   * :attr:    Bit 7
+     :val:     0xxx.xxxx
+     :desc:    Protocol instance communication to peer station is enabled upon leandc startup (default value)
+
+   * :(attr):
+     :val:     1xxx.xxxx
+     :desc:    Protocol instance communication to peer station is disabled upon leandc startup
+
+   * :attr:    Bits 0...2;5;6
+     :val:     Any
+     :desc:    Bits reserved for future use

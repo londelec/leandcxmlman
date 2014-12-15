@@ -1,0 +1,15 @@
+   * :attr:    :xmlref:`DIEventStartup`
+     :val:     0
+     :desc:    DI events **will not be** generated when received from outstation for the first time after system startup
+
+   * :(attr):
+     :val:     1
+     :desc:    DI events **will be** generated when received from outstation for the first time after system startup (default value)
+
+   * :attr:    :xmlref:`AIEventStartup`
+     :val:     0
+     :desc:    AI events **will not be** generated when received from outstation for the first time after system startup
+
+   * :(attr):
+     :val:     1
+     :desc:    AI events **will be** generated when received from outstation for the first time after system startup (default value)

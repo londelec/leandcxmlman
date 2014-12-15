@@ -1,0 +1,67 @@
+.. field-list-table:: IEC 60807-5-101/104 Slave AI TypeID
+   :class: table table-condensed table-bordered longtable
+   :spec: |C{0.25}|C{0.25}|S{0.5}|
+   :header-rows: 1
+
+   * :attr,10: TypeID Value for IEC60870-5-101
+     :val,10:  TypeID Value for IEC60870-5-104
+     :desc,80: Description
+
+   * :attr:    5
+     :val:     5
+     :desc:    Static 'Step position Information' will be sent using ASDU type 5 [M_ST_NA_1] AI event will be sent using ASDU type 5 [M_ST_NA_1], **no time-tag**
+
+   * :attr:    6
+     :val:     N/A
+     :desc:    Static 'Step position Information' will be sent using ASDU type 5 [M_ST_NA_1] AI event will be sent using ASDU type 6 [M_ST_TA_1], **CP24time2A**, msec and min
+
+   * :attr:    9
+     :val:     9
+     :desc:    Static 'Normalized Integer' will be sent using ASDU type 9 [M_ME_NA_1] AI event will be sent using ASDU type 9 [M_ME_NA_1], **no time-tag**
+
+   * :attr:    10
+     :val:     N/A
+     :desc:    Static 'Normalized Integer' will be sent using ASDU type 9 [M_ME_NA_1] AI event will be sent using ASDU type 10 [M_ME_TA_1], **CP24time2A**, msec and min
+
+   * :attr:    11
+     :val:     11
+     :desc:    Static 'Scaled Integer' will be sent using ASDU type 11 [M_ME_NB_1] AI event will be sent using ASDU type 11 [M_ME_NB_1], **no time-tag**
+
+   * :attr:    12
+     :val:     N/A
+     :desc:    Static 'Scaled Integer' will be sent using ASDU type 11 [M_ME_NB_1] AI event will be sent using ASDU type 12 [M_ME_TB_1], **CP24time2A**, msec and min
+
+   * :attr:    13
+     :val:     13
+     :desc:    Static 'Short floating point' will be sent using ASDU type 13 [M_ME_NC_1] AI event will be sent using ASDU type 13 [M_ME_NC_1], **no time-tag**
+
+   * :attr:    14
+     :val:     N/A
+     :desc:    Static 'Short floating point' will be sent using ASDU type 13 [M_ME_NC_1] AI event will be sent using ASDU type 14 [M_ME_TC_1], **CP24time2A**, msec and min
+
+   * :attr:    32
+     :val:     32
+     :desc:    Static 'Step position Information' will be sent using ASDU type 5 [M_ST_NA_1] AI event will be sent using ASDU type 32 [M_ST_TB_1], **CP56time2A**, full time
+
+   * :attr:    34
+     :val:     34
+     :desc:    Static 'Normalized Integer' will be sent using ASDU type 9 [M_ME_NA_1] AI event will be sent using ASDU type 34 [M_ME_TD_1], **CP56time2A**, full time
+
+   * :attr:    35
+     :val:     35
+     :desc:    Static 'Scaled Integer' will be sent using ASDU type 11 [M_ME_NB_1] AI event will be sent using ASDU type 35 [M_ME_TE_1], **CP56time2A**, full time
+
+   * :attr:    36
+     :val:     36
+     :desc:    Static 'Short floating point' will be sent using ASDU type 13 [M_ME_NC_1] AI event will be sent using ASDU type 36 [M_ME_TF_1], **CP56time2A**, full time
+
+   * :attr:    Other
+     :val:     Other
+     :desc:    Undefined, default values will be used:
+               IEC 60870-5-101 default ASDU type 14 [M_ME_TC_1], **CP24time2A**, msec and min
+               IEC 60870-5-104 default ASDU type 36 [M_ME_TF_1], **CP56time2A**, full time
+
+.. tip::
+
+   Note, all AI objects are internally stored and processed as 'Short floating point' values. If any other type needs to 
+   be reported to the upstream Master station, object is being converted just before it is sent.

@@ -1,0 +1,7 @@
+   * :attr:    Bit 1
+     :val:     xxxx.xx0x
+     :desc:    Socket connection related information recording **disabled** :inlineattention:`Not implemented yet`
+
+   * :(attr):
+     :val:     xxxx.xx1x
+     :desc:    Socket connection related information recording **enabled** :inlineattention:`Not implemented yet`

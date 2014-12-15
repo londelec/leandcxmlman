@@ -1,0 +1,29 @@
+
+TimeSettings attributes
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Time settings of each communication protocol instance can be specified using attributes of :include-arg:`1` element node.
+
+Please see sample :include-arg:`1` node and the table listing all available attributes below.
+
+.. code-block:: none
+
+   <TimeSettings TimeZone="Europe/Riga" />
+
+:include-arg:`2`
+
+.. field-list-table:: :include-arg:`3`
+   :class: table table-condensed table-bordered longtable
+   :spec: |C{0.20}|C{0.25}|S{0.55}|
+   :header-rows: 1
+
+   * :attr,10: Attribute
+     :val,15:  Values or range
+     :desc,75: Description
+     
+   * :attr:    :include-arg:`4`
+            
+               :xmlref:`TimeZone`
+     :val:     Max 200 chars
+     :desc:    Adjust incoming and outgoing message timestamps assuming peer station operates within the specified time zone. :xmlref:`TimeZone` attribute must not be used if not required, there is no default value. Message timestamps will not be adjusted if attribute omitted. :inlinetip:`Please see` :ref:`docref-TimeZoneSpecification` :inlinetip:`for additional information.`
+

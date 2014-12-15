@@ -1,0 +1,24 @@
+   * :attr:    :xmlref:`InvalidEvent`               
+     :val:     0
+     :desc:    Events with set Invalid [IV] bit **will not be** generated
+
+   * :(attr):
+     :val:     1
+     :desc:    Events with set Invalid [IV] bit **will be** generated (default value)
+
+   * :attr:    :xmlref:`IgnoreTimetags`
+     :val:     0
+     :desc:    **Use original** timetag when events are received from outstation (default value)
+
+   * :(attr):
+     :val:     1
+     :desc:    **Substitute** timetag with the local time when events are received from outstation
+   
+   * :attr:    :xmlref:`SUthroughoutDST`
+     :val:     0
+     :desc:    Summer Time [SU] bit of any outgoing message timestamp will be set to indicate **last hour of the summer time** before clock adjustment at the end of DST (when clock is changed one hour back) (default value)
+
+   * :(attr):
+     :val:     1
+     :desc:    Summer Time [SU] bit of any outgoing message timestamp **will always be set** if date and time of the timestamp is Summer time. :inlinetip:`Please note this functionality is deviation from the communication standard and option should be avoided.`
+

@@ -1,0 +1,4 @@
+   * :attr:     :xmlref:`ASDUTx`
+     :val:      14...253
+     :desc:     Application layer transmission buffer size in bytes. Maximal length of message transmitted over IEC 60870-5-101 communication link is 255 bytes. Considering the link layer framing, maximal size of the application layer is 253 bytes, providing size of the link address is 1 byte and 252 if size of the link address is 2 bytes. This attribute allows to limit maximal length of a transmitted message (default value 253)
+

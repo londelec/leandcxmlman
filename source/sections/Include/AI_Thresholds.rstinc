@@ -1,0 +1,12 @@
+   * :attr:    :include-arg:`1`
+
+               :include-arg:`3`
+     :val:     0 or ±1.18×10\ :sup:`-38`\ ...±3.4×10\ :sup:`38`\ 
+     :desc:    Absolute (static) deadband for a real-time analog value. AI value will be updated and an event will be generated if last received analog value exceeds the value stored in the leandc database plus/minus defined :xmlref:`Deadband`. Defined :xmlref:`Deadband` is added and subtracted from the analog value stored in the database in order to create absolute deadband range (range is: 'oldvalue - deadband' … 'oldvalue + deadband'). New incoming analog value is checked against limits of this deadband and an event is generated if value is outside. Value 0 disables deadband feature. (default value 0) :inlinetip:`Attribute is optional and doesn't have to be included in configuration if not used.`
+
+   * :attr:    :include-arg:`2`
+
+               :include-arg:`4`
+     :val:     ±1.18×10\ :sup:`-38`\ ...±3.4×10\ :sup:`38`\ 
+     :desc:    Percent (dynamic) deadband for a real-time analog value. AI value will be updated and an event will be generated if last received analog value exceeds the value stored in the leandc database plus/minus defined :xmlref:`Percent`. Defined :xmlref:`Percent` is used to calculate absolute deadband based on the last analog value stored in the database. When absolute deadband range is calculated, the same procedure as described above applies. Value 0 disables percent deadband feature. (default value 0) :inlinetip:`Attribute is optional and doesn't have to be included in configuration if not used.`
+

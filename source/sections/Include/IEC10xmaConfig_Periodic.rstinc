@@ -1,0 +1,40 @@
+
+Periodic attributes
+^^^^^^^^^^^^^^^^^^^
+
+Periodic intervals of sending various messages can be specified using attributes of :include-arg:`1` element node.
+
+Please see sample :include-arg:`1` node and the table listing all available attributes below.
+
+.. code-block:: none
+
+   <Periodic GI="600" Group1="300" Group16="400" />
+
+:include-arg:`2`
+
+.. field-list-table:: :include-arg:`3`
+   :class: table table-condensed table-bordered longtable
+   :spec: |C{0.20}|C{0.25}|S{0.55}|
+   :header-rows: 1
+
+   * :attr,10: Attribute
+     :val,15:  Values or range
+     :desc,75: Description
+     
+   * :attr:    :xmlref:`GI`
+     :val:     0...2\ :sup:`32`\  - 1
+     :desc:    Periodic General Interrogation command interval in seconds. Value 0 disables periodic General Interrogation command. (default value 0)
+
+   * :attr:    :xmlref:`Group1`
+     :val:     0...2\ :sup:`32`\  - 1
+     :desc:    Periodic Group 1 Interrogation command interval in seconds. Value 0 disables periodic Group 1 Interrogation command. (default value 0)
+
+   * :attr:    :xmlref:`Group2 … Group15`
+     :val:     0...2\ :sup:`32`\  - 1
+     :desc:    Periodic Group 2...15 Interrogation command interval in seconds. Value 0 disables periodic Group 2...15 Interrogation command.
+               ..tip:: Please note, Interrogation Groups 2...15 are configured individually, each group has its own element node (default value 0)
+
+   * :attr:    :xmlref:`Group16`
+     :val:     0...2\ :sup:`32`\  - 1
+     :desc:    Periodic Group 16 Interrogation command interval in seconds. Value 0 disables periodic Group 16 Interrogation command. (default value 0)
+
