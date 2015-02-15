@@ -1,0 +1,4 @@
+   * :attr:     :xmlref:`Select`
+     :val:      1...2\ :sup:`32`\  - 1
+     :desc:     Select timeout is a maximal delay in seconds between received Select and Execute commands. If an Execute command is not received within a configured timeout, object is automatically de-selected, Execute command will not be accepted and new Select command is required. In general Select timeout is used to test reliability of the communication channel before executing control commands to prevent major delays due to intermittent communications (default 30 seconds)
+

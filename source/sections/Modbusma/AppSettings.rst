@@ -1,5 +1,4 @@
-
-.. _ref-ModbusmaAppSettingsAttributes:
+.. _docref-ModbusmaAppSettingsAttr:
 
 AppSettings attributes
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -12,7 +11,7 @@ Please see sample :ref:`AppSettings<ref-ModbusmaAppSettings>` node and the table
 
  <AppSettings AIDeadband="2" AIPercent="0.5" />
 
-.. _ref-ModbusmaAppSettingsAttributesTab:
+.. _docref-ModbusmaAppSettingsAttab:
 
 .. field-list-table:: Modbus Master AppSettings attributes
    :class: table table-condensed table-bordered longtable
@@ -23,7 +22,7 @@ Please see sample :ref:`AppSettings<ref-ModbusmaAppSettings>` node and the table
      :val,15:  Values or range
      :desc,75: Description
 
-.. include-file:: sections/Include/AIcommon_Thresholds.rstinc "" ".. _ref-ModbusmaAppSettingsAIDeadband:" ".. _ref-ModbusmaAppSettingsAIPercent:" ":ref:`AI<ref-ModbusmaAI>`" ":ref:`Deadband<ref-ModbusmaAIDeadband>`" ":ref:`Percent<ref-ModbusmaAIPercent>`"
+.. include-file:: sections/Include/AI_ThresholdsCmn.rstinc "" ".. _ref-ModbusmaAppSettingsAIDeadband:" ".. _ref-ModbusmaAppSettingsAIPercent:" ":ref:`AI<ref-ModbusmaAI>`" ":ref:`Deadband<ref-ModbusmaAIDeadband>`" ":ref:`Percent<ref-ModbusmaAIPercent>`"
 
             
   

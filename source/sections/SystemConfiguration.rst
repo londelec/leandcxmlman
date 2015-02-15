@@ -132,10 +132,10 @@ under :xmlref:`TraceCfg`. Please see sample :xmlref:`TraceCfg` and :xmlref:`SYSL
 .. code-block:: none 
    
    <TraceCfg> 
-	<SYSLOGFILE LogFlags="0" Mode="0" HourLimit="4" Logfile="Syslog/syslog"/> 
+	<SYSLOGFILE LogFlags="0" Mode="0" HourLimit="4" Logfile="Syslog/syslog" TimeZone="UTC"/>
    </TraceCfg>
 
-.. _ref-SYSLOGFILEAttributes:
+.. _docref-SYSLOGFILEAttab:
 
 .. field-list-table:: Leandc SYSLOGFILE attributes
    :class: table table-condensed table-bordered longtable
@@ -147,28 +147,34 @@ under :xmlref:`TraceCfg`. Please see sample :xmlref:`TraceCfg` and :xmlref:`SYSL
      :desc,75: Description
 
    * :attr:    :xmlref:`LogFlags`
-     :val:     See table :numref:`ref-SYSLOGFILELogFlagsAttribute` for description
-     :desc:    LogFlags specify the type of system information to be recorded to a logfile.
+     :val:     See table :numref:`docref-SYSLOGFILELogFlagsAttab` for description
+     :desc:    Select which system messages will be recorded to a logfile. Logfile will not be created if value is 0.
 
    * :attr:    :xmlref:`Logfile`
      :val:     Max 200 chars
-     :desc:    System logfile name without an extension, but including absolute or relative path. Logfile will be created in the same folder as leandc firmware if path is not specified. The date and extension 'log' will be added to the file name automatically. Logfile will not be created if attribute is left blank. (default entry 'Syslog/aaa', where 'aaa' is name of the file) :inlineimportant:`Attribute is case sensitive, observe the case of path and file name when specifying.`
+     :desc:    Name of a logfile excluding extension (e.g. '.log'). It is possible to specify relative or absolute path as part of the file name. Logfile will be created in the folder where leandc firmware is stored if path is not specified. Date of file creation and extension '.log' will be appended to the file name automatically. Logfile will not be created if this attribute is left blank. (default value 'Syslog/syslog', where 'Syslog' is the name of the folder and 'syslog' is the name of the file) :inlineimportant:`Attribute is case sensitive, observe the case of the path and name of the file when specifying.`
 
    * :attr:    .. _ref-SYSLOGFILEMode:
        
                :xmlref:`Mode`\*
-     :val:     See table :numref:`ref-LoggerModeBits` for description
-     :desc:    New logfile initialization settings. (default value 0) :inlinetip:`Attribute is optional and doesn't have to be included in configuration, default settings will be used if omitted.`
+     :val:     See table :numref:`docref-LoggerModeBits` for description
+     :desc:    Logfile initialization settings. (default value 0) :inlinetip:`Attribute is optional and doesn't have to be included in configuration, default settings will be used if omitted.`
 
    * :attr:    .. _ref-SYSLOGFILEHourLimit:
        
                :xmlref:`HourLimit`\*
      :val:     0...12
-     :desc:    New file will created after selected number of hours in order to limit the size. (default 0 hours – only one logfile per day will be created) :inlinetip:`Attribute is optional and doesn't have to be included in configuration, default settings will be used if omitted.`
+     :desc:    Option to create a new file after selected number of hours in order to limit the size of a file. (default 0 hours – only one logfile will be created per day) :inlinetip:`Attribute is optional and doesn't have to be included in configuration, default settings will be used if omitted.`
+
+   * :attr:    :xmlref:`TimeZone`
+     :val:     Max 200 chars
+     :desc:    Adjust time-tags of the recorded information based on the specified time zone. :inlineimportant:`Attribute must not be used if not required, there is no default value. Time-tags will not be adjusted if attribute omitted.` :inlinetip:`Please see` :ref:`docref-TimeZoneSpecification` :inlinetip:`for additional information.`
+
+.. include-file:: sections/Include/hidden_LogDebugFlags.rstinc "internal" ":numref:`docref-LOGGERDebugFlagsAttab`"
    
-.. tip:: \* Please refer to the (:ref:`ref<ref-LogfileSampleList>`) for a sample list of files created based on settings in :ref:`SYSLOGFILE<ref-TraceCfg>`.\ :ref:`HourLimit<ref-SYSLOGFILEHourLimit>` \ and :ref:`SYSLOGFILE<ref-TraceCfg>`.\ :ref:`Mode<ref-SYSLOGFILEMode>` \ attributes.
-   
-.. _ref-SYSLOGFILELogFlagsAttribute:
+.. tip:: \* There are few samples on how files are created with various :ref:`Mode<ref-SYSLOGFILEMode>` \ and :ref:`HourLimit<ref-SYSLOGFILEHourLimit>` \ attribute settings in section :ref:`docref-LogfileSampleList`.
+
+.. _docref-SYSLOGFILELogFlagsAttab:
 
 .. field-list-table:: LogFlags attribute
    :class: table table-condensed table-bordered longtable
@@ -181,7 +187,7 @@ under :xmlref:`TraceCfg`. Please see sample :xmlref:`TraceCfg` and :xmlref:`SYSL
 
    * :attr:    :xmlref:`LogFlags` [xxxx.xxxx]
      :val:     0...0xFF
-     :desc:    LogFlags is 8 bit encoded variable. Logfile will not be created, if value is 0
+     :desc:    :xmlref:`LogFlags` is 8 bit encoded variable. Logfile will not be created, if value is 0
 
    * :attr:    Bit 0
      :val:     xxxx.xxx0
@@ -191,11 +197,13 @@ under :xmlref:`TraceCfg`. Please see sample :xmlref:`TraceCfg` and :xmlref:`SYSL
      :val:     xxxx.xxx1
      :desc:    System information recording to logfile **enabled**
 
-.. include-file:: sections/Include/SysLogFileLogFlagsAttribute_Bit1.rstinc "internal"
+.. include-file:: sections/Include/hidden_SyslogFlagsBit1.rstinc "internal"
                
    * :attr:    Bits 2...7
      :val:     Any
      :desc:    Bits reserved for future use
+
+.. include-file:: sections/Include/hidden_LogDebugFlagTable.rstinc "internal" ".. _docref-LOGGERDebugFlagsAttab:"
 
 .. _ref-ClientFilterCfg:
 
@@ -218,7 +226,7 @@ There are three :xmlref:`IPv4` filter nodes configured in the above example. Ple
 the same filter identifier number '1'. This will create a filter which allow both IP address 192.168.2.14 and 
 192.168.2.55 connection to leandc.
 
-.. _ref-ClientFilterCfgIpv4Attributes:
+.. _docref-ClientFilterCfgIPv4Attab:
 
 .. field-list-table:: Leandc ClientFilterCfg group node IPv4 attributes
    :class: table table-condensed table-bordered longtable
@@ -259,7 +267,7 @@ decimal notation, following columns show network mask in binary format (just for
 contains range of IP address allowed to connect to leandc. Table can be used as a guidance of how network 
 subnets are created based on sample IP address 192.168.1.1 specified in :ref:`IPv4<ref-ClientFilterCfg>`.\ :ref:`ClientIPaddr<ref-ClientFilterCfgIpv4ClientIPaddr>` \ attribute.
       
-.. _ref-NetworkMask:
+.. _docref-NetworkMask:
 
 .. field-list-table:: Network Mask sample values
    :class: table table-condensed table-bordered longtable

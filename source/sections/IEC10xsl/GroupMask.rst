@@ -4,7 +4,7 @@ DI/AI.GroupMask
 
 .. _ref-IEC10xslGroupMask:
 
-.. field-list-table:: IEC 60807-5-101/104 Slave DI/AI GroupMask
+.. field-list-table:: IEC 60870-5-101/104 Slave DI/AI GroupMask
    :class: table table-condensed table-bordered longtable
    :spec: |C{0.24}|C{0.24}|S{0.52}|
    :header-rows: 1

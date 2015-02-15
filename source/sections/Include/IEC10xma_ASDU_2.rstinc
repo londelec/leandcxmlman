@@ -1,0 +1,18 @@
+   * :attr:    :include-arg:`1`
+            
+               :xmlref:`DOQOC`
+     :val:     See table :numref:`ref-IEC10xmaDOQOCValues` for description
+     :desc:    Qualifier Of Command (QOC) is used to set additional information (e.g. [no additional definition];  [short-pulse duration]) when command is being sent to the DO object which doesn't have :ref:`DO<ref-IEC10xmaDO>`.\ :ref:`QOC<ref-IEC10xmaDOQOC>` \ attribute specified in its element node. Refer to table :numref:`ref-IEC10xmaDOQOCValues` for :xmlref:`QOC` values. (default value 0 [no additional definition])
+
+   * :attr:    :include-arg:`2`
+            
+               :xmlref:`DOType`
+     :val:     See table :numref:`ref-IEC10xmaDOTypeIDValues` for description
+     :desc:    DO ASDU type is used when command is being sent to the DO object which doesn't have :ref:`DO<ref-IEC10xmaDO>`.\ :ref:`TypeID<ref-IEC10xmaDOTypeID>` \ attribute specified in its element node. Refer to table :numref:`ref-IEC10xmaDOTypeIDValues` for :xmlref:`TypeID` values. (there is no default value, ASDU TypeID is transparent if neither this element nor :ref:`DO<ref-IEC10xmaDO>`.\ :ref:`TypeID<ref-IEC10xmaDOTypeID>` \ attribute is used)
+
+   * :attr:    :include-arg:`3`
+            
+               :xmlref:`AOType`
+     :val:     See table :numref:`ref-IEC10xmaAOTypeIDValues` for description
+     :desc:    AO ASDU type is used when command is being sent to the AO object which doesn't have :ref:`AO<ref-IEC10xmaAO>`.\ :ref:`TypeID<ref-IEC10xmaAOTypeID>` \ attribute specified in its element node. Refer to table :numref:`ref-IEC10xmaAOTypeIDValues` for :xmlref:`TypeID` values. (there is no default value, ASDU TypeID is transparent if neither this element nor :ref:`AO<ref-IEC10xmaAO>`.\ :ref:`TypeID<ref-IEC10xmaAOTypeID>` \ attribute is used)
+

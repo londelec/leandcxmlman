@@ -58,7 +58,7 @@ AI attributes
 
 .. _ref-IEC10xmaAIAttributes:
 
-.. field-list-table:: IEC 60807-5-101/104 Master AI attributes
+.. field-list-table:: IEC 60870-5-101/104 Master AI attributes
    :class: table table-condensed table-bordered longtable
    :spec: |C{0.20}|C{0.25}|S{0.55}|
    :header-rows: 1
@@ -125,7 +125,7 @@ AI.qualifier
 
 .. _ref-IEC10xmaAIqualifierBits:
 
-.. field-list-table:: IEC 60807-5-101/104 Master AI internal qualifier
+.. field-list-table:: IEC 60870-5-101/104 Master AI internal qualifier
    :class: table table-condensed table-bordered longtable
    :spec: |C{0.20}|C{0.25}|S{0.55}|
    :header-rows: 1

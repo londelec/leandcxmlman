@@ -4,9 +4,9 @@
 MONRAW element node
 ^^^^^^^^^^^^^^^^^^^
 
-Traffic through any leandc serial port or socket can be captured and sent to a remote destination for a real time 
-monitoring. Remote traffic monitoring can be enabled using so called raw monitoring supervision instance which 
-requires only 1 destination socket to send the captured data. Raw monitoring mode will be active as long as 
+Traffic through any leandc serial port or socket can be captured and sent to a remote destination for a real time
+monitoring. Remote traffic monitoring can be enabled using so called 'raw monitoring' supervision instance which 
+requires only 1 destination socket to send the captured data. Raw monitoring mode will be active as long as
 there is a traffic through the monitored port and remote destination is reachable. Please see sample :ref:`MONRAW<ref-MONRAW>` 
 element node used to configure raw monitoring and the table listing all available attributes below.
 
@@ -39,6 +39,6 @@ element node used to configure raw monitoring and the table listing all availabl
      :val:     Max 100 chars
      :desc:    Freely configurable name, just for reference. :inlinetip:`Name attribute is optional and doesn't have to be included in configuration.`
 
-.. tip:: 
-   | :ref:`UDP<ref-UDP>` socket is recommended to be used as a destination to send the captured traffic.
-   | Default port for destination node (linked with :xmlref:`DstHWIndex`) is 64950.
+.. tip::
+   | :ref:`UDP<ref-UDP>` socket is recommended as a destination for sending the captured traffic.
+   | Default TCP/UDP port for destination node (:xmlref:`DstHWIndex`) is 64950.

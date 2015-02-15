@@ -4,7 +4,7 @@ DO/AO.Policy
 
 .. _ref-IEC10xslPolicy:
 
-.. field-list-table:: IEC 60807-5-101/104 Slave command execution policy
+.. field-list-table:: IEC 60870-5-101/104 Slave command execution policy
    :class: table table-condensed table-bordered longtable
    :spec: |C{0.20}|S{0.80}|
    :header-rows: 1

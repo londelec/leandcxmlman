@@ -17,10 +17,10 @@ Leandc series XML configuration manual
    sections/IEC103maMain
    sections/ModbusmaMain
    sections/LogfileConfiguration
-   sections/ConfigurationVersionControl
+   sections/XMLVersionControl
    
    sections/Annexes
-   sections/DocumentVersionControl
+   sections/Docreleases
 
 
 .. rst-class:: contact-us
@@ -31,7 +31,7 @@ Leandc series XML configuration manual
    | 19 Marlborough road
    | Banbury
    | OX16 5DB
-   | UK
+   | United Kingdom
    
    | Phone +44 (0) 207 060 7087
    | info@londelec.com

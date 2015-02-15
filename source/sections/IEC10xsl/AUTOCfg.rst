@@ -47,7 +47,7 @@ Please see sample :ref:`AUTO<ref-IEC10xslAUTO>` element node below listing all a
 
 .. _ref-IEC10xslAUTOAttributes:
 
-.. field-list-table:: IEC 60807-5-101/104 Slave AUTO attributes
+.. field-list-table:: IEC 60870-5-101/104 Slave AUTO attributes
    :class: table table-condensed table-bordered longtable
    :spec: |C{0.22}|C{0.23}|S{0.55}|
    :header-rows: 1

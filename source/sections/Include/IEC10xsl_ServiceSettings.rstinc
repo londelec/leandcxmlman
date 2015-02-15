@@ -1,0 +1,40 @@
+:include-arg:`1`
+
+ServiceSettings attributes
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Application layer settings can be specified using attributes of :include-arg:`2` element node.
+
+Please see sample :include-arg:`2` node and the table listing all available attributes below.
+
+.. code-block:: none
+
+   <ServiceSettings NotInitFlags="0x80" DisabledFlags="0x80" OfflineFlags="0x40" PostOfflineFlags="0x80" EventMask="0x00" />
+
+:include-arg:`3`
+
+.. field-list-table:: :include-arg:`4`
+   :class: table table-condensed table-bordered longtable
+   :spec: |C{0.20}|C{0.25}|S{0.55}|
+   :header-rows: 1
+
+   * :attr,10:  Attribute
+     :val,15:   Values or range
+     :desc,75:  Description
+     
+   * :attr:     :xmlref:`NotInitFlags`
+     :val:      See table :include-arg:`5`
+     :desc:     Set qualifier bits of all DI/AI objects when station is not initialized (doesn't respond and gets marked OFFLINE) on leandc startup (default 0x80 - Invalid [IV] bit) :inlinetip:`Note DI/AI events will be generated when station gets marked OFFLINE if not masked by attribute` :xmlref:`EventMask`
+
+   * :attr:     :xmlref:`DisabledFlags`
+     :val:      See table :include-arg:`5`
+     :desc:     Set qualifier bits of all DI/AI objects when station gets Disabled using a Service command (default 0x80 - Invalid [IV] bit) :inlinetip:`Note DI/AI events will be generated when station gets Disabled if not masked by attribute` :xmlref:`EventMask`
+
+   * :attr:     :xmlref:`OfflineFlags`
+     :val:      See table :include-arg:`5`
+     :desc:     Set qualifier bits of all DI/AI objects when station is marked OFFLINE (after :ref:`OfflineDelay<ref-IEC101maCommsSettingsOfflineDelay>` \ timer expires) (default 0x80 - Invalid [IV] bit) :inlinetip:`Note DI/AI events will be generated when` :ref:`OfflineDelay<ref-IEC101maCommsSettingsOfflineDelay>` \ :inlinetip:`timer expires if not masked by attribute` :xmlref:`EventMask`
+
+   * :attr:     :xmlref:`PostOfflineFlags`
+     :val:      See table :include-arg:`5`
+     :desc:     Set qualifier bits of all DI/AI objects after :ref:`PostOfflineDelay<ref-IEC101maCommsSettingsPostOfflineDelay>` \ timer expires. (default 0x80 - Invalid [IV] bit) :inlinetip:`Note DI/AI events will be generated when` :ref:`PostOfflineDelay<ref-IEC101maCommsSettingsPostOfflineDelay>` \ :inlinetip:`timer expires if not masked by attribute` :xmlref:`EventMask`
+

@@ -46,7 +46,7 @@ see sample :ref:`IEC101ma<ref-IEC101ma>` element node and the table listing all 
 
    * :attr:    :xmlref:`LinkAddr`
      :val:     1...254 or 1...65534
-     :desc:    Link layer address of the communication protocol instance. Addresses must be equal for the 'Master' and 'Slave' station communicating to each other. Size of the link layer address may be 1 or 2 bytes and it is configured using the :ref:`LinkSettings<ref-IEC101maLinkSettings>`.\ :ref:`LinkAddrSize<ref-IEC101maLinkSettingsLinkAddrSize>` \ attribute. Please note values 255 (if link layer address size is 1 byte) and 65535 (if link layer address size is 2 bytes) are Global addresses and can't be used.
+     :desc:    Link layer address of the communication protocol instance. Addresses must be the same for 'Master' and 'Slave' station communicating to each other. Size of the link layer address may be 1 or 2 bytes and it is configured using the :ref:`LinkSettings<ref-IEC101maLinkSettings>`.\ :ref:`LinkAddrSize<ref-IEC101maLinkSettingsLinkAddrSize>` \ attribute. Please note values 255 (if link layer address size is 1 byte) and 65535 (if link layer address size is 2 bytes) are Global addresses and can't be used.
 
    * :attr:    :xmlref:`ASDUAddr`
      :val:     1...254 or 1...65534

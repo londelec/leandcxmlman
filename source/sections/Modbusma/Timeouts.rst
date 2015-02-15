@@ -1,5 +1,4 @@
-
-.. _ref-ModbusmaTimeoutsAttributes:
+.. _docref-ModbusmaTimeoutsAttr:
 
 Timeouts attributes
 ^^^^^^^^^^^^^^^^^^^
@@ -12,7 +11,7 @@ Please see sample :ref:`Timeouts<ref-ModbusmaTimeouts>` node and the table listi
 
    <Timeouts Application="30" Command="10" t35="0.01" />
 
-.. _ref-ModbusmaTimeoutsAttributesTab:
+.. _docref-ModbusmaTimeoutsAttab:
 
 .. field-list-table:: Modbus Master Timeouts attributes
    :class: table table-condensed table-bordered longtable
@@ -23,10 +22,10 @@ Please see sample :ref:`Timeouts<ref-ModbusmaTimeouts>` node and the table listi
      :val,15:   Values or range
      :desc,75:  Description
 
-.. include-file:: sections/Include/App_Timeouts.rstinc
+.. include-file:: sections/Include/ma_TimeoutsAppCmd.rstinc
 
    * :attr:     .. _ref-ModbusmaTimeoutst35:
             
                 :xmlref:`t35`
      :val:      0.00001...42949
-     :desc:     Receive line idle detection timer (t3.5 in the communication standard). Incoming message analyze begins when idle in the receive line exceeds configured number of seconds. (default 0.01 seconds)
+     :desc:     Receive line idle detection timer (t3.5 in the communication standard). Incoming message analyze begins when idle in the receive line exceeds configured number of seconds (default 0.01 seconds)

@@ -51,4 +51,4 @@ IEC60870-5-101 Slave configuration file (e.g. 'IEC101sl_test.xml') must have a r
 IEC60870-5-101 and IEC60870-5-104 controlled station (Slave) communication protocol instances. Please 
 refer to the tables :numref:`ref-IEC10xslDIAttributes`; :numref:`ref-IEC10xslAIAttributes`; :numref:`ref-IEC10xslDOAttributes` and :numref:`ref-IEC10xslAOAttributes` for their attributes.   
    
-.. include:: IEC101slConfig/ProtocolCfg.rst
+.. include:: IEC101sl/ProtocolCfg.rst

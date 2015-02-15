@@ -53,7 +53,7 @@ Please see sample :ref:`IEC104Csl<ref-IEC104Csl>` element node and the table lis
        
                :xmlref:`FilterID`
      :val:     1...255
-     :desc:    Identifier of a predefined filter to restrict the range of TCP client IP addresses allowed to establish connection to the protocol instance(s). Please refer to the table :numref:`ref-ClientFilterCfgIpv4Attributes` for filter settings. :inlinetip:`Attribute is optional and doesn't have to be included in configuration.`
+     :desc:    Identifier of a predefined filter to restrict the range of TCP client IP addresses allowed to establish connection to the protocol instance(s). Please refer to the table :numref:`docref-ClientFilterCfgIPv4Attab` for filter settings. :inlinetip:`Attribute is optional and doesn't have to be included in configuration.`
 
    * :attr:    :xmlref:`CommsFlags`
      :val:     See table :numref:`ref-CommsFlagsAttribute` for description

@@ -53,4 +53,4 @@ IEC60870-5-101 Master configuration file (e.g. '**IEC101ma_test.xml**') must hav
 IEC60870-5-101 and IEC60870-5-104 controlling station (Master) communication protocol instances. Please 
 refer to the tables :numref:`ref-IEC10xmaDIAttributes`; :numref:`ref-IEC10xmaAIAttributes`; :numref:`ref-IEC10xmaDOAttributes` and :numref:`ref-IEC10xmaAOAttributes` for their attributes.
   
-.. include:: IEC101maConfig/ProtocolCfg.rst
+.. include:: IEC101ma/ProtocolCfg.rst

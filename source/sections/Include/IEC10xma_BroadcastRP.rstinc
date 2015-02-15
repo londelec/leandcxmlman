@@ -1,0 +1,10 @@
+   * :attr: :include-arg:`1`
+            
+            :xmlref:`Reset`
+     :val:  0
+     :desc: Send Reset Process [C_RP_NA_1] commands with **individual** Common Addresses of ASDU (CAA) (default value)
+
+   * :(attr):
+     :val: 1
+     :desc: Send Reset Process [C_RP_NA_1] commands with **broadcast** Common Address of ASDU (CAA). :include-arg:`2`
+

@@ -1,5 +1,4 @@
-
-.. _ref-ModbusmaCommsSettingsAttributes:
+.. _docref-ModbusmaCommsSettingsAttr:
 
 CommsSettings attributes
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -14,9 +13,10 @@ Please see sample :ref:`CommsSettings<ref-ModbusmaCommsSettings>` node and the t
    <CommsSettings NoRespCount="5"
 		  DegradedRetries="5"
 		  DegradedTimeout="600"
-		  OfflineDelay="10" />
+		  OfflineDelay="10"
+                  PostOfflineDelay="1000" />
 
-.. _ref-ModbusmaCommsSettingsAttributesTab:
+.. _docref-ModbusmaCommsSettingsAttab:
 
 .. field-list-table:: Modbus Master CommsSettings attributes
    :class: table table-condensed table-bordered longtable
@@ -26,30 +26,10 @@ Please see sample :ref:`CommsSettings<ref-ModbusmaCommsSettings>` node and the t
    * :attr,10: Attribute
      :val,15:  Values or range
      :desc,75: Description
-     
-   * :attr:    .. _ref-ModbusmaCommsSettingsNoRespCount:
-            
-               :xmlref:`NoRespCount`
-     :val:     1...255
-     :desc:    Outstation no-response counter. Station status will be changed to OFFLINE and Invalid [IV] bit of all DI/AI information objects will be set if outstation fails to reply to a configured number of subsequent requests. Outstation status will be changed to OFFLINE immediately unless additional :ref:`OfflineDelay<ref-ModbusmaCommsSettingsOfflineDelay>` is specified. (default 5 retries; leandc will retry outgoing message for 5 times before changing outstation status to OFFLINE) (default 5 retries)
 
-   * :attr:    .. _ref-ModbusmaCommsSettingsDegradedRetries:
-            
-               :xmlref:`DegradedRetries`
-     :val:     0...255
-     :desc:    Outgoing message retries before activating :ref:`DegradedTimeout<ref-ModbusmaCommsSettingsDegradedTimeout>`. Outstation will be temporarily excluded from polling if it fails to reply to a configured number of requests. Value 0 disables degraded timeout functionality (default 5 retries)
+.. include-file:: sections/Include/serma_CommsSettings.rstinc "" ".. _ref-ModbusmaCommsSettingsNoRespCount:" ".. _ref-ModbusmaCommsSettingsDegradedRetries:" ".. _ref-ModbusmaCommsSettingsDegradedTimeout:"
 
-   * :attr:    .. _ref-ModbusmaCommsSettingsDegradedTimeout:
-            
-               :xmlref:`DegradedTimeout`
-     :val:     0...2\ :sup:`32`\  - 1
-     :desc:    Degraded timeout in seconds. Outstation is excluded from polling for a configured number of seconds if it has failed to reply to a number of requests configured in :ref:`DegradedRetries<ref-ModbusmaCommsSettingsDegradedRetries>` attribute. Value 0 disables degraded timeout functionality (default 600 seconds)
+.. include-file:: sections/Include/serma_OfflineDelay.rstinc "" ".. _ref-ModbusmaCommsSettingsOfflineDelay:"
 
-   * :attr:    .. _ref-ModbusmaCommsSettingsOfflineDelay:
-            
-               :xmlref:`OfflineDelay`
-     :val:     0...2\ :sup:`32`\  - 1
-     :desc:    Delay in seconds before outstation status is changed to OFFLINE. Offline delay timer is activated only after outstation has failed to reply to a number of requests configured in :ref:`NoRespCount<ref-ModbusmaCommsSettingsNoRespCount>` attribute. (example, if this delay is 10, status will be changed to OFFLINE when outstation has failed to reply to a number of requests configured in :ref:`NoRespCount<ref-ModbusmaCommsSettingsNoRespCount>` plus 10 second delay (default 0 seconds)
- 
- 
+.. include-file:: sections/Include/PostOfflineDelay.rstinc "" ".. _ref-ModbusmaCommsSettingsPostOfflineDelay:" ":ref:`OfflineDelay<ref-ModbusmaCommsSettingsOfflineDelay>`"
 

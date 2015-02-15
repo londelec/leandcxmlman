@@ -58,7 +58,7 @@ AI attributes
 
 .. _ref-IEC10xslAIAttributes:
 
-.. field-list-table:: IEC 60807-5-101/104 Slave AI attributes
+.. field-list-table:: IEC 60870-5-101/104 Slave AI attributes
    :class: table table-condensed table-bordered longtable
    :spec: |C{0.20}|C{0.25}|S{0.55}|
    :header-rows: 1
@@ -161,7 +161,7 @@ AI.qualifier
 ^^^^^^^^^^^^
 .. _ref-IEC10xslAIqualifierBits:
 
-.. field-list-table:: IEC 60807-5-101/104 Slave AI internal qualifier
+.. field-list-table:: IEC 60870-5-101/104 Slave AI internal qualifier
    :class: table table-condensed table-bordered longtable
    :spec: |C{0.25}|C{0.25}|S{0.5}|
    :header-rows: 1

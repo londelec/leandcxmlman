@@ -56,7 +56,7 @@ AI attributes
 
 .. _ref-IEC103maAIAttributes:
 
-.. field-list-table:: IEC 60807-5-103 Master AI attributes
+.. field-list-table:: IEC 60870-5-103 Master AI attributes
    :class: table table-condensed table-bordered longtable
    :spec: |C{0.20}|C{0.25}|S{0.55}|
    :header-rows: 1
@@ -129,7 +129,7 @@ AI.qualifier
 
 .. _ref-IEC103maAIqualifierBits:
 
-.. field-list-table:: IEC 60807-5-103 Master AI internal qualifier
+.. field-list-table:: IEC 60870-5-103 Master AI internal qualifier
    :class: table table-condensed table-bordered longtable
    :spec: |C{0.20}|C{0.25}|S{0.55}|
    :header-rows: 1

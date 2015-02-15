@@ -1,4 +1,4 @@
-.. field-list-table:: IEC 60807-5-101/104 Slave DI TypeID
+.. field-list-table:: IEC 60870-5-101/104 Slave DI TypeID
    :class: table table-condensed table-bordered longtable
    :spec: |C{0.25}|C{0.25}|S{0.5}|
    :header-rows: 1

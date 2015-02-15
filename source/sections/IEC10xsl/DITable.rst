@@ -52,7 +52,7 @@ DI attributes
 
 .. _ref-IEC10xslDIAttributes:
 
-.. field-list-table:: IEC 60807-5-101/104 Slave DI attributes
+.. field-list-table:: IEC 60870-5-101/104 Slave DI attributes
    :class: table table-condensed table-bordered longtable
    :spec: |C{0.20}|C{0.25}|S{0.55}|
    :header-rows: 1
@@ -114,7 +114,7 @@ DI.qualifier
 
 .. _ref-IEC10xslDIqualifierBits:
 
-.. field-list-table:: IEC 60807-5-101/104 Slave DI internal qualifier
+.. field-list-table:: IEC 60870-5-101/104 Slave DI internal qualifier
    :class: table table-condensed table-bordered longtable
    :spec: |C{0.20}|C{0.25}|S{0.55}|
    :header-rows: 1
@@ -195,7 +195,7 @@ distinguished from regular indexes used for linking.
 
 .. _ref-IEC10xslDIServiceIndex:
 
-.. field-list-table:: IEC 60807-5-101/104 Slave Service DI indexes
+.. field-list-table:: IEC 60870-5-101/104 Slave Service DI indexes
    :class: table table-condensed table-bordered longtable
    :spec: |C{0.25}|C{0.25}|S{0.5}|
    :header-rows: 1

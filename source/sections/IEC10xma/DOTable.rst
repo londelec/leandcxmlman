@@ -48,7 +48,7 @@ DO attributes
 
 .. _ref-IEC10xmaDOAttributes:
 
-.. field-list-table:: IEC 60807-5-101/104 Master DO attributes
+.. field-list-table:: IEC 60870-5-101/104 Master DO attributes
    :class: table table-condensed table-bordered longtable
    :spec: |C{0.20}|C{0.25}|S{0.55}|
    :header-rows: 1
@@ -104,7 +104,7 @@ DO.qualifier
 
 .. _ref-IEC10xmaDOqualifierBits:
 
-.. field-list-table:: IEC 60807-5-101/104 Master DO internal qualifier
+.. field-list-table:: IEC 60870-5-101/104 Master DO internal qualifier
    :class: table table-condensed table-bordered longtable
    :spec: |C{0.20}|C{0.25}|S{0.55}|
    :header-rows: 1
@@ -150,7 +150,7 @@ DO.TypeID
 
 .. _ref-IEC10xmaDOTypeIDValues:
 
-.. field-list-table:: IEC 60807-5-101/104 Master DO TypeID
+.. field-list-table:: IEC 60870-5-101/104 Master DO TypeID
    :class: table table-condensed table-bordered longtable
    :spec: |C{0.20}|S{0.80}|
    :header-rows: 1
@@ -187,7 +187,7 @@ DO.QOC
 
 .. _ref-IEC10xmaDOQOCValues:
 
-.. field-list-table:: IEC 60807-5-101/104 Master QOC
+.. field-list-table:: IEC 60870-5-101/104 Master QOC
    :class: table table-condensed table-bordered longtable
    :spec: |C{0.20}|S{0.80}|
    :header-rows: 1

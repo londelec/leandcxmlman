@@ -48,7 +48,7 @@ DI attributes
 
 .. _ref-IEC10xmaDIAttributes:
 
-.. field-list-table:: IEC 60807-5-101/104 Master DI attributes
+.. field-list-table:: IEC 60870-5-101/104 Master DI attributes
    :class: table table-condensed table-bordered longtable
    :spec: |C{0.20}|C{0.25}|S{0.55}|
    :header-rows: 1
@@ -98,7 +98,7 @@ DI.qualifier
 
 .. _ref-IEC10xmaDIqualifierBits:
 
-.. field-list-table:: IEC 60807-5-101/104 Master DI internal qualifier
+.. field-list-table:: IEC 60870-5-101/104 Master DI internal qualifier
    :class: table table-condensed table-bordered longtable
    :spec: |C{0.20}|C{0.25}|S{0.55}|
    :header-rows: 1

@@ -1,4 +1,0 @@
-   * :attr:    :xmlref:`TimeSync`
-     :val:     0...2\ :sup:`32`\  - 1
-     :desc:    Periodic Time synchronization command interval in seconds. Value 0 disables time synchronization command. (default value 0)
-

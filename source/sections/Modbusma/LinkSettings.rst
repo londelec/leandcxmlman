@@ -1,5 +1,4 @@
-
-.. _ref-ModbusmaLinkSettingsAttributes:
+.. _docref-ModbusmaLinkSettingsAttr:
 
 LinkSettings attributes
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -12,7 +11,7 @@ Please see sample :ref:`LinkSettings<ref-ModbusmaLinkSettings>` node and the tab
 
    <LinkSettings Frame="RTU" /> 
 
-.. _ref-ModbusmaLinkSettingsAttributesTab:
+.. _docref-ModbusmaLinkSettingsAttab:
 
 .. field-list-table:: Modbus Master LinkSettings attributes
    :class: table table-condensed table-bordered longtable
@@ -30,5 +29,5 @@ Please see sample :ref:`LinkSettings<ref-ModbusmaLinkSettings>` node and the tab
      :desc:     Frame format of the Modbus messages. (default RTU) :inlinetip:`Please note frame format of all protocol instances sharing the hardware node must be the same.`
    
 
-.. important:: \* Only ModbusRTU frame format is available in the current release of leandc firmware, more formats to be added in the future.
+.. important:: \* Only ModbusRTU frame format is available in current release of leandc firmware, more formats to be added in the future.
 

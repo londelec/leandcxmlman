@@ -1,0 +1,55 @@
+   * :attr:     :xmlref:`EventMask`
+     :val:      See table :include-arg:`2`
+     :desc:     Disable spontaneous reporting (events) of all station's DI/AI objects when communication state of the station changes (default 0x00 - DI/AI events are always generated - none masked) :inlinetip:`Note qualifier bits of static DI/AI objects will still be set even if event reporting is masked by` :xmlref:`EventMask` :inlinetip:`attribute`
+
+
+:include-arg:`1`
+
+.. field-list-table:: Service event masking bits
+   :class: table table-condensed table-bordered longtable
+   :spec: |C{0.20}|C{0.25}|S{0.55}|
+   :header-rows: 1
+
+   * :attr,10: Bits
+     :val,15:  Values
+     :desc,75: Description
+
+   * :attr:    :xmlref:`EventMask` [xxxx.xxxx]
+     :val:     0...0xFF
+     :desc:    :xmlref:`EventMask` is 8 bit encoded variable.
+
+   * :attr:    Bit 0
+     :val:     xxxx.xxx0
+     :desc:    DI/AI events **will be** generated if station is not initialized (doesn't respond and gets marked OFFLINE) on leandc startup
+
+   * :(attr):
+     :val:     xxxx.xxx1
+     :desc:    DI/AI events **will not be** generated if station is not initialized (doesn't respond and gets marked OFFLINE) on leandc startup
+
+   * :attr:    Bit 1
+     :val:     xxxx.xx0x
+     :desc:    DI/AI events **will be** generated when station gets Disabled using a Service command
+
+   * :(attr):
+     :val:     xxxx.xx1x
+     :desc:    DI/AI events **will not be** generated when station gets Disabled using a Service command
+
+   * :attr:    Bit 2
+     :val:     xxxx.x0xx
+     :desc:    DI/AI events **will be** generated when station is marked OFFLINE (after :include-arg:`3` timer expires) 
+
+   * :(attr):
+     :val:     xxxx.x1xx
+     :desc:    DI/AI events **will not be** generated when station is marked OFFLINE (after :include-arg:`3` timer expires)
+
+   * :attr:    Bit 3
+     :val:     xxxx.0xxx
+     :desc:    DI/AI events **will be** generated after :include-arg:`4` timer expires
+
+   * :(attr):
+     :val:     xxxx.1xxx
+     :desc:    DI/AI events **will not be** generated after :include-arg:`4` timer expires
+
+   * :attr:    Bits 4...7
+     :val:     Any
+     :desc:    Bits reserved for future use

@@ -45,7 +45,7 @@ see sample :ref:`Modbusma<ref-Modbusma>` element node and the table listing all 
 
    * :attr:    :xmlref:`Address`
      :val:     1...254
-     :desc:    Device address of the outstation. Connected station must have the same device address. Please note value 255 is Broadcast address and can't be used.
+     :desc:    Device address of outstation. Connected station must have the same device address. Please note value 255 is Broadcast address and can't be used.
 
    * :attr:    :xmlref:`CommsFlags`
      :val:     See table :numref:`ref-CommsFlagsAttribute` for description

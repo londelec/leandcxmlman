@@ -60,13 +60,13 @@ sample :ref:`IEC104sl<ref-IEC104sl>` element node and the table listing all avai
        
                :xmlref:`FilterID`
      :val:     1...255
-     :desc:    Identifier of a predefined filter to restrict the range of TCP client IP addresses allowed to establish connection to the protocol instance. Please refer to the table :numref:`ref-ClientFilterCfgIpv4Attributes` for filter settings. :inlinetip:`FilterID attribute is optional and doesn't have to be included in configuration.`
+     :desc:    Identifier of a predefined filter to restrict the range of TCP client IP addresses allowed to establish connection to the protocol instance. Please refer to the table :numref:`docref-ClientFilterCfgIPv4Attab` for filter settings. :inlinetip:`FilterID attribute is optional and doesn't have to be included in configuration.`
 
    * :attr:    .. _ref-IEC104slSource:
    
                :xmlref:`Source`
      :val:     1...254
-     :desc:    Source communication protocol instance index. IO objects without individual :ref:`DI<ref-IEC10xslDI>`.\ :ref:`Device<ref-IEC10xslDIDevice>`\; :ref:`AI<ref-IEC10xslAI>`.\ :ref:`Device<ref-IEC10xslAIDevice>`\; :ref:`DO<ref-IEC10xslDO>`.\ :ref:`Device<ref-IEC10xslDODevice>`\; :ref:`AO<ref-IEC10xslAO>`.\ :ref:`Device<ref-IEC10xslAODevice>` \ attributes specified will be linked to this protocol instance. :inlinetip:`Attribute is optional and doesn't have to be included in configuration, IO object :xmlref:`Device` attributes will be used if omitted.`
+     :desc:    Source communication protocol instance index. IO objects without individual :ref:`DI<ref-IEC10xslDI>`.\ :ref:`Device<ref-IEC10xslDIDevice>`\; :ref:`AI<ref-IEC10xslAI>`.\ :ref:`Device<ref-IEC10xslAIDevice>`\; :ref:`DO<ref-IEC10xslDO>`.\ :ref:`Device<ref-IEC10xslDODevice>`\; :ref:`AO<ref-IEC10xslAO>`.\ :ref:`Device<ref-IEC10xslAODevice>` \ attributes will be linked to Master protocol instance specified in :xmlref:`Source`. :inlinetip:`Attribute is optional and doesn't have to be included in configuration, IO object` :xmlref:`Device` :inlinetip:`attributes will be used if omitted.`
 
    * :attr:    :xmlref:`CommsFlags`
      :val:     See table :numref:`ref-CommsFlagsAttribute` for description

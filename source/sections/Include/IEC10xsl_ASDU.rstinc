@@ -1,0 +1,18 @@
+   * :attr:     :xmlref:`DOType`
+     :val:      See table :numref:`ref-IEC10xslDOTypeIDValues`
+     :desc:     Only accept command if received with this ASDU Type (e.g. Single or Double command) if DO object doesn't have :ref:`DO<ref-IEC10xslDO>`.\ :ref:`TypeID<ref-IEC10xslDOTypeID>` \ attribute specified in the element node. (default value 0 – accept command with any ASDU type)
+
+   * :attr:     :xmlref:`AOType`
+     :val:      See table :numref:`ref-IEC10xslAOTypeIDValues`
+     :desc:     Only accept setpoint command if received with this ASDU Type (e.g. Normalized or Scaled setpoint) if AO object doesn't have :ref:`AO<ref-IEC10xslAO>`.\ :ref:`TypeID<ref-IEC10xslAOTypeID>` \ attribute specified in the element node. (default value 0 – accept command with any ASDU type)
+
+   * :attr:     :include-arg:`1`
+            
+                :xmlref:`TranspTypes`
+     :val:      0
+     :desc:     ASDU type of every DI/AI object is determined by XML configuration settings. (default value)
+
+   * :(attr):
+     :val:      1
+     :desc:     ASDU type of every DI/AI object will be made transparent whenever possible. The same ASDU type will be used to report DI/AI object to upstream station as received from downstream outstation, providing both source and destination communication protocol instances are compatible. Otherwise default ASDU type will be used. :inlinetip:`Please note object will be excluded from General Interrogation response before it is received from downstream outstation on leandc startup. This is because it is impossible to determine the ASDU type of the object before is has been received from outsation.`
+

@@ -1,0 +1,29 @@
+
+:include-arg:`1`
+
+.. field-list-table:: :include-arg:`2`
+   :class: table table-condensed table-bordered longtable
+   :spec: |C{0.20}|C{0.25}|S{0.55}|
+   :header-rows: 1
+
+   * :attr,10:  Attribute
+     :val,15:   Values or range
+     :desc,75:  Description
+     
+   * :attr:     :xmlref:`DIEVsize`
+     :val:      1...65535
+     :desc:     DI event buffer size, number of entries. Communication protocol instances use designated buffers to store events before they are reported upstream. This prevents information loss in case of a communication failure. Oldest events are discarded to make space for new events when buffer overflows. (default value 0 – automatic size) :inlinetip:`By default buffer size is automatically initialized twice the number of DI objects linked to this protocol instance, which is sufficient for most applications.`
+
+   * :attr:     :xmlref:`AIEVsize`
+     :val:      1...65535
+     :desc:     AI event buffer size, number of entries. Communication protocol instances use designated buffers to store events before they are reported upstream. This prevents information loss in case of a communication failure. Oldest events are discarded to make space for new events when buffer overflows. (default value 0 – automatic size) :inlinetip:`By default buffer size is automatically initialized twice the number of AI objects linked to this protocol instance, which is sufficient for most applications.`
+
+   * :attr:     :xmlref:`DIEVmult`
+     :val:      1...32
+     :desc:     DI event buffer size multiplier. Buffer size will be calculated by multiplying this attribute by the total number of DI objects linked to this protocol instance (default value 2 – buffer size is initialized twice the number of DI objects)
+
+   * :attr:     :xmlref:`AIEVmult`
+     :val:      1...32
+     :desc:     AI event buffer size multiplier. Buffer size will be calculated by multiplying this attribute by the total number of AI objects linked to this protocol instance (default value 2 – buffer size is initialized twice the number of AI objects)
+
+

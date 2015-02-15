@@ -1,8 +1,7 @@
-
-.. _ref-ModbusmaHardcodedAttributes:
+.. _docref-ModbusmaHardcodedAttr:
 
 Hardcoded attributes
-^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^
 
 Hardcoded device type can be specified using attributes of :ref:`Hardcoded<ref-ModbusmaHardcoded>` element node.
 
@@ -12,7 +11,7 @@ Please see sample :ref:`Hardcoded<ref-ModbusmaHardcoded>` node and the table lis
 
    <Hardcoded Type="BCDI16" /> 
 
-.. _ref-ModbusmaHardcodedAttributesTab:
+.. _docref-ModbusmaHardcodedAttab:
 
 .. field-list-table:: Modbus Master Hardcoded attributes
    :class: table table-condensed table-bordered longtable
@@ -26,15 +25,15 @@ Please see sample :ref:`Hardcoded<ref-ModbusmaHardcoded>` node and the table lis
    * :attr:     .. _ref-ModbusmaHardcodedType:
             
                 :xmlref:`Type`
-     :val:      See table :numref:`ref-ModbusmaHardcodedTypeValues`
-     :desc:     Predefined type of the Modbus device. Messages and communication sequences are hardcoded for devices of these types.
+     :val:      See table :numref:`docref-ModbusmaHardcodedTypesTab`
+     :desc:     Predefined type of Modbus device. Messages and communication sequences are hardcoded for devices of these types.
    
 
 
 Hardcoded types
 ^^^^^^^^^^^^^^^
 
-.. _ref-ModbusmaHardcodedTypeValues:
+.. _docref-ModbusmaHardcodedTypesTab:
 
 .. field-list-table:: Modbus Master Hardcoded Device Types
    :class: table table-condensed table-bordered longtable

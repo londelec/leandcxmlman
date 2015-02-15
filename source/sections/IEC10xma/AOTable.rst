@@ -48,7 +48,7 @@ AO attributes
 
 .. _ref-IEC10xmaAOAttributes:
 
-.. field-list-table:: IEC 60807-5-101/104 Master AO attributes
+.. field-list-table:: IEC 60870-5-101/104 Master AO attributes
    :class: table table-condensed table-bordered longtable
    :spec: |C{0.20}|C{0.25}|S{0.55}|
    :header-rows: 1
@@ -104,7 +104,7 @@ AO.qualifier
 
 .. _ref-IEC10xmaAOqualifierBits:
 
-.. field-list-table:: IEC 60807-5-101/104 Master AO internal qualifier
+.. field-list-table:: IEC 60870-5-101/104 Master AO internal qualifier
    :class: table table-condensed table-bordered longtable
    :spec: |C{0.20}|C{0.25}|S{0.55}|
    :header-rows: 1
@@ -142,7 +142,7 @@ AO.TypeID
 
 .. _ref-IEC10xmaAOTypeIDValues:
 
-.. field-list-table:: IEC 60807-5-101/104 Master AO TypeID
+.. field-list-table:: IEC 60870-5-101/104 Master AO TypeID
    :class: table table-condensed table-bordered longtable
    :spec: |C{0.20}|S{0.80}|
    :header-rows: 1

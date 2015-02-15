@@ -53,7 +53,7 @@ DO attributes
 
 .. _ref-IEC10xslDOAttributes:
 
-.. field-list-table:: IEC 60807-5-101/104 Slave DO attributes
+.. field-list-table:: IEC 60870-5-101/104 Slave DO attributes
    :class: table table-condensed table-bordered longtable
    :spec: |C{0.20}|C{0.25}|S{0.55}|
    :header-rows: 1
@@ -121,7 +121,7 @@ DO.qualifier
 
 .. _ref-IEC10xslDOqualifierBits:
 
-.. field-list-table:: IEC 60807-5-101/104 Slave DO internal qualifier
+.. field-list-table:: IEC 60870-5-101/104 Slave DO internal qualifier
    :class: table table-condensed table-bordered longtable
    :spec: |C{0.20}|C{0.25}|S{0.55}|
    :header-rows: 1
@@ -175,7 +175,7 @@ DO.TypeID
 
 .. _ref-IEC10xslDOTypeIDValues:
 
-.. field-list-table:: IEC 60807-5-101/104 Slave DO TypeID
+.. field-list-table:: IEC 60870-5-101/104 Slave DO TypeID
    :class: table table-condensed table-bordered longtable
    :spec: |C{0.20}|S{0.80}|
    :header-rows: 1
@@ -217,7 +217,7 @@ These indexes have negative decimal values to easily separate them from regular 
 
 .. _ref-IEC10xslDOServiceIndexValues:
 
-.. field-list-table:: IEC 60807-5-101/104 Slave Service DO indexes
+.. field-list-table:: IEC 60870-5-101/104 Slave Service DO indexes
    :class: table table-condensed table-bordered longtable
    :spec: |C{0.25}|C{0.25}|S{0.5}|
    :header-rows: 1

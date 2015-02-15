@@ -17,8 +17,10 @@ and the table listing all available attributes below.
             StopBits="1"
             Timeout="3"
             TxDelay="0.5"
+            Interface="RS232"
             CtrlRdTimer="0.5"
-            CtrlRdDebounce="8" 
+            CtrlRdDebounce="8"
+            Test="Echo"
             Name="COM1"/>
 
 .. _ref-UARTAttributes:
@@ -40,7 +42,7 @@ and the table listing all available attributes below.
 
    * :attr:    :xmlref:`Devpath`\*
      :val:     Max 100 chars
-     :desc:    Path of the UART device in the Linux operating system. All serial ports are normally located under :xmlref:`'/dev'` folder. Inbuilt serial ports are referenced as :xmlref:`'/dev/ttyS0'`; :xmlref:`'/dev/ttyS1'` and USB to Serial adapters are referenced as :xmlref:`'/dev/ttyUSB0'`; :xmlref:`'/dev/ttyUSB0'`; etc Please refer to table :numref:`ref-SerialPortPath` below for standard paths. :inlineimportant:`Attribute is case sensitive, observe the case of path when specifying.`
+     :desc:    Path of the UART device in the Linux operating system. All serial ports are normally located in :xmlref:`'/dev'` folder. Inbuilt serial ports have names :xmlref:`'/dev/ttyS0'`; :xmlref:`'/dev/ttyS1'` and USB to Serial adapter ports :xmlref:`'/dev/ttyUSB0'`; :xmlref:`'/dev/ttyUSB0'`; etc Please refer to table :numref:`ref-SerialPortPath` below for standard paths. :inlineimportant:`Attribute is case sensitive, observe the case of path when specifying.`
 
    * :attr:    :xmlref:`Baudrate`
      :val:     300...115200bps
@@ -48,7 +50,7 @@ and the table listing all available attributes below.
 
    * :attr:    :xmlref:`DataBits`
      :val:     7 or 8
-     :desc:    UART data bit count 7 or 8 (default 8 bits) :inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used is omitted.`
+     :desc:    UART data bit count 7 or 8 (default 8 bits) :inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
 
    * :attr:    :xmlref:`Parity`
      :val:     N; E or O
@@ -56,7 +58,7 @@ and the table listing all available attributes below.
 
    * :attr:    :xmlref:`StopBits`
      :val:     1 or 2
-     :desc:    UART stop bit count 1 or 2 (default 1 bit) :inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used is omitted.`
+     :desc:    UART stop bit count 1 or 2 (default 1 bit) :inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
 
    * :attr:    :xmlref:`Timeout`
      :val:     0.01...42949
@@ -64,15 +66,23 @@ and the table listing all available attributes below.
 
    * :attr:    :xmlref:`TxDelay`
      :val:     0.00001...42949
-     :desc:    Transmit delay in seconds. Outgoing message will be delayed for a configured number of seconds before being sent after previously received message. :inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be calculated based on configured baudrate.`
+     :desc:    Transmit delay in seconds. Outgoing message will be delayed for a configured number of seconds before being sent after received message. :inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be calculated based on configured baudrate.`
+
+   * :attr:    :xmlref:`Interface`
+     :val:     RS232; RS485 or RS422
+     :desc:    Type of physical interface. Used when leandc firmware runs on a hardware which supports UART interface selection by software. :inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value RS232 will be used if omitted.`
 
    * :attr:    .. _ref-UARTCtrlRdTimer:
-       
+
                :xmlref:`CtrlRdTimer`
      :val:     0 or 0.00001...42949
-     :desc:    UART control line (e.g. DSR, RI pin) reading interval in seconds. UART control lines must remain in the same state for least 8 times configured interval before state change will be reported. Default value 0 disables UART control line reading. :inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
+     :desc:    UART control line (e.g. DSR, RI pin) reading interval in seconds. UART control lines must be stable for at least 8 consequtive read cycles at a configured interval before state change is reported. Default value 0 disables UART control line reading. :inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
 
-.. include-file:: sections/Include/UartAttribute_CtrlRdDebounce.rstinc "internal"
+.. include-file:: sections/Include/hidden_CtrlRdDebounce.rstinc "internal"
+
+   * :attr:    :xmlref:`Test`
+     :val:     Echo
+     :desc:    Attribute enables port testing mode. UART will echo any data received if this attribute is used. There is no need to disable communication protocol or supervision instances linked to UART when testing. Any testing data received will also be recorded to a communication logfile, if logging is enabled for this hardware node. :inlineimportant:`Attribute must not be used if not required, there is no default value.`
 
    * :attr:    :xmlref:`Name`
      :val:     Max 100 chars
