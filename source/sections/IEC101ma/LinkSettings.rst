@@ -9,7 +9,7 @@ Please see sample :ref:`LinkSettings<ref-IEC101maLinkSettings>` node and the tab
 
 .. code-block:: none
 
-   <LinkSettings LinkAddrSize="1" TxAllVarLength="0" LinkOnlineCounter="5"/> 
+   <LinkSettings LinkAddrSize="1" TxAllVarLength="0" LinkOnlineCounter="5" IgnoreWhileLinkcnt="1"/> 
 
 .. _docref-IEC101maLinkSettingsAttab:
 
@@ -41,5 +41,16 @@ Please see sample :ref:`LinkSettings<ref-IEC101maLinkSettings>` node and the tab
    * :attr:     .. _ref-IEC101maLinkSettingsLinkOnlineCounter:
             
                 :xmlref:`LinkOnlineCounter`
-     :val:      0...255
+     :val:      0...65535
      :desc:     Application layer operation delay after link becomes valid. First application layer message (e.g. GI or Time Sync) will be delayed for a configured number of outgoing link messages after Reset Remote link response is received from outstation. Value 0 disables delay - application layer starts running immediately after Reset Remote link response is received from outstation. (default 0 messages)
+
+   * :attr:     .. _ref-IEC101maLinkSettingsIgnoreWhileLinkcnt:
+            
+                :xmlref:`IgnoreWhileLinkcnt`
+     :val:      0
+     :desc:     **Process** received application layer messages while link online delay counter operates (default value)
+   
+   * :(attr):
+     :val:      1
+     :desc:     **Ignore** received application layer messages while link online delay counter operates. Received application message processing begins when counter reaches value defined in :xmlref:`LinkOnlineCounter` attribute after station goes online.
+

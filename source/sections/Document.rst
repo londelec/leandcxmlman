@@ -57,7 +57,7 @@ Colored text:
 
 .. tip:: Notes in green provides additional information
 
-.. important:: Note in orange regarded as warning
+.. important:: Notes in red are warnings
 
 .. note:: Highlighted text refers to definitions used in communication standards
 

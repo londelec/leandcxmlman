@@ -15,10 +15,10 @@ This manual was published with the following leandc firmware release.
    * :attr,20: Firmware Revision
      :val,80:  Date
 
-   * :attr:    3.07
-     :val:     2015-02-15 17:55:25
+   * :attr:    3.08
+     :val:     2015-03-24 21:06:41
 
-.. tip:: 
+.. tip::
 
    Use argument -v to check firmware revision and build date:
    *./leandc -v*
@@ -222,3 +222,9 @@ This manual was published with the following leandc firmware release.
                | > :xmlref:`PostOfflineDelay` attribute added to all Master protocol configurations. Together with :xmlref:`ServiceSettings` node and attributes this extends configuration flexibility of DI/AI object quality marking when stations goes OFFLINE;
                | > :xmlref:`Reset` attribute added to IEC60870-5-101/4 Master protocol :xmlref:`Broadcast` node. This enables to send Reset Process commands to dowstream stations using Broadcast Common address of ASDU;
                | > :xmlref:`Miscellaneous` node added to IEC60870-5-101 Master protocol. Attributes :xmlref:`TimeSyncIOA` and :xmlref:`DayOfWeek` enable to customize Information Object Address (IOA) and supress Day Of Week use in outgoing Time Synchronziation commands respectively;
+
+   * :ver:     V23
+     :date:    24/03/2015
+     :by:      AK
+     :desc:    | > :xmlref:`IgnoreWhileLinkcnt` attribute added to IEC60870-5-101 Master :xmlref:`LinkSettings` node;
+

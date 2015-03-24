@@ -208,7 +208,7 @@ DO.QOC
      :desc:    Command will be sent with [persistent output]
 
    * :attr:    128
-     :desc:    Command will be sent with the same information as received from upstream Master station. This is a transparent mode.
+     :desc:    Command will be sent with the same information as received from upstream station. This is a transparent mode.
 
    * :attr:    4...31
      :desc:    Reserved for [compatible range] and [private range] as per IEC 60870-5-101 standard

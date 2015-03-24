@@ -6,13 +6,13 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Leandc series XML configuration manual V22</title>
+    <title>Leandc series XML configuration manual V23</title>
     
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     'V22',
+        VERSION:     'V23',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -10817,7 +10817,7 @@ $(function () {
 </div>
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
-<p class="last">Note in orange regarded as warning</p>
+<p class="last">Notes in red are warnings</p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -15122,7 +15122,7 @@ are configured using various child element nodes under <a class="reference inter
 <span id="docref-iec101malinksettingsattr"></span><h4>LinkSettings attributes</h4>
 <p>Link layer settings can be specified using attributes of <a class="reference internal" href="#ref-iec101malinksettings"><em>LinkSettings</em></a> element node.</p>
 <p>Please see sample <a class="reference internal" href="#ref-iec101malinksettings"><em>LinkSettings</em></a> node and the table listing all available attributes below.</p>
-<div class="highlight-none"><div class="highlight"><pre>&lt;LinkSettings LinkAddrSize=&quot;1&quot; TxAllVarLength=&quot;0&quot; LinkOnlineCounter=&quot;5&quot;/&gt;
+<div class="highlight-none"><div class="highlight"><pre>&lt;LinkSettings LinkAddrSize=&quot;1&quot; TxAllVarLength=&quot;0&quot; LinkOnlineCounter=&quot;5&quot; IgnoreWhileLinkcnt=&quot;1&quot;/&gt;
 </pre></div>
 </div>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="docref-iec101malinksettingsattab">
@@ -15154,8 +15154,16 @@ are configured using various child element nodes under <a class="reference inter
 </tr>
 <tr class="row-odd"><td><p class="first last" id="ref-iec101malinksettingslinkonlinecounter"><span class="xmlref">LinkOnlineCounter</span></p>
 </td>
-<td>0...255</td>
+<td>0...65535</td>
 <td>Application layer operation delay after link becomes valid. First application layer message (e.g. GI or Time Sync) will be delayed for a configured number of outgoing link messages after Reset Remote link response is received from outstation. Value 0 disables delay - application layer starts running immediately after Reset Remote link response is received from outstation. (default 0 messages)</td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p class="first last" id="ref-iec101malinksettingsignorewhilelinkcnt"><span class="xmlref">IgnoreWhileLinkcnt</span></p>
+</td>
+<td>0</td>
+<td><strong>Process</strong> received application layer messages while link online delay counter operates (default value)</td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td><strong>Ignore</strong> received application layer messages while link online delay counter operates. Received application message processing begins when counter reaches value defined in <span class="xmlref">LinkOnlineCounter</span> attribute after station goes online.</td>
 </tr>
 </tbody>
 </table>
@@ -16976,7 +16984,7 @@ Time-tagged &#8216;Regulating step command&#8217; will be sent (ASDU type 60 [C_
 <td>Command will be sent with [persistent output]</td>
 </tr>
 <tr class="row-even"><td>128</td>
-<td>Command will be sent with the same information as received from upstream Master station. This is a transparent mode.</td>
+<td>Command will be sent with the same information as received from upstream station. This is a transparent mode.</td>
 </tr>
 <tr class="row-odd"><td>4...31</td>
 <td>Reserved for [compatible range] and [private range] as per IEC 60870-5-101 standard</td>
@@ -30719,8 +30727,8 @@ names, etc.</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>3.07</td>
-<td>2015-02-15 17:55:25</td>
+<tr class="row-even"><td>3.08</td>
+<td>2015-03-24 21:06:41</td>
 </tr>
 </tbody>
 </table>
@@ -30962,6 +30970,14 @@ names, etc.</p>
 </div>
 </td>
 </tr>
+<tr class="row-even"><td>V23</td>
+<td>24/03/2015</td>
+<td>AK</td>
+<td><div class="first last line-block">
+<div class="line">&gt; <span class="xmlref">IgnoreWhileLinkcnt</span> attribute added to IEC60870-5-101 Master <span class="xmlref">LinkSettings</span> node;</div>
+</div>
+</td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -31075,7 +31091,7 @@ fUtHVztj9BMNwCVrPGuGqpyH+IPAGATai0CJ94qv3R3KZtb6wO+qrSdbVG4WdLDAIJBjFfURmoDK
 " alt="Logo"/>
             </a></p>
     <span class="sidebar-title">Leandc series XML configuration manual</span>
-    <span class="sidebar-subtitle">Version V22</span>
+    <span class="sidebar-subtitle">Version V23</span>
 
   <h3><a href="#document-index">Table Of Contents</a></h3>
   <ul>
@@ -31331,7 +31347,7 @@ fUtHVztj9BMNwCVrPGuGqpyH+IPAGATai0CJ94qv3R3KZtb6wO+qrSdbVG4WdLDAIJBjFfURmoDK
 
     <div class="footer">
         &copy; Copyright 2015, Londelec UK Ltd.
-      Last updated on 15 Feb 2015.
+      Last updated on 24 Mar 2015.
     </div>
   </body>
 </html>
