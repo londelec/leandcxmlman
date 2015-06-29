@@ -15,8 +15,8 @@ This manual was published with the following leandc firmware release.
    * :attr,20: Firmware Revision
      :val,80:  Date
 
-   * :attr:    3.08
-     :val:     2015-03-24 21:06:41
+   * :attr:    3.10
+     :val:     2015-06-29 15:52:23
 
 .. tip::
 
@@ -227,4 +227,15 @@ This manual was published with the following leandc firmware release.
      :date:    24/03/2015
      :by:      AK
      :desc:    | > :xmlref:`IgnoreWhileLinkcnt` attribute added to IEC60870-5-101 Master :xmlref:`LinkSettings` node;
+
+   * :ver:     V24
+     :date:    29/06/2015
+     :by:      AK
+     :desc:     | > :xmlref:`DIEventStartup` and :xmlref:`AIEventStartup` attributes added to IEC60870-5-101/4 Slave :xmlref:`ASDUSettings` node;
+		| > :xmlref:`OffIndex` attribute added to IEC60870-5-101/4 Slave :xmlref:`DI` node for single to double point indication conversion;
+		| > :xmlref:`DIInterDelay` and :xmlref:`DIIndetDelay` attributes added to IEC60870-5-101/4 Slave :xmlref:`ASDUSettings` node and corresponding attributes :xmlref:`InterDelay` and :xmlref:`IndetDelay` added to DI node;
+		| > Bit[5] added to IEC60870-5-101/4 Slave DI qualifier attribute which enables to select time tag when single status information is converted to double;
+		| > :xmlref:`ChatterFilter` attribute added to Modbus Master DI node
+		| > :xmlref:`PulseDuration` attribute added to Modbus Master DO node
+		| > :xmlref:`LEIODC-C32-3100` type added to Modbus Master :xmlref:`Hardcoded` node
 

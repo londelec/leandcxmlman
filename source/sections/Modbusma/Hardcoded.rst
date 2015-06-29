@@ -40,17 +40,20 @@ Hardcoded types
    :spec: |C{0.20}|S{0.80}|
    :header-rows: 1
 
-   * :attr,10: Type
-     :desc,90: Description
+   * :attr,20: Type
+     :desc,80: Description
 
    * :attr:    BCDI16
-     :desc:    Brainchild Digital Input (16) module DI16. Number of information objects automatically created for this device: DI=16, AI=0, DO=0
+     :desc:    Brainchild Digital Input (16) module DI16. Number of information objects automatically created for this device: DI=16, AI=0, DO=0, AO=0
 
    * :attr:    BCAIIS16
-     :desc:    Brainchild isolated Analog Input (8) module AIIS8. Number of information objects automatically created for this device: DI=0, AI=8, DO=0
+     :desc:    Brainchild isolated Analog Input (8) module AIIS8. Number of information objects automatically created for this device: DI=0, AI=8, DO=0, AO=0
 
    * :attr:    LEDOM16
-     :desc:    Londelec Digital Output (16) module DOM16. Number of information objects automatically created for this device: DI=0, AI=0, DO=16
+     :desc:    Londelec Digital Output (16) module DOM16. Number of information objects automatically created for this device: DI=0, AI=0, DO=16, AO=0
+
+   * :attr:    LEIODC-C32-3100
+     :desc:    Londelec LEIODC-C32-3100 unit. Number of information objects automatically created for this device: DI=12, AI=0, DO=4, AO=0
 
    * :attr:    Other
      :desc:    Undefined, none of hardcoded device types will be used

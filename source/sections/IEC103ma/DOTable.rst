@@ -22,22 +22,18 @@ objects configured using 4 :ref:`DO<ref-IEC103maDO>` element nodes.
 .. code-block:: none
 
    <DOTable>
-	<DO Index="0" FUN="1" INF="1" qualifier="0x00"/>
-	<DO Index="1" FUN="1" INF="2" qualifier="0x10"/>
-	<DO Index="2" FUN="240" INF="55" qualifier="0x10"/>
-	<DO Index="3" FUN="240" INF="56" qualifier="0x00" Total="2"/>
+	<DO Index="0" FUN="1" INF="1" Qualifier="0x00"/>
+	<DO Index="1" FUN="1" INF="2" Qualifier="0x10"/>
+	<DO Index="2" FUN="240" INF="55" Qualifier="0x10"/>
+	<DO Index="3" FUN="240" INF="56" Qualifier="0x00" Total="2"/>
    </DOTable>
-   
+
 Please see sample :ref:`DO<ref-IEC103maDO>` element node below listing all available attributes.
-            
+
 .. code-block:: none
-            
-   <DO  Index="0"
-	FUN="1"
-	INF="1"
-	qualifier="0x00"
-	Total="2"
-      
+
+   <DO Index="0" FUN="1" INF="1" Qualifier="0x00" Total="2" Name="CB position" />
+
 .. tip:: Attributes of the :ref:`DO<ref-IEC103maDO>` element node can be arranged in any order, it will not affect the XML file validation.         
 
 DO attributes
@@ -72,11 +68,11 @@ DO attributes
      :val:     0...255
      :desc:    Information Number (INF) of the DI object. This INF will be used to send command to downstream outstation. :inlinetip:`Information numbers don't have to be arranged in an ascending order.`
 
-   * :attr:    .. _ref-IEC103maDOqualifier:
+   * :attr:    .. _ref-IEC103maDOQualifier:
    
-               :xmlref:`qualifier`
-     :val:     See table :numref:`ref-IEC103maDOqualifierBits` for description
-     :desc:    Internal object qualifier to enable customized data processing. See table :numref:`ref-IEC103maDOqualifierBits` for internal object qualifier description. (default value 0) :inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
+               :xmlref:`Qualifier`
+     :val:     See table :numref:`ref-IEC103maDOQualifierBits` for description
+     :desc:    Internal object Qualifier to enable customized data processing. See table :numref:`ref-IEC103maDOQualifierBits` for internal object Qualifier description. (default value 0) :inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
 
    * :attr:    .. _ref-IEC103maDOTotal:
    
@@ -90,12 +86,12 @@ DO attributes
      :val:     Max 100 chars
      :desc:    Freely configurable name, just for reference. :inlinetip:`Name attribute is optional and doesn't have to be included in configuration.`
 
-DO.qualifier
+DO.Qualifier
 ^^^^^^^^^^^^
 
-.. _ref-IEC103maDOqualifierBits:
+.. _ref-IEC103maDOQualifierBits:
 
-.. field-list-table:: IEC 60870-5-103 Master DO internal qualifier
+.. field-list-table:: IEC 60870-5-103 Master DO internal Qualifier
    :class: table table-condensed table-bordered longtable
    :spec: |C{0.20}|C{0.25}|S{0.55}|
    :header-rows: 1
@@ -104,9 +100,9 @@ DO.qualifier
      :val,10:  Values
      :desc,80: Description
 
-   * :attr:    qualifier [xxxx.xxxx]
+   * :attr:    Qualifier [xxxx.xxxx]
      :val:     0...0xFF
-     :desc:    DO internal qualifier has 8 data bits
+     :desc:    DO internal Qualifier has 8 data bits
 
    * :attr:    Bit 0
      :val:     xxxx.xxx0

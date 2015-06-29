@@ -9,18 +9,7 @@ Please see sample :ref:`ASDUSettings<ref-IEC101slASDUSettings>` node and the tab
 
 .. code-block:: none
 
-   <ASDUSettings	COTSize="1"
-                        CAASize="1"
-                        IOASize="2"
-                        TimeSync="1"
-                        InvalidEvent="1"
-                        SUthroughoutDST="1"
-                        DIEventType="2"
-                        AIEventType="14"
-                        DOType="46"
-                        AOType="50"
-                        TranspTypes="1" 
-                        ForwardGI="1" />
+   <ASDUSettings COTSize="1" CAASize="1" IOASize="2" TimeSync="1" InvalidEvent="1" SUthroughoutDST="1" DIEventType="2" AIEventType="14" DOType="46" AOType="50" DIInterDelay="8000" DIIndetDelay="3500" DIEventStartup="1" AIEventStartup="1" TranspTypes="1" ForwardGI="1" />
 
 .. _docref-IEC101slASDUSettingsAttab:
 
@@ -41,7 +30,7 @@ Please see sample :ref:`ASDUSettings<ref-IEC101slASDUSettings>` node and the tab
    
                 :xmlref:`CAASize`
      :val:      1 or 2
-     :desc:     Common address of ASDU size in bytes (default 1 byte)
+     :desc:     Common Address of ASDU size in bytes (default 1 byte)
 
    * :attr:     :xmlref:`IOASize`
      :val:      1; 2 or 3

@@ -25,27 +25,19 @@ objects configured using 4 :ref:`DO<ref-IEC10xslDO>` element nodes.
 
 .. code-block:: none
 
-   <DOTable> 
+   <DOTable>
 	<DO Device="10" Index="0" InfAddr="1" Policy="0" … />
 	<DO Device="10" Index="1" InfAddr="2" Policy="250" … />
 	<DO Device="10" Index="-2" InfAddr="3" Policy="0" … />
 	<DO Device="10" Index="2" InfAddr="4" Policy="0" Total="2" … />
    </DOTable>
-   
+
 Please see sample :ref:`DO<ref-IEC10xslDO>` element node below listing all available attributes.
-            
+
 .. code-block:: none
-            
-   <DO  Device="10"
-	Index="2"
-	InfAddr="4"
-	qualifier="0x10"
-	Policy="0"
-	TypeID="0"
-	OffIndex="33"
-	Total="2"
-	Name="CB command" />
-      
+
+   <DO Device="10" Index="2" InfAddr="4" qualifier="0x10" Policy="0" TypeID="0" OffIndex="33" Total="2" Name="CB command" />
+
 .. tip:: Attributes of the :ref:`DO<ref-IEC10xslDO>` element node can be arranged in any order, it will not affect the XML file validation.         
 
 DO attributes

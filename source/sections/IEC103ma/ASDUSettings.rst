@@ -9,14 +9,7 @@ Please see sample :ref:`ASDUSettings<ref-IEC103maASDUSettings>` node and the tab
 
 .. code-block:: none
 
- <ASDUSettings  InvalidEvent="1"
-		IgnoreTimetags="1"
-		SUthroughoutDST="1"
-		AIDeadband="2"
-		AIPercent="0.5"
-		DIEventStartup="1"
-		AIEventStartup="1"
-                ForwardGI="1" />
+ <ASDUSettings InvalidEvent="1" IgnoreTimetags="1" SUthroughoutDST="1" AIDeadband="2" AIPercent="0.5" DIEventStartup="1" AIEventStartup="1" ForwardGI="1" />
 
 .. _docref-IEC103maASDUSettingsAttab:
 
@@ -37,6 +30,6 @@ Please see sample :ref:`ASDUSettings<ref-IEC103maASDUSettings>` node and the tab
 
 .. include-file:: sections/Include/AI_ThresholdsCmn.rstinc "" ".. _ref-IEC103maASDUSettingsAIDeadband:" ".. _ref-IEC103maASDUSettingsAIPercent:" ":ref:`AI<ref-IEC103maAI>`" ":ref:`Deadband<ref-IEC103maAIDeadband>`" ":ref:`Percent<ref-IEC103maAIPercent>`"
 
-.. include-file:: sections/Include/IEC10xma_ASDU_EventStartup.rstinc
+.. include-file:: sections/Include/IEC60870_ASDU_EventStartup.rstinc
 
 .. include-file:: sections/Include/IEC60870_ForwardGI.rstinc

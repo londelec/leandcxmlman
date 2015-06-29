@@ -22,25 +22,19 @@ objects configured using 4 :ref:`DO<ref-IEC10xmaDO>` element nodes.
 
 .. code-block:: none
 
-   <DOTable> 
+   <DOTable>
 	<DO Index="0" InfAddr="1" qualifier="0x00" TypeID="45"/>
 	<DO Index="1" InfAddr="2" qualifier="0x10" TypeID="46"/>
 	<DO Index="2" InfAddr="3" qualifier="0x10" QOC="3"/>
 	<DO Index="3" InfAddr="4" qualifier="0x00" Total="2"/>
    </DOTable>
-   
+
 Please see sample :ref:`DO<ref-IEC10xmaDO>` element node below listing all available attributes.
-            
+
 .. code-block:: none
-            
-   <DO  Index="0"
-	InfAddr="1"
-        qualifier="0x00"
-        QOC="0"
-        TypeID="46"
-        Total="2"
-        Name="CB command" />
-      
+
+   <DO Index="0" InfAddr="1" qualifier="0x00" QOC="0" TypeID="46" Total="2" Name="CB command" />
+
 .. tip:: Attributes of the :ref:`DO<ref-IEC10xmaDO>` element node can be arranged in any order, it will not affect the XML file validation.         
 
 DO attributes

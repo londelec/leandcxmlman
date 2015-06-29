@@ -22,25 +22,19 @@ objects configured using 4 :ref:`AO<ref-IEC10xmaAO>` element nodes.
 
 .. code-block:: none
 
-   <AOTable> 
+   <AOTable>
 	<AO Index="0" InfAddr="1" TypeID="48"/>
 	<AO Index="1" InfAddr="2" TypeID="49"/>
 	<AO Index="2" InfAddr="3" Coeff="3.3"/>
 	<AO Index="3" InfAddr="4" Total="2"/>
    </AOTable>
-   
+
 Please see sample :ref:`AO<ref-IEC10xmaAO>` element node below listing all available attributes.
-            
+
 .. code-block:: none
-            
-   <AO  Index="0"
-	InfAddr="1"
-	qualifier="0x00"
-	Coeff="11.6"
-	TypeID="50"
-	Total="2"
-	Name="Filtering value" />
-      
+
+   <AO Index="0" InfAddr="1" qualifier="0x00" Coeff="11.6" TypeID="50" Total="2" Name="Filter value" />
+
 .. tip:: Attributes of the :ref:`AO<ref-IEC10xmaAO>` element node can be arranged in any order, it will not affect the XML file validation.         
 
 AO attributes

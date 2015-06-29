@@ -30,6 +30,8 @@ Abbreviations used in this document are listed in the following table.
      :desc:    Digital Input
    * :abbr:    DO
      :desc:    Digital Output
+   * :abbr:    DPI
+     :desc:    Double Point Information
    * :abbr:    DST
      :desc:    Daylight Saving Time
    * :abbr:    IANA
@@ -46,6 +48,8 @@ Abbreviations used in this document are listed in the following table.
      :desc:    Running Process Identifier
    * :abbr:    OS
      :desc:    Operating System
+   * :abbr:    SPI
+     :desc:    Single Point Information
    * :abbr:    SSH
      :desc:    Secure shell
    * :abbr:    TCP

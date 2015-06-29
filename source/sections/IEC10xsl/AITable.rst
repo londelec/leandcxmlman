@@ -31,26 +31,13 @@ configured using 4 :ref:`AI<ref-IEC10xslAI>` element nodes.
 	<AI Device="10" Index="2" InfAddr="3" qualifier="0x01" Coeff="0.05" GroupMask="0x0002" … />
 	<AI Device="10" Index="3" InfAddr="4" qualifier="0x00" Coeff="1.0" Offset="2.0" Total="2" … />
    </AITable>
-   
+
 Please see sample :ref:`AI<ref-IEC10xslAI>` element node below listing all available attributes.
-            
+
 .. code-block:: none
-            
-   <AI  Device="10"
-  	Index="2"
-	InfAddr="3"
-	qualifier="0"
-	Coeff="100.0"
-	StartOffset="6554"
-	ZeroDeadband="5.0"
-	Offset="-2.0"
-	OffsetDeadband="2.0"
-	NonZeroOffset="200.0"
-	GroupMask="0x0002"
-	TypeID="13"
-	Total="2"
-	Name="Feeder current" />
-      
+
+   <AI Device="10" Index="2" InfAddr="3" qualifier="0" Coeff="100.0" StartOffset="6554" ZeroDeadband="5.0" Offset="-2.0" OffsetDeadband="2.0" NonZeroOffset="200.0" GroupMask="0x0002" TypeID="13" Total="2" Name="Feeder current" />
+
 .. tip:: Attributes of the :ref:`AI<ref-IEC10xslAI>` element node can be arranged in any order, it will not affect the XML file validation.         
 
 AI attributes

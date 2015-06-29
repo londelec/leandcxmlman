@@ -22,33 +22,19 @@ configured using 4 :ref:`AI<ref-IEC103maAI>` element nodes.
 
 .. code-block:: none
 
-   <AITable> 
-	<AI Index="0" FUN="1" INF="1" MEA="0" qualifier="0x20" Coeff="1.0" Deadband="0.5" Percent="0"/>
-	<AI Index="1" FUN="1" INF="1" MEA="5" qualifier="0x00" Coeff="1.0" Deadband="0" Percent="1.4"/>
-	<AI Index="2" FUN="85" INF="83" MEA="0" qualifier="0x00" Coeff="-17.0" Percent="1.4"/>
-	<AI Index="3" FUN="105" INF="103" MEA="0" qualifier="0x00" Coeff="0.08" Total="2"/>
+   <AITable>
+	<AI Index="0" FUN="1" INF="1" MEA="0" Qualifier="0x20" Coeff="1.0" Deadband="0.5" Percent="0"/>
+	<AI Index="1" FUN="1" INF="1" MEA="5" Qualifier="0x00" Coeff="1.0" Deadband="0" Percent="1.4"/>
+	<AI Index="2" FUN="85" INF="83" MEA="0" Qualifier="0x00" Coeff="-17.0" Percent="1.4"/>
+	<AI Index="3" FUN="105" INF="103" MEA="0" Qualifier="0x00" Coeff="0.08" Total="2"/>
    </AITable>
-   
+
 Please see sample :ref:`AI<ref-IEC103maAI>` element node below listing all available attributes.
-            
+
 .. code-block:: none
-            
-   <AI  Index="0"
-	FUN="85"
-	INF="83"
-	MEA="2"
-	qualifier="0x20"
-	Coeff="1.0"
-	Deadband="0.5"
-	Percent="0"
-	StartOffset="6554"
-	ZeroDeadband="3.0"
-	Offset="-2.0"
-	OffsetDeadband="2.0"
-	NonZeroOffset="200.0"
-	Total="2"
-	Name="Feeder current" />
-      
+
+   <AI Index="0" FUN="85" INF="83" MEA="2" Qualifier="0x20" Coeff="1.0" Deadband="0.5" Percent="0" StartOffset="6554" ZeroDeadband="3.0" Offset="-2.0" OffsetDeadband="2.0" NonZeroOffset="200.0" Total="2" Name="Feeder current" />
+
 .. tip:: Attributes of the :ref:`AI<ref-IEC103maAI>` element node can be arranged in any order, it will not affect the XML file validation.         
 
 AI attributes
@@ -89,11 +75,11 @@ AI attributes
      :val:     0...31
      :desc:    Number of the analog value in the received measurement message. Use the :ref:`AI<ref-IEC103maAI>`.\ :ref:`FUN<ref-IEC103maAIMEA>` \ attribute value 0, in order to select the first analog value in the received measurement message. :inlinetip:`Numbers don't have to be arranged in an ascending order.`
 
-   * :attr:    .. _ref-IEC103maAIqualifier:
+   * :attr:    .. _ref-IEC103maAIQualifier:
    
-               :xmlref:`qualifier`
-     :val:     See table :numref:`ref-IEC103maAIqualifierBits` for description
-     :desc:    Internal object qualifier to enable customized data processing. See table :numref:`ref-IEC103maAIqualifierBits` for internal object qualifier description. (default value 0) :inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
+               :xmlref:`Qualifier`
+     :val:     See table :numref:`ref-IEC103maAIQualifierBits` for description
+     :desc:    Internal object Qualifier to enable customized data processing. See table :numref:`ref-IEC103maAIQualifierBits` for internal object Qualifier description. (default value 0) :inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
 
    * :attr:    .. _ref-IEC103maAICoeff:
    
@@ -124,12 +110,12 @@ AI attributes
    :ref:`AI<ref-IEC103maAI>`.\ :ref:`Percent<ref-IEC103maAIPercent>` \ attributes.
    Annexes :ref:`docref-AIScalingWithoutStartOffset` and :ref:`docref-AIScalingWithStartOffset` for additional information on AI scaling.
 
-AI.qualifier
+AI.Qualifier
 ^^^^^^^^^^^^
 
-.. _ref-IEC103maAIqualifierBits:
+.. _ref-IEC103maAIQualifierBits:
 
-.. field-list-table:: IEC 60870-5-103 Master AI internal qualifier
+.. field-list-table:: IEC 60870-5-103 Master AI internal Qualifier
    :class: table table-condensed table-bordered longtable
    :spec: |C{0.20}|C{0.25}|S{0.55}|
    :header-rows: 1
@@ -138,9 +124,9 @@ AI.qualifier
      :val,10:  Values
      :desc,80: Description
 
-   * :attr:    qualifier [xxxx.xxxx]
+   * :attr:    Qualifier [xxxx.xxxx]
      :val:     0...0xFF
-     :desc:    AI internal qualifier has 8 data bits
+     :desc:    AI internal Qualifier has 8 data bits
 
    * :attr:    Bit 1
      :val:     xxxx.xx0x

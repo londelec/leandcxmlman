@@ -6,13 +6,13 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Leandc series XML configuration manual V23</title>
+    <title>Leandc series XML configuration manual V24</title>
     
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     'V23',
+        VERSION:     'V24',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -10722,7 +10722,7 @@ $(function () {
 
 });
 </script>  </head>
-  <body> 
+  <body>
   
 
     <div class="document">
@@ -10775,29 +10775,35 @@ $(function () {
 <tr class="row-even"><td>DO</td>
 <td>Digital Output</td>
 </tr>
-<tr class="row-odd"><td>DST</td>
+<tr class="row-odd"><td>DPI</td>
+<td>Double Point Information</td>
+</tr>
+<tr class="row-even"><td>DST</td>
 <td>Daylight Saving Time</td>
 </tr>
-<tr class="row-even"><td>IANA</td>
+<tr class="row-odd"><td>IANA</td>
 <td>Internet Assigned Numbers Authority</td>
 </tr>
-<tr class="row-odd"><td>IO</td>
+<tr class="row-even"><td>IO</td>
 <td>Input/Output</td>
 </tr>
-<tr class="row-even"><td>IP</td>
+<tr class="row-odd"><td>IP</td>
 <td>Internet Protocol</td>
 </tr>
-<tr class="row-odd"><td>IOA</td>
+<tr class="row-even"><td>IOA</td>
 <td>Information Object Address</td>
 </tr>
-<tr class="row-even"><td>LRU</td>
+<tr class="row-odd"><td>LRU</td>
 <td>Logical Remote Unit</td>
 </tr>
-<tr class="row-odd"><td>PID</td>
+<tr class="row-even"><td>PID</td>
 <td>Running Process Identifier</td>
 </tr>
-<tr class="row-even"><td>OS</td>
+<tr class="row-odd"><td>OS</td>
 <td>Operating System</td>
+</tr>
+<tr class="row-even"><td>SPI</td>
+<td>Single Point Information</td>
 </tr>
 <tr class="row-odd"><td>SSH</td>
 <td>Secure shell</td>
@@ -11817,7 +11823,7 @@ command.</p>
 <td>Protocol instance is <strong>enabled</strong> on leandc startup. Communication will start automatically (default value)</td>
 </tr>
 <tr class="row-even"><td>1xxx.xxxx</td>
-<td>Protocol instance is <strong>disabled</strong> on leandc startup. Commnication will not start automatically, service command (Index=&#8221;-3&#8221;) may be used to enable communication at any time. Please see table <a href="#ref-iec10xsldoserviceindexvalues">5.12</a> for information on service commands.</td>
+<td>Protocol instance is <strong>disabled</strong> on leandc startup. Commnication will not start automatically, service command (Index=&#8221;-3&#8221;) may be used to enable communication at any time. Please see table <a href="#ref-iec10xsldoserviceindexvalues">5.13</a> for information on service commands.</td>
 </tr>
 <tr class="row-odd"><td>Bits 0...2;5;6</td>
 <td>Any</td>
@@ -12377,7 +12383,7 @@ simply enter the name &#8216;<strong>IEC101sl_test.xml</strong>&#8216; in the <a
 </div>
 <p><a class="reference internal" href="#ref-iec10xslditable"><em>DITable</em></a>; <a class="reference internal" href="#ref-iec10xslaitable"><em>AITable</em></a>; <a class="reference internal" href="#ref-iec10xsldotable"><em>DOTable</em></a>; <a class="reference internal" href="#ref-iec10xslaotable"><em>AOTable</em></a> group nodes compose an IO object table and they are common for
 IEC60870-5-101 and IEC60870-5-104 controlled station (Slave) communication protocol instances. Please
-refer to the tables <a href="#ref-iec10xsldiattributes">5.1</a>; <a href="#ref-iec10xslaiattributes">5.5</a>; <a href="#ref-iec10xsldoattributes">5.9</a> and <a href="#ref-iec10xslaoattributes">5.13</a> for their attributes.</p>
+refer to the tables <a href="#ref-iec10xsldiattributes">5.1</a>; <a href="#ref-iec10xslaiattributes">5.6</a>; <a href="#ref-iec10xsldoattributes">5.10</a> and <a href="#ref-iec10xslaoattributes">5.14</a> for their attributes.</p>
 <div class="section" id="protocolcfg-group-node">
 <span id="ref-iec101slprotocolcfg"></span><h3>ProtocolCfg group node</h3>
 <p>Protocol settings of the IEC60870-5-101 controlled station (Slave) communication protocol instance are
@@ -12602,18 +12608,7 @@ element node.</p>
 <span id="docref-iec101slasdusettingsattr"></span><h4>ASDUSettings attributes</h4>
 <p>Application layer settings can be specified using attributes of <a class="reference internal" href="#ref-iec101slasdusettings"><em>ASDUSettings</em></a> element node.</p>
 <p>Please see sample <a class="reference internal" href="#ref-iec101slasdusettings"><em>ASDUSettings</em></a> node and the table listing all available attributes below.</p>
-<div class="highlight-none"><div class="highlight"><pre>&lt;ASDUSettings        COTSize=&quot;1&quot;
-                     CAASize=&quot;1&quot;
-                     IOASize=&quot;2&quot;
-                     TimeSync=&quot;1&quot;
-                     InvalidEvent=&quot;1&quot;
-                     SUthroughoutDST=&quot;1&quot;
-                     DIEventType=&quot;2&quot;
-                     AIEventType=&quot;14&quot;
-                     DOType=&quot;46&quot;
-                     AOType=&quot;50&quot;
-                     TranspTypes=&quot;1&quot;
-                     ForwardGI=&quot;1&quot; /&gt;
+<div class="highlight-none"><div class="highlight"><pre>&lt;ASDUSettings COTSize=&quot;1&quot; CAASize=&quot;1&quot; IOASize=&quot;2&quot; TimeSync=&quot;1&quot; InvalidEvent=&quot;1&quot; SUthroughoutDST=&quot;1&quot; DIEventType=&quot;2&quot; AIEventType=&quot;14&quot; DOType=&quot;46&quot; AOType=&quot;50&quot; DIInterDelay=&quot;8000&quot; DIIndetDelay=&quot;3500&quot; DIEventStartup=&quot;1&quot; AIEventStartup=&quot;1&quot; TranspTypes=&quot;1&quot; ForwardGI=&quot;1&quot; /&gt;
 </pre></div>
 </div>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="docref-iec101slasdusettingsattab">
@@ -12637,7 +12632,7 @@ element node.</p>
 <tr class="row-odd"><td><p class="first last" id="ref-iec101slasdusettingscaasize"><span class="xmlref">CAASize</span></p>
 </td>
 <td>1 or 2</td>
-<td>Common address of ASDU size in bytes (default 1 byte)</td>
+<td>Common Address of ASDU size in bytes (default 1 byte)</td>
 </tr>
 <tr class="row-even"><td><span class="xmlref">IOASize</span></td>
 <td>1; 2 or 3</td>
@@ -12669,16 +12664,38 @@ element node.</p>
 <td>Use this ASDU type to send DI events which don&#8217;t have <a class="reference internal" href="#ref-iec10xsldi"><em>DI</em></a>.<a class="reference internal" href="#ref-iec10xslditypeid"><em>TypeID</em></a> attribute specified in their element node. This setting also affects ASDU type of the static data (e.g. Single or Double status information) reported to a General Interrogation request. (default value 2 – &#8216;Single-point Information&#8217;, DI event will be sent using ASDU type 2 [M_SP_TA_1], <strong>CP24time2A</strong>, msec and min)</td>
 </tr>
 <tr class="row-even"><td><span class="xmlref">AIEventType</span></td>
-<td>See table <a href="#ref-iec10xslaitypeidvalues">5.7</a></td>
+<td>See table <a href="#ref-iec10xslaitypeidvalues">5.8</a></td>
 <td>Use this ASDU type to send AI events which don&#8217;t have <a class="reference internal" href="#ref-iec10xslai"><em>AI</em></a>.<a class="reference internal" href="#ref-iec10xslaitypeid"><em>TypeID</em></a> attribute specified in their element node. This setting also affects ASDU type of the static data (e.g. Normalized, Scaled, Short floating point) reported to a General Interrogation request. (default value 14 – &#8216;Short floating point&#8217;, AI event will be sent using ASDU type 14 [M_ME_TC_1], <strong>CP24time2A</strong>, msec and min)</td>
 </tr>
 <tr class="row-odd"><td><span class="xmlref">DOType</span></td>
-<td>See table <a href="#ref-iec10xsldotypeidvalues">5.11</a></td>
+<td>See table <a href="#ref-iec10xsldotypeidvalues">5.12</a></td>
 <td>Only accept command if received with this ASDU Type (e.g. Single or Double command) if DO object doesn&#8217;t have <a class="reference internal" href="#ref-iec10xsldo"><em>DO</em></a>.<a class="reference internal" href="#ref-iec10xsldotypeid"><em>TypeID</em></a> attribute specified in the element node. (default value 0 – accept command with any ASDU type)</td>
 </tr>
 <tr class="row-even"><td><span class="xmlref">AOType</span></td>
-<td>See table <a href="#ref-iec10xslaotypeidvalues">5.15</a></td>
+<td>See table <a href="#ref-iec10xslaotypeidvalues">5.16</a></td>
 <td>Only accept setpoint command if received with this ASDU Type (e.g. Normalized or Scaled setpoint) if AO object doesn&#8217;t have <a class="reference internal" href="#ref-iec10xslao"><em>AO</em></a>.<a class="reference internal" href="#ref-iec10xslaotypeid"><em>TypeID</em></a> attribute specified in the element node. (default value 0 – accept command with any ASDU type)</td>
+</tr>
+<tr class="row-odd"><td><span class="xmlref">DIInterDelay</span></td>
+<td>0...2<sup>32</sup> - 1</td>
+<td>Intermediate state reporting delay in milliseconds used when single status information objects are converted to double status objects. Intermediate state of the resulting DPI will not be reported if it doesn&#8217;t exceed configured delay. This attribute is used for DI objects which don&#8217;t have <a class="reference internal" href="#ref-iec10xsldi"><em>DI</em></a>.<a class="reference internal" href="#ref-iec10xsldiinterdelay"><em>InterDelay</em></a> attribute. (default value 10000 - event will be generated if Intermediate state lasts longer than 10 seconds)</td>
+</tr>
+<tr class="row-even"><td><span class="xmlref">DIIndetDelay</span></td>
+<td>0...2<sup>32</sup> - 1</td>
+<td>Indeterminate (error) state reporting delay in milliseconds used when single status information objects are converted to double status objects.  Indeterminate (error) state of the resulting DPI will not be reported if it doesn&#8217;t exceed configured delay. This attribute is used for DI objects which don&#8217;t have <a class="reference internal" href="#ref-iec10xsldi"><em>DI</em></a>.<a class="reference internal" href="#ref-iec10xsldiindetdelay"><em>IndetDelay</em></a> attribute. (default value 5000 - event will be generated if Indeterminate (error) state lasts longer than 5 seconds)</td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><span class="xmlref">DIEventStartup</span></td>
+<td>0</td>
+<td>DI events <strong>will not be</strong> generated when received from outstation for the first time after leandc startup. This setting masks only events received from an outstation. Internal events created by station Offline/Disabled changes will be generated as normal.</td>
+</tr>
+<tr class="row-even"><td>1</td>
+<td>DI events <strong>will be</strong> generated when received from outstation for the first time after leandc startup (default value)</td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><span class="xmlref">AIEventStartup</span></td>
+<td>0</td>
+<td>AI events <strong>will not be</strong> generated when received from outstation for the first time after leandc startup</td>
+</tr>
+<tr class="row-even"><td>1</td>
+<td>AI events <strong>will be</strong> generated when received from outstation for the first time after system leandc (default value)</td>
 </tr>
 <tr class="row-odd"><td rowspan="2"><p class="first last" id="ref-iec101slasdusettingstransptypes"><span class="xmlref">TranspTypes</span></p>
 </td>
@@ -12690,10 +12707,10 @@ element node.</p>
 </tr>
 <tr class="row-odd"><td rowspan="2"><span class="xmlref">ForwardGI</span></td>
 <td>0</td>
-<td><strong>Don&#8217;t forward</strong> General Interrogation command to downstream outstations when received from upstream station (e.g. SCACA)</td>
+<td><strong>Don&#8217;t forward</strong> General Interrogation command to downstream outstations when received from upstream station (e.g. SCADA)</td>
 </tr>
 <tr class="row-even"><td>1</td>
-<td><strong>Forward</strong> General Interrogation command to downstream outstations when received from upstream station (e.g. SCACA) (default value)</td>
+<td><strong>Forward</strong> General Interrogation command to downstream outstations when received from upstream station (e.g. SCADA) (default value)</td>
 </tr>
 </tbody>
 </table>
@@ -13031,7 +13048,7 @@ simply enter the name &#8216;<strong>IEC104sl_test.xml</strong>&#8216; in the <a
 </div>
 <p><a class="reference internal" href="#ref-iec10xslditable"><em>DITable</em></a>; <a class="reference internal" href="#ref-iec10xslaitable"><em>AITable</em></a>; <a class="reference internal" href="#ref-iec10xsldotable"><em>DOTable</em></a>; <a class="reference internal" href="#ref-iec10xslaotable"><em>AOTable</em></a> group nodes compose an IO object table and they are common for
 IEC60870-5-101 and IEC60870-5-104 controlled station (Slave) communication protocol instances. Please refer to the tables
-<a href="#ref-iec10xsldiattributes">5.1</a>; <a href="#ref-iec10xslaiattributes">5.5</a>; <a href="#ref-iec10xsldoattributes">5.9</a> and <a href="#ref-iec10xslaoattributes">5.13</a> for their attributes.</p>
+<a href="#ref-iec10xsldiattributes">5.1</a>; <a href="#ref-iec10xslaiattributes">5.6</a>; <a href="#ref-iec10xsldoattributes">5.10</a> and <a href="#ref-iec10xslaoattributes">5.14</a> for their attributes.</p>
 <div class="section" id="protocolcfg-group-node">
 <span id="ref-iec104slprotocolcfg"></span><h3>ProtocolCfg group node</h3>
 <p>Protocol-related settings of the IEC60870-5-104 controlled station (Slave) communication protocol instance are
@@ -13237,11 +13254,7 @@ element node.</p>
 <span id="docref-iec104slasdusettingsattr"></span><h4>ASDUSettings attributes</h4>
 <p>Application layer settings can be specified using attributes of <a class="reference internal" href="#ref-iec104slasdusettings"><em>ASDUSettings</em></a> element node.</p>
 <p>Please see sample <a class="reference internal" href="#ref-iec104slasdusettings"><em>ASDUSettings</em></a> node and the table listing all available attributes below.</p>
-<div class="highlight-none"><div class="highlight"><pre>&lt;ASDUSettings        InvalidEvent=&quot;1&quot;
-                     SUthroughoutDST=&quot;1&quot;
-                     DIEventType=&quot;31&quot;
-                     AIEventType=&quot;36&quot;
-                     TranspTypes=&quot;1&quot; /&gt;
+<div class="highlight-none"><div class="highlight"><pre>&lt;ASDUSettings InvalidEvent=&quot;1&quot; SUthroughoutDST=&quot;1&quot; DIEventType=&quot;31&quot; AIEventType=&quot;36&quot; DOType=&quot;46&quot; AOType=&quot;50&quot; DIInterDelay=&quot;8000&quot; DIIndetDelay=&quot;3500&quot; DIEventStartup=&quot;1&quot; AIEventStartup=&quot;1&quot; TranspTypes=&quot;1&quot; ForwardGI=&quot;1&quot; CommandLatency=&quot;300&quot; /&gt;
 </pre></div>
 </div>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="docref-iec104slasdusettingsattab">
@@ -13277,16 +13290,38 @@ element node.</p>
 <td>Use this ASDU type to send DI events which don&#8217;t have <a class="reference internal" href="#ref-iec10xsldi"><em>DI</em></a>.<a class="reference internal" href="#ref-iec10xslditypeid"><em>TypeID</em></a> attribute specified in their element node. This setting also affects ASDU type of the static data (e.g. Single or Double status information) reported to a General Interrogation request. (default value 30 – &#8216;Single-point Information&#8217;, DI event will be sent using ASDU type 30 [M_SP_TB_1], <strong>CP56time2A</strong>, full time)</td>
 </tr>
 <tr class="row-odd"><td><span class="xmlref">AIEventType</span></td>
-<td>See table <a href="#ref-iec10xslaitypeidvalues">5.7</a></td>
+<td>See table <a href="#ref-iec10xslaitypeidvalues">5.8</a></td>
 <td>Use this ASDU type to send AI events which don&#8217;t have <a class="reference internal" href="#ref-iec10xslai"><em>AI</em></a>.<a class="reference internal" href="#ref-iec10xslaitypeid"><em>TypeID</em></a> attribute specified in their element node. This setting also affects ASDU type of the static data (e.g. Normalized, Scaled, Short floating point) reported to a General Interrogation request. (default value 36 – &#8216;Short floating point&#8217;, AI event will be sent using ASDU type 36 [M_ME_TF_1], <strong>CP56time2A</strong>, full time)</td>
 </tr>
 <tr class="row-even"><td><span class="xmlref">DOType</span></td>
-<td>See table <a href="#ref-iec10xsldotypeidvalues">5.11</a></td>
+<td>See table <a href="#ref-iec10xsldotypeidvalues">5.12</a></td>
 <td>Only accept command if received with this ASDU Type (e.g. Single or Double command) if DO object doesn&#8217;t have <a class="reference internal" href="#ref-iec10xsldo"><em>DO</em></a>.<a class="reference internal" href="#ref-iec10xsldotypeid"><em>TypeID</em></a> attribute specified in the element node. (default value 0 – accept command with any ASDU type)</td>
 </tr>
 <tr class="row-odd"><td><span class="xmlref">AOType</span></td>
-<td>See table <a href="#ref-iec10xslaotypeidvalues">5.15</a></td>
+<td>See table <a href="#ref-iec10xslaotypeidvalues">5.16</a></td>
 <td>Only accept setpoint command if received with this ASDU Type (e.g. Normalized or Scaled setpoint) if AO object doesn&#8217;t have <a class="reference internal" href="#ref-iec10xslao"><em>AO</em></a>.<a class="reference internal" href="#ref-iec10xslaotypeid"><em>TypeID</em></a> attribute specified in the element node. (default value 0 – accept command with any ASDU type)</td>
+</tr>
+<tr class="row-even"><td><span class="xmlref">DIInterDelay</span></td>
+<td>0...2<sup>32</sup> - 1</td>
+<td>Intermediate state reporting delay in milliseconds used when single status information objects are converted to double status objects. Intermediate state of the resulting DPI will not be reported if it doesn&#8217;t exceed configured delay. This attribute is used for DI objects which don&#8217;t have <a class="reference internal" href="#ref-iec10xsldi"><em>DI</em></a>.<a class="reference internal" href="#ref-iec10xsldiinterdelay"><em>InterDelay</em></a> attribute. (default value 10000 - event will be generated if Intermediate state lasts longer than 10 seconds)</td>
+</tr>
+<tr class="row-odd"><td><span class="xmlref">DIIndetDelay</span></td>
+<td>0...2<sup>32</sup> - 1</td>
+<td>Indeterminate (error) state reporting delay in milliseconds used when single status information objects are converted to double status objects.  Indeterminate (error) state of the resulting DPI will not be reported if it doesn&#8217;t exceed configured delay. This attribute is used for DI objects which don&#8217;t have <a class="reference internal" href="#ref-iec10xsldi"><em>DI</em></a>.<a class="reference internal" href="#ref-iec10xsldiindetdelay"><em>IndetDelay</em></a> attribute. (default value 5000 - event will be generated if Indeterminate (error) state lasts longer than 5 seconds)</td>
+</tr>
+<tr class="row-even"><td rowspan="2"><span class="xmlref">DIEventStartup</span></td>
+<td>0</td>
+<td>DI events <strong>will not be</strong> generated when received from outstation for the first time after leandc startup. This setting masks only events received from an outstation. Internal events created by station Offline/Disabled changes will be generated as normal.</td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td>DI events <strong>will be</strong> generated when received from outstation for the first time after leandc startup (default value)</td>
+</tr>
+<tr class="row-even"><td rowspan="2"><span class="xmlref">AIEventStartup</span></td>
+<td>0</td>
+<td>AI events <strong>will not be</strong> generated when received from outstation for the first time after leandc startup</td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td>AI events <strong>will be</strong> generated when received from outstation for the first time after system leandc (default value)</td>
 </tr>
 <tr class="row-even"><td rowspan="2"><p class="first last" id="ref-iec104slasdusettingstransptypes"><span class="xmlref">TranspTypes</span></p>
 </td>
@@ -13298,10 +13333,10 @@ element node.</p>
 </tr>
 <tr class="row-even"><td rowspan="2"><span class="xmlref">ForwardGI</span></td>
 <td>0</td>
-<td><strong>Don&#8217;t forward</strong> General Interrogation command to downstream outstations when received from upstream station (e.g. SCACA)</td>
+<td><strong>Don&#8217;t forward</strong> General Interrogation command to downstream outstations when received from upstream station (e.g. SCADA)</td>
 </tr>
 <tr class="row-odd"><td>1</td>
-<td><strong>Forward</strong> General Interrogation command to downstream outstations when received from upstream station (e.g. SCACA) (default value)</td>
+<td><strong>Forward</strong> General Interrogation command to downstream outstations when received from upstream station (e.g. SCADA) (default value)</td>
 </tr>
 <tr class="row-even"><td><span class="xmlref">CommandLatency</span></td>
 <td>0...2<sup>32</sup> - 1</td>
@@ -13655,14 +13690,7 @@ There are 5 DI information objects configured using 4 <a class="reference intern
 </pre></div>
 </div>
 <p>Please see sample <a class="reference internal" href="#ref-iec10xsldi"><em>DI</em></a> element node below listing all available attributes.</p>
-<div class="highlight-none"><div class="highlight"><pre>&lt;DI  Device=&quot;10&quot;
-     Index=&quot;0&quot;
-     InfAddr=&quot;1&quot;
-     qualifier=&quot;0&quot;
-     GroupMask=&quot;0x0001&quot;
-     TypeID=&quot;30&quot;
-     Total=&quot;2&quot;
-     Name=&quot;CB position&quot; /&gt;
+<div class="highlight-none"><div class="highlight"><pre>&lt;DI Device=&quot;10&quot; Index=&quot;0&quot; InfAddr=&quot;1&quot; qualifier=&quot;0&quot; GroupMask=&quot;0x0001&quot; TypeID=&quot;30&quot; OffIndex=&quot;5&quot; InterDelay=&quot;8000&quot; IndetDelay=&quot;3500&quot; Total=&quot;2&quot; Name=&quot;CB position&quot; /&gt;
 </pre></div>
 </div>
 <div class="admonition tip">
@@ -13708,19 +13736,34 @@ There are 5 DI information objects configured using 4 <a class="reference intern
 <tr class="row-even"><td><p class="first last" id="ref-iec10xsldigroupmask"><span class="xmlref">GroupMask</span></p>
 </td>
 <td>0...0xFFFF</td>
-<td>Include object in Interrogation group/groups. Each bit of the group mask attribute needs to be set in order to include object in a particular interrogation group. Please refer to the table <a href="#ref-iec10xslgroupmask">5.8</a> for more information. (default value 0) <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
+<td>Include object in Interrogation group/groups. Each bit of the group mask attribute needs to be set in order to include object in a particular interrogation group. Please refer to the table <a href="#ref-iec10xslgroupmask">5.9</a> for more information. (default value 0) <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
 </tr>
 <tr class="row-odd"><td><p class="first last" id="ref-iec10xslditypeid"><span class="xmlref">TypeID</span></p>
 </td>
 <td>See table <a href="#ref-iec10xslditypeidvalues">5.3</a> for description</td>
 <td>Use this ASDU Type to send a DI event. Attribute also affects ASDU type of the static data (e.g. Single or Double status information) being reported to General interrogation request (default value depends on the protocol type, refer to table <a href="#ref-iec10xslditypeidvalues">5.3</a>). <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
 </tr>
-<tr class="row-even"><td><p class="first last" id="ref-iec10xslditotal"><span class="xmlref">Total</span></p>
+<tr class="row-even"><td><p class="first last" id="ref-iec10xsldioffindex"><span class="xmlref">OffIndex</span></p>
+</td>
+<td>-8...2<sup>32</sup> - 8</td>
+<td>DI object index of the second single point used as a source for conversion to double status indication. Resulting DI will be Double point and it will have ON value when source DI object specified in <a class="reference internal" href="#ref-iec10xsldiindex"><em>Index</em></a> attribute is ON. Resulting Double point will have OFF value when source DI object specified in this attribute is ON. See table <a href="#ref-iec10xsldispidpi">5.5</a> for additional information. (default value is equal to <a class="reference internal" href="#ref-iec10xsldiindex"><em>Index</em></a> attribute) <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, no conversion will take place if this attribute is omitted.</span></td>
+</tr>
+<tr class="row-odd"><td><p class="first last" id="ref-iec10xsldiinterdelay"><span class="xmlref">InterDelay</span></p>
+</td>
+<td>0...2<sup>32</sup> - 1</td>
+<td>Intermediate state reporting delay in milliseconds used when single status information objects are converted to double status objects. Intermediate state of the resulting DPI will not be reported if it doesn&#8217;t exceed configured delay. (default value 10000 - event will be generated if Intermediate state lasts longer than 10 seconds) <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
+</tr>
+<tr class="row-even"><td><p class="first last" id="ref-iec10xsldiindetdelay"><span class="xmlref">IndetDelay</span></p>
+</td>
+<td>0...2<sup>32</sup> - 1</td>
+<td>Indeterminate (error) state reporting delay in milliseconds used when single status information objects are converted to double status objects.  Indeterminate (error) state of the resulting DPI will not be reported if it doesn&#8217;t exceed configured delay. (default value 5000 - event will be generated if Indeterminate (error) state lasts longer than 5 seconds) <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
+</tr>
+<tr class="row-odd"><td><p class="first last" id="ref-iec10xslditotal"><span class="xmlref">Total</span></p>
 </td>
 <td>1...16777215</td>
 <td>Total number of information objects. Attribute is used to create sequence of information objects with consecutive <a class="reference internal" href="#ref-iec10xsldi"><em>DI</em></a>.<a class="reference internal" href="#ref-iec10xsldiindex"><em>Index</em></a> and <a class="reference internal" href="#ref-iec10xsldi"><em>DI</em></a>.<a class="reference internal" href="#ref-iec10xsldiinfaddr"><em>InfAddr</em></a> attribute values without a need to create individual <a class="reference internal" href="#ref-iec10xsldi"><em>DI</em></a> nodes for each information object. (default value 1; only 1 object is created with this <a class="reference internal" href="#ref-iec10xsldi"><em>DI</em></a> node) <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
 </tr>
-<tr class="row-odd"><td><p class="first last" id="ref-iec10xsldiname"><span class="xmlref">Name</span></p>
+<tr class="row-even"><td><p class="first last" id="ref-iec10xsldiname"><span class="xmlref">Name</span></p>
 </td>
 <td>Max 100 chars</td>
 <td>Freely configurable name, just for reference. <span class="inlinetip">Name attribute is optional and doesn&#8217;t have to be included in configuration.</span></td>
@@ -13776,6 +13819,13 @@ There are 5 DI information objects configured using 4 <a class="reference intern
 <tr class="row-even"><td>xxxx.1xxx</td>
 <td>DI object will be <strong>excluded</strong> from General Interrogation response</td>
 </tr>
+<tr class="row-odd"><td rowspan="2">Bit 5</td>
+<td>xx0x.xxxx</td>
+<td>Use time tag of the <strong>last</strong> change event of the 2 single DI objects which are converted to double status information. In transition ON-&gt;INTER-&gt;OFF time tag of the INTER-&gt;OFF event will be used.</td>
+</tr>
+<tr class="row-even"><td>xx1x.xxxx</td>
+<td>Use time tag of the <strong>first</strong> change event of the 2 single DI objects which are converted to double status information. In transition ON-&gt;INTER-&gt;OFF time tag of the ON-&gt;INTER event will be used.</td>
+</tr>
 <tr class="row-odd"><td rowspan="2">Bit 6</td>
 <td>x0xx.xxxx</td>
 <td><strong>All</strong> DI events will be sent upstream</td>
@@ -13790,7 +13840,7 @@ There are 5 DI information objects configured using 4 <a class="reference intern
 <tr class="row-even"><td>1xxx.xxxx</td>
 <td>DI is <strong>disabled</strong> and will not be sent upstream</td>
 </tr>
-<tr class="row-odd"><td>Bits 4;5</td>
+<tr class="row-odd"><td>Bit 4</td>
 <td>Any</td>
 <td>Bits reserved for future use</td>
 </tr>
@@ -13910,6 +13960,51 @@ distinguished from regular indexes used for linking.</p>
 </tbody>
 </table>
 </div>
+<div class="section" id="di-spi-dpi-conversion">
+<h4>DI SPI/DPI conversion</h4>
+<p>Single to double point conversion takes place if <a class="reference internal" href="#ref-iec10xsldioffindex"><em>OffIndex</em></a> attribute is used.
+Values of source DI objects and resulting DPI object are listed in the truth table below.</p>
+<table border="1" class="table table-condensed table-bordered longtable docutils" id="ref-iec10xsldispidpi">
+<caption><strong>Table 5.5 IEC 60870-5-101/104 Slave SPI/DPI truth table</strong></caption>
+<colgroup>
+<col width="18%" />
+<col width="18%" />
+<col width="64%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><strong>Value of </strong><a class="reference internal" href="#ref-iec10xsldiindex"><em>Index</em></a><strong> DI</strong></th>
+<th class="head"><strong>Value of </strong><a class="reference internal" href="#ref-iec10xsldioffindex"><em>OffIndex</em></a><strong> DI</strong></th>
+<th class="head"><strong>Resulting DPI</strong></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>OFF (0)</td>
+<td>OFF (0)</td>
+<td>Intermediate (0)</td>
+</tr>
+<tr class="row-odd"><td>OFF (0)</td>
+<td>ON (1)</td>
+<td>OFF (1)</td>
+</tr>
+<tr class="row-even"><td>ON (1)</td>
+<td>OFF (0)</td>
+<td>ON (2)</td>
+</tr>
+<tr class="row-odd"><td>ON (1)</td>
+<td>ON (1)</td>
+<td>Indeterminate (error) (3)</td>
+</tr>
+<tr class="row-even"><td>Other</td>
+<td>Other</td>
+<td>Indeterminate (error) (3)</td>
+</tr>
+</tbody>
+</table>
+<p>Intermediate and Indeterminate state reporting can be delayed using <a class="reference internal" href="#ref-iec10xsldiinterdelay"><em>InterDelay</em></a> and <a class="reference internal" href="#ref-iec10xsldiindetdelay"><em>IndetDelay</em></a> attributes respectively.
+If ON-&gt;INTER-&gt;OFF or OFF-&gt;INTER-&gt;ON transition successfully completes before <a class="reference internal" href="#ref-iec10xsldiinterdelay"><em>InterDelay</em></a> timer expiration, Intermediate state will not be reported.
+Delay setting has to be carefully selected to ensure it always exceeds time required for ON-&gt;INTER-&gt;OFF or OFF-&gt;INTER-&gt;ON transitions to complete, to take advantage of this functionality.
+If delay attributes are set 0 Intermediate and Indeterminate states will be reported as soon as values of source DI objects become those listed in the table above.</p>
+</div>
 </div>
 <div class="section" id="aitable-group-and-ai-node">
 <span id="ref-iec10xslai"></span><span id="ref-iec10xslaitable"></span><span id="docref-iec10xslaitable"></span><h3>AITable group and AI node</h3>
@@ -13934,20 +14029,7 @@ configured using 4 <a class="reference internal" href="#ref-iec10xslai"><em>AI</
 </pre></div>
 </div>
 <p>Please see sample <a class="reference internal" href="#ref-iec10xslai"><em>AI</em></a> element node below listing all available attributes.</p>
-<div class="highlight-none"><div class="highlight"><pre>&lt;AI  Device=&quot;10&quot;
-     Index=&quot;2&quot;
-     InfAddr=&quot;3&quot;
-     qualifier=&quot;0&quot;
-     Coeff=&quot;100.0&quot;
-     StartOffset=&quot;6554&quot;
-     ZeroDeadband=&quot;5.0&quot;
-     Offset=&quot;-2.0&quot;
-     OffsetDeadband=&quot;2.0&quot;
-     NonZeroOffset=&quot;200.0&quot;
-     GroupMask=&quot;0x0002&quot;
-     TypeID=&quot;13&quot;
-     Total=&quot;2&quot;
-     Name=&quot;Feeder current&quot; /&gt;
+<div class="highlight-none"><div class="highlight"><pre>&lt;AI Device=&quot;10&quot; Index=&quot;2&quot; InfAddr=&quot;3&quot; qualifier=&quot;0&quot; Coeff=&quot;100.0&quot; StartOffset=&quot;6554&quot; ZeroDeadband=&quot;5.0&quot; Offset=&quot;-2.0&quot; OffsetDeadband=&quot;2.0&quot; NonZeroOffset=&quot;200.0&quot; GroupMask=&quot;0x0002&quot; TypeID=&quot;13&quot; Total=&quot;2&quot; Name=&quot;Feeder current&quot; /&gt;
 </pre></div>
 </div>
 <div class="admonition tip">
@@ -13957,7 +14039,7 @@ configured using 4 <a class="reference internal" href="#ref-iec10xslai"><em>AI</
 <div class="section" id="ai-attributes">
 <h4>AI attributes</h4>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="ref-iec10xslaiattributes">
-<caption><strong>Table 5.5 IEC 60870-5-101/104 Slave AI attributes</strong></caption>
+<caption><strong>Table 5.6 IEC 60870-5-101/104 Slave AI attributes</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="15%" />
@@ -13987,8 +14069,8 @@ configured using 4 <a class="reference internal" href="#ref-iec10xslai"><em>AI</
 </tr>
 <tr class="row-odd"><td><p class="first last" id="ref-iec10xslaiqualifier"><span class="xmlref">qualifier</span></p>
 </td>
-<td>See table <a href="#ref-iec10xslaiqualifierbits">5.6</a> for description</td>
-<td>Internal object qualifier to enable customized data processing. See table <a href="#ref-iec10xslaiqualifierbits">5.6</a> for internal object qualifier description. (default value 0) <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
+<td>See table <a href="#ref-iec10xslaiqualifierbits">5.7</a> for description</td>
+<td>Internal object qualifier to enable customized data processing. See table <a href="#ref-iec10xslaiqualifierbits">5.7</a> for internal object qualifier description. (default value 0) <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
 </tr>
 <tr class="row-even"><td><p class="first last" id="ref-iec10xslaicoeff"><span class="xmlref">Coeff</span></p>
 </td>
@@ -14023,12 +14105,12 @@ configured using 4 <a class="reference internal" href="#ref-iec10xslai"><em>AI</
 <tr class="row-even"><td><p class="first last" id="ref-iec10xslaigroupmask"><span class="xmlref">GroupMask</span></p>
 </td>
 <td>0...0xFFFF</td>
-<td>Include object in Interrogation group/groups. Each bit of the group mask attribute needs to be set in order to include object in a particular interrogation group. Please refer to the table <a href="#ref-iec10xslgroupmask">5.8</a> for more information. (default value 0) <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
+<td>Include object in Interrogation group/groups. Each bit of the group mask attribute needs to be set in order to include object in a particular interrogation group. Please refer to the table <a href="#ref-iec10xslgroupmask">5.9</a> for more information. (default value 0) <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
 </tr>
 <tr class="row-odd"><td><p class="first last" id="ref-iec10xslaitypeid"><span class="xmlref">TypeID</span></p>
 </td>
-<td>See table <a href="#ref-iec10xslaitypeidvalues">5.7</a> for description</td>
-<td>Use this ASDU Type to send a AI event. Attribute also affects ASDU type of the static data (e.g. Normalized, Scaled, Short floating point value) being reported to General interrogation request (default value depends on the protocol type, refer to table <a href="#ref-iec10xslaitypeidvalues">5.7</a>). <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
+<td>See table <a href="#ref-iec10xslaitypeidvalues">5.8</a> for description</td>
+<td>Use this ASDU Type to send a AI event. Attribute also affects ASDU type of the static data (e.g. Normalized, Scaled, Short floating point value) being reported to General interrogation request (default value depends on the protocol type, refer to table <a href="#ref-iec10xslaitypeidvalues">5.8</a>). <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
 </tr>
 <tr class="row-even"><td><p class="first last" id="ref-iec10xslaitotal"><span class="xmlref">Total</span></p>
 </td>
@@ -14052,7 +14134,7 @@ for additional information on AI scaling and application examples using <a class
 <div class="section" id="ai-qualifier">
 <h4>AI.qualifier</h4>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="ref-iec10xslaiqualifierbits">
-<caption><strong>Table 5.6 IEC 60870-5-101/104 Slave AI internal qualifier</strong></caption>
+<caption><strong>Table 5.7 IEC 60870-5-101/104 Slave AI internal qualifier</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="10%" />
@@ -14126,7 +14208,7 @@ for additional information on AI scaling and application examples using <a class
 <div class="section" id="ai-typeid">
 <h4>AI.TypeID</h4>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="ref-iec10xslaitypeidvalues">
-<caption><strong>Table 5.7 IEC 60870-5-101/104 Slave AI TypeID</strong></caption>
+<caption><strong>Table 5.8 IEC 60870-5-101/104 Slave AI TypeID</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="10%" />
@@ -14205,7 +14287,7 @@ be reported to the upstream Master station, object is being converted just befor
 <div class="section" id="di-ai-groupmask">
 <h3>DI/AI.GroupMask</h3>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="ref-iec10xslgroupmask">
-<caption><strong>Table 5.8 IEC 60870-5-101/104 Slave DI/AI GroupMask</strong></caption>
+<caption><strong>Table 5.9 IEC 60870-5-101/104 Slave DI/AI GroupMask</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="10%" />
@@ -14366,15 +14448,7 @@ objects configured using 4 <a class="reference internal" href="#ref-iec10xsldo">
 </pre></div>
 </div>
 <p>Please see sample <a class="reference internal" href="#ref-iec10xsldo"><em>DO</em></a> element node below listing all available attributes.</p>
-<div class="highlight-none"><div class="highlight"><pre>&lt;DO  Device=&quot;10&quot;
-     Index=&quot;2&quot;
-     InfAddr=&quot;4&quot;
-     qualifier=&quot;0x10&quot;
-     Policy=&quot;0&quot;
-     TypeID=&quot;0&quot;
-     OffIndex=&quot;33&quot;
-     Total=&quot;2&quot;
-     Name=&quot;CB command&quot; /&gt;
+<div class="highlight-none"><div class="highlight"><pre>&lt;DO Device=&quot;10&quot; Index=&quot;2&quot; InfAddr=&quot;4&quot; qualifier=&quot;0x10&quot; Policy=&quot;0&quot; TypeID=&quot;0&quot; OffIndex=&quot;33&quot; Total=&quot;2&quot; Name=&quot;CB command&quot; /&gt;
 </pre></div>
 </div>
 <div class="admonition tip">
@@ -14384,7 +14458,7 @@ objects configured using 4 <a class="reference internal" href="#ref-iec10xsldo">
 <div class="section" id="do-attributes">
 <h4>DO attributes</h4>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="ref-iec10xsldoattributes">
-<caption><strong>Table 5.9 IEC 60870-5-101/104 Slave DO attributes</strong></caption>
+<caption><strong>Table 5.10 IEC 60870-5-101/104 Slave DO attributes</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="15%" />
@@ -14405,7 +14479,7 @@ objects configured using 4 <a class="reference internal" href="#ref-iec10xsldo">
 <tr class="row-odd"><td><p class="first last" id="ref-iec10xsldoindex"><span class="xmlref">Index</span></p>
 </td>
 <td>-8...2<sup>32</sup> - 8</td>
-<td>Destination DO object. Any DO element node of the selected Master protocol instance can be used as a destination. Use value of the <a class="reference internal" href="#ref-iec10xmado"><em>DO</em></a>.<a class="reference internal" href="#ref-iec10xmadoindex"><em>Index</em></a> attribute of any DO element node listed in the IO table of the selected Master protocol instance. Apart from regular indexes, there are some Service index values available, those are designed to control the linked Master protocol instance. Service index values are summarized in the table <a href="#ref-iec10xsldoserviceindexvalues">5.12</a>. <span class="inlinetip">Indexes don&#8217;t have to be arranged in an ascending order.</span></td>
+<td>Destination DO object. Any DO element node of the selected Master protocol instance can be used as a destination. Use value of the <a class="reference internal" href="#ref-iec10xmado"><em>DO</em></a>.<a class="reference internal" href="#ref-iec10xmadoindex"><em>Index</em></a> attribute of any DO element node listed in the IO table of the selected Master protocol instance. Apart from regular indexes, there are some Service index values available, those are designed to control the linked Master protocol instance. Service index values are summarized in the table <a href="#ref-iec10xsldoserviceindexvalues">5.13</a>. <span class="inlinetip">Indexes don&#8217;t have to be arranged in an ascending order.</span></td>
 </tr>
 <tr class="row-even"><td><p class="first last" id="ref-iec10xsldoinfaddr"><span class="xmlref">InfAddr</span></p>
 </td>
@@ -14414,17 +14488,17 @@ objects configured using 4 <a class="reference internal" href="#ref-iec10xsldo">
 </tr>
 <tr class="row-odd"><td><p class="first last" id="ref-iec10xsldoqualifier"><span class="xmlref">qualifier</span></p>
 </td>
-<td>See table <a href="#ref-iec10xsldoqualifierbits">5.10</a> for description</td>
-<td>Internal object qualifier to enable customized data processing. See table <a href="#ref-iec10xsldoqualifierbits">5.10</a> for internal object qualifier description. (default value 0) <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
+<td>See table <a href="#ref-iec10xsldoqualifierbits">5.11</a> for description</td>
+<td>Internal object qualifier to enable customized data processing. See table <a href="#ref-iec10xsldoqualifierbits">5.11</a> for internal object qualifier description. (default value 0) <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
 </tr>
 <tr class="row-even"><td><p class="first last" id="ref-iec10xsldopolicy"><span class="xmlref">Policy</span></p>
 </td>
 <td>0...255</td>
-<td>Command execution policy, see table <a href="#ref-iec10xslpolicy">5.16</a> for description. (default value 0) <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
+<td>Command execution policy, see table <a href="#ref-iec10xslpolicy">5.17</a> for description. (default value 0) <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
 </tr>
 <tr class="row-odd"><td><p class="first last" id="ref-iec10xsldotypeid"><span class="xmlref">TypeID</span></p>
 </td>
-<td>See table <a href="#ref-iec10xsldotypeidvalues">5.11</a> for description</td>
+<td>See table <a href="#ref-iec10xsldotypeidvalues">5.12</a> for description</td>
 <td>Only accept command if received with this ASDU Type. Value 0 disables incoming command ASDU type checking and any command is accepted. (default value 0) <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
 </tr>
 <tr class="row-even"><td><p class="first last" id="ref-iec10xsldooffindex"><span class="xmlref">OffIndex</span></p>
@@ -14448,7 +14522,7 @@ objects configured using 4 <a class="reference internal" href="#ref-iec10xsldo">
 <div class="section" id="do-qualifier">
 <h4>DO.qualifier</h4>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="ref-iec10xsldoqualifierbits">
-<caption><strong>Table 5.10 IEC 60870-5-101/104 Slave DO internal qualifier</strong></caption>
+<caption><strong>Table 5.11 IEC 60870-5-101/104 Slave DO internal qualifier</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="10%" />
@@ -14502,7 +14576,7 @@ objects configured using 4 <a class="reference internal" href="#ref-iec10xsldo">
 <div class="section" id="do-typeid">
 <h4>DO.TypeID</h4>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="ref-iec10xsldotypeidvalues">
-<caption><strong>Table 5.11 IEC 60870-5-101/104 Slave DO TypeID</strong></caption>
+<caption><strong>Table 5.12 IEC 60870-5-101/104 Slave DO TypeID</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="90%" />
@@ -14545,7 +14619,7 @@ Only time-tagged &#8216;Regulating step command&#8217; will be accepted and proc
 <p>There are some Service DO indexes available allowing to control operation of the Master protocol instance.
 These indexes have negative decimal values to easily separate them from regular indexes used for linking.</p>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="ref-iec10xsldoserviceindexvalues">
-<caption><strong>Table 5.12 IEC 60870-5-101/104 Slave Service DO indexes</strong></caption>
+<caption><strong>Table 5.13 IEC 60870-5-101/104 Slave Service DO indexes</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="10%" />
@@ -14616,15 +14690,7 @@ objects configured using 4 <a class="reference internal" href="#ref-iec10xslao">
 </pre></div>
 </div>
 <p>Please see sample <a class="reference internal" href="#ref-iec10xslao"><em>AO</em></a> element node below listing all available attributes.</p>
-<div class="highlight-none"><div class="highlight"><pre>&lt;AO  Device=&quot;10&quot;
-     Index=&quot;2&quot;
-     InfAddr=&quot;4&quot;
-     qualifier=&quot;0x80&quot;
-     Coeff=&quot;15.3&quot;
-     Policy=&quot;0&quot;
-     TypeID=&quot;0&quot;
-     Total=&quot;2&quot;
-     Name=&quot;Filtering value&quot; /&gt;
+<div class="highlight-none"><div class="highlight"><pre>&lt;AO Device=&quot;10&quot; Index=&quot;2&quot; InfAddr=&quot;4&quot; qualifier=&quot;0x80&quot; Coeff=&quot;15.3&quot; Policy=&quot;0&quot; TypeID=&quot;0&quot; Total=&quot;2&quot; Name=&quot;Filter value&quot; /&gt;
 </pre></div>
 </div>
 <div class="admonition tip">
@@ -14634,7 +14700,7 @@ objects configured using 4 <a class="reference internal" href="#ref-iec10xslao">
 <div class="section" id="ao-attributes">
 <h4>AO attributes</h4>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="ref-iec10xslaoattributes">
-<caption><strong>Table 5.13 IEC 60870-5-101/104 Slave AO attributes</strong></caption>
+<caption><strong>Table 5.14 IEC 60870-5-101/104 Slave AO attributes</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="15%" />
@@ -14664,8 +14730,8 @@ objects configured using 4 <a class="reference internal" href="#ref-iec10xslao">
 </tr>
 <tr class="row-odd"><td><p class="first last" id="ref-iec10xslaoqualifier"><span class="xmlref">qualifier</span></p>
 </td>
-<td>See table <a href="#ref-iec10xslaoqualifierbits">5.14</a> for description</td>
-<td>Internal object qualifier to enable customized data processing. See table <a href="#ref-iec10xslaoqualifierbits">5.14</a> for internal object qualifier description. (default value 0) <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
+<td>See table <a href="#ref-iec10xslaoqualifierbits">5.15</a> for description</td>
+<td>Internal object qualifier to enable customized data processing. See table <a href="#ref-iec10xslaoqualifierbits">5.15</a> for internal object qualifier description. (default value 0) <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
 </tr>
 <tr class="row-even"><td><p class="first last" id="ref-iec10xslaocoeff"><span class="xmlref">Coeff</span></p>
 </td>
@@ -14675,11 +14741,11 @@ objects configured using 4 <a class="reference internal" href="#ref-iec10xslao">
 <tr class="row-odd"><td><p class="first last" id="ref-iec10xslaopolicy"><span class="xmlref">Policy</span></p>
 </td>
 <td>0...255</td>
-<td>Command execution policy, see table <a href="#ref-iec10xslpolicy">5.16</a> for description. (default value 0) <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
+<td>Command execution policy, see table <a href="#ref-iec10xslpolicy">5.17</a> for description. (default value 0) <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
 </tr>
 <tr class="row-even"><td><p class="first last" id="ref-iec10xslaotypeid"><span class="xmlref">TypeID</span></p>
 </td>
-<td>See table <a href="#ref-iec10xslaotypeidvalues">5.15</a> for description</td>
+<td>See table <a href="#ref-iec10xslaotypeidvalues">5.16</a> for description</td>
 <td>Only accept command if received with this ASDU Type. Value 0 disables incoming command ASDU type checking and any command is accepted. (default value 0) <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
 </tr>
 <tr class="row-odd"><td><p class="first last" id="ref-iec10xslaototal"><span class="xmlref">Total</span></p>
@@ -14698,7 +14764,7 @@ objects configured using 4 <a class="reference internal" href="#ref-iec10xslao">
 <div class="section" id="ao-qualifier">
 <h4>AO.qualifier</h4>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="ref-iec10xslaoqualifierbits">
-<caption><strong>Table 5.14 IEC 60870-5-101/104 Slave AO internal qualifier</strong></caption>
+<caption><strong>Table 5.15 IEC 60870-5-101/104 Slave AO internal qualifier</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="10%" />
@@ -14745,7 +14811,7 @@ objects configured using 4 <a class="reference internal" href="#ref-iec10xslao">
 <div class="section" id="ao-typeid">
 <h4>AO.TypeID</h4>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="ref-iec10xslaotypeidvalues">
-<caption><strong>Table 5.15 IEC 60870-5-101/104 Slave AO TypeID</strong></caption>
+<caption><strong>Table 5.16 IEC 60870-5-101/104 Slave AO TypeID</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="90%" />
@@ -14787,7 +14853,7 @@ Only time-tagged &#8216;Short floating point setpoint command&#8217; will be acc
 <div class="section" id="do-ao-policy">
 <h3>DO/AO.Policy</h3>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="ref-iec10xslpolicy">
-<caption><strong>Table 5.16 IEC 60870-5-101/104 Slave command execution policy</strong></caption>
+<caption><strong>Table 5.17 IEC 60870-5-101/104 Slave command execution policy</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="90%" />
@@ -14857,7 +14923,7 @@ attribute and remaining objects will be initialized sequentially. <a class="refe
 <p class="last">Attributes of the <a class="reference internal" href="#ref-iec10xslauto"><em>AUTO</em></a> element node can be arranged in any order, it will not affect the XML file validation.</p>
 </div>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="ref-iec10xslautoattributes">
-<caption><strong>Table 5.17 IEC 60870-5-101/104 Slave AUTO attributes</strong></caption>
+<caption><strong>Table 5.18 IEC 60870-5-101/104 Slave AUTO attributes</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="15%" />
@@ -14902,33 +14968,33 @@ attribute and remaining objects will be initialized sequentially. <a class="refe
 </tr>
 <tr class="row-even"><td><p class="first last" id="ref-iec10xslautoaiqual"><span class="xmlref">AIqual</span></p>
 </td>
-<td>See table <a href="#ref-iec10xslaiqualifierbits">5.6</a> for description</td>
-<td>Internal AI object qualifier to enable customized data processing. See table <a href="#ref-iec10xslaiqualifierbits">5.6</a> for internal object qualifier description. (default value 0) <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
+<td>See table <a href="#ref-iec10xslaiqualifierbits">5.7</a> for description</td>
+<td>Internal AI object qualifier to enable customized data processing. See table <a href="#ref-iec10xslaiqualifierbits">5.7</a> for internal object qualifier description. (default value 0) <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
 </tr>
 <tr class="row-odd"><td><p class="first last" id="ref-iec10xslautodoqual"><span class="xmlref">DOqual</span></p>
 </td>
-<td>See table <a href="#ref-iec10xsldoqualifierbits">5.10</a> for description</td>
-<td>Internal DO object qualifier to enable customized data processing. See table <a href="#ref-iec10xsldoqualifierbits">5.10</a> for internal object qualifier description. (default value 0) <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
+<td>See table <a href="#ref-iec10xsldoqualifierbits">5.11</a> for description</td>
+<td>Internal DO object qualifier to enable customized data processing. See table <a href="#ref-iec10xsldoqualifierbits">5.11</a> for internal object qualifier description. (default value 0) <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
 </tr>
 <tr class="row-even"><td><p class="first last" id="ref-iec10xslautoaoqual"><span class="xmlref">AOqual</span></p>
 </td>
-<td>See table <a href="#ref-iec10xslaoqualifierbits">5.14</a> for description</td>
-<td>Internal AO object qualifier to enable customized data processing. See table <a href="#ref-iec10xslaoqualifierbits">5.14</a> for internal object qualifier description. (default value 0) <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
+<td>See table <a href="#ref-iec10xslaoqualifierbits">5.15</a> for description</td>
+<td>Internal AO object qualifier to enable customized data processing. See table <a href="#ref-iec10xslaoqualifierbits">5.15</a> for internal object qualifier description. (default value 0) <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
 </tr>
 <tr class="row-odd"><td><p class="first last" id="ref-iec10xslautodigroupmask"><span class="xmlref">DIGroupMask</span></p>
 </td>
 <td>0...0xFFFF</td>
-<td>Include DI objects in Interrogation group/groups. Each bit of the group mask attribute needs to be set in order to include object in a particular interrogation group. Please refer to the table <a href="#ref-iec10xslgroupmask">5.8</a> for more information. (default value 0) <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
+<td>Include DI objects in Interrogation group/groups. Each bit of the group mask attribute needs to be set in order to include object in a particular interrogation group. Please refer to the table <a href="#ref-iec10xslgroupmask">5.9</a> for more information. (default value 0) <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
 </tr>
 <tr class="row-even"><td><p class="first last" id="ref-iec10xslautoaigroupmask"><span class="xmlref">AIGroupMask</span></p>
 </td>
 <td>0...0xFFFF</td>
-<td>Include AI objects in Interrogation group/groups. Each bit of the group mask attribute needs to be set in order to include object in a particular interrogation group. Please refer to the table <a href="#ref-iec10xslgroupmask">5.8</a> for more information. (default value 0) <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
+<td>Include AI objects in Interrogation group/groups. Each bit of the group mask attribute needs to be set in order to include object in a particular interrogation group. Please refer to the table <a href="#ref-iec10xslgroupmask">5.9</a> for more information. (default value 0) <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
 </tr>
 <tr class="row-odd"><td><p class="first last" id="ref-iec10xslautopolicy"><span class="xmlref">Policy</span></p>
 </td>
 <td>0...255</td>
-<td>Command execution policy, see table <a href="#ref-iec10xslpolicy">5.16</a> for description. (default value 0) <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
+<td>Command execution policy, see table <a href="#ref-iec10xslpolicy">5.17</a> for description. (default value 0) <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
 </tr>
 <tr class="row-even"><td><p class="first last" id="ref-iec10xslautocommsonlineaddr"><span class="xmlref">CommsOnlineAddr</span></p>
 </td>
@@ -15238,20 +15304,7 @@ element node.</p>
 <span id="docref-iec101maasdusettingsattr"></span><h4>ASDUSettings attributes</h4>
 <p>Application layer settings can be specified using attributes of <a class="reference internal" href="#ref-iec101maasdusettings"><em>ASDUSettings</em></a> element node.</p>
 <p>Please see sample <a class="reference internal" href="#ref-iec101maasdusettings"><em>ASDUSettings</em></a> node and the table listing all available attributes below.</p>
-<div class="highlight-none"><div class="highlight"><pre>&lt;ASDUSettings  COTSize=&quot;1&quot;
-               CAASize=&quot;1&quot;
-               IOASize=&quot;2&quot;
-               InvalidEvent=&quot;1&quot;
-               IgnoreTimetags=&quot;1&quot;
-               SUthroughoutDST=&quot;1&quot;
-               AIDeadband=&quot;2&quot;
-               AIPercent=&quot;0.5&quot;
-               DOQOC=&quot;1&quot;
-               DOType=&quot;46&quot;
-               AOType=&quot;50&quot;
-               DIEventStartup=&quot;1&quot;
-               AIEventStartup=&quot;1&quot;
-               ForwardGI=&quot;1&quot; /&gt;
+<div class="highlight-none"><div class="highlight"><pre>&lt;ASDUSettings COTSize=&quot;1&quot; CAASize=&quot;1&quot; IOASize=&quot;2&quot; InvalidEvent=&quot;1&quot; IgnoreTimetags=&quot;1&quot; SUthroughoutDST=&quot;1&quot; AIDeadband=&quot;2&quot; AIPercent=&quot;0.5&quot; DOQOC=&quot;1&quot; DOType=&quot;46&quot; AOType=&quot;50&quot; DIEventStartup=&quot;1&quot; AIEventStartup=&quot;1&quot; ForwardGI=&quot;1&quot; /&gt;
 </pre></div>
 </div>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="docref-iec101maasdusettingsattab">
@@ -15345,10 +15398,10 @@ element node.</p>
 </tr>
 <tr class="row-even"><td rowspan="2"><span class="xmlref">ForwardGI</span></td>
 <td>0</td>
-<td><strong>Don&#8217;t forward</strong> General Interrogation command to downstream outstations when received from upstream station (e.g. SCACA)</td>
+<td><strong>Don&#8217;t forward</strong> General Interrogation command to downstream outstations when received from upstream station (e.g. SCADA)</td>
 </tr>
 <tr class="row-odd"><td>1</td>
-<td><strong>Forward</strong> General Interrogation command to downstream outstations when received from upstream station (e.g. SCACA) (default value)</td>
+<td><strong>Forward</strong> General Interrogation command to downstream outstations when received from upstream station (e.g. SCADA) (default value)</td>
 </tr>
 </tbody>
 </table>
@@ -15928,17 +15981,7 @@ element node.</p>
 <span id="docref-iec104maasdusettingsattr"></span><h4>ASDUSettings attributes</h4>
 <p>Application layer settings can be specified using attributes of <a class="reference internal" href="#ref-iec104maasdusettings"><em>ASDUSettings</em></a> element node.</p>
 <p>Please see sample <a class="reference internal" href="#ref-iec104maasdusettings"><em>ASDUSettings</em></a> node and the table listing all available attributes below.</p>
-<div class="highlight-none"><div class="highlight"><pre>&lt;ASDUSettings  InvalidEvent=&quot;1&quot;
-               IgnoreTimetags=&quot;1&quot;
-               SUthroughoutDST=&quot;1&quot;
-               AIDeadband=&quot;2&quot;
-               AIPercent=&quot;0.5&quot;
-               DOQOC=&quot;1&quot;
-               DOType=&quot;46&quot;
-               AOType=&quot;50&quot;
-               DIEventStartup=&quot;1&quot;
-               AIEventStartup=&quot;1&quot;
-               ForwardGI=&quot;1&quot; /&gt;
+<div class="highlight-none"><div class="highlight"><pre>&lt;ASDUSettings InvalidEvent=&quot;1&quot; IgnoreTimetags=&quot;1&quot; SUthroughoutDST=&quot;1&quot; AIDeadband=&quot;2&quot; AIPercent=&quot;0.5&quot; DOQOC=&quot;1&quot; DOType=&quot;46&quot; AOType=&quot;50&quot; DIEventStartup=&quot;1&quot; AIEventStartup=&quot;1&quot; ForwardGI=&quot;1&quot; /&gt;
 </pre></div>
 </div>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="docref-iec104maasdusettingsattab">
@@ -16017,10 +16060,10 @@ element node.</p>
 </tr>
 <tr class="row-odd"><td rowspan="2"><span class="xmlref">ForwardGI</span></td>
 <td>0</td>
-<td><strong>Don&#8217;t forward</strong> General Interrogation command to downstream outstations when received from upstream station (e.g. SCACA)</td>
+<td><strong>Don&#8217;t forward</strong> General Interrogation command to downstream outstations when received from upstream station (e.g. SCADA)</td>
 </tr>
 <tr class="row-even"><td>1</td>
-<td><strong>Forward</strong> General Interrogation command to downstream outstations when received from upstream station (e.g. SCACA) (default value)</td>
+<td><strong>Forward</strong> General Interrogation command to downstream outstations when received from upstream station (e.g. SCADA) (default value)</td>
 </tr>
 </tbody>
 </table>
@@ -16313,12 +16356,7 @@ configured using 4 <a class="reference internal" href="#ref-iec10xmadi"><em>DI</
 </pre></div>
 </div>
 <p>Please see sample <a class="reference internal" href="#ref-iec10xmadi"><em>DI</em></a> element node below listing all available attributes.</p>
-<div class="highlight-none"><div class="highlight"><pre>&lt;DI  Index=&quot;0&quot;
-     InfAddr=&quot;1&quot;
-     qualifier=&quot;0&quot;
-     TypeID=&quot;31&quot;
-     Total=&quot;2&quot;
-     Name=&quot;CB position&quot; /&gt;
+<div class="highlight-none"><div class="highlight"><pre>&lt;DI Index=&quot;0&quot; InfAddr=&quot;1&quot; qualifier=&quot;0&quot; TypeID=&quot;31&quot; Total=&quot;2&quot; Name=&quot;CB position&quot; /&gt;
 </pre></div>
 </div>
 <div class="admonition tip">
@@ -16413,7 +16451,7 @@ configured using 4 <a class="reference internal" href="#ref-iec10xmadi"><em>DI</
 <td>DI event is generated <strong>only</strong> when object state is changed</td>
 </tr>
 <tr class="row-even"><td>xxxx.x1xx</td>
-<td>DI event is generated <strong>every time</strong> it is received from outstation. Invalid [IV] flag is automatically cleared from these DI objects when outstation becomes online ensuring they are are always valid. <span class="inlinetip">This option is only used for backward compatibility.</span></td>
+<td>DI event is generated <strong>every time</strong> object is received from outstation. Invalid [IV] flag is automatically cleared from these DI objects when outstation goes online which ensures they are always valid. <span class="inlinetip">This option is only used for backward compatibility.</span></td>
 </tr>
 <tr class="row-odd"><td rowspan="2">Bit 3</td>
 <td>xxxx.0xxx</td>
@@ -16518,20 +16556,7 @@ configured using 4 <a class="reference internal" href="#ref-iec10xmaai"><em>AI</
 </pre></div>
 </div>
 <p>Please see sample <a class="reference internal" href="#ref-iec10xmaai"><em>AI</em></a> element node below listing all available attributes.</p>
-<div class="highlight-none"><div class="highlight"><pre>&lt;AI  Index=&quot;0&quot;
-     InfAddr=&quot;1&quot;
-     qualifier=&quot;0x20&quot;
-     Coeff=&quot;1.0&quot;
-     Deadband=&quot;0.5&quot;
-     Percent=&quot;0&quot;
-     StartOffset=&quot;6554&quot;
-     ZeroDeadband=&quot;3.0&quot;
-     Offset=&quot;-2.0&quot;
-     OffsetDeadband=&quot;2.0&quot;
-     NonZeroOffset=&quot;200.0&quot;
-     TypeID=&quot;36&quot;
-     Total=&quot;2&quot;
-     Name=&quot;Feeder current&quot; /&gt;
+<div class="highlight-none"><div class="highlight"><pre>&lt;AI Index=&quot;0&quot; InfAddr=&quot;1&quot; qualifier=&quot;0x20&quot; Coeff=&quot;1.0&quot; Deadband=&quot;0.5&quot; Percent=&quot;0&quot; StartOffset=&quot;6554&quot; ZeroDeadband=&quot;3.0&quot; Offset=&quot;-2.0&quot; OffsetDeadband=&quot;2.0&quot; NonZeroOffset=&quot;200.0&quot; TypeID=&quot;36&quot; Total=&quot;2&quot; Name=&quot;Feeder current&quot; /&gt;
 </pre></div>
 </div>
 <div class="admonition tip">
@@ -16801,13 +16826,7 @@ objects configured using 4 <a class="reference internal" href="#ref-iec10xmado">
 </pre></div>
 </div>
 <p>Please see sample <a class="reference internal" href="#ref-iec10xmado"><em>DO</em></a> element node below listing all available attributes.</p>
-<div class="highlight-none"><div class="highlight"><pre>&lt;DO  Index=&quot;0&quot;
-     InfAddr=&quot;1&quot;
-     qualifier=&quot;0x00&quot;
-     QOC=&quot;0&quot;
-     TypeID=&quot;46&quot;
-     Total=&quot;2&quot;
-     Name=&quot;CB command&quot; /&gt;
+<div class="highlight-none"><div class="highlight"><pre>&lt;DO Index=&quot;0&quot; InfAddr=&quot;1&quot; qualifier=&quot;0x00&quot; QOC=&quot;0&quot; TypeID=&quot;46&quot; Total=&quot;2&quot; Name=&quot;CB command&quot; /&gt;
 </pre></div>
 </div>
 <div class="admonition tip">
@@ -17019,13 +17038,7 @@ objects configured using 4 <a class="reference internal" href="#ref-iec10xmaao">
 </pre></div>
 </div>
 <p>Please see sample <a class="reference internal" href="#ref-iec10xmaao"><em>AO</em></a> element node below listing all available attributes.</p>
-<div class="highlight-none"><div class="highlight"><pre>&lt;AO  Index=&quot;0&quot;
-     InfAddr=&quot;1&quot;
-     qualifier=&quot;0x00&quot;
-     Coeff=&quot;11.6&quot;
-     TypeID=&quot;50&quot;
-     Total=&quot;2&quot;
-     Name=&quot;Filtering value&quot; /&gt;
+<div class="highlight-none"><div class="highlight"><pre>&lt;AO Index=&quot;0&quot; InfAddr=&quot;1&quot; qualifier=&quot;0x00&quot; Coeff=&quot;11.6&quot; TypeID=&quot;50&quot; Total=&quot;2&quot; Name=&quot;Filter value&quot; /&gt;
 </pre></div>
 </div>
 <div class="admonition tip">
@@ -17290,13 +17303,7 @@ are configured using various child element nodes under <a class="reference inter
 <p>Communication state reporting and related delays can be specified using attributes of <a class="reference internal" href="#ref-iec103macommssettings"><em>CommsSettings</em></a>
 element node.</p>
 <p>Please see sample <a class="reference internal" href="#ref-iec103macommssettings"><em>CommsSettings</em></a> node and the table listing all available attributes below.</p>
-<div class="highlight-none"><div class="highlight"><pre>&lt;CommsSettings       NoRespCount=&quot;5&quot;
-                     DegradedRetries=&quot;5&quot;
-                     DegradedTimeout=&quot;600&quot;
-                     ControlLockTimer=&quot;20&quot;
-                     OfflineDelay=&quot;10&quot;
-                     PostOfflineDelay=&quot;1000&quot;
-                     OnlineGIDelay=&quot;10&quot; /&gt;
+<div class="highlight-none"><div class="highlight"><pre>&lt;CommsSettings NoRespCount=&quot;5&quot; DegradedRetries=&quot;5&quot; DegradedTimeout=&quot;600&quot; ControlLockTimer=&quot;20&quot; OfflineDelay=&quot;10&quot; PostOfflineDelay=&quot;1000&quot; OnlineGIDelay=&quot;10&quot; /&gt;
 </pre></div>
 </div>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="docref-iec103macommssettingsattab">
@@ -17355,14 +17362,7 @@ element node.</p>
 <span id="docref-iec103maasdusettingsattr"></span><h4>ASDUSettings attributes</h4>
 <p>Application layer settings can be specified using attributes of <a class="reference internal" href="#ref-iec103maasdusettings"><em>ASDUSettings</em></a> element node.</p>
 <p>Please see sample <a class="reference internal" href="#ref-iec103maasdusettings"><em>ASDUSettings</em></a> node and the table listing all available attributes below.</p>
-<div class="highlight-none"><div class="highlight"><pre>&lt;ASDUSettings  InvalidEvent=&quot;1&quot;
-               IgnoreTimetags=&quot;1&quot;
-               SUthroughoutDST=&quot;1&quot;
-               AIDeadband=&quot;2&quot;
-               AIPercent=&quot;0.5&quot;
-               DIEventStartup=&quot;1&quot;
-               AIEventStartup=&quot;1&quot;
-               ForwardGI=&quot;1&quot; /&gt;
+<div class="highlight-none"><div class="highlight"><pre>&lt;ASDUSettings InvalidEvent=&quot;1&quot; IgnoreTimetags=&quot;1&quot; SUthroughoutDST=&quot;1&quot; AIDeadband=&quot;2&quot; AIPercent=&quot;0.5&quot; DIEventStartup=&quot;1&quot; AIEventStartup=&quot;1&quot; ForwardGI=&quot;1&quot; /&gt;
 </pre></div>
 </div>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="docref-iec103maasdusettingsattab">
@@ -17426,10 +17426,10 @@ element node.</p>
 </tr>
 <tr class="row-even"><td rowspan="2"><span class="xmlref">ForwardGI</span></td>
 <td>0</td>
-<td><strong>Don&#8217;t forward</strong> General Interrogation command to downstream outstations when received from upstream station (e.g. SCACA)</td>
+<td><strong>Don&#8217;t forward</strong> General Interrogation command to downstream outstations when received from upstream station (e.g. SCADA)</td>
 </tr>
 <tr class="row-odd"><td>1</td>
-<td><strong>Forward</strong> General Interrogation command to downstream outstations when received from upstream station (e.g. SCACA) (default value)</td>
+<td><strong>Forward</strong> General Interrogation command to downstream outstations when received from upstream station (e.g. SCADA) (default value)</td>
 </tr>
 </tbody>
 </table>
@@ -17662,20 +17662,15 @@ number (INF) need to be entered in <a class="reference internal" href="#ref-iec1
 <p>Please see sample <a class="reference internal" href="#ref-iec103maditable"><em>DITable</em></a> group node and <a class="reference internal" href="#ref-iec103madi"><em>DI</em></a> child element nodes below. There are 5 DI information
 objects configured using 4 <a class="reference internal" href="#ref-iec103madi"><em>DI</em></a> element nodes.</p>
 <div class="highlight-none"><div class="highlight"><pre>&lt;DITable&gt;
-     &lt;DI Index=&quot;0&quot; FUN=&quot;1&quot; INF=&quot;1&quot; qualifier=&quot;0x00&quot;/&gt;
-     &lt;DI Index=&quot;1&quot; FUN=&quot;1&quot; INF=&quot;2&quot; qualifier=&quot;0x10&quot;/&gt;
-     &lt;DI Index=&quot;2&quot; FUN=&quot;240&quot; INF=&quot;55&quot; qualifier=&quot;0x10&quot;/&gt;
-     &lt;DI Index=&quot;3&quot; FUN=&quot;240&quot; INF=&quot;56&quot; qualifier=&quot;0x00&quot; Total=&quot;2&quot;/&gt;
+     &lt;DI Index=&quot;0&quot; FUN=&quot;1&quot; INF=&quot;1&quot; Qualifier=&quot;0x00&quot;/&gt;
+     &lt;DI Index=&quot;1&quot; FUN=&quot;1&quot; INF=&quot;2&quot; Qualifier=&quot;0x10&quot;/&gt;
+     &lt;DI Index=&quot;2&quot; FUN=&quot;240&quot; INF=&quot;55&quot; Qualifier=&quot;0x10&quot;/&gt;
+     &lt;DI Index=&quot;3&quot; FUN=&quot;240&quot; INF=&quot;56&quot; Qualifier=&quot;0x00&quot; Total=&quot;2&quot;/&gt;
 &lt;/DITable&gt;
 </pre></div>
 </div>
 <p>Please see sample <a class="reference internal" href="#ref-iec103madi"><em>DI</em></a> element node below listing all available attributes.</p>
-<div class="highlight-none"><div class="highlight"><pre>&lt;DI  Index=&quot;0&quot;
-     FUN=&quot;1&quot;
-     INF=&quot;1&quot;
-     qualifier=&quot;0&quot;
-     Total=&quot;2&quot;
-     Name=&quot;CB position&quot; /&gt;
+<div class="highlight-none"><div class="highlight"><pre>&lt;DI Index=&quot;0&quot; FUN=&quot;1&quot; INF=&quot;1&quot; Qualifier=&quot;0&quot; Total=&quot;2&quot; Name=&quot;CB position&quot; /&gt;
 </pre></div>
 </div>
 <div class="admonition tip">
@@ -17713,10 +17708,10 @@ objects configured using 4 <a class="reference internal" href="#ref-iec103madi">
 <td>0...255</td>
 <td>Information Number (INF) of the DI object. This INF will be used to receive object from downstream outstation. <span class="inlinetip">Information numbers don&#8217;t have to be arranged in an ascending order.</span></td>
 </tr>
-<tr class="row-odd"><td><p class="first last" id="ref-iec103madiqualifier"><span class="xmlref">qualifier</span></p>
+<tr class="row-odd"><td><p class="first last" id="ref-iec103madiqualifier"><span class="xmlref">Qualifier</span></p>
 </td>
 <td>See table <a href="#ref-iec103madiqualifierbits">9.11</a> for description</td>
-<td>Internal object qualifier to enable customized data processing. See table <a href="#ref-iec103madiqualifierbits">9.11</a> for internal object qualifier description. (default value 0) <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
+<td>Internal object Qualifier to enable customized data processing. See table <a href="#ref-iec103madiqualifierbits">9.11</a> for internal object Qualifier description. (default value 0) <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
 </tr>
 <tr class="row-even"><td><p class="first last" id="ref-iec103maditotal"><span class="xmlref">Total</span></p>
 </td>
@@ -17732,9 +17727,9 @@ objects configured using 4 <a class="reference internal" href="#ref-iec103madi">
 </table>
 </div>
 <div class="section" id="di-qualifier">
-<h4>DI.qualifier</h4>
+<h4>DI.Qualifier</h4>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="ref-iec103madiqualifierbits">
-<caption><strong>Table 9.11 IEC 60870-5-103 Master DI internal qualifier</strong></caption>
+<caption><strong>Table 9.11 IEC 60870-5-103 Master DI internal Qualifier</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="10%" />
@@ -17747,9 +17742,9 @@ objects configured using 4 <a class="reference internal" href="#ref-iec103madi">
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>qualifier [xxxx.xxxx]</td>
+<tr class="row-even"><td>Qualifier [xxxx.xxxx]</td>
 <td>0...0xFF</td>
-<td>DI internal qualifier has 8 data bits</td>
+<td>DI internal Qualifier has 8 data bits</td>
 </tr>
 <tr class="row-odd"><td rowspan="2">Bit 0</td>
 <td>xxxx.xxx0</td>
@@ -17770,7 +17765,7 @@ objects configured using 4 <a class="reference internal" href="#ref-iec103madi">
 <td>DI event is generated <strong>only</strong> when object state is changed</td>
 </tr>
 <tr class="row-even"><td>xxxx.x1xx</td>
-<td>DI event is generated <strong>every time</strong> it is received from outstation. Invalid [IV] flag is automatically cleared from these DI objects when outstation becomes online ensuring they are are always valid. <span class="inlinetip">This option is only used for backward compatibility.</span></td>
+<td>DI event is generated <strong>every time</strong> object is received from outstation. Invalid [IV] flag is automatically cleared from these DI objects when outstation goes online which ensures they are always valid. <span class="inlinetip">This option is only used for backward compatibility.</span></td>
 </tr>
 <tr class="row-odd"><td rowspan="2">Bit 7</td>
 <td>0xxx.xxxx</td>
@@ -17802,29 +17797,15 @@ same message. Particular analog value is selected using <a class="reference inte
 <p>Please see sample <a class="reference internal" href="#ref-iec103maaitable"><em>AITable</em></a> group node and <a class="reference internal" href="#ref-iec103maai"><em>AI</em></a> child element nodes below. There are 5 AI information objects
 configured using 4 <a class="reference internal" href="#ref-iec103maai"><em>AI</em></a> element nodes.</p>
 <div class="highlight-none"><div class="highlight"><pre>&lt;AITable&gt;
-     &lt;AI Index=&quot;0&quot; FUN=&quot;1&quot; INF=&quot;1&quot; MEA=&quot;0&quot; qualifier=&quot;0x20&quot; Coeff=&quot;1.0&quot; Deadband=&quot;0.5&quot; Percent=&quot;0&quot;/&gt;
-     &lt;AI Index=&quot;1&quot; FUN=&quot;1&quot; INF=&quot;1&quot; MEA=&quot;5&quot; qualifier=&quot;0x00&quot; Coeff=&quot;1.0&quot; Deadband=&quot;0&quot; Percent=&quot;1.4&quot;/&gt;
-     &lt;AI Index=&quot;2&quot; FUN=&quot;85&quot; INF=&quot;83&quot; MEA=&quot;0&quot; qualifier=&quot;0x00&quot; Coeff=&quot;-17.0&quot; Percent=&quot;1.4&quot;/&gt;
-     &lt;AI Index=&quot;3&quot; FUN=&quot;105&quot; INF=&quot;103&quot; MEA=&quot;0&quot; qualifier=&quot;0x00&quot; Coeff=&quot;0.08&quot; Total=&quot;2&quot;/&gt;
+     &lt;AI Index=&quot;0&quot; FUN=&quot;1&quot; INF=&quot;1&quot; MEA=&quot;0&quot; Qualifier=&quot;0x20&quot; Coeff=&quot;1.0&quot; Deadband=&quot;0.5&quot; Percent=&quot;0&quot;/&gt;
+     &lt;AI Index=&quot;1&quot; FUN=&quot;1&quot; INF=&quot;1&quot; MEA=&quot;5&quot; Qualifier=&quot;0x00&quot; Coeff=&quot;1.0&quot; Deadband=&quot;0&quot; Percent=&quot;1.4&quot;/&gt;
+     &lt;AI Index=&quot;2&quot; FUN=&quot;85&quot; INF=&quot;83&quot; MEA=&quot;0&quot; Qualifier=&quot;0x00&quot; Coeff=&quot;-17.0&quot; Percent=&quot;1.4&quot;/&gt;
+     &lt;AI Index=&quot;3&quot; FUN=&quot;105&quot; INF=&quot;103&quot; MEA=&quot;0&quot; Qualifier=&quot;0x00&quot; Coeff=&quot;0.08&quot; Total=&quot;2&quot;/&gt;
 &lt;/AITable&gt;
 </pre></div>
 </div>
 <p>Please see sample <a class="reference internal" href="#ref-iec103maai"><em>AI</em></a> element node below listing all available attributes.</p>
-<div class="highlight-none"><div class="highlight"><pre>&lt;AI  Index=&quot;0&quot;
-     FUN=&quot;85&quot;
-     INF=&quot;83&quot;
-     MEA=&quot;2&quot;
-     qualifier=&quot;0x20&quot;
-     Coeff=&quot;1.0&quot;
-     Deadband=&quot;0.5&quot;
-     Percent=&quot;0&quot;
-     StartOffset=&quot;6554&quot;
-     ZeroDeadband=&quot;3.0&quot;
-     Offset=&quot;-2.0&quot;
-     OffsetDeadband=&quot;2.0&quot;
-     NonZeroOffset=&quot;200.0&quot;
-     Total=&quot;2&quot;
-     Name=&quot;Feeder current&quot; /&gt;
+<div class="highlight-none"><div class="highlight"><pre>&lt;AI Index=&quot;0&quot; FUN=&quot;85&quot; INF=&quot;83&quot; MEA=&quot;2&quot; Qualifier=&quot;0x20&quot; Coeff=&quot;1.0&quot; Deadband=&quot;0.5&quot; Percent=&quot;0&quot; StartOffset=&quot;6554&quot; ZeroDeadband=&quot;3.0&quot; Offset=&quot;-2.0&quot; OffsetDeadband=&quot;2.0&quot; NonZeroOffset=&quot;200.0&quot; Total=&quot;2&quot; Name=&quot;Feeder current&quot; /&gt;
 </pre></div>
 </div>
 <div class="admonition tip">
@@ -17867,10 +17848,10 @@ configured using 4 <a class="reference internal" href="#ref-iec103maai"><em>AI</
 <td>0...31</td>
 <td>Number of the analog value in the received measurement message. Use the <a class="reference internal" href="#ref-iec103maai"><em>AI</em></a>.<a class="reference internal" href="#ref-iec103maaimea"><em>FUN</em></a> attribute value 0, in order to select the first analog value in the received measurement message. <span class="inlinetip">Numbers don&#8217;t have to be arranged in an ascending order.</span></td>
 </tr>
-<tr class="row-even"><td><p class="first last" id="ref-iec103maaiqualifier"><span class="xmlref">qualifier</span></p>
+<tr class="row-even"><td><p class="first last" id="ref-iec103maaiqualifier"><span class="xmlref">Qualifier</span></p>
 </td>
 <td>See table <a href="#ref-iec103maaiqualifierbits">9.13</a> for description</td>
-<td>Internal object qualifier to enable customized data processing. See table <a href="#ref-iec103maaiqualifierbits">9.13</a> for internal object qualifier description. (default value 0) <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
+<td>Internal object Qualifier to enable customized data processing. See table <a href="#ref-iec103maaiqualifierbits">9.13</a> for internal object Qualifier description. (default value 0) <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
 </tr>
 <tr class="row-odd"><td><p class="first last" id="ref-iec103maaicoeff"><span class="xmlref">Coeff</span></p>
 </td>
@@ -17933,9 +17914,9 @@ Annexes <a class="reference internal" href="#docref-aiscalingwithoutstartoffset"
 </div>
 </div>
 <div class="section" id="ai-qualifier">
-<h4>AI.qualifier</h4>
+<h4>AI.Qualifier</h4>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="ref-iec103maaiqualifierbits">
-<caption><strong>Table 9.13 IEC 60870-5-103 Master AI internal qualifier</strong></caption>
+<caption><strong>Table 9.13 IEC 60870-5-103 Master AI internal Qualifier</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="10%" />
@@ -17948,9 +17929,9 @@ Annexes <a class="reference internal" href="#docref-aiscalingwithoutstartoffset"
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>qualifier [xxxx.xxxx]</td>
+<tr class="row-even"><td>Qualifier [xxxx.xxxx]</td>
 <td>0...0xFF</td>
-<td>AI internal qualifier has 8 data bits</td>
+<td>AI internal Qualifier has 8 data bits</td>
 </tr>
 <tr class="row-odd"><td rowspan="2">Bit 1</td>
 <td>xxxx.xx0x</td>
@@ -18005,19 +17986,15 @@ section <a class="reference internal" href="#ref-iec10xsldotable"><em>DOTable</e
 <p>Please see sample <a class="reference internal" href="#ref-iec103madotable"><em>DOTable</em></a> group node and <a class="reference internal" href="#ref-iec103mado"><em>DO</em></a> child element nodes below. There are 5 DO information
 objects configured using 4 <a class="reference internal" href="#ref-iec103mado"><em>DO</em></a> element nodes.</p>
 <div class="highlight-none"><div class="highlight"><pre>&lt;DOTable&gt;
-     &lt;DO Index=&quot;0&quot; FUN=&quot;1&quot; INF=&quot;1&quot; qualifier=&quot;0x00&quot;/&gt;
-     &lt;DO Index=&quot;1&quot; FUN=&quot;1&quot; INF=&quot;2&quot; qualifier=&quot;0x10&quot;/&gt;
-     &lt;DO Index=&quot;2&quot; FUN=&quot;240&quot; INF=&quot;55&quot; qualifier=&quot;0x10&quot;/&gt;
-     &lt;DO Index=&quot;3&quot; FUN=&quot;240&quot; INF=&quot;56&quot; qualifier=&quot;0x00&quot; Total=&quot;2&quot;/&gt;
+     &lt;DO Index=&quot;0&quot; FUN=&quot;1&quot; INF=&quot;1&quot; Qualifier=&quot;0x00&quot;/&gt;
+     &lt;DO Index=&quot;1&quot; FUN=&quot;1&quot; INF=&quot;2&quot; Qualifier=&quot;0x10&quot;/&gt;
+     &lt;DO Index=&quot;2&quot; FUN=&quot;240&quot; INF=&quot;55&quot; Qualifier=&quot;0x10&quot;/&gt;
+     &lt;DO Index=&quot;3&quot; FUN=&quot;240&quot; INF=&quot;56&quot; Qualifier=&quot;0x00&quot; Total=&quot;2&quot;/&gt;
 &lt;/DOTable&gt;
 </pre></div>
 </div>
 <p>Please see sample <a class="reference internal" href="#ref-iec103mado"><em>DO</em></a> element node below listing all available attributes.</p>
-<div class="highlight-none"><div class="highlight"><pre>&lt;DO  Index=&quot;0&quot;
-     FUN=&quot;1&quot;
-     INF=&quot;1&quot;
-     qualifier=&quot;0x00&quot;
-     Total=&quot;2&quot;
+<div class="highlight-none"><div class="highlight"><pre>&lt;DO Index=&quot;0&quot; FUN=&quot;1&quot; INF=&quot;1&quot; Qualifier=&quot;0x00&quot; Total=&quot;2&quot; Name=&quot;CB position&quot; /&gt;
 </pre></div>
 </div>
 <div class="admonition tip">
@@ -18055,10 +18032,10 @@ objects configured using 4 <a class="reference internal" href="#ref-iec103mado">
 <td>0...255</td>
 <td>Information Number (INF) of the DI object. This INF will be used to send command to downstream outstation. <span class="inlinetip">Information numbers don&#8217;t have to be arranged in an ascending order.</span></td>
 </tr>
-<tr class="row-odd"><td><p class="first last" id="ref-iec103madoqualifier"><span class="xmlref">qualifier</span></p>
+<tr class="row-odd"><td><p class="first last" id="ref-iec103madoqualifier"><span class="xmlref">Qualifier</span></p>
 </td>
 <td>See table <a href="#ref-iec103madoqualifierbits">9.15</a> for description</td>
-<td>Internal object qualifier to enable customized data processing. See table <a href="#ref-iec103madoqualifierbits">9.15</a> for internal object qualifier description. (default value 0) <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
+<td>Internal object Qualifier to enable customized data processing. See table <a href="#ref-iec103madoqualifierbits">9.15</a> for internal object Qualifier description. (default value 0) <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
 </tr>
 <tr class="row-even"><td><p class="first last" id="ref-iec103madototal"><span class="xmlref">Total</span></p>
 </td>
@@ -18074,9 +18051,9 @@ objects configured using 4 <a class="reference internal" href="#ref-iec103mado">
 </table>
 </div>
 <div class="section" id="do-qualifier">
-<h4>DO.qualifier</h4>
+<h4>DO.Qualifier</h4>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="ref-iec103madoqualifierbits">
-<caption><strong>Table 9.15 IEC 60870-5-103 Master DO internal qualifier</strong></caption>
+<caption><strong>Table 9.15 IEC 60870-5-103 Master DO internal Qualifier</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="10%" />
@@ -18089,9 +18066,9 @@ objects configured using 4 <a class="reference internal" href="#ref-iec103mado">
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>qualifier [xxxx.xxxx]</td>
+<tr class="row-even"><td>Qualifier [xxxx.xxxx]</td>
 <td>0...0xFF</td>
-<td>DO internal qualifier has 8 data bits</td>
+<td>DO internal Qualifier has 8 data bits</td>
 </tr>
 <tr class="row-odd"><td rowspan="2">Bit 0</td>
 <td>xxxx.xxx0</td>
@@ -18264,11 +18241,7 @@ are configured using various child element nodes under <a class="reference inter
 <p>Communication state reporting and related delays can be specified using attributes of <a class="reference internal" href="#ref-modbusmacommssettings"><em>CommsSettings</em></a>
 element node.</p>
 <p>Please see sample <a class="reference internal" href="#ref-modbusmacommssettings"><em>CommsSettings</em></a> node and the table listing all available attributes below.</p>
-<div class="highlight-none"><div class="highlight"><pre>&lt;CommsSettings NoRespCount=&quot;5&quot;
-               DegradedRetries=&quot;5&quot;
-               DegradedTimeout=&quot;600&quot;
-               OfflineDelay=&quot;10&quot;
-               PostOfflineDelay=&quot;1000&quot; /&gt;
+<div class="highlight-none"><div class="highlight"><pre>&lt;CommsSettings NoRespCount=&quot;5&quot; DegradedRetries=&quot;5&quot; DegradedTimeout=&quot;600&quot; OfflineDelay=&quot;10&quot; PostOfflineDelay=&quot;1000&quot; /&gt;
 </pre></div>
 </div>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="docref-modbusmacommssettingsattab">
@@ -18347,8 +18320,8 @@ element node.</p>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="docref-modbusmahardcodedtypestab">
 <caption><strong>Table 10.5 Modbus Master Hardcoded Device Types</strong></caption>
 <colgroup>
-<col width="10%" />
-<col width="90%" />
+<col width="20%" />
+<col width="80%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head"><strong>Type</strong></th>
@@ -18357,15 +18330,18 @@ element node.</p>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>BCDI16</td>
-<td>Brainchild Digital Input (16) module DI16. Number of information objects automatically created for this device: DI=16, AI=0, DO=0</td>
+<td>Brainchild Digital Input (16) module DI16. Number of information objects automatically created for this device: DI=16, AI=0, DO=0, AO=0</td>
 </tr>
 <tr class="row-odd"><td>BCAIIS16</td>
-<td>Brainchild isolated Analog Input (8) module AIIS8. Number of information objects automatically created for this device: DI=0, AI=8, DO=0</td>
+<td>Brainchild isolated Analog Input (8) module AIIS8. Number of information objects automatically created for this device: DI=0, AI=8, DO=0, AO=0</td>
 </tr>
 <tr class="row-even"><td>LEDOM16</td>
-<td>Londelec Digital Output (16) module DOM16. Number of information objects automatically created for this device: DI=0, AI=0, DO=16</td>
+<td>Londelec Digital Output (16) module DOM16. Number of information objects automatically created for this device: DI=0, AI=0, DO=16, AO=0</td>
 </tr>
-<tr class="row-odd"><td>Other</td>
+<tr class="row-odd"><td>LEIODC-C32-3100</td>
+<td>Londelec LEIODC-C32-3100 unit. Number of information objects automatically created for this device: DI=12, AI=0, DO=4, AO=0</td>
+</tr>
+<tr class="row-even"><td>Other</td>
 <td>Undefined, none of hardcoded device types will be used</td>
 </tr>
 </tbody>
@@ -18538,18 +18514,15 @@ section <a class="reference internal" href="#docref-iec10xslditable"><em>DITable
 <p>Please see sample <a class="reference internal" href="#ref-modbusmadi"><em>DITable</em></a> group node and <a class="reference internal" href="#ref-modbusmadi"><em>DI</em></a> child element nodes below. There are 5 DI information
 objects configured using 4 <a class="reference internal" href="#ref-modbusmadi"><em>DI</em></a> element nodes.</p>
 <div class="highlight-none"><div class="highlight"><pre>&lt;DITable&gt;
-     &lt;DI Index=&quot;0&quot; qualifier=&quot;0x00&quot;/&gt;
-     &lt;DI Index=&quot;1&quot; qualifier=&quot;0x10&quot;/&gt;
-     &lt;DI Index=&quot;2&quot; qualifier=&quot;0x10&quot;/&gt;
-     &lt;DI Index=&quot;3&quot; qualifier=&quot;0x00&quot; Total=&quot;2&quot;/&gt;
+     &lt;DI Index=&quot;0&quot; Qualifier=&quot;0x00&quot;/&gt;
+     &lt;DI Index=&quot;1&quot; Qualifier=&quot;0x10&quot;/&gt;
+     &lt;DI Index=&quot;2&quot; Qualifier=&quot;0x10&quot;/&gt;
+     &lt;DI Index=&quot;3&quot; Qualifier=&quot;0x00&quot; Total=&quot;2&quot;/&gt;
 &lt;/DITable&gt;
 </pre></div>
 </div>
 <p>Please see sample <a class="reference internal" href="#ref-modbusmadi"><em>DI</em></a> element node below listing all available attributes.</p>
-<div class="highlight-none"><div class="highlight"><pre>&lt;DI  Index=&quot;0&quot;
-     qualifier=&quot;0&quot;
-     Total=&quot;2&quot;
-     Name=&quot;Transducer mode&quot; /&gt;
+<div class="highlight-none"><div class="highlight"><pre>&lt;DI Index=&quot;0&quot; Qualifier=&quot;0&quot; ChatterFilter=&quot;100&quot; Total=&quot;2&quot; Name=&quot;Transducer mode&quot; /&gt;
 </pre></div>
 </div>
 <div class="admonition tip">
@@ -18577,17 +18550,22 @@ objects configured using 4 <a class="reference internal" href="#ref-modbusmadi">
 <td>0...2<sup>32</sup> - 8</td>
 <td>Index is a unique identifier of the DI object. <span class="inlineimportant">Index numbering must start with 0 and indexes must be arranged in an ascending order as it prevents insertion of a new object. This requirement is essential because it affects object mapping to Slave communication protocol instances.</span></td>
 </tr>
-<tr class="row-odd"><td><p class="first last" id="ref-modbusmadiqualifier"><span class="xmlref">qualifier</span></p>
+<tr class="row-odd"><td><p class="first last" id="ref-modbusmadiqualifier"><span class="xmlref">Qualifier</span></p>
 </td>
 <td>0...255</td>
-<td>Internal object qualifier to enable customized data processing. (default value 0) <span class="inlinetip">Attribute is not implemented currently and reserved for future use.</span></td>
+<td>Internal object Qualifier to enable customized data processing. (default value 0) <span class="inlinetip">Attribute is not implemented currently and reserved for future use.</span></td>
 </tr>
-<tr class="row-even"><td><p class="first last" id="ref-modbusmaditotal"><span class="xmlref">Total</span></p>
+<tr class="row-even"><td><p class="first last" id="ref-modbusmadichatterfilter"><span class="xmlref">ChatterFilter</span></p>
+</td>
+<td>1...65535</td>
+<td>Chatter filter in milliseconds for Digital Inputs. State change of the digital input will be reported only if remains stable for the period exceding configured filter. (default value 50)</td>
+</tr>
+<tr class="row-odd"><td><p class="first last" id="ref-modbusmaditotal"><span class="xmlref">Total</span></p>
 </td>
 <td>1...255</td>
 <td>Sequence of identical DI objects. Attribute is used to create sequence of information objects with consecutive <a class="reference internal" href="#ref-modbusmadiindex"><em>Index</em></a> attributes. This eliminates the need to create individual <a class="reference internal" href="#ref-modbusmadi"><em>DI</em></a> nodes for each information object. (default value 1; only 1 object is created with this <a class="reference internal" href="#ref-modbusmadi"><em>DI</em></a> node) <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
 </tr>
-<tr class="row-odd"><td><p class="first last" id="ref-modbusmadiname"><span class="xmlref">Name</span></p>
+<tr class="row-even"><td><p class="first last" id="ref-modbusmadiname"><span class="xmlref">Name</span></p>
 </td>
 <td>Max 100 chars</td>
 <td>Freely configurable name, just for reference. <span class="inlinetip">Name attribute is optional and doesn&#8217;t have to be included in configuration.</span></td>
@@ -18611,26 +18589,15 @@ section <a class="reference internal" href="#docref-iec10xslaitable"><em>AITable
 <p>Please see sample <a class="reference internal" href="#ref-modbusmaai"><em>AITable</em></a> group node and <a class="reference internal" href="#ref-modbusmaai"><em>AI</em></a> child element nodes below. There are 5 AI information objects
 configured using 4 <a class="reference internal" href="#ref-modbusmaai"><em>AI</em></a> element nodes.</p>
 <div class="highlight-none"><div class="highlight"><pre>&lt;AITable&gt;
-     &lt;AI Index=&quot;0&quot; qualifier=&quot;0x20&quot; Coeff=&quot;1.0&quot; Deadband=&quot;0.5&quot; Percent=&quot;0&quot;/&gt;
-     &lt;AI Index=&quot;1&quot; qualifier=&quot;0x00&quot; Coeff=&quot;1.0&quot; Deadband=&quot;0&quot; Percent=&quot;1.4&quot;/&gt;
-     &lt;AI Index=&quot;2&quot; qualifier=&quot;0x00&quot; Coeff=&quot;-17.0&quot; Percent=&quot;1.4&quot;/&gt;
-     &lt;AI Index=&quot;3&quot; qualifier=&quot;0x00&quot; Coeff=&quot;0.08&quot; Total=&quot;2&quot;/&gt;
+     &lt;AI Index=&quot;0&quot; Qualifier=&quot;0x20&quot; Coeff=&quot;1.0&quot; Deadband=&quot;0.5&quot; Percent=&quot;0&quot;/&gt;
+     &lt;AI Index=&quot;1&quot; Qualifier=&quot;0x00&quot; Coeff=&quot;1.0&quot; Deadband=&quot;0&quot; Percent=&quot;1.4&quot;/&gt;
+     &lt;AI Index=&quot;2&quot; Qualifier=&quot;0x00&quot; Coeff=&quot;-17.0&quot; Percent=&quot;1.4&quot;/&gt;
+     &lt;AI Index=&quot;3&quot; Qualifier=&quot;0x00&quot; Coeff=&quot;0.08&quot; Total=&quot;2&quot;/&gt;
 &lt;/AITable&gt;
 </pre></div>
 </div>
 <p>Please see sample <a class="reference internal" href="#ref-modbusmaai"><em>AI</em></a> element node below listing all available attributes.</p>
-<div class="highlight-none"><div class="highlight"><pre>&lt;AI  Index=&quot;0&quot;
-     qualifier=&quot;0x20&quot;
-     Coeff=&quot;1.0&quot;
-     Deadband=&quot;0.5&quot;
-     Percent=&quot;0&quot;
-     StartOffset=&quot;6554&quot;
-     ZeroDeadband=&quot;3.0&quot;
-     Offset=&quot;-2.0&quot;
-     OffsetDeadband=&quot;2.0&quot;
-     NonZeroOffset=&quot;200.0&quot;
-     Total=&quot;2&quot;
-     Name=&quot;Feeder current&quot; /&gt;
+<div class="highlight-none"><div class="highlight"><pre>&lt;AI Index=&quot;0&quot; Qualifier=&quot;0x20&quot; Coeff=&quot;1.0&quot; Deadband=&quot;0.5&quot; Percent=&quot;0&quot; StartOffset=&quot;6554&quot; ZeroDeadband=&quot;3.0&quot; Offset=&quot;-2.0&quot; OffsetDeadband=&quot;2.0&quot; NonZeroOffset=&quot;200.0&quot; Total=&quot;2&quot; Name=&quot;Feeder current&quot; /&gt;
 </pre></div>
 </div>
 <div class="admonition tip">
@@ -18658,10 +18625,10 @@ configured using 4 <a class="reference internal" href="#ref-modbusmaai"><em>AI</
 <td>0...2<sup>32</sup> - 8</td>
 <td>Index is a unique identifier of the AI object. <span class="inlineimportant">Index numbering must start with 0 and indexes must be arranged in an ascending order as it prevents insertion of a new object. This requirement is essential because it affects object mapping to Slave communication protocol instances.</span></td>
 </tr>
-<tr class="row-odd"><td><p class="first last" id="ref-modbusmaaiqualifier"><span class="xmlref">qualifier</span></p>
+<tr class="row-odd"><td><p class="first last" id="ref-modbusmaaiqualifier"><span class="xmlref">Qualifier</span></p>
 </td>
 <td>0...255</td>
-<td>Internal object qualifier to enable customized data processing. (default value 0) <span class="inlinetip">Attribute is not implemented currently and reserved for future use.</span></td>
+<td>Internal object Qualifier to enable customized data processing. (default value 0) <span class="inlinetip">Attribute is not implemented currently and reserved for future use.</span></td>
 </tr>
 <tr class="row-even"><td><p class="first last" id="ref-modbusmaaicoeff"><span class="xmlref">Coeff</span></p>
 </td>
@@ -18740,17 +18707,15 @@ section <a class="reference internal" href="#docref-iec10xsldotable"><em>DOTable
 <p>Please see sample <a class="reference internal" href="#ref-modbusmado"><em>DOTable</em></a> group node and <a class="reference internal" href="#ref-modbusmado"><em>DO</em></a> child element nodes below. There are 5 DO information
 objects configured using 4 <a class="reference internal" href="#ref-modbusmado"><em>DO</em></a> element nodes.</p>
 <div class="highlight-none"><div class="highlight"><pre>&lt;DOTable&gt;
-     &lt;DO Index=&quot;0&quot; qualifier=&quot;0x00&quot;/&gt;
-     &lt;DO Index=&quot;1&quot; qualifier=&quot;0x10&quot;/&gt;
-     &lt;DO Index=&quot;2&quot; qualifier=&quot;0x10&quot;/&gt;
-     &lt;DO Index=&quot;3&quot; qualifier=&quot;0x00&quot; Total=&quot;2&quot;/&gt;
+     &lt;DO Index=&quot;0&quot; Qualifier=&quot;0x00&quot;/&gt;
+     &lt;DO Index=&quot;1&quot; Qualifier=&quot;0x10&quot;/&gt;
+     &lt;DO Index=&quot;2&quot; Qualifier=&quot;0x10&quot;/&gt;
+     &lt;DO Index=&quot;3&quot; Qualifier=&quot;0x00&quot; Total=&quot;2&quot;/&gt;
 &lt;/DOTable&gt;
 </pre></div>
 </div>
 <p>Please see sample <a class="reference internal" href="#ref-modbusmado"><em>DO</em></a> element node below listing all available attributes.</p>
-<div class="highlight-none"><div class="highlight"><pre>&lt;DO  Index=&quot;0&quot;
-     qualifier=&quot;0x00&quot;
-     Total=&quot;2&quot;
+<div class="highlight-none"><div class="highlight"><pre>&lt;DO Index=&quot;0&quot; Qualifier=&quot;0x00&quot; PulseDuration=&quot;500&quot; Total=&quot;2&quot; Name=&quot;Transducer mode&quot; /&gt;
 </pre></div>
 </div>
 <div class="admonition tip">
@@ -18778,17 +18743,22 @@ objects configured using 4 <a class="reference internal" href="#ref-modbusmado">
 <td>0...2<sup>32</sup> - 8</td>
 <td>Index is a unique identifier of the DO object. <span class="inlineimportant">Index numbering must start with 0 and indexes must be arranged in an ascending order as it prevents insertion of a new object. This requirement is essential because it affects object mapping to Slave communication protocol instances.</span></td>
 </tr>
-<tr class="row-odd"><td><p class="first last" id="ref-modbusmadoqualifier"><span class="xmlref">qualifier</span></p>
+<tr class="row-odd"><td><p class="first last" id="ref-modbusmadoqualifier"><span class="xmlref">Qualifier</span></p>
 </td>
 <td>0...255</td>
-<td>Internal object qualifier to enable customized data processing. (default value 0) <span class="inlinetip">Attribute is not implemented currently and reserved for future use.</span></td>
+<td>Internal object Qualifier to enable customized data processing. (default value 0) <span class="inlinetip">Attribute is not implemented currently and reserved for future use.</span></td>
 </tr>
-<tr class="row-even"><td><p class="first last" id="ref-modbusmadototal"><span class="xmlref">Total</span></p>
+<tr class="row-even"><td><p class="first last" id="ref-modbusmadopulseduration"><span class="xmlref">PulseDuration</span></p>
+</td>
+<td>1...65535</td>
+<td>Digital output pulse duration in milliseconds. Digital output will be activated when command is sent and automatically released after configured number of milliseconds. (default value 1500)</td>
+</tr>
+<tr class="row-odd"><td><p class="first last" id="ref-modbusmadototal"><span class="xmlref">Total</span></p>
 </td>
 <td>1...255</td>
 <td>Sequence of identical DO objects. Attribute is used to create sequence of information objects with consecutive <a class="reference internal" href="#ref-modbusmadoindex"><em>Index</em></a> attributes. This eliminates the need to create individual <a class="reference internal" href="#ref-modbusmado"><em>DO</em></a> nodes for each information object. (default value 1; only 1 object is created with this <a class="reference internal" href="#ref-modbusmado"><em>DO</em></a> node) <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
 </tr>
-<tr class="row-odd"><td><p class="first last" id="ref-modbusmadoname"><span class="xmlref">Name</span></p>
+<tr class="row-even"><td><p class="first last" id="ref-modbusmadoname"><span class="xmlref">Name</span></p>
 </td>
 <td>Max 100 chars</td>
 <td>Freely configurable name, just for reference. <span class="inlinetip">Name attribute is optional and doesn&#8217;t have to be included in configuration.</span></td>
@@ -29997,7 +29967,7 @@ offset at the AIM input created because of this increased functionality.</p>
 <p>AIMs will still use 16bit Signed Integer variables for analogue value reporting, but unlike the previous
 paragraph, full range can&#8217;t be used and the 4mA offset needs to be taken into consideration. There is an option
 to automatically adjust 4mA offset and it can be enabled by setting Bit [0] of the Slave AI internal qualifier
-(attribute <a class="reference internal" href="#ref-iec10xslai"><em>AI</em></a>.<a class="reference internal" href="#ref-iec10xslaiqualifier"><em>qualifier</em></a> please refer to the table <a href="#ref-iec10xslaiqualifierbits">5.6</a>). Setting Bit[0] to &#8216;1&#8217; will enables automatic adjustment by
+(attribute <a class="reference internal" href="#ref-iec10xslai"><em>AI</em></a>.<a class="reference internal" href="#ref-iec10xslaiqualifier"><em>qualifier</em></a> please refer to the table <a href="#ref-iec10xslaiqualifierbits">5.7</a>). Setting Bit[0] to &#8216;1&#8217; will enables automatic adjustment by
 subtracting 6554 from the received Integer value.</p>
 <p>Offset 6554 is equal to 4mA current value (as per table <a href="#ref-aisamplevaluesif0-20marangeused">13.8</a> above) which means after subtraction Integer will
 be 0 when there are 4mA at AIM&#8217;s input and Integer will be <strong>26213</strong> when there are 20mA at AIM&#8217;s input.</p>
@@ -30727,8 +30697,8 @@ names, etc.</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>3.08</td>
-<td>2015-03-24 21:06:41</td>
+<tr class="row-even"><td>3.10</td>
+<td>2015-06-29 15:52:23</td>
 </tr>
 </tbody>
 </table>
@@ -30978,6 +30948,20 @@ names, etc.</p>
 </div>
 </td>
 </tr>
+<tr class="row-odd"><td>V24</td>
+<td>29/06/2015</td>
+<td>AK</td>
+<td><div class="first last line-block">
+<div class="line">&gt; <span class="xmlref">DIEventStartup</span> and <span class="xmlref">AIEventStartup</span> attributes added to IEC60870-5-101/4 Slave <span class="xmlref">ASDUSettings</span> node;</div>
+<div class="line">&gt; <span class="xmlref">OffIndex</span> attribute added to IEC60870-5-101/4 Slave <span class="xmlref">DI</span> node for single to double point indication conversion;</div>
+<div class="line">&gt; <span class="xmlref">DIInterDelay</span> and <span class="xmlref">DIIndetDelay</span> attributes added to IEC60870-5-101/4 Slave <span class="xmlref">ASDUSettings</span> node and corresponding attributes <span class="xmlref">InterDelay</span> and <span class="xmlref">IndetDelay</span> added to DI node;</div>
+<div class="line">&gt; Bit[5] added to IEC60870-5-101/4 Slave DI qualifier attribute which enables to select time tag when single status information is converted to double;</div>
+<div class="line">&gt; <span class="xmlref">ChatterFilter</span> attribute added to Modbus Master DI node</div>
+<div class="line">&gt; <span class="xmlref">PulseDuration</span> attribute added to Modbus Master DO node</div>
+<div class="line">&gt; <span class="xmlref">LEIODC-C32-3100</span> type added to Modbus Master <span class="xmlref">Hardcoded</span> node</div>
+</div>
+</td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -31091,7 +31075,7 @@ fUtHVztj9BMNwCVrPGuGqpyH+IPAGATai0CJ94qv3R3KZtb6wO+qrSdbVG4WdLDAIJBjFfURmoDK
 " alt="Logo"/>
             </a></p>
     <span class="sidebar-title">Leandc series XML configuration manual</span>
-    <span class="sidebar-subtitle">Version V23</span>
+    <span class="sidebar-subtitle" title="Version V24, docbuild(v0.1.0)">Version V24</span>
 
   <h3><a href="#document-index">Table Of Contents</a></h3>
   <ul>
@@ -31165,6 +31149,7 @@ fUtHVztj9BMNwCVrPGuGqpyH+IPAGATai0CJ94qv3R3KZtb6wO+qrSdbVG4WdLDAIJBjFfURmoDK
 <li class="toctree-l3"><a class="reference internal" href="#di-qualifier">DI.qualifier</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#di-typeid">DI.TypeID</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#di-service-indexes">DI Service Indexes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#di-spi-dpi-conversion">DI SPI/DPI conversion</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#aitable-group-and-ai-node">AITable group and AI node</a><ul>
@@ -31265,17 +31250,17 @@ fUtHVztj9BMNwCVrPGuGqpyH+IPAGATai0CJ94qv3R3KZtb6wO+qrSdbVG4WdLDAIJBjFfURmoDK
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#ditable-group-and-di-node">DITable group and DI node</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#di-attributes">DI attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#di-qualifier">DI.qualifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#di-qualifier">DI.Qualifier</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#aitable-group-and-ai-node">AITable group and AI node</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#ai-attributes">AI attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#ai-qualifier">AI.qualifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-qualifier">AI.Qualifier</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#dotable-group-and-do-node">DOTable group and DO node</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#do-attributes">DO attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#do-qualifier">DO.qualifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#do-qualifier">DO.Qualifier</a></li>
 </ul>
 </li>
 </ul>
@@ -31343,11 +31328,11 @@ fUtHVztj9BMNwCVrPGuGqpyH+IPAGATai0CJ94qv3R3KZtb6wO+qrSdbVG4WdLDAIJBjFfURmoDK
         </div>
       </div>
       <div class="clearer"></div>
-    </div> 
+    </div>
 
     <div class="footer">
         &copy; Copyright 2015, Londelec UK Ltd.
-      Last updated on 24 Mar 2015.
+      Last updated on 29 Jun 2015.
     </div>
   </body>
 </html>

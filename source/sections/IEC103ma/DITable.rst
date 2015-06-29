@@ -20,24 +20,19 @@ objects configured using 4 :ref:`DI<ref-IEC103maDI>` element nodes.
 
 .. code-block:: none
 
-   <DITable> 
-	<DI Index="0" FUN="1" INF="1" qualifier="0x00"/>
-	<DI Index="1" FUN="1" INF="2" qualifier="0x10"/>
-	<DI Index="2" FUN="240" INF="55" qualifier="0x10"/>
-	<DI Index="3" FUN="240" INF="56" qualifier="0x00" Total="2"/>
+   <DITable>
+	<DI Index="0" FUN="1" INF="1" Qualifier="0x00"/>
+	<DI Index="1" FUN="1" INF="2" Qualifier="0x10"/>
+	<DI Index="2" FUN="240" INF="55" Qualifier="0x10"/>
+	<DI Index="3" FUN="240" INF="56" Qualifier="0x00" Total="2"/>
    </DITable>
-   
+
 Please see sample :ref:`DI<ref-IEC103maDI>` element node below listing all available attributes.
-            
+
 .. code-block:: none
-            
-   <DI  Index="0"
-	FUN="1"
-	INF="1"
-	qualifier="0"
-	Total="2"
-	Name="CB position" />
-      
+
+   <DI Index="0" FUN="1" INF="1" Qualifier="0" Total="2" Name="CB position" />
+
 .. tip:: Attributes of the :ref:`DI<ref-IEC103maDI>` element node can be arranged in any order, it will not affect the XML file validation.         
 
 DI attributes
@@ -72,11 +67,11 @@ DI attributes
      :val:     0...255
      :desc:    Information Number (INF) of the DI object. This INF will be used to receive object from downstream outstation. :inlinetip:`Information numbers don't have to be arranged in an ascending order.`
 
-   * :attr:    .. _ref-IEC103maDIqualifier:
+   * :attr:    .. _ref-IEC103maDIQualifier:
    
-               :xmlref:`qualifier`
-     :val:     See table :numref:`ref-IEC103maDIqualifierBits` for description
-     :desc:    Internal object qualifier to enable customized data processing. See table :numref:`ref-IEC103maDIqualifierBits` for internal object qualifier description. (default value 0) :inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
+               :xmlref:`Qualifier`
+     :val:     See table :numref:`ref-IEC103maDIQualifierBits` for description
+     :desc:    Internal object Qualifier to enable customized data processing. See table :numref:`ref-IEC103maDIQualifierBits` for internal object Qualifier description. (default value 0) :inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
 
    * :attr:    .. _ref-IEC103maDITotal:
    
@@ -90,12 +85,12 @@ DI attributes
      :val:     Max 100 chars
      :desc:    Freely configurable name, just for reference. :inlinetip:`Name attribute is optional and doesn't have to be included in configuration.`
 
-DI.qualifier
+DI.Qualifier
 ^^^^^^^^^^^^
 
-.. _ref-IEC103maDIqualifierBits:
+.. _ref-IEC103maDIQualifierBits:
 
-.. field-list-table:: IEC 60870-5-103 Master DI internal qualifier
+.. field-list-table:: IEC 60870-5-103 Master DI internal Qualifier
    :class: table table-condensed table-bordered longtable
    :spec: |C{0.20}|C{0.25}|S{0.55}|
    :header-rows: 1
@@ -104,9 +99,9 @@ DI.qualifier
      :val,10:  Values
      :desc,80: Description
 
-   * :attr:    qualifier [xxxx.xxxx]
+   * :attr:    Qualifier [xxxx.xxxx]
      :val:     0...0xFF
-     :desc:    DI internal qualifier has 8 data bits
+     :desc:    DI internal Qualifier has 8 data bits
 
    * :attr:    Bit 0
      :val:     xxxx.xxx0
@@ -130,7 +125,7 @@ DI.qualifier
 
    * :(attr):
      :val:     xxxx.x1xx
-     :desc:    DI event is generated **every time** it is received from outstation. Invalid [IV] flag is automatically cleared from these DI objects when outstation becomes online ensuring they are are always valid. :inlinetip:`This option is only used for backward compatibility.`
+     :desc:    DI event is generated **every time** object is received from outstation. Invalid [IV] flag is automatically cleared from these DI objects when outstation goes online which ensures they are always valid. :inlinetip:`This option is only used for backward compatibility.`
 
    * :attr:    Bit 7
      :val:     0xxx.xxxx

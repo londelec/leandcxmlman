@@ -6,6 +6,16 @@
      :val:      See table :numref:`ref-IEC10xslAOTypeIDValues`
      :desc:     Only accept setpoint command if received with this ASDU Type (e.g. Normalized or Scaled setpoint) if AO object doesn't have :ref:`AO<ref-IEC10xslAO>`.\ :ref:`TypeID<ref-IEC10xslAOTypeID>` \ attribute specified in the element node. (default value 0 – accept command with any ASDU type)
 
+   * :attr:     :xmlref:`DIInterDelay`
+     :val:      0...2\ :sup:`32`\  - 1
+     :desc:     Intermediate state reporting delay in milliseconds used when single status information objects are converted to double status objects. Intermediate state of the resulting DPI will not be reported if it doesn't exceed configured delay. This attribute is used for DI objects which don't have :ref:`DI<ref-IEC10xslDI>`.\ :ref:`InterDelay<ref-IEC10xslDIInterDelay>` \ attribute. (default value 10000 - event will be generated if Intermediate state lasts longer than 10 seconds)
+
+   * :attr:     :xmlref:`DIIndetDelay`
+     :val:      0...2\ :sup:`32`\  - 1
+     :desc:     Indeterminate (error) state reporting delay in milliseconds used when single status information objects are converted to double status objects.  Indeterminate (error) state of the resulting DPI will not be reported if it doesn't exceed configured delay. This attribute is used for DI objects which don't have :ref:`DI<ref-IEC10xslDI>`.\ :ref:`IndetDelay<ref-IEC10xslDIIndetDelay>` \ attribute. (default value 5000 - event will be generated if Indeterminate (error) state lasts longer than 5 seconds)
+
+.. include-file:: sections/Include/IEC60870_ASDU_EventStartup.rstinc
+
    * :attr:     :include-arg:`1`
             
                 :xmlref:`TranspTypes`

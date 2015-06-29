@@ -10,11 +10,7 @@ Please see sample :ref:`CommsSettings<ref-ModbusmaCommsSettings>` node and the t
 
 .. code-block:: none
 
-   <CommsSettings NoRespCount="5"
-		  DegradedRetries="5"
-		  DegradedTimeout="600"
-		  OfflineDelay="10"
-                  PostOfflineDelay="1000" />
+   <CommsSettings NoRespCount="5" DegradedRetries="5" DegradedTimeout="600" OfflineDelay="10" PostOfflineDelay="1000" />
 
 .. _docref-ModbusmaCommsSettingsAttab:
 

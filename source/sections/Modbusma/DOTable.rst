@@ -20,20 +20,18 @@ objects configured using 4 :ref:`DO<ref-ModbusmaDO>` element nodes.
 .. code-block:: none
 
    <DOTable>
-	<DO Index="0" qualifier="0x00"/>
-	<DO Index="1" qualifier="0x10"/>
-	<DO Index="2" qualifier="0x10"/>
-	<DO Index="3" qualifier="0x00" Total="2"/>
+	<DO Index="0" Qualifier="0x00"/>
+	<DO Index="1" Qualifier="0x10"/>
+	<DO Index="2" Qualifier="0x10"/>
+	<DO Index="3" Qualifier="0x00" Total="2"/>
    </DOTable>
-   
+
 Please see sample :ref:`DO<ref-ModbusmaDO>` element node below listing all available attributes.
-            
+
 .. code-block:: none
-            
-   <DO  Index="0"
-	qualifier="0x00"
-	Total="2"
-      
+
+   <DO Index="0" Qualifier="0x00" PulseDuration="500" Total="2" Name="Transducer mode" />
+
 .. tip:: Attributes of the :ref:`DO<ref-ModbusmaDO>` element node can be arranged in any order, it will not affect XML file validation.         
 
 DO attributes
@@ -56,11 +54,17 @@ DO attributes
      :val:     0...2\ :sup:`32`\  - 8
      :desc:    Index is a unique identifier of the DO object. :inlineimportant:`Index numbering must start with 0 and indexes must be arranged in an ascending order as it prevents insertion of a new object. This requirement is essential because it affects object mapping to Slave communication protocol instances.`
 
-   * :attr:    .. _ref-ModbusmaDOqualifier:
+   * :attr:    .. _ref-ModbusmaDOQualifier:
    
-               :xmlref:`qualifier`
+               :xmlref:`Qualifier`
      :val:     0...255
-     :desc:    Internal object qualifier to enable customized data processing. (default value 0) :inlinetip:`Attribute is not implemented currently and reserved for future use.`
+     :desc:    Internal object Qualifier to enable customized data processing. (default value 0) :inlinetip:`Attribute is not implemented currently and reserved for future use.`
+
+   * :attr:    .. _ref-ModbusmaDOPulseDuration:
+   
+               :xmlref:`PulseDuration`
+     :val:     1...65535
+     :desc:    Digital output pulse duration in milliseconds. Digital output will be activated when command is sent and automatically released after configured number of milliseconds. (default value 1500)
 
    * :attr:    .. _ref-ModbusmaDOTotal:
    

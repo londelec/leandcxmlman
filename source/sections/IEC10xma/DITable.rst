@@ -23,24 +23,19 @@ configured using 4 :ref:`DI<ref-IEC10xmaDI>` element nodes.
 
 .. code-block:: none
 
-   <DITable> 
+   <DITable>
 	<DI Index="0" InfAddr="1" qualifier="0x00" />
 	<DI Index="1" InfAddr="2" qualifier="0x10" />
 	<DI Index="2" InfAddr="3" qualifier="0x10" TypeID="31"/>
 	<DI Index="3" InfAddr="4" qualifier="0x00" Total="2"/>
    </DITable>
-   
+
 Please see sample :ref:`DI<ref-IEC10xmaDI>` element node below listing all available attributes.
-            
+
 .. code-block:: none
-            
-   <DI  Index="0"
-	InfAddr="1"
-	qualifier="0"
-	TypeID="31"
-	Total="2"
-        Name="CB position" />
-      
+
+   <DI Index="0" InfAddr="1" qualifier="0" TypeID="31" Total="2" Name="CB position" />
+
 .. tip:: Attributes of the :ref:`DI<ref-IEC10xmaDI>` element node can be arranged in any order, it will not affect the XML file validation.         
 
 DI attributes
@@ -133,7 +128,7 @@ DI.qualifier
 
    * :(attr):
      :val:     xxxx.x1xx
-     :desc:    DI event is generated **every time** it is received from outstation. Invalid [IV] flag is automatically cleared from these DI objects when outstation becomes online ensuring they are are always valid. :inlinetip:`This option is only used for backward compatibility.`
+     :desc:    DI event is generated **every time** object is received from outstation. Invalid [IV] flag is automatically cleared from these DI objects when outstation goes online which ensures they are always valid. :inlinetip:`This option is only used for backward compatibility.`
 
    * :attr:    Bit 3
      :val:     xxxx.0xxx

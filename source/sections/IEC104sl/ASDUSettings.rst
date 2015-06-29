@@ -9,11 +9,7 @@ Please see sample :ref:`ASDUSettings<ref-IEC104slASDUSettings>` node and the tab
 
 .. code-block:: none
 
-   <ASDUSettings	InvalidEvent="1"
-                        SUthroughoutDST="1"
-                        DIEventType="31"
-                        AIEventType="36"
-                        TranspTypes="1" />
+   <ASDUSettings InvalidEvent="1" SUthroughoutDST="1" DIEventType="31" AIEventType="36" DOType="46" AOType="50" DIInterDelay="8000" DIIndetDelay="3500" DIEventStartup="1" AIEventStartup="1" TranspTypes="1" ForwardGI="1" CommandLatency="300" />
 
 .. _docref-IEC104slASDUSettingsAttab:
 

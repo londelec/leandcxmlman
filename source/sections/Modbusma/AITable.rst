@@ -18,30 +18,19 @@ configured using 4 :ref:`AI<ref-ModbusmaAI>` element nodes.
 
 .. code-block:: none
 
-   <AITable> 
-	<AI Index="0" qualifier="0x20" Coeff="1.0" Deadband="0.5" Percent="0"/>
-	<AI Index="1" qualifier="0x00" Coeff="1.0" Deadband="0" Percent="1.4"/>
-	<AI Index="2" qualifier="0x00" Coeff="-17.0" Percent="1.4"/>
-	<AI Index="3" qualifier="0x00" Coeff="0.08" Total="2"/>
+   <AITable>
+	<AI Index="0" Qualifier="0x20" Coeff="1.0" Deadband="0.5" Percent="0"/>
+	<AI Index="1" Qualifier="0x00" Coeff="1.0" Deadband="0" Percent="1.4"/>
+	<AI Index="2" Qualifier="0x00" Coeff="-17.0" Percent="1.4"/>
+	<AI Index="3" Qualifier="0x00" Coeff="0.08" Total="2"/>
    </AITable>
-   
+
 Please see sample :ref:`AI<ref-ModbusmaAI>` element node below listing all available attributes.
-            
+
 .. code-block:: none
-            
-   <AI  Index="0"
-	qualifier="0x20"
-	Coeff="1.0"
-	Deadband="0.5"
-	Percent="0"
-	StartOffset="6554"
-	ZeroDeadband="3.0"
-	Offset="-2.0"
-	OffsetDeadband="2.0"
-	NonZeroOffset="200.0"
-	Total="2"
-	Name="Feeder current" />
-      
+
+   <AI Index="0" Qualifier="0x20" Coeff="1.0" Deadband="0.5" Percent="0" StartOffset="6554" ZeroDeadband="3.0" Offset="-2.0" OffsetDeadband="2.0" NonZeroOffset="200.0" Total="2" Name="Feeder current" />
+
 .. tip:: Attributes of the :ref:`AI<ref-ModbusmaAI>` element node can be arranged in any order, it will not affect XML file validation.         
 
 AI attributes
@@ -64,11 +53,11 @@ AI attributes
      :val:     0...2\ :sup:`32`\  - 8
      :desc:    Index is a unique identifier of the AI object. :inlineimportant:`Index numbering must start with 0 and indexes must be arranged in an ascending order as it prevents insertion of a new object. This requirement is essential because it affects object mapping to Slave communication protocol instances.`
 
-   * :attr:    .. _ref-ModbusmaAIqualifier:
+   * :attr:    .. _ref-ModbusmaAIQualifier:
    
-               :xmlref:`qualifier`
+               :xmlref:`Qualifier`
      :val:     0...255
-     :desc:    Internal object qualifier to enable customized data processing. (default value 0) :inlinetip:`Attribute is not implemented currently and reserved for future use.`
+     :desc:    Internal object Qualifier to enable customized data processing. (default value 0) :inlinetip:`Attribute is not implemented currently and reserved for future use.`
 
    * :attr:    .. _ref-ModbusmaAICoeff:
    

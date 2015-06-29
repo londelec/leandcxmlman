@@ -25,32 +25,19 @@ configured using 4 :ref:`AI<ref-IEC10xmaAI>` element nodes.
 
 .. code-block:: none
 
-   <AITable> 
+   <AITable>
 	<AI Index="0" InfAddr="1" qualifier="0x20" Coeff="1.0" Deadband="0.5" Percent="0"/>
 	<AI Index="1" InfAddr="2" qualifier="0x00" Coeff="1.0" Deadband="0" Percent="1.4"/>
 	<AI Index="2" InfAddr="3" qualifier="0x00" Coeff="-17.0" Deadband="0" Percent="1.4" TypeID="36"/>
 	<AI Index="3" InfAddr="4" qualifier="0x00" Coeff="0.08" Deadband="8" Percent="3" Total="2"/>
    </AITable>
-   
+
 Please see sample :ref:`AI<ref-IEC10xmaAI>` element node below listing all available attributes.
-            
+
 .. code-block:: none
-            
-   <AI  Index="0"
-	InfAddr="1"
-	qualifier="0x20"
-	Coeff="1.0"
-	Deadband="0.5"
-	Percent="0"
-	StartOffset="6554"
-	ZeroDeadband="3.0"
-	Offset="-2.0"
-	OffsetDeadband="2.0"
-	NonZeroOffset="200.0"
-	TypeID="36"
-	Total="2"
-	Name="Feeder current" />
-      
+
+   <AI Index="0" InfAddr="1" qualifier="0x20" Coeff="1.0" Deadband="0.5" Percent="0" StartOffset="6554" ZeroDeadband="3.0" Offset="-2.0" OffsetDeadband="2.0" NonZeroOffset="200.0" TypeID="36" Total="2" Name="Feeder current" />
+
 .. tip:: Attributes of the :ref:`AI<ref-IEC10xmaAI>` element node can be arranged in any order, it will not affect the XML file validation.         
 
 AI attributes

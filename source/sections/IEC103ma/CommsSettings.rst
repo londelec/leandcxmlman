@@ -10,13 +10,7 @@ Please see sample :ref:`CommsSettings<ref-IEC103maCommsSettings>` node and the t
 
 .. code-block:: none
 
-   <CommsSettings	NoRespCount="5"
-                        DegradedRetries="5"
-                        DegradedTimeout="600"
-                        ControlLockTimer="20"
-                        OfflineDelay="10"
-                        PostOfflineDelay="1000"
-                        OnlineGIDelay="10" />
+   <CommsSettings NoRespCount="5" DegradedRetries="5" DegradedTimeout="600" ControlLockTimer="20" OfflineDelay="10" PostOfflineDelay="1000" OnlineGIDelay="10" />
 
 .. _docref-IEC103maCommsSettingsAttab:
 

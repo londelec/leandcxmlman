@@ -25,26 +25,19 @@ There are 5 DI information objects configured using 4 :ref:`DI<ref-IEC10xslDI>` 
 
 .. code-block:: none
 
-   <DITable> 
+   <DITable>
 	<DI Device="10" Index="0" InfAddr="1" qualifier="0" GroupMask="0x0001" … />
 	<DI Device="10" Index="1" InfAddr="2" qualifier="0x10" TypeID="30"  … />
 	<DI Device="10" Index="-2" InfAddr="3" qualifier="0x00" TypeID="30"  … />
 	<DI Device="10" Index="2" InfAddr="4" qualifier="0x00" Total="2" … />
    </DITable>
-   
+
 Please see sample :ref:`DI<ref-IEC10xslDI>` element node below listing all available attributes.
-            
+
 .. code-block:: none
-            
-   <DI  Device="10"
-	Index="0"
-	InfAddr="1"
-	qualifier="0"
-	GroupMask="0x0001"
-	TypeID="30"
-	Total="2"
-	Name="CB position" />
-      
+
+   <DI Device="10" Index="0" InfAddr="1" qualifier="0" GroupMask="0x0001" TypeID="30" OffIndex="5" InterDelay="8000" IndetDelay="3500" Total="2" Name="CB position" />
+
 .. tip:: Attributes of the :ref:`DI<ref-IEC10xslDI>` element node can be arranged in any order, it will not affect the XML file validation.         
 
 DI attributes
@@ -96,6 +89,24 @@ DI attributes
                :xmlref:`TypeID`
      :val:     See table :numref:`ref-IEC10xslDITypeIDValues` for description
      :desc:    Use this ASDU Type to send a DI event. Attribute also affects ASDU type of the static data (e.g. Single or Double status information) being reported to General interrogation request (default value depends on the protocol type, refer to table :numref:`ref-IEC10xslDITypeIDValues`). :inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
+
+   * :attr:    .. _ref-IEC10xslDIOffIndex:
+   
+               :xmlref:`OffIndex`
+     :val:     -8...2\ :sup:`32`\  - 8
+     :desc:    DI object index of the second single point used as a source for conversion to double status indication. Resulting DI will be Double point and it will have ON value when source DI object specified in :ref:`Index<ref-IEC10xslDIIndex>` attribute is ON. Resulting Double point will have OFF value when source DI object specified in this attribute is ON. See table :numref:`ref-IEC10xslDISPIDPI` for additional information. (default value is equal to :ref:`Index<ref-IEC10xslDIIndex>` attribute) :inlinetip:`Attribute is optional and doesn't have to be included in configuration, no conversion will take place if this attribute is omitted.`
+
+   * :attr:    .. _ref-IEC10xslDIInterDelay:
+   
+               :xmlref:`InterDelay`
+     :val:     0...2\ :sup:`32`\  - 1
+     :desc:    Intermediate state reporting delay in milliseconds used when single status information objects are converted to double status objects. Intermediate state of the resulting DPI will not be reported if it doesn't exceed configured delay. (default value 10000 - event will be generated if Intermediate state lasts longer than 10 seconds) :inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
+
+   * :attr:    .. _ref-IEC10xslDIIndetDelay:
+   
+               :xmlref:`IndetDelay`
+     :val:     0...2\ :sup:`32`\  - 1
+     :desc:    Indeterminate (error) state reporting delay in milliseconds used when single status information objects are converted to double status objects.  Indeterminate (error) state of the resulting DPI will not be reported if it doesn't exceed configured delay. (default value 5000 - event will be generated if Indeterminate (error) state lasts longer than 5 seconds) :inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
 
    * :attr:    .. _ref-IEC10xslDITotal:
    
@@ -158,6 +169,14 @@ DI.qualifier
    * :(attr):
      :val:     xxxx.1xxx
      :desc:    DI object will be **excluded** from General Interrogation response
+
+   * :attr:    Bit 5
+     :val:     xx0x.xxxx
+     :desc:    Use time tag of the **last** change event of the 2 single DI objects which are converted to double status information. In transition ON->INTER->OFF time tag of the INTER->OFF event will be used.
+
+   * :(attr):
+     :val:     xx1x.xxxx
+     :desc:    Use time tag of the **first** change event of the 2 single DI objects which are converted to double status information. In transition ON->INTER->OFF time tag of the ON->INTER event will be used.
  
    * :attr:    Bit 6
      :val:     x0xx.xxxx
@@ -175,7 +194,7 @@ DI.qualifier
      :val:     1xxx.xxxx
      :desc:    DI is **disabled** and will not be sent upstream
 
-   * :attr:    Bits 4;5
+   * :attr:    Bit 4
      :val:     Any
      :desc:    Bits reserved for future use
 
@@ -243,4 +262,48 @@ distinguished from regular indexes used for linking.
    * :attr:    -1 and -6...-8
      :val:     Any
      :desc:    Internal indications reserved for future use
-   
+
+
+DI SPI/DPI conversion
+^^^^^^^^^^^^^^^^^^^^^
+
+Single to double point conversion takes place if :ref:`OffIndex<ref-IEC10xslDIOffIndex>` attribute is used.
+Values of source DI objects and resulting DPI object are listed in the truth table below.
+
+
+.. _ref-IEC10xslDISPIDPI:
+
+.. field-list-table:: IEC 60870-5-101/104 Slave SPI/DPI truth table
+   :class: table table-condensed table-bordered longtable
+   :spec: |C{0.20}|C{0.20}|S{0.55}|
+   :header-rows: 1
+
+   * :onval,18: Value of :ref:`Index<ref-IEC10xslDIIndex>` DI
+     :offval,18:  Value of :ref:`OffIndex<ref-IEC10xslDIOffIndex>` DI
+     :result,64: Resulting DPI
+
+   * :onval:   OFF (0)
+     :offval:  OFF (0)
+     :result:  Intermediate (0)
+
+   * :onval:   OFF (0)
+     :offval:  ON (1)
+     :result:  OFF (1)
+
+   * :onval:   ON (1)
+     :offval:  OFF (0)
+     :result:  ON (2)
+
+   * :onval:   ON (1)
+     :offval:  ON (1)
+     :result:  Indeterminate (error) (3)
+
+   * :onval:   Other
+     :offval:  Other
+     :result:  Indeterminate (error) (3)
+
+Intermediate and Indeterminate state reporting can be delayed using :ref:`InterDelay<ref-IEC10xslDIInterDelay>` and :ref:`IndetDelay<ref-IEC10xslDIIndetDelay>` attributes respectively.
+If ON->INTER->OFF or OFF->INTER->ON transition successfully completes before :ref:`InterDelay<ref-IEC10xslDIInterDelay>` timer expiration, Intermediate state will not be reported.
+Delay setting has to be carefully selected to ensure it always exceeds time required for ON->INTER->OFF or OFF->INTER->ON transitions to complete, to take advantage of this functionality.
+If delay attributes are set 0 Intermediate and Indeterminate states will be reported as soon as values of source DI objects become those listed in the table above.
+

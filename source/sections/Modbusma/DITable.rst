@@ -19,21 +19,18 @@ objects configured using 4 :ref:`DI<ref-ModbusmaDI>` element nodes.
 .. code-block:: none
 
    <DITable>
-	<DI Index="0" qualifier="0x00"/>
-	<DI Index="1" qualifier="0x10"/>
-	<DI Index="2" qualifier="0x10"/>
-	<DI Index="3" qualifier="0x00" Total="2"/>
+	<DI Index="0" Qualifier="0x00"/>
+	<DI Index="1" Qualifier="0x10"/>
+	<DI Index="2" Qualifier="0x10"/>
+	<DI Index="3" Qualifier="0x00" Total="2"/>
    </DITable>
-   
+
 Please see sample :ref:`DI<ref-ModbusmaDI>` element node below listing all available attributes.
-            
+
 .. code-block:: none
-            
-   <DI  Index="0"
-	qualifier="0"
-	Total="2"
-	Name="Transducer mode" />
-      
+
+   <DI Index="0" Qualifier="0" ChatterFilter="100" Total="2" Name="Transducer mode" />
+
 .. tip:: Attributes of the :ref:`DI<ref-ModbusmaDI>` element node can be arranged in any order, it will not affect XML file validation.
 
 DI attributes
@@ -56,11 +53,17 @@ DI attributes
      :val:     0...2\ :sup:`32`\  - 8
      :desc:    Index is a unique identifier of the DI object. :inlineimportant:`Index numbering must start with 0 and indexes must be arranged in an ascending order as it prevents insertion of a new object. This requirement is essential because it affects object mapping to Slave communication protocol instances.`
 
-   * :attr:    .. _ref-ModbusmaDIqualifier:
+   * :attr:    .. _ref-ModbusmaDIQualifier:
    
-               :xmlref:`qualifier`
+               :xmlref:`Qualifier`
      :val:     0...255
-     :desc:    Internal object qualifier to enable customized data processing. (default value 0) :inlinetip:`Attribute is not implemented currently and reserved for future use.`
+     :desc:    Internal object Qualifier to enable customized data processing. (default value 0) :inlinetip:`Attribute is not implemented currently and reserved for future use.`
+
+   * :attr:    .. _ref-ModbusmaDIChatterFilter:
+   
+               :xmlref:`ChatterFilter`
+     :val:     1...65535
+     :desc:    Chatter filter in milliseconds for Digital Inputs. State change of the digital input will be reported only if remains stable for the period exceding configured filter. (default value 50)
 
    * :attr:    .. _ref-ModbusmaDITotal:
    

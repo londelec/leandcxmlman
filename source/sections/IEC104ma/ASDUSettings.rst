@@ -9,17 +9,7 @@ Please see sample :ref:`ASDUSettings<ref-IEC104maASDUSettings>` node and the tab
 
 .. code-block:: none
 
- <ASDUSettings  InvalidEvent="1"
-		IgnoreTimetags="1"
-		SUthroughoutDST="1"
-		AIDeadband="2"
-		AIPercent="0.5"
-		DOQOC="1"
-		DOType="46"
-		AOType="50"
-		DIEventStartup="1"
-		AIEventStartup="1"
-                ForwardGI="1" />
+ <ASDUSettings InvalidEvent="1" IgnoreTimetags="1" SUthroughoutDST="1" AIDeadband="2" AIPercent="0.5" DOQOC="1" DOType="46" AOType="50" DIEventStartup="1" AIEventStartup="1" ForwardGI="1" />
 
 .. _docref-IEC104maASDUSettingsAttab:
 
@@ -42,7 +32,7 @@ Please see sample :ref:`ASDUSettings<ref-IEC104maASDUSettings>` node and the tab
 
 .. include-file:: sections/Include/IEC10xma_ASDU_2.rstinc "" ".. _ref-IEC104maASDUSettingsDOQOC:" ".. _ref-IEC104maASDUSettingsDOType:" ".. _ref-IEC104maASDUSettingsAOType:"
 
-.. include-file:: sections/Include/IEC10xma_ASDU_EventStartup.rstinc
+.. include-file:: sections/Include/IEC60870_ASDU_EventStartup.rstinc
 
 .. include-file:: sections/Include/IEC60870_ForwardGI.rstinc
 
