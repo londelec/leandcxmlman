@@ -1,9 +1,9 @@
    * :attr: :include-arg:`1`
-            
+
             :xmlref:`TimeSync`
      :val:  0
-     :desc: Send Time Synchronization commands with **individual** link and Common Addresses of ASDU (CAA) (default value)
+     :desc: Send Time Synchronization [C_CS_NA_1] commands with **individual** link and Common Addresses of ASDU (CAA) (default value)
 
    * :(attr):
      :val: 1
-     :desc: Send Time Synchronization commands with **broadcast** link and Common Address of ASDU (CAA). :include-arg:`2`
+     :desc: Send Time Synchronization [C_CS_NA_1] commands with **broadcast** link and Common Address of ASDU (CAA). :include-arg:`2`

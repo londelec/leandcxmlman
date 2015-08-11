@@ -9,7 +9,7 @@ Please see sample :ref:`ASDUSettings<ref-IEC101slASDUSettings>` node and the tab
 
 .. code-block:: none
 
-   <ASDUSettings COTSize="1" CAASize="1" IOASize="2" TimeSync="1" InvalidEvent="1" SUthroughoutDST="1" DIEventType="2" AIEventType="14" DOType="46" AOType="50" DIInterDelay="8000" DIIndetDelay="3500" DIEventStartup="1" AIEventStartup="1" TranspTypes="1" ForwardGI="1" />
+   <ASDUSettings COTSize="1" CAASize="1" IOASize="2" InvalidEvent="1" SUthroughoutDST="1" DIEventType="2" AIEventType="14" DOType="46" AOType="50" DIInterDelay="8000" DIIndetDelay="3500" DIEventStartup="1" AIEventStartup="1" TimeSync="1" TranspTypes="1" ForwardGI="1" />
 
 .. _docref-IEC101slASDUSettingsAttab:
 
@@ -35,14 +35,6 @@ Please see sample :ref:`ASDUSettings<ref-IEC101slASDUSettings>` node and the tab
    * :attr:     :xmlref:`IOASize`
      :val:      1; 2 or 3
      :desc:     Information Object Address size in bytes (default 2 bytes)
-
-   * :attr:     :xmlref:`TimeSync`
-     :val:      0
-     :desc:     **Reject** incoming clock synchronization messages (default value)
-
-   * :(attr):
-     :val:      1
-     :desc:     **Accept** incoming clock synchronization messages and synchronize internal real time clock
 
 .. include-file:: sections/Include/IEC60870_InvalidEvent.rstinc
 

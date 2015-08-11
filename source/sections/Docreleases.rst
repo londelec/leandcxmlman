@@ -12,17 +12,91 @@ This manual was published with the following leandc firmware release.
    :spec: |C{0.25}|C{0.25}|
    :header-rows: 1
 
-   * :attr,20: Firmware Revision
+   * :attr,20: Firmware version
      :val,80:  Date
 
-   * :attr:    3.10
-     :val:     2015-06-29 15:52:23
+   * :attr:    3.12
+     :val:     2015-08-11 12:36:44
 
 .. tip::
 
    Use argument -v to check firmware revision and build date:
    *./leandc -v*
-   
+
+
+.. field-list-table:: Previous Firmware releases
+   :class: table table-condensed table-bordered longtable
+   :spec: |C{0.15}|C{0.15}|C{0.15}|S{0.55}|
+   :header-rows: 1
+
+   * :fw,10:    Firmware version
+     :fdate,10: Firmware date
+     :doc,10:   Document version(s)
+
+   * :fw:       2.01
+     :fdate:    2013-10-16 17:21:27
+     :doc:      V12
+
+   * :fw:       2.04
+     :fdate:    2013-12-18 08:55:06
+     :doc:      V13, V14
+
+   * :fw:       2.05
+     :fdate:    2014-02-26 20:20:30
+     :doc:      V15
+
+   * :fw:       2.06
+     :fdate:    2014-03-31 14:58:09
+     :doc:      V16
+
+   * :fw:       2.07
+     :fdate:    2014-04-08 20:59:57
+     :doc:      V17
+
+   * :fw:       3.00
+     :fdate:    2014-05-26 21:19:06
+     :doc:      V18
+
+   * :fw:       3.01
+     :fdate:    2014-05-28 12:20:12
+     :doc:      V18
+
+   * :fw:       3.02
+     :fdate:    2014-06-26 14:48:34
+     :doc:      V19
+
+   * :fw:       3.04
+     :fdate:    2014-10-08 15:43:46
+     :doc:      V20
+
+   * :fw:       3.05
+     :fdate:    2014-11-28 11:39:37
+     :doc:      V21
+
+   * :fw:       3.06
+     :fdate:    2014-12-01 08:47:07
+     :doc:      V21
+
+   * :fw:       3.07
+     :fdate:    2015-02-15 17:55:25
+     :doc:      V22
+
+   * :fw:       3.08
+     :fdate:    2015-03-24 21:06:41
+     :doc:      V23
+
+   * :fw:       3.09
+     :fdate:    2015-03-25 10:57:25
+     :doc:      V23
+
+   * :fw:       3.10
+     :fdate:    2015-06-29 15:52:23
+     :doc:      V24
+
+   * :fw:       3.11
+     :fdate:    2015-07-08 14:07:37
+     :doc:      V24
+
 .. field-list-table:: Document version control
    :class: table table-condensed table-bordered version-control longtable
    :spec: |C{0.15}|C{0.15}|C{0.15}|S{0.55}|
@@ -239,3 +313,10 @@ This manual was published with the following leandc firmware release.
 		| > :xmlref:`PulseDuration` attribute added to Modbus Master DO node
 		| > :xmlref:`LEIODC-C32-3100` type added to Modbus Master :xmlref:`Hardcoded` node
 
+   * :ver:     V25
+     :date:    11/08/2015
+     :by:      AK
+     :desc:     | > :xmlref:`TimeSync` attribute added to IEC60870-5-104 Master :xmlref:`Periodic` node which can be used to enable periodic Time Synchronization commands;
+		| > :xmlref:`TimeSync` attribute added to IEC60870-5-104 Master :xmlref:`Broadcast` node to enable broadcast Common Address of ASDU (CAA) for outgoing Time Synchronization commands;
+		| > :xmlref:`TimeSync` attribute added to IEC60870-5-104 Slave :xmlref:`ASDUSettings` node to enable internal clock synchronization when command is received;
+		| > :xmlref:`LEIODC-X32-3100`, :xmlref:`LEIODC-X10-3100` and :xmlref:`THT2` types added to Modbus Master :xmlref:`Hardcoded` node

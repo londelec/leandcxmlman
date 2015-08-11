@@ -10,7 +10,7 @@ Please see sample :ref:`Broadcast<ref-IEC104maBroadcast>` node and the table lis
 
 .. code-block:: none
 
-   <Broadcast GI="1" Reset="0" />
+   <Broadcast GI="1" TimeSync="0" Reset="0" />
 
 .. _docref-IEC104maBroadcastAttab:
 
@@ -22,7 +22,17 @@ Please see sample :ref:`Broadcast<ref-IEC104maBroadcast>` node and the table lis
    * :attr,10:  Attribute
      :val,15:   Values or range
      :desc,75:  Description
-     
+
 .. include-file:: sections/Include/IEC10xma_BroadcastGI.rstinc "" ".. _ref-IEC104maBroadcastGI:" "Broadcast address is 65535"
 
-.. include-file:: sections/Include/IEC10xma_BroadcastRP.rstinc "" ".. _ref-IEC101maBroadcastReset:" "Broadcast address is 65535"
+   * :attr: .. _ref-IEC104maBroadcastTimeSync:
+            
+            :xmlref:`TimeSync`
+     :val:  0
+     :desc: Send Time Synchronization [C_CS_NA_1] commands with **individual** Common Addresses of ASDU (CAA) (default value)
+
+   * :(attr):
+     :val: 1
+     :desc: Send Time Synchronization [C_CS_NA_1] commands with **broadcast** Common Address of ASDU (CAA). Broadcast address is 65535
+
+.. include-file:: sections/Include/IEC10xma_BroadcastRP.rstinc "" ".. _ref-IEC104maBroadcastReset:" "Broadcast address is 65535"

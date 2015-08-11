@@ -15,4 +15,4 @@ Please see sample :ref:`Periodic<ref-IEC101maPeriodic>` node and the table listi
 
 .. include-file:: sections/Include/IEC10xma_PeriodicICGroups.rstinc ""
 
-.. include-file:: sections/Include/IEC10xma_PeriodicTimeSync.rstinc ""
+.. include-file:: sections/Include/IEC10xma_PeriodicTimeSync.rstinc "" ":inlinetip:`Time Synchronization commands are sent only at predefined intervals which means station Online/Offline status changes don't trigger additional synchronziation command.`"

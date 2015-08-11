@@ -16,8 +16,16 @@
 
 .. include-file:: sections/Include/IEC60870_ASDU_EventStartup.rstinc
 
+   * :attr:     :xmlref:`TimeSync`
+     :val:      0
+     :desc:     **Reject** incoming clock synchronization messages (default value)
+
+   * :(attr):
+     :val:      1
+     :desc:     **Accept** incoming clock synchronization messages and synchronize internal real time clock. :inlinetip:`Please note internal real time clock will be synchronized immediately if a time difference between received time stamp and internal clock is greater than 1 hour. If a time difference is less than 1 hour, internal clock will be adjusted only once an hour.`
+
    * :attr:     :include-arg:`1`
-            
+
                 :xmlref:`TranspTypes`
      :val:      0
      :desc:     ASDU type of every DI/AI object is determined by XML configuration settings. (default value)

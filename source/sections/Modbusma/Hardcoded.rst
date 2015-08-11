@@ -44,16 +44,25 @@ Hardcoded types
      :desc,80: Description
 
    * :attr:    BCDI16
-     :desc:    Brainchild Digital Input (16) module DI16. Number of information objects automatically created for this device: DI=16, AI=0, DO=0, AO=0
+     :desc:    Brainchild Digital Input (16) module DI16. Information objects are automatically created for this device as follows: DI=16, AI=0, DO=0, AO=0
 
    * :attr:    BCAIIS16
-     :desc:    Brainchild isolated Analog Input (8) module AIIS8. Number of information objects automatically created for this device: DI=0, AI=8, DO=0, AO=0
+     :desc:    Brainchild isolated Analog Input (8) module AIIS8. Information objects are automatically created for this device as follows: DI=0, AI=8, DO=0, AO=0
 
    * :attr:    LEDOM16
-     :desc:    Londelec Digital Output (16) module DOM16. Number of information objects automatically created for this device: DI=0, AI=0, DO=16, AO=0
+     :desc:    Londelec Digital Output (16) module DOM16. Information objects are automatically created for this device as follows: DI=0, AI=0, DO=16, AO=0
 
    * :attr:    LEIODC-C32-3100
-     :desc:    Londelec LEIODC-C32-3100 unit. Number of information objects automatically created for this device: DI=12, AI=0, DO=4, AO=0
+     :desc:    Londelec LEIODC-C32-3100 unit. Information objects are automatically created for this device as follows: DI=12, AI=0, DO=4, AO=0
+
+   * :attr:    LEIODC-X32-3100
+     :desc:    Londelec LEIODC-X32-3100 unit. Information objects are automatically created for this device as follows: DI=12, AI=0, DO=4, AO=0
+
+   * :attr:    LEIODC-X10-3100
+     :desc:    Londelec LEIODC-X10-3100 unit. Information objects are automatically created for this device as follows: DI=12, AI=0, DO=4, AO=0
+
+   * :attr:    THT2
+     :desc:    Papouch THT2 thermometer. Information objects are automatically created for this device as follows: DI=0, AI=1, DO=0, AO=0
 
    * :attr:    Other
      :desc:    Undefined, none of hardcoded device types will be used
