@@ -15,8 +15,8 @@ This manual was published with the following leandc firmware release.
    * :attr,20: Firmware version
      :val,80:  Date
 
-   * :attr:    3.12
-     :val:     2015-08-11 12:36:44
+   * :attr:    3.14
+     :val:     2015-09-04 10:05:40
 
 .. tip::
 
@@ -96,6 +96,15 @@ This manual was published with the following leandc firmware release.
    * :fw:       3.11
      :fdate:    2015-07-08 14:07:37
      :doc:      V24
+
+   * :fw:       3.12
+     :fdate:    2015-08-11 12:36:44
+     :doc:      V25
+
+   * :fw:       3.13
+     :fdate:    2015-08-24 21:04:07
+     :doc:      V25
+
 
 .. field-list-table:: Document version control
    :class: table table-condensed table-bordered version-control longtable
@@ -320,3 +329,8 @@ This manual was published with the following leandc firmware release.
 		| > :xmlref:`TimeSync` attribute added to IEC60870-5-104 Master :xmlref:`Broadcast` node to enable broadcast Common Address of ASDU (CAA) for outgoing Time Synchronization commands;
 		| > :xmlref:`TimeSync` attribute added to IEC60870-5-104 Slave :xmlref:`ASDUSettings` node to enable internal clock synchronization when command is received;
 		| > :xmlref:`LEIODC-X32-3100`, :xmlref:`LEIODC-X10-3100` and :xmlref:`THT2` types added to Modbus Master :xmlref:`Hardcoded` node
+
+   * :ver:     V26
+     :date:    04/09/2015
+     :by:      AK
+     :desc:     | > :xmlref:`ClassIgnore` attribute added to IEC60870-5-101 Slave :xmlref:`LinkSettings` node which can be used to ignore class of the receievd messages

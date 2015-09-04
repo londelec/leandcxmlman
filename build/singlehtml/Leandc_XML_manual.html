@@ -6,13 +6,13 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Leandc series XML configuration manual V25</title>
+    <title>Leandc series XML configuration manual V26</title>
     
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     'V25',
+        VERSION:     'V26',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -12511,7 +12511,8 @@ configured using various child element nodes under <a class="reference internal"
                      ACDAlways=&quot;0&quot;
                      FCBMaskLinkReq=&quot;0&quot;
                      TxAllVarLength=&quot;0&quot;
-                     SingleCharACK=&quot;1&quot; /&gt;
+                     SingleCharACK=&quot;1&quot;
+                     ClassIgnore=&quot;0&quot; /&gt;
 </pre></div>
 </div>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="docref-iec101sllinksettingsattab">
@@ -12567,6 +12568,13 @@ configured using various child element nodes under <a class="reference internal"
 </tr>
 <tr class="row-even"><td>1</td>
 <td><strong>Use</strong> single character (0xE5 and 0xA2) ACK and NACK responses</td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><span class="xmlref">ClassIgnore</span></td>
+<td>0</td>
+<td>Class of the received message is <strong>being used</strong> to determine either Class 1 or Class 2 data should be sent (default value)</td>
+</tr>
+<tr class="row-even"><td>1</td>
+<td>Class of the received message is <strong>ignored</strong>, Class 1 and Class 2 data is sent regadless of the requested Class. <span class="inlinetip">Please note this functionality is deviation from communication standard and option should be avoided.</span></td>
 </tr>
 </tbody>
 </table>
@@ -30725,8 +30733,8 @@ names, etc.</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>3.12</td>
-<td>2015-08-11 12:36:44</td>
+<tr class="row-even"><td>3.14</td>
+<td>2015-09-04 10:05:40</td>
 </tr>
 </tbody>
 </table>
@@ -30812,6 +30820,14 @@ names, etc.</p>
 <tr class="row-odd"><td>3.11</td>
 <td>2015-07-08 14:07:37</td>
 <td>V24</td>
+</tr>
+<tr class="row-even"><td>3.12</td>
+<td>2015-08-11 12:36:44</td>
+<td>V25</td>
+</tr>
+<tr class="row-odd"><td>3.13</td>
+<td>2015-08-24 21:04:07</td>
+<td>V25</td>
 </tr>
 </tbody>
 </table>
@@ -31081,6 +31097,14 @@ names, etc.</p>
 </div>
 </td>
 </tr>
+<tr class="row-odd"><td>V26</td>
+<td>04/09/2015</td>
+<td>AK</td>
+<td><div class="first last line-block">
+<div class="line">&gt; <span class="xmlref">ClassIgnore</span> attribute added to IEC60870-5-101 Slave <span class="xmlref">LinkSettings</span> node which can be used to ignore class of the receievd messages</div>
+</div>
+</td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -31194,7 +31218,7 @@ fUtHVztj9BMNwCVrPGuGqpyH+IPAGATai0CJ94qv3R3KZtb6wO+qrSdbVG4WdLDAIJBjFfURmoDK
 " alt="Logo"/>
             </a></p>
     <span class="sidebar-title">Leandc series XML configuration manual</span>
-    <span class="sidebar-subtitle" title="Version V25, docbuild(v0.1.0)">Version V25</span>
+    <span class="sidebar-subtitle" title="Version V26, docbuild(v0.1.0)">Version V26</span>
 
   <h3><a href="#document-index">Table Of Contents</a></h3>
   <ul>
@@ -31451,7 +31475,7 @@ fUtHVztj9BMNwCVrPGuGqpyH+IPAGATai0CJ94qv3R3KZtb6wO+qrSdbVG4WdLDAIJBjFfURmoDK
 
     <div class="footer">
         &copy; Copyright 2015, Londelec UK Ltd.
-      Last updated on 11 Aug 2015.
+      Last updated on 04 Sep 2015.
     </div>
   </body>
 </html>

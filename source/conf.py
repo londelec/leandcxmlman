@@ -7,7 +7,7 @@
 project = u'Leandc series XML configuration manual'
 
 # The full version, including alpha/beta/rc tags.
-release = u'V25'
+release = u'V26'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
