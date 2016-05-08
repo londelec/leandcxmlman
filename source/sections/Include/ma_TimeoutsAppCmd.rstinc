@@ -1,7 +1,13 @@
    * :attr:     :xmlref:`Application`
      :val:      1...2\ :sup:`32`\  - 1
-     :desc:     Application timeout is a delay in seconds for how long communication protocol instance waits response from downstream outstation after control command has been sent. If no response is received within a configured timeout, command is considered to be failed and processing is terminated (command gets removed from the buffer). In general application timeout is used to terminate pending control commands, if communication to downstream outstation is lost. (default 30 seconds)
+     :def:      30 sec
+     :desc:     Application timeout is a delay in seconds for how long communication protocol instance awaits response from downstream outstation after control command has been sent.
+		If no response is received within a configured timeout, command is considered failed and processing is terminated (command gets removed from the buffer).
+		In general application timeout is used to terminate pending control commands, if communication to downstream outstation is lost.
 
    * :attr:     :xmlref:`Command`
      :val:      1...2\ :sup:`32`\  - 1
-     :desc:     Command timeout is a delay in seconds for how long communication protocol instance tries to send command response to upstream Master station. If it is impossible to send the response within a configured timeout, command is considered to be failed and processing is terminated (command gets removed from the buffer). In general command timeout is used to terminate pending control commands, if communication to upstream Master station is lost. (default 10 seconds)
+     :def:      10 sec
+     :desc:     Command timeout is a delay in seconds for how long communication protocol instance tries to send command response to upstream Master station.
+		If it is impossible to send the response within a configured timeout, command is considered failed and processing is terminated (command gets removed from the buffer).
+		In general command timeout is used to terminate pending control commands, if communication to upstream Master station is lost.

@@ -1,0 +1,9 @@
+.. field-list-table:: :include-arg:`1`
+   :class: table table-condensed table-bordered longtable
+   :spec: |C{0.20}|C{0.20}|C{0.10}|S{0.50}|
+   :header-rows: 1
+
+   * :attr,10: Attribute
+     :val,10:  Values or range
+     :def,6:   Default
+     :desc,74: Description

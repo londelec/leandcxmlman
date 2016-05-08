@@ -1,0 +1,7 @@
+:include-arg:`2` group and its child element nodes contain protocol-related settings of the :include-arg:`1` instance. 
+
+.. important:: It is essential to keep element nodes in the listed order otherwise it will affect the XML file validation.
+
+Please see sample :include-arg:`2` node and all available child element nodes below.
+Refer to further sections for attributes of each element node.
+

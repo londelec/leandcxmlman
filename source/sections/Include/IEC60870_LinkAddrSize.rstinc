@@ -1,0 +1,7 @@
+   * :attr:    :include-arg:`1`
+
+               :xmlref:`LinkAddrSize`
+     :val:     1 or 2
+     :def:     1 byte
+     :desc:    Link layer address size in bytes. :inlinetip:`Please note link address size of the protocol instances sharing the same hardware node must be the same.`
+

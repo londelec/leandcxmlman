@@ -23,7 +23,7 @@
 
    * :attr:    Bit 5
      :val:     xx0x.xxxx
-     :desc:    Logfile entries are prefixed with **Milisecond** time-tag.
+     :desc:    Logfile entries are prefixed with **Millisecond** time-tag.
 
    * :(attr):
      :val:     xx1x.xxxx

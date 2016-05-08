@@ -3,20 +3,20 @@
 .. _docref-IEC104maConfig:
 .. _ref-IEC104maConfig:
 
-IEC60870-5-104 Master configuration
-===================================
+IEC60870-5-104 Master
+=====================
 
-This section describes how to configure IEC 60870-5-104 controlling station (Master) communication protocol 
-instance. Each IEC 60870-5-104 controlling station (Master) communication protocol instance must have XML 
+This section describes how to configure IEC60870-5-104 controlling station (Master) communication protocol 
+instance. Each IEC60870-5-104 controlling station (Master) communication protocol instance must have XML 
 configuration file where its IO object table and additional protocol-related settings will be stored. One and the 
-same XML configuration file can be used for multiple IEC 60870-5-104 controlling station (Master) 
+same XML configuration file can be used for multiple IEC60870-5-104 controlling station (Master) 
 communication protocol instances, this becomes useful in case if identical sets of IO objects are acquired from 
 several outstations.
 
 Name and location path of the XML configuration file are not predefined, they can be chosen freely. File name 
 '**IEC104ma_test.xml**' will be used as a sample and location path doesn't need to be specified if XML file is 
 stored in the same directory as leandc firmware. In order to use the XML file for a communication protocol 
-instance, simply enter the name '**IEC104ma_test.xml**' in :ref:`IEC104ma<ref-IEC101ma>`.\ :ref:`XMLpath<ref-IEC104maXMLpath>` \ attribute.
+instance, simply enter the name '**IEC104ma_test.xml**' in :ref:`<ref-IEC104ma>`.\ :ref:`<ref-IEC104maXMLpath>` \ attribute.
 
 IEC60870-5-104 Master configuration file (e.g. '**IEC104ma_test.xml**') must have a root object node 
 :xmlref:`IEC104maConfig` which has 6 child group object nodes :ref:`VersionControl<ref-VersionControl>`; :ref:`ProtocolCfg<ref-IEC104maProtocolCfg>`; :ref:`DITable<ref-IEC10xmaDITable>`; :ref:`AITable<ref-IEC10xmaAITable>`;

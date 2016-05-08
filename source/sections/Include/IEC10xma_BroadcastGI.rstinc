@@ -1,9 +1,11 @@
-   * :attr: :include-arg:`1`
-            
-            :xmlref:`GI`
-     :val:  0
-     :desc: Send General Interrogation commands with **individual** Common Addresses of ASDU (CAA) (default value)
+   * :attr:    :include-arg:`1`
+
+               :xmlref:`GI`
+     :val:     0
+     :def:     0
+     :desc:    Send General Interrogation commands with **individual** Common Addresses of ASDU (CAA)
 
    * :(attr):
-     :val: 1
-     :desc: Send General Interrogation commands with **broadcast** Common Address of ASDU (CAA). :include-arg:`2`
+     :val:     1
+     :(def):
+     :desc:    Send General Interrogation commands with **broadcast** Common Address of ASDU (CAA). :include-arg:`2`

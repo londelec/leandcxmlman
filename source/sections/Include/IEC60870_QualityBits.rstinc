@@ -1,51 +1,40 @@
 
 :include-arg:`1`
 
-.. field-list-table:: DI/AI object qualifier bits
-   :class: table table-condensed table-bordered longtable
-   :spec: |C{0.20}|C{0.25}|S{0.55}|
-   :header-rows: 1
+.. include-file:: sections/Include/table_flags.rstinc "" "DI/AI qualifier quality bits" "Quality bits" "DI/AI qualifier"
 
-   * :attr,10: Bits
-     :val,15:  Values
-     :desc,75: Description
-
-   * :attr:    Service bits [xxxx.xxxx]
-     :val:     0...0xFF
-     :desc:    DI/AI qualifier is 8 bit variable. Bit numbers match the 
-
-   * :attr:    Bit 4
-     :val:     xxx0.xxxx
-     :desc:    Blocked [BL] bit **will not be** set
+   * :attr:     Bit 4
+     :val:      xxx0.xxxx
+     :desc:     Blocked [BL] bit **will not be** set
 
    * :(attr):
-     :val:     xxx1.xxxx
-     :desc:    Blocked [BL] bit **will be** set
+     :val:      xxx1.xxxx
+     :desc:     Blocked [BL] bit **will be** set
 
-   * :attr:    Bit 5
-     :val:     xx0x.xxxx
-     :desc:    Substituted [SB] bit **will not be** set
-
-   * :(attr):
-     :val:     xx1x.xxxx
-     :desc:    Substituted [SB] bit **will be** set
-
-   * :attr:    Bit 6
-     :val:     x0xx.xxxx
-     :desc:    Not Topical [NT] bit **will not be** set
+   * :attr:     Bit 5
+     :val:      xx0x.xxxx
+     :desc:     Substituted [SB] bit **will not be** set
 
    * :(attr):
-     :val:     x1xx.xxxx
-     :desc:    Not Topical [NT] bit **will be** set
+     :val:      xx1x.xxxx
+     :desc:     Substituted [SB] bit **will be** set
 
-   * :attr:    Bit 7
-     :val:     0xxx.xxxx
-     :desc:    Invalid [IV] bit **will not be** set
+   * :attr:     Bit 6
+     :val:      x0xx.xxxx
+     :desc:     Not Topical [NT] bit **will not be** set
 
    * :(attr):
-     :val:     1xxx.xxxx
-     :desc:    Invalid [IV] bit **will be** set
+     :val:      x1xx.xxxx
+     :desc:     Not Topical [NT] bit **will be** set
 
-   * :attr:    Bits 0...3
-     :val:     xxxx.0000
-     :desc:    Bits are used for Single/Double status information and Overflow [OV] indication and leandc firmware will not use those to indicate communication status of the station
+   * :attr:     Bit 7
+     :val:      0xxx.xxxx
+     :desc:     Invalid [IV] bit **will not be** set
+
+   * :(attr):
+     :val:      1xxx.xxxx
+     :desc:     Invalid [IV] bit **will be** set
+
+   * :attr:     Bits 0...3
+     :val:      xxxx.0000
+     :desc:     Bits are used for Single/Double status information and Overflow [OV] indication. leandc will not update these when communication status of the station changes.

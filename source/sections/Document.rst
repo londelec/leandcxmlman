@@ -36,18 +36,26 @@ Abbreviations used in this document are listed in the following table.
      :desc:    Daylight Saving Time
    * :abbr:    IANA
      :desc:    Internet Assigned Numbers Authority
+   * :abbr:    IED
+     :desc:    Intelligent Electronic Device
    * :abbr:    IO
      :desc:    Input/Output
    * :abbr:    IP
      :desc:    Internet Protocol
    * :abbr:    IOA
      :desc:    Information Object Address
+   * :abbr:    LD
+     :desc:    Logical Device (for IEC61850)
+   * :abbr:    LN
+     :desc:    Logical Node (for IEC61850)
    * :abbr:    LRU
      :desc:    Logical Remote Unit
    * :abbr:    PID
      :desc:    Running Process Identifier
    * :abbr:    OS
      :desc:    Operating System
+   * :abbr:    SCL
+     :desc:    System Configuration description Language
    * :abbr:    SPI
      :desc:    Single Point Information
    * :abbr:    SSH
@@ -57,19 +65,23 @@ Abbreviations used in this document are listed in the following table.
    * :abbr:    UDP
      :desc:    User Datagram Protocol
 
-Colored text:
+Text styles used in this manual:
 
-.. tip:: Notes in green provides additional information
+:xmlref:`Dark blue used for XML nodes and attributes`
 
-.. important:: Notes in red are warnings
+:underline-bold:`Links to tables and manual sections are bold underlined`
 
-.. note:: Highlighted text refers to definitions used in communication standards
+:inlinetip:`Notes in green for additional information on how to use attribute/setting`
 
-:xmlref:`Dark blue used to highlight XML nodes and attributes`
+:inlineimportant:`Important information on how to use attribute/setting in red`
 
-:underline:`Underlined links to definitions`
+:lectext1:`Highlighted text refers to definitions in communication standards`
 
+.. tip:: Generic tips in a green box
 
+.. important:: Important notes in a red box  
+
+.. note:: Various notes
 
 
 

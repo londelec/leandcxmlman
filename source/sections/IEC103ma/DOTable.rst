@@ -14,10 +14,10 @@ sends command to the outstation based on DO information object settings. Please 
 section :ref:`DOTable<ref-IEC10xslDOTable>` for more information on how to use DO information object as a destination.
 
 In order to send control command to the downstream outstation function type (FUN) and information number 
-(INF) need to be entered in :ref:`DO<ref-IEC103maDO>`.\ :ref:`FUN<ref-IEC103maDOFUN>` \ and :ref:`DO<ref-IEC103maDO>`.\ :ref:`INF<ref-IEC103maDOINF>` \ attributes.
+(INF) needs to be specified in :ref:`<ref-IEC103maDOFUN>` \ and :ref:`<ref-IEC103maDOINF>` \ attributes.
 
-Please see sample :ref:`DOTable<ref-IEC103maDOTable>` group node and :ref:`DO<ref-IEC103maDO>` child element nodes below. There are 5 DO information 
-objects configured using 4 :ref:`DO<ref-IEC103maDO>` element nodes.
+Please see sample :ref:`DOTable<ref-IEC103maDOTable>` group and :ref:`DO<ref-IEC103maDO>` child element nodes below.
+There are 5 DO information objects configured using 4 :ref:`DO<ref-IEC103maDO>` element nodes.
 
 .. code-block:: none
 
@@ -28,7 +28,7 @@ objects configured using 4 :ref:`DO<ref-IEC103maDO>` element nodes.
 	<DO Index="3" FUN="240" INF="56" Qualifier="0x00" Total="2"/>
    </DOTable>
 
-Please see sample :ref:`DO<ref-IEC103maDO>` element node below listing all available attributes.
+.. include-file:: sections/Include/sample_node.rstinc "" ":ref:`DO<ref-IEC103maDO>`"
 
 .. code-block:: none
 
@@ -41,86 +41,48 @@ DO attributes
 
 .. _ref-IEC103maDOAttributes:
 
-.. field-list-table:: IEC 60870-5-103 Master DO attributes
-   :class: table table-condensed table-bordered longtable
-   :spec: |C{0.20}|C{0.25}|S{0.55}|
-   :header-rows: 1
+.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-103 Master DO attributes"
 
-   * :attr,10: Attribute
-     :val,15:  Values or range
-     :desc,75: Description
+.. include-file:: sections/Include/ma_Index.rstinc "" ".. _ref-IEC103maDOIndex:" "DO"
 
-   * :attr:    .. _ref-IEC103maDOIndex:
-   
-               :xmlref:`Index`
-     :val:     0...2\ :sup:`32`\  - 8
-     :desc:    Index is a unique identifier of the DO object. :inlineimportant:`Index numbering must start with 0 and indexes must be arranged in an ascending order as it prevents insertion of a new object. This requirement is essential because it affects object mapping to Slave communication protocol instances.`
+.. include-file:: sections/Include/IEC103ma_FunInf.rstinc "" ".. _ref-IEC103maDOFUN:" ".. _ref-IEC103maDOINF:" "DO" "send command to"
 
-   * :attr:    .. _ref-IEC103maDOFUN:
-   
-               :xmlref:`FUN`
-     :val:     0...255
-     :desc:    Function Type (FUN) of the DI object. This FUN will be used to send command to downstream outstation. :inlinetip:`Function types don't have to be arranged in an ascending order.`
+   * :attr:     .. _ref-IEC103maDOQualifier:
 
-   * :attr:    .. _ref-IEC103maDOINF:
-   
-               :xmlref:`INF`
-     :val:     0...255
-     :desc:    Information Number (INF) of the DI object. This INF will be used to send command to downstream outstation. :inlinetip:`Information numbers don't have to be arranged in an ascending order.`
+                :xmlref:`Qualifier`
+     :val:      0...255 or 0x00...0xFF
+     :def:      0x00
+     :desc:     Internal object qualifier to enable customized data processing.
+		See table :numref:`ref-IEC103maDOQualifierBits` for internal object qualifier description.
+		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
 
-   * :attr:    .. _ref-IEC103maDOQualifier:
-   
-               :xmlref:`Qualifier`
-     :val:     See table :numref:`ref-IEC103maDOQualifierBits` for description
-     :desc:    Internal object Qualifier to enable customized data processing. See table :numref:`ref-IEC103maDOQualifierBits` for internal object Qualifier description. (default value 0) :inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
+.. include-file:: sections/Include/IEC60870_Total.rstinc "" ".. _ref-IEC103maDOTotal:" ":ref:`Index<ref-IEC103maDOIndex>`" ":ref:`INF<ref-IEC103maDOINF>`" ":ref:`DO<ref-IEC103maDO>`" "254"
 
-   * :attr:    .. _ref-IEC103maDOTotal:
-   
-               :xmlref:`Total`
-     :val:     1...255
-     :desc:    Total number of information objects. Attribute is used to create sequence of information objects with consecutive :ref:`DO<ref-IEC103maDO>`.\ :ref:`Index<ref-IEC103maDOIndex>` \ and :ref:`DO<ref-IEC103maDO>`.\ :ref:`INF<ref-IEC103maDOINF>` \ attribute values without a need to create individual :ref:`DO<ref-IEC103maDO>` nodes for each information object. (default value 1; only 1 object is created with this :ref:`DO<ref-IEC103maDO>` node) :inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
-
-   * :attr:    .. _ref-IEC103maDOName:
-   
-               :xmlref:`Name`
-     :val:     Max 100 chars
-     :desc:    Freely configurable name, just for reference. :inlinetip:`Name attribute is optional and doesn't have to be included in configuration.`
+.. include-file:: sections/Include/Name.rstinc ""
 
 DO.Qualifier
 ^^^^^^^^^^^^
 
 .. _ref-IEC103maDOQualifierBits:
 
-.. field-list-table:: IEC 60870-5-103 Master DO internal Qualifier
-   :class: table table-condensed table-bordered longtable
-   :spec: |C{0.20}|C{0.25}|S{0.55}|
-   :header-rows: 1
+.. include-file:: sections/Include/table_flags.rstinc "" "IEC60870-5-103 Master DO internal Qualifier" ":ref:`<ref-IEC103maDOQualifier>`" "DO internal qualifier"
 
-   * :attr,10: Bits
-     :val,10:  Values
-     :desc,80: Description
-
-   * :attr:    Qualifier [xxxx.xxxx]
-     :val:     0...0xFF
-     :desc:    DO internal Qualifier has 8 data bits
-
-   * :attr:    Bit 0
-     :val:     xxxx.xxx0
-     :desc:    DO object **will not** be inverted
+   * :attr:     Bit 0
+     :val:      xxxx.xxx0
+     :desc:     DO object **will not** be inverted
 
    * :(attr):
-     :val:     xxxx.xxx1
-     :desc:    DO object **will** be inverted (OFF → ON; ON → OFF)
+     :val:      xxxx.xxx1
+     :desc:     DO object **will** be inverted (OFF → ON; ON → OFF)
 
-   * :attr:    Bit 7
-     :val:     0xxx.xxxx
-     :desc:    DO is **enabled**, command will be sent to outstation
+   * :attr:     Bit 7
+     :val:      0xxx.xxxx
+     :desc:     DO is **enabled**, command will be sent to outstation
 
    * :(attr):
-     :val:     1xxx.xxxx
-     :desc:    DO is **disabled**, command will not be sent to outstation
+     :val:      1xxx.xxxx
+     :desc:     DO is **disabled**, command will not be sent to outstation
 
-   * :attr:    Bits 1...6
-     :val:     Any
-     :desc:    Bits reserved for future use
-   
+   * :attr:     Bits 1...6
+     :val:      Any
+     :desc:     Bits reserved for future use

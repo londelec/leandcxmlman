@@ -1,28 +1,22 @@
 :include-arg:`1`
 
-Periodic attributes
-^^^^^^^^^^^^^^^^^^^
+Periodic
+^^^^^^^^
 
-Periodic intervals of sending various messages can be specified using attributes of :include-arg:`2` element node.
+Periodic intervals to send various messages are specified in this node.
 
-Please see sample :include-arg:`2` node and the table listing all available attributes below.
+.. include-file:: sections/Include/sample_node.rstinc "" ":include-arg:`2`"
 
 .. code-block:: none
 
    <Periodic AI="60" />
 
+
 :include-arg:`3`
 
-.. field-list-table:: :include-arg:`4`
-   :class: table table-condensed table-bordered longtable
-   :spec: |C{0.20}|C{0.25}|S{0.55}|
-   :header-rows: 1
+.. include-file:: sections/Include/table_attrs.rstinc "" ":include-arg:`4`"
 
-   * :attr,10: Attribute
-     :val,15:  Values or range
-     :desc,75: Description
-     
-   * :attr:    :xmlref:`AI`
-     :val:     0...2\ :sup:`32`\  - 1
-     :desc:    Periodic analogue value reporting interval in seconds. Value 0 disables periodic analog value reporting (default value 0)
-
+   * :attr:     :xmlref:`AI`
+     :val:      0...2\ :sup:`32`\  - 1
+     :def:      0 sec
+     :desc:     Periodic analogue value reporting interval in seconds. Value 0 disables periodic analog value reporting.

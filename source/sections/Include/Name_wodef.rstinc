@@ -1,0 +1,3 @@
+   * :attr:    :xmlref:`Name`
+     :val:     Max 100 chars
+     :desc:    Freely configurable name, just for reference. :inlinetip:`Attribute is optional and doesn't have to be included in configuration.`

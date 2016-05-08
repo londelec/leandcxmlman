@@ -294,7 +294,7 @@ used to illustrate functionality of each step separately not the complete operat
 Received AI processing
 ----------------------
 
-Flowchart below shows AI value processing when IEC 60870-5-101/103/104 Master protocol instance receives 
+Flowchart below shows AI value processing when IEC60870-5-101/103/104 Master protocol instance receives 
 AI object from outstation. This processing takes place after AI scaling has been completed, refer to previous 
 annexes for additional information on AI scaling.
 

@@ -1,6 +1,6 @@
-   * :attr:    :include-arg:`1`
-            
-               :xmlref:`OnlineGIDelay`
-     :val:     0...2\ :sup:`32`\  - 1
-     :desc:    General Interrogation command will be delayed by a configured number of seconds when outstation comes online. Delay is designed to allow outstation to poll data after reset/power-on and before data is requested by leandc issuing General Interrogation command (default value 0)
-     
+   * :attr:     :include-arg:`1`
+
+                :xmlref:`OnlineGIDelay`
+     :val:      0...2\ :sup:`32`\  - 1
+     :def:      0 sec
+     :desc:     General Interrogation command will be delayed for a configured number of seconds after outstation comes online. Delay is designed to allow outstation to poll data after reset/power-on and before data is requested by leandc with a General Interrogation command.

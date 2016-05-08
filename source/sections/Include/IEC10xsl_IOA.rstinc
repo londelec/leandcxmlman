@@ -1,0 +1,8 @@
+   * :attr:     :include-arg:`1`
+
+                :xmlref:`InfAddr`
+     :val:      1...16777215
+     :def:      n/a
+     :desc:     Information Object Address (IOA) of the :include-arg:`2` object.
+		This IOA will be used to :include-arg:`3` upstream station. :inlinetip:`Addresses don't have to be arranged in ascending order.`
+

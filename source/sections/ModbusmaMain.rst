@@ -2,23 +2,23 @@
 
 .. _ref-ModbusmaMain:
 
-Modbus Master configuration
-===================================
+Modbus Master
+=============
 
-This section describes how to configure Modbus RTU/ASCII/TCP Master communication protocol 
-instance. Each Modbus Master communication protocol instance must have XML 
+This section describes how to configure Modbus RTU/ASCII/TCP Master communication protocol
+instance. Each Modbus Master communication protocol instance must have XML
 configuration file where its IO object table and additional protocol-related settings are stored.
-XML configuration file can be used for multiple Modbus Master 
-communication protocol instances, this becomes useful in case if multiple outstations have identical sets of IO objects.
+The same XML file can be used for multiple Modbus Master
+communication protocol instances. It becomes very useful if multiple outstations have identical sets of IO objects.
 
-Name and location path of the XML configuration file is not predefined, it can be chosen freely. File name 
-'**Device_IO.xml**' will be used as a sample. Location path doesn't need to be specified if XML file is stored in 
-the same directory as leandc firmware. In order to use the XML file for a communication protocol instance, 
-simply enter the name '**Device_IO.xml**' in :ref:`Modbusma<ref-ModbusmaMain>`.\ :ref:`XMLpath<ref-ModbusmaXMLpath>` \ attribute.
+Name and location path of the XML configuration file is not predefined, it can be chosen freely. File name
+'**Device_IO.xml**' will be used as a sample. Location path doesn't need to be specified if XML file is stored in
+the same directory as leandc firmware. In order to use the XML file for a communication protocol instance,
+simply enter the name '**Device_IO.xml**' in :ref:`<ref-Modbusma>`.\ :ref:`<ref-ModbusmaXMLpath>` \ attribute.
 
-Modbus Master configuration file (e.g. '**Device_IO.xml**') must have a root object node :xmlref:`ModbusmaConfig` which has 
-2 mandatory child group object nodes :ref:`VersionControl<ref-VersionControl>`; :ref:`ProtocolCfg<ref-ModbusmaProtocolCfg>` 
-and 3 optional child group object nodes :ref:`DITable<ref-ModbusmaDI>`; :ref:`AITable<ref-ModbusmaAI>`; :ref:`DOTable<ref-ModbusmaDO>` please see the 
+Modbus Master configuration file (e.g. '**Device_IO.xml**') must have a root object node :xmlref:`ModbusmaConfig` which has
+2 mandatory child group object nodes :ref:`VersionControl<ref-VersionControl>`; :ref:`ProtocolCfg<ref-ModbusmaProtocolCfg>`
+and 3 optional child group object nodes :ref:`DITable<ref-ModbusmaDI>`; :ref:`AITable<ref-ModbusmaAI>`; :ref:`DOTable<ref-ModbusmaDO>` please see the
 sample below.
 
 .. code-block:: none
@@ -45,10 +45,10 @@ sample below.
       </DOTable>
    </ModbusmaConfig>
 
-:ref:`DITable<ref-ModbusmaDI>`; :ref:`AITable<ref-ModbusmaAI>`; :ref:`DOTable<ref-ModbusmaDO>` group nodes compose an IO object table of the Modbus 
-Master communication protocol instance. Please 
+:ref:`DITable<ref-ModbusmaDI>`; :ref:`AITable<ref-ModbusmaAI>`; :ref:`DOTable<ref-ModbusmaDO>` group nodes compose an IO object table of the Modbus
+Master communication protocol instance. Please
 refer to the tables :numref:`ref-ModbusmaDIAttributes`; :numref:`ref-ModbusmaAIAttributes` and :numref:`ref-ModbusmaDOAttributes` for their attributes.
-  
+
 .. include:: Modbusma/ProtocolCfg.rst
 .. include:: Modbusma/DITable.rst
 .. include:: Modbusma/AITable.rst

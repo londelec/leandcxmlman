@@ -1,5 +1,6 @@
    * :attr:     :xmlref:`StartupGIDelay`
      :val:      0...2\ :sup:`32`\  - 1
-     :desc:     Incoming General interrogation commands are rejected for a configured number of seconds on leandc startup. Negative confirmation will be generated if General Interrogation command is received before this delay expires. This delay allows leandc firmware to poll data from outstations for the first time on startup, before data is being requested by an upstream station (e.g. SCADA) (default value 0)
+     :def:      0 sec
+     :desc:     Incoming General interrogation commands are rejected for a configured number of seconds on leandc startup. Negative confirmation will be sent to General Interrogation requests received before the delay expires. This delay allows leandc to poll data from outstations for the first time on startup, before data is being requested by an upstream station (e.g. SCADA)
 
 

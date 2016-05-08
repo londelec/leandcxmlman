@@ -1,7 +1,9 @@
    * :attr:    :xmlref:`IgnoreTimetags`
      :val:     0
-     :desc:    **Use original** timetag when events are received from outstation (default value)
+     :def:     0
+     :desc:    **Use original** timetag when events are received from outstation
 
    * :(attr):
      :val:     1
+     :(def):
      :desc:    **Substitute** timetag with the local time when events are received from outstation

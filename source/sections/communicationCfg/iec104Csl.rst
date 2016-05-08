@@ -1,30 +1,23 @@
 
 .. _ref-IEC104Csl:
 
-IEC104Csl element node
-^^^^^^^^^^^^^^^^^^^^^^
+IEC104Csl
+^^^^^^^^^
 
-There is an option to clone communication protocol instances which share a common transport interface (same 
-:ref:`StationID<ref-IEC104slStationID>` attribute) to create identical communication protocol instances linked to identical transport interface. 
-This option might be useful in a situation where number of communication protocol instances (ASDUs) are 
-linked to the same transport interface (station) and there is a need to create identical copy of such configuration 
-e.g. to be linked to different hardware node. It can be easily achieved using :ref:`IEC104Csl<ref-IEC104Csl>` element node.
+There is an option to clone IEC60870-5-104 stations which have multiple ASDUs, 
+i.e. multiple :ref:`<ref-IEC104sl>` nodes with the same :ref:`<ref-IEC104slStationID>` attributes and unique :ref:`<ref-IEC104slASDUAddr>` attributes.
+Cloned IEC60870-5-104 station will have identical number of ASDUs and can be linked to different hardware node.
 
-Please see sample :ref:`IEC104Csl<ref-IEC104Csl>` element node and the table listing all available attributes below.
+.. include-file:: sections/Include/sample_node.rstinc "" ":ref:`<ref-IEC104Csl>`"
 
 .. code-block:: none
 
-   <IEC104Csl   Index="13"
-		HWIndex="3"
-		CloneFromIndex="12"
-		StationID="5"
-		FilterID="0"
-		CommsFlags="0x80"
-		Name="SCADA"/>
+   <IEC104Csl Index="13" HWIndex="3" CloneFromIndex="12" StationID="5" FilterID="0" CommsFlags="0x80" Name="SCADA"/>
+
 
 .. _ref-IEC104CslAttributes:
 
-.. field-list-table:: Leandc IEC104Csl node
+.. field-list-table:: IEC104Csl node
    :class: table table-condensed table-bordered longtable
    :header-rows: 1
    :spec: |C{0.20}|C{0.25}|S{0.55}|
@@ -33,32 +26,36 @@ Please see sample :ref:`IEC104Csl<ref-IEC104Csl>` element node and the table lis
      :val,15:  Values or range
      :desc,75: Description
 
-   * :attr:    :xmlref:`Index`
-     :val:     1...254
-     :desc:    Base index of the first cloned communication protocol instance. If there are more protocol instances linked to the same transport interface as the instance which is being cloned, all of those will be cloned and their indexes will be initialized sequentially. :inlinetip:`Indexes don't have to be in a sequential order.`
+   * :attr:     :xmlref:`Index`
+     :val:      1...254
+     :desc:     Base index of the first cloned node.
+		If the source IEC60870-5-104 Slave station has multiple ASDUs, all of those will be cloned and indexes will be initialized sequentially.
+		:inlineimportant:`Remember to leave a gap for the sequence of indexes to be created automatically after base index value specified. Number of index values created will be the number ASDUs source IEC60870-5-104 Slave station has.`
 
-   * :attr:    :xmlref:`HWIndex`
-     :val:     1...254
-     :desc:    Hardware Index is used to link cloned communication protocol instance(s) to a hardware node. Use value of the :ref:`TCPSERVER<ref-TCPSERVER>`.\ :ref:`Index<ref-TCPSERVERIndex>` \ attribute as a hardware index in order to link the cloned protocol instance(s). :inlinetip:`Multiple` :ref:`IEC104Csl<ref-IEC104Csl>` :inlinetip:`communication protocol instances can be linked to the same hardware node.`
+   * :attr:     :xmlref:`HWIndex`
+     :val:      1...254
+     :desc:     Hardware Index is used to link cloned communication protocol instance(s) to a hardware node.
+		Use value of the :ref:`<ref-TCPSERVER>`.\ :ref:`<ref-TCPSERVERIndex>` \ attribute as a hardware index in order to link the cloned protocol instance(s).
+		:inlinetip:`Multiple` :ref:`<ref-IEC104Csl>` :inlinetip:`communication protocol instances can share the same hardware node.`
 
-   * :attr:    :xmlref:`CloneFromIndex`
-     :val:     1...254
-     :desc:    Source communication protocol instance to be cloned. All protocol instances linked to the same transport interface (station) will be cloned. Use value of the :ref:`IEC104sl<ref-IEC104sl>`.\ :ref:`Index<ref-IEC104slIndex>` \ attribute.
+   * :attr:     :xmlref:`CloneFromIndex`
+     :val:      1...254
+     :desc:     Source :ref:`<ref-IEC104sl>` node to be cloned.
+		Use value of the :ref:`<ref-IEC104sl>`.\ :ref:`<ref-IEC104slIndex>` \ attribute.
 
-   * :attr:    :xmlref:`StationID`
-     :val:     1...254
-     :desc:    Station identifier. Multiple ASDUs (communication protocol instances) can share a common transport interface referred as 'station'. Station identifier is unique per hardware node so it is possible to have multiple stations with the same identifier providing these are linked to separate hardware nodes. :inlinetip:`Attribute is optional and doesn't have to be included in configuration, cloned protocol instance will create its own transport interface (unique 'station') if attribute omitted.`
+   * :attr:     :xmlref:`StationID`
+     :val:      1...254
+     :desc:     Station identifier.
+		It is possible to create more than 1 ASDU for our IEC60870-5-104 Slave station.
+		Multiple :ref:`<ref-IEC104sl>` nodes must be created in this case, one for each ASDU.
+		All of those :ref:`<ref-IEC104sl>` nodes will have the same :ref:`<ref-IEC104slStationID>` and unique :ref:`<ref-IEC104slASDUAddr>`.
+		If the IEC60870-5-104 Slave station with multiple ASDUs is being cloned, new identifier can be specified in this attribute.
+		Station identifier is unique per hardware node so it is possible to have multiple stations with the same :xmlref:`StationID` as long as they are linked to different hardware nodes.
+		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, cloned station will create its own unique station identifier if attribute omitted.`
 
-   * :attr:    .. _ref-IEC104CslFilterID:
-       
-               :xmlref:`FilterID`
-     :val:     1...255
-     :desc:    Identifier of a predefined filter to restrict the range of TCP client IP addresses allowed to establish connection to the protocol instance(s). Please refer to the table :numref:`docref-ClientFilterCfgIPv4Attab` for filter settings. :inlinetip:`Attribute is optional and doesn't have to be included in configuration.`
+.. include-file:: sections/Include/Comms_FilterID.rstinc "" ".. _ref-IEC104CslFilterID:"
 
-   * :attr:    :xmlref:`CommsFlags`
-     :val:     See table :numref:`ref-CommsFlagsAttribute` for description
-     :desc:    Initialization settings of the protocol instance(s). :inlinetip:`Attribute is optional and doesn't have to be included in configuration, default system settings will be used if omitted.`
+.. include-file:: sections/Include/Comms_CommsFlags.rstinc ""
 
-   * :attr:    :xmlref:`Name`
-     :val:     Max 100 chars
-     :desc:    Freely configurable name, just for reference. :inlinetip:`Name attribute is optional and doesn't have to be included in configuration.`
+.. include-file:: sections/Include/Name_wodef.rstinc ""
+

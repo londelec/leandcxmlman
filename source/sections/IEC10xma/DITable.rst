@@ -5,21 +5,19 @@
 DITable group and DI node
 -------------------------
 
-Group node :ref:`DITable<ref-IEC10xmaDITable>` and child element nodes :ref:`DI<ref-IEC10xmaDI>` are used to create DI information objects to receive status 
-information from the downstream outstation. Each created DI information object can be used as source of 
-information for any DI information object defined in IO table of the Slave protocol instances. If used as a source,
-status information received from an outstation will be forwarded to DI information object of the Slave protocol 
-instance and then to the upstream Master station. Please refer to the 
-section :ref:`docref-IEC10xslDITable` for more information on how to use DI information object as a source.
+Group node :ref:`DITable<ref-IEC10xmaDITable>` and child element nodes :ref:`DI<ref-IEC10xmaDI>` are used to create DI information objects to receive status information from the downstream outstation.
+Each created DI can be used as a source for any DI information object defined in the IO table of any Slave protocol instance.
+Data received from the outstation will be forwarded to the DI information object of the Slave protocol instance and then to the upstream Master station.
+Please refer to the section :ref:`docref-IEC10xslDITable` for more information on how to use DI information object as a source.
 
 In order to receive status information from downstream outstation information object address (IOA) needs to be 
-entered in :ref:`DI<ref-IEC10xmaDI>`.\ :ref:`InfAddr<ref-IEC10xmaDIInfAddr>` \ attribute. Status information is processed when received with any of the following ASDU 
-types:
+specified in the :ref:`InfAddr<ref-IEC10xmaDIInfAddr>` \ attribute. 
+Status information is processed when received with any of the following ASDU types:
 1 [M_SP_NA_1]; 2 [M_SP_TA_1]; 3 [M_DP_NA_1]; 
 4 [M_DP_TA_1]; 30 [M_SP_TB_1]; 31 [M_DP_TB_1]
 
-Please see sample :ref:`DITable<ref-IEC10xmaDITable>` group node and :ref:`DI<ref-IEC10xmaDI>` child element nodes below. There are 5 DI information objects 
-configured using 4 :ref:`DI<ref-IEC10xmaDI>` element nodes.
+Please see sample :ref:`DITable<ref-IEC10xmaDITable>` group and :ref:`DI<ref-IEC10xmaDI>` child element nodes below.
+There are 5 DI information objects configured using 4 :ref:`DI<ref-IEC10xmaDI>` element nodes.
 
 .. code-block:: none
 
@@ -30,11 +28,11 @@ configured using 4 :ref:`DI<ref-IEC10xmaDI>` element nodes.
 	<DI Index="3" InfAddr="4" qualifier="0x00" Total="2"/>
    </DITable>
 
-Please see sample :ref:`DI<ref-IEC10xmaDI>` element node below listing all available attributes.
+.. include-file:: sections/Include/sample_node.rstinc "" ":ref:`DI<ref-IEC10xmaDI>`"
 
 .. code-block:: none
 
-   <DI Index="0" InfAddr="1" qualifier="0" TypeID="31" Total="2" Name="CB position" />
+   <DI Index="0" InfAddr="1" qualifier="0" InterDelay="10000" IndetDelay="0" TypeID="31" Total="2" Name="CB position" />
 
 .. tip:: Attributes of the :ref:`DI<ref-IEC10xmaDI>` element node can be arranged in any order, it will not affect the XML file validation.         
 
@@ -43,116 +41,95 @@ DI attributes
 
 .. _ref-IEC10xmaDIAttributes:
 
-.. field-list-table:: IEC 60870-5-101/104 Master DI attributes
-   :class: table table-condensed table-bordered longtable
-   :spec: |C{0.20}|C{0.25}|S{0.55}|
-   :header-rows: 1
+.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-101/104 Master DI attributes"
 
-   * :attr,10: Attribute
-     :val,15:  Values or range
-     :desc,75: Description
+.. include-file:: sections/Include/ma_Index.rstinc "" ".. _ref-IEC10xmaDIIndex:" "DI"
 
-   * :attr:    .. _ref-IEC10xmaDIIndex:
-   
-               :xmlref:`Index`
-     :val:     0...2\ :sup:`32`\  - 8
-     :desc:    Index is a unique identifier of the DI object. :inlineimportant:`Index numbering must start with 0 and indexes must be arranged in an ascending order as it prevents insertion of a new object. This requirement is essential because it affects object mapping to Slave communication protocol instances.`
+.. include-file:: sections/Include/IEC10xma_IOA.rstinc "" ".. _ref-IEC10xmaDIInfAddr:" "DI" "receive object from"
 
-   * :attr:    .. _ref-IEC10xmaDIInfAddr:
-   
-               :xmlref:`InfAddr`
-     :val:     1...16777215
-     :desc:    Information Object Address (IOA) of the DI object. This IOA will be used to receive object from downstream outstation. :inlinetip:`Addresses don't have to be arranged in an ascending order.`
+   * :attr:     .. _ref-IEC10xmaDIqualifier:
 
-   * :attr:    .. _ref-IEC10xmaDIqualifier:
-   
-               :xmlref:`qualifier`
-     :val:     See table :numref:`ref-IEC10xmaDIqualifierBits` for description
-     :desc:    Internal object qualifier to enable customized data processing. See table :numref:`ref-IEC10xmaDIqualifierBits` for internal object qualifier description. (default value 0) :inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
+                :xmlref:`qualifier`
+     :val:      0...255 or 0x00...0xFF
+     :def:      0x00
+     :desc:     Internal object qualifier to enable customized data processing.
+		See table :numref:`ref-IEC10xmaDIqualifierBits` for internal object qualifier description.
+		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
 
-   * :attr:    .. _ref-IEC10xmaDITypeID:
-   
-               :xmlref:`TypeID`
-     :val:     See table :numref:`ref-IEC10xmaDITypeIDValues` for description
-     :desc:    Use this ASDU type to send a DI object upstream, if transparent ASDU function is enabled in Slave protocol instance using :ref:`ASDUSettings<ref-IEC101slASDUSettings>`.\ :ref:`TranspTypes<ref-IEC101slASDUSettingsTranspTypes>` \ attribute. This ASDU type will be used to report object regardless of the received ASDU type. (There is no default value, attribute must not be specified if not used). :inlinetip:`Attribute is optional and doesn't have to be included in configuration.`
+.. include-file:: sections/Include/DI_Idelays.rstinc "" ".. _ref-IEC10xmaDIInterDelay:" ".. _ref-IEC10xmaDIIndetDelay:"
 
-   * :attr:    .. _ref-IEC10xmaDITotal:
-   
-               :xmlref:`Total`
-     :val:     1...16777215
-     :desc:    Total number of information objects. Attribute is used to create sequence of information objects with consecutive :ref:`DI<ref-IEC10xmaDI>`.\ :ref:`Index<ref-IEC10xmaDIIndex>` \ and :ref:`DI<ref-IEC10xmaDI>`.\ :ref:`InfAddr<ref-IEC10xmaDIInfAddr>` \ attribute values without a need to create individual :ref:`DI<ref-IEC10xmaDI>` nodes for each information object. (default value 1; only 1 object is created with this :ref:`DI<ref-IEC10xmaDI>` node) :inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
+   * :attr:     .. _ref-IEC10xmaDITypeID:
 
-   * :attr:    .. _ref-IEC10xmaDIName:
-   
-               :xmlref:`Name`
-     :val:     Max 100 chars
-     :desc:    Freely configurable name, just for reference. :inlinetip:`Name attribute is optional and doesn't have to be included in configuration.`
+                :xmlref:`TypeID`
+     :val:      See table :numref:`ref-IEC10xmaDITypeIDValues`
+     :def:      transparent
+     :desc:     Use this ASDU type to send a DI object upstream, if transparent ASDUs are enabled in Slave protocol instance with :ref:`<ref-IEC101slASDUSettings>`.\ :ref:`<ref-IEC101slASDUSettingsTranspTypes>` \ attribute.
+		This ASDU type will be used to report object regardless of the received ASDU type.
+		There is no default value, attribute must not be specified if not used.
+		:inlinetip:`Attribute is optional and doesn't have to be included in configuration.
+		ASDU type received from outstation will be used to report object upstream if transparent ASDUs are enabled in Slave protocol instance with` :ref:`<ref-IEC101slASDUSettings>`.\ :ref:`<ref-IEC101slASDUSettingsTranspTypes>` \ :inlinetip:`attribute.`
+
+.. include-file:: sections/Include/IEC60870_Total.rstinc "" ".. _ref-IEC10xmaDITotal:" ":ref:`<ref-IEC10xmaDIIndex>`" ":ref:`<ref-IEC10xmaDIInfAddr>`" ":ref:`DI<ref-IEC10xmaDI>`" "16777214"
+
+.. include-file:: sections/Include/Name.rstinc ""
 
 DI.qualifier
 ^^^^^^^^^^^^
 
 .. _ref-IEC10xmaDIqualifierBits:
 
-.. field-list-table:: IEC 60870-5-101/104 Master DI internal qualifier
-   :class: table table-condensed table-bordered longtable
-   :spec: |C{0.20}|C{0.25}|S{0.55}|
-   :header-rows: 1
+.. include-file:: sections/Include/table_flags.rstinc "" "IEC60870-5-101/104 Master DI internal qualifier" ":ref:`<ref-IEC10xmaDIqualifier>`" "DI internal qualifier"
 
-   * :attr,10: Bits
-     :val,10:  Values
-     :desc,80: Description
-
-   * :attr:    qualifier [xxxx.xxxx]
-     :val:     0...0xFF
-     :desc:    DI internal qualifier has 8 data bits
-
-   * :attr:    Bit 0
-     :val:     xxxx.xxx0
-     :desc:    DI object **will not** be inverted (ON = 1; OFF = 0 for [M_SP_NA_1] type and ON = 2; OFF = 1; INTER = 0; INVALID = 3 for [M_DP_NA_1] type)
+   * :attr:     Bit 0
+     :val:      xxxx.xxx0
+     :desc:     DI object **will not** be inverted (ON = 1; OFF = 0 for [M_SP_NA_1] type and ON = 2; OFF = 1; INTER = 0; INVALID = 3 for [M_DP_NA_1] type)
 
    * :(attr):
-     :val:     xxxx.xxx1
-     :desc:    DI object **will** be inverted (ON = 0; OFF = 1 for [M_SP_NA_1] type and ON = 1; OFF = 2; INTER = 0; INVALID = 3 for [M_DP_NA_1] type)
+     :val:      xxxx.xxx1
+     :desc:     DI object **will** be inverted (ON = 0; OFF = 1 for [M_SP_NA_1] type and ON = 1; OFF = 2; INTER = 0; INVALID = 3 for [M_DP_NA_1] type)
 
-   * :attr:    Bit 1
-     :val:     xxxx.xx0x
-     :desc:    Additional 'Zero' DI event generation **disabled**
-
-   * :(attr):
-     :val:     xxxx.xx1x
-     :desc:    Additional 'Zero' DI event generation **enabled**. An OFF event will be internally generated following every sent DI ON event. Static DI object will be set to OFF value, static value is used when Slave protocol instance responds to an Interrogation.
-
-   * :attr:    Bit 2
-     :val:     xxxx.x0xx
-     :desc:    DI event is generated **only** when object state is changed
+   * :attr:     Bit 1
+     :val:      xxxx.xx0x
+     :desc:     Additional 'Zero' DI event generation **disabled**
 
    * :(attr):
-     :val:     xxxx.x1xx
-     :desc:    DI event is generated **every time** object is received from outstation. Invalid [IV] flag is automatically cleared from these DI objects when outstation goes online which ensures they are always valid. :inlinetip:`This option is only used for backward compatibility.`
+     :val:      xxxx.xx1x
+     :desc:     Additional 'Zero' DI event generation **enabled**. An OFF event will be internally generated following every sent DI ON event. Static DI object will be set to OFF value, static value is used when Slave protocol instance responds to an Interrogation.
 
-   * :attr:    Bit 3
-     :val:     xxxx.0xxx
-     :desc:    **Use original** timetag when event is received from outstation
-
-   * :(attr):
-     :val:     xxxx.1xxx
-     :desc:    **Substitute timetag** with local time when event is received from outstation
-
-   * :attr:    Bit 7
-     :val:     0xxx.xxxx
-     :desc:    DI is **enabled** and will be processed when received
+   * :attr:     Bit 2
+     :val:      xxxx.x0xx
+     :desc:     DI event is generated **only** when object state is changed
 
    * :(attr):
-     :val:     1xxx.xxxx
-     :desc:    DI is **disabled** and will be discarded when received
+     :val:      xxxx.x1xx
+     :desc:     DI event is generated **every time** object is received from outstation. Invalid [IV] flag is automatically cleared from these DI objects when outstation goes online which ensures they are always valid. :inlinetip:`This option is only used for backward compatibility.`
 
-   * :attr:    Bits 4;6
-     :val:     Any
-     :desc:    Bits reserved for future use
+   * :attr:     Bit 3
+     :val:      xxxx.0xxx
+     :desc:     **Use original** timetag when event is received from outstation
 
-DI.TypeID
-^^^^^^^^^
+   * :(attr):
+     :val:      xxxx.1xxx
+     :desc:     **Substitute timetag** with local time when event is received from outstation
 
-.. _ref-IEC10xmaDITypeIDValues:
+   * :attr:     Bit 5
+     :val:      xx0x.xxxx
+     :desc:     Use time tag of the **last** event if Intermediate state of the Double Point object was not reported (because Intermediate state didn't exceed :ref:`<ref-IEC10xmaDIInterDelay>`). e.g. in transition ON->INTER->OFF time tag of the INTER->OFF event will be used.
 
-.. include:: IEC10xDITypeID.rst
+   * :(attr):
+     :val:      xx1x.xxxx
+     :desc:     Use time tag of the **first** event if Intermediate state of the Double Point object was not reported (because Intermediate state didn't exceed :ref:`<ref-IEC10xmaDIInterDelay>`). e.g. in transition ON->INTER->OFF time tag of the ON->INTER event will be used.
+
+   * :attr:     Bit 7
+     :val:      0xxx.xxxx
+     :desc:     DI is **enabled** and will be processed when received
+
+   * :(attr):
+     :val:      1xxx.xxxx
+     :desc:     DI is **disabled** and will be discarded when received
+
+   * :attr:     Bits 4;6
+     :val:      Any
+     :desc:     Bits reserved for future use
+
+.. include-file:: sections/Include/IEC60870_DI_TypeID.rstinc "" ".. _ref-IEC10xmaDITypeIDValues:" "IEC60870-5-101/104 Master DI TypeID"

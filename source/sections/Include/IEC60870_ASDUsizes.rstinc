@@ -1,0 +1,21 @@
+   * :attr:     :include-arg:`1`
+
+                :xmlref:`COTSize`
+     :val:      1 or 2
+     :def:      1 byte
+     :desc:     Cause Of Transmission size in bytes including Originator address (default 1 byte - if originator address is not used)
+
+   * :attr:     :include-arg:`2`
+
+                :xmlref:`CAASize`
+     :val:      1 or 2
+     :def:      1 byte
+     :desc:     Common address of ASDU size in bytes
+
+   * :attr:     :include-arg:`3`
+
+                :xmlref:`IOASize`
+     :val:      1; 2 or 3
+     :def:      2 bytes
+     :desc:     Information Object Address size in bytes
+

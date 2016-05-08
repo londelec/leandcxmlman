@@ -4,17 +4,15 @@
 AITable group and AI node
 -------------------------
 
-Group node :ref:`AITable<ref-ModbusmaAI>` and child element nodes :ref:`AI<ref-ModbusmaAI>` are used to create AI information objects to receive analog 
-information from downstream outstation. Each created AI information object can be used as source of 
-information for any AI information object defined in IO table of the Slave protocol instances. If used as a source, 
-analog information received from an outstation will be forwarded to AI information object of the Slave protocol 
-instance and then to the upstream Master station. Please refer to
-section :ref:`docref-IEC10xslAITable` for more information on how to use AI information object as a source.
+Group node :ref:`AITable<ref-ModbusmaAI>` and child element nodes :ref:`AI<ref-ModbusmaAI>` are used to create AI information objects to receive analog information from the downstream outstation.
+Each created AI can be used as a source for any AI information object defined in the IO table of any Slave protocol instance.
+Analog data received from the outstation will be forwarded to the AI information object of the Slave protocol instance and then to the upstream Master station.
+Please refer to the section :ref:`docref-IEC10xslAITable` for more information on how to use AI information object as a source.
 
-.. tip:: \ :ref:`AITable<ref-ModbusmaAI>` group and :ref:`AI<ref-ModbusmaAI>` element nodes are optional if hardcoded Modbus device :ref:`Type<ref-ModbusmaHardcodedType>` is used. AI information objects will be automatically initialized for these devices.
+.. tip:: \ :ref:`AITable<ref-ModbusmaAI>` group and :ref:`AI<ref-ModbusmaAI>` element nodes are optional if hardcoded Modbus device :ref:`<ref-ModbusmaHardcodedType>` is used. AI information objects will be automatically initialized for these devices.
 
-Please see sample :ref:`AITable<ref-ModbusmaAI>` group node and :ref:`AI<ref-ModbusmaAI>` child element nodes below. There are 5 AI information objects 
-configured using 4 :ref:`AI<ref-ModbusmaAI>` element nodes.
+Please see sample :ref:`AITable<ref-ModbusmaAI>` group and :ref:`AI<ref-ModbusmaAI>` child element nodes below.
+There are 5 AI information objects configured using 4 :ref:`AI<ref-ModbusmaAI>` element nodes.
 
 .. code-block:: none
 
@@ -25,7 +23,7 @@ configured using 4 :ref:`AI<ref-ModbusmaAI>` element nodes.
 	<AI Index="3" Qualifier="0x00" Coeff="0.08" Total="2"/>
    </AITable>
 
-Please see sample :ref:`AI<ref-ModbusmaAI>` element node below listing all available attributes.
+.. include-file:: sections/Include/sample_node.rstinc "" ":ref:`AI<ref-ModbusmaAI>`"
 
 .. code-block:: none
 
@@ -38,54 +36,30 @@ AI attributes
 
 .. _ref-ModbusmaAIAttributes:
 
-.. field-list-table:: Modbus Master AI attributes
-   :class: table table-condensed table-bordered longtable
-   :spec: |C{0.20}|C{0.25}|S{0.55}|
-   :header-rows: 1
+.. include-file:: sections/Include/table_attrs.rstinc "" "Modbus Master AI attributes"
 
-   * :attr,10: Attribute
-     :val,15:  Values or range
-     :desc,75: Description
+.. include-file:: sections/Include/ma_Index.rstinc "" ".. _ref-ModbusmaAIIndex:" "AI"
 
-   * :attr:    .. _ref-ModbusmaAIIndex:
-   
-               :xmlref:`Index`
-     :val:     0...2\ :sup:`32`\  - 8
-     :desc:    Index is a unique identifier of the AI object. :inlineimportant:`Index numbering must start with 0 and indexes must be arranged in an ascending order as it prevents insertion of a new object. This requirement is essential because it affects object mapping to Slave communication protocol instances.`
+   * :attr:     .. _ref-ModbusmaAIQualifier:
 
-   * :attr:    .. _ref-ModbusmaAIQualifier:
-   
-               :xmlref:`Qualifier`
-     :val:     0...255
-     :desc:    Internal object Qualifier to enable customized data processing. (default value 0) :inlinetip:`Attribute is not implemented currently and reserved for future use.`
+                :xmlref:`Qualifier`
+     :val:      0...255 or 0x00...0xFF
+     :def:      0x00
+     :desc:     Internal object qualifier to enable customized data processing.
+		:inlinetip:`Attribute is not implemented currently and reserved for future use.`
 
-   * :attr:    .. _ref-ModbusmaAICoeff:
-   
-               :xmlref:`Coeff`
-     :val:     ±1.18×10\ :sup:`-38`\ ...±3.4×10\ :sup:`38`\ 
-     :desc:    Coefficient to multiply the value of incoming analog object. (default value 1) :inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
+.. include-file:: sections/Include/AI_Coeff.rstinc "" ".. _ref-ModbusmaAICoeff:"
 
-.. include-file:: sections/Include/AI_Thresholds.rstinc "" ".. _ref-ModbusmaAIDeadband:" ".. _ref-ModbusmaAIPercent:" ":xmlref:`Deadband\*`" ":xmlref:`Percent\*`"
+.. include-file:: sections/Include/AI_Thresholds.rstinc "" ".. _ref-ModbusmaAIDeadband:" ".. _ref-ModbusmaAIPercent:"
 
 .. include-file:: sections/Include/AI_Scaling.rstinc "" ".. _ref-ModbusmaAIStartOffset:" ".. _ref-ModbusmaAIZeroDeadband:" ".. _ref-ModbusmaAIOffset:" ".. _ref-ModbusmaAIOffsetDeadband:" ".. _ref-ModbusmaAINonZeroOffset:"
 
-   * :attr:    .. _ref-ModbusmaAITotal:
-   
-               :xmlref:`Total`
-     :val:     1...16777215
-     :desc:    Sequence of identical AI objects. Attribute is used to create sequence of information objects with consecutive :ref:`Index<ref-ModbusmaAIIndex>` attributes. This eliminates the need to create individual :ref:`AI<ref-ModbusmaAI>` nodes for each information object. (default value 1; only 1 object is created with this :ref:`AI<ref-ModbusmaAI>` node) :inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
+.. include-file:: sections/Include/Modbusma_Total.rstinc "" ".. _ref-ModbusmaAITotal:" "AI" ":ref:`<ref-ModbusmaAIIndex>`" ":ref:`AI<ref-ModbusmaAI>`"
 
-   * :attr:    .. _ref-ModbusmaAIName:
-   
-               :xmlref:`Name`
-     :val:     Max 100 chars
-     :desc:    Freely configurable name, just for reference. :inlinetip:`Name attribute is optional and doesn't have to be included in configuration.`
+.. include-file:: sections/Include/Name.rstinc ""
 
 .. tip::
 
    \* Please refer to annex :ref:`docref-ReceivedAIProcessing` for additional information on AI processing 
-   options and application examples using :ref:`Deadband<ref-ModbusmaAIDeadband>`\; 
-   :ref:`Percent<ref-ModbusmaAIPercent>` attributes.
+   options and application examples using :ref:`<ref-ModbusmaAIDeadband>` \ and :ref:`<ref-ModbusmaAIPercent>` \ attributes.
    Annexes :ref:`docref-AIScalingWithoutStartOffset` and :ref:`docref-AIScalingWithStartOffset` for additional information on AI scaling.
-
-   

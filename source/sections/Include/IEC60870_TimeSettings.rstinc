@@ -1,30 +1,24 @@
 :include-arg:`1`
 
-TimeSettings attributes
-^^^^^^^^^^^^^^^^^^^^^^^
+TimeSettings
+^^^^^^^^^^^^
 
-Time settings of each communication protocol instance can be specified using attributes of :include-arg:`2` element node.
+Time settings of the communication protocol instance are specified in this node.
 
-Please see sample :include-arg:`2` node and the table listing all available attributes below.
+.. include-file:: sections/Include/sample_node.rstinc "" ":include-arg:`2`"
 
 .. code-block:: none
 
    <TimeSettings TimeZone="Europe/Riga" />
 
+
 :include-arg:`3`
 
-.. field-list-table:: :include-arg:`4`
-   :class: table table-condensed table-bordered longtable
-   :spec: |C{0.20}|C{0.25}|S{0.55}|
-   :header-rows: 1
+.. include-file:: sections/Include/table_attrs.rstinc "" ":include-arg:`4`"
 
-   * :attr,10: Attribute
-     :val,15:  Values or range
-     :desc,75: Description
-     
    * :attr:    :include-arg:`5`
-            
+
                :xmlref:`TimeZone`
      :val:     Max 200 chars
+     :def:     n/a
      :desc:    Adjust time-tags of incoming and outgoing messages assuming the peer station operates in the specified time zone. :inlineimportant:`Attribute must not be used if not required, there is no default value. Message time-tags will not be adjusted if attribute omitted.` :inlinetip:`Please see` :ref:`docref-TimeZoneSpecification` :inlinetip:`for additional information.`
-

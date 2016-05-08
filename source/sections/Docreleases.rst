@@ -13,15 +13,17 @@ This manual was published with the following leandc firmware release.
    :header-rows: 1
 
    * :attr,20: Firmware version
-     :val,80:  Date
+     :val,20:  Date
+     :osv,60:  Required Operating System version
 
-   * :attr:    3.14
-     :val:     2015-09-04 10:05:40
+   * :attr:    4.00
+     :val:     2016-05-08 11:22:30
+     :osv:     V3.0
 
 .. tip::
 
    Use argument -v to check firmware revision and build date:
-   *./leandc -v*
+   *leandc -v*
 
 
 .. field-list-table:: Previous Firmware releases
@@ -32,79 +34,102 @@ This manual was published with the following leandc firmware release.
    * :fw,10:    Firmware version
      :fdate,10: Firmware date
      :doc,10:   Document version(s)
+     :osv,10:   Operating System version
 
    * :fw:       2.01
      :fdate:    2013-10-16 17:21:27
      :doc:      V12
+     :osv:      V2.0
 
    * :fw:       2.04
      :fdate:    2013-12-18 08:55:06
      :doc:      V13, V14
+     :osv:      V2.0
 
    * :fw:       2.05
      :fdate:    2014-02-26 20:20:30
      :doc:      V15
+     :osv:      V2.0
 
    * :fw:       2.06
      :fdate:    2014-03-31 14:58:09
      :doc:      V16
+     :osv:      V2.0
 
    * :fw:       2.07
      :fdate:    2014-04-08 20:59:57
      :doc:      V17
+     :osv:      V2.0
 
    * :fw:       3.00
      :fdate:    2014-05-26 21:19:06
      :doc:      V18
+     :osv:      V2.0
 
    * :fw:       3.01
      :fdate:    2014-05-28 12:20:12
      :doc:      V18
+     :osv:      V2.0
 
    * :fw:       3.02
      :fdate:    2014-06-26 14:48:34
      :doc:      V19
+     :osv:      V2.0
 
    * :fw:       3.04
      :fdate:    2014-10-08 15:43:46
      :doc:      V20
+     :osv:      V2.0
 
    * :fw:       3.05
      :fdate:    2014-11-28 11:39:37
      :doc:      V21
+     :osv:      V2.0
 
    * :fw:       3.06
      :fdate:    2014-12-01 08:47:07
      :doc:      V21
+     :osv:      V2.0
 
    * :fw:       3.07
      :fdate:    2015-02-15 17:55:25
      :doc:      V22
+     :osv:      V2.0
 
    * :fw:       3.08
      :fdate:    2015-03-24 21:06:41
      :doc:      V23
+     :osv:      V2.0
 
    * :fw:       3.09
      :fdate:    2015-03-25 10:57:25
      :doc:      V23
+     :osv:      V2.0
 
    * :fw:       3.10
      :fdate:    2015-06-29 15:52:23
      :doc:      V24
+     :osv:      V2.0
 
    * :fw:       3.11
      :fdate:    2015-07-08 14:07:37
      :doc:      V24
+     :osv:      V2.0
 
    * :fw:       3.12
      :fdate:    2015-08-11 12:36:44
      :doc:      V25
+     :osv:      V2.0
 
    * :fw:       3.13
      :fdate:    2015-08-24 21:04:07
      :doc:      V25
+     :osv:      V2.0
 
+   * :fw:       3.14
+     :fdate:    2015-09-04 10:05:40
+     :doc:      V26
+     :osv:      V2.0
 
 .. field-list-table:: Document version control
    :class: table table-condensed table-bordered version-control longtable
@@ -311,9 +336,9 @@ This manual was published with the following leandc firmware release.
      :by:      AK
      :desc:    | > :xmlref:`IgnoreWhileLinkcnt` attribute added to IEC60870-5-101 Master :xmlref:`LinkSettings` node;
 
-   * :ver:     V24
-     :date:    29/06/2015
-     :by:      AK
+   * :ver:      V24
+     :date:     29/06/2015
+     :by:       AK
      :desc:     | > :xmlref:`DIEventStartup` and :xmlref:`AIEventStartup` attributes added to IEC60870-5-101/4 Slave :xmlref:`ASDUSettings` node;
 		| > :xmlref:`OffIndex` attribute added to IEC60870-5-101/4 Slave :xmlref:`DI` node for single to double point indication conversion;
 		| > :xmlref:`DIInterDelay` and :xmlref:`DIIndetDelay` attributes added to IEC60870-5-101/4 Slave :xmlref:`ASDUSettings` node and corresponding attributes :xmlref:`InterDelay` and :xmlref:`IndetDelay` added to DI node;
@@ -322,15 +347,31 @@ This manual was published with the following leandc firmware release.
 		| > :xmlref:`PulseDuration` attribute added to Modbus Master DO node
 		| > :xmlref:`LEIODC-C32-3100` type added to Modbus Master :xmlref:`Hardcoded` node
 
-   * :ver:     V25
-     :date:    11/08/2015
-     :by:      AK
+   * :ver:      V25
+     :date:     11/08/2015
+     :by:       AK
      :desc:     | > :xmlref:`TimeSync` attribute added to IEC60870-5-104 Master :xmlref:`Periodic` node which can be used to enable periodic Time Synchronization commands;
 		| > :xmlref:`TimeSync` attribute added to IEC60870-5-104 Master :xmlref:`Broadcast` node to enable broadcast Common Address of ASDU (CAA) for outgoing Time Synchronization commands;
 		| > :xmlref:`TimeSync` attribute added to IEC60870-5-104 Slave :xmlref:`ASDUSettings` node to enable internal clock synchronization when command is received;
 		| > :xmlref:`LEIODC-X32-3100`, :xmlref:`LEIODC-X10-3100` and :xmlref:`THT2` types added to Modbus Master :xmlref:`Hardcoded` node
 
-   * :ver:     V26
-     :date:    04/09/2015
-     :by:      AK
+   * :ver:      V26
+     :date:     04/09/2015
+     :by:       AK
      :desc:     | > :xmlref:`ClassIgnore` attribute added to IEC60870-5-101 Slave :xmlref:`LinkSettings` node which can be used to ignore class of the receievd messages
+
+   * :ver:      V27
+     :date:     08/05/2016
+     :by:       AK
+     :desc:     | :inlineimportant:`Bit[5] of the IEC60870-5-101/104 Slave protocol` :ref:`DO<ref-IEC10xslDO>`.\ :ref:`qualifier<ref-IEC10xslDOqualifierBits>` :inlineimportant:`and` :ref:`AO<ref-IEC10xslAO>`.\ :ref:`qualifier<ref-IEC10xslAOqualifierBits>` :inlineimportant:`is inverted. From now on Direct and Select-before-Execute commands will be accepted by default, i.e. if the DO/AO qualifier is not specified or 0x00. Use value 0x20 to accept only Direct commands.`
+		| > :xmlref:`IEC61850cl` (Client) communication protocol instance added;
+		| > :xmlref:`DOProc` and :xmlref:`AOProc` attributes added to IEC60870-5-101/104 Slave :ref:`<ref-IEC101slASDUSettings>` node;
+		| > :ref:`<ref-IEC101maASDUSettingsTimetagFBrange>` attribute added to IEC60870-5-101 Master :ref:`<ref-IEC101maASDUSettings>` node;
+		| > :ref:`<ref-IEC101maASDUSettingsFlags>` attribute added to IEC60870-5-101/104 Master :ref:`<ref-IEC101maASDUSettings>` node;
+		| > :ref:`<ref-IEC10xmaDIInterDelay>` and :ref:`<ref-IEC10xmaDIIndetDelay>` attributes added to IEC60870-5-101/103/104 Master :ref:`DI<ref-IEC10xmaDI>` node;
+		| > Bit[5] added to the IEC60870-5-101/103/104 Master protocol :ref:`DI<ref-IEC10xmaDI>`.\ :ref:`qualifier<ref-IEC10xmaDIqualifierBits>`, it enables to select First or Last time tag for DPI reporting if Intermediate state is masked;
+		| > :ref:`<ref-UARTWatchdog>` attribute added to :ref:`<ref-UART>` node;
+		| > New :ref:`<ref-LogSettings>` node created with attributes :ref:`<ref-SettingsCleanOlder>` and :ref:`<ref-SettingsMinFreespace>`;
+		| > New :ref:`<ref-CommsCfgPCAPLOG>` node created which enables to capture traffic through Ethernet interfaces in a pcap format;
+		| Default value columns added to attribute tables; 
+		| Recorded logfile samples and description of keywords/identifiers added;

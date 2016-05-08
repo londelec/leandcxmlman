@@ -5,20 +5,21 @@ Leandc series XML configuration manual
 .. toctree::
    :numbered: 1
    :maxdepth: 3
-     
+
    sections/Document
-   sections/SystemConfiguration
-   sections/IEC101slConfiguration
-   sections/IEC104slConfiguration
+   sections/SystemMain
+   sections/IEC101slMain
+   sections/IEC104slMain
    sections/IEC10xslIOObjectTable
-   sections/IEC101maConfiguration
-   sections/IEC104maConfiguration
+   sections/IEC101maMain
+   sections/IEC104maMain
    sections/IEC10xmaIOObjectTable
    sections/IEC103maMain
    sections/ModbusmaMain
-   sections/LogfileConfiguration
+   sections/IEC61850clMain
+   sections/LogfileMain
    sections/XMLVersionControl
-   
+
    sections/Annexes
    sections/Docreleases
 
@@ -26,14 +27,13 @@ Leandc series XML configuration manual
 .. rst-class:: contact-us
 
    **Contact us**
-  
+
    | Londelec UK Ltd
    | 19 Marlborough road
    | Banbury
    | OX16 5DB
    | United Kingdom
-   
+
    | Phone +44 (0) 207 060 7087
    | info@londelec.com
-   
-   
+

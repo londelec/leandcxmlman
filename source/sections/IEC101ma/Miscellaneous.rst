@@ -1,35 +1,32 @@
-.. _docref-IEC101maMiscellaneousAttr:
+.. _ref-IEC101maMiscellaneous:
 
-Miscellaneous attributes
-^^^^^^^^^^^^^^^^^^^^^^^^
+Miscellaneous
+^^^^^^^^^^^^^
 
-Miscellaneous and project-specific settings can be specified using attributes of :ref:`Miscellaneous<ref-IEC101maMiscellaneous>` element node.
+Miscellaneous and project-specific settings can be specified in this node.
 
-Please see sample :ref:`Miscellaneous<ref-IEC101maMiscellaneous>` node and the table listing all available attributes below.
+.. include-file:: sections/Include/sample_node.rstinc "" ":ref:`<ref-IEC101maMiscellaneous>`"
 
 .. code-block:: none
 
    <Miscellaneous TimeSyncIOA="0" DayOfWeek="1"/>
 
+
 .. _docref-IEC101maMiscellaneousAttab:
 
-.. field-list-table:: IEC 60870-5-101 Master Miscellaneous attributes
-   :class: table table-condensed table-bordered longtable
-   :spec: |C{0.20}|C{0.25}|S{0.55}|
-   :header-rows: 1
+.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-101 Master Miscellaneous attributes"
 
-   * :attr,10: Attribute
-     :val,15:  Values or range
-     :desc,75: Description
-     
-   * :attr:    :xmlref:`TimeSyncIOA`
-     :val:     0...16777215
-     :desc:    Information Object Address (IOA) of outgoing Time Synchronization command (default 0)
+   * :attr:     :xmlref:`TimeSyncIOA`
+     :val:      0...16777215
+     :def:      0
+     :desc:     Information Object Address (IOA) of outgoing Time Synchronization command
 
-   * :attr:    :xmlref:`DayOfWeek`
-     :val:     0
-     :desc:    Day Of Week (DOW) will have **0** value in outgoing Time Synchronization commands
+   * :attr:     :xmlref:`DayOfWeek`
+     :val:      0
+     :def:      1
+     :desc:     Day Of Week (DOW) will have **0** value in outgoing Time Synchronization commands
 
    * :(attr):
-     :val:     1
-     :desc:    Day Of Week (DOW) will have **actual** value in outgoing Time Synchronization commands (default value)
+     :val:      1
+     :(def):
+     :desc:     Day Of Week (DOW) will have **actual** value in outgoing Time Synchronization commands

@@ -1,0 +1,7 @@
+   * :attr:    :xmlref:`qname`
+     :val:     1...64 chars
+     :desc:    Quality attribute from CID/SCD file. (default value 'q'). :inlineattention:`This attribute is excluded from user documentation.`
+
+   * :attr:    :xmlref:`tname`
+     :val:     1...64 chars
+     :desc:    Timetag attribute from CID/SCD file. (default value 't'). :inlineattention:`This attribute is excluded from user documentation.`

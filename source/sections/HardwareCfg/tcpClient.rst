@@ -1,66 +1,55 @@
 
 .. _ref-TCPCLIENT:
 
-TCPCLIENT element node
-^^^^^^^^^^^^^^^^^^^^^^
+TCPCLIENT
+^^^^^^^^^
 
-Settings of the TCP client sockets are configured using :ref:`TCPCLIENT<ref-TCPCLIENT>` element node. Please see sample
-:ref:`TCPCLIENT<ref-TCPCLIENT>` element node and the table listing all available attributes below.
+This node contains settings of a TCP client socket.
+TCP client socket is used to connect to a remote host.
+.. include-file:: sections/Include/sample_node.rstinc "" ":ref:`<ref-TCPCLIENT>`"
 
 .. code-block:: none
 
-   <TCPCLIENT   Index="1"
-		ServerIPaddr="127.0.0.1"
-                Port="2404"
-                ConnectTimeout="5"
-                Timeout="2"
-                TxDelay="0.1"
-                IdleTimeout="10"
-                Name="LAN1"/>
+   <TCPCLIENT Index="1" ServerIPaddr="127.0.0.1" Port="2404" ConnectTimeout="5" Timeout="2" TxDelay="0.1" IdleTimeout="10" Keepalive="20" Name="LAN1"/>
+
 
 .. _ref-TCPCLIENTAttributes:
 
-.. field-list-table:: Leandc TCPCLIENT node
-   :class: table table-condensed table-bordered longtable
-   :spec: |C{0.20}|C{0.25}|S{0.55}|
-   :header-rows: 1
+.. include-file:: sections/Include/table_attrs.rstinc "" "Leandc TCPCLIENT node"
 
-   * :attr,10: Attribute
-     :val,15:  Values or range
-     :desc,75: Description
+   * :attr:     .. _ref-TCPCLIENTIndex:
 
-   * :attr:    .. _ref-TCPCLIENTIndex:
-       
-               :xmlref:`Index`
-     :val:     1...254
-     :desc:    Index is a unique identifier of the hardware node. It is used as a reference to link a communication protocol instance to this node. :inlinetip:`Indexes don't have to be in a sequential order.`
+                :xmlref:`Index`
+     :val:      1...254
+     :def:      n/a
+     :desc:     Index is a unique identifier of the hardware node. It is used as a reference to link a communication protocol instance to this node. :inlinetip:`Indexes don't have to be in a sequential order.`
 
-   * :attr:    :xmlref:`ServerIPaddr`
-     :val:     0.0.0.0 ... 255.255.255.254
-     :desc:    Server IPv4 address. TCP connection will established to this remote address. (default localhost address 127.0.0.1 (only for testing purposes))
+   * :attr:     .. _ref-TCPCLIENTIPaddr:
 
-   * :attr:    :xmlref:`Port`
-     :val:     1...65534
-     :desc:    TCP port number. TCP connection will be established to the remote port. (default port for IEC 60870-5-104 is 2404)
+		:xmlref:`ServerIPaddr`
+     :val:      0.0.0.0 ... 255.255.255.254
+     :def:      127.0.0.1 test only
+     :desc:     Server IPv4 address. TCP connection will established to this remote address. (default localhost address 127.0.0.1 - for testing purposes only)
 
-   * :attr:    :xmlref:`ConnectTimeout`
-     :val:     1...2\ :sup:`32`\  - 1
-     :desc:    TCP socket reconnection timeout in seconds. Connection request (SYN) message will be sent after this timeout which starts when existing connection fails. If it is impossible to connect to a remote Server, connection request (SYN) messages will be sent at these intervals. (default 5 seconds) :inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
+   * :attr:     .. _ref-TCPCLIENTPort:
 
-   * :attr:    :xmlref:`Timeout`
-     :val:     0.01...42949
-     :desc:    Timeout value in seconds, only used if a serial communication instance (e.g. IEC 60870-5-101) is linked to this :ref:`TCPCLIENT<ref-TCPCLIENT>` node. New outgoing message will be sent, if there was no reply from outstation within a configured number of seconds. (default 2 seconds) :inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
+		:xmlref:`Port`
+     :val:      1...65534
+     :def:      n/a
+     :desc:     TCP port number. TCP connection will be established to this remote port. (default port for IEC60870-5-104 is 2404)
 
-   * :attr:    :xmlref:`TxDelay`
-     :val:     0.00001...42949
-     :desc:    Transmit delay in seconds, only used if a serial communication instance (e.g. IEC 60870-5-101) is linked to this :ref:`TCPCLIENT<ref-TCPCLIENT>` node. Outgoing message will be delayed for a configured number of seconds before being sent after received message. (default 0.1 seconds) :inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
+   * :attr:     :xmlref:`ConnectTimeout`
+     :val:      1...2\ :sup:`32`\  - 1
+     :def:      5 sec
+     :desc:     TCP socket reconnection timeout in seconds. Connection request (SYN) message will be sent after this timeout which starts when existing connection fails. If it is impossible to connect to a remote Server, connection request (SYN) messages will be sent at these intervals. :inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
 
-   * :attr:    .. _ref-TCPCLIENTIdleTimeout:
+.. include-file:: sections/Include/TCPser_Timeouts.rstinc "" ":ref:`<ref-TCPCLIENT>`" ".. _ref-TCPCLIENTIdleTimeout:" 
 
-               :xmlref:`IdleTimeout`
-     :val:     5...2\ :sup:`32`\  - 1
-     :desc:    Receive idle timeout, only used if a serial communication instance (e.g. IEC 60870-5-101) or supervision instance is linked to this :ref:`TCPCLIENT<ref-TCPCLIENT>` node. TCP socket will be closed if no data is received from a remote host within this timeout. (default 120 seconds) :inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
+   * :attr:     .. _ref-TCPCLIENTKeepalive:
 
-   * :attr:    :xmlref:`Name`
-     :val:     Max 100 chars
-     :desc:    Freely configurable name, just for reference. :inlinetip:`Name attribute is optional and doesn't have to be included in configuration.`
+                :xmlref:`Keepalive`
+     :val:      0...2\ :sup:`32`\  - 1
+     :def:      0 sec
+     :desc:     Keepalive message seding interval normally used for IEC61850 Client instance. TCP Socket will be closed if the remote host fails to reply to a keepalive message within configured number of seconds. (default is 20 seconds for IEC61850 Client instance) :inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
+
+.. include-file:: sections/Include/Name.rstinc ""

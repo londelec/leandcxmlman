@@ -48,10 +48,11 @@ object nodes :ref:`VersionControl<ref-VersionControl>`; :ref:`HardwareCfg<ref-Ha
 HardwareCfg group node
 ----------------------
 
-:ref:`HardwareCfg<ref-HardwareCfg>` group node is used to configure physical interfaces such as serial ports and network sockets. 
-Each physical interface (e.g. Serial port) or socket (e.g. TCP server) will have XML element node (e.g. :ref:`UART<ref-UART>`; 
-:ref:`TCPSERVER<ref-TCPSERVER>`; :ref:`TCPCLIENT<ref-TCPCLIENT>` or :ref:`UDP<ref-UDP>`) with XML attributes defining its settings.  :ref:`HardwareCfg<ref-HardwareCfg>` group node can
-have multiple child element nodes as shown in the sample below.
+:ref:`HardwareCfg<ref-HardwareCfg>` group node contains definitions of physical interfaces such as serial ports and network sockets.
+Following XML element nodes are available to define physical interfaces (e.g. Serial ports) or sockets (e.g. TCP server) required for communication:
+:ref:`<ref-UART>`; :ref:`<ref-TCPSERVER>`; :ref:`<ref-TCPCLIENT>` and :ref:`<ref-UDP>`.
+Attributes of these nodes contain interface's settings.
+:ref:`HardwareCfg<ref-HardwareCfg>` group can have multiple child element nodes as shown in the sample below.
 
 .. code-block:: none
 
@@ -64,8 +65,13 @@ have multiple child element nodes as shown in the sample below.
    </HardwareCfg>
       
 .. important:: 
-   | There must be one and only one :ref:`HardwareCfg<ref-HardwareCfg>` group node specified under root object node :xmlref:`MainConfig` in configuration file 'leandc.xml'.
-   | It is essential to keep element nodes in the listed order otherwise it will affect the XML file validation.
+   | There must be one and only one :ref:`HardwareCfg<ref-HardwareCfg>` group in the root node :xmlref:`MainConfig`.
+   | Hardware interfaces defined in the :ref:`HardwareCfg<ref-HardwareCfg>` group must be arranged in the following order:
+
+   | :ref:`<ref-UART>`
+   | :ref:`<ref-TCPSERVER>`
+   | :ref:`<ref-TCPCLIENT>`
+   | :ref:`<ref-UDP>`
 
 .. include:: HardwareCfg/uart.rst
 .. include:: HardwareCfg/tcpServer.rst
@@ -96,21 +102,23 @@ for receiving or sending the data to/from leandc. Communication protocol instanc
    </CommunicationCfg>
 
 .. important:: 
-   | There must be one and only one :ref:`CommunicationCfg<ref-CommunicationCfg>` group node specified under root object node :xmlref:`MainConfig` in configuration file 'leandc.xml'.
-   | Communication protocol instances must be listed under :ref:`CommunicationCfg<ref-CommunicationCfg>` group node in the following order:
+   | There must be one and only one :ref:`CommunicationCfg<ref-CommunicationCfg>` group in the root object node :xmlref:`MainConfig`.
+   | Communication protocol instances defined in the :ref:`CommunicationCfg<ref-CommunicationCfg>` group must be arranged in the following order:
 
-   | :ref:`Modbusma<ref-Modbusma>`
-   | :ref:`IEC101ma<ref-IEC101ma>`
-   | :ref:`IEC101sl<ref-IEC101sl>`
-   | :ref:`IEC103ma<ref-IEC103ma>`
-   | :ref:`IEC104ma<ref-IEC104ma>`
-   | :ref:`IEC104sl<ref-IEC104sl>`
-   | :ref:`IEC104Rsl<ref-IEC104Rsl>`
-   | :ref:`IEC104Csl<ref-IEC104Csl>`
+   | :ref:`<ref-Modbusma>`
+   | :ref:`<ref-IEC61850cl>`
+   | :ref:`<ref-IEC101ma>`
+   | :ref:`<ref-IEC101sl>`
+   | :ref:`<ref-IEC103ma>`
+   | :ref:`<ref-IEC104ma>`
+   | :ref:`<ref-IEC104sl>`
+   | :ref:`<ref-IEC104Rsl>`
+   | :ref:`<ref-IEC104Csl>`
    
-Every communication protocol instance has a unique element node and its configuration is described in the following paragraphs.
+Every communication protocol instance has a unique element node and settings are described in the following paragraphs.
 
 .. include:: communicationCfg/modbusma.rst
+.. include:: communicationCfg/iec61850cl.rst
 .. include:: communicationCfg/iec101ma.rst
 .. include:: communicationCfg/iec101sl.rst
 .. include:: communicationCfg/iec103ma.rst
@@ -122,53 +130,76 @@ Every communication protocol instance has a unique element node and its configur
 
 .. _ref-TraceCfg:
 
-TraceCfg group and SYSLOGFILE node
-----------------------------------
+TraceCfg group
+--------------
 
-Group object node :xmlref:`TraceCfg` and its child element node :xmlref:`SYSLOGFILE` is used to configure system logfile where 
-generic diagnostic and error messages will be recorded. Only one :xmlref:`SYSLOGFILE` element node can be defined 
-under :xmlref:`TraceCfg`. Please see sample :xmlref:`TraceCfg` and :xmlref:`SYSLOGFILE` nodes and the table listing all available attributes below.
+Generic diagnostic information and error messages can be recorded to a system logfile.
+Group object node :xmlref:`TraceCfg` and its child element node :xmlref:`SYSLOGFILE` contains settings to enable the system-wide logfile.
+:xmlref:`Settings` node contains common settings for all logfiles.
+:xmlref:`TraceCfg` may contain only one :xmlref:`SYSLOGFILE` and one :xmlref:`Settings` element node as shown in the sample below.
 
 .. code-block:: none 
    
    <TraceCfg> 
-	<SYSLOGFILE LogFlags="0" Mode="0" HourLimit="4" Logfile="Syslog/syslog" TimeZone="UTC"/>
+	<SYSLOGFILE LogFlags="0" Logfile="Syslog/syslog" Mode="0" HourLimit="4" TimeZone="UTC"/>
+	<Settings CleanOlder="60" MinFreespace="5.5"/>
    </TraceCfg>
+
+.. _ref-SYSLOGFILE:
+
+SYSLOGFILE
+^^^^^^^^^^
+
+This node contains settings of a system-wide logfile.
+.. include-file:: sections/Include/sample_node.rstinc "" ":ref:`<ref-SYSLOGFILE>`"
+
+.. code-block:: none
+
+   <SYSLOGFILE LogFlags="0" Logfile="Syslog/syslog" Mode="0" HourLimit="4" TimeZone="UTC"/>
+
 
 .. _docref-SYSLOGFILEAttab:
 
-.. field-list-table:: Leandc SYSLOGFILE attributes
-   :class: table table-condensed table-bordered longtable
-   :spec: |C{0.20}|C{0.25}|S{0.55}|
-   :header-rows: 1
+.. include-file:: sections/Include/table_attrs.rstinc "" "SYSLOGFILE attributes"
 
-   * :attr,10: Attribute
-     :val,15:  Values or range
-     :desc,75: Description
+   * :attr:     :xmlref:`LogFlags`
+     :val:      0...255 or 0x00...0xFF
+     :def:	0x00
+     :desc:     Select type of system messages to be logged. See table :numref:`docref-SYSLOGFILELogFlagsAttab` for description. Logfile will not be created if the value is 0.
 
-   * :attr:    :xmlref:`LogFlags`
-     :val:     See table :numref:`docref-SYSLOGFILELogFlagsAttab` for description
-     :desc:    Select which system messages will be recorded to a logfile. Logfile will not be created if value is 0.
+   * :attr:     :xmlref:`Logfile`
+     :val:      Max 200 chars
+     :def:      Syslog/syslog
+     :desc:     Name of a logfile excluding extension (e.g. '.log').
+		It is possible to specify relative or absolute path as part of the file name.
+		Logfile will be created in the default home folder (e.g. '/home/leandc/app') if path is not specified.
+		Date when the file was created and extension '.log' will be appended to the file name automatically.
+		Logfile will not be created if this attribute is left blank.
+		(default value 'Syslog/syslog' where 'Syslog' is the name of the folder and 'syslog' is the name of the file)
+		:inlineimportant:`Attribute is case sensitive, observe the case of the path and name of the file when specifying.`
 
-   * :attr:    :xmlref:`Logfile`
-     :val:     Max 200 chars
-     :desc:    Name of a logfile excluding extension (e.g. '.log'). It is possible to specify relative or absolute path as part of the file name. Logfile will be created in the folder where leandc firmware is stored if path is not specified. Date of file creation and extension '.log' will be appended to the file name automatically. Logfile will not be created if this attribute is left blank. (default value 'Syslog/syslog', where 'Syslog' is the name of the folder and 'syslog' is the name of the file) :inlineimportant:`Attribute is case sensitive, observe the case of the path and name of the file when specifying.`
+   * :attr:     .. _ref-SYSLOGFILEMode:
 
-   * :attr:    .. _ref-SYSLOGFILEMode:
-       
-               :xmlref:`Mode`\*
-     :val:     See table :numref:`docref-LoggerModeBits` for description
-     :desc:    Logfile initialization settings. (default value 0) :inlinetip:`Attribute is optional and doesn't have to be included in configuration, default settings will be used if omitted.`
+                :xmlref:`Mode`\*
+     :val:      0...255 or 0x00...0xFF
+     :def:	0x00
+     :desc:     Logfile initialization settings. See table :numref:`docref-LoggerModeBits` for description. :inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
 
-   * :attr:    .. _ref-SYSLOGFILEHourLimit:
-       
-               :xmlref:`HourLimit`\*
-     :val:     0...12
-     :desc:    Option to create a new file after selected number of hours in order to limit the size of a file. (default 0 hours – only one logfile will be created per day) :inlinetip:`Attribute is optional and doesn't have to be included in configuration, default settings will be used if omitted.`
+   * :attr:     .. _ref-SYSLOGFILEHourLimit:
 
-   * :attr:    :xmlref:`TimeZone`
-     :val:     Max 200 chars
-     :desc:    Adjust time-tags of the recorded information based on the specified time zone. :inlineimportant:`Attribute must not be used if not required, there is no default value. Time-tags will not be adjusted if attribute omitted.` :inlinetip:`Please see` :ref:`docref-TimeZoneSpecification` :inlinetip:`for additional information.`
+                :xmlref:`HourLimit`\*
+     :val:      0...12
+     :def:	0 hours
+     :desc:     Option to create a new file after selected number of hours in order to limit the size of the file.
+		(default 0 – only 1 logfile per day will be created)
+		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
+
+   * :attr:     :xmlref:`TimeZone`
+     :val:      Max 200 chars
+     :def:	n/a
+     :desc:     Adjust time-tags of the recorded information based on the specified time zone.
+		:inlineimportant:`Attribute must not be used if not required, there is no default value. Time-tags will not be adjusted if attribute omitted.`
+		:inlinetip:`Please see` :ref:`docref-TimeZoneSpecification` :inlinetip:`for additional information.`
 
 .. include-file:: sections/Include/hidden_LogDebugFlags.rstinc "internal" ":numref:`docref-LOGGERDebugFlagsAttab`"
    
@@ -176,96 +207,126 @@ under :xmlref:`TraceCfg`. Please see sample :xmlref:`TraceCfg` and :xmlref:`SYSL
 
 .. _docref-SYSLOGFILELogFlagsAttab:
 
-.. field-list-table:: LogFlags attribute
-   :class: table table-condensed table-bordered longtable
-   :spec: |C{0.20}|C{0.25}|S{0.55}|
-   :header-rows: 1
+.. include-file:: sections/Include/table_flags.rstinc "" "System logfile flags" ":xmlref:`LogFlags`" "Logger flags"
+		Logfile will not be created, if the value is 0.
 
-   * :attr,10: Bits
-     :val,15:  Values
-     :desc,75: Description
-
-   * :attr:    :xmlref:`LogFlags` [xxxx.xxxx]
-     :val:     0...0xFF
-     :desc:    :xmlref:`LogFlags` is 8 bit encoded variable. Logfile will not be created, if value is 0
-
-   * :attr:    Bit 0
-     :val:     xxxx.xxx0
-     :desc:    System information recording to logfile **disabled**
+   * :attr:     Bit 0
+     :val:      xxxx.xxx0
+     :desc:     System information recording to logfile **disabled**
 
    * :(attr):
-     :val:     xxxx.xxx1
-     :desc:    System information recording to logfile **enabled**
+     :val:      xxxx.xxx1
+     :desc:     System information recording to logfile **enabled**
 
 .. include-file:: sections/Include/hidden_SyslogFlagsBit1.rstinc "internal"
-               
-   * :attr:    Bits 2...7
-     :val:     Any
-     :desc:    Bits reserved for future use
+
+   * :attr:     Bits 1...7
+     :val:      Any
+     :desc:     Bits reserved for future use
 
 .. include-file:: sections/Include/hidden_LogDebugFlagTable.rstinc "internal" ".. _docref-LOGGERDebugFlagsAttab:"
+
+.. _ref-LogSettings:
+
+Settings
+^^^^^^^^
+
+This node contains common settings for all logfiles.
+.. include-file:: sections/Include/sample_node.rstinc "" ":ref:`<ref-LogSettings>`"
+
+.. code-block:: none
+
+   <Settings CleanOlder="60" MinFreespace="5.5"/>
+
+.. _docref-LogSettingsAttab:
+
+.. include-file:: sections/Include/table_attrs.rstinc "" "Log Settings attributes"
+
+   * :attr:     .. _ref-SettingsCleanOlder:
+
+  		:xmlref:`CleanOlder`
+     :val:      0...255
+     :def:	60 days
+     :desc:     Remove logfiles which are older than specified number of days.
+		Value 0 disables automatic cleanup functionality.
+		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
+
+   * :attr:     .. _ref-SettingsMinFreespace:
+
+		:xmlref:`MinFreespace`
+     :val:      0...100
+     :def:	2%
+     :desc:     Minimal hard drive free space required to record logfiles in percent.
+		Logfiles will not be recoreded if available space is less than specified percentage.
+		Value 0 disables free space checking and logfiles are recorded until hard drive is full.
+		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
+
 
 .. _ref-ClientFilterCfg:
 
 ClientFilterCfg group and IPv4 node
 -----------------------------------
 
-Group object node :xmlref:`ClientFilterCfg` and its child element nodes :xmlref:`IPv4` are used to create filters to allow only 
-specific remote 'Client' IP address connection to leandc 'Server' socket. Please see sample :xmlref:`ClientFilterCfg` and 
-:xmlref:`IPv4` nodes and the table listing all available attributes below.
+Group object node :xmlref:`ClientFilterCfg` and its child element nodes :xmlref:`IPv4` are used to create filters for 
+remote 'Client' IP address which are allowed to connect to leandc.
+.. include-file:: sections/Include/sample_node.rstinc "" ":xmlref:`IPv4`"
 
 .. code-block:: none 
    
    <ClientFilterCfg>
-	<IPv4 FilterID="1" ClientIPaddr="192.168.2.14" Mask="32"/>
-	<IPv4 FilterID="1" ClientIPaddr="192.168.2.55" Mask="32"/>
-	<IPv4 FilterID="2" ClientIPaddr="192.168.5.0" Mask="24"/>
+	<IPv4 FilterID="1" ClientIPaddr="192.168.2.14" Mask="32" Name="Only specified IP address"/>
+	<IPv4 FilterID="1" ClientIPaddr="192.168.2.55" Mask="32" Name="Only specified IP address"/>
+	<IPv4 FilterID="2" ClientIPaddr="192.168.5.0" Mask="24" Name="IP address range"/>
    </ClientFilterCfg>
 
-There are three :xmlref:`IPv4` filter nodes configured in the above example. Please note there are two :xmlref:`IPv4` nodes with 
-the same filter identifier number '1'. This will create a filter which allow both IP address 192.168.2.14 and 
-192.168.2.55 connection to leandc.
+There are 3 :xmlref:`IPv4` filter nodes configured in the example above.
+Please note 2 :xmlref:`IPv4` nodes have the same filter identifier "1". 
+This will allow clients from either IP address 192.168.2.14 or 192.168.2.55 to connect.
 
 .. _docref-ClientFilterCfgIPv4Attab:
 
-.. field-list-table:: Leandc ClientFilterCfg group node IPv4 attributes
-   :class: table table-condensed table-bordered longtable
-   :spec: |C{0.20}|C{0.25}|S{0.55}|
-   :header-rows: 1
+.. include-file:: sections/Include/table_attrs.rstinc "" "IPv4 Client filter attributes"
 
-   * :attr,10: Attribute
-     :val,15:  Values or range
-     :desc,75: Description
+   * :attr:     :xmlref:`FilterID`
+     :val:      1...255
+     :def:      n/a
+     :desc:     Filter identifier. 
+		More than one filter may have the same identifier which enables to define multiple addresses or address ranges.
+		In order to apply the filter, use this identifier in communication protocol instance attributes :ref:`<ref-IEC104sl>`.\ :ref:`<ref-IEC104slFilterID>`\; :ref:`<ref-IEC104Rsl>`.\ :ref:`<ref-IEC104RslFilterID>` \ or :ref:`<ref-IEC104Csl>`.\ :ref:`<ref-IEC104CslFilterID>`\. 
 
-   * :attr:    :xmlref:`FilterID`
-     :val:     1...255
-     :desc:    Filter identifier number. More than one filter may have the same identifier number which increases the flexibility of defining multiple allowed addresses or address ranges. In order to apply filter, use this identifier number in communication protocol instance attributes :ref:`IEC104sl<ref-IEC104sl>`.\ :ref:`FilterID<ref-IEC104slFilterID>`\; :ref:`IEC104Rsl<ref-IEC104Rsl>`.\ :ref:`FilterID<ref-IEC104RslFilterID>` \ or :ref:`IEC104Csl<ref-IEC104Csl>`.\ :ref:`FilterID<ref-IEC104CslFilterID>`\. 
+   * :attr:     .. _ref-ClientFilterCfgIpv4ClientIPaddr:
 
-   * :attr:    .. _ref-ClientFilterCfgIpv4ClientIPaddr:
-       
-               :xmlref:`ClientIPaddr`
-     :val:     0.0.0.0 ... 255.255.255.255
-     :desc:    IPv4 TCP client IP address allowed to connect to leandc 'Server' socket. It is also possible to define a network subnet and all IP addresses of the subnet will be able to connect to leandc. Please refer to :ref:`IPv4<ref-ClientFilterCfg>`.\ :ref:`Mask<ref-ClientFilterCfgIpv4Mask>` \ attribute for network subnet configuration. (address 0.0.0.0 can be used to allow connection from any IP address)
+                :xmlref:`ClientIPaddr`
+     :val:      0.0.0.0 ... 255.255.255.255
+     :def:      n/a
+     :desc:     IPv4 TCP client IP address allowed to connect.
+		It is possible to define a network subnet and all IP addresses of the subnet will be able to connect.
+		Please refer to :ref:`<ref-ClientFilterCfgIpv4Mask>` attribute for network subnet configuration.
+		(address 0.0.0.0 can be used to allow connection from any IP address)
 
-   * :attr:    .. _ref-ClientFilterCfgIpv4Mask:
-       
-               :xmlref:`Mask`
-     :val:     0...32
-     :desc:    Network mask is used in conjunction with :ref:`IPv4<ref-ClientFilterCfg>`.\ :ref:`ClientIPaddr<ref-ClientFilterCfgIpv4ClientIPaddr>` \ attribute in order to create a network subnet. All IP addresses of the subnet will be able to connect to leandc 'Server' socket. Network mask attribute is a decimal representation of the subnet mask, sometimes called network prefix, refer to table 18 for more information. (Mask 0 will allow connection from any IP address; mask 32 will allow connection only from one IP address specified in :ref:`IPv4<ref-ClientFilterCfg>`.\ :ref:`ClientIPaddr<ref-ClientFilterCfgIpv4ClientIPaddr>` \ attribute)
+   * :attr:     .. _ref-ClientFilterCfgIpv4Mask:
 
-   * :attr:    :xmlref:`Name`
-     :val:     Max 100 chars
-     :desc:    Freely configurable name, just for reference. :inlinetip:`Name attribute is optional and doesn't have to be included in configuration.`
-  
-Table below is used to show network subnets created by different :ref:`IPv4<ref-ClientFilterCfg>`.\ :ref:`Mask<ref-ClientFilterCfgIpv4Mask>` \ attribute values and its layout is 
-based on assumption user has a good understanding of network addressing fundamentals. Please refer to 
-external sources (e.g. http://www.subnet-calculator.com) for additional information on network addressing and 
-subnet definition.   
+                :xmlref:`Mask`
+     :val:      0...32
+     :def:      32
+     :desc:     Network mask is used in conjunction with :ref:`<ref-ClientFilterCfgIpv4ClientIPaddr>` attribute in order to create a network subnet.
+		All IP addresses of the subnet will be able to connect.
+		Network mask attribute is a decimal notation of the subnet mask, sometimes called network prefix, refer to table :numref:`docref-NetworkMask` for more information. 
+		(Mask 0 will allow connection from any IP address; mask 32 will allow connection only from one IP address specified in :ref:`<ref-ClientFilterCfgIpv4ClientIPaddr>` attribute)
 
-Table column 1 contains IPv4.Mask attribute values, column 2 contains subnet mask represented in dotted 
-decimal notation, following columns show network mask in binary format (just for reference) and the last column 
-contains range of IP address allowed to connect to leandc. Table can be used as a guidance of how network 
-subnets are created based on sample IP address 192.168.1.1 specified in :ref:`IPv4<ref-ClientFilterCfg>`.\ :ref:`ClientIPaddr<ref-ClientFilterCfgIpv4ClientIPaddr>` \ attribute.
+.. include-file:: sections/Include/Name.rstinc ""
+
+Network subnets created by various :ref:`<ref-ClientFilterCfgIpv4Mask>` attribute values are summarized in the table below.
+It is assumed user has a good understanding of network addressing fundamentals.
+Please refer to external sources (e.g. http://www.subnet-calculator.com) for additional information on network addressing and subnet definition.   
+
+| Table columns are defined as follows:
+| Column 1 contains :ref:`<ref-ClientFilterCfgIpv4Mask>` attribute values;
+| Column 2 contains subnet mask in dotted decimal notation;
+| Columns 3...6 show network mask in binary notation (just for reference);
+| Column 7 contains range of client IP address allowed to connect.
+
+Table is designed as a guidance of how network subnets are created based on sample IP address 192.168.1.1 specified in the :ref:`<ref-ClientFilterCfgIpv4ClientIPaddr>` attribute.
       
 .. _docref-NetworkMask:
 
@@ -401,7 +462,7 @@ subnets are created based on sample IP address 192.168.1.1 specified in :ref:`IP
      :iprange:       Only 192.168.1.1 allowed to connect
 
 .. _ref-SupervisionCfg:     
-     
+
 SupervisionCfg group node     
 -------------------------     
      
@@ -424,10 +485,10 @@ Every supervision instance has a unique element node and its configuration is de
 .. important:: 
    | Supervision instances must be listed under :ref:`SupervisionCfg<ref-SupervisionCfg>` group node in the following order:
 
-   | :ref:`MONRAW<ref-MONRAW>`
-   | :ref:`MONCOMP<ref-MONCOMP>`
-   | :ref:`REDIRECT<ref-REDIRECT>`
-   | :ref:`OVERRIDE<ref-OVERRIDE>`
+   | :ref:`<ref-MONRAW>`
+   | :ref:`<ref-MONCOMP>`
+   | :ref:`<ref-REDIRECT>`
+   | :ref:`<ref-OVERRIDE>`
      
 .. include:: supervisionCfg/monraw.rst
 .. include:: supervisionCfg/moncomp.rst

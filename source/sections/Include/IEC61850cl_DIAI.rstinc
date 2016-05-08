@@ -1,0 +1,35 @@
+   * :attr:     :xmlref:`daName`
+     :val:      1...64 chars
+     :def:      :include-arg:`5`
+     :desc:     Data attribute name from CID/SCD file.
+		It may contain either single level name e.g. 'stVal' or multiple level name e.g. 'cVal.mag.f' 
+		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
+
+   * :attr:     :include-arg:`1`
+
+		:xmlref:`DSnum`
+     :val:      1...100
+     :def:      automatic
+     :desc:     Number of the dynamic dataset that will include this object. 
+		Value 100 is reserved as an indicator to reuse a static dataset predefined in SCL if it contains this object.
+		It is recommended not to use this attribute, unless you fully understand implications.
+		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, objects will be grouped in datasets automatically if omitted.`
+
+   * :attr:     :include-arg:`2`
+   
+                :xmlref:`TrgOps`
+     :val:      0...255 or 0x00...0xFF
+     :def:      0x00
+     :desc:     Information Report trigger options.
+		See table :include-arg:`4` for Trigger Options description.
+		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
+
+   * :attr:     :include-arg:`3`
+
+                :xmlref:`intgPd`
+     :val:      0...2\ :sup:`32`\  - 2
+     :def:      0
+     :desc:     Interval in milliseconds for generating periodic integrity reports [IEC61850-7-2:2010].
+		Value 0 disables integrity reports.
+		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
+

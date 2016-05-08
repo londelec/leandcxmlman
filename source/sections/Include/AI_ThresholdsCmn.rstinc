@@ -1,12 +1,13 @@
-   * :attr:    :include-arg:`1`
-            
-               :xmlref:`AIDeadband`
-     :val:     0 or ±1.18×10\ :sup:`-38`\ ...±3.4×10\ :sup:`38`\ 
-     :desc:    Deadband for all AI objects which doesn't have :include-arg:`3`.\ :include-arg:`4` \ attribute specified in their element node. Refer to individual :include-arg:`3`.\ :include-arg:`4` \ attribute description for more information. Value 0 disables deadband feature. (default value 0)
+   * :attr:     :include-arg:`1`
+
+		:xmlref:`AIDeadband`
+     :val:      0 or ±1.18×10\ :sup:`-38`\ ...±3.4×10\ :sup:`38`\
+     :def:      0
+     :desc:     Deadband for all AI objects which doesn't have :include-arg:`3`.\ :include-arg:`4` \ attribute specified in their element node. Refer to individual :include-arg:`3`.\ :include-arg:`4` \ attribute description for more information. Value 0 disables deadband feature
 
    * :attr:    :include-arg:`2`
-            
-               :xmlref:`AIPercent`
-     :val:     0 or ±1.18×10\ :sup:`-38`\ ...±3.4×10\ :sup:`38`\ 
-     :desc:    Percent deadband for all AI objects which doesn't have :include-arg:`3`.\ :include-arg:`5` \ attribute specified in their element node. Refer to individual :include-arg:`3`.\ :include-arg:`5` \ attribute description for more information. Value 0 disables percent feature. (default value 0)
 
+		:xmlref:`AIPercent`
+     :val:      0 or ±1.18×10\ :sup:`-38`\ ...±3.4×10\ :sup:`38`\
+     :def:      0
+     :desc:     Percent deadband for all AI objects which doesn't have :include-arg:`3`.\ :include-arg:`5` \ attribute specified in their element node. Refer to individual :include-arg:`3`.\ :include-arg:`5` \ attribute description for more information. Value 0 disables percent feature

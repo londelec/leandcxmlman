@@ -1,15 +1,19 @@
    * :attr:    :xmlref:`DIEventStartup`
      :val:     0
+     :def:     1
      :desc:    DI events **will not be** generated when received from outstation for the first time after leandc startup. This setting masks only events received from an outstation. Internal events created by station Offline/Disabled changes will be generated as normal.
 
    * :(attr):
      :val:     1
-     :desc:    DI events **will be** generated when received from outstation for the first time after leandc startup (default value)
+     :(def):
+     :desc:    DI events **will be** generated when received from outstation for the first time after leandc startup
 
    * :attr:    :xmlref:`AIEventStartup`
      :val:     0
+     :def:     1
      :desc:    AI events **will not be** generated when received from outstation for the first time after leandc startup
 
    * :(attr):
      :val:     1
-     :desc:    AI events **will be** generated when received from outstation for the first time after system leandc (default value)
+     :(def):
+     :desc:    AI events **will be** generated when received from outstation for the first time after system leandc

@@ -1,13 +1,79 @@
-   * :attr:    :xmlref:`Group1`
-     :val:     0...2\ :sup:`32`\  - 1
-     :desc:    Periodic Group 1 Interrogation command interval in seconds. Value 0 disables periodic Group 1 Interrogation command. (default value 0)
+   * :attr:     :xmlref:`Group1`
+     :val:      0...2\ :sup:`32`\  - 1
+     :def:      0 sec
+     :desc:     Periodic Group **1** Interrogation command interval in seconds. Value 0 disables periodic Group 1 Interrogation command.
 
-   * :attr:    :xmlref:`Group2 … Group15`
-     :val:     0...2\ :sup:`32`\  - 1
-     :desc:    Periodic Group 2...15 Interrogation command interval in seconds. Value 0 disables periodic Group 2...15 Interrogation command.
-               ..tip:: Please note, Interrogation Groups 2...15 are configured individually, each group has its own attribute (default value 0)
+   * :attr:     :xmlref:`Group2`
+     :val:      0...2\ :sup:`32`\  - 1
+     :def:      0 sec
+     :desc:     Periodic Group **2** Interrogation command interval in seconds. Value 0 disables periodic Group 2 Interrogation command.
 
-   * :attr:    :xmlref:`Group16`
-     :val:     0...2\ :sup:`32`\  - 1
-     :desc:    Periodic Group 16 Interrogation command interval in seconds. Value 0 disables periodic Group 16 Interrogation command. (default value 0)
+   * :attr:     :xmlref:`Group3`
+     :val:      0...2\ :sup:`32`\  - 1
+     :def:      0 sec
+     :desc:     Periodic Group **3** Interrogation command interval in seconds. Value 0 disables periodic Group 3 Interrogation command.
 
+   * :attr:     :xmlref:`Group4`
+     :val:      0...2\ :sup:`32`\  - 1
+     :def:      0 sec
+     :desc:     Periodic Group **4** Interrogation command interval in seconds. Value 0 disables periodic Group 4 Interrogation command.
+
+   * :attr:     :xmlref:`Group5`
+     :val:      0...2\ :sup:`32`\  - 1
+     :def:      0 sec
+     :desc:     Periodic Group **5** Interrogation command interval in seconds. Value 0 disables periodic Group 5 Interrogation command.
+
+   * :attr:     :xmlref:`Group6`
+     :val:      0...2\ :sup:`32`\  - 1
+     :def:      0 sec
+     :desc:     Periodic Group **6** Interrogation command interval in seconds. Value 0 disables periodic Group 6 Interrogation command.
+
+   * :attr:     :xmlref:`Group7`
+     :val:      0...2\ :sup:`32`\  - 1
+     :def:      0 sec
+     :desc:     Periodic Group **7** Interrogation command interval in seconds. Value 0 disables periodic Group 7 Interrogation command.
+
+   * :attr:     :xmlref:`Group8`
+     :val:      0...2\ :sup:`32`\  - 1
+     :def:      0 sec
+     :desc:     Periodic Group **8** Interrogation command interval in seconds. Value 0 disables periodic Group 8 Interrogation command.
+
+   * :attr:     :xmlref:`Group9`
+     :val:      0...2\ :sup:`32`\  - 1
+     :def:      0 sec
+     :desc:     Periodic Group **9** Interrogation command interval in seconds. Value 0 disables periodic Group 9 Interrogation command.
+
+   * :attr:   	:xmlref:`Group10`
+     :val:    	0...2\ :sup:`32`\  - 1
+     :def:    	0 sec
+     :desc:   	Periodic Group **10** Interrogation command interval in seconds. Value 0 disables periodic Group 10 Interrogation command.
+
+   * :attr:   	:xmlref:`Group11`
+     :val:    	0...2\ :sup:`32`\  - 1
+     :def:    	0 sec
+     :desc:   	Periodic Group **11** Interrogation command interval in seconds. Value 0 disables periodic Group 11 Interrogation command.
+
+   * :attr:   	:xmlref:`Group12`
+     :val:    	0...2\ :sup:`32`\  - 1
+     :def:    	0 sec
+     :desc:   	Periodic Group **12** Interrogation command interval in seconds. Value 0 disables periodic Group 12 Interrogation command.
+
+   * :attr:   	:xmlref:`Group13`
+     :val:    	0...2\ :sup:`32`\  - 1
+     :def:    	0 sec
+     :desc:   	Periodic Group **13** Interrogation command interval in seconds. Value 0 disables periodic Group 13 Interrogation command.
+
+   * :attr:   	:xmlref:`Group14`
+     :val:    	0...2\ :sup:`32`\  - 1
+     :def:    	0 sec
+     :desc:   	Periodic Group **14** Interrogation command interval in seconds. Value 0 disables periodic Group 14 Interrogation command.
+
+   * :attr:   	:xmlref:`Group15`
+     :val:    	0...2\ :sup:`32`\  - 1
+     :def:    	0 sec
+     :desc:   	Periodic Group **15** Interrogation command interval in seconds. Value 0 disables periodic Group 15 Interrogation command.
+
+   * :attr:   	:xmlref:`Group16`
+     :val:    	0...2\ :sup:`32`\  - 1
+     :def:    	0 sec
+     :desc:   	Periodic Group **16** Interrogation command interval in seconds. Value 0 disables periodic Group 16 Interrogation command.

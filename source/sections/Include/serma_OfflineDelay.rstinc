@@ -1,6 +1,9 @@
-   * :attr:    :include-arg:`1`
-            
-               :xmlref:`OfflineDelay`
-     :val:     0...2\ :sup:`32`\  - 1
-     :desc:    Offline delay in seconds before station status is changed to OFFLINE. Offline delay timer is activated only after outstation has failed to reply to a number of requests configured in :xmlref:`NoRespCount` attribute. (For example, if this delay is 10, status will be changed to OFFLINE when outstation has failed to reply to a number of requests configured in :xmlref:`NoRespCount` plus 10 second delay (default 0 seconds)
+   * :attr:     :include-arg:`1`
+
+                :xmlref:`OfflineDelay`
+     :val:      0...2\ :sup:`32`\  - 1
+     :def:      0 sec
+     :desc:     Offline delay in seconds before station status is changed to OFFLINE.
+		Offline delay timer is activated only after outstation has failed to reply to a number of requests configured in :include-arg:`2` attribute.
+		Application example: if this delay is 10, status will be changed to OFFLINE when outstation has failed to reply to a number of requests configured in :include-arg:`2` plus 10 second delay
 

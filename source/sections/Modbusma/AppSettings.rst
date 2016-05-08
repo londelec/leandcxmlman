@@ -1,29 +1,19 @@
-.. _docref-ModbusmaAppSettingsAttr:
+.. _ref-ModbusmaAppSettings:
 
-AppSettings attributes
-^^^^^^^^^^^^^^^^^^^^^^^
+AppSettings
+^^^^^^^^^^^
 
-Application layer settings can be specified using attributes of :ref:`AppSettings<ref-ModbusmaAppSettings>` element node.
+Application layer settings can be specified using attributes of :ref:`<ref-ModbusmaAppSettings>` element node.
 
-Please see sample :ref:`AppSettings<ref-ModbusmaAppSettings>` node and the table listing all available attributes below.
+.. include-file:: sections/Include/sample_node.rstinc "" ":ref:`<ref-ModbusmaAppSettings>`"
 
 .. code-block:: none
 
  <AppSettings AIDeadband="2" AIPercent="0.5" />
 
+
 .. _docref-ModbusmaAppSettingsAttab:
 
-.. field-list-table:: Modbus Master AppSettings attributes
-   :class: table table-condensed table-bordered longtable
-   :spec: |C{0.20}|C{0.25}|S{0.55}|
-   :header-rows: 1
+.. include-file:: sections/Include/table_attrs.rstinc "" "Modbus Master AppSettings attributes"
 
-   * :attr,10: Attribute
-     :val,15:  Values or range
-     :desc,75: Description
-
-.. include-file:: sections/Include/AI_ThresholdsCmn.rstinc "" ".. _ref-ModbusmaAppSettingsAIDeadband:" ".. _ref-ModbusmaAppSettingsAIPercent:" ":ref:`AI<ref-ModbusmaAI>`" ":ref:`Deadband<ref-ModbusmaAIDeadband>`" ":ref:`Percent<ref-ModbusmaAIPercent>`"
-
-            
-  
-
+.. include-file:: sections/Include/AI_ThresholdsCmn.rstinc "" ".. _ref-ModbusmaAppSettingsAIDeadband:" ".. _ref-ModbusmaAppSettingsAIPercent:" ":ref:`AI<ref-ModbusmaAI>`" ":ref:`<ref-ModbusmaAIDeadband>`" ":ref:`<ref-ModbusmaAIPercent>`"

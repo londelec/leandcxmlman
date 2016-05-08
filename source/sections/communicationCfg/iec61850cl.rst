@@ -1,0 +1,45 @@
+
+.. _ref-IEC61850cl:
+
+IEC61850cl
+^^^^^^^^^^
+
+General settings of the IEC61850 client communication protocol instance.
+.. include-file:: sections/Include/sample_node.rstinc "" ":ref:`<ref-IEC61850cl>`"
+
+.. code-block:: none
+
+   <IEC61850cl Index="20" HWIndex="2" XMLpath="REF_IO.xml" CIDpath="REF.cid" CommsFlags="0x10" Name="IED"/>
+
+
+.. _ref-IEC61850clAttributes:
+
+.. field-list-table:: IEC61850cl node
+   :class: table table-condensed table-bordered longtable
+   :header-rows: 1
+   :spec: |C{0.20}|C{0.25}|S{0.55}|
+
+   * :attr,10: Attribute
+     :val,15:  Values or range
+     :desc,75: Description
+
+   * :attr:     :xmlref:`Index`
+     :val:      1...254
+     :desc:     Index is a unique identifier of the communication protocol instance. It is used to reference protocol instance from other configuration files e.g. IO object tables (please see :ref:`DI<ref-IEC10xslDI>`.\ :ref:`<ref-IEC10xslDIDevice>`\; :ref:`AI<ref-IEC10xslAI>`.\ :ref:`<ref-IEC10xslAIDevice>`\; :ref:`DO<ref-IEC10xslDO>`.\ :ref:`<ref-IEC10xslDODevice>`\; :ref:`AO<ref-IEC10xslAO>`.\ :ref:`<ref-IEC10xslAODevice>` \ attributes of the Slave protocol instance) :inlinetip:`Indexes don't have to be in a sequential order.`
+
+   * :attr:     :xmlref:`HWIndex`
+     :val:      1...254
+     :desc:     Hardware Index is used to link the communication protocol instance to a hardware node. Use value of the :ref:`<ref-TCPCLIENT>`.\ :ref:`<ref-TCPCLIENTIndex>` \ attribute as a hardware index in order to link the protocol instance.
+
+.. include-file:: sections/Include/Comms_XMLpath.rstinc "" ".. _ref-IEC61850clXMLpath:"
+
+   * :attr:     .. _ref-IEC61850clCIDpath:
+
+                :xmlref:`CIDpath`
+     :val:      Max 100 chars
+     :desc:     IED CID or SCD file name and path. This file contains communication capabilites and settings of the IED. It is normaly exported from the IED configuration tool. File path may be omitted if XML file is stored in the same directory as leandc firmware (/home/leandc/app by default) :inlineimportant:`Attribute is case sensitive, observe the case of path and file name when specifying.`
+
+.. include-file:: sections/Include/Comms_CommsFlags.rstinc ""
+
+.. include-file:: sections/Include/Name_wodef.rstinc ""
+

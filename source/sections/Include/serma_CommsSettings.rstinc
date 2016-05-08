@@ -1,17 +1,27 @@
-   * :attr:    :include-arg:`1`
-            
-               :xmlref:`NoRespCount`
-     :val:     1...255
-     :desc:    Outstation no-response counter. Station status will be changed to OFFLINE when outstation fails to reply to a configured number of subsequent requests. Station status will be changed to OFFLINE instantly, unless additional delay is configured using :xmlref:`OfflineDelay` attribute. (default 5 retries; leandc will retry outgoing message for 5 times before station status is changed to OFFLINE) (default 5 retries)
+   * :attr:     :include-arg:`1`
 
-   * :attr:    :include-arg:`2`
-            
-               :xmlref:`DegradedRetries`
-     :val:     0...255
-     :desc:    Outgoing message retries before activating :xmlref:`DegradedTimeout`. Outstation will be temporarily excluded from polling if it fails to reply to a configured number of requests. Value 0 disables degraded timeout functionality (default 5 retries)
+                :xmlref:`NoRespCount`
+     :val:      1...255
+     :def:      5 retries
+     :desc:     Outstation no-response counter.
+		Station status will be changed to OFFLINE when outstation fails to reply to a configured number of subsequent requests.
+		Station status will be changed to OFFLINE instantly, unless additional delay is configured in :include-arg:`4` attribute.
+		(default 5 retries - outgoing message will be retried 5 times before station status is changed to OFFLINE)
 
-   * :attr:    :include-arg:`3`
-            
-               :xmlref:`DegradedTimeout`
-     :val:     0...2\ :sup:`32`\  - 1
-     :desc:    Degraded timeout in seconds. Outstation is excluded from polling for a configured number of seconds if it has failed to reply to a number of requests configured in :xmlref:`DegradedRetries` attribute. Value 0 disables degraded timeout functionality (default 600 seconds)
+   * :attr:     :include-arg:`2`
+
+                :xmlref:`DegradedRetries`
+     :val:      0...255
+     :def:      5 retries
+     :desc:     Outgoing message retries before activating :include-arg:`5`.
+		Outstation will be temporarily excluded from polling if it fails to reply to a configured number of requests.
+		Value 0 disables degraded timeout functionality.
+
+   * :attr:     :include-arg:`3`
+
+                :xmlref:`DegradedTimeout`
+     :val:      0...2\ :sup:`32`\  - 1
+     :def:      600 sec
+     :desc:     Degraded timeout in seconds.
+		Outstation is excluded from polling for a configured number of seconds if it has failed to reply to a number of requests configured in :include-arg:`6` attribute.
+		Value 0 disables degraded timeout functionality.

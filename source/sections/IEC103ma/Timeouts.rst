@@ -1,26 +1,19 @@
-.. _docref-IEC103maTimeoutsAttr:
+.. _ref-IEC103maTimeouts:
 
-Timeouts attributes
-^^^^^^^^^^^^^^^^^^^
+Timeouts
+^^^^^^^^
 
-Timeout values can be specified using attributes of :ref:`Timeouts<ref-IEC103maTimeouts>` element node.
+Command processing timeouts are specified in this node.
 
-Please see sample :ref:`Timeouts<ref-IEC103maTimeouts>` node and the table listing all available attributes below.
+.. include-file:: sections/Include/sample_node.rstinc "" ":ref:`<ref-IEC103maTimeouts>`"
 
 .. code-block:: none
 
    <Timeouts Application="30" Command="10" />
 
+
 .. _docref-IEC103maTimeoutsAttab:
 
-.. field-list-table:: IEC 60870-5-103 Master Timeouts attributes
-   :class: table table-condensed table-bordered longtable
-   :spec: |C{0.20}|C{0.25}|S{0.55}|
-   :header-rows: 1
-
-   * :attr,10:  Attribute
-     :val,15:   Values or range
-     :desc,75:  Description
+.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-103 Master Timeouts attributes"
 
 .. include-file:: sections/Include/ma_TimeoutsAppCmd.rstinc
-

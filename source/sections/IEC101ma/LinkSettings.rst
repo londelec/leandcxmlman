@@ -1,56 +1,51 @@
-.. _docref-IEC101maLinkSettingsAttr:
+.. _ref-IEC101maLinkSettings:
 
-LinkSettings attributes
-^^^^^^^^^^^^^^^^^^^^^^^
+LinkSettings
+^^^^^^^^^^^^
 
-Link layer settings can be specified using attributes of :ref:`LinkSettings<ref-IEC101maLinkSettings>` element node.
+Link layer settings can be specified using attributes of :ref:`<ref-IEC101maLinkSettings>` element node.
 
-Please see sample :ref:`LinkSettings<ref-IEC101maLinkSettings>` node and the table listing all available attributes below.
+.. include-file:: sections/Include/sample_node.rstinc "" ":ref:`<ref-IEC101maLinkSettings>`"
 
 .. code-block:: none
 
-   <LinkSettings LinkAddrSize="1" TxAllVarLength="0" LinkOnlineCounter="5" IgnoreWhileLinkcnt="1"/> 
+   <LinkSettings LinkAddrSize="1" TxAllVarLength="0" LinkOnlineCounter="5" IgnoreWhileLinkcnt="1"/>
+
 
 .. _docref-IEC101maLinkSettingsAttab:
 
-.. field-list-table:: IEC 60870-5-101 Master LinkSettings attributes
-   :class: table table-condensed table-bordered longtable
-   :spec: |C{0.22}|C{0.23}|S{0.55}|
-   :header-rows: 1
+.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-101 Master LinkSettings attributes"
 
-   * :attr,10:  Attribute
-     :val,15:   Values or range
-     :desc,75:  Description
-     
-   * :attr:     .. _ref-IEC101maLinkSettingsLinkAddrSize:
-            
-                :xmlref:`LinkAddrSize`
-     :val:      1 or 2
-     :desc:     Link layer address size in bytes (default 1 byte) :inlinetip:`Please note link address size of the protocol instances sharing the same hardware node must be the same.`
-   
+.. include-file:: sections/Include/IEC60870_LinkAddrSize.rstinc "" ".. _ref-IEC101maLinkSettingsLinkAddrSize:"
+
    * :attr:     .. _ref-IEC101maLinkSettingsTxAllVarLength:
-            
+
                 :xmlref:`TxAllVarLength`
      :val:      0
-     :desc:     Send **variable** and **fixed** length link layer messages as required (default value) (First character of variable link layer messages is - 0x68 and fixed length messages - 0x10)
-   
+     :def:      0
+     :desc:     Send **variable** and **fixed** length link layer messages as required. (First character of variable link layer messages is - 0x68 and fixed length messages - 0x10)
+
    * :(attr):
      :val:      1
+     :(def):
      :desc:     Send only **variable** length link layer messages
-   
+
    * :attr:     .. _ref-IEC101maLinkSettingsLinkOnlineCounter:
-            
+
                 :xmlref:`LinkOnlineCounter`
      :val:      0...65535
-     :desc:     Application layer operation delay after link becomes valid. First application layer message (e.g. GI or Time Sync) will be delayed for a configured number of outgoing link messages after Reset Remote link response is received from outstation. Value 0 disables delay - application layer starts running immediately after Reset Remote link response is received from outstation. (default 0 messages)
+     :def:      0 requests
+     :desc:     Application layer operation delay after link becomes valid. First application layer message (e.g. GI or Time Sync) will be delayed for a configured number of outgoing link messages after Reset Remote link response is received from outstation. Value 0 disables delay - application layer starts running immediately after Reset Remote link response is received from outstation.
 
    * :attr:     .. _ref-IEC101maLinkSettingsIgnoreWhileLinkcnt:
-            
+
                 :xmlref:`IgnoreWhileLinkcnt`
      :val:      0
-     :desc:     **Process** received application layer messages while link online delay counter operates (default value)
-   
+     :def:      0
+     :desc:     **Process** received application layer messages while link online delay counter operates
+
    * :(attr):
      :val:      1
-     :desc:     **Ignore** received application layer messages while link online delay counter operates. Received application message processing begins when counter reaches value defined in :xmlref:`LinkOnlineCounter` attribute after station goes online.
-
+     :(def):
+     :desc:     **Ignore** received application layer messages while link online delay counter operates.
+		Application message processing starts after number of link messages defined in :ref:`<ref-IEC101maLinkSettingsLinkOnlineCounter>` are received from oustation.
