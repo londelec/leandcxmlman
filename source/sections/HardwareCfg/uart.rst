@@ -9,7 +9,7 @@ This node contains settings of a serial port.
 
 .. code-block:: none
 
-   <UART Index="1" Devpath="/dev/ttyUSB0" Baudrate="9600" DataBits="8" Parity="E" StopBits="1" Timeout="3" TxDelay="0.5" Interface="RS232" CtrlRdTimer="0.5" Test="Echo" Name="COM1"/>
+   <UART Index="1" COM="3" Devpath="/dev/ttyUSB0" Baudrate="9600" DataBits="8" Parity="E" StopBits="1" Timeout="3" TxDelay="0.5" Interface="RS232" CtrlRdTimer="0.5" Test="Echo" Name="COM1"/>
 
 
 .. _ref-UARTAttributes:
@@ -18,15 +18,34 @@ This node contains settings of a serial port.
 
    * :attr:     .. _ref-UARTIndex:
 
-                :xmlref:`Index`
+		:xmlref:`Index`
      :val:      1...254
      :def:      n/a
      :desc:     Index is a unique identifier of the hardware node. It is used as a reference to link a communication protocol instance to this node. :inlinetip:`Indexes don't have to be in a sequential order.`
 
-   * :attr:     :xmlref:`Devpath`\*
-     :val:      Max 100 chars
-     :def:      n/a
-     :desc:     Path of the UART device in the Linux operating system. All serial ports are normally located in :xmlref:`'/dev'` folder. Inbuilt serial ports have names :xmlref:`'/dev/ttyS0'`; :xmlref:`'/dev/ttyS1'` and USB to Serial adapter ports :xmlref:`'/dev/ttyUSB0'`; :xmlref:`'/dev/ttyUSB0'`; etc Please refer to table :numref:`ref-SerialPortPath` below for standard paths. :inlineimportant:`Attribute is case sensitive, observe the case of path when specifying.`
+   * :attr:     .. _ref-UARTCOM:
+
+		:xmlref:`COM`
+
+		\*
+     :val:	1...16
+     :def:	n/a
+     :desc:	Serial port number. 
+		Number of the inbuilt serial port when running leandc on a supported hardware.
+		Please refer to table :numref:`ref-SerialHardwares` below for a list of currently supported hardwares.
+		If you are running leandc on a hardware that is not supported or want to use a port other than inbuilt (e.g. USB to Serial adapter), please specify the device path in :ref:`<ref-UARTDevpath>` attribute.
+		:ref:`<ref-UARTDevpath>` attribute has higher priority and value of :xmlref:`COM` will be ignored if :ref:`<ref-UARTDevpath>` is used.
+
+   * :attr:     .. _ref-UARTDevpath:
+
+		:xmlref:`Devpath`
+     :val:	Max 100 chars
+     :def:	n/a
+     :desc:	Path of the UART device in the Linux operating system.
+		All serial ports can normally be found in '/dev' directory.
+		On standard hardwares inbuilt serial ports have names '/dev/ttyS0'; '/dev/ttyS1' and USB to Serial adapter ports '/dev/ttyUSB0'; '/dev/ttyUSB0'; etc
+		:inlineimportant:`Attribute is case sensitive, observe the case of path when specifying.`
+		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, path will be resolved automatically from` :ref:`<ref-UARTCOM>` \ :inlinetip:`number, if omitted.`
 
    * :attr:     :xmlref:`Baudrate`
      :val:      300...115200bps
@@ -88,42 +107,60 @@ This node contains settings of a serial port.
 
 .. include-file:: sections/Include/Name.rstinc ""
 
-\* Standard paths of serial ports are listed in the table :numref:`ref-SerialPortPath` below:
+\* Supported hardwares on which :ref:`<ref-UARTCOM>` attribute can be used are listed in the table :numref:`ref-SerialHardwares` below:
 
-.. _ref-SerialPortPath:
+.. _ref-SerialHardwares:
 
-.. field-list-table:: Standard serial port path
+.. field-list-table:: Supported hardwares and serial port numbers
    :class: table table-condensed table-bordered table-left table-center-all
    :header-rows: 1
    :spec: |C{0.2}|C{0.4}|C{0.4}|
 
-   * :port,10: Port Number
-     :hw1,30:  LEANDC-2/3 path :xmlref:`Devpath` attribute
-     :hw2,30:  LEANDC-2/5 path :xmlref:`Devpath` attribute
-     :hw3,30:  LEIODC path :xmlref:`Devpath` attribute
+   * :hw,14:	Hardware
+     :com1,14:	:ref:`<ref-UARTCOM>` = 1
+     :com2,14:	:ref:`<ref-UARTCOM>` = 2
+     :com3,14:	:ref:`<ref-UARTCOM>` = 3
+     :com4,14:	:ref:`<ref-UARTCOM>` = 4
+     :com5,14:	:ref:`<ref-UARTCOM>` = 5
+     :com6,14:	:ref:`<ref-UARTCOM>` = 6
 
-   * :port:     COM1
-     :hw1:      /dev/ttyS0
-     :hw2:      /dev/ttyS0
-     :hw3:      /dev/ttyAPP0
+   * :hw:	LEANDC-2/3(4) (UNO-1150G)
+     :com1:	/dev/ttyS0
+     :com2:	/dev/ttyAP0
+     :com3:	/dev/ttyAP1
+     :com4:	/dev/ttyS1 (LEANDC-2/4 only)
+     :com5:	n/a
+     :com6:	n/a
 
-   * :port:     COM2
-     :hw1:      /dev/ttyAP0
-     :hw2:      /dev/ttyS1
-     :hw3:      /dev/ttyAPP1
+   * :hw:	LEANDC-2/5 (ARK-3202F)
+     :com1:	/dev/ttyS0
+     :com2:	/dev/ttyS1
+     :com3:	variable
+     :com4:	variable
+     :com5:	variable
+     :com6:	n/a
 
-   * :port:     COM3
-     :hw1:      /dev/ttyAP1
-     :hw2:      /dev/ttyS4
-     :hw3:      /dev/ttyAPP2
+   * :hw:	LEIODC-x
+     :com1:	/dev/ttyAPP0
+     :com2:	/dev/ttyAPP1
+     :com3:	/dev/ttyAPP2
+     :com4:	/dev/ttyAPP3 (internal)
+     :com5:	n/a
+     :com6:	n/a
 
-   * :port:     COM4
-     :hw1:      /dev/ttyS1 (LEANDC-2/4 only)
-     :hw2:      /dev/ttyS5
-     :hw3:      /dev/ttyAPP3 (internal)
+   * :hw:	LEANDC-3/6 (ARK-2120F)
+     :com1:	/dev/ttyS0
+     :com2:	/dev/ttyS1
+     :com3:	variable
+     :com4:	variable
+     :com5:	variable
+     :com6:	variable
 
-   * :port:     COM5
-     :hw1:      n/a
-     :hw2:      /dev/ttyS2
-     :hw3:      n/a
+   * :hw:	LEANDC-3/6 (ARK-3360F)
+     :com1:	/dev/ttyS0
+     :com2:	/dev/ttyS1
+     :com3:	variable
+     :com4:	variable
+     :com5:	variable
+     :com6:	variable
 

@@ -6,13 +6,13 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Leandc series XML configuration manual V27</title>
+    <title>Leandc series XML configuration manual V28</title>
     
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     'V27',
+        VERSION:     'V28',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -10943,7 +10943,7 @@ Attributes of these nodes contain interface&#8217;s settings.
 <span id="ref-uart"></span><h4>UART</h4>
 <p>This node contains settings of a serial port.
 Please see sample <a class="reference internal" href="#ref-uart"><em>UART</em></a> node and all its attributes in the table below.</p>
-<div class="highlight-none"><div class="highlight"><pre>&lt;UART Index=&quot;1&quot; Devpath=&quot;/dev/ttyUSB0&quot; Baudrate=&quot;9600&quot; DataBits=&quot;8&quot; Parity=&quot;E&quot; StopBits=&quot;1&quot; Timeout=&quot;3&quot; TxDelay=&quot;0.5&quot; Interface=&quot;RS232&quot; CtrlRdTimer=&quot;0.5&quot; Test=&quot;Echo&quot; Name=&quot;COM1&quot;/&gt;
+<div class="highlight-none"><div class="highlight"><pre>&lt;UART Index=&quot;1&quot; COM=&quot;3&quot; Devpath=&quot;/dev/ttyUSB0&quot; Baudrate=&quot;9600&quot; DataBits=&quot;8&quot; Parity=&quot;E&quot; StopBits=&quot;1&quot; Timeout=&quot;3&quot; TxDelay=&quot;0.5&quot; Interface=&quot;RS232&quot; CtrlRdTimer=&quot;0.5&quot; Test=&quot;Echo&quot; Name=&quot;COM1&quot;/&gt;
 </pre></div>
 </div>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="ref-uartattributes">
@@ -10968,42 +10968,58 @@ Please see sample <a class="reference internal" href="#ref-uart"><em>UART</em></
 <td>n/a</td>
 <td>Index is a unique identifier of the hardware node. It is used as a reference to link a communication protocol instance to this node. <span class="inlinetip">Indexes don&#8217;t have to be in a sequential order.</span></td>
 </tr>
-<tr class="row-odd"><td><span class="xmlref">Devpath</span>*</td>
+<tr class="row-odd"><td><p class="first" id="ref-uartcom"><span class="xmlref">COM</span></p>
+<p class="last">*</p>
+</td>
+<td>1...16</td>
+<td>n/a</td>
+<td>Serial port number.
+Number of the inbuilt serial port when running leandc on a supported hardware.
+Please refer to table <a href="#ref-serialhardwares">2.2</a> below for a list of currently supported hardwares.
+If you are running leandc on a hardware that is not supported or want to use a port other than inbuilt (e.g. USB to Serial adapter), please specify the device path in <a class="reference internal" href="#ref-uartdevpath"><em>Devpath</em></a> attribute.
+<a class="reference internal" href="#ref-uartdevpath"><em>Devpath</em></a> attribute has higher priority and value of <span class="xmlref">COM</span> will be ignored if <a class="reference internal" href="#ref-uartdevpath"><em>Devpath</em></a> is used.</td>
+</tr>
+<tr class="row-even"><td><p class="first last" id="ref-uartdevpath"><span class="xmlref">Devpath</span></p>
+</td>
 <td>Max 100 chars</td>
 <td>n/a</td>
-<td>Path of the UART device in the Linux operating system. All serial ports are normally located in <span class="xmlref">&#8216;/dev&#8217;</span> folder. Inbuilt serial ports have names <span class="xmlref">&#8216;/dev/ttyS0&#8217;</span>; <span class="xmlref">&#8216;/dev/ttyS1&#8217;</span> and USB to Serial adapter ports <span class="xmlref">&#8216;/dev/ttyUSB0&#8217;</span>; <span class="xmlref">&#8216;/dev/ttyUSB0&#8217;</span>; etc Please refer to table <a href="#ref-serialportpath">2.2</a> below for standard paths. <span class="inlineimportant">Attribute is case sensitive, observe the case of path when specifying.</span></td>
+<td>Path of the UART device in the Linux operating system.
+All serial ports can normally be found in &#8216;/dev&#8217; directory.
+On standard hardwares inbuilt serial ports have names &#8216;/dev/ttyS0&#8217;; &#8216;/dev/ttyS1&#8217; and USB to Serial adapter ports &#8216;/dev/ttyUSB0&#8217;; &#8216;/dev/ttyUSB0&#8217;; etc
+<span class="inlineimportant">Attribute is case sensitive, observe the case of path when specifying.</span>
+<span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, path will be resolved automatically from</span> <a class="reference internal" href="#ref-uartcom"><em>COM</em></a> <span class="inlinetip">number, if omitted.</span></td>
 </tr>
-<tr class="row-even"><td><span class="xmlref">Baudrate</span></td>
+<tr class="row-odd"><td><span class="xmlref">Baudrate</span></td>
 <td>300...115200bps</td>
 <td>115200</td>
 <td>UART baudrate, currently supported values 300; 600; 1200; 2400; 4800; 9600; 19200; 38400; 57600 and 115200 bits per second.</td>
 </tr>
-<tr class="row-odd"><td><span class="xmlref">DataBits</span></td>
+<tr class="row-even"><td><span class="xmlref">DataBits</span></td>
 <td>7 or 8</td>
 <td>8 bits</td>
 <td>UART data bit count 7 or 8. <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
 </tr>
-<tr class="row-even"><td><span class="xmlref">Parity</span></td>
+<tr class="row-odd"><td><span class="xmlref">Parity</span></td>
 <td>N; E or O</td>
 <td>Even</td>
 <td>UART parity, currently supported N = None; E = Even; O = Odd</td>
 </tr>
-<tr class="row-odd"><td><span class="xmlref">StopBits</span></td>
+<tr class="row-even"><td><span class="xmlref">StopBits</span></td>
 <td>1 or 2</td>
 <td>1 bit</td>
 <td>UART stop bit count 1 or 2. <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
 </tr>
-<tr class="row-even"><td><span class="xmlref">Timeout</span></td>
+<tr class="row-odd"><td><span class="xmlref">Timeout</span></td>
 <td>0.01...42949</td>
 <td>n/a</td>
 <td>Timeout value in seconds. New outgoing message will be sent, if there was no reply from outstation within a configured number of seconds.</td>
 </tr>
-<tr class="row-odd"><td><span class="xmlref">TxDelay</span></td>
+<tr class="row-even"><td><span class="xmlref">TxDelay</span></td>
 <td>0.00001...42949</td>
 <td>n/a</td>
 <td>Transmit delay in seconds. Outgoing message will be delayed for a configured number of seconds before being sent after received message. <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be calculated based on configured baudrate.</span></td>
 </tr>
-<tr class="row-even"><td><span class="xmlref">Interface</span></td>
+<tr class="row-odd"><td><span class="xmlref">Interface</span></td>
 <td><div class="first last line-block">
 <div class="line">RS232</div>
 <div class="line">RS485</div>
@@ -11013,71 +11029,92 @@ Please see sample <a class="reference internal" href="#ref-uart"><em>UART</em></
 <td>RS232</td>
 <td>Type of physical interface. Only applies if hardware supports UART interface selection by software. <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value RS232 will be used if omitted.</span></td>
 </tr>
-<tr class="row-odd"><td><p class="first last" id="ref-uartctrlrdtimer"><span class="xmlref">CtrlRdTimer</span></p>
+<tr class="row-even"><td><p class="first last" id="ref-uartctrlrdtimer"><span class="xmlref">CtrlRdTimer</span></p>
 </td>
 <td>0 or 0.00001...42949</td>
 <td>0 sec</td>
 <td>UART control line (e.g. DSR, RI pin) reading interval in seconds. UART control lines must be stable for at least 8 consequtive read cycles at a configured interval before state change is reported. Default value 0 disables UART control line reading. <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
 </tr>
-<tr class="row-even"><td><p class="first last" id="ref-uartwatchdog"><span class="xmlref">Watchdog</span></p>
+<tr class="row-odd"><td><p class="first last" id="ref-uartwatchdog"><span class="xmlref">Watchdog</span></p>
 </td>
 <td>0 or 5...65535</td>
 <td>0 min</td>
 <td>UART watchdog timer in minutes. System will reboot if this UART hasn&#8217;t received anything within a configured number of minutes. Default value 0 disables watchdog. <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
 </tr>
-<tr class="row-odd"><td><span class="xmlref">Test</span></td>
+<tr class="row-even"><td><span class="xmlref">Test</span></td>
 <td>Echo</td>
 <td>n/a</td>
 <td>Attribute enables port testing mode. UART will echo any data received if this attribute is used. There is no need to disable communication protocol or supervision instances linked to UART when testing. Any testing data received will also be recorded to a communication logfile, if logging is enabled for this hardware node. <span class="inlineimportant">Attribute must not be used if not required, there is no default value.</span></td>
 </tr>
-<tr class="row-even"><td><span class="xmlref">Name</span></td>
+<tr class="row-odd"><td><span class="xmlref">Name</span></td>
 <td>Max 100 chars</td>
 <td>n/a</td>
 <td>Freely configurable name, just for reference. <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration.</span></td>
 </tr>
 </tbody>
 </table>
-<p>* Standard paths of serial ports are listed in the table <a href="#ref-serialportpath">2.2</a> below:</p>
-<table border="1" class="table table-condensed table-bordered table-left table-center-all docutils" id="ref-serialportpath">
-<caption><strong>Table 2.2 Standard serial port path</strong></caption>
+<p>* Supported hardwares on which <a class="reference internal" href="#ref-uartcom"><em>COM</em></a> attribute can be used are listed in the table <a href="#ref-serialhardwares">2.2</a> below:</p>
+<table border="1" class="table table-condensed table-bordered table-left table-center-all docutils" id="ref-serialhardwares">
+<caption><strong>Table 2.2 Supported hardwares and serial port numbers</strong></caption>
 <colgroup>
-<col width="10%" />
-<col width="30%" />
-<col width="30%" />
-<col width="30%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head"><strong>Port Number</strong></th>
-<th class="head"><strong>LEANDC-2/3 path </strong><span class="xmlref"><strong>Devpath</strong></span><strong> attribute</strong></th>
-<th class="head"><strong>LEANDC-2/5 path </strong><span class="xmlref"><strong>Devpath</strong></span><strong> attribute</strong></th>
-<th class="head"><strong>LEIODC path </strong><span class="xmlref"><strong>Devpath</strong></span><strong> attribute</strong></th>
+<tr class="row-odd"><th class="head"><strong>Hardware</strong></th>
+<th class="head"><a class="reference internal" href="#ref-uartcom"><em>COM</em></a><strong> = 1</strong></th>
+<th class="head"><a class="reference internal" href="#ref-uartcom"><em>COM</em></a><strong> = 2</strong></th>
+<th class="head"><a class="reference internal" href="#ref-uartcom"><em>COM</em></a><strong> = 3</strong></th>
+<th class="head"><a class="reference internal" href="#ref-uartcom"><em>COM</em></a><strong> = 4</strong></th>
+<th class="head"><a class="reference internal" href="#ref-uartcom"><em>COM</em></a><strong> = 5</strong></th>
+<th class="head"><a class="reference internal" href="#ref-uartcom"><em>COM</em></a><strong> = 6</strong></th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>COM1</td>
+<tr class="row-even"><td>LEANDC-2/3(4) (UNO-1150G)</td>
 <td>/dev/ttyS0</td>
-<td>/dev/ttyS0</td>
-<td>/dev/ttyAPP0</td>
-</tr>
-<tr class="row-odd"><td>COM2</td>
 <td>/dev/ttyAP0</td>
-<td>/dev/ttyS1</td>
-<td>/dev/ttyAPP1</td>
-</tr>
-<tr class="row-even"><td>COM3</td>
 <td>/dev/ttyAP1</td>
-<td>/dev/ttyS4</td>
-<td>/dev/ttyAPP2</td>
-</tr>
-<tr class="row-odd"><td>COM4</td>
 <td>/dev/ttyS1 (LEANDC-2/4 only)</td>
-<td>/dev/ttyS5</td>
-<td>/dev/ttyAPP3 (internal)</td>
+<td>n/a</td>
+<td>n/a</td>
 </tr>
-<tr class="row-even"><td>COM5</td>
+<tr class="row-odd"><td>LEANDC-2/5 (ARK-3202F)</td>
+<td>/dev/ttyS0</td>
+<td>/dev/ttyS1</td>
+<td>variable</td>
+<td>variable</td>
+<td>variable</td>
 <td>n/a</td>
-<td>/dev/ttyS2</td>
+</tr>
+<tr class="row-even"><td>LEIODC-x</td>
+<td>/dev/ttyAPP0</td>
+<td>/dev/ttyAPP1</td>
+<td>/dev/ttyAPP2</td>
+<td>/dev/ttyAPP3 (internal)</td>
 <td>n/a</td>
+<td>n/a</td>
+</tr>
+<tr class="row-odd"><td>LEANDC-3/6 (ARK-2120F)</td>
+<td>/dev/ttyS0</td>
+<td>/dev/ttyS1</td>
+<td>variable</td>
+<td>variable</td>
+<td>variable</td>
+<td>variable</td>
+</tr>
+<tr class="row-even"><td>LEANDC-3/6 (ARK-3360F)</td>
+<td>/dev/ttyS0</td>
+<td>/dev/ttyS1</td>
+<td>variable</td>
+<td>variable</td>
+<td>variable</td>
+<td>variable</td>
 </tr>
 </tbody>
 </table>
@@ -32177,8 +32214,8 @@ names, etc.</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>4.00</td>
-<td>2016-05-08 11:22:30</td>
+<tr class="row-even"><td>4.01</td>
+<td>2016-05-18 12:57:20</td>
 <td>V3.0</td>
 </tr>
 </tbody>
@@ -32199,104 +32236,109 @@ names, etc.</p>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head"><strong>Firmware version</strong></th>
 <th class="head"><strong>Firmware date</strong></th>
-<th class="head"><strong>Document version(s)</strong></th>
+<th class="head"><strong>Manual version(s)</strong></th>
 <th class="head"><strong>Operating System version</strong></th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>2.01</td>
-<td>2013-10-16 17:21:27</td>
-<td>V12</td>
+<tr class="row-even"><td>4.00</td>
+<td>2016-05-08 11:22:30</td>
+<td>V27</td>
+<td>V3.0</td>
+</tr>
+<tr class="row-odd"><td>3.14</td>
+<td>2015-09-04 10:05:40</td>
+<td>V26</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-odd"><td>2.04</td>
-<td>2013-12-18 08:55:06</td>
-<td>V13, V14</td>
-<td>V2.0</td>
-</tr>
-<tr class="row-even"><td>2.05</td>
-<td>2014-02-26 20:20:30</td>
-<td>V15</td>
-<td>V2.0</td>
-</tr>
-<tr class="row-odd"><td>2.06</td>
-<td>2014-03-31 14:58:09</td>
-<td>V16</td>
-<td>V2.0</td>
-</tr>
-<tr class="row-even"><td>2.07</td>
-<td>2014-04-08 20:59:57</td>
-<td>V17</td>
-<td>V2.0</td>
-</tr>
-<tr class="row-odd"><td>3.00</td>
-<td>2014-05-26 21:19:06</td>
-<td>V18</td>
-<td>V2.0</td>
-</tr>
-<tr class="row-even"><td>3.01</td>
-<td>2014-05-28 12:20:12</td>
-<td>V18</td>
-<td>V2.0</td>
-</tr>
-<tr class="row-odd"><td>3.02</td>
-<td>2014-06-26 14:48:34</td>
-<td>V19</td>
-<td>V2.0</td>
-</tr>
-<tr class="row-even"><td>3.04</td>
-<td>2014-10-08 15:43:46</td>
-<td>V20</td>
-<td>V2.0</td>
-</tr>
-<tr class="row-odd"><td>3.05</td>
-<td>2014-11-28 11:39:37</td>
-<td>V21</td>
-<td>V2.0</td>
-</tr>
-<tr class="row-even"><td>3.06</td>
-<td>2014-12-01 08:47:07</td>
-<td>V21</td>
-<td>V2.0</td>
-</tr>
-<tr class="row-odd"><td>3.07</td>
-<td>2015-02-15 17:55:25</td>
-<td>V22</td>
-<td>V2.0</td>
-</tr>
-<tr class="row-even"><td>3.08</td>
-<td>2015-03-24 21:06:41</td>
-<td>V23</td>
-<td>V2.0</td>
-</tr>
-<tr class="row-odd"><td>3.09</td>
-<td>2015-03-25 10:57:25</td>
-<td>V23</td>
-<td>V2.0</td>
-</tr>
-<tr class="row-even"><td>3.10</td>
-<td>2015-06-29 15:52:23</td>
-<td>V24</td>
-<td>V2.0</td>
-</tr>
-<tr class="row-odd"><td>3.11</td>
-<td>2015-07-08 14:07:37</td>
-<td>V24</td>
-<td>V2.0</td>
-</tr>
-<tr class="row-even"><td>3.12</td>
-<td>2015-08-11 12:36:44</td>
-<td>V25</td>
-<td>V2.0</td>
-</tr>
-<tr class="row-odd"><td>3.13</td>
+<tr class="row-even"><td>3.13</td>
 <td>2015-08-24 21:04:07</td>
 <td>V25</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-even"><td>3.14</td>
-<td>2015-09-04 10:05:40</td>
-<td>V26</td>
+<tr class="row-odd"><td>3.12</td>
+<td>2015-08-11 12:36:44</td>
+<td>V25</td>
+<td>V2.0</td>
+</tr>
+<tr class="row-even"><td>3.11</td>
+<td>2015-07-08 14:07:37</td>
+<td>V24</td>
+<td>V2.0</td>
+</tr>
+<tr class="row-odd"><td>3.10</td>
+<td>2015-06-29 15:52:23</td>
+<td>V24</td>
+<td>V2.0</td>
+</tr>
+<tr class="row-even"><td>3.09</td>
+<td>2015-03-25 10:57:25</td>
+<td>V23</td>
+<td>V2.0</td>
+</tr>
+<tr class="row-odd"><td>3.08</td>
+<td>2015-03-24 21:06:41</td>
+<td>V23</td>
+<td>V2.0</td>
+</tr>
+<tr class="row-even"><td>3.07</td>
+<td>2015-02-15 17:55:25</td>
+<td>V22</td>
+<td>V2.0</td>
+</tr>
+<tr class="row-odd"><td>3.06</td>
+<td>2014-12-01 08:47:07</td>
+<td>V21</td>
+<td>V2.0</td>
+</tr>
+<tr class="row-even"><td>3.05</td>
+<td>2014-11-28 11:39:37</td>
+<td>V21</td>
+<td>V2.0</td>
+</tr>
+<tr class="row-odd"><td>3.04</td>
+<td>2014-10-08 15:43:46</td>
+<td>V20</td>
+<td>V2.0</td>
+</tr>
+<tr class="row-even"><td>3.02</td>
+<td>2014-06-26 14:48:34</td>
+<td>V19</td>
+<td>V2.0</td>
+</tr>
+<tr class="row-odd"><td>3.01</td>
+<td>2014-05-28 12:20:12</td>
+<td>V18</td>
+<td>V2.0</td>
+</tr>
+<tr class="row-even"><td>3.00</td>
+<td>2014-05-26 21:19:06</td>
+<td>V18</td>
+<td>V2.0</td>
+</tr>
+<tr class="row-odd"><td>2.07</td>
+<td>2014-04-08 20:59:57</td>
+<td>V17</td>
+<td>V2.0</td>
+</tr>
+<tr class="row-even"><td>2.06</td>
+<td>2014-03-31 14:58:09</td>
+<td>V16</td>
+<td>V2.0</td>
+</tr>
+<tr class="row-odd"><td>2.05</td>
+<td>2014-02-26 20:20:30</td>
+<td>V15</td>
+<td>V2.0</td>
+</tr>
+<tr class="row-even"><td>2.04</td>
+<td>2013-12-18 08:55:06</td>
+<td>V13, V14</td>
+<td>V2.0</td>
+</tr>
+<tr class="row-odd"><td>2.01</td>
+<td>2013-10-16 17:21:27</td>
+<td>V12</td>
 <td>V2.0</td>
 </tr>
 </tbody>
@@ -32317,62 +32359,214 @@ names, etc.</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>V1</td>
-<td>17/08/2012</td>
+<tr class="row-even"><td>V28</td>
+<td>18/05/2016</td>
 <td>AK</td>
-<td>Initial version</td>
+<td><div class="first last line-block">
+<div class="line">&gt; <a class="reference internal" href="#ref-uartcom"><em>COM</em></a> attribute added to <a class="reference internal" href="#ref-uart"><em>UART</em></a> node;</div>
+</div>
+</td>
 </tr>
-<tr class="row-odd"><td>V2</td>
-<td>03/10/2012</td>
+<tr class="row-odd"><td>V27</td>
+<td>08/05/2016</td>
 <td>AK</td>
-<td>New features added, changes in DI and AI Event attribute configuration</td>
+<td><div class="first last line-block">
+<div class="line"><span class="inlineimportant">Bit[5] of the IEC60870-5-101/104 Slave protocol</span> <a class="reference internal" href="#ref-iec10xsldo"><em>DO</em></a>.<a class="reference internal" href="#ref-iec10xsldoqualifierbits"><em>qualifier</em></a> <span class="inlineimportant">and</span> <a class="reference internal" href="#ref-iec10xslao"><em>AO</em></a>.<a class="reference internal" href="#ref-iec10xslaoqualifierbits"><em>qualifier</em></a> <span class="inlineimportant">is inverted. From now on Direct and Select-before-Execute commands will be accepted by default, i.e. if the DO/AO qualifier is not specified or 0x00. Use value 0x20 to accept only Direct commands.</span></div>
+<div class="line">&gt; <span class="xmlref">IEC61850cl</span> (Client) communication protocol instance added;</div>
+<div class="line">&gt; <span class="xmlref">DOProc</span> and <span class="xmlref">AOProc</span> attributes added to IEC60870-5-101/104 Slave <a class="reference internal" href="#ref-iec101slasdusettings"><em>ASDUSettings</em></a> node;</div>
+<div class="line">&gt; <a class="reference internal" href="#ref-iec101maasdusettingstimetagfbrange"><em>TimetagFBrange</em></a> attribute added to IEC60870-5-101 Master <a class="reference internal" href="#ref-iec101maasdusettings"><em>ASDUSettings</em></a> node;</div>
+<div class="line">&gt; <a class="reference internal" href="#ref-iec101maasdusettingsflags"><em>Flags</em></a> attribute added to IEC60870-5-101/104 Master <a class="reference internal" href="#ref-iec101maasdusettings"><em>ASDUSettings</em></a> node;</div>
+<div class="line">&gt; <a class="reference internal" href="#ref-iec10xmadiinterdelay"><em>InterDelay</em></a> and <a class="reference internal" href="#ref-iec10xmadiindetdelay"><em>IndetDelay</em></a> attributes added to IEC60870-5-101/103/104 Master <a class="reference internal" href="#ref-iec10xmadi"><em>DI</em></a> node;</div>
+<div class="line">&gt; Bit[5] added to the IEC60870-5-101/103/104 Master protocol <a class="reference internal" href="#ref-iec10xmadi"><em>DI</em></a>.<a class="reference internal" href="#ref-iec10xmadiqualifierbits"><em>qualifier</em></a>, it enables to select First or Last time tag for DPI reporting if Intermediate state is masked;</div>
+<div class="line">&gt; <a class="reference internal" href="#ref-uartwatchdog"><em>Watchdog</em></a> attribute added to <a class="reference internal" href="#ref-uart"><em>UART</em></a> node;</div>
+<div class="line">&gt; New <a class="reference internal" href="#ref-logsettings"><em>Settings</em></a> node created with attributes <a class="reference internal" href="#ref-settingscleanolder"><em>CleanOlder</em></a> and <a class="reference internal" href="#ref-settingsminfreespace"><em>MinFreespace</em></a>;</div>
+<div class="line">&gt; New <a class="reference internal" href="#ref-commscfgpcaplog"><em>PCAPLOG</em></a> node created which enables to capture traffic through Ethernet interfaces in a pcap format;</div>
+<div class="line">Default value columns added to attribute tables;</div>
+<div class="line">Recorded logfile samples and description of keywords/identifiers added;</div>
+</div>
+</td>
 </tr>
-<tr class="row-even"><td>V3</td>
-<td>13/11/2012</td>
+<tr class="row-even"><td>V26</td>
+<td>04/09/2015</td>
 <td>AK</td>
-<td>Minor changes to DO object address sequence, new DO execution policy added</td>
+<td><div class="first last line-block">
+<div class="line">&gt; <span class="xmlref">ClassIgnore</span> attribute added to IEC60870-5-101 Slave <span class="xmlref">LinkSettings</span> node which can be used to ignore class of the receievd messages</div>
+</div>
+</td>
 </tr>
-<tr class="row-odd"><td>V4</td>
-<td>03/12/2012</td>
+<tr class="row-odd"><td>V25</td>
+<td>11/08/2015</td>
 <td>AK</td>
-<td>AI value offset for 4mA transducer input compensation added to Slave protocol instances</td>
+<td><div class="first last line-block">
+<div class="line">&gt; <span class="xmlref">TimeSync</span> attribute added to IEC60870-5-104 Master <span class="xmlref">Periodic</span> node which can be used to enable periodic Time Synchronization commands;</div>
+<div class="line">&gt; <span class="xmlref">TimeSync</span> attribute added to IEC60870-5-104 Master <span class="xmlref">Broadcast</span> node to enable broadcast Common Address of ASDU (CAA) for outgoing Time Synchronization commands;</div>
+<div class="line">&gt; <span class="xmlref">TimeSync</span> attribute added to IEC60870-5-104 Slave <span class="xmlref">ASDUSettings</span> node to enable internal clock synchronization when command is received;</div>
+<div class="line">&gt; <span class="xmlref">LEIODC-X32-3100</span>, <span class="xmlref">LEIODC-X10-3100</span> and <span class="xmlref">THT2</span> types added to Modbus Master <span class="xmlref">Hardcoded</span> node</div>
+</div>
+</td>
 </tr>
-<tr class="row-even"><td>V5</td>
-<td>01/03/2013</td>
+<tr class="row-even"><td>V24</td>
+<td>29/06/2015</td>
 <td>AK</td>
-<td>Range and Automatic configuration features added; GlobalTimeSync now available; changes to logfile specification</td>
+<td><div class="first last line-block">
+<div class="line">&gt; <span class="xmlref">DIEventStartup</span> and <span class="xmlref">AIEventStartup</span> attributes added to IEC60870-5-101/4 Slave <span class="xmlref">ASDUSettings</span> node;</div>
+<div class="line">&gt; <span class="xmlref">OffIndex</span> attribute added to IEC60870-5-101/4 Slave <span class="xmlref">DI</span> node for single to double point indication conversion;</div>
+<div class="line">&gt; <span class="xmlref">DIInterDelay</span> and <span class="xmlref">DIIndetDelay</span> attributes added to IEC60870-5-101/4 Slave <span class="xmlref">ASDUSettings</span> node and corresponding attributes <span class="xmlref">InterDelay</span> and <span class="xmlref">IndetDelay</span> added to DI node;</div>
+<div class="line">&gt; Bit[5] added to IEC60870-5-101/4 Slave DI qualifier attribute which enables to select time tag when single status information is converted to double;</div>
+<div class="line">&gt; <span class="xmlref">ChatterFilter</span> attribute added to Modbus Master DI node;</div>
+<div class="line">&gt; <span class="xmlref">PulseDuration</span> attribute added to Modbus Master DO node;</div>
+<div class="line">&gt; <span class="xmlref">LEIODC-C32-3100</span> type added to Modbus Master <span class="xmlref">Hardcoded</span> node;</div>
+</div>
+</td>
 </tr>
-<tr class="row-odd"><td>V6</td>
-<td>13/03/2013</td>
+<tr class="row-odd"><td>V23</td>
+<td>24/03/2015</td>
 <td>AK</td>
-<td>HourLimit attribute description added; AI offset, AI zero deadband and 75-125 input transducer offset compensation added</td>
+<td><div class="first last line-block">
+<div class="line">&gt; <span class="xmlref">IgnoreWhileLinkcnt</span> attribute added to IEC60870-5-101 Master <span class="xmlref">LinkSettings</span> node;</div>
+</div>
+</td>
 </tr>
-<tr class="row-even"><td>V7</td>
-<td>12/04/2013</td>
+<tr class="row-even"><td>V22</td>
+<td>15/02/2015</td>
 <td>AK</td>
-<td>Minor formatting corrections; Appendix A – Analogue value processing added</td>
+<td><div class="first last line-block">
+<div class="line">&gt; <span class="xmlref">Interface</span> and <span class="xmlref">Test</span> attributes added to <span class="xmlref">UART</span> node;</div>
+<div class="line">&gt; <span class="xmlref">TimeZone</span> attribute added to all logfile configuration nodes;</div>
+<div class="line">&gt; <span class="xmlref">DOType</span> and <span class="xmlref">AOType</span> attributes added to IEC60870-5-101/4 Slave protocols. These can be used to create common filters for incoming command ASDU types;</div>
+<div class="line">&gt; <span class="xmlref">ForwardGI</span> attribute added to all <span class="xmlref">ASDUSettings</span> nodes. GI commands will be forwarded to downstream outstations if received from upstream station by default. This feature can be disabled with <span class="xmlref">ForwardGI</span> attribute;</div>
+<div class="line">&gt; <span class="xmlref">ServiceSettings</span> node and attributes added to all protocol configurations;</div>
+<div class="line">&gt; <span class="xmlref">DIEvent</span> and <span class="xmlref">AIEvent</span> attributes renamed to <span class="xmlref">DIEVsize</span> and <span class="xmlref">AIEVsize</span> respectively;</div>
+<div class="line">&gt; <span class="xmlref">DIEVmult</span> and <span class="xmlref">AIEVmult</span> attributes added to IEC60870-5-101/4 Slave protocol <span class="xmlref">BufferSizes</span> nodes;</div>
+<div class="line">&gt; <span class="xmlref">DisabledNT</span> attribute removed, service settings can be used from now on to enable the functionality;</div>
+<div class="line">&gt; <span class="xmlref">PostOfflineDelay</span> attribute added to all Master protocol configurations. Together with <span class="xmlref">ServiceSettings</span> node and attributes this extends configuration flexibility of DI/AI object quality marking when stations goes OFFLINE;</div>
+<div class="line">&gt; <span class="xmlref">Reset</span> attribute added to IEC60870-5-101/4 Master protocol <span class="xmlref">Broadcast</span> node. This enables to send Reset Process commands to dowstream stations using Broadcast Common address of ASDU;</div>
+<div class="line">&gt; <span class="xmlref">Miscellaneous</span> node added to IEC60870-5-101 Master protocol. Attributes <span class="xmlref">TimeSyncIOA</span> and <span class="xmlref">DayOfWeek</span> enable to customize Information Object Address (IOA) and supress Day Of Week use in outgoing Time Synchronziation commands respectively;</div>
+</div>
+</td>
 </tr>
-<tr class="row-odd"><td>V8</td>
-<td>14/05/2013</td>
+<tr class="row-odd"><td>V21</td>
+<td>28/11/2014</td>
 <td>AK</td>
-<td>Automatic DI and AI object sorting for &#8216;Master&#8217; and DO object sorting for &#8216;Slave&#8217; communication protocol instances; SummerTime flag configuration added; Communication Status reporting address for Auto-configuration mode added; CommsFlags attribute added; Service DO commands added;</td>
+<td><div class="first last line-block">
+<div class="line"><span class="xmlref">Modbusma</span> communication protocol instance added;</div>
+<div class="line">Leandc XML configuration manual is HTML-based from now on;</div>
+</div>
+</td>
 </tr>
-<tr class="row-even"><td>V9</td>
-<td>21/05/2013</td>
+<tr class="row-even"><td>V20</td>
+<td>09/10/2014</td>
 <td>AK</td>
-<td>SpeedUpStarted configuration option added</td>
+<td><span class="xmlref">DIEventStartup</span> attribute added to IEC60870-5-101/3/4 Master protocol configuration;</td>
 </tr>
-<tr class="row-odd"><td>V10</td>
-<td>01/06/2013</td>
+<tr class="row-odd"><td>V19</td>
+<td>26/06/2014</td>
 <td>AK</td>
-<td>Timezone configuration option added</td>
+<td><div class="first last line-block">
+<div class="line">All protocol setting node elements migrated to attributes;</div>
+<div class="line">New option to mark DI/AI objects with NT bit when outstation goes offline or is disabled using service command. IEC60870-5-101/4 Master protocol attributes <span class="xmlref">OfflineNTDelay</span> and <span class="xmlref">DisabledNT</span>;</div>
+<div class="line">Option to send valid AIEVs to SCADA system on leandc startup in order to initialize the state of legacy spontaneous-only AIEVs. Valid AIEVs with 0 value will be sent after a number of seconds specified in <span class="xmlref">LegacyAIEVinitdelay</span> attribute on system startup in order to initialize SCADA database and make it ready to receive first legacy AIEV.</div>
+<div class="line"><span class="xmlref">StationID</span> attribute added to <span class="xmlref">IEC104Csl</span> node;</div>
+<div class="line"><span class="xmlref">TypeID</span> attribute added to IEC60870-5-101/4 Master DI/AI objects;</div>
+<div class="line"><span class="xmlref">SingleCharACK</span> attribute added for IEC60870-5-101 Slave protocol allowing to respond with single character (0xE5 or 0xA2) ACK or NACK messages;</div>
+</div>
+</td>
 </tr>
-<tr class="row-even"><td>V11</td>
-<td>10/06/2013</td>
+<tr class="row-even"><td>V18</td>
+<td>28/05/2014</td>
 <td>AK</td>
-<td>Offline reporting delay timer added</td>
+<td><div class="first last line-block">
+<div class="line">Multiple ASDU configuration concept using station identifier <span class="xmlref">StationID</span> attribute, which has been added to IEC104sl and IEC104ma element nodes. Existing <span class="xmlref">LinkAddr</span> attribute is used as station identifier for <span class="xmlref">IEC101sl</span>; <span class="xmlref">IEC101ma</span> and <span class="xmlref">IEC103ma</span> element nodes.</div>
+<div class="line">All <span class="xmlref">ASDUAddr</span> attributes removed from individual DI/AI/DO/AO nodes;</div>
+<div class="line">New concept of protocol setting node element migration to attributes begins with this firmware release;  First protocol element nodes to contain setting attributes are:  <span class="xmlref">XMLSettings</span>; <span class="xmlref">CommsSettings</span>; <span class="xmlref">ASDUFlags</span>; <span class="xmlref">Broadcast</span> and <span class="xmlref">Periodic</span>;</div>
+<div class="line">Information address sequence check across object types introduced. It is essential to use new attribute <span class="xmlref">IOAOverlap</span> if the same information addresses are being reused for DI/AI/DO/AO objects. <span class="xmlref">IOAOverlap</span> is attribute of the newly created <span class="xmlref">XMLSettings</span> element node;</div>
+<div class="line">IEC60870-5-101/4 Slave protocol configuration <span class="xmlref">StartupGIDelay</span> element migrated to become an attribute of the newly created <span class="xmlref">CommsSettings</span> element node;</div>
+<div class="line"><span class="xmlref">TranspTypes</span> attribute created for IEC60870-5-101/4 Slave protocol configuration;</div>
+<div class="line">IEC60870-5-101/4 Master protocol configuration <span class="xmlref">OnlineGIDelay</span> element migrated to become an attribute of the newly created <span class="xmlref">CommsSettings</span> element node;</div>
+<div class="line">New option to send General Interrogation using broadcast Common address of ASDU can be configured using GI attribute in IEC60870-5-101/4 <span class="xmlref">Broadcast</span> element node;</div>
+<div class="line">IEC60870-5-101/4 Master protocol configuration <span class="xmlref">GlobalTimeSync</span> element migrated to become an attribute <span class="xmlref">TimeSync</span> of the newly created <span class="xmlref">Broadcast</span> element node;</div>
+<div class="line">IEC60870-5-101/4 Master protocol configuration periodic <span class="xmlref">GIInterval</span>; <span class="xmlref">Group1Interval</span>... <span class="xmlref">Group16Interval</span>; <span class="xmlref">TimeSyncInterval</span> elements migrated to become attributes <span class="xmlref">GI</span>; <span class="xmlref">Group1</span>... <span class="xmlref">Group16</span>; <span class="xmlref">TimeSync</span> respectively of the newly created <span class="xmlref">Periodic</span> element node;</div>
+<div class="line">Default values of <span class="xmlref">DIEventBuffSize</span> and <span class="xmlref">AIEventBuffSize</span> elements are automatically initialized to twice the amount of configured objects, instead of fixed value 1024 as used to before;</div>
+</div>
+</td>
 </tr>
-<tr class="row-odd"><td>V12</td>
+<tr class="row-odd"><td>V17</td>
+<td>08/04/2014</td>
+<td>AK</td>
+<td><div class="first last line-block">
+<div class="line">Automatic IEC60870-5-101/4 Slave protocol configuration re-enabled;</div>
+<div class="line"><span class="xmlref">Source</span> attribute created for IEC60870-5-101/4 Slave protocols and <span class="xmlref">Device</span> attribute in DI/AI/DO/AO object elements is no longer mandatory;</div>
+<div class="line"><span class="xmlref">GIStartupDelay</span> element created for IEC60870-5-101/4 Slave protocols;</div>
+<div class="line">Bit[4] removed from Slave DI <span class="xmlref">qualifier</span> attribute;</div>
+<div class="line">AI <span class="xmlref">StartOffset</span> and <span class="xmlref">OffsetDeadband</span> attributes created for IEC60870-5-101/4 Slave AI objects;</div>
+<div class="line">Bits[5...6] removed from Slave AI <span class="xmlref">qualifier</span> attribute;</div>
+<div class="line"><span class="xmlref">AIEventStartup</span> element created for IEC60870-5-101/3/4 Master protocols;</div>
+<div class="line">AI <span class="xmlref">StartOffset</span>; <span class="xmlref">ZeroDeadband</span>; <span class="xmlref">Offset</span>; <span class="xmlref">OffsetDeadband</span> and <span class="xmlref">NonZeroOffset</span> attributes created for IEC60870-5-101/3/4 Master AI objects;</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td>V16</td>
+<td>31/03/2014</td>
+<td>AK</td>
+<td><div class="first last line-block">
+<div class="line">Supervision functionality added;</div>
+<div class="line">UART <span class="xmlref">Timeout</span>; <span class="xmlref">TxDelay</span> and <span class="xmlref">CtrlRdTimeout</span> ranges changed;</div>
+<div class="line">UART <span class="xmlref">DataBits</span>; <span class="xmlref">StopBits</span> and <span class="xmlref">TxDelay</span> attributes are no longer mandatory;</div>
+<div class="line">Socket node name changed from <span class="xmlref">IPv4</span> to <span class="xmlref">TCPSERVER</span> and <span class="xmlref">TCPCLIENT</span> and related <span class="xmlref">Mode</span> and <span class="xmlref">Type</span> attributes removed;</div>
+<div class="line">New <span class="xmlref">UDP</span> socket node created;</div>
+<div class="line">Socket <span class="xmlref">IPport</span> attribute name changed to <span class="xmlref">Port</span>;</div>
+<div class="line">New socket attributes <span class="xmlref">ConnectTimeout</span>; <span class="xmlref">Timeout</span>; <span class="xmlref">TxDelay</span> and <span class="xmlref">IdleTimeout</span> created;</div>
+<div class="line">IEC60870-5-101 master and slave protocol instances can now be linked to <span class="xmlref">TCPSERVER</span>; <span class="xmlref">TCPCLIENT</span> and <span class="xmlref">UDP</span> socket nodes;</div>
+<div class="line">Multiple IEC60870-5-104 master protocol instances can now be linked to the same <span class="xmlref">TCPCLIENT</span> socket node;</div>
+<div class="line">Bit[3] added to <span class="xmlref">CommsFlags</span> attribute to select either accept or reject new incoming connection to TCP server if linked protocol instance is already connected;</div>
+<div class="line"><span class="xmlref">TxAllVarLength</span> node added for IEC60870-5-101 master and slave protocols;</div>
+<div class="line">IEC60870-5-104 master <span class="xmlref">OfflineDelay</span> node can have value 0 now and default value changed to 6sec;</div>
+<div class="line">Description of the logger <span class="xmlref">LogFlags</span> attribute Bit[4] updated to include IEC60870-5-101 link layer status information recording</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td>V15</td>
+<td>26/02/2014</td>
+<td>AK</td>
+<td><div class="first last line-block">
+<div class="line">Order of communication protocol instance definition corrected;</div>
+<div class="line">UART <span class="xmlref">TxDelay</span> sample value table added;</div>
+<div class="line">UART <span class="xmlref">CtrlRdTimer</span> and <span class="xmlref">CtrlRdDebounce</span> attributes created;</div>
+<div class="line"><span class="xmlref">ACDAlways</span> and <span class="xmlref">FCBMaskLinkReq</span> attributes created for IEC60870-5-101 Slave protocol;</div>
+<div class="line"><span class="xmlref">CommsFlags</span> attribute added for Slave protocol instances;</div>
+<div class="line"><span class="xmlref">OfflineDelay</span> default value of the IEC60870-5-101 Master protocol corrected, must be 0 and <span class="xmlref">OfflineDelay</span> element for IEC60870-5-104 Slave protocol created;</div>
+<div class="line"><span class="xmlref">DegradedRetries</span>; <span class="xmlref">DegradedTimeout</span> and <span class="xmlref">LinkOnlineDelay</span> nodes added to IEC60870-5-101 and IEC60870-5-103 Master protocols;</div>
+<div class="line"><span class="xmlref">GlobalGI</span>; <span class="xmlref">AIDeadband</span> and <span class="xmlref">AIPercent</span> nodes added to Master protocol instances;</div>
+<div class="line"><span class="inlineimportant">Master protocol instance nodes</span> <span class="xmlref">GlobalQOC</span>; <span class="xmlref">GlobalDOType</span> <span class="inlineimportant">and</span> <span class="xmlref">GlobalAOType</span> <span class="inlineimportant">nodes are renamed to</span> <span class="xmlref">DOQOC</span>; <span class="xmlref">DOType</span> <span class="inlineimportant">and</span> <span class="xmlref">AOType</span> <span class="inlineimportant">respectively;</span></div>
+<div class="line"><span class="inlineimportant">Bit[5] removed  from Master protocol instance DO qualifier, use</span> <span class="xmlref">DOType</span> <span class="inlineimportant">element or individual DO object</span> <span class="xmlref">TypeID</span> <span class="inlineimportant">attributes for outgoing command ASDU Type selection;</span></div>
+<div class="line">Ignore individual Time tag bit created for Master protocol DI/AI <span class="xmlref">qualifier</span>  attributes;</div>
+<div class="line"><span class="xmlref">Name</span> attributes added to all nodes;</div>
+<div class="line">New Service DI (-5) created allowing to monitor status of the UART Ring Indicator RI pin(9);</div>
+<div class="line">New Service DO (-5) created allowing to send Reset command to downstream outstation;</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td>V14</td>
+<td>18/01/2014</td>
+<td>AK</td>
+<td>Version control element node added</td>
+</tr>
+<tr class="row-odd"><td>V13</td>
+<td>18/12/2013</td>
+<td>AK</td>
+<td><div class="first last line-block">
+<div class="line">Multiple <span class="xmlref">IEC101sl</span> communication protocol instances can share the same serial interface;</div>
+<div class="line"><span class="xmlref">OfflineDelay</span> for <span class="xmlref">IEC101sl</span> communication protocol instance added;</div>
+<div class="line">Setpoint command configuration added;</div>
+<div class="line"><span class="xmlref">GlobalDOType</span> and <span class="xmlref">GlobalAOType</span> nodes added for Master communication protocol instances;</div>
+<div class="line"><span class="xmlref">IgnoreTimetags</span> node added for Master communication protocol instances;</div>
+<div class="line">New bit in DO/AO <span class="xmlref">qualifier</span> now enables option to accept only Direct-Execute commands;</div>
+<div class="line">DO command invert option added, enabled by setting bit[1] in Slave and Master <span class="xmlref">DO.qualifier</span>;</div>
+<div class="line">Master communication protocol instance AI processing sequence flowcharts added;</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td>V12</td>
 <td>18/11/2013</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -32395,204 +32589,60 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td>V13</td>
-<td>18/12/2013</td>
+<tr class="row-odd"><td>V11</td>
+<td>10/06/2013</td>
 <td>AK</td>
-<td><div class="first last line-block">
-<div class="line">Multiple <span class="xmlref">IEC101sl</span> communication protocol instances can share the same serial interface;</div>
-<div class="line"><span class="xmlref">OfflineDelay</span> for <span class="xmlref">IEC101sl</span> communication protocol instance added;</div>
-<div class="line">Setpoint command configuration added;</div>
-<div class="line"><span class="xmlref">GlobalDOType</span> and <span class="xmlref">GlobalAOType</span> nodes added for Master communication protocol instances;</div>
-<div class="line"><span class="xmlref">IgnoreTimetags</span> node added for Master communication protocol instances;</div>
-<div class="line">New bit in DO/AO <span class="xmlref">qualifier</span> now enables option to accept only Direct-Execute commands;</div>
-<div class="line">DO command invert option added, enabled by setting bit[1] in Slave and Master <span class="xmlref">DO.qualifier</span>;</div>
-<div class="line">Master communication protocol instance AI processing sequence flowcharts added;</div>
-</div>
-</td>
+<td>Offline reporting delay timer added</td>
 </tr>
-<tr class="row-odd"><td>V14</td>
-<td>18/01/2014</td>
+<tr class="row-even"><td>V10</td>
+<td>01/06/2013</td>
 <td>AK</td>
-<td>Version control element node added</td>
+<td>Timezone configuration option added</td>
 </tr>
-<tr class="row-even"><td>V15</td>
-<td>26/02/2014</td>
+<tr class="row-odd"><td>V9</td>
+<td>21/05/2013</td>
 <td>AK</td>
-<td><div class="first last line-block">
-<div class="line">Order of communication protocol instance definition corrected;</div>
-<div class="line">UART <span class="xmlref">TxDelay</span> sample value table added;</div>
-<div class="line">UART <span class="xmlref">CtrlRdTimer</span> and <span class="xmlref">CtrlRdDebounce</span> attributes created;</div>
-<div class="line"><span class="xmlref">ACDAlways</span> and <span class="xmlref">FCBMaskLinkReq</span> attributes created for IEC60870-5-101 Slave protocol;</div>
-<div class="line"><span class="xmlref">CommsFlags</span> attribute added for Slave protocol instances;</div>
-<div class="line"><span class="xmlref">OfflineDelay</span> default value of the IEC60870-5-101 Master protocol corrected, must be 0 and <span class="xmlref">OfflineDelay</span> element for IEC60870-5-104 Slave protocol created;</div>
-<div class="line"><span class="xmlref">DegradedRetries</span>; <span class="xmlref">DegradedTimeout</span> and <span class="xmlref">LinkOnlineDelay</span> nodes added to IEC60870-5-101 and IEC60870-5-103 Master protocols;</div>
-<div class="line"><span class="xmlref">GlobalGI</span>; <span class="xmlref">AIDeadband</span> and <span class="xmlref">AIPercent</span> nodes added to Master protocol instances;</div>
-<div class="line"><span class="inlineimportant">Master protocol instance nodes</span> <span class="xmlref">GlobalQOC</span>; <span class="xmlref">GlobalDOType</span> <span class="inlineimportant">and</span> <span class="xmlref">GlobalAOType</span> <span class="inlineimportant">nodes are renamed to</span> <span class="xmlref">DOQOC</span>; <span class="xmlref">DOType</span> <span class="inlineimportant">and</span> <span class="xmlref">AOType</span> <span class="inlineimportant">respectively;</span></div>
-<div class="line"><span class="inlineimportant">Bit[5] removed  from Master protocol instance DO qualifier, use</span> <span class="xmlref">DOType</span> <span class="inlineimportant">element or individual DO object</span> <span class="xmlref">TypeID</span> <span class="inlineimportant">attributes for outgoing command ASDU Type selection;</span></div>
-<div class="line">Ignore individual Time tag bit created for Master protocol DI/AI <span class="xmlref">qualifier</span>  attributes;</div>
-<div class="line"><span class="xmlref">Name</span> attributes added to all nodes;</div>
-<div class="line">New Service DI (-5) created allowing to monitor status of the UART Ring Indicator RI pin(9);</div>
-<div class="line">New Service DO (-5) created allowing to send Reset command to downstream outstation;</div>
-</div>
-</td>
+<td>SpeedUpStarted configuration option added</td>
 </tr>
-<tr class="row-odd"><td>V16</td>
-<td>31/03/2014</td>
+<tr class="row-even"><td>V8</td>
+<td>14/05/2013</td>
 <td>AK</td>
-<td><div class="first last line-block">
-<div class="line">Supervision functionality added;</div>
-<div class="line">UART <span class="xmlref">Timeout</span>; <span class="xmlref">TxDelay</span> and <span class="xmlref">CtrlRdTimeout</span> ranges changed;</div>
-<div class="line">UART <span class="xmlref">DataBits</span>; <span class="xmlref">StopBits</span> and <span class="xmlref">TxDelay</span> attributes are no longer mandatory;</div>
-<div class="line">Socket node name changed from <span class="xmlref">IPv4</span> to <span class="xmlref">TCPSERVER</span> and <span class="xmlref">TCPCLIENT</span> and related <span class="xmlref">Mode</span> and <span class="xmlref">Type</span> attributes removed;</div>
-<div class="line">New <span class="xmlref">UDP</span> socket node created;</div>
-<div class="line">Socket <span class="xmlref">IPport</span> attribute name changed to <span class="xmlref">Port</span>;</div>
-<div class="line">New socket attributes <span class="xmlref">ConnectTimeout</span>; <span class="xmlref">Timeout</span>; <span class="xmlref">TxDelay</span> and <span class="xmlref">IdleTimeout</span> created;</div>
-<div class="line">IEC60870-5-101 master and slave protocol instances can now be linked to <span class="xmlref">TCPSERVER</span>; <span class="xmlref">TCPCLIENT</span> and <span class="xmlref">UDP</span> socket nodes;</div>
-<div class="line">Multiple IEC60870-5-104 master protocol instances can now be linked to the same <span class="xmlref">TCPCLIENT</span> socket node;</div>
-<div class="line">Bit[3] added to <span class="xmlref">CommsFlags</span> attribute to select either accept or reject new incoming connection to TCP server if linked protocol instance is already connected;</div>
-<div class="line"><span class="xmlref">TxAllVarLength</span> node added for IEC60870-5-101 master and slave protocols;</div>
-<div class="line">IEC60870-5-104 master <span class="xmlref">OfflineDelay</span> node can have value 0 now and default value changed to 6sec;</div>
-<div class="line">Description of the logger <span class="xmlref">LogFlags</span> attribute Bit[4] updated to include IEC60870-5-101 link layer status information recording</div>
-</div>
-</td>
+<td>Automatic DI and AI object sorting for &#8216;Master&#8217; and DO object sorting for &#8216;Slave&#8217; communication protocol instances; SummerTime flag configuration added; Communication Status reporting address for Auto-configuration mode added; CommsFlags attribute added; Service DO commands added;</td>
 </tr>
-<tr class="row-even"><td>V17</td>
-<td>08/04/2014</td>
+<tr class="row-odd"><td>V7</td>
+<td>12/04/2013</td>
 <td>AK</td>
-<td><div class="first last line-block">
-<div class="line">Automatic IEC60870-5-101/4 Slave protocol configuration re-enabled;</div>
-<div class="line"><span class="xmlref">Source</span> attribute created for IEC60870-5-101/4 Slave protocols and <span class="xmlref">Device</span> attribute in DI/AI/DO/AO object elements is no longer mandatory;</div>
-<div class="line"><span class="xmlref">GIStartupDelay</span> element created for IEC60870-5-101/4 Slave protocols;</div>
-<div class="line">Bit[4] removed from Slave DI <span class="xmlref">qualifier</span> attribute;</div>
-<div class="line">AI <span class="xmlref">StartOffset</span> and <span class="xmlref">OffsetDeadband</span> attributes created for IEC60870-5-101/4 Slave AI objects;</div>
-<div class="line">Bits[5...6] removed from Slave AI <span class="xmlref">qualifier</span> attribute;</div>
-<div class="line"><span class="xmlref">AIEventStartup</span> element created for IEC60870-5-101/3/4 Master protocols;</div>
-<div class="line">AI <span class="xmlref">StartOffset</span>; <span class="xmlref">ZeroDeadband</span>; <span class="xmlref">Offset</span>; <span class="xmlref">OffsetDeadband</span> and <span class="xmlref">NonZeroOffset</span> attributes created for IEC60870-5-101/3/4 Master AI objects;</div>
-</div>
-</td>
+<td>Minor formatting corrections; Appendix A – Analogue value processing added</td>
 </tr>
-<tr class="row-odd"><td>V18</td>
-<td>28/05/2014</td>
+<tr class="row-even"><td>V6</td>
+<td>13/03/2013</td>
 <td>AK</td>
-<td><div class="first last line-block">
-<div class="line">Multiple ASDU configuration concept using station identifier <span class="xmlref">StationID</span> attribute, which has been added to IEC104sl and IEC104ma element nodes. Existing <span class="xmlref">LinkAddr</span> attribute is used as station identifier for <span class="xmlref">IEC101sl</span>; <span class="xmlref">IEC101ma</span> and <span class="xmlref">IEC103ma</span> element nodes.</div>
-<div class="line">All <span class="xmlref">ASDUAddr</span> attributes removed from individual DI/AI/DO/AO nodes;</div>
-<div class="line">New concept of protocol setting node element migration to attributes begins with this firmware release;  First protocol element nodes to contain setting attributes are:  <span class="xmlref">XMLSettings</span>; <span class="xmlref">CommsSettings</span>; <span class="xmlref">ASDUFlags</span>; <span class="xmlref">Broadcast</span> and <span class="xmlref">Periodic</span>;</div>
-<div class="line">Information address sequence check across object types introduced. It is essential to use new attribute <span class="xmlref">IOAOverlap</span> if the same information addresses are being reused for DI/AI/DO/AO objects. <span class="xmlref">IOAOverlap</span> is attribute of the newly created <span class="xmlref">XMLSettings</span> element node;</div>
-<div class="line">IEC60870-5-101/4 Slave protocol configuration <span class="xmlref">StartupGIDelay</span> element migrated to become an attribute of the newly created <span class="xmlref">CommsSettings</span> element node;</div>
-<div class="line"><span class="xmlref">TranspTypes</span> attribute created for IEC60870-5-101/4 Slave protocol configuration;</div>
-<div class="line">IEC60870-5-101/4 Master protocol configuration <span class="xmlref">OnlineGIDelay</span> element migrated to become an attribute of the newly created <span class="xmlref">CommsSettings</span> element node;</div>
-<div class="line">New option to send General Interrogation using broadcast Common address of ASDU can be configured using GI attribute in IEC60870-5-101/4 <span class="xmlref">Broadcast</span> element node;</div>
-<div class="line">IEC60870-5-101/4 Master protocol configuration <span class="xmlref">GlobalTimeSync</span> element migrated to become an attribute <span class="xmlref">TimeSync</span> of the newly created <span class="xmlref">Broadcast</span> element node;</div>
-<div class="line">IEC60870-5-101/4 Master protocol configuration periodic <span class="xmlref">GIInterval</span>; <span class="xmlref">Group1Interval</span>... <span class="xmlref">Group16Interval</span>; <span class="xmlref">TimeSyncInterval</span> elements migrated to become attributes <span class="xmlref">GI</span>; <span class="xmlref">Group1</span>... <span class="xmlref">Group16</span>; <span class="xmlref">TimeSync</span> respectively of the newly created <span class="xmlref">Periodic</span> element node;</div>
-<div class="line">Default values of <span class="xmlref">DIEventBuffSize</span> and <span class="xmlref">AIEventBuffSize</span> elements are automatically initialized to twice the amount of configured objects, instead of fixed value 1024 as used to before;</div>
-</div>
-</td>
+<td>HourLimit attribute description added; AI offset, AI zero deadband and 75-125 input transducer offset compensation added</td>
 </tr>
-<tr class="row-even"><td>V19</td>
-<td>26/06/2014</td>
+<tr class="row-odd"><td>V5</td>
+<td>01/03/2013</td>
 <td>AK</td>
-<td><div class="first last line-block">
-<div class="line">All protocol setting node elements migrated to attributes;</div>
-<div class="line">New option to mark DI/AI objects with NT bit when outstation goes offline or is disabled using service command. IEC60870-5-101/4 Master protocol attributes <span class="xmlref">OfflineNTDelay</span> and <span class="xmlref">DisabledNT</span>;</div>
-<div class="line">Option to send valid AIEVs to SCADA system on leandc startup in order to initialize the state of legacy spontaneous-only AIEVs. Valid AIEVs with 0 value will be sent after a number of seconds specified in <span class="xmlref">LegacyAIEVinitdelay</span> attribute on system startup in order to initialize SCADA database and make it ready to receive first legacy AIEV.</div>
-<div class="line"><span class="xmlref">StationID</span> attribute added to <span class="xmlref">IEC104Csl</span> node;</div>
-<div class="line"><span class="xmlref">TypeID</span> attribute added to IEC60870-5-101/4 Master DI/AI objects;</div>
-<div class="line"><span class="xmlref">SingleCharACK</span> attribute added for IEC60870-5-101 Slave protocol allowing to respond with single character (0xE5 or 0xA2) ACK or NACK messages</div>
-</div>
-</td>
+<td>Range and Automatic configuration features added; GlobalTimeSync now available; changes to logfile specification</td>
 </tr>
-<tr class="row-odd"><td>V20</td>
-<td>09/10/2014</td>
+<tr class="row-even"><td>V4</td>
+<td>03/12/2012</td>
 <td>AK</td>
-<td><span class="xmlref">DIEventStartup</span> attribute added to IEC60870-5-101/3/4 Master protocol configuration;</td>
+<td>AI value offset for 4mA transducer input compensation added to Slave protocol instances</td>
 </tr>
-<tr class="row-even"><td>V21</td>
-<td>28/11/2014</td>
+<tr class="row-odd"><td>V3</td>
+<td>13/11/2012</td>
 <td>AK</td>
-<td><div class="first last line-block">
-<div class="line"><span class="xmlref">Modbusma</span> communication protocol instance added;</div>
-<div class="line">Leandc XML configuration manual is HTML-based from now on;</div>
-</div>
-</td>
+<td>Minor changes to DO object address sequence, new DO execution policy added</td>
 </tr>
-<tr class="row-odd"><td>V22</td>
-<td>15/02/2015</td>
+<tr class="row-even"><td>V2</td>
+<td>03/10/2012</td>
 <td>AK</td>
-<td><div class="first last line-block">
-<div class="line">&gt; <span class="xmlref">Interface</span> and <span class="xmlref">Test</span> attributes added to <span class="xmlref">UART</span> node;</div>
-<div class="line">&gt; <span class="xmlref">TimeZone</span> attribute added to all logfile configuration nodes;</div>
-<div class="line">&gt; <span class="xmlref">DOType</span> and <span class="xmlref">AOType</span> attributes added to IEC60870-5-101/4 Slave protocols. These can be used to create common filters for incoming command ASDU types;</div>
-<div class="line">&gt; <span class="xmlref">ForwardGI</span> attribute added to all <span class="xmlref">ASDUSettings</span> nodes. GI commands will be forwarded to downstream outstations if received from upstream station by default. This feature can be disabled with <span class="xmlref">ForwardGI</span> attribute;</div>
-<div class="line">&gt; <span class="xmlref">ServiceSettings</span> node and attributes added to all protocol configurations;</div>
-<div class="line">&gt; <span class="xmlref">DIEvent</span> and <span class="xmlref">AIEvent</span> attributes renamed to <span class="xmlref">DIEVsize</span> and <span class="xmlref">AIEVsize</span> respectively;</div>
-<div class="line">&gt; <span class="xmlref">DIEVmult</span> and <span class="xmlref">AIEVmult</span> attributes added to IEC60870-5-101/4 Slave protocol <span class="xmlref">BufferSizes</span> nodes;</div>
-<div class="line">&gt; <span class="xmlref">DisabledNT</span> attribute removed, service settings can be used from now on to enable the functionality;</div>
-<div class="line">&gt; <span class="xmlref">PostOfflineDelay</span> attribute added to all Master protocol configurations. Together with <span class="xmlref">ServiceSettings</span> node and attributes this extends configuration flexibility of DI/AI object quality marking when stations goes OFFLINE;</div>
-<div class="line">&gt; <span class="xmlref">Reset</span> attribute added to IEC60870-5-101/4 Master protocol <span class="xmlref">Broadcast</span> node. This enables to send Reset Process commands to dowstream stations using Broadcast Common address of ASDU;</div>
-<div class="line">&gt; <span class="xmlref">Miscellaneous</span> node added to IEC60870-5-101 Master protocol. Attributes <span class="xmlref">TimeSyncIOA</span> and <span class="xmlref">DayOfWeek</span> enable to customize Information Object Address (IOA) and supress Day Of Week use in outgoing Time Synchronziation commands respectively;</div>
-</div>
-</td>
+<td>New features added, changes in DI and AI Event attribute configuration</td>
 </tr>
-<tr class="row-even"><td>V23</td>
-<td>24/03/2015</td>
+<tr class="row-odd"><td>V1</td>
+<td>17/08/2012</td>
 <td>AK</td>
-<td><div class="first last line-block">
-<div class="line">&gt; <span class="xmlref">IgnoreWhileLinkcnt</span> attribute added to IEC60870-5-101 Master <span class="xmlref">LinkSettings</span> node;</div>
-</div>
-</td>
-</tr>
-<tr class="row-odd"><td>V24</td>
-<td>29/06/2015</td>
-<td>AK</td>
-<td><div class="first last line-block">
-<div class="line">&gt; <span class="xmlref">DIEventStartup</span> and <span class="xmlref">AIEventStartup</span> attributes added to IEC60870-5-101/4 Slave <span class="xmlref">ASDUSettings</span> node;</div>
-<div class="line">&gt; <span class="xmlref">OffIndex</span> attribute added to IEC60870-5-101/4 Slave <span class="xmlref">DI</span> node for single to double point indication conversion;</div>
-<div class="line">&gt; <span class="xmlref">DIInterDelay</span> and <span class="xmlref">DIIndetDelay</span> attributes added to IEC60870-5-101/4 Slave <span class="xmlref">ASDUSettings</span> node and corresponding attributes <span class="xmlref">InterDelay</span> and <span class="xmlref">IndetDelay</span> added to DI node;</div>
-<div class="line">&gt; Bit[5] added to IEC60870-5-101/4 Slave DI qualifier attribute which enables to select time tag when single status information is converted to double;</div>
-<div class="line">&gt; <span class="xmlref">ChatterFilter</span> attribute added to Modbus Master DI node</div>
-<div class="line">&gt; <span class="xmlref">PulseDuration</span> attribute added to Modbus Master DO node</div>
-<div class="line">&gt; <span class="xmlref">LEIODC-C32-3100</span> type added to Modbus Master <span class="xmlref">Hardcoded</span> node</div>
-</div>
-</td>
-</tr>
-<tr class="row-even"><td>V25</td>
-<td>11/08/2015</td>
-<td>AK</td>
-<td><div class="first last line-block">
-<div class="line">&gt; <span class="xmlref">TimeSync</span> attribute added to IEC60870-5-104 Master <span class="xmlref">Periodic</span> node which can be used to enable periodic Time Synchronization commands;</div>
-<div class="line">&gt; <span class="xmlref">TimeSync</span> attribute added to IEC60870-5-104 Master <span class="xmlref">Broadcast</span> node to enable broadcast Common Address of ASDU (CAA) for outgoing Time Synchronization commands;</div>
-<div class="line">&gt; <span class="xmlref">TimeSync</span> attribute added to IEC60870-5-104 Slave <span class="xmlref">ASDUSettings</span> node to enable internal clock synchronization when command is received;</div>
-<div class="line">&gt; <span class="xmlref">LEIODC-X32-3100</span>, <span class="xmlref">LEIODC-X10-3100</span> and <span class="xmlref">THT2</span> types added to Modbus Master <span class="xmlref">Hardcoded</span> node</div>
-</div>
-</td>
-</tr>
-<tr class="row-odd"><td>V26</td>
-<td>04/09/2015</td>
-<td>AK</td>
-<td><div class="first last line-block">
-<div class="line">&gt; <span class="xmlref">ClassIgnore</span> attribute added to IEC60870-5-101 Slave <span class="xmlref">LinkSettings</span> node which can be used to ignore class of the receievd messages</div>
-</div>
-</td>
-</tr>
-<tr class="row-even"><td>V27</td>
-<td>08/05/2016</td>
-<td>AK</td>
-<td><div class="first last line-block">
-<div class="line"><span class="inlineimportant">Bit[5] of the IEC60870-5-101/104 Slave protocol</span> <a class="reference internal" href="#ref-iec10xsldo"><em>DO</em></a>.<a class="reference internal" href="#ref-iec10xsldoqualifierbits"><em>qualifier</em></a> <span class="inlineimportant">and</span> <a class="reference internal" href="#ref-iec10xslao"><em>AO</em></a>.<a class="reference internal" href="#ref-iec10xslaoqualifierbits"><em>qualifier</em></a> <span class="inlineimportant">is inverted. From now on Direct and Select-before-Execute commands will be accepted by default, i.e. if the DO/AO qualifier is not specified or 0x00. Use value 0x20 to accept only Direct commands.</span></div>
-<div class="line">&gt; <span class="xmlref">IEC61850cl</span> (Client) communication protocol instance added;</div>
-<div class="line">&gt; <span class="xmlref">DOProc</span> and <span class="xmlref">AOProc</span> attributes added to IEC60870-5-101/104 Slave <a class="reference internal" href="#ref-iec101slasdusettings"><em>ASDUSettings</em></a> node;</div>
-<div class="line">&gt; <a class="reference internal" href="#ref-iec101maasdusettingstimetagfbrange"><em>TimetagFBrange</em></a> attribute added to IEC60870-5-101 Master <a class="reference internal" href="#ref-iec101maasdusettings"><em>ASDUSettings</em></a> node;</div>
-<div class="line">&gt; <a class="reference internal" href="#ref-iec101maasdusettingsflags"><em>Flags</em></a> attribute added to IEC60870-5-101/104 Master <a class="reference internal" href="#ref-iec101maasdusettings"><em>ASDUSettings</em></a> node;</div>
-<div class="line">&gt; <a class="reference internal" href="#ref-iec10xmadiinterdelay"><em>InterDelay</em></a> and <a class="reference internal" href="#ref-iec10xmadiindetdelay"><em>IndetDelay</em></a> attributes added to IEC60870-5-101/103/104 Master <a class="reference internal" href="#ref-iec10xmadi"><em>DI</em></a> node;</div>
-<div class="line">&gt; Bit[5] added to the IEC60870-5-101/103/104 Master protocol <a class="reference internal" href="#ref-iec10xmadi"><em>DI</em></a>.<a class="reference internal" href="#ref-iec10xmadiqualifierbits"><em>qualifier</em></a>, it enables to select First or Last time tag for DPI reporting if Intermediate state is masked;</div>
-<div class="line">&gt; <a class="reference internal" href="#ref-uartwatchdog"><em>Watchdog</em></a> attribute added to <a class="reference internal" href="#ref-uart"><em>UART</em></a> node;</div>
-<div class="line">&gt; New <a class="reference internal" href="#ref-logsettings"><em>Settings</em></a> node created with attributes <a class="reference internal" href="#ref-settingscleanolder"><em>CleanOlder</em></a> and <a class="reference internal" href="#ref-settingsminfreespace"><em>MinFreespace</em></a>;</div>
-<div class="line">&gt; New <a class="reference internal" href="#ref-commscfgpcaplog"><em>PCAPLOG</em></a> node created which enables to capture traffic through Ethernet interfaces in a pcap format;</div>
-<div class="line">Default value columns added to attribute tables;</div>
-<div class="line">Recorded logfile samples and description of keywords/identifiers added;</div>
-</div>
-</td>
+<td>Initial version</td>
 </tr>
 </tbody>
 </table>
@@ -32707,7 +32757,7 @@ fUtHVztj9BMNwCVrPGuGqpyH+IPAGATai0CJ94qv3R3KZtb6wO+qrSdbVG4WdLDAIJBjFfURmoDK
 " alt="Logo"/>
             </a></p>
     <span class="sidebar-title">Leandc series XML configuration manual</span>
-    <span class="sidebar-subtitle" title="Version V27, docbuild(v0.1.0)">Version V27</span>
+    <span class="sidebar-subtitle" title="Version V28, docbuild(v0.1.0)">Version V28</span>
 
   <h3><a href="#document-index">Table Of Contents</a></h3>
   <ul>
@@ -33010,7 +33060,7 @@ fUtHVztj9BMNwCVrPGuGqpyH+IPAGATai0CJ94qv3R3KZtb6wO+qrSdbVG4WdLDAIJBjFfURmoDK
 
     <div class="footer">
         &copy; Copyright 2016, Londelec UK Ltd.
-      Last updated on 08 May 2016.
+      Last updated on 18 May 2016.
     </div>
   </body>
 </html>

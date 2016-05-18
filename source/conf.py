@@ -7,7 +7,7 @@
 project = u'Leandc series XML configuration manual'
 
 # The full version, including alpha/beta/rc tags.
-release = u'V27'
+release = u'V28'
 
 # Override default css styles specified in SphinxBuild/conf_html.py
 #html_numref_color = '#333'
