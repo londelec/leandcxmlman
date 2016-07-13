@@ -16,8 +16,8 @@ This manual was published with the following leandc firmware release.
      :val,20:  Date
      :osv,60:  Required Operating System version
 
-   * :attr:    4.01
-     :val:     2016-05-18 12:57:20
+   * :attr:    4.02
+     :val:     2016-07-13 14:22:05
      :osv:     V3.0
 
 .. tip::
@@ -35,6 +35,11 @@ This manual was published with the following leandc firmware release.
      :fdate,10:	Firmware date
      :doc,10:	Manual version(s)
      :osv,10:	Operating System version
+
+   * :fw:       4.01
+     :fdate:    2016-05-18 12:57:20
+     :doc:      V28
+     :osv:      V3.0
 
    * :fw:       4.00
      :fdate:    2016-05-08 11:22:30
@@ -147,6 +152,11 @@ This manual was published with the following leandc firmware release.
      :by,5:	By
      :desc,85:	Comments
 
+   * :ver:	V29
+     :date:	13/07/2016
+     :by:	AK
+     :desc:	| > :ref:`<ref-IEC103maLinkSettingsFlags>` attribute added to IEC60870-5-103 Master :ref:`<ref-IEC103maLinkSettings>` node;
+
    * :ver:	V28
      :date:	18/05/2016
      :by:	AK
@@ -171,7 +181,7 @@ This manual was published with the following leandc firmware release.
    * :ver:	V26
      :date:	04/09/2015
      :by:	AK
-     :desc:	| > :xmlref:`ClassIgnore` attribute added to IEC60870-5-101 Slave :xmlref:`LinkSettings` node which can be used to ignore class of the receievd messages
+     :desc:	| > :xmlref:`ClassIgnore` attribute added to IEC60870-5-101 Slave :xmlref:`LinkSettings` node which can be used to ignore class of the received messages
 
    * :ver:	V25
      :date:	11/08/2015

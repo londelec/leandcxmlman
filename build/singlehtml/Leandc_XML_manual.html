@@ -6,13 +6,13 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Leandc series XML configuration manual V28</title>
+    <title>Leandc series XML configuration manual V29</title>
     
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     'V28',
+        VERSION:     'V29',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -18172,7 +18172,7 @@ sample below.</p>
 </div>
 <p><a class="reference internal" href="#ref-iec103maditable"><em>DITable</em></a>; <a class="reference internal" href="#ref-iec103maaitable"><em>AITable</em></a>; <a class="reference internal" href="#ref-iec103madotable"><em>DOTable</em></a> group nodes compose an IO object table of the IEC60870-5-103 controlling station
 (Master) communication protocol instance. Please
-refer to the tables <a href="#ref-iec103madiattributes">9.9</a>; <a href="#ref-iec103maaiattributes">9.11</a> and <a href="#ref-iec103madoattributes">9.13</a> for their attributes.</p>
+refer to the tables <a href="#ref-iec103madiattributes">9.11</a>; <a href="#ref-iec103maaiattributes">9.13</a> and <a href="#ref-iec103madoattributes">9.15</a> for their attributes.</p>
 <div class="section" id="protocolcfg-group-node">
 <span id="ref-iec103maprotocolcfg"></span><h3>ProtocolCfg group node</h3>
 <p><a class="reference internal" href="#ref-iec103maprotocolcfg"><em>ProtocolCfg</em></a> group and its child element nodes contain protocol-related settings of the IEC60870-5-103 controlling station (Master) instance.</p>
@@ -18183,6 +18183,7 @@ refer to the tables <a href="#ref-iec103madiattributes">9.9</a>; <a href="#ref-i
 <p>Please see sample <a class="reference internal" href="#ref-iec103maprotocolcfg"><em>ProtocolCfg</em></a> node and all available child element nodes below.
 Refer to further sections for attributes of each element node.</p>
 <div class="highlight-none"><div class="highlight"><pre>&lt;ProtocolCfg&gt;
+   &lt;LinkSettings … /&gt;
    &lt;CommsSettings … /&gt;
    &lt;ASDUSettings … /&gt;
    &lt;ServiceSettings … /&gt;
@@ -18197,6 +18198,72 @@ Refer to further sections for attributes of each element node.</p>
 <p class="first admonition-title">Tip</p>
 <p class="last">All element nodes are optional, default values will be used for attributes of omitted nodes.</p>
 </div>
+<div class="section" id="linksettings">
+<span id="ref-iec103malinksettings"></span><h4>LinkSettings</h4>
+<p>Link layer settings can be specified using attributes of <a class="reference internal" href="#ref-iec103malinksettings"><em>LinkSettings</em></a> element node.</p>
+<p>Please see sample <a class="reference internal" href="#ref-iec103malinksettings"><em>LinkSettings</em></a> node and all its attributes in the table below.</p>
+<div class="highlight-none"><div class="highlight"><pre>&lt;LinkSettings Flags=&quot;0x00&quot;/&gt;
+</pre></div>
+</div>
+<table border="1" class="table table-condensed table-bordered longtable docutils" id="docref-iec103malinksettingsattab">
+<caption><strong>Table 9.1 IEC60870-5-103 Master LinkSettings attributes</strong></caption>
+<colgroup>
+<col width="10%" />
+<col width="10%" />
+<col width="6%" />
+<col width="74%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><strong>Attribute</strong></th>
+<th class="head"><strong>Values or range</strong></th>
+<th class="head"><strong>Default</strong></th>
+<th class="head"><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><p class="first last" id="ref-iec103malinksettingsflags"><span class="xmlref">Flags</span></p>
+</td>
+<td>0...255 or 0x00...0xFF</td>
+<td>0x00</td>
+<td>Various settings to enable customized data processing.
+See table <a href="#ref-iec103malinkflagsbits">9.2</a> for description.</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="table table-condensed table-bordered longtable docutils" id="ref-iec103malinkflagsbits">
+<caption><strong>Table 9.2 IEC60870-5-103 Master Link flags</strong></caption>
+<colgroup>
+<col width="10%" />
+<col width="10%" />
+<col width="80%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><strong>Bits</strong></th>
+<th class="head"><strong>Value</strong></th>
+<th class="head"><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><a class="reference internal" href="#ref-iec103malinksettingsflags"><em>Flags</em></a> [xxxx.xxxx]</td>
+<td>0x00...0xFF</td>
+<td>Link flags is 8 bit encoded variable. Decimal 0...255 and hex 0x00...0xFF values supported</td>
+</tr>
+<tr class="row-odd"><td rowspan="2">Bit 4</td>
+<td>xxx0.xxxx</td>
+<td>Use <strong>&#8216;Request status of link&#8217;</strong> message to check if station is online.
+(&#8216;Request status of link&#8217; message has function code 0x49)</td>
+</tr>
+<tr class="row-even"><td>xxx1.xxxx</td>
+<td>Use <strong>&#8216;Reset FCB&#8217;</strong> message to check if station is online.
+(&#8216;Reset FCB&#8217; message has function code 0x47. This message is defined only in IEC60870-5-103 standard)</td>
+</tr>
+<tr class="row-odd"><td>Bits 0...3;5...7</td>
+<td>Any</td>
+<td>Bits reserved for future use</td>
+</tr>
+</tbody>
+</table>
+</div>
 <div class="section" id="commssettings">
 <span id="ref-iec103macommssettings"></span><h4>CommsSettings</h4>
 <p>Communication state (e.g. online and offline) change behavior and related delays can be specified in this node.</p>
@@ -18205,7 +18272,7 @@ Refer to further sections for attributes of each element node.</p>
 </pre></div>
 </div>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="docref-iec103macommssettingsattab">
-<caption><strong>Table 9.1 IEC60870-5-103 Master CommsSettings attributes</strong></caption>
+<caption><strong>Table 9.3 IEC60870-5-103 Master CommsSettings attributes</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="10%" />
@@ -18284,7 +18351,7 @@ Quality marking of station&#8217;s DI/AI objects will be changed after configure
 </pre></div>
 </div>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="docref-iec103maasdusettingsattab">
-<caption><strong>Table 9.2 IEC60870-5-103 Master ASDUSettings attributes</strong></caption>
+<caption><strong>Table 9.4 IEC60870-5-103 Master ASDUSettings attributes</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="10%" />
@@ -18370,7 +18437,7 @@ Quality marking of station&#8217;s DI/AI objects will be changed after configure
 </pre></div>
 </div>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="docref-iec103maservicesettingsattab">
-<caption><strong>Table 9.3 IEC60870-5-103 Master ServiceSettings attributes</strong></caption>
+<caption><strong>Table 9.5 IEC60870-5-103 Master ServiceSettings attributes</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="10%" />
@@ -18388,12 +18455,12 @@ Quality marking of station&#8217;s DI/AI objects will be changed after configure
 <tr class="row-even"><td><span class="xmlref">EventMask</span></td>
 <td>0...255 or 0x00...0xFF</td>
 <td>0x00</td>
-<td>Disable spontaneous reporting (events) of DI/AI objects when communication state of the station changes. See table <a href="#docref-iec103maserviceeventmaskattab">9.4</a> for event mask description. (default 0x00 - DI/AI events are always generated - none masked) <span class="inlinetip">Note quality bits of static DI/AI qualifier will still be set even if event reporting is masked by</span> <span class="xmlref">EventMask</span> <span class="inlinetip">attribute</span></td>
+<td>Disable spontaneous reporting (events) of DI/AI objects when communication state of the station changes. See table <a href="#docref-iec103maserviceeventmaskattab">9.6</a> for event mask description. (default 0x00 - DI/AI events are always generated - none masked) <span class="inlinetip">Note quality bits of static DI/AI qualifier will still be set even if event reporting is masked by</span> <span class="xmlref">EventMask</span> <span class="inlinetip">attribute</span></td>
 </tr>
 </tbody>
 </table>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="docref-iec103maserviceeventmaskattab">
-<caption><strong>Table 9.4 Service event masking bits</strong></caption>
+<caption><strong>Table 9.6 Service event masking bits</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="10%" />
@@ -18453,7 +18520,7 @@ Quality marking of station&#8217;s DI/AI objects will be changed after configure
 </pre></div>
 </div>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="docref-iec103matimeoutsattab">
-<caption><strong>Table 9.5 IEC60870-5-103 Master Timeouts attributes</strong></caption>
+<caption><strong>Table 9.7 IEC60870-5-103 Master Timeouts attributes</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="10%" />
@@ -18493,7 +18560,7 @@ In general command timeout is used to terminate pending control commands, if com
 </pre></div>
 </div>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="docref-iec103matimesettingsattab">
-<caption><strong>Table 9.6 IEC60870-5-103 Master TimeSettings attributes</strong></caption>
+<caption><strong>Table 9.8 IEC60870-5-103 Master TimeSettings attributes</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="10%" />
@@ -18525,7 +18592,7 @@ In general command timeout is used to terminate pending control commands, if com
 </pre></div>
 </div>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="docref-iec103mabroadcastattab">
-<caption><strong>Table 9.7 IEC60870-5-103 Master Broadcast attributes</strong></caption>
+<caption><strong>Table 9.9 IEC60870-5-103 Master Broadcast attributes</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="10%" />
@@ -18569,7 +18636,7 @@ In general command timeout is used to terminate pending control commands, if com
 </pre></div>
 </div>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="docref-iec103maperiodicattab">
-<caption><strong>Table 9.8 IEC60870-5-103 Master Periodic attributes</strong></caption>
+<caption><strong>Table 9.10 IEC60870-5-103 Master Periodic attributes</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="10%" />
@@ -18629,7 +18696,7 @@ There are 5 DI information objects configured using 4 <a class="reference intern
 <div class="section" id="di-attributes">
 <h4>DI attributes</h4>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="ref-iec103madiattributes">
-<caption><strong>Table 9.9 IEC60870-5-103 Master DI attributes</strong></caption>
+<caption><strong>Table 9.11 IEC60870-5-103 Master DI attributes</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="10%" />
@@ -18671,7 +18738,7 @@ This INF will be used to receive object from downstream outstation.
 <td>0...255 or 0x00...0xFF</td>
 <td>0x00</td>
 <td>Internal object qualifier to enable customized data processing.
-See table <a href="#ref-iec103madiqualifierbits">9.10</a> for internal object qualifier description.
+See table <a href="#ref-iec103madiqualifierbits">9.12</a> for internal object qualifier description.
 <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
 </tr>
 <tr class="row-even"><td><p class="first last" id="ref-iec103madiinterdelay"><span class="xmlref">InterDelay</span></p>
@@ -18712,7 +18779,7 @@ Attribute is used to create sequence of information objects with consecutive <a 
 <div class="section" id="di-qualifier">
 <h4>DI.Qualifier</h4>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="ref-iec103madiqualifierbits">
-<caption><strong>Table 9.10 IEC60870-5-103 Master DI internal Qualifier</strong></caption>
+<caption><strong>Table 9.12 IEC60870-5-103 Master DI internal Qualifier</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="10%" />
@@ -18803,7 +18870,7 @@ There are 5 AI information objects configured using 4 <a class="reference intern
 <div class="section" id="ai-attributes">
 <h4>AI attributes</h4>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="ref-iec103maaiattributes">
-<caption><strong>Table 9.11 IEC60870-5-103 Master AI attributes</strong></caption>
+<caption><strong>Table 9.13 IEC60870-5-103 Master AI attributes</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="10%" />
@@ -18853,7 +18920,7 @@ Use value 0 to select first measurement in the received message.
 <td>0...255 or 0x00...0xFF</td>
 <td>0x00</td>
 <td>Internal object qualifier to enable customized data processing.
-See table <a href="#ref-iec103maaiqualifierbits">9.12</a> for internal object qualifier description.
+See table <a href="#ref-iec103maaiqualifierbits">9.14</a> for internal object qualifier description.
 <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
 </tr>
 <tr class="row-odd"><td><p class="first last" id="ref-iec103maaicoeff"><span class="xmlref">Coeff</span></p>
@@ -18957,7 +19024,7 @@ Annexes <a class="reference internal" href="#docref-aiscalingwithoutstartoffset"
 <div class="section" id="ai-qualifier">
 <h4>AI.Qualifier</h4>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="ref-iec103maaiqualifierbits">
-<caption><strong>Table 9.12 IEC60870-5-103 Master AI internal Qualifier</strong></caption>
+<caption><strong>Table 9.14 IEC60870-5-103 Master AI internal Qualifier</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="10%" />
@@ -19048,7 +19115,7 @@ There are 5 DO information objects configured using 4 <a class="reference intern
 <div class="section" id="do-attributes">
 <h4>DO attributes</h4>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="ref-iec103madoattributes">
-<caption><strong>Table 9.13 IEC60870-5-103 Master DO attributes</strong></caption>
+<caption><strong>Table 9.15 IEC60870-5-103 Master DO attributes</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="10%" />
@@ -19090,7 +19157,7 @@ This INF will be used to send command to downstream outstation.
 <td>0...255 or 0x00...0xFF</td>
 <td>0x00</td>
 <td>Internal object qualifier to enable customized data processing.
-See table <a href="#ref-iec103madoqualifierbits">9.14</a> for internal object qualifier description.
+See table <a href="#ref-iec103madoqualifierbits">9.16</a> for internal object qualifier description.
 <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
 </tr>
 <tr class="row-even"><td><p class="first last" id="ref-iec103madototal"><span class="xmlref">Total</span></p>
@@ -19113,7 +19180,7 @@ Attribute is used to create sequence of information objects with consecutive <a 
 <div class="section" id="do-qualifier">
 <h4>DO.Qualifier</h4>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="ref-iec103madoqualifierbits">
-<caption><strong>Table 9.14 IEC60870-5-103 Master DO internal Qualifier</strong></caption>
+<caption><strong>Table 9.16 IEC60870-5-103 Master DO internal Qualifier</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="10%" />
@@ -32214,8 +32281,8 @@ names, etc.</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>4.01</td>
-<td>2016-05-18 12:57:20</td>
+<tr class="row-even"><td>4.02</td>
+<td>2016-07-13 14:22:05</td>
 <td>V3.0</td>
 </tr>
 </tbody>
@@ -32241,102 +32308,107 @@ names, etc.</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>4.00</td>
+<tr class="row-even"><td>4.01</td>
+<td>2016-05-18 12:57:20</td>
+<td>V28</td>
+<td>V3.0</td>
+</tr>
+<tr class="row-odd"><td>4.00</td>
 <td>2016-05-08 11:22:30</td>
 <td>V27</td>
 <td>V3.0</td>
 </tr>
-<tr class="row-odd"><td>3.14</td>
+<tr class="row-even"><td>3.14</td>
 <td>2015-09-04 10:05:40</td>
 <td>V26</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-even"><td>3.13</td>
+<tr class="row-odd"><td>3.13</td>
 <td>2015-08-24 21:04:07</td>
 <td>V25</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-odd"><td>3.12</td>
+<tr class="row-even"><td>3.12</td>
 <td>2015-08-11 12:36:44</td>
 <td>V25</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-even"><td>3.11</td>
+<tr class="row-odd"><td>3.11</td>
 <td>2015-07-08 14:07:37</td>
 <td>V24</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-odd"><td>3.10</td>
+<tr class="row-even"><td>3.10</td>
 <td>2015-06-29 15:52:23</td>
 <td>V24</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-even"><td>3.09</td>
+<tr class="row-odd"><td>3.09</td>
 <td>2015-03-25 10:57:25</td>
 <td>V23</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-odd"><td>3.08</td>
+<tr class="row-even"><td>3.08</td>
 <td>2015-03-24 21:06:41</td>
 <td>V23</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-even"><td>3.07</td>
+<tr class="row-odd"><td>3.07</td>
 <td>2015-02-15 17:55:25</td>
 <td>V22</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-odd"><td>3.06</td>
+<tr class="row-even"><td>3.06</td>
 <td>2014-12-01 08:47:07</td>
 <td>V21</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-even"><td>3.05</td>
+<tr class="row-odd"><td>3.05</td>
 <td>2014-11-28 11:39:37</td>
 <td>V21</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-odd"><td>3.04</td>
+<tr class="row-even"><td>3.04</td>
 <td>2014-10-08 15:43:46</td>
 <td>V20</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-even"><td>3.02</td>
+<tr class="row-odd"><td>3.02</td>
 <td>2014-06-26 14:48:34</td>
 <td>V19</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-odd"><td>3.01</td>
+<tr class="row-even"><td>3.01</td>
 <td>2014-05-28 12:20:12</td>
 <td>V18</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-even"><td>3.00</td>
+<tr class="row-odd"><td>3.00</td>
 <td>2014-05-26 21:19:06</td>
 <td>V18</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-odd"><td>2.07</td>
+<tr class="row-even"><td>2.07</td>
 <td>2014-04-08 20:59:57</td>
 <td>V17</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-even"><td>2.06</td>
+<tr class="row-odd"><td>2.06</td>
 <td>2014-03-31 14:58:09</td>
 <td>V16</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-odd"><td>2.05</td>
+<tr class="row-even"><td>2.05</td>
 <td>2014-02-26 20:20:30</td>
 <td>V15</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-even"><td>2.04</td>
+<tr class="row-odd"><td>2.04</td>
 <td>2013-12-18 08:55:06</td>
 <td>V13, V14</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-odd"><td>2.01</td>
+<tr class="row-even"><td>2.01</td>
 <td>2013-10-16 17:21:27</td>
 <td>V12</td>
 <td>V2.0</td>
@@ -32359,7 +32431,15 @@ names, etc.</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>V28</td>
+<tr class="row-even"><td>V29</td>
+<td>13/07/2016</td>
+<td>AK</td>
+<td><div class="first last line-block">
+<div class="line">&gt; <a class="reference internal" href="#ref-iec103malinksettingsflags"><em>Flags</em></a> attribute added to IEC60870-5-103 Master <a class="reference internal" href="#ref-iec103malinksettings"><em>LinkSettings</em></a> node;</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td>V28</td>
 <td>18/05/2016</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -32367,7 +32447,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td>V27</td>
+<tr class="row-even"><td>V27</td>
 <td>08/05/2016</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -32386,15 +32466,15 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td>V26</td>
+<tr class="row-odd"><td>V26</td>
 <td>04/09/2015</td>
 <td>AK</td>
 <td><div class="first last line-block">
-<div class="line">&gt; <span class="xmlref">ClassIgnore</span> attribute added to IEC60870-5-101 Slave <span class="xmlref">LinkSettings</span> node which can be used to ignore class of the receievd messages</div>
+<div class="line">&gt; <span class="xmlref">ClassIgnore</span> attribute added to IEC60870-5-101 Slave <span class="xmlref">LinkSettings</span> node which can be used to ignore class of the received messages</div>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td>V25</td>
+<tr class="row-even"><td>V25</td>
 <td>11/08/2015</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -32405,7 +32485,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td>V24</td>
+<tr class="row-odd"><td>V24</td>
 <td>29/06/2015</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -32419,7 +32499,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td>V23</td>
+<tr class="row-even"><td>V23</td>
 <td>24/03/2015</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -32427,7 +32507,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td>V22</td>
+<tr class="row-odd"><td>V22</td>
 <td>15/02/2015</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -32445,7 +32525,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td>V21</td>
+<tr class="row-even"><td>V21</td>
 <td>28/11/2014</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -32454,12 +32534,12 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td>V20</td>
+<tr class="row-odd"><td>V20</td>
 <td>09/10/2014</td>
 <td>AK</td>
 <td><span class="xmlref">DIEventStartup</span> attribute added to IEC60870-5-101/3/4 Master protocol configuration;</td>
 </tr>
-<tr class="row-odd"><td>V19</td>
+<tr class="row-even"><td>V19</td>
 <td>26/06/2014</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -32472,7 +32552,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td>V18</td>
+<tr class="row-odd"><td>V18</td>
 <td>28/05/2014</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -32490,7 +32570,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td>V17</td>
+<tr class="row-even"><td>V17</td>
 <td>08/04/2014</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -32505,7 +32585,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td>V16</td>
+<tr class="row-odd"><td>V16</td>
 <td>31/03/2014</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -32525,7 +32605,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td>V15</td>
+<tr class="row-even"><td>V15</td>
 <td>26/02/2014</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -32546,12 +32626,12 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td>V14</td>
+<tr class="row-odd"><td>V14</td>
 <td>18/01/2014</td>
 <td>AK</td>
 <td>Version control element node added</td>
 </tr>
-<tr class="row-odd"><td>V13</td>
+<tr class="row-even"><td>V13</td>
 <td>18/12/2013</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -32566,7 +32646,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td>V12</td>
+<tr class="row-odd"><td>V12</td>
 <td>18/11/2013</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -32589,57 +32669,57 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td>V11</td>
+<tr class="row-even"><td>V11</td>
 <td>10/06/2013</td>
 <td>AK</td>
 <td>Offline reporting delay timer added</td>
 </tr>
-<tr class="row-even"><td>V10</td>
+<tr class="row-odd"><td>V10</td>
 <td>01/06/2013</td>
 <td>AK</td>
 <td>Timezone configuration option added</td>
 </tr>
-<tr class="row-odd"><td>V9</td>
+<tr class="row-even"><td>V9</td>
 <td>21/05/2013</td>
 <td>AK</td>
 <td>SpeedUpStarted configuration option added</td>
 </tr>
-<tr class="row-even"><td>V8</td>
+<tr class="row-odd"><td>V8</td>
 <td>14/05/2013</td>
 <td>AK</td>
 <td>Automatic DI and AI object sorting for &#8216;Master&#8217; and DO object sorting for &#8216;Slave&#8217; communication protocol instances; SummerTime flag configuration added; Communication Status reporting address for Auto-configuration mode added; CommsFlags attribute added; Service DO commands added;</td>
 </tr>
-<tr class="row-odd"><td>V7</td>
+<tr class="row-even"><td>V7</td>
 <td>12/04/2013</td>
 <td>AK</td>
 <td>Minor formatting corrections; Appendix A – Analogue value processing added</td>
 </tr>
-<tr class="row-even"><td>V6</td>
+<tr class="row-odd"><td>V6</td>
 <td>13/03/2013</td>
 <td>AK</td>
 <td>HourLimit attribute description added; AI offset, AI zero deadband and 75-125 input transducer offset compensation added</td>
 </tr>
-<tr class="row-odd"><td>V5</td>
+<tr class="row-even"><td>V5</td>
 <td>01/03/2013</td>
 <td>AK</td>
 <td>Range and Automatic configuration features added; GlobalTimeSync now available; changes to logfile specification</td>
 </tr>
-<tr class="row-even"><td>V4</td>
+<tr class="row-odd"><td>V4</td>
 <td>03/12/2012</td>
 <td>AK</td>
 <td>AI value offset for 4mA transducer input compensation added to Slave protocol instances</td>
 </tr>
-<tr class="row-odd"><td>V3</td>
+<tr class="row-even"><td>V3</td>
 <td>13/11/2012</td>
 <td>AK</td>
 <td>Minor changes to DO object address sequence, new DO execution policy added</td>
 </tr>
-<tr class="row-even"><td>V2</td>
+<tr class="row-odd"><td>V2</td>
 <td>03/10/2012</td>
 <td>AK</td>
 <td>New features added, changes in DI and AI Event attribute configuration</td>
 </tr>
-<tr class="row-odd"><td>V1</td>
+<tr class="row-even"><td>V1</td>
 <td>17/08/2012</td>
 <td>AK</td>
 <td>Initial version</td>
@@ -32757,7 +32837,7 @@ fUtHVztj9BMNwCVrPGuGqpyH+IPAGATai0CJ94qv3R3KZtb6wO+qrSdbVG4WdLDAIJBjFfURmoDK
 " alt="Logo"/>
             </a></p>
     <span class="sidebar-title">Leandc series XML configuration manual</span>
-    <span class="sidebar-subtitle" title="Version V28, docbuild(v0.1.0)">Version V28</span>
+    <span class="sidebar-subtitle" title="Version V29, docbuild(v0.1.0)">Version V29</span>
 
   <h3><a href="#document-index">Table Of Contents</a></h3>
   <ul>
@@ -32926,6 +33006,7 @@ fUtHVztj9BMNwCVrPGuGqpyH+IPAGATai0CJ94qv3R3KZtb6wO+qrSdbVG4WdLDAIJBjFfURmoDK
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#document-sections/IEC103maMain">9. IEC60870-5-103 Master</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#protocolcfg-group-node">ProtocolCfg group node</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#linksettings">LinkSettings</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#commssettings">CommsSettings</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#asdusettings">ASDUSettings</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#servicesettings">ServiceSettings</a></li>
@@ -33060,7 +33141,7 @@ fUtHVztj9BMNwCVrPGuGqpyH+IPAGATai0CJ94qv3R3KZtb6wO+qrSdbVG4WdLDAIJBjFfURmoDK
 
     <div class="footer">
         &copy; Copyright 2016, Londelec UK Ltd.
-      Last updated on 18 May 2016.
+      Last updated on 13 Jul 2016.
     </div>
   </body>
 </html>

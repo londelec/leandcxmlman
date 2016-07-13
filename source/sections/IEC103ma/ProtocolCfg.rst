@@ -7,7 +7,8 @@ ProtocolCfg group node
 
 .. code-block:: none
 
-   <ProtocolCfg> 
+   <ProtocolCfg>
+      <LinkSettings … />
       <CommsSettings … />
       <ASDUSettings … />
       <ServiceSettings … />
@@ -19,6 +20,7 @@ ProtocolCfg group node
 
 .. tip:: All element nodes are optional, default values will be used for attributes of omitted nodes.
 
+.. include:: IEC103ma/LinkSettings.rst
 .. include:: IEC103ma/CommsSettings.rst
 .. include:: IEC103ma/ASDUSettings.rst
 
