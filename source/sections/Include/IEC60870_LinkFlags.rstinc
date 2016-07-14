@@ -1,0 +1,9 @@
+   * :attr:     Bit 0
+     :val:      xxxx.xxx0
+     :desc:     Send **variable** and **fixed** length link layer messages as required.
+		(First character of variable link layer message is - 0x68 and fixed length message - 0x10)
+
+   * :(attr):
+     :val:      xxxx.xxx1
+     :desc:     Send only **variable** length link layer messages
+

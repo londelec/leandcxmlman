@@ -28,16 +28,18 @@ Link layer settings can be specified using attributes of :ref:`<ref-IEC103maLink
 
 .. include-file:: sections/Include/table_flags.rstinc "" "IEC60870-5-103 Master Link flags" ":ref:`<ref-IEC103maLinkSettingsFlags>`" "Link flags"
 
+.. include-file:: sections/Include/IEC60870_LinkFlags.rstinc
+
    * :attr:     Bit 4
      :val:      xxx0.xxxx
-     :desc:     Use **'Request status of link'** message to check if station is online.
-		('Request status of link' message has function code 0x49)
+     :desc:     Use **'Reset of remote link'** message to check if station is online.
+		('Reset of remote link' message has function code 0x40)
 
    * :(attr):
      :val:      xxx1.xxxx
      :desc:     Use **'Reset FCB'** message to check if station is online.
 		('Reset FCB' message has function code 0x47. This message is defined only in IEC60870-5-103 standard)
 
-   * :attr:     Bits 0...3;5...7
+   * :attr:     Bits 1...3;5...7
      :val:      Any
      :desc:     Bits reserved for future use

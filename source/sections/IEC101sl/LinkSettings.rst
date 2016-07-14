@@ -9,7 +9,7 @@ Link layer settings can be specified using attributes of :ref:`<ref-IEC101slLink
 
 .. code-block:: none
 
-   <LinkSettings LinkAddrSize="1" ACDLinkStatusResp="0" ACDAlways="0" FCBMaskLinkReq="0" TxAllVarLength="0" SingleCharACK="1" ClassIgnore="0" />
+   <LinkSettings LinkAddrSize="1" ACDLinkStatusResp="0" ACDAlways="0" ClassIgnore="0" Flags="0x00"/>
 
 
 .. _docref-IEC101slLinkSettingsAttab:
@@ -38,36 +38,6 @@ Link layer settings can be specified using attributes of :ref:`<ref-IEC101slLink
      :(def):
      :desc:     [ACD] bit (link control field) in response messages is **always** set
 
-   * :attr:     :xmlref:`FCBMaskLinkReq`
-     :val:      0
-     :def:      0
-     :desc:     [FCB] bit (link control field) **must be zero** in 'status of link' request received from Master station. Leandc will not reply to the 'status of link' request if [FCB] bit is set. 
-
-   * :(attr):
-     :val:      1
-     :(def):
-     :desc:     [FCB] bit (link control field) **is ignored** in 'status of link' request received from Master station
-
-   * :attr:     :xmlref:`TxAllVarLength`
-     :val:      0
-     :def:      0
-     :desc:     Send **variable** and **fixed** length link layer messages as required. (Variable link layer messages start with 0x68 and fixed length messages start with 0x10)
-
-   * :(attr):
-     :val:      1
-     :(def):
-     :desc:     Send only **variable** length link layer messages
-
-   * :attr:     :xmlref:`SingleCharACK`
-     :val:      0
-     :def:      0
-     :desc:     **Don't use** single character (0xE5 and 0xA2) ACK and NACK responses
-
-   * :(attr):
-     :val:      1
-     :(def):
-     :desc:     **Use** single character (0xE5 and 0xA2) ACK and NACK responses
-
    * :attr:     :xmlref:`ClassIgnore`
      :val:      0
      :def:      0
@@ -77,3 +47,38 @@ Link layer settings can be specified using attributes of :ref:`<ref-IEC101slLink
      :val:      1
      :(def):
      :desc:     Class of the received message is **ignored**, Class 1 and Class 2 data is sent regadless of the requested Class. :inlinetip:`Please note this functionality is deviation from communication standard and option should be avoided.`
+
+   * :attr:     .. _ref-IEC101slLinkSettingsFlags:
+
+                :xmlref:`Flags`
+     :val:      0...255 or 0x00...0xFF
+     :def:      0x00
+     :desc:     Various settings to enable customized data processing.
+		See table :numref:`ref-IEC101slLinkFlagsBits` for description.
+
+
+.. _ref-IEC101slLinkFlagsBits:
+
+.. include-file:: sections/Include/table_flags.rstinc "" "IEC60870-5-101 Slave Link flags" ":ref:`<ref-IEC101slLinkSettingsFlags>`" "Link flags"
+
+.. include-file:: sections/Include/IEC60870_LinkFlags.rstinc
+
+   * :attr:     Bit 1
+     :val:      xxxx.xx0x
+     :desc:     **Don't use** single character ACK and NACK responses (0xE5 and 0xA2)
+
+   * :(attr):
+     :val:      xxxx.xx1x
+     :desc:     **Use** single character ACK and NACK responses (0xE5 and 0xA2)
+
+   * :attr:     Bit 2
+     :val:      xxxx.x0xx
+     :desc:     [FCB] bit (link control field) **must be zero** in 'status of link' request received from Master station. Leandc will not reply to the 'status of link' request if [FCB] bit is set. 
+
+   * :(attr):
+     :val:      xxxx.x1xx
+     :desc:     [FCB] bit (link control field) **is ignored** in 'status of link' request received from Master station
+
+   * :attr:     Bits 3...7
+     :val:      Any
+     :desc:     Bits reserved for future use

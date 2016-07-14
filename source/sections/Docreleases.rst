@@ -17,7 +17,7 @@ This manual was published with the following leandc firmware release.
      :osv,60:  Required Operating System version
 
    * :attr:    4.02
-     :val:     2016-07-13 14:22:05
+     :val:     2016-07-14 19:27:51
      :osv:     V3.0
 
 .. tip::
@@ -153,9 +153,11 @@ This manual was published with the following leandc firmware release.
      :desc,85:	Comments
 
    * :ver:	V29
-     :date:	13/07/2016
+     :date:	14/07/2016
      :by:	AK
-     :desc:	| > :ref:`<ref-IEC103maLinkSettingsFlags>` attribute added to IEC60870-5-103 Master :ref:`<ref-IEC103maLinkSettings>` node;
+     :desc:	| > :xmlref:`TxAllVarLength` :inlineimportant:`attribute of IEC60870-5-101 Master and Slave protocols converted to Link layer` :ref:`<ref-IEC101slLinkSettingsFlags>`
+		| > :xmlref:`SingleCharACK` :inlineimportant:`and` :xmlref:`FCBMaskLinkReq` :inlineimportant:`attributes of IEC60870-5-101 Slave protocol converted to Link layer` :ref:`<ref-IEC101slLinkSettingsFlags>`
+		| > :ref:`<ref-IEC103maLinkSettingsFlags>` attribute added to IEC60870-5-103 Master :ref:`<ref-IEC103maLinkSettings>` node;
 
    * :ver:	V28
      :date:	18/05/2016
