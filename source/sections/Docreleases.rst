@@ -16,8 +16,8 @@ This manual was published with the following leandc firmware release.
      :val,20:  Date
      :osv,60:  Required Operating System version
 
-   * :attr:    4.02
-     :val:     2016-07-14 19:27:51
+   * :attr:    4.03
+     :val:     2016-07-25 17:04:55
      :osv:     V3.0
 
 .. tip::
@@ -35,6 +35,11 @@ This manual was published with the following leandc firmware release.
      :fdate,10:	Firmware date
      :doc,10:	Manual version(s)
      :osv,10:	Operating System version
+
+   * :fw:       4.02
+     :fdate:    2016-07-14 19:27:51
+     :doc:      V29
+     :osv:      V3.0
 
    * :fw:       4.01
      :fdate:    2016-05-18 12:57:20
