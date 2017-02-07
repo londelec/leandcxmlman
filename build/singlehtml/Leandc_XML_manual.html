@@ -6,13 +6,13 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Leandc series XML configuration manual V29</title>
+    <title>Leandc series XML configuration manual V30</title>
     
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     'V29',
+        VERSION:     'V30',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -10971,13 +10971,13 @@ Please see sample <a class="reference internal" href="#ref-uart"><em>UART</em></
 <tr class="row-odd"><td><p class="first" id="ref-uartcom"><span class="xmlref">COM</span></p>
 <p class="last">*</p>
 </td>
-<td>1...16</td>
+<td>0...16</td>
 <td>n/a</td>
 <td>Serial port number.
 Number of the inbuilt serial port when running leandc on a supported hardware.
 Please refer to table <a href="#ref-serialhardwares">2.2</a> below for a list of currently supported hardwares.
-If you are running leandc on a hardware that is not supported or want to use a port other than inbuilt (e.g. USB to Serial adapter), please specify the device path in <a class="reference internal" href="#ref-uartdevpath"><em>Devpath</em></a> attribute.
-<a class="reference internal" href="#ref-uartdevpath"><em>Devpath</em></a> attribute has higher priority and value of <span class="xmlref">COM</span> will be ignored if <a class="reference internal" href="#ref-uartdevpath"><em>Devpath</em></a> is used.</td>
+If you are running leandc on a hardware that is not supported or want to use a serial port other than inbuilt (e.g. USB to Serial adapter), please use <span class="xmlref">COM=&#8221;0&#8221;</span> and specify path of the UART device in <a class="reference internal" href="#ref-uartdevpath"><em>Devpath</em></a> attribute.
+<a class="reference internal" href="#ref-uartdevpath"><em>Devpath</em></a> attribute has higher priority and value of <a class="reference internal" href="#ref-uartcom"><em>COM</em></a> will be ignored if <a class="reference internal" href="#ref-uartdevpath"><em>Devpath</em></a> is used.</td>
 </tr>
 <tr class="row-even"><td><p class="first last" id="ref-uartdevpath"><span class="xmlref">Devpath</span></p>
 </td>
@@ -10987,7 +10987,7 @@ If you are running leandc on a hardware that is not supported or want to use a p
 All serial ports can normally be found in &#8216;/dev&#8217; directory.
 On standard hardwares inbuilt serial ports have names &#8216;/dev/ttyS0&#8217;; &#8216;/dev/ttyS1&#8217; and USB to Serial adapter ports &#8216;/dev/ttyUSB0&#8217;; &#8216;/dev/ttyUSB0&#8217;; etc
 <span class="inlineimportant">Attribute is case sensitive, observe the case of path when specifying.</span>
-<span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, path will be resolved automatically from</span> <a class="reference internal" href="#ref-uartcom"><em>COM</em></a> <span class="inlinetip">number, if omitted.</span></td>
+<span class="inlinetip">Attribute is optional, path of the UART device will be resolved automatically from</span> <a class="reference internal" href="#ref-uartcom"><em>COM</em></a> <span class="inlinetip">number, if omitted.</span></td>
 </tr>
 <tr class="row-odd"><td><span class="xmlref">Baudrate</span></td>
 <td>300...115200bps</td>
@@ -14338,33 +14338,33 @@ Attribute is used to create sequence of information objects with consecutive <a 
 <tbody valign="top">
 <tr class="row-even"><td>1</td>
 <td>1</td>
-<td>Static DI &#8216;Single-point Information&#8217; will be sent using ASDU type 1 [M_SP_NA_1] DI event will be sent using ASDU type 1 [M_SP_NA_1], <strong>no time-tag</strong></td>
+<td>Static DI &#8216;Single-point Information&#8217; will be sent using ASDU type 1 [<span class="lectext1">M_SP_NA_1</span>] DI event will be sent using ASDU type 1 [<span class="lectext1">M_SP_NA_1</span>], <strong>no time-tag</strong></td>
 </tr>
 <tr class="row-odd"><td>2</td>
 <td>N/A</td>
-<td>Static DI &#8216;Single-point Information&#8217; will be sent using ASDU type 1 [M_SP_NA_1] DI event will be sent using ASDU type 2 [M_SP_TA_1], <strong>CP24time2A</strong>, msec and min</td>
+<td>Static DI &#8216;Single-point Information&#8217; will be sent using ASDU type 1 [<span class="lectext1">M_SP_NA_1</span>] DI event will be sent using ASDU type 2 [<span class="lectext1">M_SP_TA_1</span>], <strong>CP24time2A</strong>, msec and min</td>
 </tr>
 <tr class="row-even"><td>3</td>
 <td>3</td>
-<td>Static DI &#8216;Double-point Information&#8217; will be sent using ASDU type 3 [M_DP_NA_1] DI event will be sent using ASDU type 3 [M_DP_NA_1], <strong>no time-tag</strong></td>
+<td>Static DI &#8216;Double-point Information&#8217; will be sent using ASDU type 3 [<span class="lectext1">M_DP_NA_1</span>] DI event will be sent using ASDU type 3 [<span class="lectext1">M_DP_NA_1</span>], <strong>no time-tag</strong></td>
 </tr>
 <tr class="row-odd"><td>4</td>
 <td>N/A</td>
-<td>Static DI &#8216;Double-point Information&#8217; will be sent using ASDU type 3 [M_DP_NA_1] DI event will be sent using ASDU type 4 [M_DP_TA_1], <strong>CP24time2A</strong>, msec and min</td>
+<td>Static DI &#8216;Double-point Information&#8217; will be sent using ASDU type 3 [<span class="lectext1">M_DP_NA_1</span>] DI event will be sent using ASDU type 4 [<span class="lectext1">M_DP_TA_1</span>], <strong>CP24time2A</strong>, msec and min</td>
 </tr>
 <tr class="row-even"><td>30</td>
 <td>30</td>
-<td>Static DI &#8216;Single-point Information&#8217; will be sent using ASDU type 1 [M_SP_NA_1] DI event will be sent using ASDU type 30 [M_SP_TB_1], <strong>CP56time2A</strong>, full time</td>
+<td>Static DI &#8216;Single-point Information&#8217; will be sent using ASDU type 1 [<span class="lectext1">M_SP_NA_1</span>] DI event will be sent using ASDU type 30 [<span class="lectext1">M_SP_TB_1</span>], <strong>CP56time2A</strong>, full time</td>
 </tr>
 <tr class="row-odd"><td>31</td>
 <td>31</td>
-<td>Static DI &#8216;Double-point Information&#8217; will be sent using ASDU type 3 [M_DP_NA_1] DI event will be sent using ASDU type 31 [M_DP_TB_1], <strong>CP56time2A</strong>, full time</td>
+<td>Static DI &#8216;Double-point Information&#8217; will be sent using ASDU type 3 [<span class="lectext1">M_DP_NA_1</span>] DI event will be sent using ASDU type 31 [<span class="lectext1">M_DP_TB_1</span>], <strong>CP56time2A</strong>, full time</td>
 </tr>
 <tr class="row-even"><td>Other</td>
 <td>Other</td>
 <td>Undefined, default values will be used:
-IEC60870-5-101 default ASDU type 2 [M_SP_TA_1], <strong>CP24time2A</strong>, msec and min
-IEC60870-5-104 default ASDU type 30 [M_SP_TB_1], <strong>CP56time2A</strong>, full time</td>
+IEC60870-5-101 default ASDU type 2 [<span class="lectext1">M_SP_TA_1</span>], <strong>CP24time2A</strong>, msec and min
+IEC60870-5-104 default ASDU type 30 [<span class="lectext1">M_SP_TB_1</span>], <strong>CP56time2A</strong>, full time</td>
 </tr>
 </tbody>
 </table>
@@ -14751,57 +14751,57 @@ for additional information on AI scaling and application examples using <a class
 <tbody valign="top">
 <tr class="row-even"><td>5</td>
 <td>5</td>
-<td>Static &#8216;Step position Information&#8217; will be sent using ASDU type 5 [M_ST_NA_1] AI event will be sent using ASDU type 5 [M_ST_NA_1], <strong>no time-tag</strong></td>
+<td>Static &#8216;Step position Information&#8217; will be sent using ASDU type 5 [<span class="lectext1">M_ST_NA_1</span>] AI event will be sent using ASDU type 5 [<span class="lectext1">M_ST_NA_1</span>], <strong>no time-tag</strong></td>
 </tr>
 <tr class="row-odd"><td>6</td>
 <td>N/A</td>
-<td>Static &#8216;Step position Information&#8217; will be sent using ASDU type 5 [M_ST_NA_1] AI event will be sent using ASDU type 6 [M_ST_TA_1], <strong>CP24time2A</strong>, msec and min</td>
+<td>Static &#8216;Step position Information&#8217; will be sent using ASDU type 5 [<span class="lectext1">M_ST_NA_1</span>] AI event will be sent using ASDU type 6 [<span class="lectext1">M_ST_TA_1</span>], <strong>CP24time2A</strong>, msec and min</td>
 </tr>
 <tr class="row-even"><td>9</td>
 <td>9</td>
-<td>Static &#8216;Normalized Integer&#8217; will be sent using ASDU type 9 [M_ME_NA_1] AI event will be sent using ASDU type 9 [M_ME_NA_1], <strong>no time-tag</strong></td>
+<td>Static &#8216;Normalized Integer&#8217; will be sent using ASDU type 9 [<span class="lectext1">M_ME_NA_1</span>] AI event will be sent using ASDU type 9 [<span class="lectext1">M_ME_NA_1</span>], <strong>no time-tag</strong></td>
 </tr>
 <tr class="row-odd"><td>10</td>
 <td>N/A</td>
-<td>Static &#8216;Normalized Integer&#8217; will be sent using ASDU type 9 [M_ME_NA_1] AI event will be sent using ASDU type 10 [M_ME_TA_1], <strong>CP24time2A</strong>, msec and min</td>
+<td>Static &#8216;Normalized Integer&#8217; will be sent using ASDU type 9 [<span class="lectext1">M_ME_NA_1</span>] AI event will be sent using ASDU type 10 [<span class="lectext1">M_ME_TA_1</span>], <strong>CP24time2A</strong>, msec and min</td>
 </tr>
 <tr class="row-even"><td>11</td>
 <td>11</td>
-<td>Static &#8216;Scaled Integer&#8217; will be sent using ASDU type 11 [M_ME_NB_1] AI event will be sent using ASDU type 11 [M_ME_NB_1], <strong>no time-tag</strong></td>
+<td>Static &#8216;Scaled Integer&#8217; will be sent using ASDU type 11 [<span class="lectext1">M_ME_NB_1</span>] AI event will be sent using ASDU type 11 [<span class="lectext1">M_ME_NB_1</span>], <strong>no time-tag</strong></td>
 </tr>
 <tr class="row-odd"><td>12</td>
 <td>N/A</td>
-<td>Static &#8216;Scaled Integer&#8217; will be sent using ASDU type 11 [M_ME_NB_1] AI event will be sent using ASDU type 12 [M_ME_TB_1], <strong>CP24time2A</strong>, msec and min</td>
+<td>Static &#8216;Scaled Integer&#8217; will be sent using ASDU type 11 [<span class="lectext1">M_ME_NB_1</span>] AI event will be sent using ASDU type 12 [<span class="lectext1">M_ME_TB_1</span>], <strong>CP24time2A</strong>, msec and min</td>
 </tr>
 <tr class="row-even"><td>13</td>
 <td>13</td>
-<td>Static &#8216;Short floating point&#8217; will be sent using ASDU type 13 [M_ME_NC_1] AI event will be sent using ASDU type 13 [M_ME_NC_1], <strong>no time-tag</strong></td>
+<td>Static &#8216;Short floating point&#8217; will be sent using ASDU type 13 [<span class="lectext1">M_ME_NC_1</span>] AI event will be sent using ASDU type 13 [<span class="lectext1">M_ME_NC_1</span>], <strong>no time-tag</strong></td>
 </tr>
 <tr class="row-odd"><td>14</td>
 <td>N/A</td>
-<td>Static &#8216;Short floating point&#8217; will be sent using ASDU type 13 [M_ME_NC_1] AI event will be sent using ASDU type 14 [M_ME_TC_1], <strong>CP24time2A</strong>, msec and min</td>
+<td>Static &#8216;Short floating point&#8217; will be sent using ASDU type 13 [<span class="lectext1">M_ME_NC_1</span>] AI event will be sent using ASDU type 14 [<span class="lectext1">M_ME_TC_1</span>], <strong>CP24time2A</strong>, msec and min</td>
 </tr>
 <tr class="row-even"><td>32</td>
 <td>32</td>
-<td>Static &#8216;Step position Information&#8217; will be sent using ASDU type 5 [M_ST_NA_1] AI event will be sent using ASDU type 32 [M_ST_TB_1], <strong>CP56time2A</strong>, full time</td>
+<td>Static &#8216;Step position Information&#8217; will be sent using ASDU type 5 [<span class="lectext1">M_ST_NA_1</span>] AI event will be sent using ASDU type 32 [<span class="lectext1">M_ST_TB_1</span>], <strong>CP56time2A</strong>, full time</td>
 </tr>
 <tr class="row-odd"><td>34</td>
 <td>34</td>
-<td>Static &#8216;Normalized Integer&#8217; will be sent using ASDU type 9 [M_ME_NA_1] AI event will be sent using ASDU type 34 [M_ME_TD_1], <strong>CP56time2A</strong>, full time</td>
+<td>Static &#8216;Normalized Integer&#8217; will be sent using ASDU type 9 [<span class="lectext1">M_ME_NA_1</span>] AI event will be sent using ASDU type 34 [<span class="lectext1">M_ME_TD_1</span>], <strong>CP56time2A</strong>, full time</td>
 </tr>
 <tr class="row-even"><td>35</td>
 <td>35</td>
-<td>Static &#8216;Scaled Integer&#8217; will be sent using ASDU type 11 [M_ME_NB_1] AI event will be sent using ASDU type 35 [M_ME_TE_1], <strong>CP56time2A</strong>, full time</td>
+<td>Static &#8216;Scaled Integer&#8217; will be sent using ASDU type 11 [<span class="lectext1">M_ME_NB_1</span>] AI event will be sent using ASDU type 35 [<span class="lectext1">M_ME_TE_1</span>], <strong>CP56time2A</strong>, full time</td>
 </tr>
 <tr class="row-odd"><td>36</td>
 <td>36</td>
-<td>Static &#8216;Short floating point&#8217; will be sent using ASDU type 13 [M_ME_NC_1] AI event will be sent using ASDU type 36 [M_ME_TF_1], <strong>CP56time2A</strong>, full time</td>
+<td>Static &#8216;Short floating point&#8217; will be sent using ASDU type 13 [<span class="lectext1">M_ME_NC_1</span>] AI event will be sent using ASDU type 36 [<span class="lectext1">M_ME_TF_1</span>], <strong>CP56time2A</strong>, full time</td>
 </tr>
 <tr class="row-even"><td>Other</td>
 <td>Other</td>
 <td>Undefined, default values will be used:
-IEC60870-5-101 default ASDU type 14 [M_ME_TC_1], <strong>CP24time2A</strong>, msec and min
-IEC60870-5-104 default ASDU type 36 [M_ME_TF_1], <strong>CP56time2A</strong>, full time</td>
+IEC60870-5-101 default ASDU type 14 [<span class="lectext1">M_ME_TC_1</span>], <strong>CP24time2A</strong>, msec and min
+IEC60870-5-104 default ASDU type 36 [<span class="lectext1">M_ME_TF_1</span>], <strong>CP56time2A</strong>, full time</td>
 </tr>
 </tbody>
 </table>
@@ -15866,8 +15866,12 @@ Value 0 disables degraded timeout functionality.</td>
 <tr class="row-odd"><td><p class="first last" id="ref-iec101macommssettingscontrollocktimer"><span class="xmlref">ControlLockTimer</span></p>
 </td>
 <td>0...120</td>
-<td>30 sec</td>
-<td>Control command lock timer is used to poll only one outstation for a configured number of seconds after sending a control command. All other outstations that share the same hardware channel are temporary excluded from polling while <span class="xmlref">ControlLockTimer</span> operates. This feature enables to speed up reception of a control command feedback. <span class="xmlref">ControlLockTimer</span> can be used only if more than one outstation share the hardware channel. Value 0 disables control lock timer feature.</td>
+<td>20 sec</td>
+<td>Control command lock timer is used to poll only one outstation for a configured number of seconds after sending a control command.
+All other outstations that share the same hardware channel (e.g. serial port) are temporary excluded from polling while <span class="xmlref">ControlLockTimer</span> operates.
+This feature enables to speed up reception of a control command feedback.
+<span class="xmlref">ControlLockTimer</span> can only be used if more than one outstation share the hardware channel.
+Value 0 disables control lock timer feature.</td>
 </tr>
 <tr class="row-even"><td><p class="first last" id="ref-iec101macommssettingsofflinedelay"><span class="xmlref">OfflineDelay</span></p>
 </td>
@@ -17297,7 +17301,7 @@ See table <a href="#ref-iec10xmadiqualifierbits">8.2</a> for internal object qua
 </td>
 <td>0...2<sup>32</sup> - 1</td>
 <td>0 msec</td>
-<td>Intermediate state reporting delay in milliseconds for Double Point Information objects.
+<td>Intermediate state reporting delay in milliseconds for Double Point Status Information (DPI) objects.
 Intermediate state of the DPI will not be reported if it doesn&#8217;t exceed configured delay.
 (default value 0 - event will be generated instantly if DPI is in Intermediate state)
 <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
@@ -17306,7 +17310,7 @@ Intermediate state of the DPI will not be reported if it doesn&#8217;t exceed co
 </td>
 <td>0...2<sup>32</sup> - 1</td>
 <td>0 msec</td>
-<td>Indeterminate (error) state reporting delay in milliseconds for Double Point Information objects.
+<td>Indeterminate (error) state reporting delay in milliseconds for Double Point Information (DPI) objects.
 Indeterminate (error) state of the DPI will not be reported if it doesn&#8217;t exceed configured delay.
 (default value 0 - event will be generated instantly if DPI is in Indeterminate (error) state)
 <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
@@ -17360,10 +17364,10 @@ Attribute is used to create sequence of information objects with consecutive <a 
 </tr>
 <tr class="row-odd"><td rowspan="2">Bit 0</td>
 <td>xxxx.xxx0</td>
-<td>DI object <strong>will not</strong> be inverted (ON = 1; OFF = 0 for [M_SP_NA_1] type and ON = 2; OFF = 1; INTER = 0; INVALID = 3 for [M_DP_NA_1] type)</td>
+<td>DI object <strong>will not</strong> be inverted (ON = 1; OFF = 0 for [<span class="lectext1">M_SP_NA_1</span>] type and ON = 2; OFF = 1; INTER = 0; INVALID = 3 for [<span class="lectext1">M_DP_NA_1</span>] type)</td>
 </tr>
 <tr class="row-even"><td>xxxx.xxx1</td>
-<td>DI object <strong>will</strong> be inverted (ON = 0; OFF = 1 for [M_SP_NA_1] type and ON = 1; OFF = 2; INTER = 0; INVALID = 3 for [M_DP_NA_1] type)</td>
+<td>DI object <strong>will</strong> be inverted (ON = 0; OFF = 1 for [<span class="lectext1">M_SP_NA_1</span>] type and ON = 1; OFF = 2; INTER = 0; INVALID = 3 for [<span class="lectext1">M_DP_NA_1</span>] type)</td>
 </tr>
 <tr class="row-odd"><td rowspan="2">Bit 1</td>
 <td>xxxx.xx0x</td>
@@ -17374,10 +17378,12 @@ Attribute is used to create sequence of information objects with consecutive <a 
 </tr>
 <tr class="row-odd"><td rowspan="2">Bit 2</td>
 <td>xxxx.x0xx</td>
-<td>DI event is generated <strong>only</strong> when object state is changed</td>
+<td>Event is generated only if a DI object <strong>state has changed</strong></td>
 </tr>
 <tr class="row-even"><td>xxxx.x1xx</td>
-<td>DI event is generated <strong>every time</strong> object is received from outstation. Invalid [IV] flag is automatically cleared from these DI objects when outstation goes online which ensures they are always valid. <span class="inlinetip">This option is only used for backward compatibility.</span></td>
+<td>Event is generated <strong>every time</strong> DI object is received from outstation.
+Also invalid [<span class="lectext1">IV</span>] flag is automatically cleared when outstation goes online which ensures this DI object is always valid.
+<span class="inlinetip">This option is only used for backward compatibility.</span></td>
 </tr>
 <tr class="row-odd"><td rowspan="2">Bit 3</td>
 <td>xxxx.0xxx</td>
@@ -17425,33 +17431,33 @@ Attribute is used to create sequence of information objects with consecutive <a 
 <tbody valign="top">
 <tr class="row-even"><td>1</td>
 <td>1</td>
-<td>Static DI &#8216;Single-point Information&#8217; will be sent using ASDU type 1 [M_SP_NA_1] DI event will be sent using ASDU type 1 [M_SP_NA_1], <strong>no time-tag</strong></td>
+<td>Static DI &#8216;Single-point Information&#8217; will be sent using ASDU type 1 [<span class="lectext1">M_SP_NA_1</span>] DI event will be sent using ASDU type 1 [<span class="lectext1">M_SP_NA_1</span>], <strong>no time-tag</strong></td>
 </tr>
 <tr class="row-odd"><td>2</td>
 <td>N/A</td>
-<td>Static DI &#8216;Single-point Information&#8217; will be sent using ASDU type 1 [M_SP_NA_1] DI event will be sent using ASDU type 2 [M_SP_TA_1], <strong>CP24time2A</strong>, msec and min</td>
+<td>Static DI &#8216;Single-point Information&#8217; will be sent using ASDU type 1 [<span class="lectext1">M_SP_NA_1</span>] DI event will be sent using ASDU type 2 [<span class="lectext1">M_SP_TA_1</span>], <strong>CP24time2A</strong>, msec and min</td>
 </tr>
 <tr class="row-even"><td>3</td>
 <td>3</td>
-<td>Static DI &#8216;Double-point Information&#8217; will be sent using ASDU type 3 [M_DP_NA_1] DI event will be sent using ASDU type 3 [M_DP_NA_1], <strong>no time-tag</strong></td>
+<td>Static DI &#8216;Double-point Information&#8217; will be sent using ASDU type 3 [<span class="lectext1">M_DP_NA_1</span>] DI event will be sent using ASDU type 3 [<span class="lectext1">M_DP_NA_1</span>], <strong>no time-tag</strong></td>
 </tr>
 <tr class="row-odd"><td>4</td>
 <td>N/A</td>
-<td>Static DI &#8216;Double-point Information&#8217; will be sent using ASDU type 3 [M_DP_NA_1] DI event will be sent using ASDU type 4 [M_DP_TA_1], <strong>CP24time2A</strong>, msec and min</td>
+<td>Static DI &#8216;Double-point Information&#8217; will be sent using ASDU type 3 [<span class="lectext1">M_DP_NA_1</span>] DI event will be sent using ASDU type 4 [<span class="lectext1">M_DP_TA_1</span>], <strong>CP24time2A</strong>, msec and min</td>
 </tr>
 <tr class="row-even"><td>30</td>
 <td>30</td>
-<td>Static DI &#8216;Single-point Information&#8217; will be sent using ASDU type 1 [M_SP_NA_1] DI event will be sent using ASDU type 30 [M_SP_TB_1], <strong>CP56time2A</strong>, full time</td>
+<td>Static DI &#8216;Single-point Information&#8217; will be sent using ASDU type 1 [<span class="lectext1">M_SP_NA_1</span>] DI event will be sent using ASDU type 30 [<span class="lectext1">M_SP_TB_1</span>], <strong>CP56time2A</strong>, full time</td>
 </tr>
 <tr class="row-odd"><td>31</td>
 <td>31</td>
-<td>Static DI &#8216;Double-point Information&#8217; will be sent using ASDU type 3 [M_DP_NA_1] DI event will be sent using ASDU type 31 [M_DP_TB_1], <strong>CP56time2A</strong>, full time</td>
+<td>Static DI &#8216;Double-point Information&#8217; will be sent using ASDU type 3 [<span class="lectext1">M_DP_NA_1</span>] DI event will be sent using ASDU type 31 [<span class="lectext1">M_DP_TB_1</span>], <strong>CP56time2A</strong>, full time</td>
 </tr>
 <tr class="row-even"><td>Other</td>
 <td>Other</td>
 <td>Undefined, default values will be used:
-IEC60870-5-101 default ASDU type 2 [M_SP_TA_1], <strong>CP24time2A</strong>, msec and min
-IEC60870-5-104 default ASDU type 30 [M_SP_TB_1], <strong>CP56time2A</strong>, full time</td>
+IEC60870-5-101 default ASDU type 2 [<span class="lectext1">M_SP_TA_1</span>], <strong>CP24time2A</strong>, msec and min
+IEC60870-5-104 default ASDU type 30 [<span class="lectext1">M_SP_TB_1</span>], <strong>CP56time2A</strong>, full time</td>
 </tr>
 </tbody>
 </table>
@@ -17677,10 +17683,13 @@ Annexes <a class="reference internal" href="#docref-aiscalingwithoutstartoffset"
 </tr>
 <tr class="row-odd"><td rowspan="2">Bit 2</td>
 <td>xxxx.x0xx</td>
-<td>AI event is generated <strong>only</strong> if AI object is received from outstation with a &#8216;spontaneous&#8217; Cause Of Transmission ([COT] = 3)</td>
+<td>Event is generated if an AI object is received from outstation with a <strong>&#8216;spontaneous&#8217;</strong> Cause Of Transmission ([<span class="lectext1">COT</span>] = 3)
+or received value exceeds deadband/percent limit.</td>
 </tr>
 <tr class="row-even"><td>xxxx.x1xx</td>
-<td>AI event is generated <strong>every time</strong> AI object is received from outstation regardless of the Cause Of Transmission. <span class="inlinetip">This option is only used for backward compatibility.</span></td>
+<td>Event is generated <strong>every time</strong> AI object is received from outstation regardless of the Cause Of Transmission.
+Also invalid [<span class="lectext1">IV</span>] flag is automatically cleared when outstation goes online which ensures this AI object is always valid.
+<span class="inlinetip">This option is only used for backward compatibility.</span></td>
 </tr>
 <tr class="row-odd"><td rowspan="2">Bit 3</td>
 <td>xxxx.0xxx</td>
@@ -17728,57 +17737,57 @@ Annexes <a class="reference internal" href="#docref-aiscalingwithoutstartoffset"
 <tbody valign="top">
 <tr class="row-even"><td>5</td>
 <td>5</td>
-<td>Static &#8216;Step position Information&#8217; will be sent using ASDU type 5 [M_ST_NA_1] AI event will be sent using ASDU type 5 [M_ST_NA_1], <strong>no time-tag</strong></td>
+<td>Static &#8216;Step position Information&#8217; will be sent using ASDU type 5 [<span class="lectext1">M_ST_NA_1</span>] AI event will be sent using ASDU type 5 [<span class="lectext1">M_ST_NA_1</span>], <strong>no time-tag</strong></td>
 </tr>
 <tr class="row-odd"><td>6</td>
 <td>N/A</td>
-<td>Static &#8216;Step position Information&#8217; will be sent using ASDU type 5 [M_ST_NA_1] AI event will be sent using ASDU type 6 [M_ST_TA_1], <strong>CP24time2A</strong>, msec and min</td>
+<td>Static &#8216;Step position Information&#8217; will be sent using ASDU type 5 [<span class="lectext1">M_ST_NA_1</span>] AI event will be sent using ASDU type 6 [<span class="lectext1">M_ST_TA_1</span>], <strong>CP24time2A</strong>, msec and min</td>
 </tr>
 <tr class="row-even"><td>9</td>
 <td>9</td>
-<td>Static &#8216;Normalized Integer&#8217; will be sent using ASDU type 9 [M_ME_NA_1] AI event will be sent using ASDU type 9 [M_ME_NA_1], <strong>no time-tag</strong></td>
+<td>Static &#8216;Normalized Integer&#8217; will be sent using ASDU type 9 [<span class="lectext1">M_ME_NA_1</span>] AI event will be sent using ASDU type 9 [<span class="lectext1">M_ME_NA_1</span>], <strong>no time-tag</strong></td>
 </tr>
 <tr class="row-odd"><td>10</td>
 <td>N/A</td>
-<td>Static &#8216;Normalized Integer&#8217; will be sent using ASDU type 9 [M_ME_NA_1] AI event will be sent using ASDU type 10 [M_ME_TA_1], <strong>CP24time2A</strong>, msec and min</td>
+<td>Static &#8216;Normalized Integer&#8217; will be sent using ASDU type 9 [<span class="lectext1">M_ME_NA_1</span>] AI event will be sent using ASDU type 10 [<span class="lectext1">M_ME_TA_1</span>], <strong>CP24time2A</strong>, msec and min</td>
 </tr>
 <tr class="row-even"><td>11</td>
 <td>11</td>
-<td>Static &#8216;Scaled Integer&#8217; will be sent using ASDU type 11 [M_ME_NB_1] AI event will be sent using ASDU type 11 [M_ME_NB_1], <strong>no time-tag</strong></td>
+<td>Static &#8216;Scaled Integer&#8217; will be sent using ASDU type 11 [<span class="lectext1">M_ME_NB_1</span>] AI event will be sent using ASDU type 11 [<span class="lectext1">M_ME_NB_1</span>], <strong>no time-tag</strong></td>
 </tr>
 <tr class="row-odd"><td>12</td>
 <td>N/A</td>
-<td>Static &#8216;Scaled Integer&#8217; will be sent using ASDU type 11 [M_ME_NB_1] AI event will be sent using ASDU type 12 [M_ME_TB_1], <strong>CP24time2A</strong>, msec and min</td>
+<td>Static &#8216;Scaled Integer&#8217; will be sent using ASDU type 11 [<span class="lectext1">M_ME_NB_1</span>] AI event will be sent using ASDU type 12 [<span class="lectext1">M_ME_TB_1</span>], <strong>CP24time2A</strong>, msec and min</td>
 </tr>
 <tr class="row-even"><td>13</td>
 <td>13</td>
-<td>Static &#8216;Short floating point&#8217; will be sent using ASDU type 13 [M_ME_NC_1] AI event will be sent using ASDU type 13 [M_ME_NC_1], <strong>no time-tag</strong></td>
+<td>Static &#8216;Short floating point&#8217; will be sent using ASDU type 13 [<span class="lectext1">M_ME_NC_1</span>] AI event will be sent using ASDU type 13 [<span class="lectext1">M_ME_NC_1</span>], <strong>no time-tag</strong></td>
 </tr>
 <tr class="row-odd"><td>14</td>
 <td>N/A</td>
-<td>Static &#8216;Short floating point&#8217; will be sent using ASDU type 13 [M_ME_NC_1] AI event will be sent using ASDU type 14 [M_ME_TC_1], <strong>CP24time2A</strong>, msec and min</td>
+<td>Static &#8216;Short floating point&#8217; will be sent using ASDU type 13 [<span class="lectext1">M_ME_NC_1</span>] AI event will be sent using ASDU type 14 [<span class="lectext1">M_ME_TC_1</span>], <strong>CP24time2A</strong>, msec and min</td>
 </tr>
 <tr class="row-even"><td>32</td>
 <td>32</td>
-<td>Static &#8216;Step position Information&#8217; will be sent using ASDU type 5 [M_ST_NA_1] AI event will be sent using ASDU type 32 [M_ST_TB_1], <strong>CP56time2A</strong>, full time</td>
+<td>Static &#8216;Step position Information&#8217; will be sent using ASDU type 5 [<span class="lectext1">M_ST_NA_1</span>] AI event will be sent using ASDU type 32 [<span class="lectext1">M_ST_TB_1</span>], <strong>CP56time2A</strong>, full time</td>
 </tr>
 <tr class="row-odd"><td>34</td>
 <td>34</td>
-<td>Static &#8216;Normalized Integer&#8217; will be sent using ASDU type 9 [M_ME_NA_1] AI event will be sent using ASDU type 34 [M_ME_TD_1], <strong>CP56time2A</strong>, full time</td>
+<td>Static &#8216;Normalized Integer&#8217; will be sent using ASDU type 9 [<span class="lectext1">M_ME_NA_1</span>] AI event will be sent using ASDU type 34 [<span class="lectext1">M_ME_TD_1</span>], <strong>CP56time2A</strong>, full time</td>
 </tr>
 <tr class="row-even"><td>35</td>
 <td>35</td>
-<td>Static &#8216;Scaled Integer&#8217; will be sent using ASDU type 11 [M_ME_NB_1] AI event will be sent using ASDU type 35 [M_ME_TE_1], <strong>CP56time2A</strong>, full time</td>
+<td>Static &#8216;Scaled Integer&#8217; will be sent using ASDU type 11 [<span class="lectext1">M_ME_NB_1</span>] AI event will be sent using ASDU type 35 [<span class="lectext1">M_ME_TE_1</span>], <strong>CP56time2A</strong>, full time</td>
 </tr>
 <tr class="row-odd"><td>36</td>
 <td>36</td>
-<td>Static &#8216;Short floating point&#8217; will be sent using ASDU type 13 [M_ME_NC_1] AI event will be sent using ASDU type 36 [M_ME_TF_1], <strong>CP56time2A</strong>, full time</td>
+<td>Static &#8216;Short floating point&#8217; will be sent using ASDU type 13 [<span class="lectext1">M_ME_NC_1</span>] AI event will be sent using ASDU type 36 [<span class="lectext1">M_ME_TF_1</span>], <strong>CP56time2A</strong>, full time</td>
 </tr>
 <tr class="row-even"><td>Other</td>
 <td>Other</td>
 <td>Undefined, default values will be used:
-IEC60870-5-101 default ASDU type 14 [M_ME_TC_1], <strong>CP24time2A</strong>, msec and min
-IEC60870-5-104 default ASDU type 36 [M_ME_TF_1], <strong>CP56time2A</strong>, full time</td>
+IEC60870-5-101 default ASDU type 14 [<span class="lectext1">M_ME_TC_1</span>], <strong>CP24time2A</strong>, msec and min
+IEC60870-5-104 default ASDU type 36 [<span class="lectext1">M_ME_TF_1</span>], <strong>CP56time2A</strong>, full time</td>
 </tr>
 </tbody>
 </table>
@@ -18382,8 +18391,12 @@ Value 0 disables degraded timeout functionality.</td>
 <tr class="row-odd"><td><p class="first last" id="ref-iec103macommssettingscontrollocktimer"><span class="xmlref">ControlLockTimer</span></p>
 </td>
 <td>0...120</td>
-<td>30 sec</td>
-<td>Control command lock timer is used to poll only one outstation for a configured number of seconds after sending a control command. All other outstations that share the same hardware channel are temporary excluded from polling while <span class="xmlref">ControlLockTimer</span> operates. This feature enables to speed up reception of a control command feedback. <span class="xmlref">ControlLockTimer</span> can be used only if more than one outstation share the hardware channel. Value 0 disables control lock timer feature.</td>
+<td>20 sec</td>
+<td>Control command lock timer is used to poll only one outstation for a configured number of seconds after sending a control command.
+All other outstations that share the same hardware channel (e.g. serial port) are temporary excluded from polling while <span class="xmlref">ControlLockTimer</span> operates.
+This feature enables to speed up reception of a control command feedback.
+<span class="xmlref">ControlLockTimer</span> can only be used if more than one outstation share the hardware channel.
+Value 0 disables control lock timer feature.</td>
 </tr>
 <tr class="row-even"><td><p class="first last" id="ref-iec103macommssettingsofflinedelay"><span class="xmlref">OfflineDelay</span></p>
 </td>
@@ -18812,7 +18825,7 @@ See table <a href="#ref-iec103madiqualifierbits">9.12</a> for internal object qu
 </td>
 <td>0...2<sup>32</sup> - 1</td>
 <td>0 msec</td>
-<td>Intermediate state reporting delay in milliseconds for Double Point Information objects.
+<td>Intermediate state reporting delay in milliseconds for Double Point Status Information (DPI) objects.
 Intermediate state of the DPI will not be reported if it doesn&#8217;t exceed configured delay.
 (default value 0 - event will be generated instantly if DPI is in Intermediate state)
 <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
@@ -18821,7 +18834,7 @@ Intermediate state of the DPI will not be reported if it doesn&#8217;t exceed co
 </td>
 <td>0...2<sup>32</sup> - 1</td>
 <td>0 msec</td>
-<td>Indeterminate (error) state reporting delay in milliseconds for Double Point Information objects.
+<td>Indeterminate (error) state reporting delay in milliseconds for Double Point Information (DPI) objects.
 Indeterminate (error) state of the DPI will not be reported if it doesn&#8217;t exceed configured delay.
 (default value 0 - event will be generated instantly if DPI is in Indeterminate (error) state)
 <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
@@ -18879,10 +18892,12 @@ Attribute is used to create sequence of information objects with consecutive <a 
 </tr>
 <tr class="row-odd"><td rowspan="2">Bit 2</td>
 <td>xxxx.x0xx</td>
-<td>DI event is generated <strong>only</strong> when object state is changed</td>
+<td>Event is generated only if a DI object <strong>state has changed</strong></td>
 </tr>
 <tr class="row-even"><td>xxxx.x1xx</td>
-<td>DI event is generated <strong>every time</strong> object is received from outstation. Invalid [IV] flag is automatically cleared from these DI objects when outstation goes online which ensures they are always valid. <span class="inlinetip">This option is only used for backward compatibility.</span></td>
+<td>Event is generated <strong>every time</strong> DI object is received from outstation.
+Also invalid [<span class="lectext1">IV</span>] flag is automatically cleared when outstation goes online which ensures this DI object is always valid.
+<span class="inlinetip">This option is only used for backward compatibility.</span></td>
 </tr>
 <tr class="row-odd"><td rowspan="2">Bit 5</td>
 <td>xx0x.xxxx</td>
@@ -19123,10 +19138,13 @@ Annexes <a class="reference internal" href="#docref-aiscalingwithoutstartoffset"
 </tr>
 <tr class="row-odd"><td rowspan="2">Bit 2</td>
 <td>xxxx.x0xx</td>
-<td>AI event is <strong>never</strong> generated when object is received from outstation. This setting doesn&#8217;t affect events resulting from deadband or percent processing.</td>
+<td>Event is generated if an AI object is received from outstation with a <strong>&#8216;spontaneous&#8217;</strong> Cause Of Transmission ([<span class="lectext1">COT</span>] = 1)
+or received value exceeds deadband/percent limit.</td>
 </tr>
 <tr class="row-even"><td>xxxx.x1xx</td>
-<td>AI event is generated <strong>every time</strong> AI object is received from outstation. <span class="inlinetip">This option is only used for backward compatibility.</span></td>
+<td>Event is generated <strong>every time</strong> AI object is received from outstation regardless of the Cause Of Transmission.
+Also invalid [<span class="lectext1">IV</span>] flag is automatically cleared when outstation goes online which ensures this AI object is always valid.
+<span class="inlinetip">This option is only used for backward compatibility.</span></td>
 </tr>
 <tr class="row-odd"><td rowspan="2">Bit 6</td>
 <td>x0xx.xxxx</td>
@@ -19498,25 +19516,43 @@ Quality marking of station&#8217;s DI/AI objects will be changed after configure
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>BCDI16</td>
-<td>Brainchild Digital Input (16) module DI16. Information objects are automatically created for this device as follows: DI=16, AI=0, DO=0, AO=0</td>
+<td>Brainchild Digital Input (16) module DI16. Data points are automatically created for this device as follows: DI=16, AI=0, DO=0, AO=0</td>
 </tr>
 <tr class="row-odd"><td>BCAIIS8</td>
-<td>Brainchild isolated Analog Input (8) module AIIS8. Information objects are automatically created for this device as follows: DI=0, AI=8, DO=0, AO=0</td>
+<td>Brainchild isolated Analog Input (8) module AIIS8. Data points are automatically created for this device as follows: DI=0, AI=8, DO=0, AO=0</td>
 </tr>
 <tr class="row-even"><td>LEDOM16</td>
-<td>Londelec Digital Output (16) module DOM16. Information objects are automatically created for this device as follows: DI=0, AI=0, DO=16, AO=0</td>
+<td>Londelec Digital Output (16) module DOM16. Data points are automatically created for this device as follows: DI=0, AI=0, DO=16, AO=0</td>
 </tr>
 <tr class="row-odd"><td>LEIODC-C32-3100</td>
-<td>Londelec LEIODC-C32-3100 unit. Information objects are automatically created for this device as follows: DI=12, AI=0, DO=4, AO=0</td>
+<td>Londelec LEIODC-C32-3100 unit. Data points are automatically created for this device as follows: DI=12, AI=0, DO=4, AO=0</td>
 </tr>
 <tr class="row-even"><td>LEIODC-X32-3100</td>
-<td>Londelec LEIODC-X32-3100 unit. Information objects are automatically created for this device as follows: DI=12, AI=0, DO=4, AO=0</td>
+<td>Londelec LEIODC-X32-3100 unit. Data points are automatically created for this device as follows: DI=12, AI=0, DO=4, AO=0</td>
 </tr>
 <tr class="row-odd"><td>LEIODC-X10-3100</td>
-<td>Londelec LEIODC-X10-3100 unit. Information objects are automatically created for this device as follows: DI=12, AI=0, DO=4, AO=0</td>
+<td>Londelec LEIODC-X10-3100 unit. Data points are automatically created for this device as follows: DI=12, AI=0, DO=4, AO=0</td>
+</tr>
+<tr class="row-even"><td>LEIODC-X32-4000</td>
+<td>Londelec LEIODC-X32-4000 unit. Data points are automatically created for this device as follows: DI=16, AI=0, DO=0, AO=0</td>
+</tr>
+<tr class="row-odd"><td>LEIODC-X10-4000</td>
+<td>Londelec LEIODC-X10-4000 unit. Data points are automatically created for this device as follows: DI=16, AI=0, DO=0, AO=0</td>
+</tr>
+<tr class="row-even"><td>LEIODC-X32-0400</td>
+<td>Londelec LEIODC-X32-0400 unit. Data points are automatically created for this device as follows: DI=0, AI=0, DO=16, AO=0</td>
+</tr>
+<tr class="row-odd"><td>LEIODC-X10-0400</td>
+<td>Londelec LEIODC-X10-0400 unit. Data points are automatically created for this device as follows: DI=0, AI=0, DO=16, AO=0</td>
+</tr>
+<tr class="row-even"><td>LEIODC-X32-2200</td>
+<td>Londelec LEIODC-X32-2200 unit. Data points are automatically created for this device as follows: DI=8, AI=0, DO=8, AO=0</td>
+</tr>
+<tr class="row-odd"><td>LEIODC-X10-2200</td>
+<td>Londelec LEIODC-X10-2200 unit. Data points are automatically created for this device as follows: DI=8, AI=0, DO=8, AO=0</td>
 </tr>
 <tr class="row-even"><td>THT2</td>
-<td>Papouch THT2 thermometer. Information objects are automatically created for this device as follows: DI=0, AI=1, DO=0, AO=0</td>
+<td>Papouch THT2 thermometer. Data points are automatically created for this device as follows: DI=0, AI=1, DO=0, AO=0</td>
 </tr>
 <tr class="row-odd"><td>Other</td>
 <td>Undefined, none of hardcoded device types will be used</td>
@@ -20972,7 +21008,7 @@ See table <a href="#ref-iec61850cldiqualifierbits">11.19</a> for internal object
 </td>
 <td>0...2<sup>32</sup> - 1</td>
 <td>0 msec</td>
-<td>Intermediate state reporting delay in milliseconds for Double Point Information objects.
+<td>Intermediate state reporting delay in milliseconds for Double Point Status Information (DPI) objects.
 Intermediate state of the DPI will not be reported if it doesn&#8217;t exceed configured delay.
 (default value 0 - event will be generated instantly if DPI is in Intermediate state)
 <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
@@ -20981,7 +21017,7 @@ Intermediate state of the DPI will not be reported if it doesn&#8217;t exceed co
 </td>
 <td>0...2<sup>32</sup> - 1</td>
 <td>0 msec</td>
-<td>Indeterminate (error) state reporting delay in milliseconds for Double Point Information objects.
+<td>Indeterminate (error) state reporting delay in milliseconds for Double Point Information (DPI) objects.
 Indeterminate (error) state of the DPI will not be reported if it doesn&#8217;t exceed configured delay.
 (default value 0 - event will be generated instantly if DPI is in Indeterminate (error) state)
 <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
@@ -32348,8 +32384,8 @@ names, etc.</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>4.03</td>
-<td>2016-07-25 17:04:55</td>
+<tr class="row-even"><td>4.04</td>
+<td>2017-02-02 17:08:45</td>
 <td>V3.0</td>
 </tr>
 </tbody>
@@ -32375,112 +32411,117 @@ names, etc.</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>4.02</td>
+<tr class="row-even"><td>4.03</td>
+<td>2016-07-25 17:04:55</td>
+<td>V29</td>
+<td>V3.0</td>
+</tr>
+<tr class="row-odd"><td>4.02</td>
 <td>2016-07-14 19:27:51</td>
 <td>V29</td>
 <td>V3.0</td>
 </tr>
-<tr class="row-odd"><td>4.01</td>
+<tr class="row-even"><td>4.01</td>
 <td>2016-05-18 12:57:20</td>
 <td>V28</td>
 <td>V3.0</td>
 </tr>
-<tr class="row-even"><td>4.00</td>
+<tr class="row-odd"><td>4.00</td>
 <td>2016-05-08 11:22:30</td>
 <td>V27</td>
 <td>V3.0</td>
 </tr>
-<tr class="row-odd"><td>3.14</td>
+<tr class="row-even"><td>3.14</td>
 <td>2015-09-04 10:05:40</td>
 <td>V26</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-even"><td>3.13</td>
+<tr class="row-odd"><td>3.13</td>
 <td>2015-08-24 21:04:07</td>
 <td>V25</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-odd"><td>3.12</td>
+<tr class="row-even"><td>3.12</td>
 <td>2015-08-11 12:36:44</td>
 <td>V25</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-even"><td>3.11</td>
+<tr class="row-odd"><td>3.11</td>
 <td>2015-07-08 14:07:37</td>
 <td>V24</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-odd"><td>3.10</td>
+<tr class="row-even"><td>3.10</td>
 <td>2015-06-29 15:52:23</td>
 <td>V24</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-even"><td>3.09</td>
+<tr class="row-odd"><td>3.09</td>
 <td>2015-03-25 10:57:25</td>
 <td>V23</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-odd"><td>3.08</td>
+<tr class="row-even"><td>3.08</td>
 <td>2015-03-24 21:06:41</td>
 <td>V23</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-even"><td>3.07</td>
+<tr class="row-odd"><td>3.07</td>
 <td>2015-02-15 17:55:25</td>
 <td>V22</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-odd"><td>3.06</td>
+<tr class="row-even"><td>3.06</td>
 <td>2014-12-01 08:47:07</td>
 <td>V21</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-even"><td>3.05</td>
+<tr class="row-odd"><td>3.05</td>
 <td>2014-11-28 11:39:37</td>
 <td>V21</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-odd"><td>3.04</td>
+<tr class="row-even"><td>3.04</td>
 <td>2014-10-08 15:43:46</td>
 <td>V20</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-even"><td>3.02</td>
+<tr class="row-odd"><td>3.02</td>
 <td>2014-06-26 14:48:34</td>
 <td>V19</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-odd"><td>3.01</td>
+<tr class="row-even"><td>3.01</td>
 <td>2014-05-28 12:20:12</td>
 <td>V18</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-even"><td>3.00</td>
+<tr class="row-odd"><td>3.00</td>
 <td>2014-05-26 21:19:06</td>
 <td>V18</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-odd"><td>2.07</td>
+<tr class="row-even"><td>2.07</td>
 <td>2014-04-08 20:59:57</td>
 <td>V17</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-even"><td>2.06</td>
+<tr class="row-odd"><td>2.06</td>
 <td>2014-03-31 14:58:09</td>
 <td>V16</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-odd"><td>2.05</td>
+<tr class="row-even"><td>2.05</td>
 <td>2014-02-26 20:20:30</td>
 <td>V15</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-even"><td>2.04</td>
+<tr class="row-odd"><td>2.04</td>
 <td>2013-12-18 08:55:06</td>
 <td>V13, V14</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-odd"><td>2.01</td>
+<tr class="row-even"><td>2.01</td>
 <td>2013-10-16 17:21:27</td>
 <td>V12</td>
 <td>V2.0</td>
@@ -32503,7 +32544,17 @@ names, etc.</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>V29</td>
+<tr class="row-even"><td>V30</td>
+<td>02/02/2017</td>
+<td>AK</td>
+<td><div class="first last line-block">
+<div class="line">&gt; <a class="reference internal" href="#ref-uartcom"><em>COM</em></a> attribute in <a class="reference internal" href="#ref-uart"><em>UART</em></a> node can have value 0;</div>
+<div class="line">&gt; Default value of the <span class="xmlref">ControlLockTimer</span> attribute changed to 20 seconds;</div>
+<div class="line">&gt; <span class="xmlref">LEIODC-X32-4000</span>; <span class="xmlref">LEIODC-X10-4000</span>; <span class="xmlref">LEIODC-X32-0400</span>; <span class="xmlref">LEIODC-X10-0400</span>; <span class="xmlref">LEIODC-X32-2200</span>; <span class="xmlref">LEIODC-X10-2200</span> types added to Modbus Master <span class="xmlref">Hardcoded</span> node;</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td>V29</td>
 <td>14/07/2016</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -32513,7 +32564,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td>V28</td>
+<tr class="row-even"><td>V28</td>
 <td>18/05/2016</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -32521,7 +32572,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td>V27</td>
+<tr class="row-odd"><td>V27</td>
 <td>08/05/2016</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -32540,7 +32591,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td>V26</td>
+<tr class="row-even"><td>V26</td>
 <td>04/09/2015</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -32548,7 +32599,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td>V25</td>
+<tr class="row-odd"><td>V25</td>
 <td>11/08/2015</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -32559,7 +32610,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td>V24</td>
+<tr class="row-even"><td>V24</td>
 <td>29/06/2015</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -32573,7 +32624,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td>V23</td>
+<tr class="row-odd"><td>V23</td>
 <td>24/03/2015</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -32581,7 +32632,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td>V22</td>
+<tr class="row-even"><td>V22</td>
 <td>15/02/2015</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -32599,7 +32650,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td>V21</td>
+<tr class="row-odd"><td>V21</td>
 <td>28/11/2014</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -32608,12 +32659,12 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td>V20</td>
+<tr class="row-even"><td>V20</td>
 <td>09/10/2014</td>
 <td>AK</td>
 <td><span class="xmlref">DIEventStartup</span> attribute added to IEC60870-5-101/3/4 Master protocol configuration;</td>
 </tr>
-<tr class="row-even"><td>V19</td>
+<tr class="row-odd"><td>V19</td>
 <td>26/06/2014</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -32626,7 +32677,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td>V18</td>
+<tr class="row-even"><td>V18</td>
 <td>28/05/2014</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -32644,7 +32695,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td>V17</td>
+<tr class="row-odd"><td>V17</td>
 <td>08/04/2014</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -32659,7 +32710,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td>V16</td>
+<tr class="row-even"><td>V16</td>
 <td>31/03/2014</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -32679,7 +32730,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td>V15</td>
+<tr class="row-odd"><td>V15</td>
 <td>26/02/2014</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -32700,12 +32751,12 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td>V14</td>
+<tr class="row-even"><td>V14</td>
 <td>18/01/2014</td>
 <td>AK</td>
 <td>Version control element node added</td>
 </tr>
-<tr class="row-even"><td>V13</td>
+<tr class="row-odd"><td>V13</td>
 <td>18/12/2013</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -32720,7 +32771,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td>V12</td>
+<tr class="row-even"><td>V12</td>
 <td>18/11/2013</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -32743,57 +32794,57 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td>V11</td>
+<tr class="row-odd"><td>V11</td>
 <td>10/06/2013</td>
 <td>AK</td>
 <td>Offline reporting delay timer added</td>
 </tr>
-<tr class="row-odd"><td>V10</td>
+<tr class="row-even"><td>V10</td>
 <td>01/06/2013</td>
 <td>AK</td>
 <td>Timezone configuration option added</td>
 </tr>
-<tr class="row-even"><td>V9</td>
+<tr class="row-odd"><td>V9</td>
 <td>21/05/2013</td>
 <td>AK</td>
 <td>SpeedUpStarted configuration option added</td>
 </tr>
-<tr class="row-odd"><td>V8</td>
+<tr class="row-even"><td>V8</td>
 <td>14/05/2013</td>
 <td>AK</td>
 <td>Automatic DI and AI object sorting for &#8216;Master&#8217; and DO object sorting for &#8216;Slave&#8217; communication protocol instances; SummerTime flag configuration added; Communication Status reporting address for Auto-configuration mode added; CommsFlags attribute added; Service DO commands added;</td>
 </tr>
-<tr class="row-even"><td>V7</td>
+<tr class="row-odd"><td>V7</td>
 <td>12/04/2013</td>
 <td>AK</td>
 <td>Minor formatting corrections; Appendix A – Analogue value processing added</td>
 </tr>
-<tr class="row-odd"><td>V6</td>
+<tr class="row-even"><td>V6</td>
 <td>13/03/2013</td>
 <td>AK</td>
 <td>HourLimit attribute description added; AI offset, AI zero deadband and 75-125 input transducer offset compensation added</td>
 </tr>
-<tr class="row-even"><td>V5</td>
+<tr class="row-odd"><td>V5</td>
 <td>01/03/2013</td>
 <td>AK</td>
 <td>Range and Automatic configuration features added; GlobalTimeSync now available; changes to logfile specification</td>
 </tr>
-<tr class="row-odd"><td>V4</td>
+<tr class="row-even"><td>V4</td>
 <td>03/12/2012</td>
 <td>AK</td>
 <td>AI value offset for 4mA transducer input compensation added to Slave protocol instances</td>
 </tr>
-<tr class="row-even"><td>V3</td>
+<tr class="row-odd"><td>V3</td>
 <td>13/11/2012</td>
 <td>AK</td>
 <td>Minor changes to DO object address sequence, new DO execution policy added</td>
 </tr>
-<tr class="row-odd"><td>V2</td>
+<tr class="row-even"><td>V2</td>
 <td>03/10/2012</td>
 <td>AK</td>
 <td>New features added, changes in DI and AI Event attribute configuration</td>
 </tr>
-<tr class="row-even"><td>V1</td>
+<tr class="row-odd"><td>V1</td>
 <td>17/08/2012</td>
 <td>AK</td>
 <td>Initial version</td>
@@ -32911,7 +32962,7 @@ fUtHVztj9BMNwCVrPGuGqpyH+IPAGATai0CJ94qv3R3KZtb6wO+qrSdbVG4WdLDAIJBjFfURmoDK
 " alt="Logo"/>
             </a></p>
     <span class="sidebar-title">Leandc series XML configuration manual</span>
-    <span class="sidebar-subtitle" title="Version V29, docbuild(v0.1.0)">Version V29</span>
+    <span class="sidebar-subtitle" title="Version V30, docbuild(v0.1.0)">Version V30</span>
 
   <h3><a href="#document-index">Table Of Contents</a></h3>
   <ul>
@@ -33214,8 +33265,8 @@ fUtHVztj9BMNwCVrPGuGqpyH+IPAGATai0CJ94qv3R3KZtb6wO+qrSdbVG4WdLDAIJBjFfURmoDK
     </div>
 
     <div class="footer">
-        &copy; Copyright 2016, Londelec UK Ltd.
-      Last updated on 25 Jul 2016.
+        &copy; Copyright 2017, Londelec UK Ltd.
+      Last updated on 02 Feb 2017.
     </div>
   </body>
 </html>

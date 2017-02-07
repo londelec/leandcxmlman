@@ -16,8 +16,8 @@ This manual was published with the following leandc firmware release.
      :val,20:  Date
      :osv,60:  Required Operating System version
 
-   * :attr:    4.03
-     :val:     2016-07-25 17:04:55
+   * :attr:    4.04
+     :val:     2017-02-02 17:08:45
      :osv:     V3.0
 
 .. tip::
@@ -35,6 +35,11 @@ This manual was published with the following leandc firmware release.
      :fdate,10:	Firmware date
      :doc,10:	Manual version(s)
      :osv,10:	Operating System version
+
+   * :fw:       4.03
+     :fdate:    2016-07-25 17:04:55
+     :doc:      V29
+     :osv:      V3.0
 
    * :fw:       4.02
      :fdate:    2016-07-14 19:27:51
@@ -156,6 +161,13 @@ This manual was published with the following leandc firmware release.
      :date,5:	Date
      :by,5:	By
      :desc,85:	Comments
+
+   * :ver:	V30
+     :date:	02/02/2017
+     :by:	AK
+     :desc:	| > :ref:`<ref-UARTCOM>` attribute in :ref:`<ref-UART>` node can have value 0;
+		| > Default value of the :xmlref:`ControlLockTimer` attribute changed to 20 seconds;
+		| > :xmlref:`LEIODC-X32-4000`; :xmlref:`LEIODC-X10-4000`; :xmlref:`LEIODC-X32-0400`; :xmlref:`LEIODC-X10-0400`; :xmlref:`LEIODC-X32-2200`; :xmlref:`LEIODC-X10-2200` types added to Modbus Master :xmlref:`Hardcoded` node;
 
    * :ver:	V29
      :date:	14/07/2016

@@ -28,13 +28,13 @@ This node contains settings of a serial port.
 		:xmlref:`COM`
 
 		\*
-     :val:	1...16
+     :val:	0...16
      :def:	n/a
      :desc:	Serial port number. 
 		Number of the inbuilt serial port when running leandc on a supported hardware.
 		Please refer to table :numref:`ref-SerialHardwares` below for a list of currently supported hardwares.
-		If you are running leandc on a hardware that is not supported or want to use a port other than inbuilt (e.g. USB to Serial adapter), please specify the device path in :ref:`<ref-UARTDevpath>` attribute.
-		:ref:`<ref-UARTDevpath>` attribute has higher priority and value of :xmlref:`COM` will be ignored if :ref:`<ref-UARTDevpath>` is used.
+		If you are running leandc on a hardware that is not supported or want to use a serial port other than inbuilt (e.g. USB to Serial adapter), please use :xmlref:`COM="0"` and specify path of the UART device in :ref:`<ref-UARTDevpath>` attribute.
+		:ref:`<ref-UARTDevpath>` attribute has higher priority and value of :ref:`<ref-UARTCOM>` will be ignored if :ref:`<ref-UARTDevpath>` is used.
 
    * :attr:     .. _ref-UARTDevpath:
 
@@ -45,7 +45,7 @@ This node contains settings of a serial port.
 		All serial ports can normally be found in '/dev' directory.
 		On standard hardwares inbuilt serial ports have names '/dev/ttyS0'; '/dev/ttyS1' and USB to Serial adapter ports '/dev/ttyUSB0'; '/dev/ttyUSB0'; etc
 		:inlineimportant:`Attribute is case sensitive, observe the case of path when specifying.`
-		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, path will be resolved automatically from` :ref:`<ref-UARTCOM>` \ :inlinetip:`number, if omitted.`
+		:inlinetip:`Attribute is optional, path of the UART device will be resolved automatically from` :ref:`<ref-UARTCOM>` \ :inlinetip:`number, if omitted.`
 
    * :attr:     :xmlref:`Baudrate`
      :val:      300...115200bps

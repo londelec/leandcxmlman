@@ -82,11 +82,11 @@ DI.qualifier
 
    * :attr:     Bit 0
      :val:      xxxx.xxx0
-     :desc:     DI object **will not** be inverted (ON = 1; OFF = 0 for [M_SP_NA_1] type and ON = 2; OFF = 1; INTER = 0; INVALID = 3 for [M_DP_NA_1] type)
+     :desc:     DI object **will not** be inverted (ON = 1; OFF = 0 for [:lectext1:`M_SP_NA_1`] type and ON = 2; OFF = 1; INTER = 0; INVALID = 3 for [:lectext1:`M_DP_NA_1`] type)
 
    * :(attr):
      :val:      xxxx.xxx1
-     :desc:     DI object **will** be inverted (ON = 0; OFF = 1 for [M_SP_NA_1] type and ON = 1; OFF = 2; INTER = 0; INVALID = 3 for [M_DP_NA_1] type)
+     :desc:     DI object **will** be inverted (ON = 0; OFF = 1 for [:lectext1:`M_SP_NA_1`] type and ON = 1; OFF = 2; INTER = 0; INVALID = 3 for [:lectext1:`M_DP_NA_1`] type)
 
    * :attr:     Bit 1
      :val:      xxxx.xx0x
@@ -98,11 +98,13 @@ DI.qualifier
 
    * :attr:     Bit 2
      :val:      xxxx.x0xx
-     :desc:     DI event is generated **only** when object state is changed
+     :desc:	Event is generated only if a DI object **state has changed**
 
    * :(attr):
      :val:      xxxx.x1xx
-     :desc:     DI event is generated **every time** object is received from outstation. Invalid [IV] flag is automatically cleared from these DI objects when outstation goes online which ensures they are always valid. :inlinetip:`This option is only used for backward compatibility.`
+     :desc:	Event is generated **every time** DI object is received from outstation.
+		Also invalid [:lectext1:`IV`] flag is automatically cleared when outstation goes online which ensures this DI object is always valid.
+		:inlinetip:`This option is only used for backward compatibility.`
 
    * :attr:     Bit 3
      :val:      xxxx.0xxx

@@ -105,11 +105,14 @@ AI.qualifier
 
    * :attr:     Bit 2
      :val:      xxxx.x0xx
-     :desc:     AI event is generated **only** if AI object is received from outstation with a 'spontaneous' Cause Of Transmission ([COT] = 3)
+     :desc:	Event is generated if an AI object is received from outstation with a **'spontaneous'** Cause Of Transmission ([:lectext1:`COT`] = 3)
+		or received value exceeds deadband/percent limit.
 
    * :(attr):
      :val:      xxxx.x1xx
-     :desc:     AI event is generated **every time** AI object is received from outstation regardless of the Cause Of Transmission. :inlinetip:`This option is only used for backward compatibility.`
+     :desc:	Event is generated **every time** AI object is received from outstation regardless of the Cause Of Transmission.
+		Also invalid [:lectext1:`IV`] flag is automatically cleared when outstation goes online which ensures this AI object is always valid.
+		:inlinetip:`This option is only used for backward compatibility.`
 
    * :attr:     Bit 3
      :val:      xxxx.0xxx

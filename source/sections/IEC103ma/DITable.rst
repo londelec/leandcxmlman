@@ -86,11 +86,13 @@ DI.Qualifier
 
    * :attr:     Bit 2
      :val:      xxxx.x0xx
-     :desc:     DI event is generated **only** when object state is changed
+     :desc:	Event is generated only if a DI object **state has changed**
 
    * :(attr):
      :val:      xxxx.x1xx
-     :desc:     DI event is generated **every time** object is received from outstation. Invalid [IV] flag is automatically cleared from these DI objects when outstation goes online which ensures they are always valid. :inlinetip:`This option is only used for backward compatibility.`
+     :desc:	Event is generated **every time** DI object is received from outstation.
+		Also invalid [:lectext1:`IV`] flag is automatically cleared when outstation goes online which ensures this DI object is always valid.
+		:inlinetip:`This option is only used for backward compatibility.`
 
    * :attr:     Bit 5
      :val:      xx0x.xxxx
