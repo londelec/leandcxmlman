@@ -6,13 +6,13 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Leandc series XML configuration manual V30</title>
+    <title>Leandc series XML configuration manual V31</title>
     
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     'V30',
+        VERSION:     'V31',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -10966,7 +10966,9 @@ Please see sample <a class="reference internal" href="#ref-uart"><em>UART</em></
 </td>
 <td>1...254</td>
 <td>n/a</td>
-<td>Index is a unique identifier of the hardware node. It is used as a reference to link a communication protocol instance to this node. <span class="inlinetip">Indexes don&#8217;t have to be in a sequential order.</span></td>
+<td>Index is a unique identifier of the hardware node.
+It is used as a reference to link a communication protocol instance to this node.
+<span class="inlinetip">Indexes don&#8217;t have to be in a sequential order.</span></td>
 </tr>
 <tr class="row-odd"><td><p class="first" id="ref-uartcom"><span class="xmlref">COM</span></p>
 <p class="last">*</p>
@@ -10997,7 +10999,8 @@ On standard hardwares inbuilt serial ports have names &#8216;/dev/ttyS0&#8217;; 
 <tr class="row-even"><td><span class="xmlref">DataBits</span></td>
 <td>7 or 8</td>
 <td>8 bits</td>
-<td>UART data bit count 7 or 8. <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
+<td>UART data bit count 7 or 8.
+<span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
 </tr>
 <tr class="row-odd"><td><span class="xmlref">Parity</span></td>
 <td>N; E or O</td>
@@ -11007,7 +11010,8 @@ On standard hardwares inbuilt serial ports have names &#8216;/dev/ttyS0&#8217;; 
 <tr class="row-even"><td><span class="xmlref">StopBits</span></td>
 <td>1 or 2</td>
 <td>1 bit</td>
-<td>UART stop bit count 1 or 2. <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
+<td>UART stop bit count 1 or 2.
+<span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
 </tr>
 <tr class="row-odd"><td><span class="xmlref">Timeout</span></td>
 <td>0.01...42949</td>
@@ -11017,7 +11021,26 @@ On standard hardwares inbuilt serial ports have names &#8216;/dev/ttyS0&#8217;; 
 <tr class="row-even"><td><span class="xmlref">TxDelay</span></td>
 <td>0.00001...42949</td>
 <td>n/a</td>
-<td>Transmit delay in seconds. Outgoing message will be delayed for a configured number of seconds before being sent after received message. <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be calculated based on configured baudrate.</span></td>
+<td>Transmit delay in seconds. Time interval in seconds between received and sent message.
+<span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be calculated based on a configured baudrate.</span></td>
+</tr>
+<tr class="row-odd"><td><span class="xmlref">MaxTxDelay</span></td>
+<td>0 or 0.1...42949</td>
+<td>0</td>
+<td>Dynamic (maximal) transmit delay in seconds.
+Time interval in seconds between received and sent message in case serial port is used to communicate to only one outstation.
+Transmit delay is automatically adjusted depending on a number of outstations being communicated to via the serial port.
+Disabled stations are excluded from dynamic transmit delay calculation.
+Default value 0 disables dynamic transmit delay feature and <span class="xmlref">TxDelay</span> value is used.
+<span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration,</span> <span class="xmlref">TxDelay</span> <span class="inlinetip">value value will be used if omitted.</span></td>
+</tr>
+<tr class="row-even"><td><span class="xmlref">MaxStations</span></td>
+<td>1...64</td>
+<td>8</td>
+<td>Maximal number of stations for a dynamic transmit delay.
+If a number of outstations exceed the configured value, automatic transmit delay adjustment is disabled and <span class="xmlref">TxDelay</span> value is used.
+Disabled stations are excluded from dynamic transmit delay calculation.
+<span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
 </tr>
 <tr class="row-odd"><td><span class="xmlref">Interface</span></td>
 <td><div class="first last line-block">
@@ -11027,24 +11050,34 @@ On standard hardwares inbuilt serial ports have names &#8216;/dev/ttyS0&#8217;; 
 </div>
 </td>
 <td>RS232</td>
-<td>Type of physical interface. Only applies if hardware supports UART interface selection by software. <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value RS232 will be used if omitted.</span></td>
+<td>Type of physical interface. Only applies if hardware supports UART interface selection by software.
+<span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value RS232 will be used if omitted.</span></td>
 </tr>
 <tr class="row-even"><td><p class="first last" id="ref-uartctrlrdtimer"><span class="xmlref">CtrlRdTimer</span></p>
 </td>
 <td>0 or 0.00001...42949</td>
 <td>0 sec</td>
-<td>UART control line (e.g. DSR, RI pin) reading interval in seconds. UART control lines must be stable for at least 8 consequtive read cycles at a configured interval before state change is reported. Default value 0 disables UART control line reading. <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
+<td>UART control line (e.g. DSR, RI pin) reading interval in seconds.
+UART control lines must be stable for at least 8 consequtive read cycles at a configured interval before state change is reported.
+Default value 0 disables UART control line reading.
+<span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
 </tr>
 <tr class="row-odd"><td><p class="first last" id="ref-uartwatchdog"><span class="xmlref">Watchdog</span></p>
 </td>
 <td>0 or 5...65535</td>
 <td>0 min</td>
-<td>UART watchdog timer in minutes. System will reboot if this UART hasn&#8217;t received anything within a configured number of minutes. Default value 0 disables watchdog. <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
+<td>UART watchdog timer in minutes. System will reboot if this UART hasn&#8217;t received anything within a configured number of minutes.
+Default value 0 disables watchdog.
+<span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
 </tr>
 <tr class="row-even"><td><span class="xmlref">Test</span></td>
 <td>Echo</td>
 <td>n/a</td>
-<td>Attribute enables port testing mode. UART will echo any data received if this attribute is used. There is no need to disable communication protocol or supervision instances linked to UART when testing. Any testing data received will also be recorded to a communication logfile, if logging is enabled for this hardware node. <span class="inlineimportant">Attribute must not be used if not required, there is no default value.</span></td>
+<td>Attribute enables port testing mode.
+UART will echo any data received if this attribute is used.
+There is no need to disable communication protocol or supervision instances linked to UART when testing.
+Any testing data received will also be recorded to a communication logfile, if logging is enabled for this hardware node.
+<span class="inlineimportant">Attribute must not be used if not required, there is no default value.</span></td>
 </tr>
 <tr class="row-odd"><td><span class="xmlref">Name</span></td>
 <td>Max 100 chars</td>
@@ -15947,35 +15980,39 @@ Quality marking of station&#8217;s DI/AI objects will be changed after configure
 <tr class="row-even"><td>1</td>
 <td>DI/AI events with set Invalid [IV] bit <strong>will be</strong> generated</td>
 </tr>
-<tr class="row-odd"><td rowspan="2"><span class="xmlref">IgnoreTimetags</span></td>
+<tr class="row-odd"><td rowspan="3"><span class="xmlref">IgnoreTimetags</span></td>
 <td>0</td>
-<td rowspan="2">0</td>
-<td><strong>Use original</strong> timetag when events are received from outstation</td>
+<td rowspan="3">0</td>
+<td><strong>Use original</strong> timetags of events received from outstation.</td>
 </tr>
 <tr class="row-even"><td>1</td>
-<td><strong>Substitute</strong> timetag with the local time when events are received from outstation</td>
+<td><strong>Substitute</strong> all timetags of events received from outstation with the local time.</td>
 </tr>
-<tr class="row-odd"><td rowspan="2"><span class="xmlref">SUthroughoutDST</span></td>
+<tr class="row-odd"><td>2</td>
+<td><strong>Substitute future</strong> timetags of events received from outstation with the local time.
+Timetags of received events will be substituted only if a received timetag is in future compared to the local time.</td>
+</tr>
+<tr class="row-even"><td rowspan="2"><span class="xmlref">SUthroughoutDST</span></td>
 <td>0</td>
 <td rowspan="2">0</td>
 <td>Summer Time [SU] bit in the time-tag of any outgoing message will be set (&#8216;1&#8217;) to indicate <strong>last hour of the Summer Time</strong> before a clock adjustment at the end of the Daylight Saving Time (DST) (this is when clock is turned back one hour)</td>
 </tr>
-<tr class="row-even"><td>1</td>
+<tr class="row-odd"><td>1</td>
 <td>Summer Time [SU] bit in the time-tag of any outgoing message <strong>will always be set (&#8216;1&#8217;)</strong> if the date and time of the tag is Summer Time. <span class="inlinetip">Please note this functionality is deviation from communication standard and option should be avoided.</span></td>
 </tr>
-<tr class="row-odd"><td><p class="first last" id="ref-iec101maasdusettingsaideadband"><span class="xmlref">AIDeadband</span></p>
+<tr class="row-even"><td><p class="first last" id="ref-iec101maasdusettingsaideadband"><span class="xmlref">AIDeadband</span></p>
 </td>
 <td>0 or ±1.18×10<sup>-38</sup>...±3.4×10<sup>38</sup></td>
 <td>0</td>
 <td>Deadband for all AI objects which doesn&#8217;t have <a class="reference internal" href="#ref-iec10xmaai"><em>AI</em></a>.<a class="reference internal" href="#ref-iec10xmaaideadband"><em>Deadband</em></a> attribute specified in their element node. Refer to individual <a class="reference internal" href="#ref-iec10xmaai"><em>AI</em></a>.<a class="reference internal" href="#ref-iec10xmaaideadband"><em>Deadband</em></a> attribute description for more information. Value 0 disables deadband feature</td>
 </tr>
-<tr class="row-even"><td><p class="first last" id="ref-iec101maasdusettingsaipercent"><span class="xmlref">AIPercent</span></p>
+<tr class="row-odd"><td><p class="first last" id="ref-iec101maasdusettingsaipercent"><span class="xmlref">AIPercent</span></p>
 </td>
 <td>0 or ±1.18×10<sup>-38</sup>...±3.4×10<sup>38</sup></td>
 <td>0</td>
 <td>Percent deadband for all AI objects which doesn&#8217;t have <a class="reference internal" href="#ref-iec10xmaai"><em>AI</em></a>.<a class="reference internal" href="#ref-iec10xmaaipercent"><em>Percent</em></a> attribute specified in their element node. Refer to individual <a class="reference internal" href="#ref-iec10xmaai"><em>AI</em></a>.<a class="reference internal" href="#ref-iec10xmaaipercent"><em>Percent</em></a> attribute description for more information. Value 0 disables percent feature</td>
 </tr>
-<tr class="row-odd"><td><p class="first last" id="ref-iec101maasdusettingsdoqoc"><span class="xmlref">DOQOC</span></p>
+<tr class="row-even"><td><p class="first last" id="ref-iec101maasdusettingsdoqoc"><span class="xmlref">DOQOC</span></p>
 </td>
 <td>See table <a href="#ref-iec10xmadoqocvalues">8.10</a></td>
 <td>0</td>
@@ -15983,7 +16020,7 @@ Quality marking of station&#8217;s DI/AI objects will be changed after configure
 Refer to table <a href="#ref-iec10xmadoqocvalues">8.10</a> for <span class="xmlref">QOC</span> values.
 (default value 0 [no additional definition])</td>
 </tr>
-<tr class="row-even"><td><p class="first last" id="ref-iec101maasdusettingsdotype"><span class="xmlref">DOType</span></p>
+<tr class="row-odd"><td><p class="first last" id="ref-iec101maasdusettingsdotype"><span class="xmlref">DOType</span></p>
 </td>
 <td>See table <a href="#ref-iec10xmadotypeidvalues">8.9</a></td>
 <td>transparent</td>
@@ -15991,7 +16028,7 @@ Refer to table <a href="#ref-iec10xmadoqocvalues">8.10</a> for <span class="xmlr
 Refer to table <a href="#ref-iec10xmadotypeidvalues">8.9</a> for values.
 ASDU type is transparent if neither this attribute nor <a class="reference internal" href="#ref-iec10xmado"><em>DO</em></a>.<a class="reference internal" href="#ref-iec10xmadotypeid"><em>TypeID</em></a> attribute is used.</td>
 </tr>
-<tr class="row-odd"><td><p class="first last" id="ref-iec101maasdusettingsaotype"><span class="xmlref">AOType</span></p>
+<tr class="row-even"><td><p class="first last" id="ref-iec101maasdusettingsaotype"><span class="xmlref">AOType</span></p>
 </td>
 <td>See table <a href="#ref-iec10xmaaotypeidvalues">8.13</a></td>
 <td>transparent</td>
@@ -15999,38 +16036,38 @@ ASDU type is transparent if neither this attribute nor <a class="reference inter
 Refer to table <a href="#ref-iec10xmaaotypeidvalues">8.13</a> for values.
 ASDU type is transparent if neither this attribute nor <a class="reference internal" href="#ref-iec10xmaao"><em>AO</em></a>.<a class="reference internal" href="#ref-iec10xmaaotypeid"><em>TypeID</em></a> attribute is used.</td>
 </tr>
-<tr class="row-even"><td><p class="first last" id="ref-iec101maasdusettingsflags"><span class="xmlref">Flags</span></p>
+<tr class="row-odd"><td><p class="first last" id="ref-iec101maasdusettingsflags"><span class="xmlref">Flags</span></p>
 </td>
 <td>0...255 or 0x00...0xFF</td>
 <td>0x00</td>
 <td>Various settings to enable customized data processing.
 See table <a href="#ref-iec101maasduflagsbits">6.6</a> for description.</td>
 </tr>
-<tr class="row-odd"><td rowspan="2"><span class="xmlref">DIEventStartup</span></td>
+<tr class="row-even"><td rowspan="2"><span class="xmlref">DIEventStartup</span></td>
 <td>0</td>
 <td rowspan="2">1</td>
 <td>DI events <strong>will not be</strong> generated when received from outstation for the first time after leandc startup. This setting masks only events received from an outstation. Internal events created by station Offline/Disabled changes will be generated as normal.</td>
 </tr>
-<tr class="row-even"><td>1</td>
+<tr class="row-odd"><td>1</td>
 <td>DI events <strong>will be</strong> generated when received from outstation for the first time after leandc startup</td>
 </tr>
-<tr class="row-odd"><td rowspan="2"><span class="xmlref">AIEventStartup</span></td>
+<tr class="row-even"><td rowspan="2"><span class="xmlref">AIEventStartup</span></td>
 <td>0</td>
 <td rowspan="2">1</td>
 <td>AI events <strong>will not be</strong> generated when received from outstation for the first time after leandc startup</td>
 </tr>
-<tr class="row-even"><td>1</td>
+<tr class="row-odd"><td>1</td>
 <td>AI events <strong>will be</strong> generated when received from outstation for the first time after system leandc</td>
 </tr>
-<tr class="row-odd"><td rowspan="2"><span class="xmlref">ForwardGI</span></td>
+<tr class="row-even"><td rowspan="2"><span class="xmlref">ForwardGI</span></td>
 <td>0</td>
 <td rowspan="2">1</td>
 <td><strong>Don&#8217;t forward</strong> General Interrogation command to downstream outstations when received from upstream station (e.g. SCADA)</td>
 </tr>
-<tr class="row-even"><td>1</td>
+<tr class="row-odd"><td>1</td>
 <td><strong>Forward</strong> General Interrogation command to downstream outstations when received from upstream station (e.g. SCADA)</td>
 </tr>
-<tr class="row-odd"><td><p class="first last" id="ref-iec101maasdusettingstimetagfbrange"><span class="xmlref">TimetagFBrange</span></p>
+<tr class="row-even"><td><p class="first last" id="ref-iec101maasdusettingstimetagfbrange"><span class="xmlref">TimetagFBrange</span></p>
 </td>
 <td>0...600</td>
 <td>240 sec</td>
@@ -16738,35 +16775,39 @@ Quality marking of station&#8217;s DI/AI objects will be changed after configure
 <tr class="row-odd"><td>1</td>
 <td>DI/AI events with set Invalid [IV] bit <strong>will be</strong> generated</td>
 </tr>
-<tr class="row-even"><td rowspan="2"><span class="xmlref">IgnoreTimetags</span></td>
+<tr class="row-even"><td rowspan="3"><span class="xmlref">IgnoreTimetags</span></td>
 <td>0</td>
-<td rowspan="2">0</td>
-<td><strong>Use original</strong> timetag when events are received from outstation</td>
+<td rowspan="3">0</td>
+<td><strong>Use original</strong> timetags of events received from outstation.</td>
 </tr>
 <tr class="row-odd"><td>1</td>
-<td><strong>Substitute</strong> timetag with the local time when events are received from outstation</td>
+<td><strong>Substitute</strong> all timetags of events received from outstation with the local time.</td>
 </tr>
-<tr class="row-even"><td rowspan="2"><span class="xmlref">SUthroughoutDST</span></td>
+<tr class="row-even"><td>2</td>
+<td><strong>Substitute future</strong> timetags of events received from outstation with the local time.
+Timetags of received events will be substituted only if a received timetag is in future compared to the local time.</td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><span class="xmlref">SUthroughoutDST</span></td>
 <td>0</td>
 <td rowspan="2">0</td>
 <td>Summer Time [SU] bit in the time-tag of any outgoing message will be set (&#8216;1&#8217;) to indicate <strong>last hour of the Summer Time</strong> before a clock adjustment at the end of the Daylight Saving Time (DST) (this is when clock is turned back one hour)</td>
 </tr>
-<tr class="row-odd"><td>1</td>
+<tr class="row-even"><td>1</td>
 <td>Summer Time [SU] bit in the time-tag of any outgoing message <strong>will always be set (&#8216;1&#8217;)</strong> if the date and time of the tag is Summer Time. <span class="inlinetip">Please note this functionality is deviation from communication standard and option should be avoided.</span></td>
 </tr>
-<tr class="row-even"><td><p class="first last" id="ref-iec104maasdusettingsaideadband"><span class="xmlref">AIDeadband</span></p>
+<tr class="row-odd"><td><p class="first last" id="ref-iec104maasdusettingsaideadband"><span class="xmlref">AIDeadband</span></p>
 </td>
 <td>0 or ±1.18×10<sup>-38</sup>...±3.4×10<sup>38</sup></td>
 <td>0</td>
 <td>Deadband for all AI objects which doesn&#8217;t have <a class="reference internal" href="#ref-iec10xmaai"><em>AI</em></a>.<a class="reference internal" href="#ref-iec10xmaaideadband"><em>Deadband</em></a> attribute specified in their element node. Refer to individual <a class="reference internal" href="#ref-iec10xmaai"><em>AI</em></a>.<a class="reference internal" href="#ref-iec10xmaaideadband"><em>Deadband</em></a> attribute description for more information. Value 0 disables deadband feature</td>
 </tr>
-<tr class="row-odd"><td><p class="first last" id="ref-iec104maasdusettingsaipercent"><span class="xmlref">AIPercent</span></p>
+<tr class="row-even"><td><p class="first last" id="ref-iec104maasdusettingsaipercent"><span class="xmlref">AIPercent</span></p>
 </td>
 <td>0 or ±1.18×10<sup>-38</sup>...±3.4×10<sup>38</sup></td>
 <td>0</td>
 <td>Percent deadband for all AI objects which doesn&#8217;t have <a class="reference internal" href="#ref-iec10xmaai"><em>AI</em></a>.<a class="reference internal" href="#ref-iec10xmaaipercent"><em>Percent</em></a> attribute specified in their element node. Refer to individual <a class="reference internal" href="#ref-iec10xmaai"><em>AI</em></a>.<a class="reference internal" href="#ref-iec10xmaaipercent"><em>Percent</em></a> attribute description for more information. Value 0 disables percent feature</td>
 </tr>
-<tr class="row-even"><td><p class="first last" id="ref-iec104maasdusettingsdoqoc"><span class="xmlref">DOQOC</span></p>
+<tr class="row-odd"><td><p class="first last" id="ref-iec104maasdusettingsdoqoc"><span class="xmlref">DOQOC</span></p>
 </td>
 <td>See table <a href="#ref-iec10xmadoqocvalues">8.10</a></td>
 <td>0</td>
@@ -16774,7 +16815,7 @@ Quality marking of station&#8217;s DI/AI objects will be changed after configure
 Refer to table <a href="#ref-iec10xmadoqocvalues">8.10</a> for <span class="xmlref">QOC</span> values.
 (default value 0 [no additional definition])</td>
 </tr>
-<tr class="row-odd"><td><p class="first last" id="ref-iec104maasdusettingsdotype"><span class="xmlref">DOType</span></p>
+<tr class="row-even"><td><p class="first last" id="ref-iec104maasdusettingsdotype"><span class="xmlref">DOType</span></p>
 </td>
 <td>See table <a href="#ref-iec10xmadotypeidvalues">8.9</a></td>
 <td>transparent</td>
@@ -16782,7 +16823,7 @@ Refer to table <a href="#ref-iec10xmadoqocvalues">8.10</a> for <span class="xmlr
 Refer to table <a href="#ref-iec10xmadotypeidvalues">8.9</a> for values.
 ASDU type is transparent if neither this attribute nor <a class="reference internal" href="#ref-iec10xmado"><em>DO</em></a>.<a class="reference internal" href="#ref-iec10xmadotypeid"><em>TypeID</em></a> attribute is used.</td>
 </tr>
-<tr class="row-even"><td><p class="first last" id="ref-iec104maasdusettingsaotype"><span class="xmlref">AOType</span></p>
+<tr class="row-odd"><td><p class="first last" id="ref-iec104maasdusettingsaotype"><span class="xmlref">AOType</span></p>
 </td>
 <td>See table <a href="#ref-iec10xmaaotypeidvalues">8.13</a></td>
 <td>transparent</td>
@@ -16790,35 +16831,35 @@ ASDU type is transparent if neither this attribute nor <a class="reference inter
 Refer to table <a href="#ref-iec10xmaaotypeidvalues">8.13</a> for values.
 ASDU type is transparent if neither this attribute nor <a class="reference internal" href="#ref-iec10xmaao"><em>AO</em></a>.<a class="reference internal" href="#ref-iec10xmaaotypeid"><em>TypeID</em></a> attribute is used.</td>
 </tr>
-<tr class="row-odd"><td><p class="first last" id="ref-iec104maasdusettingsflags"><span class="xmlref">Flags</span></p>
+<tr class="row-even"><td><p class="first last" id="ref-iec104maasdusettingsflags"><span class="xmlref">Flags</span></p>
 </td>
 <td>0...255 or 0x00...0xFF</td>
 <td>0x00</td>
 <td>Various settings to enable customized data processing.
 See table <a href="#ref-iec104maasduflagsbits">7.5</a> for description.</td>
 </tr>
-<tr class="row-even"><td rowspan="2"><span class="xmlref">DIEventStartup</span></td>
+<tr class="row-odd"><td rowspan="2"><span class="xmlref">DIEventStartup</span></td>
 <td>0</td>
 <td rowspan="2">1</td>
 <td>DI events <strong>will not be</strong> generated when received from outstation for the first time after leandc startup. This setting masks only events received from an outstation. Internal events created by station Offline/Disabled changes will be generated as normal.</td>
 </tr>
-<tr class="row-odd"><td>1</td>
+<tr class="row-even"><td>1</td>
 <td>DI events <strong>will be</strong> generated when received from outstation for the first time after leandc startup</td>
 </tr>
-<tr class="row-even"><td rowspan="2"><span class="xmlref">AIEventStartup</span></td>
+<tr class="row-odd"><td rowspan="2"><span class="xmlref">AIEventStartup</span></td>
 <td>0</td>
 <td rowspan="2">1</td>
 <td>AI events <strong>will not be</strong> generated when received from outstation for the first time after leandc startup</td>
 </tr>
-<tr class="row-odd"><td>1</td>
+<tr class="row-even"><td>1</td>
 <td>AI events <strong>will be</strong> generated when received from outstation for the first time after system leandc</td>
 </tr>
-<tr class="row-even"><td rowspan="2"><span class="xmlref">ForwardGI</span></td>
+<tr class="row-odd"><td rowspan="2"><span class="xmlref">ForwardGI</span></td>
 <td>0</td>
 <td rowspan="2">1</td>
 <td><strong>Don&#8217;t forward</strong> General Interrogation command to downstream outstations when received from upstream station (e.g. SCADA)</td>
 </tr>
-<tr class="row-odd"><td>1</td>
+<tr class="row-even"><td>1</td>
 <td><strong>Forward</strong> General Interrogation command to downstream outstations when received from upstream station (e.g. SCADA)</td>
 </tr>
 </tbody>
@@ -18454,56 +18495,60 @@ Quality marking of station&#8217;s DI/AI objects will be changed after configure
 <tr class="row-odd"><td>1</td>
 <td>DI/AI events with set Invalid [IV] bit <strong>will be</strong> generated</td>
 </tr>
-<tr class="row-even"><td rowspan="2"><span class="xmlref">IgnoreTimetags</span></td>
+<tr class="row-even"><td rowspan="3"><span class="xmlref">IgnoreTimetags</span></td>
 <td>0</td>
-<td rowspan="2">0</td>
-<td><strong>Use original</strong> timetag when events are received from outstation</td>
+<td rowspan="3">0</td>
+<td><strong>Use original</strong> timetags of events received from outstation.</td>
 </tr>
 <tr class="row-odd"><td>1</td>
-<td><strong>Substitute</strong> timetag with the local time when events are received from outstation</td>
+<td><strong>Substitute</strong> all timetags of events received from outstation with the local time.</td>
 </tr>
-<tr class="row-even"><td rowspan="2"><span class="xmlref">SUthroughoutDST</span></td>
+<tr class="row-even"><td>2</td>
+<td><strong>Substitute future</strong> timetags of events received from outstation with the local time.
+Timetags of received events will be substituted only if a received timetag is in future compared to the local time.</td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><span class="xmlref">SUthroughoutDST</span></td>
 <td>0</td>
 <td rowspan="2">0</td>
 <td>Summer Time [SU] bit in the time-tag of any outgoing message will be set (&#8216;1&#8217;) to indicate <strong>last hour of the Summer Time</strong> before a clock adjustment at the end of the Daylight Saving Time (DST) (this is when clock is turned back one hour)</td>
 </tr>
-<tr class="row-odd"><td>1</td>
+<tr class="row-even"><td>1</td>
 <td>Summer Time [SU] bit in the time-tag of any outgoing message <strong>will always be set (&#8216;1&#8217;)</strong> if the date and time of the tag is Summer Time. <span class="inlinetip">Please note this functionality is deviation from communication standard and option should be avoided.</span></td>
 </tr>
-<tr class="row-even"><td><p class="first last" id="ref-iec103maasdusettingsaideadband"><span class="xmlref">AIDeadband</span></p>
+<tr class="row-odd"><td><p class="first last" id="ref-iec103maasdusettingsaideadband"><span class="xmlref">AIDeadband</span></p>
 </td>
 <td>0 or ±1.18×10<sup>-38</sup>...±3.4×10<sup>38</sup></td>
 <td>0</td>
 <td>Deadband for all AI objects which doesn&#8217;t have <a class="reference internal" href="#ref-iec103maai"><em>AI</em></a>.<a class="reference internal" href="#ref-iec103maaideadband"><em>Deadband</em></a> attribute specified in their element node. Refer to individual <a class="reference internal" href="#ref-iec103maai"><em>AI</em></a>.<a class="reference internal" href="#ref-iec103maaideadband"><em>Deadband</em></a> attribute description for more information. Value 0 disables deadband feature</td>
 </tr>
-<tr class="row-odd"><td><p class="first last" id="ref-iec103maasdusettingsaipercent"><span class="xmlref">AIPercent</span></p>
+<tr class="row-even"><td><p class="first last" id="ref-iec103maasdusettingsaipercent"><span class="xmlref">AIPercent</span></p>
 </td>
 <td>0 or ±1.18×10<sup>-38</sup>...±3.4×10<sup>38</sup></td>
 <td>0</td>
 <td>Percent deadband for all AI objects which doesn&#8217;t have <a class="reference internal" href="#ref-iec103maai"><em>AI</em></a>.<a class="reference internal" href="#ref-iec103maaipercent"><em>Percent</em></a> attribute specified in their element node. Refer to individual <a class="reference internal" href="#ref-iec103maai"><em>AI</em></a>.<a class="reference internal" href="#ref-iec103maaipercent"><em>Percent</em></a> attribute description for more information. Value 0 disables percent feature</td>
 </tr>
-<tr class="row-even"><td rowspan="2"><span class="xmlref">DIEventStartup</span></td>
+<tr class="row-odd"><td rowspan="2"><span class="xmlref">DIEventStartup</span></td>
 <td>0</td>
 <td rowspan="2">1</td>
 <td>DI events <strong>will not be</strong> generated when received from outstation for the first time after leandc startup. This setting masks only events received from an outstation. Internal events created by station Offline/Disabled changes will be generated as normal.</td>
 </tr>
-<tr class="row-odd"><td>1</td>
+<tr class="row-even"><td>1</td>
 <td>DI events <strong>will be</strong> generated when received from outstation for the first time after leandc startup</td>
 </tr>
-<tr class="row-even"><td rowspan="2"><span class="xmlref">AIEventStartup</span></td>
+<tr class="row-odd"><td rowspan="2"><span class="xmlref">AIEventStartup</span></td>
 <td>0</td>
 <td rowspan="2">1</td>
 <td>AI events <strong>will not be</strong> generated when received from outstation for the first time after leandc startup</td>
 </tr>
-<tr class="row-odd"><td>1</td>
+<tr class="row-even"><td>1</td>
 <td>AI events <strong>will be</strong> generated when received from outstation for the first time after system leandc</td>
 </tr>
-<tr class="row-even"><td rowspan="2"><span class="xmlref">ForwardGI</span></td>
+<tr class="row-odd"><td rowspan="2"><span class="xmlref">ForwardGI</span></td>
 <td>0</td>
 <td rowspan="2">1</td>
 <td><strong>Don&#8217;t forward</strong> General Interrogation command to downstream outstations when received from upstream station (e.g. SCADA)</td>
 </tr>
-<tr class="row-odd"><td>1</td>
+<tr class="row-even"><td>1</td>
 <td><strong>Forward</strong> General Interrogation command to downstream outstations when received from upstream station (e.g. SCADA)</td>
 </tr>
 </tbody>
@@ -20647,57 +20692,61 @@ Setting [PurgeBuf] bit will remove all Buffererd reports including those that mi
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td rowspan="2"><span class="xmlref">IgnoreTimetags</span></td>
+<tr class="row-even"><td rowspan="3"><span class="xmlref">IgnoreTimetags</span></td>
 <td>0</td>
-<td rowspan="2">0</td>
-<td><strong>Use original</strong> timetag when events are received from outstation</td>
+<td rowspan="3">0</td>
+<td><strong>Use original</strong> timetags of events received from outstation.</td>
 </tr>
 <tr class="row-odd"><td>1</td>
-<td><strong>Substitute</strong> timetag with the local time when events are received from outstation</td>
+<td><strong>Substitute</strong> all timetags of events received from outstation with the local time.</td>
 </tr>
-<tr class="row-even"><td><p class="first last" id="ref-iec61850clappsettingsaideadband"><span class="xmlref">AIDeadband</span></p>
+<tr class="row-even"><td>2</td>
+<td><strong>Substitute future</strong> timetags of events received from outstation with the local time.
+Timetags of received events will be substituted only if a received timetag is in future compared to the local time.</td>
+</tr>
+<tr class="row-odd"><td><p class="first last" id="ref-iec61850clappsettingsaideadband"><span class="xmlref">AIDeadband</span></p>
 </td>
 <td>0 or ±1.18×10<sup>-38</sup>...±3.4×10<sup>38</sup></td>
 <td>0</td>
 <td>Deadband for all AI objects which doesn&#8217;t have <a class="reference internal" href="#ref-iec61850clai"><em>AI</em></a>.<a class="reference internal" href="#ref-iec61850claideadband"><em>Deadband</em></a> attribute specified in their element node. Refer to individual <a class="reference internal" href="#ref-iec61850clai"><em>AI</em></a>.<a class="reference internal" href="#ref-iec61850claideadband"><em>Deadband</em></a> attribute description for more information. Value 0 disables deadband feature</td>
 </tr>
-<tr class="row-odd"><td><p class="first last" id="ref-iec61850clappsettingsaipercent"><span class="xmlref">AIPercent</span></p>
+<tr class="row-even"><td><p class="first last" id="ref-iec61850clappsettingsaipercent"><span class="xmlref">AIPercent</span></p>
 </td>
 <td>0 or ±1.18×10<sup>-38</sup>...±3.4×10<sup>38</sup></td>
 <td>0</td>
 <td>Percent deadband for all AI objects which doesn&#8217;t have <a class="reference internal" href="#ref-iec61850clai"><em>AI</em></a>.<a class="reference internal" href="#ref-iec61850claipercent"><em>Percent</em></a> attribute specified in their element node. Refer to individual <a class="reference internal" href="#ref-iec61850clai"><em>AI</em></a>.<a class="reference internal" href="#ref-iec61850claipercent"><em>Percent</em></a> attribute description for more information. Value 0 disables percent feature</td>
 </tr>
-<tr class="row-even"><td rowspan="2"><span class="xmlref">DIEventStartup</span></td>
+<tr class="row-odd"><td rowspan="2"><span class="xmlref">DIEventStartup</span></td>
 <td>0</td>
 <td rowspan="2">1</td>
 <td>DI events <strong>will not be</strong> generated when received from outstation for the first time after leandc startup. This setting masks only events received from an outstation. Internal events created by station Offline/Disabled changes will be generated as normal.</td>
 </tr>
-<tr class="row-odd"><td>1</td>
+<tr class="row-even"><td>1</td>
 <td>DI events <strong>will be</strong> generated when received from outstation for the first time after leandc startup</td>
 </tr>
-<tr class="row-even"><td rowspan="2"><span class="xmlref">AIEventStartup</span></td>
+<tr class="row-odd"><td rowspan="2"><span class="xmlref">AIEventStartup</span></td>
 <td>0</td>
 <td rowspan="2">1</td>
 <td>AI events <strong>will not be</strong> generated when received from outstation for the first time after leandc startup</td>
 </tr>
-<tr class="row-odd"><td>1</td>
+<tr class="row-even"><td>1</td>
 <td>AI events <strong>will be</strong> generated when received from outstation for the first time after system leandc</td>
 </tr>
-<tr class="row-even"><td rowspan="2"><span class="xmlref">ForwardGI</span></td>
+<tr class="row-odd"><td rowspan="2"><span class="xmlref">ForwardGI</span></td>
 <td>0</td>
 <td rowspan="2">1</td>
 <td><strong>Don&#8217;t forward</strong> General Interrogation command to downstream outstations when received from upstream station (e.g. SCADA)</td>
 </tr>
-<tr class="row-odd"><td>1</td>
+<tr class="row-even"><td>1</td>
 <td><strong>Forward</strong> General Interrogation command to downstream outstations when received from upstream station (e.g. SCADA)</td>
 </tr>
-<tr class="row-even"><td><span class="xmlref">bufTime</span></td>
+<tr class="row-odd"><td><span class="xmlref">bufTime</span></td>
 <td>0...2<sup>32</sup> - 2</td>
 <td>0 msec</td>
 <td>Interval in milliseconds for the buffering of internal notifications before Information Report is generated [IEC61850-7-2:2010].
 Value 0 disables buffering and Information Reports are generated instantly.</td>
 </tr>
-<tr class="row-odd"><td><p class="first last" id="ref-iec61850clappflags"><span class="xmlref">Flags</span></p>
+<tr class="row-even"><td><p class="first last" id="ref-iec61850clappflags"><span class="xmlref">Flags</span></p>
 </td>
 <td>0...255 or 0x00...0xFF</td>
 <td>0x00</td>
@@ -32384,8 +32433,8 @@ names, etc.</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>4.04</td>
-<td>2017-02-02 17:08:45</td>
+<tr class="row-even"><td>4.05</td>
+<td>2017-03-16 06:32:27</td>
 <td>V3.0</td>
 </tr>
 </tbody>
@@ -32411,117 +32460,122 @@ names, etc.</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>4.03</td>
+<tr class="row-even"><td>4.04</td>
+<td>2017-02-02 17:08:45</td>
+<td>V30</td>
+<td>V3.0</td>
+</tr>
+<tr class="row-odd"><td>4.03</td>
 <td>2016-07-25 17:04:55</td>
 <td>V29</td>
 <td>V3.0</td>
 </tr>
-<tr class="row-odd"><td>4.02</td>
+<tr class="row-even"><td>4.02</td>
 <td>2016-07-14 19:27:51</td>
 <td>V29</td>
 <td>V3.0</td>
 </tr>
-<tr class="row-even"><td>4.01</td>
+<tr class="row-odd"><td>4.01</td>
 <td>2016-05-18 12:57:20</td>
 <td>V28</td>
 <td>V3.0</td>
 </tr>
-<tr class="row-odd"><td>4.00</td>
+<tr class="row-even"><td>4.00</td>
 <td>2016-05-08 11:22:30</td>
 <td>V27</td>
 <td>V3.0</td>
 </tr>
-<tr class="row-even"><td>3.14</td>
+<tr class="row-odd"><td>3.14</td>
 <td>2015-09-04 10:05:40</td>
 <td>V26</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-odd"><td>3.13</td>
+<tr class="row-even"><td>3.13</td>
 <td>2015-08-24 21:04:07</td>
 <td>V25</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-even"><td>3.12</td>
+<tr class="row-odd"><td>3.12</td>
 <td>2015-08-11 12:36:44</td>
 <td>V25</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-odd"><td>3.11</td>
+<tr class="row-even"><td>3.11</td>
 <td>2015-07-08 14:07:37</td>
 <td>V24</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-even"><td>3.10</td>
+<tr class="row-odd"><td>3.10</td>
 <td>2015-06-29 15:52:23</td>
 <td>V24</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-odd"><td>3.09</td>
+<tr class="row-even"><td>3.09</td>
 <td>2015-03-25 10:57:25</td>
 <td>V23</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-even"><td>3.08</td>
+<tr class="row-odd"><td>3.08</td>
 <td>2015-03-24 21:06:41</td>
 <td>V23</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-odd"><td>3.07</td>
+<tr class="row-even"><td>3.07</td>
 <td>2015-02-15 17:55:25</td>
 <td>V22</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-even"><td>3.06</td>
+<tr class="row-odd"><td>3.06</td>
 <td>2014-12-01 08:47:07</td>
 <td>V21</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-odd"><td>3.05</td>
+<tr class="row-even"><td>3.05</td>
 <td>2014-11-28 11:39:37</td>
 <td>V21</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-even"><td>3.04</td>
+<tr class="row-odd"><td>3.04</td>
 <td>2014-10-08 15:43:46</td>
 <td>V20</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-odd"><td>3.02</td>
+<tr class="row-even"><td>3.02</td>
 <td>2014-06-26 14:48:34</td>
 <td>V19</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-even"><td>3.01</td>
+<tr class="row-odd"><td>3.01</td>
 <td>2014-05-28 12:20:12</td>
 <td>V18</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-odd"><td>3.00</td>
+<tr class="row-even"><td>3.00</td>
 <td>2014-05-26 21:19:06</td>
 <td>V18</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-even"><td>2.07</td>
+<tr class="row-odd"><td>2.07</td>
 <td>2014-04-08 20:59:57</td>
 <td>V17</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-odd"><td>2.06</td>
+<tr class="row-even"><td>2.06</td>
 <td>2014-03-31 14:58:09</td>
 <td>V16</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-even"><td>2.05</td>
+<tr class="row-odd"><td>2.05</td>
 <td>2014-02-26 20:20:30</td>
 <td>V15</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-odd"><td>2.04</td>
+<tr class="row-even"><td>2.04</td>
 <td>2013-12-18 08:55:06</td>
 <td>V13, V14</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-even"><td>2.01</td>
+<tr class="row-odd"><td>2.01</td>
 <td>2013-10-16 17:21:27</td>
 <td>V12</td>
 <td>V2.0</td>
@@ -32544,7 +32598,16 @@ names, etc.</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>V30</td>
+<tr class="row-even"><td>V31</td>
+<td>16/03/2017</td>
+<td>AK</td>
+<td><div class="first last line-block">
+<div class="line">&gt; <span class="xmlref">IgnoreTimetags</span> attribute can have value 2 which enables to substitute timestamp of received events if a received timetag is in future compared to the local time.</div>
+<div class="line">&gt; <span class="xmlref">MaxTxDelay</span> and <span class="xmlref">MaxStations</span> attributes added to <a class="reference internal" href="#ref-uart"><em>UART</em></a> node. Dynamic transmit delay feature introduced allowing to automatically adjust transmit delay depending on a number of outstations being communicated to via the serial port.</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td>V30</td>
 <td>02/02/2017</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -32554,7 +32617,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td>V29</td>
+<tr class="row-even"><td>V29</td>
 <td>14/07/2016</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -32564,7 +32627,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td>V28</td>
+<tr class="row-odd"><td>V28</td>
 <td>18/05/2016</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -32572,7 +32635,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td>V27</td>
+<tr class="row-even"><td>V27</td>
 <td>08/05/2016</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -32591,7 +32654,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td>V26</td>
+<tr class="row-odd"><td>V26</td>
 <td>04/09/2015</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -32599,7 +32662,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td>V25</td>
+<tr class="row-even"><td>V25</td>
 <td>11/08/2015</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -32610,7 +32673,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td>V24</td>
+<tr class="row-odd"><td>V24</td>
 <td>29/06/2015</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -32624,7 +32687,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td>V23</td>
+<tr class="row-even"><td>V23</td>
 <td>24/03/2015</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -32632,7 +32695,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td>V22</td>
+<tr class="row-odd"><td>V22</td>
 <td>15/02/2015</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -32650,7 +32713,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td>V21</td>
+<tr class="row-even"><td>V21</td>
 <td>28/11/2014</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -32659,12 +32722,12 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td>V20</td>
+<tr class="row-odd"><td>V20</td>
 <td>09/10/2014</td>
 <td>AK</td>
 <td><span class="xmlref">DIEventStartup</span> attribute added to IEC60870-5-101/3/4 Master protocol configuration;</td>
 </tr>
-<tr class="row-odd"><td>V19</td>
+<tr class="row-even"><td>V19</td>
 <td>26/06/2014</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -32677,7 +32740,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td>V18</td>
+<tr class="row-odd"><td>V18</td>
 <td>28/05/2014</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -32695,7 +32758,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td>V17</td>
+<tr class="row-even"><td>V17</td>
 <td>08/04/2014</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -32710,7 +32773,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td>V16</td>
+<tr class="row-odd"><td>V16</td>
 <td>31/03/2014</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -32730,7 +32793,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td>V15</td>
+<tr class="row-even"><td>V15</td>
 <td>26/02/2014</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -32751,12 +32814,12 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td>V14</td>
+<tr class="row-odd"><td>V14</td>
 <td>18/01/2014</td>
 <td>AK</td>
 <td>Version control element node added</td>
 </tr>
-<tr class="row-odd"><td>V13</td>
+<tr class="row-even"><td>V13</td>
 <td>18/12/2013</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -32771,7 +32834,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td>V12</td>
+<tr class="row-odd"><td>V12</td>
 <td>18/11/2013</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -32794,57 +32857,57 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td>V11</td>
+<tr class="row-even"><td>V11</td>
 <td>10/06/2013</td>
 <td>AK</td>
 <td>Offline reporting delay timer added</td>
 </tr>
-<tr class="row-even"><td>V10</td>
+<tr class="row-odd"><td>V10</td>
 <td>01/06/2013</td>
 <td>AK</td>
 <td>Timezone configuration option added</td>
 </tr>
-<tr class="row-odd"><td>V9</td>
+<tr class="row-even"><td>V9</td>
 <td>21/05/2013</td>
 <td>AK</td>
 <td>SpeedUpStarted configuration option added</td>
 </tr>
-<tr class="row-even"><td>V8</td>
+<tr class="row-odd"><td>V8</td>
 <td>14/05/2013</td>
 <td>AK</td>
 <td>Automatic DI and AI object sorting for &#8216;Master&#8217; and DO object sorting for &#8216;Slave&#8217; communication protocol instances; SummerTime flag configuration added; Communication Status reporting address for Auto-configuration mode added; CommsFlags attribute added; Service DO commands added;</td>
 </tr>
-<tr class="row-odd"><td>V7</td>
+<tr class="row-even"><td>V7</td>
 <td>12/04/2013</td>
 <td>AK</td>
 <td>Minor formatting corrections; Appendix A – Analogue value processing added</td>
 </tr>
-<tr class="row-even"><td>V6</td>
+<tr class="row-odd"><td>V6</td>
 <td>13/03/2013</td>
 <td>AK</td>
 <td>HourLimit attribute description added; AI offset, AI zero deadband and 75-125 input transducer offset compensation added</td>
 </tr>
-<tr class="row-odd"><td>V5</td>
+<tr class="row-even"><td>V5</td>
 <td>01/03/2013</td>
 <td>AK</td>
 <td>Range and Automatic configuration features added; GlobalTimeSync now available; changes to logfile specification</td>
 </tr>
-<tr class="row-even"><td>V4</td>
+<tr class="row-odd"><td>V4</td>
 <td>03/12/2012</td>
 <td>AK</td>
 <td>AI value offset for 4mA transducer input compensation added to Slave protocol instances</td>
 </tr>
-<tr class="row-odd"><td>V3</td>
+<tr class="row-even"><td>V3</td>
 <td>13/11/2012</td>
 <td>AK</td>
 <td>Minor changes to DO object address sequence, new DO execution policy added</td>
 </tr>
-<tr class="row-even"><td>V2</td>
+<tr class="row-odd"><td>V2</td>
 <td>03/10/2012</td>
 <td>AK</td>
 <td>New features added, changes in DI and AI Event attribute configuration</td>
 </tr>
-<tr class="row-odd"><td>V1</td>
+<tr class="row-even"><td>V1</td>
 <td>17/08/2012</td>
 <td>AK</td>
 <td>Initial version</td>
@@ -32962,7 +33025,7 @@ fUtHVztj9BMNwCVrPGuGqpyH+IPAGATai0CJ94qv3R3KZtb6wO+qrSdbVG4WdLDAIJBjFfURmoDK
 " alt="Logo"/>
             </a></p>
     <span class="sidebar-title">Leandc series XML configuration manual</span>
-    <span class="sidebar-subtitle" title="Version V30, docbuild(v0.1.0)">Version V30</span>
+    <span class="sidebar-subtitle" title="Version V31, docbuild(v0.1.0)">Version V31</span>
 
   <h3><a href="#document-index">Table Of Contents</a></h3>
   <ul>
@@ -33266,7 +33329,7 @@ fUtHVztj9BMNwCVrPGuGqpyH+IPAGATai0CJ94qv3R3KZtb6wO+qrSdbVG4WdLDAIJBjFfURmoDK
 
     <div class="footer">
         &copy; Copyright 2017, Londelec UK Ltd.
-      Last updated on 02 Feb 2017.
+      Last updated on 16 Mar 2017.
     </div>
   </body>
 </html>

@@ -21,7 +21,9 @@ This node contains settings of a serial port.
 		:xmlref:`Index`
      :val:      1...254
      :def:      n/a
-     :desc:     Index is a unique identifier of the hardware node. It is used as a reference to link a communication protocol instance to this node. :inlinetip:`Indexes don't have to be in a sequential order.`
+     :desc:     Index is a unique identifier of the hardware node.
+		It is used as a reference to link a communication protocol instance to this node.
+		:inlinetip:`Indexes don't have to be in a sequential order.`
 
    * :attr:     .. _ref-UARTCOM:
 
@@ -55,7 +57,8 @@ This node contains settings of a serial port.
    * :attr:     :xmlref:`DataBits`
      :val:      7 or 8
      :def:      8 bits
-     :desc:     UART data bit count 7 or 8. :inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
+     :desc:     UART data bit count 7 or 8.
+		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
 
    * :attr:     :xmlref:`Parity`
      :val:      N; E or O
@@ -65,7 +68,8 @@ This node contains settings of a serial port.
    * :attr:     :xmlref:`StopBits`
      :val:      1 or 2
      :def:      1 bit
-     :desc:     UART stop bit count 1 or 2. :inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
+     :desc:     UART stop bit count 1 or 2.
+		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
 
    * :attr:     :xmlref:`Timeout`
      :val:      0.01...42949
@@ -75,21 +79,44 @@ This node contains settings of a serial port.
    * :attr:     :xmlref:`TxDelay`
      :val:      0.00001...42949
      :def:      n/a
-     :desc:     Transmit delay in seconds. Outgoing message will be delayed for a configured number of seconds before being sent after received message. :inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be calculated based on configured baudrate.`
+     :desc:     Transmit delay in seconds. Time interval in seconds between received and sent message.
+		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be calculated based on a configured baudrate.`
+
+   * :attr:     :xmlref:`MaxTxDelay`
+     :val:      0 or 0.1...42949
+     :def:      0
+     :desc:     Dynamic (maximal) transmit delay in seconds. 
+		Time interval in seconds between received and sent message in case serial port is used to communicate to only one outstation.
+		Transmit delay is automatically adjusted depending on a number of outstations being communicated to via the serial port.
+		Disabled stations are excluded from dynamic transmit delay calculation.
+		Default value 0 disables dynamic transmit delay feature and :xmlref:`TxDelay` value is used.
+		:inlinetip:`Attribute is optional and doesn't have to be included in configuration,` :xmlref:`TxDelay` :inlinetip:`value value will be used if omitted.`
+
+   * :attr:     :xmlref:`MaxStations`
+     :val:      1...64
+     :def:      8
+     :desc:     Maximal number of stations for a dynamic transmit delay.
+		If a number of outstations exceed the configured value, automatic transmit delay adjustment is disabled and :xmlref:`TxDelay` value is used.
+		Disabled stations are excluded from dynamic transmit delay calculation.
+		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
 
    * :attr:     :xmlref:`Interface`
      :val:      | RS232
 		| RS485
 		| RS422
      :def:      RS232
-     :desc:     Type of physical interface. Only applies if hardware supports UART interface selection by software. :inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value RS232 will be used if omitted.`
+     :desc:     Type of physical interface. Only applies if hardware supports UART interface selection by software.
+		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value RS232 will be used if omitted.`
 
    * :attr:     .. _ref-UARTCtrlRdTimer:
 
                 :xmlref:`CtrlRdTimer`
      :val:      0 or 0.00001...42949
      :def:      0 sec
-     :desc:     UART control line (e.g. DSR, RI pin) reading interval in seconds. UART control lines must be stable for at least 8 consequtive read cycles at a configured interval before state change is reported. Default value 0 disables UART control line reading. :inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
+     :desc:     UART control line (e.g. DSR, RI pin) reading interval in seconds.
+		UART control lines must be stable for at least 8 consequtive read cycles at a configured interval before state change is reported.
+		Default value 0 disables UART control line reading.
+		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
 
 .. include-file:: sections/Include/hidden_CtrlRdDebounce.rstinc "internal"
 
@@ -98,12 +125,18 @@ This node contains settings of a serial port.
                 :xmlref:`Watchdog`
      :val:      0 or 5...65535
      :def:      0 min
-     :desc:     UART watchdog timer in minutes. System will reboot if this UART hasn't received anything within a configured number of minutes. Default value 0 disables watchdog. :inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
+     :desc:     UART watchdog timer in minutes. System will reboot if this UART hasn't received anything within a configured number of minutes.
+		Default value 0 disables watchdog.
+		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
 
    * :attr:     :xmlref:`Test`
      :val:      Echo
      :def:      n/a
-     :desc:     Attribute enables port testing mode. UART will echo any data received if this attribute is used. There is no need to disable communication protocol or supervision instances linked to UART when testing. Any testing data received will also be recorded to a communication logfile, if logging is enabled for this hardware node. :inlineimportant:`Attribute must not be used if not required, there is no default value.`
+     :desc:     Attribute enables port testing mode.
+		UART will echo any data received if this attribute is used.
+		There is no need to disable communication protocol or supervision instances linked to UART when testing.
+		Any testing data received will also be recorded to a communication logfile, if logging is enabled for this hardware node.
+		:inlineimportant:`Attribute must not be used if not required, there is no default value.`
 
 .. include-file:: sections/Include/Name.rstinc ""
 

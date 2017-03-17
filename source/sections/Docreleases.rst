@@ -16,8 +16,8 @@ This manual was published with the following leandc firmware release.
      :val,20:  Date
      :osv,60:  Required Operating System version
 
-   * :attr:    4.04
-     :val:     2017-02-02 17:08:45
+   * :attr:    4.05
+     :val:     2017-03-16 06:32:27
      :osv:     V3.0
 
 .. tip::
@@ -35,6 +35,11 @@ This manual was published with the following leandc firmware release.
      :fdate,10:	Firmware date
      :doc,10:	Manual version(s)
      :osv,10:	Operating System version
+
+   * :fw:       4.04
+     :fdate:    2017-02-02 17:08:45
+     :doc:      V30
+     :osv:      V3.0
 
    * :fw:       4.03
      :fdate:    2016-07-25 17:04:55
@@ -161,6 +166,12 @@ This manual was published with the following leandc firmware release.
      :date,5:	Date
      :by,5:	By
      :desc,85:	Comments
+
+   * :ver:	V31
+     :date:	16/03/2017
+     :by:	AK
+     :desc:	| > :xmlref:`IgnoreTimetags` attribute can have value 2 which enables to substitute timestamp of received events if a received timetag is in future compared to the local time.
+		| > :xmlref:`MaxTxDelay` and :xmlref:`MaxStations` attributes added to :ref:`<ref-UART>` node. Dynamic transmit delay feature introduced allowing to automatically adjust transmit delay depending on a number of outstations being communicated to via the serial port.
 
    * :ver:	V30
      :date:	02/02/2017
