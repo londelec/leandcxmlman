@@ -24,7 +24,7 @@ Please see sample :ref:`DITable<ref-IEC61850clDI>` group and :ref:`DI<ref-IEC618
 
    <DI Index="0" ldInst="LD0" prefix="DA" lnClass="XCBR" lnInst="1" doName="Pos" fc="ST" Qualifier="0" InterDelay="10000" IndetDelay="0" daName="stVal" DSnum="1" TrgOps="0x00" intgPd="0" Name="CB position" />
 
-.. tip:: Attributes of the :ref:`DI<ref-IEC61850clDI>` element node can be arranged in any order, it will not affect XML file validation.
+.. include-file:: sections/Include/tip_order.rstinc "" ":ref:`DI<ref-IEC61850clDI>`"
 
 DI attributes
 ^^^^^^^^^^^^^

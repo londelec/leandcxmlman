@@ -1,0 +1,10 @@
+   * :attr:     :include-arg:`1`
+
+                :xmlref:`Total`
+     :val:      1...:include-arg:`4`
+     :def:      1
+     :desc:     Total number of information objects.
+		Attribute is used to create a sequence of information objects with consecutive :include-arg:`2` values without a need to create a :include-arg:`3` node for each information object.
+		(default value 1 - only 1 object is created)
+		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
+

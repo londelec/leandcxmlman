@@ -14,6 +14,8 @@ ProtocolCfg group node
 	<AppSettings … />
         <ServiceSettings … />
 	<Timeouts … />
+	<TimeSettings … />
+	<Periodic … />
  </ProtocolCfg>
 
 .. tip:: All element nodes are optional, default values will be used for attributes of omitted nodes.
@@ -27,3 +29,5 @@ ProtocolCfg group node
 .. include-file:: sections/Include/EventMask.rstinc "" ".. _docref-ModbusmaServiceEventMaskAttab:" ":numref:`docref-ModbusmaServiceEventMaskAttab`" ":ref:`<ref-ModbusmaCommsSettingsOfflineDelay>`" ":ref:`<ref-ModbusmaCommsSettingsPostOfflineDelay>`"
 
 .. include:: Modbusma/Timeouts.rst
+.. include:: Modbusma/TimeSettings.rst
+.. include:: Modbusma/Periodic.rst

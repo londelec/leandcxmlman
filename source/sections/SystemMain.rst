@@ -6,19 +6,19 @@ System configuration
 Configuration file **leandc.xml**
 ---------------------------------
 
-XML configuration file **leandc.xml** contains overall system settings of the leandc firmware and it is the first file 
-loaded upon system startup. The configuration file name is fixed, it must be stored in the same directory as 
-leandc firmware and its path can't be changed. If 'leandc.xml' file is not found upon leandc firmware startup, 
+XML configuration file **leandc.xml** contains overall system settings of the leandc firmware and it is the first file
+loaded upon system startup. The configuration file name is fixed, it must be stored in the same directory as
+leandc firmware and its path can't be changed. If 'leandc.xml' file is not found upon leandc firmware startup,
 firmware terminates with an error message indicating the cause of fail.
 
-**leandc.xml** configuration file consists of a root object node :xmlref:`MainConfig` which has 3 mandatory child group 
-object nodes :ref:`VersionControl<ref-VersionControl>`; :ref:`HardwareCfg<ref-HardwareCfg>` and :ref:`CommunicationCfg<ref-CommunicationCfg>` and 3 optional child group object nodes 
-:ref:`TraceCfg<ref-TraceCfg>` and :ref:`ClientFilterCfg<ref-ClientFilterCfg>` and :ref:`SupervisionCfg<ref-SupervisionCfg>`, please see the sample below. 
+**leandc.xml** configuration file consists of a root object node :xmlref:`MainConfig` which has 3 mandatory child group
+object nodes :ref:`VersionControl<ref-VersionControl>`; :ref:`HardwareCfg<ref-HardwareCfg>` and :ref:`CommunicationCfg<ref-CommunicationCfg>` and 3 optional child group object nodes
+:ref:`TraceCfg<ref-TraceCfg>` and :ref:`ClientFilterCfg<ref-ClientFilterCfg>` and :ref:`SupervisionCfg<ref-SupervisionCfg>`, please see the sample below.
 
 .. tip:: Node names are not case sensitive.
 
-.. code-block:: none 
-   
+.. code-block:: none
+
    <MainConfig  xmlns="http://www.londelec.com/xmlschemas/leandc/main" … version="2.00">
          <VersionControl conf="4" date="2014-01-18" time="10:08:09"/>
          <HardwareCfg>
@@ -37,10 +37,10 @@ object nodes :ref:`VersionControl<ref-VersionControl>`; :ref:`HardwareCfg<ref-Ha
             <IPv4 FilterID="1" ClientIPaddr="10.19.0.21" Mask="32"/>
             …
          </ClientFilterCfg>
-         <SupervisionCfg> 
+         <SupervisionCfg>
             <MONRAW SrcHWIndex="11" DstHWIndex="10" SrvHWIndex="9"/>
             …
-         </SupervisionCfg> 
+         </SupervisionCfg>
    </MainConfig>
 
 .. _ref-HardwareCfg:
@@ -63,8 +63,8 @@ Attributes of these nodes contain interface's settings.
 	<TCPCLIENT Index="44" ServerIPaddr="127.0.0.1" Port="2404"... />
 	<UDP Index="55" RemoteIPaddr="127.0.0.1" RemotePort="64950"... />
    </HardwareCfg>
-      
-.. important:: 
+
+.. important::
    | There must be one and only one :ref:`HardwareCfg<ref-HardwareCfg>` group in the root node :xmlref:`MainConfig`.
    | Hardware interfaces defined in the :ref:`HardwareCfg<ref-HardwareCfg>` group must be arranged in the following order:
 
@@ -83,25 +83,25 @@ Attributes of these nodes contain interface's settings.
 CommunicationCfg group node
 ---------------------------
 
-:ref:`CommunicationCfg<ref-CommunicationCfg>` node is used to initialize communication protocol instances and link to physical hardware 
-interface. Leandc firmware is able to receive data from downstream outstations via various communication 
-protocols, process the received information and report it upstream to SCADA system our any other data 
-acquisition unit. Every logical communication link to outstation or upstream Master station has a definition 
-'communication protocol instance' within this manual and leandc firmware. It represents communication channel 
-for receiving or sending the data to/from leandc. Communication protocol instances have to be configured under 
-:ref:`CommunicationCfg<ref-CommunicationCfg>` node, please refer to the sample below containing 4 different communication protocols 
+:ref:`CommunicationCfg<ref-CommunicationCfg>` node is used to initialize communication protocol instances and link to physical hardware
+interface. Leandc firmware is able to receive data from downstream outstations via various communication
+protocols, process the received information and report it upstream to SCADA system our any other data
+acquisition unit. Every logical communication link to outstation or upstream Master station has a definition
+'communication protocol instance' within this manual and leandc firmware. It represents communication channel
+for receiving or sending the data to/from leandc. Communication protocol instances have to be configured under
+:ref:`CommunicationCfg<ref-CommunicationCfg>` node, please refer to the sample below containing 4 different communication protocols
 (instances).
 
 .. code-block:: none
 
-   <CommunicationCfg> 
-	<IEC101ma Index="10" HWIndex="2" XMLpath="IEC101ma_test.xml" CommsFlags="0x10"/> 
-	<IEC101sl Index="5" HWIndex="1" XMLpath="IEC101sl_test.xml"/> 
-	<IEC104sl Index="12" HWIndex="3" XMLpath="IEC104ma_test.xml" FilterID="2"/> 
-	<IEC104Rsl Index="13" HWIndex="3" RedundantToIndex="12" FilterID="3"/> 
+   <CommunicationCfg>
+	<IEC101ma Index="10" HWIndex="2" XMLpath="IEC101ma_test.xml" CommsFlags="0x10"/>
+	<IEC101sl Index="5" HWIndex="1" XMLpath="IEC101sl_test.xml"/>
+	<IEC104sl Index="12" HWIndex="3" XMLpath="IEC104ma_test.xml" FilterID="2"/>
+	<IEC104Rsl Index="13" HWIndex="3" RedundantToIndex="12" FilterID="3"/>
    </CommunicationCfg>
 
-.. important:: 
+.. important::
    | There must be one and only one :ref:`CommunicationCfg<ref-CommunicationCfg>` group in the root object node :xmlref:`MainConfig`.
    | Communication protocol instances defined in the :ref:`CommunicationCfg<ref-CommunicationCfg>` group must be arranged in the following order:
 
@@ -114,7 +114,7 @@ for receiving or sending the data to/from leandc. Communication protocol instanc
    | :ref:`<ref-IEC104sl>`
    | :ref:`<ref-IEC104Rsl>`
    | :ref:`<ref-IEC104Csl>`
-   
+
 Every communication protocol instance has a unique element node and settings are described in the following paragraphs.
 
 .. include:: communicationCfg/modbusma.rst
@@ -138,9 +138,9 @@ Group object node :xmlref:`TraceCfg` and its child element node :xmlref:`SYSLOGF
 :xmlref:`Settings` node contains common settings for all logfiles.
 :xmlref:`TraceCfg` may contain only one :xmlref:`SYSLOGFILE` and one :xmlref:`Settings` element node as shown in the sample below.
 
-.. code-block:: none 
-   
-   <TraceCfg> 
+.. code-block:: none
+
+   <TraceCfg>
 	<SYSLOGFILE LogFlags="0" Logfile="Syslog/syslog" Mode="0" HourLimit="4" TimeZone="UTC"/>
 	<Settings CleanOlder="60" MinFreespace="5.5"/>
    </TraceCfg>
@@ -202,7 +202,7 @@ This node contains settings of a system-wide logfile.
 		:inlinetip:`Please see` :ref:`docref-TimeZoneSpecification` :inlinetip:`for additional information.`
 
 .. include-file:: sections/Include/hidden_LogDebugFlags.rstinc "internal" ":numref:`docref-LOGGERDebugFlagsAttab`"
-   
+
 .. tip:: \* There are few samples on how files are created with various :ref:`Mode<ref-SYSLOGFILEMode>` \ and :ref:`HourLimit<ref-SYSLOGFILEHourLimit>` \ attribute settings in section :ref:`docref-LogfileSampleList`.
 
 .. _docref-SYSLOGFILELogFlagsAttab:
@@ -267,12 +267,12 @@ This node contains common settings for all logfiles.
 ClientFilterCfg group and IPv4 node
 -----------------------------------
 
-Group object node :xmlref:`ClientFilterCfg` and its child element nodes :xmlref:`IPv4` are used to create filters for 
+Group object node :xmlref:`ClientFilterCfg` and its child element nodes :xmlref:`IPv4` are used to create filters for
 remote 'Client' IP address which are allowed to connect to leandc.
 .. include-file:: sections/Include/sample_node.rstinc "" ":xmlref:`IPv4`"
 
-.. code-block:: none 
-   
+.. code-block:: none
+
    <ClientFilterCfg>
 	<IPv4 FilterID="1" ClientIPaddr="192.168.2.14" Mask="32" Name="Only specified IP address"/>
 	<IPv4 FilterID="1" ClientIPaddr="192.168.2.55" Mask="32" Name="Only specified IP address"/>
@@ -280,7 +280,7 @@ remote 'Client' IP address which are allowed to connect to leandc.
    </ClientFilterCfg>
 
 There are 3 :xmlref:`IPv4` filter nodes configured in the example above.
-Please note 2 :xmlref:`IPv4` nodes have the same filter identifier "1". 
+Please note 2 :xmlref:`IPv4` nodes have the same filter identifier "1".
 This will allow clients from either IP address 192.168.2.14 or 192.168.2.55 to connect.
 
 .. _docref-ClientFilterCfgIPv4Attab:
@@ -290,9 +290,9 @@ This will allow clients from either IP address 192.168.2.14 or 192.168.2.55 to c
    * :attr:     :xmlref:`FilterID`
      :val:      1...255
      :def:      n/a
-     :desc:     Filter identifier. 
+     :desc:     Filter identifier.
 		More than one filter may have the same identifier which enables to define multiple addresses or address ranges.
-		In order to apply the filter, use this identifier in communication protocol instance attributes :ref:`<ref-IEC104sl>`.\ :ref:`<ref-IEC104slFilterID>`\; :ref:`<ref-IEC104Rsl>`.\ :ref:`<ref-IEC104RslFilterID>` \ or :ref:`<ref-IEC104Csl>`.\ :ref:`<ref-IEC104CslFilterID>`\. 
+		In order to apply the filter, use this identifier in communication protocol instance attributes :ref:`<ref-IEC104sl>`.\ :ref:`<ref-IEC104slFilterID>`\; :ref:`<ref-IEC104Rsl>`.\ :ref:`<ref-IEC104RslFilterID>` \ or :ref:`<ref-IEC104Csl>`.\ :ref:`<ref-IEC104CslFilterID>`\.
 
    * :attr:     .. _ref-ClientFilterCfgIpv4ClientIPaddr:
 
@@ -311,14 +311,14 @@ This will allow clients from either IP address 192.168.2.14 or 192.168.2.55 to c
      :def:      32
      :desc:     Network mask is used in conjunction with :ref:`<ref-ClientFilterCfgIpv4ClientIPaddr>` attribute in order to create a network subnet.
 		All IP addresses of the subnet will be able to connect.
-		Network mask attribute is a decimal notation of the subnet mask, sometimes called network prefix, refer to table :numref:`docref-NetworkMask` for more information. 
+		Network mask attribute is a decimal notation of the subnet mask, sometimes called network prefix, refer to table :numref:`docref-NetworkMask` for more information.
 		(Mask 0 will allow connection from any IP address; mask 32 will allow connection only from one IP address specified in :ref:`<ref-ClientFilterCfgIpv4ClientIPaddr>` attribute)
 
 .. include-file:: sections/Include/Name.rstinc ""
 
 Network subnets created by various :ref:`<ref-ClientFilterCfgIpv4Mask>` attribute values are summarized in the table below.
 It is assumed user has a good understanding of network addressing fundamentals.
-Please refer to external sources (e.g. http://www.subnet-calculator.com) for additional information on network addressing and subnet definition.   
+Please refer to external sources (e.g. http://www.subnet-calculator.com) for additional information on network addressing and subnet definition.
 
 | Table columns are defined as follows:
 | Column 1 contains :ref:`<ref-ClientFilterCfgIpv4Mask>` attribute values;
@@ -327,7 +327,7 @@ Please refer to external sources (e.g. http://www.subnet-calculator.com) for add
 | Column 7 contains range of client IP address allowed to connect.
 
 Table is designed as a guidance of how network subnets are created based on sample IP address 192.168.1.1 specified in the :ref:`<ref-ClientFilterCfgIpv4ClientIPaddr>` attribute.
-      
+
 .. _docref-NetworkMask:
 
 .. field-list-table:: Network Mask sample values
@@ -382,12 +382,12 @@ Table is designed as a guidance of how network subnets are created based on samp
      :iprange:       192.0.0.0 to 223.255.255.255
 
    * :mask:          ...
-     :subnet:        
-     :bval1:         
-     :bval2:         
-     :bval3:         
-     :bval4:         
-     :iprange:       
+     :subnet:
+     :bval1:
+     :bval2:
+     :bval3:
+     :bval4:
+     :iprange:
 
    * :mask:          24
      :subnet:        255.255.255.0
@@ -461,36 +461,38 @@ Table is designed as a guidance of how network subnets are created based on samp
      :bval4:         1111 1111
      :iprange:       Only 192.168.1.1 allowed to connect
 
-.. _ref-SupervisionCfg:     
+.. _ref-SupervisionCfg:
 
-SupervisionCfg group node     
--------------------------     
-     
-Group object node :ref:`SupervisionCfg<ref-SupervisionCfg>` is used to configure leandc serial port or socket real-time traffic monitoring 
-and also enables serial server functionality. Real-time traffic monitoring and serial server functionality has 
-designated supervision instances which are configured under :ref:`SupervisionCfg<ref-SupervisionCfg>` group node, please refer to the 
-sample below containing 4 different supervision instances.     
-     
-.. code-block:: none 
-   
+SupervisionCfg group node
+-------------------------
+
+Group object node :ref:`SupervisionCfg<ref-SupervisionCfg>` is used to configure leandc serial port or socket real-time traffic monitoring
+and also enables serial server functionality. Real-time traffic monitoring and serial server functionality has
+designated supervision instances which are configured under :ref:`SupervisionCfg<ref-SupervisionCfg>` group node, please refer to the
+sample below containing 4 different supervision instances.
+
+.. code-block:: none
+
    <SupervisionCfg>
 	<MONRAW SrcHWIndex="1" DstHWIndex="51" Name="Raw monitoring instance"/>
 	<MONCOMP SrcHWIndex="2" DstHWIndex="52" SrvHWIndex="53" Name="Compatible mon instance"/>
 	<REDIRECT SrcHWIndex="4" DstHWIndex="61" Name="UART redirect instance"/>
 	<OVERRIDE SrcHWIndex="3" DstHWIndex="62" SrvHWIndex="63" Name="UART override instance"/>
    </SupervisionCfg>
-     
-Every supervision instance has a unique element node and its configuration is described in the following paragraphs.     
-     
-.. important:: 
+
+Every supervision instance has a unique element node and its configuration is described in the following paragraphs.
+
+.. important::
    | Supervision instances must be listed under :ref:`SupervisionCfg<ref-SupervisionCfg>` group node in the following order:
 
    | :ref:`<ref-MONRAW>`
    | :ref:`<ref-MONCOMP>`
    | :ref:`<ref-REDIRECT>`
    | :ref:`<ref-OVERRIDE>`
-     
+
 .. include:: supervisionCfg/monraw.rst
 .. include:: supervisionCfg/moncomp.rst
 .. include:: supervisionCfg/redirect.rst
 .. include:: supervisionCfg/override.rst
+
+.. include hmiCfg/hmiMain.rst

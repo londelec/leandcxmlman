@@ -14,7 +14,7 @@ Timeout values can be specified in this node.
 
 .. _docref-ModbusmaTimeoutsAttab:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "Modbus Master Timeouts attributess"
+.. include-file:: sections/Include/table_attrs.rstinc "" "Modbus Master Timeouts attributes"
 
 .. include-file:: sections/Include/ma_TimeoutsAppCmd.rstinc
 
@@ -23,5 +23,5 @@ Timeout values can be specified in this node.
                 :xmlref:`t35`
      :val:      0.00001...42949
      :def:      0.01 sec
-     :desc:     Receive line idle detection timer (t3.5 in the communication standard).
+     :desc:     Receive line idle detection timer (:lectext1:`t3.5` in the communication standard).
 		Incoming message analyze begins when idle in the receive line exceeds configured number of seconds.

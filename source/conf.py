@@ -7,7 +7,7 @@
 project = u'Leandc series XML configuration manual'
 
 # The full version, including alpha/beta/rc tags.
-release = u'V31'
+release = u'V32'
 
 # Override default css styles specified in SphinxBuild/conf_html.py
 #html_numref_color = '#333'
@@ -17,6 +17,9 @@ release = u'V31'
 #html_docref_color = '#333'
 #html_docref_font_weight = 'bold'
 #html_docref_text_decoration = 'underline'
+
+numfig = True
+numfig_format = {'table': '%s', 'figure': '%s', 'code-block': '%s'}
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -36,4 +39,5 @@ exclude_patterns = [
 	'sections/Include/*',
 	'sections/Modbusma/*',
 	'sections/IEC61850cl/*',
-	'sections/supervisionCfg/*']
+	'sections/supervisionCfg/*',
+	'sections/hmiCfg/*']

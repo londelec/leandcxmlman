@@ -17,7 +17,6 @@ ProtocolCfg group node
       <TimeSettings … />
       <Broadcast … />
       <Periodic … />
-      <BufferSizes … />
    </ProtocolCfg>
 
 .. tip:: All element nodes are optional, default values will be used for attributes of omitted nodes.
@@ -40,5 +39,5 @@ ProtocolCfg group node
 .. include:: IEC104ma/Broadcast.rst
 .. include:: IEC104ma/Periodic.rst
 
-.. include-file:: sections/Include/IEC10xma_BufferSizes.rstinc "" ".. _ref-IEC104maBufferSizes:" ":ref:`<ref-IEC104maBufferSizes>`" ".. _docref-IEC104maBufferSizesAttab:" "IEC60870-5-104 Master BufferSizes attributes"
-.. include-file:: sections/Include/IEC60870_DOBufferSize.rstinc
+.. include-file:: sections/Include/IEC10xma_BufferSizes.rstinc "internal" ".. _ref-IEC104maBufferSizes:" ":ref:`<ref-IEC104maBufferSizes>`" ".. _docref-IEC104maBufferSizesAttab:" "IEC60870-5-104 Master BufferSizes attributes"
+.. include-file:: sections/Include/IEC60870_DOBufferSize.rstinc "internal"

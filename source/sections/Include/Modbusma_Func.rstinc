@@ -1,0 +1,6 @@
+   * :attr:	:include-arg:`1`
+
+		:xmlref:`Func`
+     :val:	:include-arg:`2`
+     :def:	n/a
+     :desc:	Modbus function number. Modbus function is manadatory for all messages.

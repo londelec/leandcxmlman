@@ -1,34 +1,23 @@
 :include-arg:`1`
 
-.. field-list-table:: DebugFlags attribute
-   :class: table table-condensed table-bordered longtable
-   :spec: |C{0.20}|C{0.25}|S{0.55}|
-   :header-rows: 1
+.. include-file:: sections/Include/table_flags.rstinc "" "DebugFlags attribute" ":xmlref:`DebugFlags`" ":xmlref:`DebugFlags`"
 
-   * :attr,10: Bits
-     :val,15:  Values
-     :desc,75: Description
-
-   * :attr:    :xmlref:`DebugFlags` [xxxx.xxxx]
-     :val:     0...0xFF
-     :desc:    :xmlref:`DebugFlags` is 8 bit encoded variable.
-
-   * :attr:    Bit 4
-     :val:     xxx0.xxxx
-     :desc:    Source \*.c file name and line number where particular string printing occured **will not be** appended to logfile entries. :inlinetip:`Applies only to Event files.`
+   * :attr:     Bit 4
+     :val:      xxx0.xxxx
+     :desc:     Source \*.c file name and line number where particular string printing occured **will not be** appended to logfile entries. :inlinetip:`Applies only to Event files.`
 
    * :(attr):
-     :val:     xxx1.xxxx
-     :desc:    Source \*.c file name and line number where particular string printing occured **will be** appended to every logfile entry. :inlinetip:`Applies only to Event files.`
+     :val:      xxx1.xxxx
+     :desc:     Source \*.c file name and line number where particular string printing occured **will be** appended to every logfile entry. :inlinetip:`Applies only to Event files.`
 
-   * :attr:    Bit 5
-     :val:     xx0x.xxxx
-     :desc:    Logfile entries are prefixed with **Millisecond** time-tag.
+   * :attr:     Bit 5
+     :val:      xx0x.xxxx
+     :desc:     Logfile entries are prefixed with **Millisecond** time-tag.
 
    * :(attr):
-     :val:     xx1x.xxxx
-     :desc:    Logfile entries are prefixed with **Microsecond** time-tag.
-              
-   * :attr:    Bits 0...3;6;7
-     :val:     Any
-     :desc:    Bits reserved for future use
+     :val:      xx1x.xxxx
+     :desc:     Logfile entries are prefixed with **Microsecond** time-tag.
+
+   * :attr:     Bits 0...3;6;7
+     :val:      Any
+     :desc:     Bits reserved for future use

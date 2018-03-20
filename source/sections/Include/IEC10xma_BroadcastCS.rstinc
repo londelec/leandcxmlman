@@ -3,9 +3,9 @@
                :xmlref:`TimeSync`
      :val:     0
      :def:     0
-     :desc:    Send Time Synchronization [C_CS_NA_1] commands with **individual** link and Common Addresses of ASDU (CAA)
+     :desc:    Send Time Synchronization [:lectext1:`C_CS_NA_1`] commands with **individual** link and Common Addresses of ASDU (CAA)
 
    * :(attr):
      :val:     1
      :(def):
-     :desc:    Send Time Synchronization [C_CS_NA_1] commands with **broadcast** link and Common Address of ASDU (CAA). :include-arg:`2`
+     :desc:    Send Time Synchronization [:lectext1:`C_CS_NA_1`] commands with **broadcast** link and Common Address of ASDU (CAA). :include-arg:`2`

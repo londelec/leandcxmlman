@@ -9,7 +9,7 @@ Application layer settings can be specified using attributes of :ref:`<ref-IEC61
 
 .. code-block:: none
 
- <AppSettings IgnoreTimetags="1" AIDeadband="2" AIPercent="0.5" DIEventStartup="1" AIEventStartup="1" ForwardGI="1" bufTime="0" Flags="0x00"/>
+ <AppSettings IgnoreTimetags="1" AIDeadband="2" AIPercent="0.5" DIEventStartup="1" AIEventStartup="1" ForwardGI="1" bufTime="0" Flags="0x0000"/>
 
 
 .. _docref-IEC61850clAppSettingsAttab:
@@ -33,36 +33,38 @@ Application layer settings can be specified using attributes of :ref:`<ref-IEC61
    * :attr:     .. _ref-IEC61850clAppFlags:
 
                 :xmlref:`Flags`
-     :val:      0...255 or 0x00...0xFF
-     :def:      0x00
+     :val:      0...65535 or 0x00...0xFFFF
+     :def:      0x0000
      :desc:     Miscellaneous settings of the Application layer.
 		See table :numref:`docref-IEC61850clAppFlagsBits` for description.
 
 
 .. _docref-IEC61850clAppFlagsBits:
 
-.. include-file:: sections/Include/table_flags.rstinc "" "Application layer flags" ":ref:`<ref-IEC61850clAppFlags>`" "Application layer flags"
+.. include-file:: sections/Include/table_flags16bit.rstinc "" "Application layer flags" ":ref:`<ref-IEC61850clAppFlags>`" "Application layer flags"
 
    * :attr:     Bit 0
-     :val:      xxxx.xxx0
-     :desc:     **Don't read** the LD directory [GetLogicalDeviceDirectory] when station goes online if IED supports only static datasets (default value)
+     :val:      xxxx.xxxx xxxx.xxx0
+     :desc:     **Don't read** the LD directory [:lectext1:`GetLogicalDeviceDirectory`] when station goes online if IED supports only static datasets (default value)
 
    * :(attr):
-     :val:      xxxx.xxx1
-     :desc:     **Read** the LD directory [GetLogicalDeviceDirectory] when station goes online even if IED supports only static datasets.
+     :val:      xxxx.xxxx xxxx.xxx1
+     :desc:     **Read** the LD directory [:lectext1:`GetLogicalDeviceDirectory`] when station goes online even if IED supports only static datasets.
 		IED initialization will take longer if this bit is enabled, however it offers extra checks.
 		Object directory received from IED will be matched against SCL file and any inconsistencies will be reported.
 
    * :attr:     Bit 1
-     :val:      xxxx.xx0x
+     :val:      xxxx.xxxx xxxx.xx0x
      :desc:     **Process** reports generated after Enhanced security command completion (default value)
 
    * :(attr):
-     :val:      xxxx.xx1x
+     :val:      xxxx.xxxx xxxx.xx1x
      :desc:     **Ignore** reports generated after Enhanced security command completion.
 		This bit has to be used only for IEDs that doesn't generate a report when Enhanced security Direct or SBO command is complete.
 		If not set command will be removed only after Application timeout expiration.
 
-   * :attr:     Bits 2...7
+.. include-file:: sections/Include/hidden_IEC61850clAppFlagsBit8.rstinc "internal"
+
+   * :attr:     Bits 2...15
      :val:      Any
      :desc:     Bits reserved for future use

@@ -5,16 +5,16 @@
 DOTable group and DO node
 -------------------------
 
-Group node :ref:`DOTable<ref-IEC103maDOTable>` and child element nodes :ref:`DO<ref-IEC103maDO>` are used to create DO information objects to send control 
-command to the downstream outstation. Each created DO information object can be used as a destination for 
-any DO information object defined in IO table of the Slave protocol instances. If used as a destination, 
-procedure is as follows: Slave protocol instance receives control command from the upstream Master station 
-and forwards to destination DO information object. Then current communication protocol instance prepares and 
-sends command to the outstation based on DO information object settings. Please refer to the 
+Group node :ref:`DOTable<ref-IEC103maDOTable>` and child element nodes :ref:`DO<ref-IEC103maDO>` are used to create DO information objects to send control
+command to the downstream outstation. Each created DO information object can be used as a destination for
+any DO information object defined in IO table of the Slave protocol instances. If used as a destination,
+procedure is as follows: Slave protocol instance receives control command from the upstream Master station
+and forwards to destination DO information object. Then current communication protocol instance prepares and
+sends command to the outstation based on DO information object settings. Please refer to the
 section :ref:`DOTable<ref-IEC10xslDOTable>` for more information on how to use DO information object as a destination.
 
-In order to send control command to the downstream outstation function type (FUN) and information number 
-(INF) needs to be specified in :ref:`<ref-IEC103maDOFUN>` \ and :ref:`<ref-IEC103maDOINF>` \ attributes.
+In order to send a control command to downstream outstation [:lectext1:`FUNCTION TYPE`] and [:lectext1:`INFORMATION NUMBER`]
+has to be specified in :ref:`<ref-IEC103maDOFUN>` \ and :ref:`<ref-IEC103maDOINF>` \ attributes.
 
 Please see sample :ref:`DOTable<ref-IEC103maDOTable>` group and :ref:`DO<ref-IEC103maDO>` child element nodes below.
 There are 5 DO information objects configured using 4 :ref:`DO<ref-IEC103maDO>` element nodes.
@@ -34,7 +34,7 @@ There are 5 DO information objects configured using 4 :ref:`DO<ref-IEC103maDO>` 
 
    <DO Index="0" FUN="1" INF="1" Qualifier="0x00" Total="2" Name="CB position" />
 
-.. tip:: Attributes of the :ref:`DO<ref-IEC103maDO>` element node can be arranged in any order, it will not affect the XML file validation.         
+.. include-file:: sections/Include/tip_order.rstinc "" ":ref:`DO<ref-IEC103maDO>`"
 
 DO attributes
 ^^^^^^^^^^^^^
@@ -56,7 +56,7 @@ DO attributes
 		See table :numref:`ref-IEC103maDOQualifierBits` for internal object qualifier description.
 		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
 
-.. include-file:: sections/Include/IEC60870_Total.rstinc "" ".. _ref-IEC103maDOTotal:" ":ref:`Index<ref-IEC103maDOIndex>`" ":ref:`INF<ref-IEC103maDOINF>`" ":ref:`DO<ref-IEC103maDO>`" "254"
+.. include-file:: sections/Include/Total.rstinc "" ".. _ref-IEC103maDOTotal:" ":ref:`<ref-IEC103maDOIndex>` and :ref:`<ref-IEC103maDOINF>`" ":ref:`DO<ref-IEC103maDO>`" "254"
 
 .. include-file:: sections/Include/Name.rstinc ""
 

@@ -1,10 +1,10 @@
    * :attr:     Bit 4
      :val:      xxx0.xxxx
-     :desc:     **Check** Test bit of the received Cause Of Transmission. Messages received with set COT test bit will be discarded.
+     :desc:     **Check** Test bit of the received Cause Of Transmission [:lectext1:`COT`]. Messages received with set [:lectext1:`COT`] test bit will be discarded.
 
    * :(attr):
      :val:      xxx1.xxxx
-     :desc:     **Ignore** Test bit of the received Cause Of Transmission. Messages received with set COT test bit will be processed as if no test bit was set.
+     :desc:     **Ignore** Test bit of the received Cause Of Transmission [:lectext1:`COT`]. Messages received with set [:lectext1:`COT`] test bit will be processed as if no test bit was set.
 
    * :attr:     Bits 0...3;5...7
      :val:      Any

@@ -25,7 +25,7 @@ Please see sample :ref:`DOTable<ref-IEC61850clDO>` group and :ref:`DO<ref-IEC618
 
    <DO Index="0" ldInst="LD0" prefix="GNRL" lnClass="CSWI" lnInst="1" doName="Pos" fc="CO" Qualifier="0x00" Name="CB command" />
 
-.. tip:: Attributes of the :ref:`DO<ref-IEC61850clDO>` element node can be arranged in any order, it will not affect XML file validation.         
+.. include-file:: sections/Include/tip_order.rstinc "" ":ref:`DO<ref-IEC61850clDO>`"
 
 DO attributes
 ^^^^^^^^^^^^^

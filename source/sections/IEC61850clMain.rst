@@ -5,14 +5,14 @@
 IEC61850 Client
 ===============
 
-This section describes how to configure IEC61850 Client communication protocol 
+This section describes how to configure IEC61850 Client communication protocol
 instance. IEC61850 standard specifies a System Configuration Language (SCL) for files which are
-used to store cofiguration data of the IED. Most commonly used files are IED Capability Description (ICD), 
-Configured IED Description (CID) and System Configuration Description (SCD). CID or SCD file is 
-required for each IEC61850 Client communication protocol instance. It contains comunication capabilities 
+used to store cofiguration data of the IED. Most commonly used files are IED Capability Description (ICD),
+Configured IED Description (CID) and System Configuration Description (SCD). CID or SCD file is
+required for each IEC61850 Client communication protocol instance. It contains comunication capabilities
 and settings of a Server station (IED) we would like to communicate to. In addition to CID/SCD file
-a XML configuration file is required. It contains IO object table and additional protocol-related settings. 
-The same pairs of CID/SCD and XML files can be used for multiple IEC61850 Client communication protocol instances. 
+a XML configuration file is required. It contains IO object table and additional protocol-related settings.
+The same pairs of CID/SCD and XML files can be used for multiple IEC61850 Client communication protocol instances.
 It becomes very useful if multiple outstations have identical sets of IO objects.
 
 Name and location path of the configuration files is not predefined, it can be chosen freely.
@@ -20,16 +20,16 @@ Files '**REF_IO.xml**' and '**REF.cid**' are used as a sample.
 Enter names of the files in :ref:`<ref-IEC61850cl>`.\ :ref:`<ref-IEC61850clXMLpath>` \ and :ref:`<ref-IEC61850cl>`.\ :ref:`<ref-IEC61850clCIDpath>` \ attributes.
 Location path doesn't need to be specified if the XML file is stored in the same directory with leandc firmware.
 
-IEC61850 Client configuration file (e.g. '**REF_IO.xml**') must have a root object node :xmlref:`IEC61850clConfig` which has 
-2 mandatory child group object nodes :ref:`VersionControl<ref-VersionControl>`; :ref:`ProtocolCfg<ref-IEC61850clProtocolCfg>` 
-and 4 optional child group object nodes :ref:`DITable<ref-IEC61850clDI>`; :ref:`AITable<ref-IEC61850clAI>`; :ref:`DOTable<ref-IEC61850clDO>`; :ref:`AOTable<ref-IEC61850clAO>` 
+IEC61850 Client configuration file (e.g. '**REF_IO.xml**') must have a root object node :xmlref:`IEC61850clConfig` which has
+2 mandatory child group object nodes :ref:`VersionControl<ref-VersionControl>`; :ref:`ProtocolCfg<ref-IEC61850clProtocolCfg>`
+and 4 optional child group object nodes :ref:`DITable<ref-IEC61850clDI>`; :ref:`AITable<ref-IEC61850clAI>`; :ref:`DOTable<ref-IEC61850clDO>`; :ref:`AOTable<ref-IEC61850clAO>`
 please see the sample below.
 
 .. code-block:: none
 
-   <IEC61850clConfig xmlns="http://www.londelec.com/xmlschemas/leandc/IEC61850cl" … version="1.00"> 
+   <IEC61850clConfig xmlns="http://www.londelec.com/xmlschemas/leandc/IEC61850cl" … version="1.00">
       <VersionControl conf="4.00" date="2016-01-25" time="12:00:09"/>
-      <ProtocolCfg> 
+      <ProtocolCfg>
          <CommsSettings OfflineDelay="10"/>
 	 <TransportSettings CallingTSEL="0x0A" SourceREF="0x04"/>
          …
@@ -52,10 +52,10 @@ please see the sample below.
       </AOTable>
    </IEC61850clConfig>
 
-:ref:`DITable<ref-IEC61850clDI>`; :ref:`AITable<ref-IEC61850clAI>`; :ref:`DOTable<ref-IEC61850clDO>`; :ref:`AOTable<ref-IEC61850clAO>` group nodes form the IO object table 
-of the IEC61850 Client communication protocol instance. Please 
+:ref:`DITable<ref-IEC61850clDI>`; :ref:`AITable<ref-IEC61850clAI>`; :ref:`DOTable<ref-IEC61850clDO>`; :ref:`AOTable<ref-IEC61850clAO>` group nodes form the IO object table
+of the IEC61850 Client communication protocol instance. Please
 refer to the tables :numref:`ref-IEC61850clDIAttributes`; :numref:`ref-IEC61850clAIAttributes`; :numref:`ref-IEC61850clDOAttributes` and :numref:`ref-IEC61850clAOAttributes` for their attributes.
-  
+
 .. include:: IEC61850cl/ProtocolCfg.rst
 .. include:: IEC61850cl/DITable.rst
 .. include:: IEC61850cl/AITable.rst

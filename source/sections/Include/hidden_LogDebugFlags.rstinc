@@ -1,4 +1,6 @@
-   * :attr:    :xmlref:`DebugFlags`
-     :val:     See table :include-arg:`1` for description
-     :desc:    Additional debug configuration for logfiles. :inlineattention:`This attribute is excluded from user documentation.`
+   * :attr:     :xmlref:`DebugFlags`
+     :val:      See table :include-arg:`1` for description
+     :def:      0x00
+     :desc:     Additional debug configuration for logfiles.
+		:inlineattention:`This attribute is excluded from user documentation.`
 

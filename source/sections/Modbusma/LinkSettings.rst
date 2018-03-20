@@ -21,8 +21,9 @@ Link layer settings can be specified using attributes of :ref:`<ref-ModbusmaLink
                 :xmlref:`Frame`
      :val:      RTU*
      :def:      RTU
-     :desc:     Frame format of the Modbus messages. :inlinetip:`Please note frame format of all protocol instances sharing the hardware node must be the same.`
+     :desc:     Frame format of the Modbus messages.
+		:inlinetip:`Please note frame format of all protocol instances sharing the hardware node must be the same.`
 
 
-.. important:: \* Only ModbusRTU frame format is available in current release of leandc firmware, more formats to be added in the future.
+.. important:: \* Only Modbus® RTU frame format is available in the current release of leandc firmware, more formats to be added in the future.
 

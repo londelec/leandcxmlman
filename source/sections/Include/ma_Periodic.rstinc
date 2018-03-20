@@ -2,7 +2,9 @@
 
 .. include-file:: sections/Include/table_attrs.rstinc "" ":include-arg:`2`"
 
-   * :attr:    :xmlref:`GI`
-     :val:     0...2\ :sup:`32`\  - 1
-     :def:     0 sec
-     :desc:    Periodic General Interrogation command interval in seconds. Value 0 disables periodic General Interrogation command.
+   * :attr:     :xmlref:`GI`
+     :val:      0...2\ :sup:`32`\  - 1
+     :def:      0 sec
+     :desc:     Periodic General Interrogation command interval in seconds.
+		Value 0 disables periodic General Interrogation command.
+

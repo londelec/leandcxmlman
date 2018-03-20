@@ -5,5 +5,5 @@
      :def:      0 sec
      :desc:     Additional delay to change quality marking of station's DI/AI objects if station hasn't been online for a very long time.
 		Quality marking of station's DI/AI objects will be changed after configured number of seconds following status change to OFFLINE.
-		(Applicaiton example: DI/AI objects can be marked with Not Topical [NT] bit when station status changes to OFFLINE i.e. after :include-arg:`2` timer expires and Invalid [IV] bit after this delay expires.) 
+		(Applicaiton example: DI/AI objects can be marked with Not Topical [:lectext1:`NT`] bit when station status changes to OFFLINE i.e. after :include-arg:`2` timer expires and Invalid [:lectext1:`IV`] bit after this delay expires.)
 

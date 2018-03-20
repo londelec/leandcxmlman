@@ -29,7 +29,7 @@ There are 5 AO information objects configured using 4 :ref:`AO<ref-IEC10xmaAO>` 
 
    <AO Index="0" InfAddr="1" qualifier="0x00" Coeff="11.6" TypeID="50" Total="2" Name="Filter value" />
 
-.. tip:: Attributes of the :ref:`AO<ref-IEC10xmaAO>` element node can be arranged in any order, it will not affect the XML file validation.         
+.. include-file:: sections/Include/tip_order.rstinc "" ":ref:`AO<ref-IEC10xmaAO>`"
 
 AO attributes
 ^^^^^^^^^^^^^
@@ -62,7 +62,7 @@ AO attributes
 		ASDU type is transparent if neither this attribute nor communication protocol generic attribute (e.g. IEC101ma or IEC104ma :ref:`<ref-IEC101maASDUSettings>`.\ :ref:`<ref-IEC101maASDUSettingsAOType>` \) is used.
 		:inlinetip:`Attribute is optional and doesn't have to be included in configuration.`
 
-.. include-file:: sections/Include/IEC60870_Total.rstinc "" ".. _ref-IEC10xmaAOTotal:" ":ref:`Index<ref-IEC10xmaAOIndex>`" ":ref:`InfAddr<ref-IEC10xmaAOInfAddr>`" ":ref:`AO<ref-IEC10xmaAO>`" "16777214"
+.. include-file:: sections/Include/Total.rstinc "" ".. _ref-IEC10xmaAOTotal:" ":ref:`<ref-IEC10xmaAOIndex>` and :ref:`<ref-IEC10xmaAOInfAddr>`" ":ref:`AO<ref-IEC10xmaAO>`" "16777214"
 
 .. include-file:: sections/Include/Name.rstinc ""
 
@@ -107,25 +107,25 @@ AO.TypeID
      :desc,90: Description
 
    * :attr:     48
-     :desc:     'Normalized setpoint command' will be sent (ASDU type 48 [C_SE_NA_1])
+     :desc:     'Normalized setpoint command' will be sent (ASDU type 48 [:lectext1:`C_SE_NA_1`])
 
    * :attr:     49
-     :desc:     'Scaled setpoint command' will be sent (ASDU type 49 [C_SE_NB_1])
+     :desc:     'Scaled setpoint command' will be sent (ASDU type 49 [:lectext1:`C_SE_NB_1`])
 
    * :attr:     50
-     :desc:     'Short floating point setpoint command' will be sent (ASDU type 50 [C_SE_NC_1])
+     :desc:     'Short floating point setpoint command' will be sent (ASDU type 50 [:lectext1:`C_SE_NC_1`])
 
    * :attr:     61
      :desc:     Only applicable to IEC60870-5-104 Master protocol instance;
-                Time-tagged 'Normalized setpoint command' will be sent (ASDU type 61 [C_SE_TA_1])
+                Time-tagged 'Normalized setpoint command' will be sent (ASDU type 61 [:lectext1:`C_SE_TA_1`])
 
    * :attr:     62
      :desc:     Only applicable to IEC60870-5-104 Master protocol instance;
-                Time-tagged 'Scaled setpoint command' will be sent (ASDU type 62 [C_SE_TB_1])
+                Time-tagged 'Scaled setpoint command' will be sent (ASDU type 62 [:lectext1:`C_SE_TB_1`])
 
    * :attr:     63
      :desc:     Only applicable to IEC60870-5-104 Master protocol instance;
-                Time-tagged 'Short floating point setpoint command' will be sent (ASDU type 63 [C_SE_TC_1])
+                Time-tagged 'Short floating point setpoint command' will be sent (ASDU type 63 [:lectext1:`C_SE_TC_1`])
 
    * :attr:     Other
      :desc:     Transparent, ASDU TypeID of the outgoing command will be the same as received from upstream Master station

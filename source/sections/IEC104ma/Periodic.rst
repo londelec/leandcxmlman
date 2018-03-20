@@ -15,4 +15,4 @@ Periodic intervals to send various messages are specified in this node.
 
 .. include-file:: sections/Include/IEC10xma_PeriodicICGroups.rstinc ""
 
-.. include-file:: sections/Include/IEC10xma_PeriodicTimeSync.rstinc "" ":inlinetip:`Time Synchronization command will be sent automatically every time station goes Online regardless if predefined interval has expired.`"
+.. include-file:: sections/Include/ma_PeriodicTimeSync.rstinc "" ":inlinetip:`Time Synchronization command will be sent every time station goes Online regardless if predefined interval has expired.`"

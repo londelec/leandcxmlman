@@ -1,0 +1,8 @@
+   * :attr:     .. _ref-IEC61850clInfoLogFlags:
+
+                :xmlref:`InfoLogFlags`
+     :val:      See table :numref:`docref-IEC61850clInfoLogFlagAttab` for description
+     :def:      0x0000
+     :desc:     Application debug logger specification. Information will be recorded to comms logger.
+		:inlineattention:`This attribute is excluded from user documentation.`
+

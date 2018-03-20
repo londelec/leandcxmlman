@@ -1,0 +1,40 @@
+.. _docref-IEC61850clInfoLogFlagAttab:
+
+.. include-file:: sections/Include/table_flags16bit.rstinc "" "Application debug logger specification" ":ref:`<ref-IEC61850clInfoLogFlags>`" "Info logger flags"
+
+   * :attr:     Bit 0
+     :val:      xxxx.xxxx xxxx.xxx0
+     :desc:     Logical device director contents i.e. all LN/RCB/DO/DA **will not be** recorded.
+
+   * :(attr):
+     :val:      xxxx.xxxx xxxx.xxx1
+     :desc:     Logical device director contents i.e. all LN/RCB/DO/DA **will be** recorded.
+
+   * :attr:     Bit 1
+     :val:      xxxx.xxxx xxxx.xx0x
+     :desc:     Missing object references **will not be** recorded.
+
+   * :(attr):
+     :val:      xxxx.xxxx xxxx.xx1x
+     :desc:     Missing object references **will be** recorded.
+
+   * :attr:     Bit 2
+     :val:      xxxx.xxxx xxxx.x0xx
+     :desc:     Object references added to the text buffer **will not be** recorded.
+
+   * :(attr):
+     :val:      xxxx.xxxx xxxx.x1xx
+     :desc:     Object references added to the text buffer **will be** recorded.
+		These are object references leandc will be requesting Basic Types for.
+
+   * :attr:     Bit 3
+     :val:      xxxx.xxxx xxxx.0xxx
+     :desc:     Dynamically create elements in the SCL tree **will not be** recorded.
+
+   * :(attr):
+     :val:      xxxx.xxxx xxxx.1xxx
+     :desc:     Dynamically create elements in the SCL tree e.g. DO/DA **will be** recorded.
+
+   * :attr:     Bits 4...15
+     :val:      Any
+     :desc:     Bits reserved for future use

@@ -10,11 +10,11 @@ Each created DI can be used as a source for any DI information object defined in
 Data received from the outstation will be forwarded to the DI information object of the Slave protocol instance and then to the upstream Master station.
 Please refer to the section :ref:`docref-IEC10xslDITable` for more information on how to use DI information object as a source.
 
-In order to receive status information from downstream outstation information object address (IOA) needs to be 
-specified in the :ref:`InfAddr<ref-IEC10xmaDIInfAddr>` \ attribute. 
+In order to receive status information from downstream outstation information object address (IOA) needs to be
+specified in the :ref:`InfAddr<ref-IEC10xmaDIInfAddr>` \ attribute.
 Status information is processed when received with any of the following ASDU types:
-1 [M_SP_NA_1]; 2 [M_SP_TA_1]; 3 [M_DP_NA_1]; 
-4 [M_DP_TA_1]; 30 [M_SP_TB_1]; 31 [M_DP_TB_1]
+1 [:lectext1:`M_SP_NA_1`]; 2 [:lectext1:`M_SP_TA_1`]; 3 [:lectext1:`M_DP_NA_1`];
+4 [:lectext1:`M_DP_TA_1`]; 30 [:lectext1:`M_SP_TB_1`]; 31 [:lectext1:`M_DP_TB_1`]
 
 Please see sample :ref:`DITable<ref-IEC10xmaDITable>` group and :ref:`DI<ref-IEC10xmaDI>` child element nodes below.
 There are 5 DI information objects configured using 4 :ref:`DI<ref-IEC10xmaDI>` element nodes.
@@ -34,7 +34,7 @@ There are 5 DI information objects configured using 4 :ref:`DI<ref-IEC10xmaDI>` 
 
    <DI Index="0" InfAddr="1" qualifier="0" InterDelay="10000" IndetDelay="0" TypeID="31" Total="2" Name="CB position" />
 
-.. tip:: Attributes of the :ref:`DI<ref-IEC10xmaDI>` element node can be arranged in any order, it will not affect the XML file validation.         
+.. include-file:: sections/Include/tip_order.rstinc "" ":ref:`DI<ref-IEC10xmaDI>`"
 
 DI attributes
 ^^^^^^^^^^^^^
@@ -69,7 +69,7 @@ DI attributes
 		:inlinetip:`Attribute is optional and doesn't have to be included in configuration.
 		ASDU type received from outstation will be used to report object upstream if transparent ASDUs are enabled in Slave protocol instance with` :ref:`<ref-IEC101slASDUSettings>`.\ :ref:`<ref-IEC101slASDUSettingsTranspTypes>` \ :inlinetip:`attribute.`
 
-.. include-file:: sections/Include/IEC60870_Total.rstinc "" ".. _ref-IEC10xmaDITotal:" ":ref:`<ref-IEC10xmaDIIndex>`" ":ref:`<ref-IEC10xmaDIInfAddr>`" ":ref:`DI<ref-IEC10xmaDI>`" "16777214"
+.. include-file:: sections/Include/Total.rstinc "" ".. _ref-IEC10xmaDITotal:" ":ref:`<ref-IEC10xmaDIIndex>` and :ref:`<ref-IEC10xmaDIInfAddr>`" ":ref:`DI<ref-IEC10xmaDI>`" "16777214"
 
 .. include-file:: sections/Include/Name.rstinc ""
 

@@ -38,7 +38,7 @@ There are 5 AO information objects configured using 4 :ref:`AO<ref-IEC10xslAO>` 
 
    <AO Device="10" Index="2" InfAddr="4" qualifier="0x80" Coeff="15.3" Policy="0" TypeID="0" Total="2" Name="Filter value" />
 
-.. tip:: Attributes of the :ref:`AO<ref-IEC10xslAO>` element node can be arranged in any order, it will not affect the XML file validation.         
+.. include-file:: sections/Include/tip_order.rstinc "" ":ref:`AO<ref-IEC10xslAO>`"
 
 AO attributes
 ^^^^^^^^^^^^^
@@ -92,7 +92,7 @@ AO attributes
 		Value 0 disables ASDU type checking and any command is accepted.
 		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
 
-.. include-file:: sections/Include/IEC60870_Total.rstinc "" ".. _ref-IEC10xslAOTotal:" ":ref:`Index<ref-IEC10xslAOIndex>`" ":ref:`InfAddr<ref-IEC10xslAOInfAddr>`" ":ref:`AO<ref-IEC10xslAO>`" "16777214"
+.. include-file:: sections/Include/Total.rstinc "" ".. _ref-IEC10xslAOTotal:" ":ref:`<ref-IEC10xslAOIndex>` and :ref:`<ref-IEC10xslAOInfAddr>`" ":ref:`AO<ref-IEC10xslAO>`" "16777214"
 
 .. include-file:: sections/Include/Name.rstinc ""
 
@@ -145,25 +145,25 @@ AO.TypeID
      :desc,90: Description
 
    * :attr:     48
-     :desc:     Only 'Normalized setpoint command' will be accepted and processed (ASDU type 48 [C_SE_NA_1])
+     :desc:     Only 'Normalized setpoint command' will be accepted and processed (ASDU type 48 [:lectext1:`C_SE_NA_1`])
 
    * :attr:     49
-     :desc:     Only 'Scaled setpoint command' will be accepted and processed (ASDU type 49 [C_SE_NB_1])
+     :desc:     Only 'Scaled setpoint command' will be accepted and processed (ASDU type 49 [:lectext1:`C_SE_NB_1`])
 
    * :attr:     50
-     :desc:     Only 'Short floating point setpoint command' will be accepted and processed (ASDU type 50 [C_SE_NC_1])
+     :desc:     Only 'Short floating point setpoint command' will be accepted and processed (ASDU type 50 [:lectext1:`C_SE_NC_1`])
 
    * :attr:     61
      :desc:     Only applicable to IEC60870-5-104 Slave protocol instance;
-                Only time-tagged 'Normalized setpoint command' will be accepted and processed (ASDU type 61 [C_SE_TA_1])
+                Only time-tagged 'Normalized setpoint command' will be accepted and processed (ASDU type 61 [:lectext1:`C_SE_TA_1`])
 
    * :attr:     62
      :desc:     Only applicable to IEC60870-5-104 Slave protocol instance;
-                Only time-tagged 'Scaled setpoint command' will be accepted and processed (ASDU type 62 [C_SE_TB_1])
+                Only time-tagged 'Scaled setpoint command' will be accepted and processed (ASDU type 62 [:lectext1:`C_SE_TB_1`])
 
    * :attr:     63
      :desc:     Only applicable to IEC60870-5-104 Slave protocol instance;
-                Only time-tagged 'Short floating point setpoint command' will be accepted and processed (ASDU type 63 [C_SE_TC_1])
+                Only time-tagged 'Short floating point setpoint command' will be accepted and processed (ASDU type 63 [:lectext1:`C_SE_TC_1`])
 
    * :attr:     Other
      :desc:     Undefined, setpoint command received with any ASDU type will be accepted

@@ -1,6 +1,8 @@
-   * :attr:     :include-arg:`1`
+   * :attr:	:include-arg:`1`
 
-                :xmlref:`Index`
-     :val:      0...2\ :sup:`32`\  - 8
-     :def:      n/a
-     :desc:     Index is a unique identifier of the :include-arg:`2` object. :inlineimportant:`Index numbering must start with 0 and indexes must be arranged in an ascending order as it prevents insertion of a new object. This requirement is essential because it affects object mapping to Slave communication protocol instances.`
+		:xmlref:`Index`
+     :val:	0...2\ :sup:`32`\  - 8
+     :def:	n/a
+     :desc:	Index is a unique identifier of the :include-arg:`2` object.
+		:inlineimportant:`Index numbering must start with 0 and indexes must be arranged in an ascending order.
+		This restriction has been put in place because insertion of a new index affects object mapping to Slave communication protocol instances.`

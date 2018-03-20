@@ -24,7 +24,7 @@ Please see sample :ref:`AITable<ref-IEC61850clAI>` group and :ref:`AI<ref-IEC618
 
    <AI Index="0" ldInst="LD0" prefix="CPH" lnClass="MMXU" lnInst="1" doName="A.phsA" fc="MX" Qualifier="0x20" Coeff="1.0" Deadband="0.5" Percent="0" StartOffset="6554" ZeroDeadband="3.0" Offset="-2.0" OffsetDeadband="2.0" NonZeroOffset="200.0" daName="cVal.mag.f" DSnum="1" TrgOps="0x00" intgPd="0" Name="Feeder current" />
 
-.. tip:: Attributes of the :ref:`AI<ref-IEC61850clAI>` element node can be arranged in any order, it will not affect XML file validation.         
+.. include-file:: sections/Include/tip_order.rstinc "" ":ref:`AI<ref-IEC61850clAI>`"
 
 AI attributes
 ^^^^^^^^^^^^^

@@ -9,12 +9,21 @@ Communication and event buffer sizes can be specified in this node.
 
 .. code-block:: none
 
-   <BufferSizes DIEVsize="1024" AIEVsize="1024" DIEVmult="1.1" AIEVmult="2.1" DO="1" ASDUTx="253" />
+   <BufferSizes DIEVmult="1.1" AIEVmult="2.1" ASDUTx="253" />
 
+.. _docref-IEC101slBufferSizesAttab:
 
-.. include-file:: sections/Include/IEC10xsl_BufferSizes.rstinc "" ".. _docref-IEC101slBufferSizesAttab:" "IEC60870-5-101 Slave BufferSizes attributes"
+.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-101 Slave BufferSizes attributes"
 
-.. include-file:: sections/Include/IEC60870_DOBufferSize.rstinc
+.. include-file:: sections/Include/hidden_BufferEVsize.rstinc "internal" ".. _ref-IEC101slBufferDIevsize:" ":xmlref:`DIEVsize`" "DI"
+
+.. include-file:: sections/Include/hidden_BufferEVsize.rstinc "internal" ".. _ref-IEC101slBufferAIevsize:" ":xmlref:`AIEVsize`" "AI"
+
+.. include-file:: sections/Include/IEC10xsl_BufferEVmult.rstinc "" ".. _ref-IEC101slBufferDImult:" ":xmlref:`DIEVmult`" "DI"
+
+.. include-file:: sections/Include/IEC10xsl_BufferEVmult.rstinc "" ".. _ref-IEC101slBufferAImult:" ":xmlref:`AIEVmult`" "AI"
+
+.. include-file:: sections/Include/IEC60870_DOBufferSize.rstinc "internal"
 
    * :attr:     :xmlref:`ASDUTx`
      :val:      14...253

@@ -29,9 +29,9 @@ Leandc series XML configuration manual
    **Contact us**
 
    | Londelec UK Ltd
-   | 19 Marlborough road
-   | Banbury
-   | OX16 5DB
+   | 483 Green Lanes
+   | London
+   | N13 4BS
    | United Kingdom
 
    | Phone +44 (0) 207 060 7087

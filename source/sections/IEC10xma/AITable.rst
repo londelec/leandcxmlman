@@ -10,13 +10,13 @@ Each created AI can be used as a source for any AI information object defined in
 Analog data received from the outstation will be forwarded to the AI information object of the Slave protocol instance and then to the upstream Master station.
 Please refer to the section :ref:`docref-IEC10xslAITable` for more information on how to use AI information object as a source.
 
-In order to receive analog information from the downstream outstation information object address (IOA) needs to be 
+In order to receive analog information from the downstream outstation information object address (IOA) needs to be
 specified in the :ref:`<ref-IEC10xmaAIInfAddr>` \ attribute.
 Analog information is processed when received with any of the following ASDU types:
-5 [M_ST_NA_1]; 6 [M_ST_TA_1]; 32 [M_ST_TB_1]; 
-9 [M_ME_NA_1]; 10 [M_ME_TA_1]; 34 [M_ME_TD_1];
-11 [M_ME_NB_1]; 12 [M_ME_TB_1]; 35 [M_ME_TE_1];
-13 [M_ME_NC_1]; 14 [M_ME_TC_1]; 36 [M_ME_TF_1]
+5 [:lectext1:`M_ST_NA_1`]; 6 [:lectext1:`M_ST_TA_1`]; 32 [:lectext1:`M_ST_TB_1`];
+9 [:lectext1:`M_ME_NA_1`]; 10 [:lectext1:`M_ME_TA_1`]; 34 [:lectext1:`M_ME_TD_1`];
+11 [:lectext1:`M_ME_NB_1`]; 12 [:lectext1:`M_ME_TB_1`]; 35 [:lectext1:`M_ME_TE_1`];
+13 [:lectext1:`M_ME_NC_1`]; 14 [:lectext1:`M_ME_TC_1`]; 36 [:lectext1:`M_ME_TF_1`]
 
 Please see sample :ref:`AITable<ref-IEC10xmaAITable>` group and :ref:`AI<ref-IEC10xmaAI>` child element nodes below.
 There are 5 AI information objects configured using 4 :ref:`AI<ref-IEC10xmaAI>` element nodes.
@@ -36,7 +36,7 @@ There are 5 AI information objects configured using 4 :ref:`AI<ref-IEC10xmaAI>` 
 
    <AI Index="0" InfAddr="1" qualifier="0x20" Coeff="1.0" Deadband="0.5" Percent="0" StartOffset="6554" ZeroDeadband="3.0" Offset="-2.0" OffsetDeadband="2.0" NonZeroOffset="200.0" TypeID="36" Total="2" Name="Feeder current" />
 
-.. tip:: Attributes of the :ref:`AI<ref-IEC10xmaAI>` element node can be arranged in any order, it will not affect the XML file validation.         
+.. include-file:: sections/Include/tip_order.rstinc "" ":ref:`AI<ref-IEC10xmaAI>`"
 
 AI attributes
 ^^^^^^^^^^^^^
@@ -75,7 +75,7 @@ AI attributes
 		:inlinetip:`Attribute is optional and doesn't have to be included in configuration.
 		ASDU type received from outstation will be used to report object upstream if transparent ASDUs are enabled in Slave protocol instance with` :ref:`<ref-IEC101slASDUSettings>`.\ :ref:`<ref-IEC101slASDUSettingsTranspTypes>` \ :inlinetip:`attribute.`
 
-.. include-file:: sections/Include/IEC60870_Total.rstinc "" ".. _ref-IEC10xmaAITotal:" ":ref:`Index<ref-IEC10xmaAIIndex>`" ":ref:`InfAddr<ref-IEC10xmaAIInfAddr>`" ":ref:`AI<ref-IEC10xmaAI>`" "16777214"
+.. include-file:: sections/Include/Total.rstinc "" ".. _ref-IEC10xmaAITotal:" ":ref:`<ref-IEC10xmaAIIndex>` and :ref:`<ref-IEC10xmaAIInfAddr>`" ":ref:`AI<ref-IEC10xmaAI>`" "16777214"
 
 .. include-file:: sections/Include/Name.rstinc ""
 

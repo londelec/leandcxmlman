@@ -5,15 +5,15 @@
 DITable group and DI node
 -------------------------
 
-Group node :ref:`DITable<ref-IEC103maDITable>` and child element nodes :ref:`DI<ref-IEC103maDI>` are used to create DI information objects to receive status 
-information from the downstream outstation. Each created DI information object can be used as source of 
-information for any DI information object defined in IO table of the Slave protocol instances. If used as a source, 
-status information received from an outstation will be forwarded to DI information object of the Slave protocol 
-instance and then to the upstream Master station. Please refer to the 
+Group node :ref:`DITable<ref-IEC103maDITable>` and child element nodes :ref:`DI<ref-IEC103maDI>` are used to create DI information objects to receive status
+information from the downstream outstation. Each created DI information object can be used as source of
+information for any DI information object defined in IO table of the Slave protocol instances. If used as a source,
+status information received from an outstation will be forwarded to DI information object of the Slave protocol
+instance and then to the upstream Master station. Please refer to the
 section :ref:`docref-IEC10xslDITable` for more information on how to use DI information object as a source.
 
-In order to receive status information from the downstream outstation function type (FUN) and information 
-number (INF) needs to be specified in :ref:`<ref-IEC103maDIFUN>` \ and :ref:`<ref-IEC103maDIINF>` \ attributes.
+In order to receive a status information from downstream outstation [:lectext1:`FUNCTION TYPE`] and [:lectext1:`INFORMATION NUMBER`]
+has to be specified in :ref:`<ref-IEC103maDIFUN>` \ and :ref:`<ref-IEC103maDIINF>` \ attributes.
 
 Please see sample :ref:`DITable<ref-IEC103maDITable>` group and :ref:`DI<ref-IEC103maDI>` child element nodes below.
 There are 5 DI information objects configured using 4 :ref:`DI<ref-IEC103maDI>` element nodes.
@@ -33,7 +33,7 @@ There are 5 DI information objects configured using 4 :ref:`DI<ref-IEC103maDI>` 
 
    <DI Index="0" FUN="1" INF="1" Qualifier="0" InterDelay="10000" IndetDelay="0" Total="2" Name="CB position" />
 
-.. tip:: Attributes of the :ref:`DI<ref-IEC103maDI>` element node can be arranged in any order, it will not affect the XML file validation.         
+.. include-file:: sections/Include/tip_order.rstinc "" ":ref:`DI<ref-IEC103maDI>`"
 
 DI attributes
 ^^^^^^^^^^^^^
@@ -57,7 +57,7 @@ DI attributes
 
 .. include-file:: sections/Include/DI_Idelays.rstinc "" ".. _ref-IEC103maDIInterDelay:" ".. _ref-IEC103maDIIndetDelay:"
 
-.. include-file:: sections/Include/IEC60870_Total.rstinc "" ".. _ref-IEC103maDITotal:" ":ref:`<ref-IEC103maDIIndex>`" ":ref:`<ref-IEC103maDIINF>`" ":ref:`DI<ref-IEC103maDI>`" "254"
+.. include-file:: sections/Include/Total.rstinc "" ".. _ref-IEC103maDITotal:" ":ref:`<ref-IEC103maDIIndex>` and :ref:`<ref-IEC103maDIINF>`" ":ref:`DI<ref-IEC103maDI>`" "254"
 
 .. include-file:: sections/Include/Name.rstinc ""
 

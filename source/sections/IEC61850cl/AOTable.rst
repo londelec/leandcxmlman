@@ -24,7 +24,7 @@ Please see sample :ref:`AOTable<ref-IEC61850clAO>` group and :ref:`AO<ref-IEC618
 
    <AO Index="0" ldInst="LD0" prefix="GNRL" lnClass="CSWI" lnInst="1" doName="Mod" fc="CO" Qualifier="0x00" Coeff="1" Name="Mode and Behaviour" />
 
-.. tip:: Attributes of the :ref:`AO<ref-IEC61850clAO>` element node can be arranged in any order, it will not affect the XML file validation.         
+.. include-file:: sections/Include/tip_order.rstinc "" ":ref:`AO<ref-IEC61850clAO>`"
 
 AO attributes
 ^^^^^^^^^^^^^

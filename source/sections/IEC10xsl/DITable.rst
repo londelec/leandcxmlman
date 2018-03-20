@@ -38,7 +38,7 @@ There are 5 DI information objects configured using 4 :ref:`DI<ref-IEC10xslDI>` 
 
    <DI Device="10" Index="0" InfAddr="1" qualifier="0" GroupMask="0x0001" TypeID="30" OffIndex="5" InterDelay="8000" IndetDelay="3500" Total="2" Name="CB position" />
 
-.. tip:: Attributes of the :ref:`DI<ref-IEC10xslDI>` element node can be arranged in any order, it will not affect the XML file validation.         
+.. include-file:: sections/Include/tip_order.rstinc "" ":ref:`DI<ref-IEC10xslDI>`"
 
 DI attributes
 ^^^^^^^^^^^^^
@@ -122,7 +122,7 @@ DI attributes
 		(default value 5000 - event will be generated if Indeterminate (error) state lasts longer than 5 seconds)
 		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
 
-.. include-file:: sections/Include/IEC60870_Total.rstinc "" ".. _ref-IEC10xslDITotal:" ":ref:`Index<ref-IEC10xslDIIndex>`" ":ref:`InfAddr<ref-IEC10xslDIInfAddr>`" ":ref:`DI<ref-IEC10xslDI>`" "16777214"
+.. include-file:: sections/Include/Total.rstinc "" ".. _ref-IEC10xslDITotal:" ":ref:`<ref-IEC10xslDIIndex>` and :ref:`<ref-IEC10xslDIInfAddr>`" ":ref:`DI<ref-IEC10xslDI>`" "16777214"
 
 .. include-file:: sections/Include/Name.rstinc ""
 
@@ -135,11 +135,11 @@ DI.qualifier
 
    * :attr:     Bit 0
      :val:      xxxx.xxx0
-     :desc:     DI object **will not** be inverted (ON = 1; OFF = 0 for [M_SP_NA_1] type and ON = 2; OFF = 1; INTER = 0; INVALID = 3 for [M_DP_NA_1] type)
+     :desc:     DI object **will not** be inverted (ON = 1; OFF = 0 for [:lectext1:`M_SP_NA_1`] type and ON = 2; OFF = 1; INTER = 0; INVALID = 3 for [:lectext1:`M_DP_NA_1`] type)
 
    * :(attr):
      :val:      xxxx.xxx1
-     :desc:     DI object **will** be inverted (ON = 0; OFF = 1 for [M_SP_NA_1] type and ON = 1; OFF = 2; INTER = 0; INVALID = 3 for [M_DP_NA_1] type)
+     :desc:     DI object **will** be inverted (ON = 0; OFF = 1 for [:lectext1:`M_SP_NA_1`] type and ON = 1; OFF = 2; INTER = 0; INVALID = 3 for [:lectext1:`M_DP_NA_1`] type)
 
    * :attr:     Bit 1
      :val:      xxxx.xx0x
@@ -181,7 +181,7 @@ DI.qualifier
 
    * :(attr):
      :val:      x1xx.xxxx
-     :desc:     DI events with **OFF** values or with set **[IV]** bit will be discarded. :inlinetip:`This option is only used for backward compatibility.`
+     :desc:     DI events with **OFF** values or with set [:lectext1:`IV`] bit will be discarded. :inlinetip:`This option is only used for backward compatibility.`
 
    * :attr:     Bit 7
      :val:      0xxx.xxxx
@@ -257,9 +257,9 @@ Service indications have negative index values and can be used just as any regul
 .. tip::
 
    | \* This service indication only applies to the following protocol instances:
-   | IEC60870-5-104 controling station (Master) communication is [Started] or [Stopped]. ON ([Started] state) indicates [STARTDT_con] has been received from outstation;
-   | IEC60870-5-104 controlled station (Slave) communication is [Started] or [Stopped]. ON ([Started] state) indicates [STARTDT_act] message has been received from upstream station;
-   | IEC61850 Client association state. ON indicates associated state i.e. [Initiate-ResponsePDU] message has been recevied from IED;
+   | IEC60870-5-104 controling station (Master) communication is [:lectext1:`Started`] or [:lectext1:`Stopped`]. ON ([:lectext1:`Started`] state) indicates [:lectext1:`STARTDT_con`] has been received from outstation;
+   | IEC60870-5-104 controlled station (Slave) communication is [:lectext1:`Started`] or [:lectext1:`Stopped`]. ON ([:lectext1:`Started`] state) indicates [:lectext1:`STARTDT_act`] message has been received from upstream station;
+   | IEC61850 Client association state. ON indicates associated state i.e. [:lectext1:`Initiate-ResponsePDU`] message has been recevied from IED;
 
 DI SPI/DPI conversion
 ^^^^^^^^^^^^^^^^^^^^^

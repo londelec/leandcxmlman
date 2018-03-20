@@ -5,7 +5,7 @@
 DOTable group and DO node
 -------------------------
 
-Group node :ref:`DOTable<ref-IEC10xmaDOTable>` and child element nodes :ref:`DO<ref-IEC10xmaDO>` are used to create DO information objects for sending control command to the downstream outstation. 
+Group node :ref:`DOTable<ref-IEC10xmaDOTable>` and child element nodes :ref:`DO<ref-IEC10xmaDO>` are used to create DO information objects for sending control command to the downstream outstation.
 Each created DO can be used as a destination for any DO information object defined in the IO table of any Slave protocol instance.
 Command execution procedure is as follows: Slave protocol instance receives a control command from the upstream Master station and forwards to the destination DO object.
 Current communication protocol instance validates and sends a command to the outstation based on the DO settings configured below.
@@ -29,7 +29,7 @@ There are 5 DO information objects configured using 4 :ref:`DO<ref-IEC10xmaDO>` 
 
    <DO Index="0" InfAddr="1" qualifier="0x00" QOC="0" TypeID="46" Total="2" Name="CB command" />
 
-.. tip:: Attributes of the :ref:`DO<ref-IEC10xmaDO>` element node can be arranged in any order, it will not affect the XML file validation.         
+.. include-file:: sections/Include/tip_order.rstinc "" ":ref:`DO<ref-IEC10xmaDO>`"
 
 DO attributes
 ^^^^^^^^^^^^^
@@ -69,7 +69,7 @@ DO attributes
 		ASDU type is transparent if neither this attribute nor communication protocol generic attribute (e.g. IEC101ma or IEC104ma :ref:`<ref-IEC101maASDUSettings>`.\ :ref:`<ref-IEC101maASDUSettingsDOType>` \) is used.
 		:inlinetip:`Attribute is optional and doesn't have to be included in configuration.`
 
-.. include-file:: sections/Include/IEC60870_Total.rstinc "" ".. _ref-IEC10xmaDOTotal:" ":ref:`Index<ref-IEC10xmaDOIndex>`" ":ref:`InfAddr<ref-IEC10xmaDOInfAddr>`" ":ref:`DO<ref-IEC10xmaDO>`" "16777214"
+.. include-file:: sections/Include/Total.rstinc "" ".. _ref-IEC10xmaDOTotal:" ":ref:`<ref-IEC10xmaDOIndex>` and :ref:`<ref-IEC10xmaDOInfAddr>`" ":ref:`DO<ref-IEC10xmaDO>`" "16777214"
 
 .. include-file:: sections/Include/Name.rstinc ""
 
@@ -122,25 +122,25 @@ DO.TypeID
      :desc,90: Description
 
    * :attr:     45
-     :desc:     'Single command' will be sent (ASDU type 45 [C_SC_NA_1])
+     :desc:     'Single command' will be sent (ASDU type 45 [:lectext1:`C_SC_NA_1`])
 
    * :attr:     46
-     :desc:     'Double command' will be sent (ASDU type 46 [C_DC_NA_1])
+     :desc:     'Double command' will be sent (ASDU type 46 [:lectext1:`C_DC_NA_1`])
 
    * :attr:     47
-     :desc:     'Regulating step command' will be sent (ASDU type 47 [C_RC_NA_1])
+     :desc:     'Regulating step command' will be sent (ASDU type 47 [:lectext1:`C_RC_NA_1`])
 
    * :attr:     58
      :desc:     Only applicable to IEC60870-5-104 Master protocol instance;
-                Time-tagged 'Single command' will be sent (ASDU type 58 [C_SC_TA_1])
+                Time-tagged 'Single command' will be sent (ASDU type 58 [:lectext1:`C_SC_TA_1`])
 
    * :attr:     59
      :desc:     Only applicable to IEC60870-5-104 Master protocol instance;
-                Time-tagged 'Double command' will be sent (ASDU type 59 [C_DC_TA_1])
+                Time-tagged 'Double command' will be sent (ASDU type 59 [:lectext1:`C_DC_TA_1`])
 
    * :attr:     60
      :desc:     Only applicable to IEC60870-5-104 Master protocol instance;
-                Time-tagged 'Regulating step command' will be sent (ASDU type 60 [C_RC_TA_1])
+                Time-tagged 'Regulating step command' will be sent (ASDU type 60 [:lectext1:`C_RC_TA_1`])
 
    * :attr:     Other
      :desc:     Transparent, ASDU TypeID of the outgoing command will be the same as received from upstream Master station
@@ -159,22 +159,22 @@ DO.QOC
      :desc,90: Description
 
    * :attr:     0
-     :desc:     Command will be sent with [no additional definition]
+     :desc:     Command will be sent with [:lectext1:`no additional definition`]
 
    * :attr:     1
-     :desc:     Command will be sent with [short-pulse duration]
+     :desc:     Command will be sent with [:lectext1:`short-pulse duration`]
 
    * :attr:     2
-     :desc:     Command will be sent with [long-pulse duration]
+     :desc:     Command will be sent with [:lectext1:`long-pulse duration`]
 
    * :attr:     3
-     :desc:     Command will be sent with [persistent output]
+     :desc:     Command will be sent with [:lectext1:`persistent output`]
 
    * :attr:     128
      :desc:     Command will be sent with the same information as received from upstream station. This is a transparent mode.
 
    * :attr:     4...31
-     :desc:     Reserved for [compatible range] and [private range] as per IEC60870-5-101 standard
+     :desc:     Reserved for [:lectext1:`compatible range`] and [:lectext1:`private range`] as per IEC60870-5-101 standard
 
    * :attr:     Other
      :desc:     Undefined, don't use

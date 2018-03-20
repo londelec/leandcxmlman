@@ -3,9 +3,9 @@
                 :xmlref:`DOQOC`
      :val:      See table :numref:`ref-IEC10xmaDOQOCValues`
      :def:      0
-     :desc:     Qualifier Of Command (QOC) is used to set additional information (e.g. [no additional definition]; [short-pulse duration]) when command is being sent to the DO object which doesn't have :ref:`DO<ref-IEC10xmaDO>`.\ :ref:`<ref-IEC10xmaDOQOC>` \ attribute specified in its element node.
+     :desc:     Qualifier Of Command [:lectext1:`QOC`] is used to set additional information (e.g. [:lectext1:`no additional definition`]; [:lectext1:`short-pulse duration`]) when command is being sent to the DO object which doesn't have :ref:`DO<ref-IEC10xmaDO>`.\ :ref:`<ref-IEC10xmaDOQOC>` \ attribute specified in its element node.
 		Refer to table :numref:`ref-IEC10xmaDOQOCValues` for :xmlref:`QOC` values.
-		(default value 0 [no additional definition])
+		(default value 0 [:lectext1:`no additional definition`])
 
    * :attr:     :include-arg:`2`
 

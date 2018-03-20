@@ -10,8 +10,8 @@ Each created AI information object can be used as source of information for any 
 If used as a source, analog information received from an outstation will be forwarded to AI information object of the Slave protocol instance and then to the upstream Master station.
 Please refer to the section :ref:`docref-IEC10xslAITable` for more information on how to use AI information object as a source.
 
-In order to receive analog information from the downstream outstation function type (FUN) and information
-number (INF) needs to be specified in :ref:`<ref-IEC103maAIFUN>` \ and :ref:`<ref-IEC103maAIINF>` \ attributes.
+In order to receive an analog information from downstream outstation [:lectext1:`FUNCTION TYPE`] and [:lectext1:`INFORMATION NUMBER`]
+has to be specified in :ref:`<ref-IEC103maAIFUN>` \ and :ref:`<ref-IEC103maAIINF>` \ attributes.
 It also essential to select particular measurement from the incoming message as IEC60870-5-103 station sends multiple measurands in one message.
 Particular analog value is selected with :ref:`<ref-IEC103maAIMEA>` \ attribute.
 
@@ -33,7 +33,7 @@ There are 5 AI information objects configured using 4 :ref:`AI<ref-IEC103maAI>` 
 
    <AI Index="0" FUN="85" INF="83" MEA="2" Qualifier="0x20" Coeff="1.0" Deadband="0.5" Percent="0" StartOffset="6554" ZeroDeadband="3.0" Offset="-2.0" OffsetDeadband="2.0" NonZeroOffset="200.0" Total="2" Name="Feeder current" />
 
-.. tip:: Attributes of the :ref:`AI<ref-IEC103maAI>` element node can be arranged in any order, it will not affect the XML file validation.         
+.. include-file:: sections/Include/tip_order.rstinc "" ":ref:`AI<ref-IEC103maAI>`"
 
 AI attributes
 ^^^^^^^^^^^^^
@@ -70,7 +70,7 @@ AI attributes
 
 .. include-file:: sections/Include/AI_Scaling.rstinc "" ".. _ref-IEC103maAIStartOffset:" ".. _ref-IEC103maAIZeroDeadband:" ".. _ref-IEC103maAIOffset:" ".. _ref-IEC103maAIOffsetDeadband:" ".. _ref-IEC103maAINonZeroOffset:"
 
-.. include-file:: sections/Include/IEC60870_Total.rstinc "" ".. _ref-IEC103maAITotal:" ":ref:`<ref-IEC103maAIIndex>`" ":ref:`<ref-IEC103maAIMEA>`" ":ref:`AI<ref-IEC103maAI>`" "254"
+.. include-file:: sections/Include/Total.rstinc "" ".. _ref-IEC103maAITotal:" ":ref:`<ref-IEC103maAIIndex>` and :ref:`<ref-IEC103maAIMEA>`" ":ref:`AI<ref-IEC103maAI>`" "254"
 
 .. include-file:: sections/Include/Name.rstinc ""
 

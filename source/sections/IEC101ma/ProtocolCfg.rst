@@ -17,7 +17,6 @@ ProtocolCfg group node
       <TimeSettings … />
       <Broadcast … />
       <Periodic … />
-      <BufferSizes … />
       <Miscellaneous … />
    </ProtocolCfg>
 
@@ -41,7 +40,7 @@ ProtocolCfg group node
 .. include:: IEC101ma/Broadcast.rst
 .. include:: IEC101ma/Periodic.rst
 
-.. include-file:: sections/Include/IEC10xma_BufferSizes.rstinc "" ".. _ref-IEC101maBufferSizes:" ":ref:`<ref-IEC101maBufferSizes>`" ".. _docref-IEC101maBufferSizesAttab:" "IEC60870-5-101 Master BufferSizes attributes"
-.. include-file:: sections/Include/IEC60870_DOBufferSize.rstinc
+.. include-file:: sections/Include/IEC10xma_BufferSizes.rstinc "internal" ".. _ref-IEC101maBufferSizes:" ":ref:`<ref-IEC101maBufferSizes>`" ".. _docref-IEC101maBufferSizesAttab:" "IEC60870-5-101 Master BufferSizes attributes"
+.. include-file:: sections/Include/IEC60870_DOBufferSize.rstinc "internal"
 
 .. include:: IEC101ma/Miscellaneous.rst

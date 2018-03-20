@@ -23,11 +23,11 @@ Broadcast common address of ASDU (CAA) usage for various commands can be specifi
                 :xmlref:`TimeSync`
      :val:      0
      :def:      0
-     :desc:     Send Time Synchronization [C_CS_NA_1] commands with **individual** Common Addresses of ASDU (CAA)
+     :desc:     Send Time Synchronization [:lectext1:`C_CS_NA_1`] commands with **individual** Common Addresses of ASDU (CAA)
 
    * :(attr):
      :val:      1
      :(def):
-     :desc:     Send Time Synchronization [C_CS_NA_1] commands with **broadcast** Common Address of ASDU (CAA). Broadcast address is 65535
+     :desc:     Send Time Synchronization [:lectext1:`C_CS_NA_1`] commands with **broadcast** Common Address of ASDU (CAA). Broadcast address is 65535
 
 .. include-file:: sections/Include/IEC10xma_BroadcastRP.rstinc "" ".. _ref-IEC104maBroadcastReset:" "Broadcast address is 65535"

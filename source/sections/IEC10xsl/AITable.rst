@@ -38,7 +38,7 @@ There are 5 AI information objects configured using 4 :ref:`AI<ref-IEC10xslAI>` 
 
    <AI Device="10" Index="2" InfAddr="3" qualifier="0" Coeff="100.0" StartOffset="6554" ZeroDeadband="5.0" Offset="-2.0" OffsetDeadband="2.0" NonZeroOffset="200.0" GroupMask="0x0002" TypeID="13" Total="2" Name="Feeder current" />
 
-.. tip:: Attributes of the :ref:`AI<ref-IEC10xslAI>` element node can be arranged in any order, it will not affect the XML file validation.         
+.. include-file:: sections/Include/tip_order.rstinc "" ":ref:`AI<ref-IEC10xslAI>`"
 
 AI attributes
 ^^^^^^^^^^^^^
@@ -85,7 +85,7 @@ AI attributes
      :val:      0 or ±1.18×10\ :sup:`-38`\ ...±3.4×10\ :sup:`38`\
      :def:      0
      :desc:     Start offset is normally used to adjust 4-20mA transducer output range, e.g. offset by a value that represents 4mA.
-		AI will be forced to 0 and Invalid [IV] bit set if the received value is smaller than this offset.
+		AI will be forced to 0 and Invalid [:lectext1:`IV`] bit set if the received value is smaller than this offset.
 		:xmlref:`StartOffset` will be subtracted from the received value if the received value is greater or equal to this offset.
 		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
 
@@ -145,12 +145,12 @@ AI attributes
 
                 :xmlref:`TypeID`
      :val:      See table :numref:`ref-IEC10xslAITypeIDValues`
-     :def:      14 [M_ME_TC_1] or 36 [M_ME_TF_1]
+     :def:      14 [:lectext1:`M_ME_TC_1`] or 36 [:lectext1:`M_ME_TF_1`]
      :desc:     Use this ASDU Type to send a AI event.
 		Attribute also affects ASDU type of the static data (e.g. Normalized, Scaled, Short floating point value) being reported to General interrogation request
 		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
 
-.. include-file:: sections/Include/IEC60870_Total.rstinc "" ".. _ref-IEC10xslAITotal:" ":ref:`Index<ref-IEC10xslAIIndex>`" ":ref:`InfAddr<ref-IEC10xslAIInfAddr>`" ":ref:`AI<ref-IEC10xslAI>`" "16777214"
+.. include-file:: sections/Include/Total.rstinc "" ".. _ref-IEC10xslAITotal:" ":ref:`<ref-IEC10xslAIIndex>` and :ref:`<ref-IEC10xslAIInfAddr>`" ":ref:`AI<ref-IEC10xslAI>`" "16777214"
 
 .. include-file:: sections/Include/Name.rstinc ""
 

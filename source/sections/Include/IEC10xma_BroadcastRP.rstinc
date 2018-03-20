@@ -3,10 +3,10 @@
                :xmlref:`Reset`
      :val:     0
      :def:     0
-     :desc:    Send Reset Process [C_RP_NA_1] commands with **individual** Common Addresses of ASDU (CAA)
+     :desc:    Send Reset Process [:lectext1:`C_RP_NA_1`] commands with **individual** Common Addresses of ASDU (CAA)
 
    * :(attr):
      :val:     1
      :(def):
-     :desc:    Send Reset Process [C_RP_NA_1] commands with **broadcast** Common Address of ASDU (CAA). :include-arg:`2`
+     :desc:    Send Reset Process [:lectext1:`C_RP_NA_1`] commands with **broadcast** Common Address of ASDU (CAA). :include-arg:`2`
 

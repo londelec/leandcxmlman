@@ -9,7 +9,7 @@ General settings of the IEC61850 client communication protocol instance.
 
 .. code-block:: none
 
-   <IEC61850cl Index="20" HWIndex="2" XMLpath="REF_IO.xml" CIDpath="REF.cid" CommsFlags="0x10" Name="IED"/>
+   <IEC61850cl Index="20" HWIndex="2" XMLpath="REF_IO.xml" CIDpath="REF.cid" IEDname="IED1" CommsFlags="0x10" Name="IED"/>
 
 
 .. _ref-IEC61850clAttributes:
@@ -37,7 +37,18 @@ General settings of the IEC61850 client communication protocol instance.
 
                 :xmlref:`CIDpath`
      :val:      Max 100 chars
-     :desc:     IED CID or SCD file name and path. This file contains communication capabilites and settings of the IED. It is normaly exported from the IED configuration tool. File path may be omitted if XML file is stored in the same directory as leandc firmware (/home/leandc/app by default) :inlineimportant:`Attribute is case sensitive, observe the case of path and file name when specifying.`
+     :desc:     IED CID or SCD file name and path. This file contains communication capabilites and settings of the IED.
+		It is normaly exported from the IED configuration tool.
+		File path may be omitted if XML file is stored in the same directory as leandc firmware (/home/leandc/app by default)
+		:inlineimportant:`Attribute is case sensitive, observe case of the path and file name when specifying.`
+
+   * :attr:     .. _ref-IEC61850clIEDname:
+
+                :xmlref:`IEDname`
+     :val:      Max 64 chars
+     :desc:     IED name as specified in the CID/SCD file.
+		:xmlref:`IEDname` must be specified if CID/SCD file contains more than one IED.
+		:inlineimportant:`Attribute is case sensitive, observe case of the IED name when specifying.`
 
 .. include-file:: sections/Include/Comms_CommsFlags.rstinc ""
 

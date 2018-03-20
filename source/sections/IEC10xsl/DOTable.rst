@@ -38,7 +38,7 @@ There are 5 DO information objects configured using 4 :ref:`DO<ref-IEC10xslDO>` 
 
    <DO Device="10" Index="2" InfAddr="4" qualifier="0x10" Policy="0" TypeID="0" OffIndex="33" Total="2" Name="CB command" />
 
-.. tip:: Attributes of the :ref:`DO<ref-IEC10xslDO>` element node can be arranged in any order, it will not affect the XML file validation.         
+.. include-file:: sections/Include/tip_order.rstinc "" ":ref:`DO<ref-IEC10xslDO>`"
 
 DO attributes
 ^^^^^^^^^^^^^
@@ -100,7 +100,7 @@ DO attributes
 		If OFF command is received, it will be forwarded to destination object specified in :xmlref:`OffIndex` attribute.
 		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, ON and OFF commands will be sent to the same destination object if this attribute is omitted.`
 
-.. include-file:: sections/Include/IEC60870_Total.rstinc "" ".. _ref-IEC10xslDOTotal:" ":ref:`Index<ref-IEC10xslDOIndex>`" ":ref:`InfAddr<ref-IEC10xslDOInfAddr>`" ":ref:`DO<ref-IEC10xslDO>`" "16777214"
+.. include-file:: sections/Include/Total.rstinc "" ".. _ref-IEC10xslDOTotal:" ":ref:`<ref-IEC10xslDOIndex>` and :ref:`<ref-IEC10xslDOInfAddr>`" ":ref:`DO<ref-IEC10xslDO>`" "16777214"
 
 .. include-file:: sections/Include/Name.rstinc ""
 
@@ -161,25 +161,25 @@ DO.TypeID
      :desc,90: Description
 
    * :attr:     45
-     :desc:     Only 'Single command' will be accepted and processed (ASDU type 45 [C_SC_NA_1])
+     :desc:     Only 'Single command' will be accepted and processed (ASDU type 45 [:lectext1:`C_SC_NA_1`])
 
    * :attr:     46
-     :desc:     Only 'Double command' will be accepted and processed (ASDU type 46 [C_DC_NA_1])
+     :desc:     Only 'Double command' will be accepted and processed (ASDU type 46 [:lectext1:`C_DC_NA_1`])
 
    * :attr:     47
-     :desc:     Only 'Regulating step command' will be accepted and processed (ASDU type 47 [C_RC_NA_1])
+     :desc:     Only 'Regulating step command' will be accepted and processed (ASDU type 47 [:lectext1:`C_RC_NA_1`])
 
    * :attr:     58
      :desc:     Only applicable to IEC60870-5-104 Slave protocol instance;
-                Only time-tagged 'Single command' will be accepted and processed (ASDU type 58 [C_SC_TA_1])
+                Only time-tagged 'Single command' will be accepted and processed (ASDU type 58 [:lectext1:`C_SC_TA_1`])
 
    * :attr:     59
      :desc:     Only applicable to IEC60870-5-104 Slave protocol instance;
-                Only time-tagged 'Double command' will be accepted and processed (ASDU type 59 [C_DC_TA_1])
+                Only time-tagged 'Double command' will be accepted and processed (ASDU type 59 [:lectext1:`C_DC_TA_1`])
 
    * :attr:     60
      :desc:     Only applicable to IEC60870-5-104 Slave protocol instance;
-                Only time-tagged 'Regulating step command' will be accepted and processed (ASDU type 59 [C_RC_TA_1])
+                Only time-tagged 'Regulating step command' will be accepted and processed (ASDU type 59 [:lectext1:`C_RC_TA_1`])
 
    * :attr:     Other
      :desc:     Undefined, control command received with any ASDU type will be accepted
@@ -228,7 +228,7 @@ Service controls have negative index values and can be used just as any regular 
    * :attr:     -5
                 (0xFFFFFFFB)
      :val:      ON or OFF
-     :desc:     Only applicable to IEC60870-5-101/104 Master communication protocol instances; Send **Reset Process** command (ASDU type 105 [C_RP_NA_1]) to the downstream station
+     :desc:     Only applicable to IEC60870-5-101/104 Master communication protocol instances; Send **Reset Process** command (ASDU type 105 [:lectext1:`C_RP_NA_1`]) to the downstream station
 
    * :attr:     -1 and -6...-8
      :val:      Any
@@ -237,5 +237,5 @@ Service controls have negative index values and can be used just as any regular 
 .. tip::
 
    | \* This service command only applies to the following protocol instances:
-   | IEC60870-5-104 controlling station (Master) send [STARTDT_act] or [STOPDT_act] to the downstream station;
-   | IEC61850 Client send MMS [Initiate-RequestPDU] or [Conclude-RequestPDU] to the IED;
+   | IEC60870-5-104 controlling station (Master) send [:lectext1:`STARTDT_act`] or [:lectext1:`STOPDT_act`] to the downstream station;
+   | IEC61850 Client send MMS [:lectext1:`Initiate-RequestPDU`] or [:lectext1:`Conclude-RequestPDU`] to the IED;

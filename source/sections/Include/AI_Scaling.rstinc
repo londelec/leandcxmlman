@@ -6,7 +6,7 @@
      :val:      0 or +1.18×10\ :sup:`-38`\ ...+3.4×10\ :sup:`38`\
      :def:      0
      :desc:     Start offset is normally used to adjust 4-20mA transducer output range, e.g. offset by a value that represents 4mA.
-		AI will be forced to 0 and Invalid [IV] bit set if the received value is smaller than this offset.
+		AI will be forced to 0 and Invalid [:lectext1:`IV`] bit set if the received value is smaller than this offset.
 		:xmlref:`StartOffset` will be subtracted from the received value if the received value is greater or equal to this offset.
 		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
 

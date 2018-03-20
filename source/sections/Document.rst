@@ -34,6 +34,8 @@ Abbreviations used in this document are listed in the following table.
      :desc:    Double Point Information
    * :abbr:    DST
      :desc:    Daylight Saving Time
+   * :abbr:    HMI
+     :desc:    Human Machine Interface
    * :abbr:    IANA
      :desc:    Internet Assigned Numbers Authority
    * :abbr:    IED
@@ -54,6 +56,8 @@ Abbreviations used in this document are listed in the following table.
      :desc:    Running Process Identifier
    * :abbr:    OS
      :desc:    Operating System
+   * :abbr:    SCADA
+     :desc:    Supervisory Control And Data Acqusition system
    * :abbr:    SCL
      :desc:    System Configuration description Language
    * :abbr:    SPI
@@ -79,9 +83,7 @@ Text styles used in this manual:
 
 .. tip:: Generic tips in a green box
 
-.. important:: Important notes in a red box  
+.. important:: Important notes in a red box
 
 .. note:: Various notes
-
-
 
