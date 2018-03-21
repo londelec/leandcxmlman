@@ -6,13 +6,13 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Leandc series XML configuration manual V32</title>
+    <title>Leandc series XML configuration manual V33</title>
     
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     'V32',
+        VERSION:     'V33',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -10788,56 +10788,62 @@ $(function () {
 <tr class="row-odd"><td>CAA</td>
 <td>Common address of ASDU</td>
 </tr>
-<tr class="row-even"><td>COT</td>
+<tr class="row-even"><td>CID</td>
+<td>Configured IED Description</td>
+</tr>
+<tr class="row-odd"><td>COT</td>
 <td>Cause of transmission</td>
 </tr>
-<tr class="row-odd"><td>DI</td>
+<tr class="row-even"><td>DI</td>
 <td>Digital Input</td>
 </tr>
-<tr class="row-even"><td>DO</td>
+<tr class="row-odd"><td>DO</td>
 <td>Digital Output</td>
 </tr>
-<tr class="row-odd"><td>DPI</td>
+<tr class="row-even"><td>DPI</td>
 <td>Double Point Information</td>
 </tr>
-<tr class="row-even"><td>DST</td>
+<tr class="row-odd"><td>DST</td>
 <td>Daylight Saving Time</td>
 </tr>
-<tr class="row-odd"><td>HMI</td>
+<tr class="row-even"><td>HMI</td>
 <td>Human Machine Interface</td>
 </tr>
-<tr class="row-even"><td>IANA</td>
+<tr class="row-odd"><td>IANA</td>
 <td>Internet Assigned Numbers Authority</td>
 </tr>
-<tr class="row-odd"><td>IED</td>
+<tr class="row-even"><td>IED</td>
 <td>Intelligent Electronic Device</td>
 </tr>
-<tr class="row-even"><td>IO</td>
+<tr class="row-odd"><td>IO</td>
 <td>Input/Output</td>
 </tr>
-<tr class="row-odd"><td>IP</td>
+<tr class="row-even"><td>IP</td>
 <td>Internet Protocol</td>
 </tr>
-<tr class="row-even"><td>IOA</td>
+<tr class="row-odd"><td>IOA</td>
 <td>Information Object Address</td>
 </tr>
-<tr class="row-odd"><td>LD</td>
+<tr class="row-even"><td>LD</td>
 <td>Logical Device (for IEC61850)</td>
 </tr>
-<tr class="row-even"><td>LN</td>
+<tr class="row-odd"><td>LN</td>
 <td>Logical Node (for IEC61850)</td>
 </tr>
-<tr class="row-odd"><td>LRU</td>
+<tr class="row-even"><td>LRU</td>
 <td>Logical Remote Unit</td>
 </tr>
-<tr class="row-even"><td>PID</td>
+<tr class="row-odd"><td>PID</td>
 <td>Running Process Identifier</td>
 </tr>
-<tr class="row-odd"><td>OS</td>
+<tr class="row-even"><td>OS</td>
 <td>Operating System</td>
 </tr>
-<tr class="row-even"><td>SCADA</td>
+<tr class="row-odd"><td>SCADA</td>
 <td>Supervisory Control And Data Acqusition system</td>
+</tr>
+<tr class="row-even"><td>SCD</td>
+<td>Substation Configuration Description</td>
 </tr>
 <tr class="row-odd"><td>SCL</td>
 <td>System Configuration description Language</td>
@@ -11530,14 +11536,14 @@ File path may be omitted if XML file is stored in the default directory (/home/l
 <td>Max 100 chars</td>
 <td>IED CID or SCD file name and path. This file contains communication capabilites and settings of the IED.
 It is normaly exported from the IED configuration tool.
-File path may be omitted if XML file is stored in the same directory as leandc firmware (/home/leandc/app by default)
+File path may be omitted if XML file is stored in the default directory (/home/leandc/app)
 <span class="inlineimportant">Attribute is case sensitive, observe case of the path and file name when specifying.</span></td>
 </tr>
 <tr class="row-even"><td><p class="first last" id="ref-iec61850cliedname"><span class="xmlref">IEDname</span></p>
 </td>
 <td>Max 64 chars</td>
-<td>IED name as specified in the CID/SCD file.
-<span class="xmlref">IEDname</span> must be specified if CID/SCD file contains more than one IED.
+<td>IED name as specified in the SCL file.
+<span class="xmlref">IEDname</span> must be specified if SCL file contains more than one IED.
 <span class="inlineimportant">Attribute is case sensitive, observe case of the IED name when specifying.</span></td>
 </tr>
 <tr class="row-odd"><td><span class="xmlref">CommsFlags</span></td>
@@ -12171,30 +12177,34 @@ Please see sample <a class="reference internal" href="#ref-syslogfile"><em>SYSLO
 <td>0x00</td>
 <td>Select type of system messages to be logged. See table <a href="#docref-syslogfilelogflagsattab">2.17</a> for description. Logfile will not be created if the value is 0.</td>
 </tr>
-<tr class="row-odd"><td><span class="xmlref">Logfile</span></td>
+<tr class="row-odd"><td><p class="first last" id="ref-sysloglogfile"><span class="xmlref">Logfile</span></p>
+</td>
 <td>Max 200 chars</td>
-<td>Syslog/syslog</td>
+<td>n/a</td>
 <td>Name of a logfile excluding extension (e.g. &#8216;.log&#8217;).
 It is possible to specify relative or absolute path as part of the file name.
-Logfile will be created in the default home folder (e.g. &#8216;/home/leandc/app&#8217;) if path is not specified.
+Logfile will be created in the default directory (/home/leandc/app) if path is not specified.
 Date when the file was created and extension &#8216;.log&#8217; will be appended to the file name automatically.
 Logfile will not be created if this attribute is left blank.
 (default value &#8216;Syslog/syslog&#8217; where &#8216;Syslog&#8217; is the name of the folder and &#8216;syslog&#8217; is the name of the file)
-<span class="inlineimportant">Attribute is case sensitive, observe the case of the path and name of the file when specifying.</span></td>
+<span class="inlineimportant">Attribute is case sensitive, observe case of the path and name when specifying.</span></td>
 </tr>
-<tr class="row-even"><td><p class="first last" id="ref-syslogfilemode"><span class="xmlref">Mode</span>*</p>
+<tr class="row-even"><td><p class="first" id="ref-syslogfilemode"><span class="xmlref">Mode</span></p>
+<p class="last">*</p>
 </td>
 <td>0...255 or 0x00...0xFF</td>
 <td>0x00</td>
-<td>Logfile initialization settings. See table <a href="#docref-loggermodebits">12.7</a> for description. <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
+<td>Logfile initialization settings. See table <a href="#docref-loggermodebits">12.7</a> for description.
+<span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default settings will be used if omitted.</span></td>
 </tr>
-<tr class="row-odd"><td><p class="first last" id="ref-syslogfilehourlimit"><span class="xmlref">HourLimit</span>*</p>
+<tr class="row-odd"><td><p class="first" id="ref-syslogfilehourlimit"><span class="xmlref">HourLimit</span></p>
+<p class="last">*</p>
 </td>
 <td>0...12</td>
 <td>0 hours</td>
-<td>Option to create a new file after selected number of hours in order to limit the size of the file.
-(default 0 – only 1 logfile per day will be created)
-<span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
+<td>Option to create a new file after selected number of hours in order to limit the size of a file.
+(default 0 – only 1 logfile a day will be created)
+<span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default settings will be used if omitted.</span></td>
 </tr>
 <tr class="row-even"><td><span class="xmlref">TimeZone</span></td>
 <td>Max 200 chars</td>
@@ -12226,7 +12236,7 @@ Logfile will not be created if this attribute is left blank.
 <tr class="row-even"><td><span class="xmlref">LogFlags</span> [xxxx.xxxx]</td>
 <td>0x00...0xFF</td>
 <td>Logger flags is 8 bit encoded variable. Decimal 0...255 and hex 0x00...0xFF values supported
-Logfile will not be created, if the value is 0.</td>
+Logfile will not be created if the value is 0.</td>
 </tr>
 <tr class="row-odd"><td rowspan="2">Bit 0</td>
 <td>xxxx.xxx0</td>
@@ -12733,10 +12743,11 @@ instance. Each IEC60870-5-101 controlled station (Slave) communication protocol 
 configuration file where its IO object table and additional protocol-related settings will be stored. One and the
 same XML configuration file can be used for multiple IEC60870-5-101 controlled station (Slave) communication
 protocol instances, this becomes useful in case if identical IO objects need to be reported to several Master stations.</p>
-<p>Name and location path of the XML configuration file are not predefined, they can be chosen freely. File name
-&#8216;<strong>IEC101sl_test.xml</strong>&#8216; will be used as a sample and location path doesn&#8217;t have to be specified if XML file is stored
-in the same directory as leandc firmware. In order to use the XML file for a communication protocol instance,
-simply enter the name &#8216;<strong>IEC101sl_test.xml</strong>&#8216; in the <a class="reference internal" href="#ref-iec101sl"><em>IEC101sl</em></a>.<a class="reference internal" href="#ref-iec101slxmlpath"><em>XMLpath</em></a> attribute.</p>
+<p>Name and location path of the XML configuration file is not predefined, it can be chosen freely.
+File name &#8216;<strong>IEC101sl_test.xml</strong>&#8216; is used as a sample.
+Enter name of the XML file in <a class="reference internal" href="#ref-iec101sl"><em>IEC101sl</em></a>.<a class="reference internal" href="#ref-iec101slxmlpath"><em>XMLpath</em></a> attribute of a communication protocol instance created in <strong>leandc.xml</strong> as follows:
+<a class="reference internal" href="#ref-iec101slxmlpath"><em>XMLpath</em></a>=&#8221;IEC101sl_test.xml&#8221; .
+Location path doesn&#8217;t have to be specified if the XML file is stored in the default directory (/home/leandc/app).</p>
 <p>IEC60870-5-101 Slave configuration file (e.g. &#8216;IEC101sl_test.xml&#8217;) must have a root object node
 <span class="xmlref">IEC101slConfig</span> which has 6 child group object nodes <a class="reference internal" href="#ref-versioncontrol"><em>VersionControl</em></a>; <a class="reference internal" href="#ref-iec101slprotocolcfg"><em>ProtocolCfg</em></a>; <a class="reference internal" href="#ref-iec10xslditable"><em>DITable</em></a>; <a class="reference internal" href="#ref-iec10xslaitable"><em>AITable</em></a>; <a class="reference internal" href="#ref-iec10xsldotable"><em>DOTable</em></a>; <a class="reference internal" href="#ref-iec10xslaotable"><em>AOTable</em></a> please see the sample below.</p>
 <div class="highlight-none"><div class="highlight"><pre>&lt;IEC101slConfig xmlns=&quot;http://www.londelec.com/xmlschemas/leandc/IEC101sl&quot; … version=&quot;1.00&quot;&gt;
@@ -12836,7 +12847,7 @@ Refer to further sections for attributes of each element node.</p>
 </pre></div>
 </div>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="docref-iec101sllinksettingsattab">
-<caption><strong>Table 3.2 IEC60870-5-101 Slave LinkSettings attributess</strong></caption>
+<caption><strong>Table 3.2 IEC60870-5-101 Slave LinkSettings attributes</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="10%" />
@@ -12879,7 +12890,8 @@ Refer to further sections for attributes of each element node.</p>
 <td>Class of the received message is <strong>being used</strong> to determine either Class 1 or Class 2 data should be sent.</td>
 </tr>
 <tr class="row-even"><td>1</td>
-<td>Class of the received message is <strong>ignored</strong>, Class 1 and Class 2 data is sent regadless of the requested Class. <span class="inlinetip">Please note this functionality is deviation from communication standard and option should be avoided.</span></td>
+<td>Class of the received message is <strong>ignored</strong>, Class 1 and Class 2 data is sent regardless of the requested Class.
+<span class="inlinetip">Please note this functionality is deviation from communication standard and option should be avoided.</span></td>
 </tr>
 <tr class="row-odd"><td><p class="first last" id="ref-iec101sllinksettingsflags"><span class="xmlref">Flags</span></p>
 </td>
@@ -13101,7 +13113,11 @@ See table <a href="#ref-iec101sllinkflagsbits">3.3</a> for description.</td>
 <td>ASDU type of every DI/AI object is determined by XML configuration settings.</td>
 </tr>
 <tr class="row-even"><td>1</td>
-<td>ASDU type of every DI/AI object will be made transparent whenever possible. The same ASDU type will be used to report DI/AI object to upstream station as received from downstream outstation, providing both source and destination communication protocol instances are compatible. Otherwise default ASDU type will be used. <span class="inlinetip">Please note object will be excluded from General Interrogation response before it is received from downstream outstation on leandc startup. This is because it is impossible to determine the ASDU type of the object before is has been received from outsation.</span></td>
+<td>ASDU type of every DI/AI object will be made transparent whenever possible.
+The same ASDU type will be used to report DI/AI object to upstream station as received from downstream outstation,
+providing both source and destination communication protocol instances are compatible.
+Otherwise default ASDU type will be used.
+<span class="inlinetip">Please note object will be excluded from General Interrogation response before it is received from downstream outstation on leandc startup. This is because it is impossible to determine ASDU type of the object before is has been received from outstation.</span></td>
 </tr>
 <tr class="row-odd"><td rowspan="2"><span class="xmlref">ForwardGI</span></td>
 <td>0</td>
@@ -13447,10 +13463,11 @@ configuration file where its IO object table and additional protocol-related set
 same XML configuration file can be used for multiple IEC60870-5-104 controlled station (Slave) communication
 protocol instances, this becomes useful in case if identical IO objects need to be reported to several Master
 stations.</p>
-<p>Name and location path of the XML configuration file are not predefined, they can be chosen freely. File name
-&#8216;<strong>IEC104sl_test.xml</strong>&#8216; will be used as a sample and location path doesn&#8217;t have to be specified if XML file is stored
-in the same directory as leandc firmware. In order to use the XML file for a communication protocol instance,
-simply enter the name &#8216;<strong>IEC104sl_test.xml</strong>&#8216; in the <a class="reference internal" href="#ref-iec104sl"><em>IEC104sl</em></a>.<a class="reference internal" href="#ref-iec104slxmlpath"><em>XMLpath</em></a> attribute.</p>
+<p>Name and location path of the XML configuration file is not predefined, it can be chosen freely.
+File name &#8216;<strong>IEC104sl_test.xml</strong>&#8216; is used as a sample.
+Enter name of the XML file in <a class="reference internal" href="#ref-iec104sl"><em>IEC104sl</em></a>.<a class="reference internal" href="#ref-iec104slxmlpath"><em>XMLpath</em></a> attribute of a communication protocol instance created in <strong>leandc.xml</strong> as follows:
+<a class="reference internal" href="#ref-iec104slxmlpath"><em>XMLpath</em></a>=&#8221;IEC104sl_test.xml&#8221; .
+Location path doesn&#8217;t have to be specified if the XML file is stored in the default directory (/home/leandc/app).</p>
 <p>IEC60870-5-104 Slave configuration file (e.g. &#8216;IEC104sl_test.xml&#8217;) must have a root object node
 <span class="xmlref">IEC104slConfig</span> which has 6 child group object nodes <a class="reference internal" href="#ref-versioncontrol"><em>VersionControl</em></a>; <a class="reference internal" href="#ref-iec104slprotocolcfg"><em>ProtocolCfg</em></a>; <a class="reference internal" href="#ref-iec10xslditable"><em>DITable</em></a>; <a class="reference internal" href="#ref-iec10xslaitable"><em>AITable</em></a>; <a class="reference internal" href="#ref-iec10xsldotable"><em>DOTable</em></a>; <a class="reference internal" href="#ref-iec10xslaotable"><em>AOTable</em></a> please see the sample below.</p>
 <div class="highlight-none"><div class="highlight"><pre>&lt;IEC104slConfig xmlns=&quot;http://www.londelec.com/xmlschemas/leandc/IEC104sl&quot; … version=&quot;1.00&quot;&gt;
@@ -13747,7 +13764,11 @@ Number of incoming APDU messages [<span class="lectext1">I-frame</span>] receive
 <td>ASDU type of every DI/AI object is determined by XML configuration settings.</td>
 </tr>
 <tr class="row-odd"><td>1</td>
-<td>ASDU type of every DI/AI object will be made transparent whenever possible. The same ASDU type will be used to report DI/AI object to upstream station as received from downstream outstation, providing both source and destination communication protocol instances are compatible. Otherwise default ASDU type will be used. <span class="inlinetip">Please note object will be excluded from General Interrogation response before it is received from downstream outstation on leandc startup. This is because it is impossible to determine the ASDU type of the object before is has been received from outsation.</span></td>
+<td>ASDU type of every DI/AI object will be made transparent whenever possible.
+The same ASDU type will be used to report DI/AI object to upstream station as received from downstream outstation,
+providing both source and destination communication protocol instances are compatible.
+Otherwise default ASDU type will be used.
+<span class="inlinetip">Please note object will be excluded from General Interrogation response before it is received from downstream outstation on leandc startup. This is because it is impossible to determine ASDU type of the object before is has been received from outstation.</span></td>
 </tr>
 <tr class="row-even"><td rowspan="2"><span class="xmlref">ForwardGI</span></td>
 <td>0</td>
@@ -14467,9 +14488,9 @@ Service indications have negative index values and can be used just as any regul
 <p class="first admonition-title">Tip</p>
 <div class="last line-block">
 <div class="line">* This service indication only applies to the following protocol instances:</div>
-<div class="line">IEC60870-5-104 controling station (Master) communication is [<span class="lectext1">Started</span>] or [<span class="lectext1">Stopped</span>]. ON ([<span class="lectext1">Started</span>] state) indicates [<span class="lectext1">STARTDT_con</span>] has been received from outstation;</div>
+<div class="line">IEC60870-5-104 controlling station (Master) communication is [<span class="lectext1">Started</span>] or [<span class="lectext1">Stopped</span>]. ON ([<span class="lectext1">Started</span>] state) indicates [<span class="lectext1">STARTDT_con</span>] has been received from outstation;</div>
 <div class="line">IEC60870-5-104 controlled station (Slave) communication is [<span class="lectext1">Started</span>] or [<span class="lectext1">Stopped</span>]. ON ([<span class="lectext1">Started</span>] state) indicates [<span class="lectext1">STARTDT_act</span>] message has been received from upstream station;</div>
-<div class="line">IEC61850 Client association state. ON indicates associated state i.e. [<span class="lectext1">Initiate-ResponsePDU</span>] message has been recevied from IED;</div>
+<div class="line">IEC61850 Client association state. ON indicates associated state i.e. [<span class="lectext1">Initiate-ResponsePDU</span>] message has been received from IED;</div>
 </div>
 </div>
 </div>
@@ -15507,7 +15528,7 @@ Only time-tagged &#8216;Short floating point setpoint command&#8217; will be acc
 <p>Group node <a class="reference internal" href="#ref-iec10xslautocfg"><em>AUTOCfg</em></a> and element nodes <a class="reference internal" href="#ref-iec10xslauto"><em>AUTO</em></a> enable automatic object linking without a need to create
 DI/AI/DO/AO object table.
 All DI/AI/DO/AO objects of the Master protocol instance are automatically linked to Slave protocol instance if this feature is used.
-Easiest way to enable automatic linking is by specifing value of the <a class="reference internal" href="#ref-iec101maindex"><em>Index</em></a> attribute of any Master protocol instance in the <a class="reference internal" href="#ref-iec10xslautosource"><em>Source</em></a> attribute.
+Easiest way to enable automatic linking is by specifying value of the <a class="reference internal" href="#ref-iec101maindex"><em>Index</em></a> attribute of any Master protocol instance in the <a class="reference internal" href="#ref-iec10xslautosource"><em>Source</em></a> attribute.
 By default information addresses of DI/AI/DO/AO objects will be the same as defined in Master protocol instance&#8217;s object table.
 It is also possible to override automatic information address initialization and have them initialized sequentially using <a class="reference internal" href="#ref-iec10xslautodiinfaddr"><em>DIInfAddr</em></a>; <a class="reference internal" href="#ref-iec10xslautoaiinfaddr"><em>AIInfAddr</em></a>; <a class="reference internal" href="#ref-iec10xslautodoinfaddr"><em>DOInfAddr</em></a>; <a class="reference internal" href="#ref-iec10xslautoaoinfaddr"><em>AOInfAddr</em></a> attributes.
 The first object will have information address as specified and following objects will be initialized sequentially.
@@ -15661,10 +15682,11 @@ configuration file where its IO object table and additional protocol-related set
 same XML configuration file can be used for multiple IEC60870-5-101 controlling station (Master)
 communication protocol instances, this becomes useful in case if identical sets of IO objects are acquired from
 several outstations.</p>
-<p>Name and location path of the XML configuration file are not predefined, they can be chosen freely. File name
-&#8216;<strong>IEC101ma_test.xml</strong>&#8216; will be used as a sample and location path doesn&#8217;t have to be specified if XML file is
-stored in the same directory as leandc firmware. In order to use the XML file for a communication protocol
-instance, simply enter the name &#8216;<strong>IEC101ma_test.xml</strong>&#8216; in <a class="reference internal" href="#ref-iec101ma"><em>IEC101ma</em></a>.<a class="reference internal" href="#ref-iec101maxmlpath"><em>XMLpath</em></a> attribute.</p>
+<p>Name and location path of the XML configuration file is not predefined, it can be chosen freely.
+File name &#8216;<strong>IEC101ma_test.xml</strong>&#8216; is used as a sample.
+Enter name of the XML file in <a class="reference internal" href="#ref-iec101ma"><em>IEC101ma</em></a>.<a class="reference internal" href="#ref-iec101maxmlpath"><em>XMLpath</em></a> attribute of a communication protocol instance created in <strong>leandc.xml</strong> as follows:
+<a class="reference internal" href="#ref-iec101maxmlpath"><em>XMLpath</em></a>=&#8221;IEC101ma_test.xml&#8221; .
+Location path doesn&#8217;t have to be specified if the XML file is stored in the default directory (/home/leandc/app).</p>
 <p>IEC60870-5-101 Master configuration file (e.g. &#8216;<strong>IEC101ma_test.xml</strong>&#8216;) must have a root object node
 <span class="xmlref">IEC101maConfig</span> which has 5 child group object nodes <a class="reference internal" href="#ref-versioncontrol"><em>VersionControl</em></a>; <a class="reference internal" href="#ref-iec101maprotocolcfg"><em>ProtocolCfg</em></a>; <a class="reference internal" href="#ref-iec10xmaditable"><em>DITable</em></a>; <a class="reference internal" href="#ref-iec10xmaaitable"><em>AITable</em></a>;
 <a class="reference internal" href="#ref-iec10xmadotable"><em>DOTable</em></a>; <a class="reference internal" href="#ref-iec10xmaaotable"><em>AOTable</em></a> please see the sample below.</p>
@@ -15801,7 +15823,7 @@ Refer to further sections for attributes of each element node.</p>
 </tr>
 <tr class="row-odd"><td>1</td>
 <td><strong>Ignore</strong> received application layer messages while link online delay counter operates.
-Application message processing starts after number of link messages defined in <a class="reference internal" href="#ref-iec101malinksettingslinkonlinecounter"><em>LinkOnlineCounter</em></a> are received from oustation.</td>
+Application message processing starts after number of link messages defined in <a class="reference internal" href="#ref-iec101malinksettingslinkonlinecounter"><em>LinkOnlineCounter</em></a> are received from outstation.</td>
 </tr>
 <tr class="row-even"><td><p class="first last" id="ref-iec101malinksettingsflags"><span class="xmlref">Flags</span></p>
 </td>
@@ -15918,7 +15940,7 @@ Application example: if this delay is 10, status will be changed to OFFLINE when
 <td>0 sec</td>
 <td>Additional delay to change quality marking of station&#8217;s DI/AI objects if station hasn&#8217;t been online for a very long time.
 Quality marking of station&#8217;s DI/AI objects will be changed after configured number of seconds following status change to OFFLINE.
-(Applicaiton example: DI/AI objects can be marked with Not Topical [<span class="lectext1">NT</span>] bit when station status changes to OFFLINE i.e. after <a class="reference internal" href="#ref-iec101macommssettingsofflinedelay"><em>OfflineDelay</em></a> timer expires and Invalid [<span class="lectext1">IV</span>] bit after this delay expires.)</td>
+(Application example: DI/AI objects can be marked with Not Topical [<span class="lectext1">NT</span>] bit when station status changes to OFFLINE i.e. after <a class="reference internal" href="#ref-iec101macommssettingsofflinedelay"><em>OfflineDelay</em></a> timer expires and Invalid [<span class="lectext1">IV</span>] bit after this delay expires.)</td>
 </tr>
 <tr class="row-even"><td><p class="first last" id="ref-iec101macommssettingsonlinegidelay"><span class="xmlref">OnlineGIDelay</span></p>
 </td>
@@ -16069,7 +16091,7 @@ See table <a href="#ref-iec101maasduflagsbits">6.6</a> for description.</td>
 </td>
 <td>0...600</td>
 <td>240 sec</td>
-<td>Recevied time-tag hour forward-backward adjustment range.
+<td>Received time-tag hour forward-backward adjustment range.
 If the short time-tag [<span class="lectext1">CP24Time2a</span>] of the event received from outstation is closer to full hour (0 mins 0 secs) than the specified range in seconds, the hour value of the resulting timestamp will be automatically adjusted if event is received late.
 This functionality ensures correct hour value is attached to the short time-tags [<span class="lectext1">CP24Time2a</span>] as they carry only minutes and milliseconds.
 Hour, day, month and year values are attached from leandc&#8217;s internal time.
@@ -16441,7 +16463,7 @@ Value 0 disables periodic General Interrogation command.</td>
 <td>0...2<sup>32</sup> - 1</td>
 <td>0 sec</td>
 <td>Periodic Time synchronization command interval in seconds.
-Value 0 disables periodic time synchronization command. <span class="inlinetip">Time Synchronization commands are only sent at predefined intervals. This means station Online/Offline status change doesn&#8217;t trigger time synchronziation command.</span></td>
+Value 0 disables periodic time synchronization command. <span class="inlinetip">Time Synchronization commands are only sent at predefined intervals. This means station Online/Offline status change doesn&#8217;t trigger time synchronization command.</span></td>
 </tr>
 </tbody>
 </table>
@@ -16495,10 +16517,11 @@ configuration file where its IO object table and additional protocol-related set
 same XML configuration file can be used for multiple IEC60870-5-104 controlling station (Master)
 communication protocol instances, this becomes useful in case if identical sets of IO objects are acquired from
 several outstations.</p>
-<p>Name and location path of the XML configuration file are not predefined, they can be chosen freely. File name
-&#8216;<strong>IEC104ma_test.xml</strong>&#8216; will be used as a sample and location path doesn&#8217;t have to be specified if XML file is
-stored in the same directory as leandc firmware. In order to use the XML file for a communication protocol
-instance, simply enter the name &#8216;<strong>IEC104ma_test.xml</strong>&#8216; in <a class="reference internal" href="#ref-iec104ma"><em>IEC104ma</em></a>.<a class="reference internal" href="#ref-iec104maxmlpath"><em>XMLpath</em></a> attribute.</p>
+<p>Name and location path of the XML configuration file is not predefined, it can be chosen freely.
+File name &#8216;<strong>IEC104ma_test.xml</strong>&#8216; is used as a sample.
+Enter name of the XML file in <a class="reference internal" href="#ref-iec104ma"><em>IEC104ma</em></a>.<a class="reference internal" href="#ref-iec104maxmlpath"><em>XMLpath</em></a> attribute of a communication protocol instance created in <strong>leandc.xml</strong> as follows:
+<a class="reference internal" href="#ref-iec104maxmlpath"><em>XMLpath</em></a>=&#8221;IEC104ma_test.xml&#8221; .
+Location path doesn&#8217;t have to be specified if the XML file is stored in the default directory (/home/leandc/app).</p>
 <p>IEC60870-5-104 Master configuration file (e.g. &#8216;<strong>IEC104ma_test.xml</strong>&#8216;) must have a root object node
 <span class="xmlref">IEC104maConfig</span> which has 6 child group object nodes <a class="reference internal" href="#ref-versioncontrol"><em>VersionControl</em></a>; <a class="reference internal" href="#ref-iec104maprotocolcfg"><em>ProtocolCfg</em></a>; <a class="reference internal" href="#ref-iec10xmaditable"><em>DITable</em></a>; <a class="reference internal" href="#ref-iec10xmaaitable"><em>AITable</em></a>;
 <a class="reference internal" href="#ref-iec10xmadotable"><em>DOTable</em></a>; <a class="reference internal" href="#ref-iec10xmaaotable"><em>AOTable</em></a> please see the sample below.</p>
@@ -16693,7 +16716,7 @@ Default 6 seconds - station status will change to OFFLINE 6 seconds after TCP so
 <td>0 sec</td>
 <td>Additional delay to change quality marking of station&#8217;s DI/AI objects if station hasn&#8217;t been online for a very long time.
 Quality marking of station&#8217;s DI/AI objects will be changed after configured number of seconds following status change to OFFLINE.
-(Applicaiton example: DI/AI objects can be marked with Not Topical [<span class="lectext1">NT</span>] bit when station status changes to OFFLINE i.e. after <a class="reference internal" href="#ref-iec104macommssettingsofflinedelay"><em>OfflineDelay</em></a> timer expires and Invalid [<span class="lectext1">IV</span>] bit after this delay expires.)</td>
+(Application example: DI/AI objects can be marked with Not Topical [<span class="lectext1">NT</span>] bit when station status changes to OFFLINE i.e. after <a class="reference internal" href="#ref-iec104macommssettingsofflinedelay"><em>OfflineDelay</em></a> timer expires and Invalid [<span class="lectext1">IV</span>] bit after this delay expires.)</td>
 </tr>
 <tr class="row-even"><td><p class="first last" id="ref-iec104macommssettingsonlinegidelay"><span class="xmlref">OnlineGIDelay</span></p>
 </td>
@@ -18195,10 +18218,12 @@ Time-tagged &#8216;Short floating point setpoint command&#8217; will be sent (AS
 <p>This section describes how to configure IEC60870-5-103 controlling station (Master) communication protocol instance.
 Each IEC60870-5-103 controlling station (Master) communication protocol instance must have XML configuration file where its IO object table and additional protocol-related settings will be stored.
 One and the same XML configuration file can be used for multiple IEC60870-5-103 controlling station (Master) communication protocol instances, this becomes useful in case if identical sets of IO objects are acquired from several outstations.</p>
-<p>Name and location path of the XML configuration file are not predefined, they can be chosen freely.
-File name &#8216;<strong>Feeder_F1.xml</strong>&#8216; will be used as a sample and location path doesn&#8217;t have to be specified if XML file is stored in the same directory as leandc firmware.
-In order to use the XML file for a communication protocol instance, simply enter the name &#8216;<strong>Feeder_F1.xml</strong>&#8216; in <a class="reference internal" href="#ref-iec103ma"><em>IEC103ma</em></a>.<a class="reference internal" href="#ref-iec103maxmlpath"><em>XMLpath</em></a> attribute.</p>
-<p>IEC60870-5-103 Master configuration file (e.g. &#8216;<strong>Feeder_F1.xml</strong>&#8216;) must have a root object node <span class="xmlref">IEC103maConfig</span>
+<p>Name and location path of the XML configuration file is not predefined, it can be chosen freely.
+File name &#8216;<strong>IEC103ma_test.xml</strong>&#8216; is used as a sample.
+Enter name of the XML file in <a class="reference internal" href="#ref-iec103ma"><em>IEC103ma</em></a>.<a class="reference internal" href="#ref-iec103maxmlpath"><em>XMLpath</em></a> attribute of a communication protocol instance created in <strong>leandc.xml</strong> as follows:
+<a class="reference internal" href="#ref-iec103maxmlpath"><em>XMLpath</em></a>=&#8221;IEC103ma_test.xml&#8221; .
+Location path doesn&#8217;t have to be specified if the XML file is stored in the default directory (/home/leandc/app).</p>
+<p>IEC60870-5-103 Master configuration file (e.g. &#8216;<strong>&#8220;IEC103ma_test.xml</strong>&#8216;) must have a root object node <span class="xmlref">IEC103maConfig</span>
 which has 5 child group object nodes <a class="reference internal" href="#ref-versioncontrol"><em>VersionControl</em></a>; <a class="reference internal" href="#ref-iec103maprotocolcfg"><em>ProtocolCfg</em></a>; <a class="reference internal" href="#ref-iec103maditable"><em>DITable</em></a>; <a class="reference internal" href="#ref-iec103maaitable"><em>AITable</em></a>; <a class="reference internal" href="#ref-iec103madotable"><em>DOTable</em></a> please see the
 sample below.</p>
 <div class="highlight-none"><div class="highlight"><pre>&lt;IEC103maConfig xmlns=&quot;http://www.londelec.com/xmlschemas/leandc/IEC103ma&quot; … version=&quot;1.00&quot;&gt;
@@ -18397,7 +18422,7 @@ Application example: if this delay is 10, status will be changed to OFFLINE when
 <td>0 sec</td>
 <td>Additional delay to change quality marking of station&#8217;s DI/AI objects if station hasn&#8217;t been online for a very long time.
 Quality marking of station&#8217;s DI/AI objects will be changed after configured number of seconds following status change to OFFLINE.
-(Applicaiton example: DI/AI objects can be marked with Not Topical [<span class="lectext1">NT</span>] bit when station status changes to OFFLINE i.e. after <a class="reference internal" href="#ref-iec103macommssettingsofflinedelay"><em>OfflineDelay</em></a> timer expires and Invalid [<span class="lectext1">IV</span>] bit after this delay expires.)</td>
+(Application example: DI/AI objects can be marked with Not Topical [<span class="lectext1">NT</span>] bit when station status changes to OFFLINE i.e. after <a class="reference internal" href="#ref-iec103macommssettingsofflinedelay"><em>OfflineDelay</em></a> timer expires and Invalid [<span class="lectext1">IV</span>] bit after this delay expires.)</td>
 </tr>
 <tr class="row-even"><td><p class="first last" id="ref-iec103macommssettingsonlinegidelay"><span class="xmlref">OnlineGIDelay</span></p>
 </td>
@@ -18730,7 +18755,7 @@ Value 0 disables periodic General Interrogation command.</td>
 <td>0...2<sup>32</sup> - 1</td>
 <td>0 sec</td>
 <td>Periodic Time synchronization command interval in seconds.
-Value 0 disables periodic time synchronization command. <span class="inlinetip">Time Synchronization commands are only sent at predefined intervals. This means station Online/Offline status change doesn&#8217;t trigger time synchronziation command.</span></td>
+Value 0 disables periodic time synchronization command. <span class="inlinetip">Time Synchronization commands are only sent at predefined intervals. This means station Online/Offline status change doesn&#8217;t trigger time synchronization command.</span></td>
 </tr>
 </tbody>
 </table>
@@ -18935,7 +18960,7 @@ There are 5 AI information objects configured using 4 <a class="reference intern
 </pre></div>
 </div>
 <p>Please see sample <a class="reference internal" href="#ref-iec103maai"><em>AI</em></a> node and all its attributes in the table below.</p>
-<div class="highlight-none"><div class="highlight"><pre>&lt;AI Index=&quot;0&quot; FUN=&quot;85&quot; INF=&quot;83&quot; MEA=&quot;2&quot; Qualifier=&quot;0x20&quot; Coeff=&quot;1.0&quot; Deadband=&quot;0.5&quot; Percent=&quot;0&quot; StartOffset=&quot;6554&quot; ZeroDeadband=&quot;3.0&quot; Offset=&quot;-2.0&quot; OffsetDeadband=&quot;2.0&quot; NonZeroOffset=&quot;200.0&quot; Total=&quot;2&quot; Name=&quot;Feeder current&quot; /&gt;
+<div class="highlight-none"><div class="highlight"><pre>&lt;AI Index=&quot;0&quot; FUN=&quot;85&quot; INF=&quot;83&quot; MEA=&quot;2&quot; Qualifier=&quot;0x20&quot; Coeff=&quot;1.0&quot; Deadband=&quot;0.5&quot; Percent=&quot;0&quot; StartOffset=&quot;6554&quot; ZeroDeadband=&quot;3.0&quot; Offset=&quot;-2.0&quot; OffsetDeadband=&quot;2.0&quot; NonZeroOffset=&quot;200.0&quot; DIAndIndex=&quot;0&quot; LogicValue=&quot;1&quot; Total=&quot;2&quot; Name=&quot;Feeder current&quot; /&gt;
 </pre></div>
 </div>
 <div class="admonition tip">
@@ -19073,6 +19098,24 @@ AI will be forced to 0 if its absolute value (+/-) after offsetting falls below 
 <td>0 or ±1.18×10<sup>-38</sup>...±3.4×10<sup>38</sup></td>
 <td>0</td>
 <td>Offset only non-zero values <strong>after</strong> <span class="xmlref">ZeroDeadband</span>; <span class="xmlref">Offset</span> and <span class="xmlref">OffsetDeadband</span> has been applied.
+<span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
+</tr>
+<tr class="row-odd"><td><p class="first last" id="ref-iec103maaidiandindex"><span class="xmlref">DIAndIndex</span></p>
+</td>
+<td>0...65534</td>
+<td>n/a</td>
+<td>Index of the DI object to perform logical conjunction (AND function).
+Use value of the <a class="reference internal" href="#ref-iec103madi"><em>DI</em></a>.<a class="reference internal" href="#ref-iec103madiindex"><em>Index</em></a> attribute.
+Analog value will be stored in the database and event will be generated only if value of the DI object is the same as specified in <span class="xmlref">LogicValue</span> attribute.
+<span class="inlinetip">Attribute is optional and must not be specified in configuration if not used. There is no default value.</span></td>
+</tr>
+<tr class="row-even"><td><p class="first last" id="ref-iec103maailogicvalue"><span class="xmlref">LogicValue</span></p>
+</td>
+<td>0...255</td>
+<td>0</td>
+<td>Value of the object used for logical conjunction/disjunction (AND/OR function).
+Please note all DI values have to be treated as DPIs (ON = 2; OFF = 1) if used for logic functions.
+Quality flags (e.g. [<span class="lectext1">IV</span>]) are not part of the logical processing, DI values are used regardless of state of the quality flags.
 <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
 </tr>
 <tr class="row-odd"><td><p class="first last" id="ref-iec103maaitotal"><span class="xmlref">Total</span></p>
@@ -19309,10 +19352,11 @@ instance. Each Modbus Master communication protocol instance must have XML
 configuration file where Modbus messages, IO object table and additional protocol-related settings are stored.
 One XML file can be used for multiple Modbus Master communication protocol instances.
 It becomes very useful if multiple outstations have identical sets of IO objects.</p>
-<p>Name and location path of the XML configuration file is not predefined, it can be chosen freely. File name
-&#8216;<strong>Device_IO.xml</strong>&#8216; will be used as a sample. Location path doesn&#8217;t have to be specified if XML file is stored in
-the same directory as leandc.xml file. In order to use the XML file as for a communication protocol instance,
-enter the name &#8216;<strong>Device_IO.xml</strong>&#8216; in <a class="reference internal" href="#ref-modbusma"><em>Modbusma</em></a>.<a class="reference internal" href="#ref-modbusmaxmlpath"><em>XMLpath</em></a> attribute.</p>
+<p>Name and location path of the XML configuration file is not predefined, it can be chosen freely.
+File name &#8216;<strong>Device_IO.xml</strong>&#8216; is used as a sample.
+Enter name of the XML file in <a class="reference internal" href="#ref-modbusma"><em>Modbusma</em></a>.<a class="reference internal" href="#ref-modbusmaxmlpath"><em>XMLpath</em></a> attribute of a communication protocol instance created in <strong>leandc.xml</strong> as follows:
+<a class="reference internal" href="#ref-modbusmaxmlpath"><em>XMLpath</em></a>=&#8221;Device_IO.xml&#8221; .
+Location path doesn&#8217;t have to be specified if the XML file is stored in the default directory (/home/leandc/app).</p>
 <p>Modbus Master configuration file (e.g. &#8216;<strong>Device_IO.xml</strong>&#8216;) must have a root object node <span class="xmlref">ModbusmaConfig</span> which has
 2 mandatory child group object nodes <a class="reference internal" href="#ref-versioncontrol"><em>VersionControl</em></a>; <a class="reference internal" href="#ref-modbusmaprotocolcfg"><em>ProtocolCfg</em></a>,
 3 optional message configuration nodes <a class="reference internal" href="#ref-initmessages"><em>InitMessages</em></a>; <a class="reference internal" href="#ref-pollmessages"><em>PollMessages</em></a>; <a class="reference internal" href="#ref-ctrlmessages"><em>CtrlMessages</em></a>
@@ -19358,7 +19402,7 @@ Modbus messages used for communication to outstation.
 Messages don&#8217;t have to be defined if any of Hardcoded device types is specified.</p>
 <p><a class="reference internal" href="#ref-modbusmadi"><em>DITable</em></a>; <a class="reference internal" href="#ref-modbusmaai"><em>AITable</em></a>; <a class="reference internal" href="#ref-modbusmado"><em>DOTable</em></a> group nodes make up an IO object table of the Modbus
 Master communication protocol instance.
-Please refer to the tables <a href="#docref-modbusmadiattributes">10.20</a>; <a href="#docref-modbusmaaiattributes">10.24</a> and <a href="#docref-modbusmadoattributes">10.28</a> for their attributes.</p>
+Please refer to the tables <a href="#docref-modbusmadiattributes">10.21</a>; <a href="#docref-modbusmaaiattributes">10.25</a> and <a href="#docref-modbusmadoattributes">10.29</a> for their attributes.</p>
 <div class="section" id="protocolcfg-group-node">
 <span id="ref-modbusmaprotocolcfg"></span><h3>ProtocolCfg group node</h3>
 <p><a class="reference internal" href="#ref-modbusmaprotocolcfg"><em>ProtocolCfg</em></a> group and its child element nodes contain protocol-related settings of the Modbus Master instance.</p>
@@ -19483,7 +19527,7 @@ Application example: if this delay is 10, status will be changed to OFFLINE when
 <td>0 sec</td>
 <td>Additional delay to change quality marking of station&#8217;s DI/AI objects if station hasn&#8217;t been online for a very long time.
 Quality marking of station&#8217;s DI/AI objects will be changed after configured number of seconds following status change to OFFLINE.
-(Applicaiton example: DI/AI objects can be marked with Not Topical [<span class="lectext1">NT</span>] bit when station status changes to OFFLINE i.e. after <a class="reference internal" href="#ref-modbusmacommssettingsofflinedelay"><em>OfflineDelay</em></a> timer expires and Invalid [<span class="lectext1">IV</span>] bit after this delay expires.)</td>
+(Application example: DI/AI objects can be marked with Not Topical [<span class="lectext1">NT</span>] bit when station status changes to OFFLINE i.e. after <a class="reference internal" href="#ref-modbusmacommssettingsofflinedelay"><em>OfflineDelay</em></a> timer expires and Invalid [<span class="lectext1">IV</span>] bit after this delay expires.)</td>
 </tr>
 </tbody>
 </table>
@@ -19515,7 +19559,9 @@ Quality marking of station&#8217;s DI/AI objects will be changed after configure
 </td>
 <td>See table <a href="#docref-modbusmahardcodedtypestab">10.4</a></td>
 <td>n/a</td>
-<td>Predefined type of Modbus device. Messages and communication sequences are hardcoded for devices of these types.</td>
+<td>Predefined type of a Modbus device.
+Messages and communication sequences are hardcoded for these devices.
+<span class="inlineimportant">Attribute is case sensitive, observe case of the device type when specifying.</span></td>
 </tr>
 </tbody>
 </table>
@@ -19747,7 +19793,7 @@ Incoming message analyze begins when idle in the receive line exceeds configured
 <div class="section" id="timesettings">
 <span id="ref-modbusmatimesettings"></span><h4>TimeSettings</h4>
 <p>Time settings node is used to construct a message for synchronizing Modbus device&#8217;s clock.
-Modbus communication standard doesn&#8217;t define a specific function for the pupose of time synchronization,
+Modbus communication standard doesn&#8217;t define a specific function for the purpose of time synchronization,
 <span class="lectext1">Write Multiple registers [16]</span> is normally used.
 However encoding of the date and time in Modbus registers varies greatly from one device to another.
 Attributes of the <a class="reference internal" href="#ref-modbusmatimesettings"><em>TimeSettings</em></a> node below enable to build a custom Modbus message
@@ -19776,7 +19822,7 @@ where date and time values can be placed in any registers and each formatted in 
 </td>
 <td>16 [<span class="lectext1">Preset Multiple Registers</span>]</td>
 <td>n/a</td>
-<td>Modbus function number. Modbus function is manadatory for all messages.</td>
+<td>Modbus function number. Modbus function is mandatory for all messages.</td>
 </tr>
 <tr class="row-odd"><td><p class="first last" id="ref-modbusmatimesettingsreg"><span class="xmlref">Reg</span></p>
 </td>
@@ -19931,7 +19977,7 @@ See table <a href="#docref-modbusmatimeoffsettab">10.10</a> for examples.</td>
 </tbody>
 </table>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="docref-modbusmatimetypestab">
-<caption><strong>Table 10.11 Modbus Master Time varible encoding types</strong></caption>
+<caption><strong>Table 10.11 Modbus Master Time variable encoding types</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="90%" />
@@ -19990,7 +20036,7 @@ For example value &#8216;2018&#8217; will appear in Modbus message as follows: {
 <td>0...2<sup>32</sup> - 1</td>
 <td>0 sec</td>
 <td>Periodic Time synchronization command interval in seconds.
-Value 0 disables periodic time synchronization command. <span class="inlineimportant">Time syncronization message must be defined in</span> <a class="reference internal" href="#ref-modbusmatimesettings"><em>TimeSettings</em></a> <span class="inlineimportant">node.</span> <span class="inlinetip">Time Synchronization commands are only sent at predefined intervals. This means station Online/Offline status change doesn&#8217;t trigger time synchronziation command.</span></td>
+Value 0 disables periodic time synchronization command. <span class="inlineimportant">Time synchronization message must be defined in</span> <a class="reference internal" href="#ref-modbusmatimesettings"><em>TimeSettings</em></a> <span class="inlineimportant">node.</span> <span class="inlinetip">Time Synchronization commands are only sent at predefined intervals. This means station Online/Offline status change doesn&#8217;t trigger time synchronization command.</span></td>
 </tr>
 </tbody>
 </table>
@@ -19998,7 +20044,7 @@ Value 0 disables periodic time synchronization command. <span class="inlineimpor
 </div>
 <div class="section" id="initmessages-group-and-msg-node">
 <span id="ref-initmessages"></span><h3>InitMessages group and MSG node</h3>
-<p>Group node <a class="reference internal" href="#ref-initmessages"><em>InitMessages</em></a> and child element nodes <a class="reference internal" href="#ref-initmessages"><em>MSG</em></a> contain messages that are being sent to outstation during an intialization stage.
+<p>Group node <a class="reference internal" href="#ref-initmessages"><em>InitMessages</em></a> and child element nodes <a class="reference internal" href="#ref-initmessages"><em>MSG</em></a> contain messages that are being sent to outstation during an initialization stage.
 Outstation replies can be checked against the pre-defined data to ensure correct outstation is connected during the initialization stage.
 Modbus Write messages can be used to change settings of the outstation during the initialization stage, if necessary.</p>
 <div class="admonition tip">
@@ -20024,7 +20070,7 @@ There are 2 Modbus messages configured using 2 <a class="reference internal" hre
 <div class="section" id="msg-attributes">
 <h4>MSG attributes</h4>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="docref-initmessageattributes">
-<caption><strong>Table 10.13 Modbus Master Inialization message attributes</strong></caption>
+<caption><strong>Table 10.13 Modbus Master Initialization message attributes</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="10%" />
@@ -20051,7 +20097,7 @@ This restriction has been put in place to prevent insertion of a new message bec
 </td>
 <td>See table <a href="#docref-modbusmainitfunctab">10.14</a></td>
 <td>n/a</td>
-<td>Modbus function number. Modbus function is manadatory for all messages.</td>
+<td>Modbus function number. Modbus function is mandatory for all messages.</td>
 </tr>
 <tr class="row-even"><td><p class="first last" id="ref-initmsgreg"><span class="xmlref">Reg</span></p>
 </td>
@@ -20074,7 +20120,7 @@ This restriction has been put in place to prevent insertion of a new message bec
 <td>Data to be written to outstation or expected in a reply from outstation.
 Data can be specified as hexadecimal values separated by whitespaces e.g. &#8220;AA BB CC DD 05 03&#8221;
 or a single hexadecimal number e.g. &#8220;0xAABBCCDD0503&#8221;.
-If writing / reading multipe Modbus registers first 2 data bytes will be written to / read from the base register
+If writing / reading multiple Modbus registers first 2 data bytes will be written to / read from the base register
 specified in <span class="xmlref">Reg</span> attribute, next to 2 bytes base register + 1, etc.</td>
 </tr>
 <tr class="row-odd"><td><p class="first last" id="ref-modbusmamsgflags"><span class="xmlref">Flags</span></p>
@@ -20164,10 +20210,10 @@ whether <a class="reference internal" href="#ref-initmsgreg"><em>Reg</em></a> at
 </tr>
 <tr class="row-odd"><td rowspan="2">Bit 0</td>
 <td>xxxx.xxx0</td>
-<td>Data received from oustation has to match contents of the <a class="reference internal" href="#ref-initmsgdata"><em>Data</em></a> attribute <strong>exactly</strong></td>
+<td>Data received from outstation has to match contents of the <a class="reference internal" href="#ref-initmsgdata"><em>Data</em></a> attribute <strong>exactly</strong></td>
 </tr>
 <tr class="row-even"><td>xxxx.xxx1</td>
-<td>Data received from oustation has to <strong>contain</strong> contents of the <a class="reference internal" href="#ref-initmsgdata"><em>Data</em></a> attribute.
+<td>Data received from outstation has to <strong>contain</strong> contents of the <a class="reference internal" href="#ref-initmsgdata"><em>Data</em></a> attribute.
 This option is normally used with <span class="lectext1">Report Server ID [17]</span> message and
 enables to check only portion of the received reply.
 For example if <a class="reference internal" href="#ref-initmsgdata"><em>Data</em></a>=&#8221;41 42 43&#8221; (represents string &#8220;ABC&#8221;) a reply from outstation
@@ -20230,9 +20276,9 @@ This restriction has been put in place to prevent insertion of a new message bec
 </tr>
 <tr class="row-odd"><td><p class="first last" id="ref-pollmsgfunc"><span class="xmlref">Func</span></p>
 </td>
-<td>3 or 4</td>
+<td>See table <a href="#docref-modbusmapollfunctab">10.17</a></td>
 <td>n/a</td>
-<td>Modbus function number. Modbus function is manadatory for all messages.</td>
+<td>Modbus function number. Modbus function is mandatory for all messages.</td>
 </tr>
 <tr class="row-even"><td><p class="first last" id="ref-pollmsgreg"><span class="xmlref">Reg</span></p>
 </td>
@@ -20251,6 +20297,33 @@ This restriction has been put in place to prevent insertion of a new message bec
 <td>Max 100 chars</td>
 <td>n/a</td>
 <td>Freely configurable name, just for reference. <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration.</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id2">
+<h4>MSG.Func</h4>
+<p>Table below shows supported values of the <a class="reference internal" href="#ref-pollmsgfunc"><em>Func</em></a> attribute.</p>
+<table border="1" class="table table-condensed table-bordered longtable docutils" id="docref-modbusmapollfunctab">
+<caption><strong>Table 10.17 Modbus Master Poll message functions</strong></caption>
+<colgroup>
+<col width="11%" />
+<col width="89%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><a class="reference internal" href="#ref-pollmsgfunc"><em>Func</em></a></th>
+<th class="head"><strong>Function Name</strong></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>3</td>
+<td>[<span class="lectext1">Read Holding Registers</span>]</td>
+</tr>
+<tr class="row-odd"><td>4</td>
+<td>[<span class="lectext1">Read Input Registers</span>]</td>
+</tr>
+<tr class="row-even"><td>Other</td>
+<td>Function is not supported</td>
 </tr>
 </tbody>
 </table>
@@ -20280,10 +20353,10 @@ There are 2 Modbus messages configured using 2 <a class="reference internal" hre
 <p class="first admonition-title">Tip</p>
 <p class="last">Attributes of the <a class="reference internal" href="#ref-ctrlmessages"><em>MSG</em></a> element node can be arranged in any order, it will not affect XML file validation.</p>
 </div>
-<div class="section" id="id2">
+<div class="section" id="id3">
 <h4>MSG attributes</h4>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="docref-ctrlmessageattributes">
-<caption><strong>Table 10.17 Modbus Master Control message attributes</strong></caption>
+<caption><strong>Table 10.18 Modbus Master Control message attributes</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="10%" />
@@ -20308,9 +20381,9 @@ This restriction has been put in place to prevent insertion of a new message bec
 </tr>
 <tr class="row-odd"><td><p class="first last" id="ref-ctrlmsgfunc"><span class="xmlref">Func</span></p>
 </td>
-<td>See table <a href="#docref-modbusmactrlfunctab">10.18</a></td>
+<td>See table <a href="#docref-modbusmactrlfunctab">10.19</a></td>
 <td>n/a</td>
-<td>Modbus function number. Modbus function is manadatory for all messages.</td>
+<td>Modbus function number. Modbus function is mandatory for all messages.</td>
 </tr>
 <tr class="row-even"><td><p class="first last" id="ref-ctrlmsgreg"><span class="xmlref">Reg</span></p>
 </td>
@@ -20325,9 +20398,9 @@ This restriction has been put in place to prevent insertion of a new message bec
 <td>Data to be written to outstation.
 Data can be specified as hexadecimal values separated by whitespaces e.g. &#8220;AA BB CC DD 05 03&#8221;
 or a single hexadecimal number e.g. &#8220;0xAABBCCDD0503&#8221;.
-If writing multipe Modbus registers first 2 data bytes will be written to the base register
+If writing multiple Modbus registers first 2 data bytes will be written to the base register
 specified in <span class="xmlref">Reg</span> attribute, next to 2 bytes base register + 1, etc.
-<span class="inlinetip">See compatibility table</span> <a href="#docref-modbusmactrlfunctab">10.18</a> <span class="inlinetip">to check if</span> <span class="xmlref">Data</span> <span class="inlinetip">attribute is optional.</span></td>
+<span class="inlinetip">See compatibility table</span> <a href="#docref-modbusmactrlfunctab">10.19</a> <span class="inlinetip">to check if</span> <span class="xmlref">Data</span> <span class="inlinetip">attribute is optional.</span></td>
 </tr>
 <tr class="row-even"><td><p class="first last" id="ref-modbusmafollowctrlmsg"><span class="xmlref">FollowCtrlMsg</span></p>
 </td>
@@ -20340,7 +20413,7 @@ Value 0 means this message does not follow any previous messages.
 </tr>
 <tr class="row-odd"><td><p class="first last" id="ref-ctrlmsgtype"><span class="xmlref">Type</span></p>
 </td>
-<td>See table <a href="#docref-modbusctrlmsgtypetab">10.19</a></td>
+<td>See table <a href="#docref-modbusctrlmsgtypetab">10.20</a></td>
 <td>0</td>
 <td>Select format of outgoing data.
 <span class="inlinetip">Attribute is optional and doesn’t have to be included in configuration, default value will be used if omitted.</span></td>
@@ -20353,12 +20426,12 @@ Value 0 means this message does not follow any previous messages.
 </tbody>
 </table>
 </div>
-<div class="section" id="id3">
+<div class="section" id="id4">
 <h4>MSG.Func</h4>
 <p>Table below shows supported values of the <a class="reference internal" href="#ref-ctrlmsgfunc"><em>Func</em></a> attribute and
 whether <a class="reference internal" href="#ref-ctrlmsgdata"><em>Data</em></a> attribute must be specified when particular Modbus function is used.</p>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="docref-modbusmactrlfunctab">
-<caption><strong>Table 10.18 Modbus Master Control message functions</strong></caption>
+<caption><strong>Table 10.19 Modbus Master Control message functions</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="10%" />
@@ -20431,7 +20504,7 @@ If no read message is used, data is initialized to 0 and bit specified in <a cla
 <div class="section" id="msg-type">
 <h4>MSG.Type</h4>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="docref-modbusctrlmsgtypetab">
-<caption><strong>Table 10.19 Modbus Master Control message types</strong></caption>
+<caption><strong>Table 10.20 Modbus Master Control message types</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="90%" />
@@ -20488,7 +20561,7 @@ There are 5 DI information objects configured using 4 <a class="reference intern
 <div class="section" id="di-attributes">
 <h4>DI attributes</h4>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="docref-modbusmadiattributes">
-<caption><strong>Table 10.20 Modbus Master DI attributes</strong></caption>
+<caption><strong>Table 10.21 Modbus Master DI attributes</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="10%" />
@@ -20525,12 +20598,12 @@ Value 0 means no poll message is selected.
 <td>0...1023 or 0x00...0x3FF</td>
 <td>0</td>
 <td>Offset of the bit that carries status information.
-See table <a href="#docref-modbusmabitoffsettab">10.23</a> for examples of offset values.
+See table <a href="#docref-modbusmabitoffsettab">10.24</a> for examples of offset values.
 <span class="inlineimportant">Attribute is optional only if</span> <a class="reference internal" href="#ref-modbusmahardcoded"><em>Hardcoded</em></a>.<a class="reference internal" href="#ref-modbusmahardcodedtype"><em>Type</em></a> <span class="inlineimportant">is used.</span></td>
 </tr>
 <tr class="row-odd"><td><p class="first last" id="ref-modbusmaditype"><span class="xmlref">Type</span></p>
 </td>
-<td>See table <a href="#docref-modbusditypetab">10.22</a></td>
+<td>See table <a href="#docref-modbusditypetab">10.23</a></td>
 <td>1</td>
 <td>Select format of the received data.
 <span class="inlineimportant">Attribute is optional only if</span> <a class="reference internal" href="#ref-modbusmahardcoded"><em>Hardcoded</em></a>.<a class="reference internal" href="#ref-modbusmahardcodedtype"><em>Type</em></a> <span class="inlineimportant">is used.</span></td>
@@ -20540,7 +20613,7 @@ See table <a href="#docref-modbusmabitoffsettab">10.23</a> for examples of offse
 <td>0...255 or 0x00...0xFF</td>
 <td>0x00</td>
 <td>Internal object qualifier to enable customized data processing.
-See table <a href="#docref-modbusmadiqualifierbits">10.21</a> for internal object qualifier description.
+See table <a href="#docref-modbusmadiqualifierbits">10.22</a> for internal object qualifier description.
 <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
 </tr>
 <tr class="row-odd"><td><p class="first last" id="ref-modbusmadichatterfilter"><span class="xmlref">ChatterFilter</span></p>
@@ -20571,7 +20644,7 @@ Attribute is used to create a sequence of information objects with consecutive <
 <div class="section" id="di-qualifier">
 <h4>DI.Qualifier</h4>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="docref-modbusmadiqualifierbits">
-<caption><strong>Table 10.21 Modbus Master DI internal qualifier</strong></caption>
+<caption><strong>Table 10.22 Modbus Master DI internal qualifier</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="10%" />
@@ -20612,7 +20685,7 @@ Attribute is used to create a sequence of information objects with consecutive <
 <div class="section" id="di-type">
 <h4>DI.Type</h4>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="docref-modbusditypetab">
-<caption><strong>Table 10.22 Modbus Master DI decode types</strong></caption>
+<caption><strong>Table 10.23 Modbus Master DI decode types</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="90%" />
@@ -20628,7 +20701,7 @@ Attribute is used to create a sequence of information objects with consecutive <
 </tr>
 <tr class="row-odd"><td>1</td>
 <td>Select one bit from the received data based on <a class="reference internal" href="#ref-modbusmadibitoffset"><em>BitOffset</em></a> attribute.
-See table <a href="#docref-modbusmabitoffsettab">10.23</a> for examples of offset values.</td>
+See table <a href="#docref-modbusmabitoffsettab">10.24</a> for examples of offset values.</td>
 </tr>
 <tr class="row-even"><td>Other</td>
 <td>Not used</td>
@@ -20639,7 +20712,7 @@ See table <a href="#docref-modbusmabitoffsettab">10.23</a> for examples of offse
 The sample has 4 bytes of data in the order as it would be received from or sent to outstation.
 Each byte is shown as &#8216;xxxx.xxxx&#8217; where &#8216;x&#8217; represents one bit of the byte.</p>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="docref-modbusmabitoffsettab">
-<caption><strong>Table 10.23 Modbus Master Bit Offset sample values</strong></caption>
+<caption><strong>Table 10.24 Modbus Master Bit Offset sample values</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="90%" />
@@ -20712,7 +20785,7 @@ There are 5 AI information objects configured using 4 <a class="reference intern
 <div class="section" id="ai-attributes">
 <h4>AI attributes</h4>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="docref-modbusmaaiattributes">
-<caption><strong>Table 10.24 Modbus Master AI attributes</strong></caption>
+<caption><strong>Table 10.25 Modbus Master AI attributes</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="10%" />
@@ -20749,12 +20822,12 @@ Value 0 means no poll message is selected.
 <td>0...63 or 0x00...0x3F</td>
 <td>0</td>
 <td>Offset of the register to read the analog information from.
-See table <a href="#docref-modbusmaregoffsettab">10.27</a> for examples of offset values.
+See table <a href="#docref-modbusmaregoffsettab">10.28</a> for examples of offset values.
 <span class="inlineimportant">Attribute is optional only if</span> <a class="reference internal" href="#ref-modbusmahardcoded"><em>Hardcoded</em></a>.<a class="reference internal" href="#ref-modbusmahardcodedtype"><em>Type</em></a> <span class="inlineimportant">is used.</span></td>
 </tr>
 <tr class="row-odd"><td><p class="first last" id="ref-modbusmaaitype"><span class="xmlref">Type</span></p>
 </td>
-<td>See table <a href="#docref-modbusaitypetab">10.26</a></td>
+<td>See table <a href="#docref-modbusaitypetab">10.27</a></td>
 <td>33</td>
 <td>Select format of the received data.
 <span class="inlineimportant">Attribute is optional only if</span> <a class="reference internal" href="#ref-modbusmahardcoded"><em>Hardcoded</em></a>.<a class="reference internal" href="#ref-modbusmahardcodedtype"><em>Type</em></a> <span class="inlineimportant">is used.</span></td>
@@ -20764,7 +20837,7 @@ See table <a href="#docref-modbusmaregoffsettab">10.27</a> for examples of offse
 <td>0...255 or 0x00...0xFF</td>
 <td>0x00</td>
 <td>Internal object qualifier to enable customized data processing.
-See table <a href="#docref-modbusmaaiqualifierbits">10.25</a> for internal object qualifier description.
+See table <a href="#docref-modbusmaaiqualifierbits">10.26</a> for internal object qualifier description.
 <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
 </tr>
 <tr class="row-odd"><td><p class="first last" id="ref-modbusmaaicoeff"><span class="xmlref">Coeff</span></p>
@@ -20868,7 +20941,7 @@ Annexes <a class="reference internal" href="#docref-aiscalingwithoutstartoffset"
 <div class="section" id="ai-qualifier">
 <h4>AI.Qualifier</h4>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="docref-modbusmaaiqualifierbits">
-<caption><strong>Table 10.25 Modbus Master AI internal qualifier</strong></caption>
+<caption><strong>Table 10.26 Modbus Master AI internal qualifier</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="10%" />
@@ -20902,7 +20975,7 @@ Annexes <a class="reference internal" href="#docref-aiscalingwithoutstartoffset"
 <div class="section" id="ai-type">
 <h4>AI.Type</h4>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="docref-modbusaitypetab">
-<caption><strong>Table 10.26 Modbus Master AI decode types</strong></caption>
+<caption><strong>Table 10.27 Modbus Master AI decode types</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="90%" />
@@ -20955,7 +21028,7 @@ For example received Modbus data {01 04 ... <strong>80 10 00 40</strong> ...} wi
 </table>
 <p>Table below shows position of a sample value &#8216;341&#8217; (0x0155) in a Modbus message and the <a class="reference internal" href="#ref-modbusmaairegoffset"><em>RegOffset</em></a> required to read this value.</p>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="docref-modbusmaregoffsettab">
-<caption><strong>Table 10.27 Modbus Master Register Offset sample values</strong></caption>
+<caption><strong>Table 10.28 Modbus Master Register Offset sample values</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="90%" />
@@ -21008,7 +21081,7 @@ There are 5 DO information objects configured using 4 <a class="reference intern
 <div class="section" id="do-attributes">
 <h4>DO attributes</h4>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="docref-modbusmadoattributes">
-<caption><strong>Table 10.28 Modbus Master DO attributes</strong></caption>
+<caption><strong>Table 10.29 Modbus Master DO attributes</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="10%" />
@@ -21045,7 +21118,7 @@ Value 0 means no poll message is selected.
 <td>0...1023 or 0x00...0x3FF</td>
 <td>0</td>
 <td>Offset of the bit that is to send control.
-See table <a href="#docref-modbusmabitoffsettab">10.23</a> for examples of offset values.
+See table <a href="#docref-modbusmabitoffsettab">10.24</a> for examples of offset values.
 <span class="inlineimportant">Attribute is optional only if</span> <a class="reference internal" href="#ref-modbusmahardcoded"><em>Hardcoded</em></a>.<a class="reference internal" href="#ref-modbusmahardcodedtype"><em>Type</em></a> <span class="inlineimportant">is used.</span></td>
 </tr>
 <tr class="row-odd"><td><p class="first last" id="ref-modbusmadoqualifier"><span class="xmlref">Qualifier</span></p>
@@ -21053,7 +21126,7 @@ See table <a href="#docref-modbusmabitoffsettab">10.23</a> for examples of offse
 <td>0...255 or 0x00...0xFF</td>
 <td>0x00</td>
 <td>Internal object qualifier to enable customized data processing.
-See table <a href="#docref-modbusmadoqualifierbits">10.29</a> for internal object qualifier description.
+See table <a href="#docref-modbusmadoqualifierbits">10.30</a> for internal object qualifier description.
 <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
 </tr>
 <tr class="row-even"><td><p class="first last" id="ref-modbusmadopulseduration"><span class="xmlref">PulseDuration</span></p>
@@ -21084,7 +21157,7 @@ Attribute is used to create a sequence of information objects with consecutive <
 <div class="section" id="do-qualifier">
 <h4>DO.Qualifier</h4>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="docref-modbusmadoqualifierbits">
-<caption><strong>Table 10.29 Modbus Master DO internal qualifier</strong></caption>
+<caption><strong>Table 10.30 Modbus Master DO internal qualifier</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="10%" />
@@ -21128,18 +21201,19 @@ Attribute is used to create a sequence of information objects with consecutive <
 <span id="ref-iec61850clmain"></span><h2>IEC61850 Client</h2>
 <p>This section describes how to configure IEC61850 Client communication protocol
 instance. IEC61850 standard specifies a System Configuration Language (SCL) for files which are
-used to store cofiguration data of the IED. Most commonly used files are IED Capability Description (ICD),
+used to store configuration data of the IED. Most commonly used files are IED Capability Description (ICD),
 Configured IED Description (CID) and System Configuration Description (SCD). CID or SCD file is
-required for each IEC61850 Client communication protocol instance. It contains comunication capabilities
+required for each IEC61850 Client communication protocol instance. It contains communication capabilities
 and settings of a Server station (IED) we would like to communicate to. In addition to CID/SCD file
 a XML configuration file is required. It contains IO object table and additional protocol-related settings.
 The same pairs of CID/SCD and XML files can be used for multiple IEC61850 Client communication protocol instances.
 It becomes very useful if multiple outstations have identical sets of IO objects.</p>
 <p>Name and location path of the configuration files is not predefined, it can be chosen freely.
-Files &#8216;<strong>REF_IO.xml</strong>&#8216; and &#8216;<strong>REF.cid</strong>&#8216; are used as a sample.
-Enter names of the files in <a class="reference internal" href="#ref-iec61850cl"><em>IEC61850cl</em></a>.<a class="reference internal" href="#ref-iec61850clxmlpath"><em>XMLpath</em></a> and <a class="reference internal" href="#ref-iec61850cl"><em>IEC61850cl</em></a>.<a class="reference internal" href="#ref-iec61850clcidpath"><em>CIDpath</em></a> attributes.
-Location path doesn&#8217;t need to be specified if the XML file is stored in the same directory with leandc firmware.</p>
-<p>IEC61850 Client configuration file (e.g. &#8216;<strong>REF_IO.xml</strong>&#8216;) must have a root object node <span class="xmlref">IEC61850clConfig</span> which has
+Files &#8216;<strong>IED_IO.xml</strong>&#8216; and &#8216;<strong>IED.cid</strong>&#8216; are used as a sample.
+Enter names of the files in <a class="reference internal" href="#ref-iec61850cl"><em>IEC61850cl</em></a>.<a class="reference internal" href="#ref-iec61850clxmlpath"><em>XMLpath</em></a> and <a class="reference internal" href="#ref-iec61850cl"><em>IEC61850cl</em></a>.<a class="reference internal" href="#ref-iec61850clcidpath"><em>CIDpath</em></a> attributes of a communication protocol instance created in <strong>leandc.xml</strong> as follows:
+<a class="reference internal" href="#ref-iec61850clxmlpath"><em>XMLpath</em></a>=&#8221;IED_IO.xml&#8221; and <a class="reference internal" href="#ref-iec61850clcidpath"><em>CIDpath</em></a>=&#8221;IED.cid&#8221; .
+Location path doesn&#8217;t have to be specified if the files are stored in the default directory (/home/leandc/app).</p>
+<p>IEC61850 Client configuration file (e.g. &#8216;<strong>IED_IO.xml</strong>&#8216;) must have a root object node <span class="xmlref">IEC61850clConfig</span> which has
 2 mandatory child group object nodes <a class="reference internal" href="#ref-versioncontrol"><em>VersionControl</em></a>; <a class="reference internal" href="#ref-iec61850clprotocolcfg"><em>ProtocolCfg</em></a>
 and 4 optional child group object nodes <a class="reference internal" href="#ref-iec61850cldi"><em>DITable</em></a>; <a class="reference internal" href="#ref-iec61850clai"><em>AITable</em></a>; <a class="reference internal" href="#ref-iec61850cldo"><em>DOTable</em></a>; <a class="reference internal" href="#ref-iec61850clao"><em>AOTable</em></a>
 please see the sample below.</p>
@@ -21236,7 +21310,7 @@ Default 6 seconds - station status will change to OFFLINE 6 seconds after TCP so
 <td>0 sec</td>
 <td>Additional delay to change quality marking of station&#8217;s DI/AI objects if station hasn&#8217;t been online for a very long time.
 Quality marking of station&#8217;s DI/AI objects will be changed after configured number of seconds following status change to OFFLINE.
-(Applicaiton example: DI/AI objects can be marked with Not Topical [<span class="lectext1">NT</span>] bit when station status changes to OFFLINE i.e. after <a class="reference internal" href="#ref-iec61850clcommssettingsofflinedelay"><em>OfflineDelay</em></a> timer expires and Invalid [<span class="lectext1">IV</span>] bit after this delay expires.)</td>
+(Application example: DI/AI objects can be marked with Not Topical [<span class="lectext1">NT</span>] bit when station status changes to OFFLINE i.e. after <a class="reference internal" href="#ref-iec61850clcommssettingsofflinedelay"><em>OfflineDelay</em></a> timer expires and Invalid [<span class="lectext1">IV</span>] bit after this delay expires.)</td>
 </tr>
 </tbody>
 </table>
@@ -21306,7 +21380,8 @@ element node.</p>
 <td>Calling and called Transport-Selector identifiers of the received Connection Confirm [CC-TPDU] message will be <strong>ignored</strong> (default value)</td>
 </tr>
 <tr class="row-even"><td>xxxx.xxx1</td>
-<td>Calling and called Transport-Selector identifiers of the received Connection Confirm [CC-TPDU] message will be <strong>checked</strong>. Connection will be aborted if identfiers are incorrect.</td>
+<td>Calling and called Transport-Selector identifiers of the received Connection Confirm [CC-TPDU] message will be <strong>checked</strong>.
+Connection will be aborted if identifiers are incorrect.</td>
 </tr>
 <tr class="row-odd"><td>Bits 1...7</td>
 <td>Any</td>
@@ -21443,18 +21518,19 @@ element node.</p>
 <tr class="row-even"><td><span class="xmlref">CallingAPtitle</span></td>
 <td>1...64 chars</td>
 <td>1,1,1,999</td>
-<td>Calling AP Title used for outgoing [<span class="lectext1">AARQ APDU</span>] message</td>
+<td>[<span class="lectext1">Calling AP Title</span>] used for outgoing [<span class="lectext1">AARQ APDU</span>] message</td>
 </tr>
 <tr class="row-odd"><td><span class="xmlref">CallingAEqualifier</span></td>
 <td>1...255</td>
 <td>12</td>
-<td>Calling AE Qualifier used for outgoing [<span class="lectext1">AARQ APDU</span>] message</td>
+<td>[<span class="lectext1">Calling AE Qualifier</span>] used for outgoing [<span class="lectext1">AARQ APDU</span>] message</td>
 </tr>
 <tr class="row-even"><td><p class="first last" id="ref-iec61850claarqfields"><span class="xmlref">AARQfields</span></p>
 </td>
 <td>0...255 or 0x00...0xFF</td>
 <td>0x00</td>
-<td>Enabled fields of the outgoing [<span class="lectext1">AARQ APDU</span>] message. See table <a href="#docref-iec61850claarqfieldsbits">11.8</a> for description</td>
+<td>Enabled fields of the outgoing [<span class="lectext1">AARQ APDU</span>] message.
+See table <a href="#docref-iec61850claarqfieldsbits">11.8</a> for description</td>
 </tr>
 <tr class="row-odd"><td><span class="xmlref">MMSversion</span></td>
 <td>1; 2 or 3</td>
@@ -21490,26 +21566,26 @@ See table <a href="#docref-iec61850classocflagsbits">11.9</a> for description.</
 </tr>
 <tr class="row-odd"><td rowspan="2">Bit 0</td>
 <td>xxxx.xxx0</td>
-<td>Calling AP Title field of outgoing [<span class="lectext1">AARQ APDU</span>] message is <strong>disabled</strong> (default value)</td>
+<td>[<span class="lectext1">Calling AP Title</span>] field of outgoing [<span class="lectext1">AARQ APDU</span>] message is <strong>disabled</strong> (default value)</td>
 </tr>
 <tr class="row-even"><td>xxxx.xxx1</td>
-<td>Calling AP Title field of outgoing [<span class="lectext1">AARQ APDU</span>] message is <strong>enabled</strong></td>
+<td>[<span class="lectext1">Calling AP Title</span>] field of outgoing [<span class="lectext1">AARQ APDU</span>] message is <strong>enabled</strong></td>
 </tr>
 <tr class="row-odd"><td rowspan="2">Bit 1</td>
 <td>xxxx.xx0x</td>
-<td>Calling AE Qualifier field of outgoing [<span class="lectext1">AARQ APDU</span>] message is <strong>disabled</strong> (default value)</td>
+<td>[<span class="lectext1">Calling AE Qualifier</span>] field of outgoing [<span class="lectext1">AARQ APDU</span>] message is <strong>disabled</strong> (default value)</td>
 </tr>
 <tr class="row-even"><td>xxxx.xx1x</td>
-<td>Calling AE Qualifier field of outgoing [<span class="lectext1">AARQ APDU</span>] message is <strong>enabled</strong></td>
+<td>[<span class="lectext1">Calling AE Qualifier</span>] field of outgoing [<span class="lectext1">AARQ APDU</span>] message is <strong>enabled</strong></td>
 </tr>
 <tr class="row-odd"><td rowspan="2">Bit 6</td>
 <td>x0xx.xxxx</td>
-<td>Direct Reference in Association-information field of outgoing [<span class="lectext1">AARQ APDU</span>] message is <strong>disabled</strong> (default value)</td>
+<td>[<span class="lectext1">direct-reference</span>] (ISO8825-1) in [<span class="lectext1">Association-information</span>] field of outgoing [<span class="lectext1">AARQ APDU</span>] message is <strong>disabled</strong> (default value)</td>
 </tr>
 <tr class="row-even"><td>x1xx.xxxx</td>
-<td>Direct Reference in Association-information field of outgoing [<span class="lectext1">AARQ APDU</span>] message is <strong>enabled</strong></td>
+<td>[<span class="lectext1">direct-reference</span>] (ISO8825-1) in [<span class="lectext1">Association-information</span>] field of outgoing [<span class="lectext1">AARQ APDU</span>] message is <strong>enabled</strong></td>
 </tr>
-<tr class="row-odd"><td>Bits 2...5, 7</td>
+<tr class="row-odd"><td>Bits 2...5;7</td>
 <td>Any</td>
 <td>Bits reserved for future use</td>
 </tr>
@@ -21535,11 +21611,11 @@ See table <a href="#docref-iec61850classocflagsbits">11.9</a> for description.</
 </tr>
 <tr class="row-odd"><td rowspan="2">Bit 0</td>
 <td>xxxx.xxx0</td>
-<td><strong>Ignore</strong> Responding AP Title and Responding AE Qualifier of the received [<span class="lectext1">AARE APDU</span>] message.</td>
+<td><strong>Ignore</strong> [<span class="lectext1">Responding AP Title</span>] and [<span class="lectext1">Responding AE Qualifier</span>] of the received [<span class="lectext1">AARE APDU</span>] message.</td>
 </tr>
 <tr class="row-even"><td>xxxx.xxx1</td>
-<td><strong>Check</strong> Responding AP Title and Responding AE Qualifier of the received [<span class="lectext1">AARE APDU</span>] message.
-Communication will not be established if the received values doesn&#8217;t match.</td>
+<td><strong>Check</strong> [<span class="lectext1">Responding AP Title</span>] and [<span class="lectext1">Responding AE Qualifier</span>] of the received [<span class="lectext1">AARE APDU</span>] message.
+Communication will not be established if the received values doesn&#8217;t match &#8220;OSI-AP-Title&#8221; and &#8220;OSI-AE-Qualifier&#8221; values in SCL file.</td>
 </tr>
 <tr class="row-odd"><td>Bits 1...7</td>
 <td>Any</td>
@@ -21644,7 +21720,7 @@ See table <a href="#docref-iec61850clscsmflagsbits">11.12</a> for description.</
 <td>xxxx.xxxx xxxx.x0xx</td>
 <td><strong>Exclude</strong> [<span class="lectext1">data-reference</span>] field from Reports (default value)</td>
 </tr>
-<tr class="row-even"><td>xxxx.xxxx.xxxx.x1xx</td>
+<tr class="row-even"><td>xxxx.xxxx xxxx.x1xx</td>
 <td><strong>Include</strong> [<span class="lectext1">data-reference</span>] field in Reports</td>
 </tr>
 <tr class="row-odd"><td rowspan="2">Bit 3</td>
@@ -21721,15 +21797,21 @@ Dynamic dataset numbers are assigned automatically or specified with <a class="r
 </tr>
 <tr class="row-even"><td>xxxx.xxxx xxxx.xx1x</td>
 <td><strong>Set</strong> [<span class="lectext1">PurgeBuf</span>] bit if [<span class="lectext1">EntryID</span>] setting fails during Report Control Block initialization.
-Setting [<span class="lectext1">PurgeBuf</span>] bit will remove all Buffererd reports including those that might have not been sent to Client.</td>
+Setting [<span class="lectext1">PurgeBuf</span>] bit will remove all Buffered reports including those that might have not been sent to Client.</td>
 </tr>
 <tr class="row-odd"><td rowspan="2">Bit 2</td>
 <td>xxxx.xxxx xxxx.x0xx</td>
-<td>Read Basic Types of <strong>objects that don&#8217;t exist in SCL</strong> when station goes online.
-In case IEC61850 server has any objects that don&#8217;t appear in CID/SCD, Basic Types of those objects will be read with [<span class="lectext1">GetDataDirectory</span>] (default value)</td>
+<td><div class="first last line-block">
+<div class="line">Read Basic Types of <strong>objects that don&#8217;t exist in SCL</strong> when station goes online. In case IEC61850 server has any objects that don&#8217;t appear in SCL file, Basic Types of those objects will be read with [<span class="lectext1">GetDataDirectory</span>] (default value)</div>
+<div class="line">Basic Types are not read by default, but only if either of following conditions is met:</div>
+<div class="line">/ <a class="reference internal" href="#ref-iec61850clappsettings"><em>AppSettings</em></a>.<a class="reference internal" href="#ref-iec61850clappflags"><em>Flags</em></a> Bit[0] is set which forces to always read LD directory with [<span class="lectext1">GetLogicalDeviceDirectory</span>];</div>
+<div class="line">/ IED supports Dynamic Datasets and Dynamic Report Blocks (with empty DatSet=&#8221;&#8221;) are not specified in the SCL file.</div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td>xxxx.xxxx xxxx.x1xx</td>
-<td>Read Basic Types of <strong>all</strong> objects when station goes online with [<span class="lectext1">GetDataDirectory</span>]</td>
+<td>Read Basic Types of <strong>all</strong> objects when station goes online with [<span class="lectext1">GetDataDirectory</span>]
+Basic Types are not read by default, only in circumstatnces described above.</td>
 </tr>
 <tr class="row-odd"><td>Bits 3...15</td>
 <td>Any</td>
@@ -21995,7 +22077,8 @@ In general command timeout is used to terminate pending control commands, if com
 <tr class="row-odd"><td><span class="xmlref">Response</span></td>
 <td>1...2<sup>32</sup> - 1</td>
 <td>5 sec</td>
-<td>Response timeout in seconds. Connection to IED will be closed if no repsponse to a sent messgage has been received within this timeout.</td>
+<td>Response timeout in seconds.
+Connection to IED will be closed if no response to a sent message has been received within this timeout.</td>
 </tr>
 </tbody>
 </table>
@@ -22090,32 +22173,35 @@ This restriction has been put in place because insertion of a new index affects 
 <tr class="row-odd"><td><span class="xmlref">ldInst</span></td>
 <td>1...64 chars</td>
 <td>n/a</td>
-<td>Logical Device instance from CID/SCD file e.g. &#8216;LD0&#8217;</td>
+<td>Logical Device instance from SCL file e.g. &#8216;LD0&#8217;</td>
 </tr>
 <tr class="row-even"><td><span class="xmlref">prefix</span></td>
 <td>0...11 chars</td>
 <td>n/a</td>
-<td>Prefix of the Logical Node name from CID/SCD file e.g. &#8216;DA&#8217; <span class="inlineimportant">This attribute is mandatory even if particular name of the Logical Node doesn&#8217;t have prefix. Leave blank i.e. prefix=&#8221;&#8221; in this case.</span></td>
+<td>Prefix of the Logical Node name from SCL file e.g.&#8217;DA&#8217;
+<span class="inlineimportant">This attribute is mandatory even if particular name of the Logical Node doesn&#8217;t have prefix. Leave blank i.e. prefix=&#8221;&#8221; in this case.</span></td>
 </tr>
 <tr class="row-odd"><td><span class="xmlref">lnClass</span></td>
 <td>4 chars</td>
 <td>n/a</td>
-<td>Logical Node Class from CID/SCD file e.g. &#8216;XCBR&#8217;</td>
+<td>Logical Node Class from SCL file e.g. &#8216;XCBR&#8217;</td>
 </tr>
 <tr class="row-even"><td><span class="xmlref">lnInst</span></td>
 <td>0...10<sup>10</sup> - 1</td>
 <td>n/a</td>
-<td>Logical Node Instance from CID/SCD file e.g. &#8216;1&#8217; <span class="inlineimportant">This attribute is mandatory even if particular name of the Logical Node doesn&#8217;t have instance. Leave blank i.e. lnInst=&#8221;&#8221; in this case.</span></td>
+<td>Logical Node Instance from SCL file e.g. &#8216;1&#8217;
+<span class="inlineimportant">This attribute is mandatory even if particular name of the Logical Node doesn&#8217;t have instance. Leave blank i.e. lnInst=&#8221;&#8221; in this case.</span></td>
 </tr>
 <tr class="row-odd"><td><span class="xmlref">doName</span></td>
 <td>1...64 chars</td>
 <td>n/a</td>
-<td>Data object name from CID/SCD file. It may contain either single level name e.g. &#8216;Pos&#8217; or multiple level name e.g. &#8216;A.phsA&#8217;</td>
+<td>Data object name from SCL file.
+It may contain either single level name e.g. &#8216;Pos&#8217; or multiple level name e.g. &#8216;A.phsA&#8217;</td>
 </tr>
 <tr class="row-even"><td><span class="xmlref">fc</span></td>
 <td>2 chars</td>
 <td>n/a</td>
-<td>Functional Constraint from CID/SCD file e.g. &#8216;ST&#8217;</td>
+<td>Functional Constraint from SCL file e.g. &#8216;ST&#8217;</td>
 </tr>
 <tr class="row-odd"><td><p class="first last" id="ref-iec61850cldiqualifier"><span class="xmlref">Qualifier</span></p>
 </td>
@@ -22146,7 +22232,7 @@ Indeterminate (error) state of the DPI will not be reported if it doesn&#8217;t 
 <tr class="row-even"><td><span class="xmlref">daName</span></td>
 <td>1...64 chars</td>
 <td>stVal</td>
-<td>Data attribute name from CID/SCD file.
+<td>Data attribute name from SCL file.
 It may contain either single level name e.g. &#8216;stVal&#8217; or multiple level name e.g. &#8216;cVal.mag.f&#8217;
 <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
 </tr>
@@ -22205,10 +22291,10 @@ Value 0 disables integrity reports.
 </tr>
 <tr class="row-odd"><td rowspan="2">Bit 0</td>
 <td>xxxx.xxx0</td>
-<td>DI object <strong>will not</strong> be inverted (ON = 1; OFF = 0 for [SPS] and [SPC] clases and ON = 2; OFF = 1; INTER = 0; INVALID = 3 for [DPS] and [DPC] clases)</td>
+<td>DI object <strong>will not</strong> be inverted (ON = 1; OFF = 0 for [SPS] and [SPC] classes and ON = 2; OFF = 1; INTER = 0; INVALID = 3 for [DPS] and [DPC] classes)</td>
 </tr>
 <tr class="row-even"><td>xxxx.xxx1</td>
-<td>DI object <strong>will</strong> be inverted (ON = 0; OFF = 1 for [SPS] and [SPC] clases and ON = 1; OFF = 2; INTER = 0; INVALID = 3 for [DPS] and [DPC] clases)</td>
+<td>DI object <strong>will</strong> be inverted (ON = 0; OFF = 1 for [SPS] and [SPC] classes and ON = 1; OFF = 2; INTER = 0; INVALID = 3 for [DPS] and [DPC] classes)</td>
 </tr>
 <tr class="row-odd"><td rowspan="2">Bit 3</td>
 <td>xxxx.0xxx</td>
@@ -22289,32 +22375,35 @@ This restriction has been put in place because insertion of a new index affects 
 <tr class="row-odd"><td><span class="xmlref">ldInst</span></td>
 <td>1...64 chars</td>
 <td>n/a</td>
-<td>Logical Device instance from CID/SCD file e.g. &#8216;LD0&#8217;</td>
+<td>Logical Device instance from SCL file e.g. &#8216;LD0&#8217;</td>
 </tr>
 <tr class="row-even"><td><span class="xmlref">prefix</span></td>
 <td>0...11 chars</td>
 <td>n/a</td>
-<td>Prefix of the Logical Node name from CID/SCD file e.g. &#8216;CPH&#8217; <span class="inlineimportant">This attribute is mandatory even if particular name of the Logical Node doesn&#8217;t have prefix. Leave blank i.e. prefix=&#8221;&#8221; in this case.</span></td>
+<td>Prefix of the Logical Node name from SCL file e.g.&#8217;CPH&#8217;
+<span class="inlineimportant">This attribute is mandatory even if particular name of the Logical Node doesn&#8217;t have prefix. Leave blank i.e. prefix=&#8221;&#8221; in this case.</span></td>
 </tr>
 <tr class="row-odd"><td><span class="xmlref">lnClass</span></td>
 <td>4 chars</td>
 <td>n/a</td>
-<td>Logical Node Class from CID/SCD file e.g. &#8216;MMXU&#8217;</td>
+<td>Logical Node Class from SCL file e.g. &#8216;MMXU&#8217;</td>
 </tr>
 <tr class="row-even"><td><span class="xmlref">lnInst</span></td>
 <td>0...10<sup>10</sup> - 1</td>
 <td>n/a</td>
-<td>Logical Node Instance from CID/SCD file e.g. &#8216;1&#8217; <span class="inlineimportant">This attribute is mandatory even if particular name of the Logical Node doesn&#8217;t have instance. Leave blank i.e. lnInst=&#8221;&#8221; in this case.</span></td>
+<td>Logical Node Instance from SCL file e.g. &#8216;1&#8217;
+<span class="inlineimportant">This attribute is mandatory even if particular name of the Logical Node doesn&#8217;t have instance. Leave blank i.e. lnInst=&#8221;&#8221; in this case.</span></td>
 </tr>
 <tr class="row-odd"><td><span class="xmlref">doName</span></td>
 <td>1...64 chars</td>
 <td>n/a</td>
-<td>Data object name from CID/SCD file. It may contain either single level name e.g. &#8216;Pos&#8217; or multiple level name e.g. &#8216;A.phsA&#8217;</td>
+<td>Data object name from SCL file.
+It may contain either single level name e.g. &#8216;Pos&#8217; or multiple level name e.g. &#8216;A.phsA&#8217;</td>
 </tr>
 <tr class="row-even"><td><span class="xmlref">fc</span></td>
 <td>2 chars</td>
 <td>n/a</td>
-<td>Functional Constraint from CID/SCD file e.g. &#8216;MX&#8217;</td>
+<td>Functional Constraint from SCL file e.g. &#8216;MX&#8217;</td>
 </tr>
 <tr class="row-odd"><td><p class="first last" id="ref-iec61850claiqualifier"><span class="xmlref">Qualifier</span></p>
 </td>
@@ -22402,7 +22491,7 @@ AI will be forced to 0 if its absolute value (+/-) after offsetting falls below 
 <tr class="row-even"><td><span class="xmlref">daName</span></td>
 <td>1...64 chars</td>
 <td>cVal.mag.f</td>
-<td>Data attribute name from CID/SCD file.
+<td>Data attribute name from SCL file.
 It may contain either single level name e.g. &#8216;stVal&#8217; or multiple level name e.g. &#8216;cVal.mag.f&#8217;
 <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
 </tr>
@@ -22515,10 +22604,10 @@ Annexes <a class="reference internal" href="#docref-aiscalingwithoutstartoffset"
 </tr>
 <tr class="row-odd"><td rowspan="2">Bit 4</td>
 <td>xxx0.xxxx</td>
-<td>Information Report that includes this data object <strong>will not</strong> be generated periodicaly [integrity]</td>
+<td>Information Report that includes this data object <strong>will not</strong> be generated periodically [integrity]</td>
 </tr>
 <tr class="row-even"><td>xxx1.xxxx</td>
-<td>Information Report that includes this data object <strong>will</strong> be generated periodicaly [integrity] upon <a class="reference internal" href="#ref-iec61850cldi"><em>DI</em></a>.<a class="reference internal" href="#ref-iec61850cldiintgpd"><em>intgPd</em></a> or <a class="reference internal" href="#ref-iec61850clai"><em>AI</em></a>.<a class="reference internal" href="#ref-iec61850claiintgpd"><em>intgPd</em></a> timer expiration.</td>
+<td>Information Report that includes this data object <strong>will</strong> be generated periodically [integrity] upon <a class="reference internal" href="#ref-iec61850cldi"><em>DI</em></a>.<a class="reference internal" href="#ref-iec61850cldiintgpd"><em>intgPd</em></a> or <a class="reference internal" href="#ref-iec61850clai"><em>AI</em></a>.<a class="reference internal" href="#ref-iec61850claiintgpd"><em>intgPd</em></a> timer expiration.</td>
 </tr>
 <tr class="row-odd"><td>Bits 0...2;5...7</td>
 <td>Any</td>
@@ -22579,32 +22668,35 @@ This restriction has been put in place because insertion of a new index affects 
 <tr class="row-odd"><td><span class="xmlref">ldInst</span></td>
 <td>1...64 chars</td>
 <td>n/a</td>
-<td>Logical Device instance from CID/SCD file e.g. &#8216;LD0&#8217;</td>
+<td>Logical Device instance from SCL file e.g. &#8216;LD0&#8217;</td>
 </tr>
 <tr class="row-even"><td><span class="xmlref">prefix</span></td>
 <td>0...11 chars</td>
 <td>n/a</td>
-<td>Prefix of the Logical Node name from CID/SCD file e.g. &#8216;GNRL&#8217; <span class="inlineimportant">This attribute is mandatory even if particular name of the Logical Node doesn&#8217;t have prefix. Leave blank i.e. prefix=&#8221;&#8221; in this case.</span></td>
+<td>Prefix of the Logical Node name from SCL file e.g.&#8217;GNRL&#8217;
+<span class="inlineimportant">This attribute is mandatory even if particular name of the Logical Node doesn&#8217;t have prefix. Leave blank i.e. prefix=&#8221;&#8221; in this case.</span></td>
 </tr>
 <tr class="row-odd"><td><span class="xmlref">lnClass</span></td>
 <td>4 chars</td>
 <td>n/a</td>
-<td>Logical Node Class from CID/SCD file e.g. &#8216;CSWI&#8217;</td>
+<td>Logical Node Class from SCL file e.g. &#8216;CSWI&#8217;</td>
 </tr>
 <tr class="row-even"><td><span class="xmlref">lnInst</span></td>
 <td>0...10<sup>10</sup> - 1</td>
 <td>n/a</td>
-<td>Logical Node Instance from CID/SCD file e.g. &#8216;1&#8217; <span class="inlineimportant">This attribute is mandatory even if particular name of the Logical Node doesn&#8217;t have instance. Leave blank i.e. lnInst=&#8221;&#8221; in this case.</span></td>
+<td>Logical Node Instance from SCL file e.g. &#8216;1&#8217;
+<span class="inlineimportant">This attribute is mandatory even if particular name of the Logical Node doesn&#8217;t have instance. Leave blank i.e. lnInst=&#8221;&#8221; in this case.</span></td>
 </tr>
 <tr class="row-odd"><td><span class="xmlref">doName</span></td>
 <td>1...64 chars</td>
 <td>n/a</td>
-<td>Data object name from CID/SCD file. It may contain either single level name e.g. &#8216;Pos&#8217; or multiple level name e.g. &#8216;A.phsA&#8217;</td>
+<td>Data object name from SCL file.
+It may contain either single level name e.g. &#8216;Pos&#8217; or multiple level name e.g. &#8216;A.phsA&#8217;</td>
 </tr>
 <tr class="row-even"><td><span class="xmlref">fc</span></td>
 <td>2 chars</td>
 <td>n/a</td>
-<td>Functional Constraint from CID/SCD file e.g. &#8216;CO&#8217;</td>
+<td>Functional Constraint from SCL file e.g. &#8216;CO&#8217;</td>
 </tr>
 <tr class="row-odd"><td><p class="first last" id="ref-iec61850cldoqualifier"><span class="xmlref">Qualifier</span></p>
 </td>
@@ -22692,7 +22784,7 @@ Please refer to the section <a class="reference internal" href="#docref-iec10xsl
 </pre></div>
 </div>
 <p>Please see sample <a class="reference internal" href="#ref-iec61850clao"><em>AO</em></a> node and all its attributes in the table below.</p>
-<div class="highlight-none"><div class="highlight"><pre>&lt;AO Index=&quot;0&quot; ldInst=&quot;LD0&quot; prefix=&quot;GNRL&quot; lnClass=&quot;CSWI&quot; lnInst=&quot;1&quot; doName=&quot;Mod&quot; fc=&quot;CO&quot; Qualifier=&quot;0x00&quot; Coeff=&quot;1&quot; Name=&quot;Mode and Behaviour&quot; /&gt;
+<div class="highlight-none"><div class="highlight"><pre>&lt;AO Index=&quot;0&quot; ldInst=&quot;LD0&quot; prefix=&quot;GNRL&quot; lnClass=&quot;CSWI&quot; lnInst=&quot;1&quot; doName=&quot;Mod&quot; fc=&quot;CO&quot; Qualifier=&quot;0x00&quot; Coeff=&quot;1&quot; Name=&quot;Mode and Behavior&quot; /&gt;
 </pre></div>
 </div>
 <div class="admonition tip">
@@ -22728,32 +22820,35 @@ This restriction has been put in place because insertion of a new index affects 
 <tr class="row-odd"><td><span class="xmlref">ldInst</span></td>
 <td>1...64 chars</td>
 <td>n/a</td>
-<td>Logical Device instance from CID/SCD file e.g. &#8216;LD0&#8217;</td>
+<td>Logical Device instance from SCL file e.g. &#8216;LD0&#8217;</td>
 </tr>
 <tr class="row-even"><td><span class="xmlref">prefix</span></td>
 <td>0...11 chars</td>
 <td>n/a</td>
-<td>Prefix of the Logical Node name from CID/SCD file e.g. &#8216;GNRL&#8217; <span class="inlineimportant">This attribute is mandatory even if particular name of the Logical Node doesn&#8217;t have prefix. Leave blank i.e. prefix=&#8221;&#8221; in this case.</span></td>
+<td>Prefix of the Logical Node name from SCL file e.g.&#8217;GNRL&#8217;
+<span class="inlineimportant">This attribute is mandatory even if particular name of the Logical Node doesn&#8217;t have prefix. Leave blank i.e. prefix=&#8221;&#8221; in this case.</span></td>
 </tr>
 <tr class="row-odd"><td><span class="xmlref">lnClass</span></td>
 <td>4 chars</td>
 <td>n/a</td>
-<td>Logical Node Class from CID/SCD file e.g. &#8216;CSWI&#8217;</td>
+<td>Logical Node Class from SCL file e.g. &#8216;CSWI&#8217;</td>
 </tr>
 <tr class="row-even"><td><span class="xmlref">lnInst</span></td>
 <td>0...10<sup>10</sup> - 1</td>
 <td>n/a</td>
-<td>Logical Node Instance from CID/SCD file e.g. &#8216;1&#8217; <span class="inlineimportant">This attribute is mandatory even if particular name of the Logical Node doesn&#8217;t have instance. Leave blank i.e. lnInst=&#8221;&#8221; in this case.</span></td>
+<td>Logical Node Instance from SCL file e.g. &#8216;1&#8217;
+<span class="inlineimportant">This attribute is mandatory even if particular name of the Logical Node doesn&#8217;t have instance. Leave blank i.e. lnInst=&#8221;&#8221; in this case.</span></td>
 </tr>
 <tr class="row-odd"><td><span class="xmlref">doName</span></td>
 <td>1...64 chars</td>
 <td>n/a</td>
-<td>Data object name from CID/SCD file. It may contain either single level name e.g. &#8216;Mod&#8217; or multiple level name e.g. &#8216;A.phsA&#8217;</td>
+<td>Data object name from SCL file.
+It may contain either single level name e.g. &#8216;Mod&#8217; or multiple level name e.g. &#8216;A.phsA&#8217;</td>
 </tr>
 <tr class="row-even"><td><span class="xmlref">fc</span></td>
 <td>2 chars</td>
 <td>n/a</td>
-<td>Functional Constraint from CID/SCD file e.g. &#8216;CO&#8217;</td>
+<td>Functional Constraint from SCL file e.g. &#8216;CO&#8217;</td>
 </tr>
 <tr class="row-odd"><td><p class="first last" id="ref-iec61850claoqualifier"><span class="xmlref">Qualifier</span></p>
 </td>
@@ -22921,11 +23016,11 @@ Logfile will not be created if the value is 0.</td>
 <td>n/a</td>
 <td>Name of a logfile excluding extension (e.g. &#8216;.log&#8217;).
 It is possible to specify relative or absolute path as part of the file name.
-Logfile will be created in the default home folder (e.g. &#8216;/home/leandc/app&#8217;) if path is not specified.
+Logfile will be created in the default directory (/home/leandc/app) if path is not specified.
 Date when the file was created and extension &#8216;.log&#8217; will be appended to the file name automatically.
 Logfile will not be created if this attribute is left blank.
 (sample value &#8216;Log/abc&#8217;, where &#8216;Log&#8217; is the name of the folder and &#8216;abc&#8217; is the name of the file)
-<span class="inlineimportant">Attribute is case sensitive, observe the case of the path and name of the file when specifying.</span></td>
+<span class="inlineimportant">Attribute is case sensitive, observe case of the path and name when specifying.</span></td>
 </tr>
 <tr class="row-even"><td><p class="first" id="ref-commscfgloggermode"><span class="xmlref">Mode</span></p>
 <p class="last">*</p>
@@ -23089,11 +23184,11 @@ Capture is disabled if value is 0.</td>
 <td>n/a</td>
 <td>Name of a logfile excluding extension (e.g. &#8216;.pcap&#8217;).
 It is possible to specify relative or absolute path as part of the file name.
-Logfile will be created in the default home folder (e.g. &#8216;/home/leandc/app&#8217;) if path is not specified.
+Logfile will be created in the default directory (/home/leandc/app) if path is not specified.
 Date when the file was created and extension &#8216;.pcap&#8217; will be appended to the file name automatically.
 Logfile will not be created if this attribute is left blank.
 (sample value &#8216;Log/abc&#8217;, where &#8216;Log&#8217; is the name of the folder and &#8216;abc&#8217; is the name of the file)
-<span class="inlineimportant">Attribute is case sensitive, observe the case of the path and name of the file when specifying.</span></td>
+<span class="inlineimportant">Attribute is case sensitive, observe case of the path and name when specifying.</span></td>
 </tr>
 <tr class="row-odd"><td><p class="first" id="ref-commscfgpcaplogmode"><span class="xmlref">Mode</span></p>
 <p class="last">*</p>
@@ -23251,19 +23346,18 @@ Logfile will not be created if value is 0.</td>
 <td>n/a</td>
 <td>Name of a logfile excluding extension (e.g. &#8216;.event&#8217;).
 It is possible to specify relative or absolute path as part of the file name.
-Logfile will be created in the default home folder (e.g. &#8216;/home/leandc/app&#8217;) if path is not specified.
+Logfile will be created in the default directory (/home/leandc/app) if path is not specified.
 Date when the file was created and extension &#8216;.event&#8217; will be appended to the file name automatically.
 Logfile will not be created if this attribute is left blank.
 (sample value &#8216;Events/abc&#8217;, where &#8216;Events&#8217; is the name of the folder and &#8216;abc&#8217; is the name of the file)
-<span class="inlineimportant">Attribute is case sensitive, observe the case of the path and name of the file when specifying.</span></td>
+<span class="inlineimportant">Attribute is case sensitive, observe case of the path and name when specifying.</span></td>
 </tr>
 <tr class="row-even"><td><p class="first" id="ref-eventcfgeventlogmode"><span class="xmlref">Mode</span></p>
 <p class="last">*</p>
 </td>
 <td>0...255 or 0x00...0xFF</td>
 <td>0x01</td>
-<td>Logfile initialization settings.
-See table <a href="#docref-loggermodebits">12.7</a> for description.
+<td>Logfile initialization settings. See table <a href="#docref-loggermodebits">12.7</a> for description.
 <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default settings will be used if omitted.</span></td>
 </tr>
 <tr class="row-odd"><td><p class="first" id="ref-eventcfgeventloghourlimit"><span class="xmlref">HourLimit</span></p>
@@ -23271,7 +23365,7 @@ See table <a href="#docref-loggermodebits">12.7</a> for description.
 </td>
 <td>0...12</td>
 <td>6 hours</td>
-<td>Option to create a new file after selected number of hours in order to limit the size of the file.
+<td>Option to create a new file after selected number of hours in order to limit the size of a file.
 (default 6 hours – total of 4 files will be created daily at 00:00, 06:00, 12:00, 18:00)
 <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default settings will be used if omitted.</span></td>
 </tr>
@@ -23417,7 +23511,7 @@ In addition to that new file will be created every time leandc is started/restar
 Example below shows 2 lists of files created if leandc runs continuously and if being restarted.</p>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
-<p>File creation date and hour (yyyy-mm-dd_hh) is automatiaclly added to the name of the file specified in <a class="reference internal" href="#ref-commscfglogger"><em>LOGGER</em></a>.<a class="reference internal" href="#ref-commscfgloggerlogfile"><em>Logfile</em></a> attribute.
+<p>File creation date and hour (yyyy-mm-dd_hh) is automatically added to the name of the file specified in <a class="reference internal" href="#ref-commscfglogger"><em>LOGGER</em></a>.<a class="reference internal" href="#ref-commscfgloggerlogfile"><em>Logfile</em></a> attribute.
 This is a sample list of files created, if leandc is running continuously without being restarted.</p>
 <ul class="simple">
 <li>&#8216;logfile_2013-04-12_00.log&#8217;</li>
@@ -23427,7 +23521,7 @@ This is a sample list of files created, if leandc is running continuously withou
 </ul>
 <p>Time-tag (hhmmss) is added to the name of the file which is created after leandc restart.
 Time-tag will be added to the name of the new file only if there is an existing file which was created at the same hour range (4 hours).
-This is a sample list of files created, if leandc was restarted at 14:04:13 and 14:07:32 and then swtiched off at 17:00:00 and started at 21:10:10.</p>
+This is a sample list of files created, if leandc was restarted at 14:04:13 and 14:07:32 and then switched off at 17:00:00 and started at 21:10:10.</p>
 <ul class="last simple">
 <li>&#8216;logfile_2013-04-12_12.log&#8217;</li>
 <li>&#8216;logfile_2013-04-12_140413.log&#8217;    ← new file created after leandc restart at 14:04:13, time-tag is added because file created within a 4 hour range (at 12:00:00) exists</li>
@@ -23439,11 +23533,11 @@ This is a sample list of files created, if leandc was restarted at 14:04:13 and 
 <p>Default settings of the event files are slightly different.
 New event logfile is created every 6 hours based on the default value of the <a class="reference internal" href="#ref-eventcfgeventlog"><em>EVENTLOG</em></a>.<a class="reference internal" href="#ref-eventcfgeventloghourlimit"><em>HourLimit</em></a> attribute.
 However new file will not be created upon leandc restart based on the default value &#8220;0x01&#8221; of the <a class="reference internal" href="#ref-eventcfgeventlog"><em>EVENTLOG</em></a>.<a class="reference internal" href="#ref-eventcfgeventlogmode"><em>Mode</em></a> attribute.
-If an existing file created within the same hour range (6 hours) is found after leandc reastart, new entires will appended to that file.
+If an existing file created within the same hour range (6 hours) is found after leandc restart, new entires will appended to that file.
 Example below shows the list of files created if leandc runs continuously and if being restarted.</p>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
-<p>File creation date and hour (yyyy-mm-dd_hh) is automatiaclly added to the name of the file specified in <a class="reference internal" href="#ref-eventcfgeventlog"><em>EVENTLOG</em></a>.<a class="reference internal" href="#ref-eventcfgeventloglogfile"><em>Logfile</em></a> attribute.
+<p>File creation date and hour (yyyy-mm-dd_hh) is automatically added to the name of the file specified in <a class="reference internal" href="#ref-eventcfgeventlog"><em>EVENTLOG</em></a>.<a class="reference internal" href="#ref-eventcfgeventloglogfile"><em>Logfile</em></a> attribute.
 This is a sample list of files created, if leandc was restarted at 14:04:13.</p>
 <ul class="last simple">
 <li>&#8216;eventfile_2013-04-12_00.event&#8217;</li>
@@ -23462,7 +23556,7 @@ This is a sample list of files created, if leandc was restarted at 14:04:13.</p>
 </pre></div>
 </div>
 <p>Raw traffic that is captured over a communication interface is recorded to a file along with some is additional information.
-Each entry (row) in the file represents sucessfully decoded protocol message and is prefixed with a time-tag, log entry type and direction identifier.
+Each entry (row) in the file represents successfully decoded protocol message and is prefixed with a time-tag, log entry type and direction identifier.
 Timetag represents the internal time when the message was received/sent.
 Log entry type may contain values listed in the table below:</p>
 <table border="1" class="table table-condensed table-bordered table-left docutils" id="sections/LogfileMain-numref-8">
@@ -23505,10 +23599,10 @@ Log entry type may contain values listed in the table below:</p>
 12:02:01.347         &lt;CMD    45      400     6001    5       0x05                            Termination sent successfully
 </pre></div>
 </div>
-<p>Decoded information is arranged in a tab separated colums.
+<p>Decoded information is arranged in a tab separated columns.
 The layout of the file is aimed to present a decoded information readable without additional tools,
 yet tab separated columns make importing event file into a spreadsheet an easy task.
-List of colums of the event logfile is shown in the table below:</p>
+List of columns of the event logfile is shown in the table below:</p>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="sections/LogfileMain-numref-9">
 <caption><strong>Table 12.9 Event logfile columns</strong></caption>
 <colgroup>
@@ -23566,10 +23660,10 @@ In case of control command decimal value of command qualifier including addition
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>&gt;CMD</td>
-<td>Received control or setpoint command in the contex of Slave protocol instance. Received confirmation or termination in the contex of Master protocol instance.</td>
+<td>Received control or setpoint command in the context of Slave protocol instance. Received confirmation or termination in the context of Master protocol instance.</td>
 </tr>
 <tr class="row-odd"><td>&lt;CMD</td>
-<td>Sent control or setpoint command in the contex of Master protocol instance. Sent confirmation or termination in the contex of Slave protocol instance.</td>
+<td>Sent control or setpoint command in the context of Master protocol instance. Sent confirmation or termination in the context of Slave protocol instance.</td>
 </tr>
 <tr class="row-even"><td>&gt;CMDN</td>
 <td>Received negative confirmation or termination, only applies to Master protocol instances.</td>
@@ -23661,7 +23755,45 @@ the version number is automatically incremented by 1 and modification date and t
 <h2>Annexes</h2>
 <div class="section" id="analog-value-processing">
 <span id="docref-aiprocessing"></span><h3>Analog value processing</h3>
-<p>This annex contains additional information on incoming AI processing, scaling options and application examples.</p>
+<p>This annex contains information about analog value processing, scaling options and application examples.
+All analog values are converted to Short Floating-point (32bit) numbers internally before scaling takes place.
+All AI scaling attributes used in this document:
+<span class="xmlref">Coeff</span>, <span class="xmlref">Deadband</span>, <span class="xmlref">Percent</span>, <span class="xmlref">StartOffset</span>, <span class="xmlref">ZeroDeadband</span>, <span class="xmlref">Offset</span>, <span class="xmlref">OffsetDeadband</span>, <span class="xmlref">NonZeroOffset</span>
+are Short Floating-point numbers.
+The value range is given for each of these attributes and values have to be specified either in decimal or scientific notation.
+Sample values are shown in the table below.</p>
+<table border="1" class="table table-condensed table-bordered table-left table-center-all docutils" id="sections/Annexes-numref-1">
+<caption><strong>Table 14.1 Analog value notations</strong></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><strong>Decimal</strong></th>
+<th class="head"><strong>Scientific</strong></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1520.3</td>
+<td>1.5203e3</td>
+</tr>
+<tr class="row-odd"><td>-11</td>
+<td>-1.1e1</td>
+</tr>
+<tr class="row-even"><td>0.00152</td>
+<td>1.52e-3</td>
+</tr>
+<tr class="row-odd"><td>-0.0456</td>
+<td>-4.56e-2</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">Precision of the Short Floating-point number is <strong>7</strong> decimal digits regardless of position of decimal point.
+This applies to decimal and scientific notations. For example there are 7 decimal digits in numbers &#8216;1234567&#8217; &#8216;1234.567&#8217; &#8216;1.234567e3&#8217; which is the maximum accuracy.
+Numbers with more decimal digits will be rounded.</p>
+</div>
 <div class="section" id="ai-scaling-without-startoffset-enabled">
 <span id="docref-aiscalingwithoutstartoffset"></span><h4>AI scaling without StartOffset enabled</h4>
 <p>Flowchart on the right shows scaling sequence when leandc receives AI value from outstation or before sending
@@ -24626,8 +24758,8 @@ TkSuQmCC
 " />
 <p class="caption">AI scaling without StartOffset enabled</p>
 </div>
-<table border="1" class="table table-condensed table-bordered table-left table-center-all docutils" id="sections/Annexes-numref-1">
-<caption><strong>Table 14.1 AI.ZeroDeadband processing sample</strong></caption>
+<table border="1" class="table table-condensed table-bordered table-left table-center-all docutils" id="sections/Annexes-numref-2">
+<caption><strong>Table 14.2 AI.ZeroDeadband processing sample</strong></caption>
 <colgroup>
 <col width="50%" />
 <col width="50%" />
@@ -24667,8 +24799,8 @@ TkSuQmCC
 </tr>
 </tbody>
 </table>
-<table border="1" class="table table-condensed table-bordered table-left table-center-all docutils" id="sections/Annexes-numref-2">
-<caption><strong>Table 14.2 AI.Offset processing sample</strong></caption>
+<table border="1" class="table table-condensed table-bordered table-left table-center-all docutils" id="sections/Annexes-numref-3">
+<caption><strong>Table 14.3 AI.Offset processing sample</strong></caption>
 <colgroup>
 <col width="50%" />
 <col width="50%" />
@@ -24703,8 +24835,8 @@ TkSuQmCC
 </tr>
 </tbody>
 </table>
-<table border="1" class="table table-condensed table-bordered table-left table-center-all docutils" id="sections/Annexes-numref-3">
-<caption><strong>Table 14.3 AI.OffsetDeadband processing sample</strong></caption>
+<table border="1" class="table table-condensed table-bordered table-left table-center-all docutils" id="sections/Annexes-numref-4">
+<caption><strong>Table 14.4 AI.OffsetDeadband processing sample</strong></caption>
 <colgroup>
 <col width="50%" />
 <col width="50%" />
@@ -24744,8 +24876,8 @@ TkSuQmCC
 </tr>
 </tbody>
 </table>
-<table border="1" class="table table-condensed table-bordered table-left table-center-all docutils" id="sections/Annexes-numref-4">
-<caption><strong>Table 14.4 AI.NonZeroOffset processing sample</strong></caption>
+<table border="1" class="table table-condensed table-bordered table-left table-center-all docutils" id="sections/Annexes-numref-5">
+<caption><strong>Table 14.5 AI.NonZeroOffset processing sample</strong></caption>
 <colgroup>
 <col width="50%" />
 <col width="50%" />
@@ -24779,8 +24911,8 @@ TkSuQmCC
 </tr>
 </tbody>
 </table>
-<table border="1" class="table table-condensed table-bordered table-left table-center-all docutils" id="sections/Annexes-numref-5">
-<caption><strong>Table 14.5 AI.Coeff processing sample</strong></caption>
+<table border="1" class="table table-condensed table-bordered table-left table-center-all docutils" id="sections/Annexes-numref-6">
+<caption><strong>Table 14.6 AI.Coeff processing sample</strong></caption>
 <colgroup>
 <col width="50%" />
 <col width="50%" />
@@ -26788,8 +26920,8 @@ vu1Ryj63q3yYD5GYFVk0i7moGlBU1nokXd8BEIIA/wJPf5rmWTdDqaQ7FVQpJQP7yJywMfgKAv4z
 " />
 <p class="caption">AI scaling with StartOffset enabled</p>
 </div>
-<table border="1" class="table table-condensed table-bordered table-left table-center-all docutils" id="sections/Annexes-numref-6">
-<caption><strong>Table 14.6 AI.ZeroDeadband processing sample</strong></caption>
+<table border="1" class="table table-condensed table-bordered table-left table-center-all docutils" id="sections/Annexes-numref-7">
+<caption><strong>Table 14.7 AI.ZeroDeadband processing sample</strong></caption>
 <colgroup>
 <col width="50%" />
 <col width="50%" />
@@ -26843,8 +26975,8 @@ vu1Ryj63q3yYD5GYFVk0i7moGlBU1nokXd8BEIIA/wJPf5rmWTdDqaQ7FVQpJQP7yJywMfgKAv4z
 </tr>
 </tbody>
 </table>
-<table border="1" class="table table-condensed table-bordered table-left table-center-all docutils" id="sections/Annexes-numref-7">
-<caption><strong>Table 14.7 AI.StartOffset processing sample</strong></caption>
+<table border="1" class="table table-condensed table-bordered table-left table-center-all docutils" id="sections/Annexes-numref-8">
+<caption><strong>Table 14.8 AI.StartOffset processing sample</strong></caption>
 <colgroup>
 <col width="50%" />
 <col width="50%" />
@@ -32712,10 +32844,10 @@ AZNiSZTnMPvTHjZdWqj98NvXI39SysmB2kXFwyukLNhIHgK7SNR4EjkgdQKjY9hYwBUkqBjUmBfM
 NOXy27Jc67JmGnpSSk8NPSmlp4aelNJTuSdl0Aw9KQFtEHpSAqotTWoWOvOkBCXWTJknJUixZhp6
 UkpPDT0ppadyTwryF+LevybULY69AAAAAElFTkSuQmCC
 " alt="\frac{2.2}{20} * 32767 = 3604"/></p>
-</div><p>Sample values are summarized in the table <a href="#ref-aisamplevaluesif0-20marangeused">14.8</a> below and it is assumed <strong>1A/0-20mA</strong> current transducer is
+</div><p>Sample values are summarized in the table <a href="#ref-aisamplevaluesif0-20marangeused">14.9</a> below and it is assumed <strong>1A/0-20mA</strong> current transducer is
 connected to the AIM. Current values at the transducer input are listed in the third column.</p>
 <table border="1" class="table table-condensed table-bordered table-left table-center-all docutils" id="ref-aisamplevaluesif0-20marangeused">
-<caption><strong>Table 14.8 AI sample values if 0-20mA input range is used</strong></caption>
+<caption><strong>Table 14.9 AI sample values if 0-20mA input range is used</strong></caption>
 <colgroup>
 <col width="33%" />
 <col width="33%" />
@@ -32781,7 +32913,7 @@ paragraph, full range can&#8217;t be used and the 4mA offset needs to be taken i
 to automatically adjust 4mA offset and it can be enabled by setting Bit [0] of the Slave AI internal qualifier
 (attribute <a class="reference internal" href="#ref-iec10xslai"><em>AI</em></a>.<a class="reference internal" href="#ref-iec10xslaiqualifier"><em>qualifier</em></a> please refer to the table <a href="#ref-iec10xslaiqualifierbits">5.7</a>). Setting Bit[0] to &#8216;1&#8217; will enables automatic adjustment by
 subtracting 6554 from the received Integer value.</p>
-<p>Offset 6554 is equal to 4mA current value (as per table <a href="#ref-aisamplevaluesif0-20marangeused">14.8</a> above) which means after subtraction Integer will
+<p>Offset 6554 is equal to 4mA current value (as per table <a href="#ref-aisamplevaluesif0-20marangeused">14.9</a> above) which means after subtraction Integer will
 be 0 when there are 4mA at AIM&#8217;s input and Integer will be <strong>26213</strong> when there are 20mA at AIM&#8217;s input.</p>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
@@ -32879,10 +33011,10 @@ L6zF1nqFPbplB1eRAJU9hM/oFUAtIFlVEgYNXMs/30FZ+iqbgk++n2XPBi8LTR7Cv47hstCUQzF/
 gJ0Z15RjETZAmnISQJpyEiBs5hxA2Mw5gLCZcwDTZk72IO0wgDTlJIA05VTsvc3+jXJN/UfxG+Q7
 +Iv2P1ikAAAAAElFTkSuQmCC
 " alt="\frac{(5.2 - 4)}{16} * 26213 = 1966"/></p>
-</div><p>Sample values are listed in the table <a href="#ref-aisamplevaluesif4-20marangeused">14.9</a> below, those are calculated assuming <strong>1A/4-20mA</strong> current transducer
+</div><p>Sample values are listed in the table <a href="#ref-aisamplevaluesif4-20marangeused">14.10</a> below, those are calculated assuming <strong>1A/4-20mA</strong> current transducer
 is connected to the AIM. Current values at the transducer input are listed in the third column.</p>
 <table border="1" class="table table-condensed table-bordered table-left table-center-all docutils" id="ref-aisamplevaluesif4-20marangeused">
-<caption><strong>Table 14.9 AI sample values if 4-20mA input range is used</strong></caption>
+<caption><strong>Table 14.10 AI sample values if 4-20mA input range is used</strong></caption>
 <colgroup>
 <col width="33%" />
 <col width="33%" />
@@ -33366,11 +33498,11 @@ r//Z2/VRRa84YgNvyvTPVb3zmxjUM1pVhEByMKC9oeylnzXg3tTMKUPAwmBu9zv4n9h/TMRWzhVi
 HzkAAAAASUVORK5CYII=
 " alt="\left(\frac{(5.9 - 4)}{16} * 50\right) + 75 = 80.936V"/></p>
 </div><p>Sample values at various conversion stages based on <strong>75-125V/4-20mA</strong> voltage transducer are summarized in
-the table <a href="#ref-aisamplevaluesif75-125v4-20marangeused">14.10</a> below. Integer values after 4mA offset subtraction are listed in column 2. <a class="reference internal" href="#ref-iec10xslai"><em>AI</em></a>.<a class="reference internal" href="#ref-iec10xslaizerodeadband"><em>ZeroDeadband</em></a> attribute value of 2 is used for this example resulting Integer values 1 and 2 being forced to 0, functionality is
+the table <a href="#ref-aisamplevaluesif75-125v4-20marangeused">14.11</a> below. Integer values after 4mA offset subtraction are listed in column 2. <a class="reference internal" href="#ref-iec10xslai"><em>AI</em></a>.<a class="reference internal" href="#ref-iec10xslaizerodeadband"><em>ZeroDeadband</em></a> attribute value of 2 is used for this example resulting Integer values 1 and 2 being forced to 0, functionality is
 shown in column 3. Integer values after <a class="reference internal" href="#ref-iec10xslai"><em>AI</em></a>.<a class="reference internal" href="#ref-iec10xslainonzerooffset"><em>NonZeroOffset</em></a> adjustment are listed in the column 4. Voltage values
 at the transducer input are listed in the column 5.</p>
 <table border="1" class="table table-condensed table-bordered table-center-all docutils" id="ref-aisamplevaluesif75-125v4-20marangeused">
-<caption><strong>Table 14.10 AI sample values if 75-125V/4-20mA transducer is used</strong></caption>
+<caption><strong>Table 14.11 AI sample values if 75-125V/4-20mA transducer is used</strong></caption>
 <colgroup>
 <col width="20%" />
 <col width="20%" />
@@ -33511,8 +33643,8 @@ names, etc.</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>4.08</td>
-<td>2018-02-26 16:06:36</td>
+<tr class="row-even"><td>4.09</td>
+<td>2018-03-05 15:55:30</td>
 <td>V3.0</td>
 </tr>
 </tbody>
@@ -33520,7 +33652,7 @@ names, etc.</p>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
 <p class="last">Use argument -v to check firmware revision and build date:
-<em>leandc -v</em></p>
+<strong>leandc -v</strong></p>
 </div>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="sections/Docreleases-numref-2">
 <caption><strong>Table 15.2 Previous Firmware releases</strong></caption>
@@ -33538,137 +33670,142 @@ names, etc.</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>4.07</td>
+<tr class="row-even"><td>4.08</td>
+<td>2018-02-26 16:06:36</td>
+<td>V32</td>
+<td>V3.0</td>
+</tr>
+<tr class="row-odd"><td>4.07</td>
 <td>2017-08-14 17:02:51</td>
 <td>V31</td>
 <td>V3.0</td>
 </tr>
-<tr class="row-odd"><td>4.06</td>
+<tr class="row-even"><td>4.06</td>
 <td>2017-07-31 14:37:41</td>
 <td>V31</td>
 <td>V3.0</td>
 </tr>
-<tr class="row-even"><td>4.05</td>
+<tr class="row-odd"><td>4.05</td>
 <td>2017-03-16 06:32:27</td>
 <td>V31</td>
 <td>V3.0</td>
 </tr>
-<tr class="row-odd"><td>4.04</td>
+<tr class="row-even"><td>4.04</td>
 <td>2017-02-02 17:08:45</td>
 <td>V30</td>
 <td>V3.0</td>
 </tr>
-<tr class="row-even"><td>4.03</td>
+<tr class="row-odd"><td>4.03</td>
 <td>2016-07-25 17:04:55</td>
 <td>V29</td>
 <td>V3.0</td>
 </tr>
-<tr class="row-odd"><td>4.02</td>
+<tr class="row-even"><td>4.02</td>
 <td>2016-07-14 19:27:51</td>
 <td>V29</td>
 <td>V3.0</td>
 </tr>
-<tr class="row-even"><td>4.01</td>
+<tr class="row-odd"><td>4.01</td>
 <td>2016-05-18 12:57:20</td>
 <td>V28</td>
 <td>V3.0</td>
 </tr>
-<tr class="row-odd"><td>4.00</td>
+<tr class="row-even"><td>4.00</td>
 <td>2016-05-08 11:22:30</td>
 <td>V27</td>
 <td>V3.0</td>
 </tr>
-<tr class="row-even"><td>3.14</td>
+<tr class="row-odd"><td>3.14</td>
 <td>2015-09-04 10:05:40</td>
 <td>V26</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-odd"><td>3.13</td>
+<tr class="row-even"><td>3.13</td>
 <td>2015-08-24 21:04:07</td>
 <td>V25</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-even"><td>3.12</td>
+<tr class="row-odd"><td>3.12</td>
 <td>2015-08-11 12:36:44</td>
 <td>V25</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-odd"><td>3.11</td>
+<tr class="row-even"><td>3.11</td>
 <td>2015-07-08 14:07:37</td>
 <td>V24</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-even"><td>3.10</td>
+<tr class="row-odd"><td>3.10</td>
 <td>2015-06-29 15:52:23</td>
 <td>V24</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-odd"><td>3.09</td>
+<tr class="row-even"><td>3.09</td>
 <td>2015-03-25 10:57:25</td>
 <td>V23</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-even"><td>3.08</td>
+<tr class="row-odd"><td>3.08</td>
 <td>2015-03-24 21:06:41</td>
 <td>V23</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-odd"><td>3.07</td>
+<tr class="row-even"><td>3.07</td>
 <td>2015-02-15 17:55:25</td>
 <td>V22</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-even"><td>3.06</td>
+<tr class="row-odd"><td>3.06</td>
 <td>2014-12-01 08:47:07</td>
 <td>V21</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-odd"><td>3.05</td>
+<tr class="row-even"><td>3.05</td>
 <td>2014-11-28 11:39:37</td>
 <td>V21</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-even"><td>3.04</td>
+<tr class="row-odd"><td>3.04</td>
 <td>2014-10-08 15:43:46</td>
 <td>V20</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-odd"><td>3.02</td>
+<tr class="row-even"><td>3.02</td>
 <td>2014-06-26 14:48:34</td>
 <td>V19</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-even"><td>3.01</td>
+<tr class="row-odd"><td>3.01</td>
 <td>2014-05-28 12:20:12</td>
 <td>V18</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-odd"><td>3.00</td>
+<tr class="row-even"><td>3.00</td>
 <td>2014-05-26 21:19:06</td>
 <td>V18</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-even"><td>2.07</td>
+<tr class="row-odd"><td>2.07</td>
 <td>2014-04-08 20:59:57</td>
 <td>V17</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-odd"><td>2.06</td>
+<tr class="row-even"><td>2.06</td>
 <td>2014-03-31 14:58:09</td>
 <td>V16</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-even"><td>2.05</td>
+<tr class="row-odd"><td>2.05</td>
 <td>2014-02-26 20:20:30</td>
 <td>V15</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-odd"><td>2.04</td>
+<tr class="row-even"><td>2.04</td>
 <td>2013-12-18 08:55:06</td>
 <td>V13, V14</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-even"><td>2.01</td>
+<tr class="row-odd"><td>2.01</td>
 <td>2013-10-16 17:21:27</td>
 <td>V12</td>
 <td>V2.0</td>
@@ -33691,20 +33828,28 @@ names, etc.</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>V32</td>
+<tr class="row-even"><td>V33</td>
+<td>21/03/2018</td>
+<td>AK</td>
+<td><div class="first last line-block">
+<div class="line">&gt; <a class="reference internal" href="#ref-iec103maai"><em>AI</em></a>.<a class="reference internal" href="#ref-iec103maaidiandindex"><em>DIAndIndex</em></a> and <a class="reference internal" href="#ref-iec103maai"><em>AI</em></a>.<a class="reference internal" href="#ref-iec103maailogicvalue"><em>LogicValue</em></a> attributes added to IEC60870-5-103 Master</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td>V32</td>
 <td>20/03/2018</td>
 <td>AK</td>
 <td><div class="first last line-block">
 <div class="line">Modbus Master protocol messages can be defined in XML, nodes <a class="reference internal" href="#ref-initmessages"><em>InitMessages</em></a>, <a class="reference internal" href="#ref-pollmessages"><em>PollMessages</em></a>, <a class="reference internal" href="#ref-ctrlmessages"><em>CtrlMessages</em></a>, <a class="reference internal" href="#ref-modbusmatimesettings"><em>TimeSettings</em></a>, <a class="reference internal" href="#ref-modbusmaperiodic"><em>Periodic</em></a> created;</div>
 <div class="line">&gt; <a class="reference internal" href="#ref-iec61850classociationsettings"><em>AssociationSettings</em></a>.<a class="reference internal" href="#ref-iec61850classociationflags"><em>Flags</em></a> attribute created for IEC61850 Client;</div>
 <div class="line">&gt; Bit[2] added to <a class="reference internal" href="#ref-iec61850clscsmsettings"><em>ScsmSettings</em></a>.<a class="reference internal" href="#ref-iec61850clscsmflags"><em>Flags</em></a> attribute, enables to read Basic Types of all objects when station goes online;</div>
-<div class="line">&gt; <a class="reference internal" href="#ref-iec61850cl"><em>IEC61850cl</em></a>.<a class="reference internal" href="#ref-iec61850cliedname"><em>IEDname</em></a> attribute created, used if CID/SCD file contains more than one IED;</div>
+<div class="line">&gt; <a class="reference internal" href="#ref-iec61850cl"><em>IEC61850cl</em></a>.<a class="reference internal" href="#ref-iec61850cliedname"><em>IEDname</em></a> attribute created, used if SCL file contains more than one IED;</div>
 <div class="line">&gt; <span class="xmlref">DO</span>, <span class="xmlref">DIEVsize</span> and  <span class="xmlref">AIEVsize</span> attributes removed from IEC60870-5-101/104 Slave <a class="reference internal" href="#ref-iec101slbuffersizes"><em>BufferSizes</em></a> node;</div>
 <div class="line">&gt; <span class="xmlref">BufferSizes</span> node removed from IEC60870-5-101/104 Master <a class="reference internal" href="#ref-iec101maprotocolcfg"><em>ProtocolCfg</em></a> group.</div>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td>V31</td>
+<tr class="row-even"><td>V31</td>
 <td>16/03/2017</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -33713,7 +33858,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td>V30</td>
+<tr class="row-odd"><td>V30</td>
 <td>02/02/2017</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -33723,7 +33868,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td>V29</td>
+<tr class="row-even"><td>V29</td>
 <td>14/07/2016</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -33733,7 +33878,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td>V28</td>
+<tr class="row-odd"><td>V28</td>
 <td>18/05/2016</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -33741,7 +33886,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td>V27</td>
+<tr class="row-even"><td>V27</td>
 <td>08/05/2016</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -33760,7 +33905,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td>V26</td>
+<tr class="row-odd"><td>V26</td>
 <td>04/09/2015</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -33768,7 +33913,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td>V25</td>
+<tr class="row-even"><td>V25</td>
 <td>11/08/2015</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -33779,7 +33924,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td>V24</td>
+<tr class="row-odd"><td>V24</td>
 <td>29/06/2015</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -33793,7 +33938,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td>V23</td>
+<tr class="row-even"><td>V23</td>
 <td>24/03/2015</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -33801,7 +33946,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td>V22</td>
+<tr class="row-odd"><td>V22</td>
 <td>15/02/2015</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -33819,7 +33964,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td>V21</td>
+<tr class="row-even"><td>V21</td>
 <td>28/11/2014</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -33828,12 +33973,12 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td>V20</td>
+<tr class="row-odd"><td>V20</td>
 <td>09/10/2014</td>
 <td>AK</td>
 <td><span class="xmlref">DIEventStartup</span> attribute added to IEC60870-5-101/3/4 Master protocol configuration;</td>
 </tr>
-<tr class="row-odd"><td>V19</td>
+<tr class="row-even"><td>V19</td>
 <td>26/06/2014</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -33846,7 +33991,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td>V18</td>
+<tr class="row-odd"><td>V18</td>
 <td>28/05/2014</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -33864,7 +34009,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td>V17</td>
+<tr class="row-even"><td>V17</td>
 <td>08/04/2014</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -33879,7 +34024,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td>V16</td>
+<tr class="row-odd"><td>V16</td>
 <td>31/03/2014</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -33899,7 +34044,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td>V15</td>
+<tr class="row-even"><td>V15</td>
 <td>26/02/2014</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -33920,12 +34065,12 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td>V14</td>
+<tr class="row-odd"><td>V14</td>
 <td>18/01/2014</td>
 <td>AK</td>
 <td>Version control element node added</td>
 </tr>
-<tr class="row-odd"><td>V13</td>
+<tr class="row-even"><td>V13</td>
 <td>18/12/2013</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -33940,7 +34085,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td>V12</td>
+<tr class="row-odd"><td>V12</td>
 <td>18/11/2013</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -33963,57 +34108,57 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td>V11</td>
+<tr class="row-even"><td>V11</td>
 <td>10/06/2013</td>
 <td>AK</td>
 <td>Offline reporting delay timer added</td>
 </tr>
-<tr class="row-even"><td>V10</td>
+<tr class="row-odd"><td>V10</td>
 <td>01/06/2013</td>
 <td>AK</td>
 <td>Timezone configuration option added</td>
 </tr>
-<tr class="row-odd"><td>V9</td>
+<tr class="row-even"><td>V9</td>
 <td>21/05/2013</td>
 <td>AK</td>
 <td>SpeedUpStarted configuration option added</td>
 </tr>
-<tr class="row-even"><td>V8</td>
+<tr class="row-odd"><td>V8</td>
 <td>14/05/2013</td>
 <td>AK</td>
 <td>Automatic DI and AI object sorting for &#8216;Master&#8217; and DO object sorting for &#8216;Slave&#8217; communication protocol instances; SummerTime flag configuration added; Communication Status reporting address for Auto-configuration mode added; CommsFlags attribute added; Service DO commands added;</td>
 </tr>
-<tr class="row-odd"><td>V7</td>
+<tr class="row-even"><td>V7</td>
 <td>12/04/2013</td>
 <td>AK</td>
 <td>Minor formatting corrections; Appendix A – Analogue value processing added</td>
 </tr>
-<tr class="row-even"><td>V6</td>
+<tr class="row-odd"><td>V6</td>
 <td>13/03/2013</td>
 <td>AK</td>
 <td>HourLimit attribute description added; AI offset, AI zero deadband and 75-125 input transducer offset compensation added</td>
 </tr>
-<tr class="row-odd"><td>V5</td>
+<tr class="row-even"><td>V5</td>
 <td>01/03/2013</td>
 <td>AK</td>
 <td>Range and Automatic configuration features added; GlobalTimeSync now available; changes to logfile specification</td>
 </tr>
-<tr class="row-even"><td>V4</td>
+<tr class="row-odd"><td>V4</td>
 <td>03/12/2012</td>
 <td>AK</td>
 <td>AI value offset for 4mA transducer input compensation added to Slave protocol instances</td>
 </tr>
-<tr class="row-odd"><td>V3</td>
+<tr class="row-even"><td>V3</td>
 <td>13/11/2012</td>
 <td>AK</td>
 <td>Minor changes to DO object address sequence, new DO execution policy added</td>
 </tr>
-<tr class="row-even"><td>V2</td>
+<tr class="row-odd"><td>V2</td>
 <td>03/10/2012</td>
 <td>AK</td>
 <td>New features added, changes in DI and AI Event attribute configuration</td>
 </tr>
-<tr class="row-odd"><td>V1</td>
+<tr class="row-even"><td>V1</td>
 <td>17/08/2012</td>
 <td>AK</td>
 <td>Initial version</td>
@@ -34131,7 +34276,7 @@ fUtHVztj9BMNwCVrPGuGqpyH+IPAGATai0CJ94qv3R3KZtb6wO+qrSdbVG4WdLDAIJBjFfURmoDK
 " alt="Logo"/>
             </a></p>
     <span class="sidebar-title">Leandc series XML configuration manual</span>
-    <span class="sidebar-subtitle" title="Version V32, docbuild(v0.1.0)">Version V32</span>
+    <span class="sidebar-subtitle" title="Version V33, docbuild(v0.1.0)">Version V33</span>
 
   <h3><a href="#document-index">Table Of Contents</a></h3>
   <ul>
@@ -34345,11 +34490,12 @@ fUtHVztj9BMNwCVrPGuGqpyH+IPAGATai0CJ94qv3R3KZtb6wO+qrSdbVG4WdLDAIJBjFfURmoDK
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#pollmessages-group-and-msg-node">PollMessages group and MSG node</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id1">MSG attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">MSG.Func</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#ctrlmessages-group-and-msg-node">CtrlMessages group and MSG node</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id2">MSG attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id3">MSG.Func</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">MSG attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">MSG.Func</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#msg-type">MSG.Type</a></li>
 </ul>
 </li>
@@ -34456,7 +34602,7 @@ fUtHVztj9BMNwCVrPGuGqpyH+IPAGATai0CJ94qv3R3KZtb6wO+qrSdbVG4WdLDAIJBjFfURmoDK
 
     <div class="footer">
         &copy; Copyright 2018, Londelec UK Ltd.
-      Last updated on 20 Mar 2018.
+      Last updated on 21 Mar 2018.
     </div>
   </body>
 </html>

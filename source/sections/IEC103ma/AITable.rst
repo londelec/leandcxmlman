@@ -31,7 +31,7 @@ There are 5 AI information objects configured using 4 :ref:`AI<ref-IEC103maAI>` 
 
 .. code-block:: none
 
-   <AI Index="0" FUN="85" INF="83" MEA="2" Qualifier="0x20" Coeff="1.0" Deadband="0.5" Percent="0" StartOffset="6554" ZeroDeadband="3.0" Offset="-2.0" OffsetDeadband="2.0" NonZeroOffset="200.0" Total="2" Name="Feeder current" />
+   <AI Index="0" FUN="85" INF="83" MEA="2" Qualifier="0x20" Coeff="1.0" Deadband="0.5" Percent="0" StartOffset="6554" ZeroDeadband="3.0" Offset="-2.0" OffsetDeadband="2.0" NonZeroOffset="200.0" DIAndIndex="0" LogicValue="1" Total="2" Name="Feeder current" />
 
 .. include-file:: sections/Include/tip_order.rstinc "" ":ref:`AI<ref-IEC103maAI>`"
 
@@ -69,6 +69,26 @@ AI attributes
 .. include-file:: sections/Include/AI_Thresholds.rstinc "" ".. _ref-IEC103maAIDeadband:" ".. _ref-IEC103maAIPercent:"
 
 .. include-file:: sections/Include/AI_Scaling.rstinc "" ".. _ref-IEC103maAIStartOffset:" ".. _ref-IEC103maAIZeroDeadband:" ".. _ref-IEC103maAIOffset:" ".. _ref-IEC103maAIOffsetDeadband:" ".. _ref-IEC103maAINonZeroOffset:"
+
+   * :attr:     .. _ref-IEC103maAIDIAndIndex:
+
+                :xmlref:`DIAndIndex`
+     :val:      0...65534
+     :def:      n/a
+     :desc:     Index of the DI object to perform logical conjunction (AND function).
+		Use value of the :ref:`DI<ref-IEC103maDI>`.\ :ref:`<ref-IEC103maDIIndex>` attribute.
+		Analog value will be stored in the database and event will be generated only if value of the DI object is the same as specified in :xmlref:`LogicValue` attribute.
+		:inlinetip:`Attribute is optional and must not be specified in configuration if not used. There is no default value.`
+
+   * :attr:     .. _ref-IEC103maAILogicValue:
+
+                :xmlref:`LogicValue`
+     :val:      0...255
+     :def:      0
+     :desc:     Value of the object used for logical conjunction/disjunction (AND/OR function).
+		Please note all DI values have to be treated as DPIs (ON = 2; OFF = 1) if used for logic functions.
+		Quality flags (e.g. [:lectext1:`IV`]) are not part of the logical processing, DI values are used regardless of state of the quality flags.
+		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
 
 .. include-file:: sections/Include/Total.rstinc "" ".. _ref-IEC103maAITotal:" ":ref:`<ref-IEC103maAIIndex>` and :ref:`<ref-IEC103maAIMEA>`" ":ref:`AI<ref-IEC103maAI>`" "254"
 

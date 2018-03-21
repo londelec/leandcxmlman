@@ -8,7 +8,7 @@ AUTOCfg group and AUTO node
 Group node :ref:`AUTOCfg<ref-IEC10xslAUTOCfg>` and element nodes :ref:`AUTO<ref-IEC10xslAUTO>` enable automatic object linking without a need to create 
 DI/AI/DO/AO object table.
 All DI/AI/DO/AO objects of the Master protocol instance are automatically linked to Slave protocol instance if this feature is used.
-Easiest way to enable automatic linking is by specifing value of the :ref:`<ref-IEC101maIndex>` attribute of any Master protocol instance in the :ref:`<ref-IEC10xslAUTOSource>` attribute. 
+Easiest way to enable automatic linking is by specifying value of the :ref:`<ref-IEC101maIndex>` attribute of any Master protocol instance in the :ref:`<ref-IEC10xslAUTOSource>` attribute. 
 By default information addresses of DI/AI/DO/AO objects will be the same as defined in Master protocol instance's object table.
 It is also possible to override automatic information address initialization and have them initialized sequentially using :ref:`<ref-IEC10xslAUTODIInfAddr>`; :ref:`<ref-IEC10xslAUTOAIInfAddr>`; :ref:`<ref-IEC10xslAUTODOInfAddr>`; :ref:`<ref-IEC10xslAUTOAOInfAddr>` attributes.
 The first object will have information address as specified and following objects will be initialized sequentially.

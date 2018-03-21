@@ -38,7 +38,7 @@ DI attributes
 .. include-file:: sections/Include/IEC61850cl_SCL.rstinc "" "'DA'" "'XCBR'" "'Pos'" "'A.phsA'" "'ST'"
 
    * :attr:     .. _ref-IEC61850clDIQualifier:
-   
+
 		:xmlref:`Qualifier`
      :val:      0...255 or 0x00...0xFF
      :def:      0x00
@@ -63,11 +63,11 @@ DI.Qualifier
 
    * :attr:     Bit 0
      :val:      xxxx.xxx0
-     :desc:     DI object **will not** be inverted (ON = 1; OFF = 0 for [SPS] and [SPC] clases and ON = 2; OFF = 1; INTER = 0; INVALID = 3 for [DPS] and [DPC] clases)
+     :desc:     DI object **will not** be inverted (ON = 1; OFF = 0 for [SPS] and [SPC] classes and ON = 2; OFF = 1; INTER = 0; INVALID = 3 for [DPS] and [DPC] classes)
 
    * :(attr):
      :val:      xxxx.xxx1
-     :desc:     DI object **will** be inverted (ON = 0; OFF = 1 for [SPS] and [SPC] clases and ON = 1; OFF = 2; INTER = 0; INVALID = 3 for [DPS] and [DPC] clases)
+     :desc:     DI object **will** be inverted (ON = 0; OFF = 1 for [SPS] and [SPC] classes and ON = 1; OFF = 2; INTER = 0; INVALID = 3 for [DPS] and [DPC] classes)
 
    * :attr:     Bit 3
      :val:      xxxx.0xxx

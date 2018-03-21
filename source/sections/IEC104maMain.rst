@@ -13,10 +13,7 @@ same XML configuration file can be used for multiple IEC60870-5-104 controlling 
 communication protocol instances, this becomes useful in case if identical sets of IO objects are acquired from
 several outstations.
 
-Name and location path of the XML configuration file are not predefined, they can be chosen freely. File name
-'**IEC104ma_test.xml**' will be used as a sample and location path doesn't have to be specified if XML file is
-stored in the same directory as leandc firmware. In order to use the XML file for a communication protocol
-instance, simply enter the name '**IEC104ma_test.xml**' in :ref:`<ref-IEC104ma>`.\ :ref:`<ref-IEC104maXMLpath>` \ attribute.
+.. include-file:: sections/Include/sample_xml.rstinc "" "IEC104ma_test.xml" ":ref:`<ref-IEC104ma>`" ":ref:`<ref-IEC104maXMLpath>`"
 
 IEC60870-5-104 Master configuration file (e.g. '**IEC104ma_test.xml**') must have a root object node
 :xmlref:`IEC104maConfig` which has 6 child group object nodes :ref:`VersionControl<ref-VersionControl>`; :ref:`ProtocolCfg<ref-IEC104maProtocolCfg>`; :ref:`DITable<ref-IEC10xmaDITable>`; :ref:`AITable<ref-IEC10xmaAITable>`;

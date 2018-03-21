@@ -21,5 +21,6 @@ Command processing timeouts are specified in this node.
    * :attr:     :xmlref:`Response`
      :val:      1...2\ :sup:`32`\  - 1
      :def:      5 sec
-     :desc:     Response timeout in seconds. Connection to IED will be closed if no repsponse to a sent messgage has been received within this timeout.
+     :desc:     Response timeout in seconds.
+		Connection to IED will be closed if no response to a sent message has been received within this timeout.
 

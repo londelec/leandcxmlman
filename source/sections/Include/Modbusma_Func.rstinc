@@ -3,4 +3,4 @@
 		:xmlref:`Func`
      :val:	:include-arg:`2`
      :def:	n/a
-     :desc:	Modbus function number. Modbus function is manadatory for all messages.
+     :desc:	Modbus function number. Modbus function is mandatory for all messages.

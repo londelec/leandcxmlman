@@ -37,7 +37,7 @@ Application layer settings can be specified using attributes of :ref:`<ref-IEC10
                 :xmlref:`TimetagFBrange`
      :val:      0...600
      :def:      240 sec
-     :desc:     Recevied time-tag hour forward-backward adjustment range.
+     :desc:     Received time-tag hour forward-backward adjustment range.
 		If the short time-tag [:lectext1:`CP24Time2a`] of the event received from outstation is closer to full hour (0 mins 0 secs) than the specified range in seconds, the hour value of the resulting timestamp will be automatically adjusted if event is received late.
 		This functionality ensures correct hour value is attached to the short time-tags [:lectext1:`CP24Time2a`] as they carry only minutes and milliseconds.
 		Hour, day, month and year values are attached from leandc's internal time.

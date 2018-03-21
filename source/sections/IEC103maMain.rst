@@ -9,11 +9,9 @@ This section describes how to configure IEC60870-5-103 controlling station (Mast
 Each IEC60870-5-103 controlling station (Master) communication protocol instance must have XML configuration file where its IO object table and additional protocol-related settings will be stored.
 One and the same XML configuration file can be used for multiple IEC60870-5-103 controlling station (Master) communication protocol instances, this becomes useful in case if identical sets of IO objects are acquired from several outstations.
 
-Name and location path of the XML configuration file are not predefined, they can be chosen freely.
-File name '**Feeder_F1.xml**' will be used as a sample and location path doesn't have to be specified if XML file is stored in the same directory as leandc firmware.
-In order to use the XML file for a communication protocol instance, simply enter the name '**Feeder_F1.xml**' in :ref:`<ref-IEC103ma>`.\ :ref:`<ref-IEC103maXMLpath>` \ attribute.
+.. include-file:: sections/Include/sample_xml.rstinc "" "IEC103ma_test.xml" ":ref:`<ref-IEC103ma>`" ":ref:`<ref-IEC103maXMLpath>`"
 
-IEC60870-5-103 Master configuration file (e.g. '**Feeder_F1.xml**') must have a root object node :xmlref:`IEC103maConfig`
+IEC60870-5-103 Master configuration file (e.g. '**"IEC103ma_test.xml**') must have a root object node :xmlref:`IEC103maConfig`
 which has 5 child group object nodes :ref:`VersionControl<ref-VersionControl>`; :ref:`ProtocolCfg<ref-IEC103maProtocolCfg>`; :ref:`DITable<ref-IEC103maDITable>`; :ref:`AITable<ref-IEC103maAITable>`; :ref:`DOTable<ref-IEC103maDOTable>` please see the
 sample below.
 

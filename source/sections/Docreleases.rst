@@ -16,14 +16,14 @@ This manual was published with the following leandc firmware release.
      :val,20:  Date
      :osv,60:  Required Operating System version
 
-   * :attr:    4.08
-     :val:     2018-02-26 16:06:36
+   * :attr:    4.09
+     :val:     2018-03-05 15:55:30
      :osv:     V3.0
 
 .. tip::
 
    Use argument -v to check firmware revision and build date:
-   *leandc -v*
+   **leandc -v**
 
 
 .. field-list-table:: Previous Firmware releases
@@ -35,6 +35,11 @@ This manual was published with the following leandc firmware release.
      :fdate,10:	Firmware date
      :doc,10:	Manual version(s)
      :osv,10:	Operating System version
+
+   * :fw:       4.08
+     :fdate:    2018-02-26 16:06:36
+     :doc:      V32
+     :osv:      V3.0
 
    * :fw:       4.07
      :fdate:    2017-08-14 17:02:51
@@ -182,13 +187,18 @@ This manual was published with the following leandc firmware release.
      :by,5:	By
      :desc,85:	Comments
 
+   * :ver:	V33
+     :date:	21/03/2018
+     :by:	AK
+     :desc:	| > :ref:`AI<ref-IEC103maAI>`.\ :ref:`<ref-IEC103maAIDIAndIndex>` and :ref:`AI<ref-IEC103maAI>`.\ :ref:`<ref-IEC103maAILogicValue>` attributes added to IEC60870-5-103 Master
+
    * :ver:	V32
      :date:	20/03/2018
      :by:	AK
      :desc:	| Modbus Master protocol messages can be defined in XML, nodes :ref:`InitMessages<ref-InitMessages>`, :ref:`PollMessages<ref-PollMessages>`, :ref:`CtrlMessages<ref-CtrlMessages>`, :ref:`<ref-ModbusmaTimeSettings>`, :ref:`<ref-ModbusmaPeriodic>` created;
 		| > :ref:`<ref-IEC61850clAssociationSettings>`.\ :ref:`<ref-IEC61850clAssociationFlags>` attribute created for IEC61850 Client;
 		| > Bit[2] added to :ref:`<ref-IEC61850clScsmSettings>`.\ :ref:`<ref-IEC61850clScsmFlags>` attribute, enables to read Basic Types of all objects when station goes online;
-		| > :ref:`<ref-IEC61850cl>`.\ :ref:`<ref-IEC61850clIEDname>` attribute created, used if CID/SCD file contains more than one IED;
+		| > :ref:`<ref-IEC61850cl>`.\ :ref:`<ref-IEC61850clIEDname>` attribute created, used if SCL file contains more than one IED;
 		| > :xmlref:`DO`, :xmlref:`DIEVsize` and  :xmlref:`AIEVsize` attributes removed from IEC60870-5-101/104 Slave :ref:`<ref-IEC101slBufferSizes>` node;
 		| > :xmlref:`BufferSizes` node removed from IEC60870-5-101/104 Master :ref:`ProtocolCfg<ref-IEC101maProtocolCfg>` group.
 

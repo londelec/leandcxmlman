@@ -37,11 +37,35 @@ MSG attributes
 
 .. include-file:: sections/Include/Modbusma_Msgid.rstinc "" ".. _ref-PollMsgId:" ":xmlref:`PollMsg`"
 
-.. include-file:: sections/Include/Modbusma_Func.rstinc "" ".. _ref-PollMsgFunc:" "3 or 4"
+.. include-file:: sections/Include/Modbusma_Func.rstinc "" ".. _ref-PollMsgFunc:" "See table :numref:`docref-ModbusmaPollFuncTab`"
 
 .. include-file:: sections/Include/Modbusma_Reg.rstinc "" ".. _ref-PollMsgReg:" "Data will be read from this register."
 
 .. include-file:: sections/Include/Modbusma_Count.rstinc "" ".. _ref-PollMsgCount:" "read from"
 
 .. include-file:: sections/Include/Name.rstinc ""
+
+MSG.Func
+^^^^^^^^
+
+Table below shows supported values of the :ref:`<ref-PollMsgFunc>` attribute.
+
+.. _docref-ModbusmaPollFuncTab:
+
+.. field-list-table:: Modbus Master Poll message functions
+   :class: table table-condensed table-bordered longtable
+   :spec: |C{0.10}|S{0.80}|
+   :header-rows: 1
+
+   * :val,10:   :ref:`<ref-PollMsgFunc>`
+     :name,80:  Function Name
+
+   * :val:      3
+     :name:     [:lectext1:`Read Holding Registers`]
+
+   * :val:      4
+     :name:     [:lectext1:`Read Input Registers`]
+
+   * :val:      Other
+     :name:     Function is not supported
 

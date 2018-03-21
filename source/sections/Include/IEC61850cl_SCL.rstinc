@@ -1,30 +1,33 @@
    * :attr:     :xmlref:`ldInst`
      :val:      1...64 chars
      :def:      n/a
-     :desc:     Logical Device instance from CID/SCD file e.g. 'LD0'
+     :desc:     Logical Device instance from SCL file e.g. 'LD0'
 
    * :attr:     :xmlref:`prefix`
      :val:      0...11 chars
      :def:      n/a
-     :desc:     Prefix of the Logical Node name from CID/SCD file e.g. :include-arg:`1` :inlineimportant:`This attribute is mandatory even if particular name of the Logical Node doesn't have prefix. Leave blank i.e. prefix="" in this case.`
+     :desc:     Prefix of the Logical Node name from SCL file e.g.:include-arg:`1`
+		:inlineimportant:`This attribute is mandatory even if particular name of the Logical Node doesn't have prefix. Leave blank i.e. prefix="" in this case.`
 
    * :attr:     :xmlref:`lnClass`
      :val:      4 chars
      :def:      n/a
-     :desc:     Logical Node Class from CID/SCD file e.g. :include-arg:`2`
+     :desc:     Logical Node Class from SCL file e.g. :include-arg:`2`
 
    * :attr:     :xmlref:`lnInst`
      :val:      0...10\ :sup:`10`\  - 1
      :def:      n/a
-     :desc:     Logical Node Instance from CID/SCD file e.g. '1' :inlineimportant:`This attribute is mandatory even if particular name of the Logical Node doesn't have instance. Leave blank i.e. lnInst="" in this case.`
+     :desc:     Logical Node Instance from SCL file e.g. '1'
+		:inlineimportant:`This attribute is mandatory even if particular name of the Logical Node doesn't have instance. Leave blank i.e. lnInst="" in this case.`
 
    * :attr:     :xmlref:`doName`
      :val:      1...64 chars
      :def:      n/a
-     :desc:     Data object name from CID/SCD file. It may contain either single level name e.g. :include-arg:`3` or multiple level name e.g. :include-arg:`4`
+     :desc:     Data object name from SCL file.
+		It may contain either single level name e.g. :include-arg:`3` or multiple level name e.g. :include-arg:`4`
 
    * :attr:     :xmlref:`fc`
      :val:      2 chars
      :def:      n/a
-     :desc:     Functional Constraint from CID/SCD file e.g. :include-arg:`5`
+     :desc:     Functional Constraint from SCL file e.g. :include-arg:`5`
 

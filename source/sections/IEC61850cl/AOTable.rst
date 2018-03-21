@@ -22,7 +22,7 @@ Please see sample :ref:`AOTable<ref-IEC61850clAO>` group and :ref:`AO<ref-IEC618
 
 .. code-block:: none
 
-   <AO Index="0" ldInst="LD0" prefix="GNRL" lnClass="CSWI" lnInst="1" doName="Mod" fc="CO" Qualifier="0x00" Coeff="1" Name="Mode and Behaviour" />
+   <AO Index="0" ldInst="LD0" prefix="GNRL" lnClass="CSWI" lnInst="1" doName="Mod" fc="CO" Qualifier="0x00" Coeff="1" Name="Mode and Behavior" />
 
 .. include-file:: sections/Include/tip_order.rstinc "" ":ref:`AO<ref-IEC61850clAO>`"
 
@@ -38,7 +38,7 @@ AO attributes
 .. include-file:: sections/Include/IEC61850cl_SCL.rstinc "" "'GNRL'" "'CSWI'" "'Mod'" "'A.phsA'" "'CO'"
 
    * :attr:     .. _ref-IEC61850clAOqualifier:
-   
+
                 :xmlref:`Qualifier`
      :val:      0...255 or 0x00...0xFF
      :def:      0x00

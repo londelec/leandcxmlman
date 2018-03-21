@@ -43,7 +43,7 @@ Specific Communication Service Mapping settings can be specified using attribute
      :def:      0x0000
      :desc:     Optional Fields for Unbuffered Report Control Blocks.
 		[OptFlds] of all used Report Control Blocks will be set to this value.
-		Applies to all Report Control Blocks - defined in SCL and received from IED during initialization. 
+		Applies to all Report Control Blocks - defined in SCL and received from IED during initialization.
 		See table :numref:`docref-IEC61850clScsmOptFldsBits` for description.
 
    * :attr:     .. _ref-IEC61850clScsmFlags:
@@ -81,7 +81,7 @@ Specific Communication Service Mapping settings can be specified using attribute
      :desc:     **Exclude** [:lectext1:`data-reference`] field from Reports (default value)
 
    * :(attr):
-     :val:      xxxx.xxxx.xxxx.x1xx
+     :val:      xxxx.xxxx xxxx.x1xx
      :desc:     **Include** [:lectext1:`data-reference`] field in Reports
 
    * :attr:     Bit 3
@@ -149,17 +149,20 @@ Specific Communication Service Mapping settings can be specified using attribute
    * :(attr):
      :val:      xxxx.xxxx xxxx.xx1x
      :desc:     **Set** [:lectext1:`PurgeBuf`] bit if [:lectext1:`EntryID`] setting fails during Report Control Block initialization.
-		Setting [:lectext1:`PurgeBuf`] bit will remove all Buffererd reports including those that might have not been sent to Client.
+		Setting [:lectext1:`PurgeBuf`] bit will remove all Buffered reports including those that might have not been sent to Client.
 
    * :attr:     Bit 2
      :val:      xxxx.xxxx xxxx.x0xx
-     :desc:     Read Basic Types of **objects that don't exist in SCL** when station goes online.
-		In case IEC61850 server has any objects that don't appear in CID/SCD, Basic Types of those objects will be read with [:lectext1:`GetDataDirectory`] (default value)
+     :desc:     | Read Basic Types of **objects that don't exist in SCL** when station goes online. In case IEC61850 server has any objects that don't appear in SCL file, Basic Types of those objects will be read with [:lectext1:`GetDataDirectory`] (default value)
+		| Basic Types are not read by default, but only if either of following conditions is met:
+		| / :ref:`<ref-IEC61850clAppSettings>`.\ :ref:`<ref-IEC61850clAppFlags>` \ Bit[0] is set which forces to always read LD directory with [:lectext1:`GetLogicalDeviceDirectory`];
+		| / IED supports Dynamic Datasets and Dynamic Report Blocks (with empty DatSet="") are not specified in the SCL file.
 
    * :(attr):
      :val:      xxxx.xxxx xxxx.x1xx
      :desc:     Read Basic Types of **all** objects when station goes online with [:lectext1:`GetDataDirectory`]
-		
+		Basic Types are not read by default, only in circumstatnces described above.
+
    * :attr:     Bits 3...15
      :val:      Any
      :desc:     Bits reserved for future use

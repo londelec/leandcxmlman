@@ -3,7 +3,7 @@
 TransportSettings
 ^^^^^^^^^^^^^^^^^
 
-Settings of the Transport layer (ISO8073) can be specified using attributes of :ref:`<ref-IEC61850clTransportSettings>` 
+Settings of the Transport layer (ISO8073) can be specified using attributes of :ref:`<ref-IEC61850clTransportSettings>`
 element node.
 
 .. include-file:: sections/Include/sample_node.rstinc "" ":ref:`<ref-IEC61850clTransportSettings>`"
@@ -45,7 +45,8 @@ element node.
 
    * :(attr):
      :val:      xxxx.xxx1
-     :desc:     Calling and called Transport-Selector identifiers of the received Connection Confirm [CC-TPDU] message will be **checked**. Connection will be aborted if identfiers are incorrect.
+     :desc:     Calling and called Transport-Selector identifiers of the received Connection Confirm [CC-TPDU] message will be **checked**.
+		Connection will be aborted if identifiers are incorrect.
 
    * :attr:     Bits 1...7
      :val:      Any

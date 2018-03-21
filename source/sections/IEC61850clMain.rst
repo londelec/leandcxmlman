@@ -7,20 +7,21 @@ IEC61850 Client
 
 This section describes how to configure IEC61850 Client communication protocol
 instance. IEC61850 standard specifies a System Configuration Language (SCL) for files which are
-used to store cofiguration data of the IED. Most commonly used files are IED Capability Description (ICD),
+used to store configuration data of the IED. Most commonly used files are IED Capability Description (ICD),
 Configured IED Description (CID) and System Configuration Description (SCD). CID or SCD file is
-required for each IEC61850 Client communication protocol instance. It contains comunication capabilities
+required for each IEC61850 Client communication protocol instance. It contains communication capabilities
 and settings of a Server station (IED) we would like to communicate to. In addition to CID/SCD file
 a XML configuration file is required. It contains IO object table and additional protocol-related settings.
 The same pairs of CID/SCD and XML files can be used for multiple IEC61850 Client communication protocol instances.
 It becomes very useful if multiple outstations have identical sets of IO objects.
 
 Name and location path of the configuration files is not predefined, it can be chosen freely.
-Files '**REF_IO.xml**' and '**REF.cid**' are used as a sample.
-Enter names of the files in :ref:`<ref-IEC61850cl>`.\ :ref:`<ref-IEC61850clXMLpath>` \ and :ref:`<ref-IEC61850cl>`.\ :ref:`<ref-IEC61850clCIDpath>` \ attributes.
-Location path doesn't need to be specified if the XML file is stored in the same directory with leandc firmware.
+Files '**IED_IO.xml**' and '**IED.cid**' are used as a sample.
+Enter names of the files in :ref:`<ref-IEC61850cl>`.\ :ref:`<ref-IEC61850clXMLpath>` \ and :ref:`<ref-IEC61850cl>`.\ :ref:`<ref-IEC61850clCIDpath>` \ attributes of a communication protocol instance created in **leandc.xml** as follows:
+:ref:`<ref-IEC61850clXMLpath>`\ ="IED_IO.xml" and :ref:`<ref-IEC61850clCIDpath>`\ ="IED.cid" .
+Location path doesn't have to be specified if the files are stored in the default directory (/home/leandc/app).
 
-IEC61850 Client configuration file (e.g. '**REF_IO.xml**') must have a root object node :xmlref:`IEC61850clConfig` which has
+IEC61850 Client configuration file (e.g. '**IED_IO.xml**') must have a root object node :xmlref:`IEC61850clConfig` which has
 2 mandatory child group object nodes :ref:`VersionControl<ref-VersionControl>`; :ref:`ProtocolCfg<ref-IEC61850clProtocolCfg>`
 and 4 optional child group object nodes :ref:`DITable<ref-IEC61850clDI>`; :ref:`AITable<ref-IEC61850clAI>`; :ref:`DOTable<ref-IEC61850clDO>`; :ref:`AOTable<ref-IEC61850clAO>`
 please see the sample below.

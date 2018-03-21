@@ -15,11 +15,11 @@ DI/AI.TrgOps
 
    * :attr:     Bit 4
      :val:      xxx0.xxxx
-     :desc:     Information Report that includes this data object **will not** be generated periodicaly [integrity]
+     :desc:     Information Report that includes this data object **will not** be generated periodically [integrity]
 
    * :(attr):
      :val:      xxx1.xxxx
-     :desc:     Information Report that includes this data object **will** be generated periodicaly [integrity] upon :ref:`DI<ref-IEC61850clDI>`.\ :ref:`intgPd<ref-IEC61850clDIintgPd>` \ or :ref:`AI<ref-IEC61850clAI>`.\ :ref:`intgPd<ref-IEC61850clAIintgPd>` \ timer expiration.
+     :desc:     Information Report that includes this data object **will** be generated periodically [integrity] upon :ref:`DI<ref-IEC61850clDI>`.\ :ref:`intgPd<ref-IEC61850clDIintgPd>` \ or :ref:`AI<ref-IEC61850clAI>`.\ :ref:`intgPd<ref-IEC61850clAIintgPd>` \ timer expiration.
 
    * :attr:     Bits 0...2;5...7
      :val:      Any

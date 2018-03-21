@@ -14,7 +14,7 @@ Link layer settings can be specified using attributes of :ref:`<ref-IEC101slLink
 
 .. _docref-IEC101slLinkSettingsAttab:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-101 Slave LinkSettings attributess"
+.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-101 Slave LinkSettings attributes"
 
 .. include-file:: sections/Include/IEC60870_LinkAddrSize.rstinc "" ".. _ref-IEC101slLinkSettingsLinkAddrSize:"
 
@@ -46,7 +46,8 @@ Link layer settings can be specified using attributes of :ref:`<ref-IEC101slLink
    * :(attr):
      :val:      1
      :(def):
-     :desc:     Class of the received message is **ignored**, Class 1 and Class 2 data is sent regadless of the requested Class. :inlinetip:`Please note this functionality is deviation from communication standard and option should be avoided.`
+     :desc:     Class of the received message is **ignored**, Class 1 and Class 2 data is sent regardless of the requested Class.
+		:inlinetip:`Please note this functionality is deviation from communication standard and option should be avoided.`
 
    * :attr:     .. _ref-IEC101slLinkSettingsFlags:
 

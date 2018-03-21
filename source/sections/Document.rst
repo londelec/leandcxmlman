@@ -24,6 +24,8 @@ Abbreviations used in this document are listed in the following table.
      :desc:    Application Service Data Unit
    * :abbr:    CAA
      :desc:    Common address of ASDU
+   * :abbr:    CID
+     :desc:    Configured IED Description
    * :abbr:    COT
      :desc:    Cause of transmission
    * :abbr:    DI
@@ -58,6 +60,8 @@ Abbreviations used in this document are listed in the following table.
      :desc:    Operating System
    * :abbr:    SCADA
      :desc:    Supervisory Control And Data Acqusition system
+   * :abbr:    SCD
+     :desc:    Substation Configuration Description
    * :abbr:    SCL
      :desc:    System Configuration description Language
    * :abbr:    SPI

@@ -257,9 +257,9 @@ Service indications have negative index values and can be used just as any regul
 .. tip::
 
    | \* This service indication only applies to the following protocol instances:
-   | IEC60870-5-104 controling station (Master) communication is [:lectext1:`Started`] or [:lectext1:`Stopped`]. ON ([:lectext1:`Started`] state) indicates [:lectext1:`STARTDT_con`] has been received from outstation;
+   | IEC60870-5-104 controlling station (Master) communication is [:lectext1:`Started`] or [:lectext1:`Stopped`]. ON ([:lectext1:`Started`] state) indicates [:lectext1:`STARTDT_con`] has been received from outstation;
    | IEC60870-5-104 controlled station (Slave) communication is [:lectext1:`Started`] or [:lectext1:`Stopped`]. ON ([:lectext1:`Started`] state) indicates [:lectext1:`STARTDT_act`] message has been received from upstream station;
-   | IEC61850 Client association state. ON indicates associated state i.e. [:lectext1:`Initiate-ResponsePDU`] message has been recevied from IED;
+   | IEC61850 Client association state. ON indicates associated state i.e. [:lectext1:`Initiate-ResponsePDU`] message has been received from IED;
 
 DI SPI/DPI conversion
 ^^^^^^^^^^^^^^^^^^^^^

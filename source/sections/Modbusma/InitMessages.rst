@@ -4,7 +4,7 @@
 InitMessages group and MSG node
 -------------------------------
 
-Group node :ref:`InitMessages<ref-InitMessages>` and child element nodes :ref:`MSG<ref-InitMessages>` contain messages that are being sent to outstation during an intialization stage.
+Group node :ref:`InitMessages<ref-InitMessages>` and child element nodes :ref:`MSG<ref-InitMessages>` contain messages that are being sent to outstation during an initialization stage.
 Outstation replies can be checked against the pre-defined data to ensure correct outstation is connected during the initialization stage.
 Modbus Write messages can be used to change settings of the outstation during the initialization stage, if necessary.
 
@@ -33,7 +33,7 @@ MSG attributes
 
 .. _docref-InitMessageAttributes:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "Modbus Master Inialization message attributes"
+.. include-file:: sections/Include/table_attrs.rstinc "" "Modbus Master Initialization message attributes"
 
 .. include-file:: sections/Include/Modbusma_Msgid.rstinc "" ".. _ref-InitMsgId:" ":xmlref:`InitMsg`"
 
@@ -111,11 +111,11 @@ MSG.Flags
 
    * :attr:	Bit 0
      :val:	xxxx.xxx0
-     :desc:	Data received from oustation has to match contents of the :ref:`<ref-InitMsgData>` attribute **exactly**
+     :desc:	Data received from outstation has to match contents of the :ref:`<ref-InitMsgData>` attribute **exactly**
 
    * :(attr):
      :val:	xxxx.xxx1
-     :desc:	Data received from oustation has to **contain** contents of the :ref:`<ref-InitMsgData>` attribute.
+     :desc:	Data received from outstation has to **contain** contents of the :ref:`<ref-InitMsgData>` attribute.
 		This option is normally used with :lectext1:`Report Server ID [17]` message and 
 		enables to check only portion of the received reply.
 		For example if :ref:`<ref-InitMsgData>`\="41 42 43" (represents string "ABC") a reply from outstation 

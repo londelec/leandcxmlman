@@ -21,8 +21,9 @@ Hardcoded device type can be specified in this node.
                 :xmlref:`Type`
      :val:      See table :numref:`docref-ModbusmaHardcodedTypesTab`
      :def:      n/a
-     :desc:     Predefined type of Modbus device. Messages and communication sequences are hardcoded for devices of these types.
-
+     :desc:     Predefined type of a Modbus device.
+		Messages and communication sequences are hardcoded for these devices.
+		:inlineimportant:`Attribute is case sensitive, observe case of the device type when specifying.`
 
 .. _docref-ModbusmaHardcodedTypesTab:
 

@@ -4,7 +4,7 @@ TimeSettings
 ^^^^^^^^^^^^
 
 Time settings node is used to construct a message for synchronizing Modbus device's clock.
-Modbus communication standard doesn't define a specific function for the pupose of time synchronization,
+Modbus communication standard doesn't define a specific function for the purpose of time synchronization,
 :lectext1:`Write Multiple registers [16]` is normally used.
 However encoding of the date and time in Modbus registers varies greatly from one device to another.
 Attributes of the :ref:`<ref-ModbusmaTimeSettings>` node below enable to build a custom Modbus message
@@ -95,7 +95,7 @@ Table below shows position of a sample value '85' (0x55) in a Modbus message dep
 
 .. _docref-ModbusmaTimeTypesTab:
 
-.. field-list-table:: Modbus Master Time varible encoding types
+.. field-list-table:: Modbus Master Time variable encoding types
    :class: table table-condensed table-bordered longtable
    :spec: |C{0.10}|S{0.90}|
    :header-rows: 1

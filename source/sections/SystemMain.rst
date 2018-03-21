@@ -167,39 +167,11 @@ This node contains settings of a system-wide logfile.
      :def:	0x00
      :desc:     Select type of system messages to be logged. See table :numref:`docref-SYSLOGFILELogFlagsAttab` for description. Logfile will not be created if the value is 0.
 
-   * :attr:     :xmlref:`Logfile`
-     :val:      Max 200 chars
-     :def:      Syslog/syslog
-     :desc:     Name of a logfile excluding extension (e.g. '.log').
-		It is possible to specify relative or absolute path as part of the file name.
-		Logfile will be created in the default home folder (e.g. '/home/leandc/app') if path is not specified.
-		Date when the file was created and extension '.log' will be appended to the file name automatically.
-		Logfile will not be created if this attribute is left blank.
-		(default value 'Syslog/syslog' where 'Syslog' is the name of the folder and 'syslog' is the name of the file)
-		:inlineimportant:`Attribute is case sensitive, observe the case of the path and name of the file when specifying.`
+.. include-file:: sections/Include/log_Logfile.rstinc "" ".. _ref-SYSLOGLogfile:" ".log" "(default value 'Syslog/syslog' where 'Syslog' is the name of the folder and 'syslog' is the name of the file)"
 
-   * :attr:     .. _ref-SYSLOGFILEMode:
+.. include-file:: sections/Include/log_ModeHourLimit.rstinc "" ".. _ref-SYSLOGFILEMode:" ".. _ref-SYSLOGFILEHourLimit:" "0x00" "0" "(default 0 – only 1 logfile a day will be created)"
 
-                :xmlref:`Mode`\*
-     :val:      0...255 or 0x00...0xFF
-     :def:	0x00
-     :desc:     Logfile initialization settings. See table :numref:`docref-LoggerModeBits` for description. :inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
-
-   * :attr:     .. _ref-SYSLOGFILEHourLimit:
-
-                :xmlref:`HourLimit`\*
-     :val:      0...12
-     :def:	0 hours
-     :desc:     Option to create a new file after selected number of hours in order to limit the size of the file.
-		(default 0 – only 1 logfile per day will be created)
-		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
-
-   * :attr:     :xmlref:`TimeZone`
-     :val:      Max 200 chars
-     :def:	n/a
-     :desc:     Adjust time-tags of the recorded information based on the specified time zone.
-		:inlineimportant:`Attribute must not be used if not required, there is no default value. Time-tags will not be adjusted if attribute omitted.`
-		:inlinetip:`Please see` :ref:`docref-TimeZoneSpecification` :inlinetip:`for additional information.`
+.. include-file:: sections/Include/log_TimeZone.rstinc ""
 
 .. include-file:: sections/Include/hidden_LogDebugFlags.rstinc "internal" ":numref:`docref-LOGGERDebugFlagsAttab`"
 
@@ -208,7 +180,7 @@ This node contains settings of a system-wide logfile.
 .. _docref-SYSLOGFILELogFlagsAttab:
 
 .. include-file:: sections/Include/table_flags.rstinc "" "System logfile flags" ":xmlref:`LogFlags`" "Logger flags"
-		Logfile will not be created, if the value is 0.
+		Logfile will not be created if the value is 0.
 
    * :attr:     Bit 0
      :val:      xxxx.xxx0

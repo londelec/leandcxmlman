@@ -6,5 +6,5 @@
      :desc:	Data to be written to outstation\ :include-arg:`2`.
 		Data can be specified as hexadecimal values separated by whitespaces e.g. "AA BB CC DD 05 03" 
 		or a single hexadecimal number e.g. "0xAABBCCDD0503".
-		If writing\ :include-arg:`3` multipe Modbus registers first 2 data bytes will be written to\ :include-arg:`4` the base register
+		If writing\ :include-arg:`3` multiple Modbus registers first 2 data bytes will be written to\ :include-arg:`4` the base register
 		specified in :xmlref:`Reg` attribute, next to 2 bytes base register + 1, etc.

@@ -36,7 +36,7 @@ Link layer settings can be specified using attributes of :ref:`<ref-IEC101maLink
      :val:      1
      :(def):
      :desc:     **Ignore** received application layer messages while link online delay counter operates.
-		Application message processing starts after number of link messages defined in :ref:`<ref-IEC101maLinkSettingsLinkOnlineCounter>` are received from oustation.
+		Application message processing starts after number of link messages defined in :ref:`<ref-IEC101maLinkSettingsLinkOnlineCounter>` are received from outstation.
 
    * :attr:     .. _ref-IEC101maLinkSettingsFlags:
 

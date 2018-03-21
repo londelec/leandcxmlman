@@ -50,4 +50,8 @@
    * :(attr):
      :val:      1
      :(def):
-     :desc:     ASDU type of every DI/AI object will be made transparent whenever possible. The same ASDU type will be used to report DI/AI object to upstream station as received from downstream outstation, providing both source and destination communication protocol instances are compatible. Otherwise default ASDU type will be used. :inlinetip:`Please note object will be excluded from General Interrogation response before it is received from downstream outstation on leandc startup. This is because it is impossible to determine the ASDU type of the object before is has been received from outsation.`
+     :desc:     ASDU type of every DI/AI object will be made transparent whenever possible.
+		The same ASDU type will be used to report DI/AI object to upstream station as received from downstream outstation,
+		providing both source and destination communication protocol instances are compatible.
+		Otherwise default ASDU type will be used.
+		:inlinetip:`Please note object will be excluded from General Interrogation response before it is received from downstream outstation on leandc startup. This is because it is impossible to determine ASDU type of the object before is has been received from outstation.`

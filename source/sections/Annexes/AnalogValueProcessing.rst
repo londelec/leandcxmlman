@@ -5,23 +5,55 @@
 Analog value processing
 =======================
 
-This annex contains additional information on incoming AI processing, scaling options and application examples.
+This annex contains information about analog value processing, scaling options and application examples.
+All analog values are converted to Short Floating-point (32bit) numbers internally before scaling takes place.
+All AI scaling attributes used in this document:
+:xmlref:`Coeff`, :xmlref:`Deadband`, :xmlref:`Percent`, :xmlref:`StartOffset`, :xmlref:`ZeroDeadband`, :xmlref:`Offset`, :xmlref:`OffsetDeadband`, :xmlref:`NonZeroOffset`
+are Short Floating-point numbers.
+The value range is given for each of these attributes and values have to be specified either in decimal or scientific notation.
+Sample values are shown in the table below.
+
+.. field-list-table:: Analog value notations
+   :class: table table-condensed table-bordered table-left table-center-all
+   :spec: |C{0.1}|C{0.1}|
+   :header-rows: 1
+
+   * :dec,10: Decimal
+     :sci,10: Scientific
+
+   * :dec:    1520.3
+     :sci:    1.5203e3
+
+   * :dec:    -11
+     :sci:    -1.1e1
+
+   * :dec:    0.00152
+     :sci:    1.52e-3
+
+   * :dec:    -0.0456
+     :sci:     -4.56e-2
+
+.. important::
+   Precision of the Short Floating-point number is **7** decimal digits regardless of position of decimal point.
+   This applies to decimal and scientific notations. For example there are 7 decimal digits in numbers '1234567' '1234.567' '1.234567e3' which is the maximum accuracy.
+   Numbers with more decimal digits will be rounded.
+
 
 .. _docref-AIScalingWithoutStartOffset:
 
 AI scaling without StartOffset enabled
 --------------------------------------
 
-Flowchart on the right shows scaling sequence when leandc receives AI value from outstation or before sending 
-AI value to upstream station depending on used communication protocol. Scaling sequence shown below is 
-used if :xmlref:`StartOffset` is **not enabled** (attribute :ref:`AI<ref-IEC10xslAI>`.\ :ref:`StartOffset<ref-IEC10xslAIStartOffset>` \ = 0 or excluded). Sample values before and after 
-each step are listed in the following tables. Please note there is no relation between values shown in different 
-tables. Tables are used to illustrate functionality of each step separately not the complete operation of the 
+Flowchart on the right shows scaling sequence when leandc receives AI value from outstation or before sending
+AI value to upstream station depending on used communication protocol. Scaling sequence shown below is
+used if :xmlref:`StartOffset` is **not enabled** (attribute :ref:`AI<ref-IEC10xslAI>`.\ :ref:`StartOffset<ref-IEC10xslAIStartOffset>` \ = 0 or excluded). Sample values before and after
+each step are listed in the following tables. Please note there is no relation between values shown in different
+tables. Tables are used to illustrate functionality of each step separately not the complete operation of the
 scaling sequence.
 
 .. figure:: ../_images/AI_processing_0.*
    :figclass: figure-right
-   
+
    AI scaling without StartOffset enabled
 
 .. field-list-table:: AI.ZeroDeadband processing sample
@@ -65,7 +97,7 @@ scaling sequence.
    :header-rows: 1
 
    * :val1,50: Value before
-     :val2,50: Value after 
+     :val2,50: Value after
                (:ref:`AI<ref-IEC10xslAI>`.\ :ref:`Offset<ref-IEC10xslAIOffset>` \ = 5)
 
    * :val1:    -10
@@ -185,17 +217,17 @@ scaling sequence.
 .. _docref-AIScalingWithStartOffset:
 
 AI scaling with StartOffset enabled
------------------------------------     
-     
-Flowchart on the right shows scaling sequence when leandc receives AI value from outstation or before sending 
-AI value to upstream station depending on used communication protocol. Scaling sequence shown below is 
-used if :xmlref:`StartOffset` **is enabled** (attribute :ref:`AI<ref-IEC10xslAI>`.\ :ref:`StartOffset<ref-IEC10xslAIStartOffset>` \ > 0). Sample values before and after each step are listed 
-in the following tables. Please note there is no relation between values shown in different tables. Tables are 
+-----------------------------------
+
+Flowchart on the right shows scaling sequence when leandc receives AI value from outstation or before sending
+AI value to upstream station depending on used communication protocol. Scaling sequence shown below is
+used if :xmlref:`StartOffset` **is enabled** (attribute :ref:`AI<ref-IEC10xslAI>`.\ :ref:`StartOffset<ref-IEC10xslAIStartOffset>` \ > 0). Sample values before and after each step are listed
+in the following tables. Please note there is no relation between values shown in different tables. Tables are
 used to illustrate functionality of each step separately not the complete operation of the scaling sequence.
 
 .. figure:: ../_images/AI_processing_1.*
    :figclass: figure-right
-   
+
    AI scaling with StartOffset enabled
 
 .. field-list-table:: AI.ZeroDeadband processing sample
@@ -204,7 +236,7 @@ used to illustrate functionality of each step separately not the complete operat
    :header-rows: 1
 
    * :val1,50: Value before
-     :val2,50: Value after 
+     :val2,50: Value after
                (:ref:`AI<ref-IEC10xslAI>`.\ :ref:`StartOffset<ref-IEC10xslAIStartOffset>` \ = 6554)
                (:ref:`AI<ref-IEC10xslAI>`.\ :ref:`ZeroDeadband<ref-IEC10xslAIZeroDeadband>` \ = 1)
 
@@ -246,14 +278,14 @@ used to illustrate functionality of each step separately not the complete operat
 
    * :val1:    6556
      :val2:    6556
-     
+
 .. field-list-table:: AI.StartOffset processing sample
    :class: table table-condensed table-bordered table-left table-center-all
    :spec: |C{0.28}|C{0.28}|
    :header-rows: 1
 
    * :val1,50: Value before
-     :val2,50: Value after 
+     :val2,50: Value after
                (:ref:`AI<ref-IEC10xslAI>`.\ :ref:`StartOffset<ref-IEC10xslAIStartOffset>` \ = 6554)
 
    * :val1:    -32767
@@ -288,24 +320,24 @@ used to illustrate functionality of each step separately not the complete operat
 
    * :val1:    32767
      :val2:    26213
-     
+
 .. _docref-ReceivedAIProcessing:
-     
+
 Received AI processing
 ----------------------
 
-Flowchart below shows AI value processing when IEC60870-5-101/103/104 Master protocol instance receives 
-AI object from outstation. This processing takes place after AI scaling has been completed, refer to previous 
+Flowchart below shows AI value processing when IEC60870-5-101/103/104 Master protocol instance receives
+AI object from outstation. This processing takes place after AI scaling has been completed, refer to previous
 annexes for additional information on AI scaling.
 
 .. figure:: ../_images/AI_processing_2.*
    :align: center
-   
+
    Received AI processing flowchart
 
-The figure below shows how a real time value received from outstation will be processed if :ref:`AI<ref-IEC10xmaAI>`.\ :ref:`Deadband<ref-IEC10xmaAIDeadband>` \ 
-attribute is enabled. Internal database will be updated and AI event will get generated every time a real time 
-value exceeds 'static deadband'. Thresholds of the 'static deadband' are calculated based on previous value 
+The figure below shows how a real time value received from outstation will be processed if :ref:`AI<ref-IEC10xmaAI>`.\ :ref:`Deadband<ref-IEC10xmaAIDeadband>` \
+attribute is enabled. Internal database will be updated and AI event will get generated every time a real time
+value exceeds 'static deadband'. Thresholds of the 'static deadband' are calculated based on previous value
 stored in the database. Attribute :ref:`AI<ref-IEC10xmaAI>`.\ :ref:`Deadband<ref-IEC10xmaAIDeadband>` \ = 2 is used as an example.
 
 .. figure:: ../_images/AI_processing_3.*
@@ -313,10 +345,10 @@ stored in the database. Attribute :ref:`AI<ref-IEC10xmaAI>`.\ :ref:`Deadband<ref
 
    :xmlref:`AI.Deadband` processing sample
 
-The figure below shows how a real time value received from outstation will be processed if :ref:`AI<ref-IEC10xmaAI>`.\ :ref:`Percent<ref-IEC10xmaAIPercent>` \ attribute 
-is enabled. Internal database will be updated and AI event will get generated every time a real time value 
-exceeds 'dynamic deadband'. Thresholds of the 'dynamic deadband' are calculated based on previous value 
-stored in the database. Attribute :ref:`AI<ref-IEC10xmaAI>`.\ :ref:`Percent<ref-IEC10xmaAIPercent>` \ = 20 is used as an example.   
+The figure below shows how a real time value received from outstation will be processed if :ref:`AI<ref-IEC10xmaAI>`.\ :ref:`Percent<ref-IEC10xmaAIPercent>` \ attribute
+is enabled. Internal database will be updated and AI event will get generated every time a real time value
+exceeds 'dynamic deadband'. Thresholds of the 'dynamic deadband' are calculated based on previous value
+stored in the database. Attribute :ref:`AI<ref-IEC10xmaAI>`.\ :ref:`Percent<ref-IEC10xmaAIPercent>` \ = 20 is used as an example.
 
 .. figure:: ../_images/AI_processing_4.*
    :align: center
@@ -326,12 +358,12 @@ stored in the database. Attribute :ref:`AI<ref-IEC10xmaAI>`.\ :ref:`Percent<ref-
 0-20mA transducers
 ------------------
 
-AIMs use 16bit Signed Integer variables for analogue value reporting. Lowest integer value 0 represents 0mA at 
+AIMs use 16bit Signed Integer variables for analogue value reporting. Lowest integer value 0 represents 0mA at
 AIM's input and the highest integer value 32767 represents 20mA at AIM's input.
 
 Following formulas allow Integer value evaluation from Current at the AIM's input and vice versa.
 
-Formula for evaluating current mA value is: 
+Formula for evaluating current mA value is:
 
 .. math::
 
@@ -354,9 +386,9 @@ example
 .. math::
 
    \frac{2.2}{20} * 32767 = 3604
-   
-Sample values are summarized in the table :numref:`ref-AISampleValuesIf0-20maRangeUsed` below and it is assumed **1A/0-20mA** current transducer is 
-connected to the AIM. Current values at the transducer input are listed in the third column.   
+
+Sample values are summarized in the table :numref:`ref-AISampleValuesIf0-20maRangeUsed` below and it is assumed **1A/0-20mA** current transducer is
+connected to the AIM. Current values at the transducer input are listed in the third column.
 
 .. _ref-AISampleValuesIf0-20maRangeUsed:
 
@@ -367,12 +399,12 @@ connected to the AIM. Current values at the transducer input are listed in the t
 
    * :val1: mA value
      :val2: Integer value
-     :val3: Current at (1A) transducer input 
+     :val3: Current at (1A) transducer input
 
    * :val1:    0mA
      :val2:    0
      :val3:    0A
-      
+
    * :val1:    1mA
      :val2:    1638
      :val3:    0.05A
@@ -408,32 +440,32 @@ connected to the AIM. Current values at the transducer input are listed in the t
    * :val1:    20mA
      :val2:    32767
      :val3:    1A
-     
-4-20mA transducers     
-------------------     
-     
-It is common to use 4-20mA output range transducers as there is an option of detecting transducer failure if 
-current at the AIM input drops below 4mA. However additional calculation is required to compensate the 4mA 
+
+4-20mA transducers
+------------------
+
+It is common to use 4-20mA output range transducers as there is an option of detecting transducer failure if
+current at the AIM input drops below 4mA. However additional calculation is required to compensate the 4mA
 offset at the AIM input created because of this increased functionality.
 
-AIMs will still use 16bit Signed Integer variables for analogue value reporting, but unlike the previous 
-paragraph, full range can't be used and the 4mA offset needs to be taken into consideration. There is an option 
-to automatically adjust 4mA offset and it can be enabled by setting Bit [0] of the Slave AI internal qualifier 
-(attribute :ref:`AI<ref-IEC10xslAI>`.\ :ref:`qualifier<ref-IEC10xslAIqualifier>` \ please refer to the table :numref:`ref-IEC10xslAIqualifierBits`). Setting Bit[0] to '1' will enables automatic adjustment by 
+AIMs will still use 16bit Signed Integer variables for analogue value reporting, but unlike the previous
+paragraph, full range can't be used and the 4mA offset needs to be taken into consideration. There is an option
+to automatically adjust 4mA offset and it can be enabled by setting Bit [0] of the Slave AI internal qualifier
+(attribute :ref:`AI<ref-IEC10xslAI>`.\ :ref:`qualifier<ref-IEC10xslAIqualifier>` \ please refer to the table :numref:`ref-IEC10xslAIqualifierBits`). Setting Bit[0] to '1' will enables automatic adjustment by
 subtracting 6554 from the received Integer value.
 
-Offset 6554 is equal to 4mA current value (as per table :numref:`ref-AISampleValuesIf0-20maRangeUsed` above) which means after subtraction Integer will 
-be 0 when there are 4mA at AIM's input and Integer will be **26213** when there are 20mA at AIM's input. 
+Offset 6554 is equal to 4mA current value (as per table :numref:`ref-AISampleValuesIf0-20maRangeUsed` above) which means after subtraction Integer will
+be 0 when there are 4mA at AIM's input and Integer will be **26213** when there are 20mA at AIM's input.
 
 .. tip::
 
-   Leandc unit will report Integer '0' with Invalid [IV] flag set if the current at AIM input is less than 4mA 
+   Leandc unit will report Integer '0' with Invalid [IV] flag set if the current at AIM input is less than 4mA
    (Integer is less than '6554'). This is an extended functionality for detecting transducer failure.
 
-Following formulas allow Integer value evaluation from Current at the AIM's input and vice versa.     
-     
+Following formulas allow Integer value evaluation from Current at the AIM's input and vice versa.
+
 Formula for evaluating current mA value is:
-  
+
 .. math::
 
    mA = \left(\frac{Integer}{26213} * 16\right) + 4
@@ -456,7 +488,7 @@ example
 
    \frac{(5.2 - 4)}{16} * 26213 = 1966
 
-Sample values are listed in the table :numref:`ref-AISampleValuesIf4-20maRangeUsed` below, those are calculated assuming **1A/4-20mA** current transducer 
+Sample values are listed in the table :numref:`ref-AISampleValuesIf4-20maRangeUsed` below, those are calculated assuming **1A/4-20mA** current transducer
 is connected to the AIM. Current values at the transducer input are listed in the third column.
 
 .. _ref-AISampleValuesIf4-20maRangeUsed:
@@ -468,7 +500,7 @@ is connected to the AIM. Current values at the transducer input are listed in th
 
    * :val1: mA value
      :val2: Integer value
-     :val3: Current at (1A) transducer input 
+     :val3: Current at (1A) transducer input
 
    * :val1:    0mA
      :val2:    0 & INVALID
@@ -513,27 +545,27 @@ is connected to the AIM. Current values at the transducer input are listed in th
 Special transducers
 -------------------
 
-There are specific types of transducers that have offset at their input and this paragraph explains how to 
-configure LEANDC unit to compensate measurement offset created by such transducers. A specific voltage 
-transducer with input range 75-125V and output 4-20mA will be used as an example. Now in addition to the 
-fixed 4mA output offset compensation described in the previous paragraph, there is another offset required to 
-compensate 75V voltage offset at the transducer's input. Both offset compensation adjustment requires 3 
+There are specific types of transducers that have offset at their input and this paragraph explains how to
+configure LEANDC unit to compensate measurement offset created by such transducers. A specific voltage
+transducer with input range 75-125V and output 4-20mA will be used as an example. Now in addition to the
+fixed 4mA output offset compensation described in the previous paragraph, there is another offset required to
+compensate 75V voltage offset at the transducer's input. Both offset compensation adjustment requires 3
 separate steps as follow:
 
-* 4mA compensation can be enabled by setting Bit [0] of the Slave AI internal qualifier attribute 
-  AI.qualifier as described in the previous paragraph. After 6554 offset subtraction Integer will be 0 when 
+* 4mA compensation can be enabled by setting Bit [0] of the Slave AI internal qualifier attribute
+  AI.qualifier as described in the previous paragraph. After 6554 offset subtraction Integer will be 0 when
   there are 4mA at AIM's input and Integer will be 26213 when there are 20mA the same as before.
-  
-* It is necessary to select a deadband to filter a noise around 4mA using AI.ZeroDeadband attribute. The 
-  AI.ZeroDeadband attribute has to be selected carefully to ensure a value exceeding the deadband is 
-  valid measurement (not a noise) and represents voltage above 75V at transducer's input. AI value 
-  fluctuations around 4mA that doesn't exceed deadband configured in the AI.ZeroDeadband attribute 
+
+* It is necessary to select a deadband to filter a noise around 4mA using AI.ZeroDeadband attribute. The
+  AI.ZeroDeadband attribute has to be selected carefully to ensure a value exceeding the deadband is
+  valid measurement (not a noise) and represents voltage above 75V at transducer's input. AI value
+  fluctuations around 4mA that doesn't exceed deadband configured in the AI.ZeroDeadband attribute
   will be forced to 0.
-  
-* The final step is to compensate a 75V offset at transducer's input using AI.NonZeroOffset attribute. 
-  Please note AI.NonZeroOffset will be applied only to Integer values exceeding AI.ZeroDeadband. It is 
-  necessary to calculate an integer offset that is proportional to 75V. The following formula can be used, 
-  divide scaled Integer range (26213, after 4mA offset compensation) by actual transducer input range 
+
+* The final step is to compensate a 75V offset at transducer's input using AI.NonZeroOffset attribute.
+  Please note AI.NonZeroOffset will be applied only to Integer values exceeding AI.ZeroDeadband. It is
+  necessary to calculate an integer offset that is proportional to 75V. The following formula can be used,
+  divide scaled Integer range (26213, after 4mA offset compensation) by actual transducer input range
   (75-125V, actual range after subtracting 75 is 50) and multiply by offset at the transducer's input (75V).
 
 .. math::
@@ -546,7 +578,7 @@ example
 
    \frac{26213}{50} * 75 = 39320
 
-The proportional Integer offset is **39320** and following formulas can be used to evaluate Integer value from 
+The proportional Integer offset is **39320** and following formulas can be used to evaluate Integer value from
 Current at the AIM's input and vice versa.
 
 Formula for evaluating Current mA value from Integer is:
@@ -585,7 +617,7 @@ example
 
    \left(\frac{(79.3 - 75)}{50} * 16\right) + 4 = 5.376mA
 
-Formula for evaluating Integer from Voltage is:   
+Formula for evaluating Integer from Voltage is:
 
 .. math::
 
@@ -596,11 +628,11 @@ example
 .. math::
 
    \left(\frac{(82.4 - 75)}{50} * 26213\right) + 39320 = 43200
-   
-Following formulas allow Voltage evaluation from Current at the AIM's input or Integer.   
-   
-Formula for evaluating Voltage from Integer is:   
-   
+
+Following formulas allow Voltage evaluation from Current at the AIM's input or Integer.
+
+Formula for evaluating Voltage from Integer is:
+
 .. math::
 
    Voltage = \left(\frac{(Integer - 39320)}{26213} * 50\right) + 75
@@ -610,9 +642,9 @@ example
 .. math::
 
    \left(\frac{(40200 - 39320)}{26213} * 50\right) + 75 = 76.678V
-   
-Formula for evaluating Voltage from Current mA is:   
-   
+
+Formula for evaluating Voltage from Current mA is:
+
 .. math::
 
    Voltage = \left(\frac{(mA - 4)}{16} * 50\right) + 75
@@ -622,12 +654,12 @@ example
 .. math::
 
    \left(\frac{(5.9 - 4)}{16} * 50\right) + 75 = 80.936V
-   
-Sample values at various conversion stages based on **75-125V/4-20mA** voltage transducer are summarized in 
+
+Sample values at various conversion stages based on **75-125V/4-20mA** voltage transducer are summarized in
 the table :numref:`ref-AISampleValuesIf75-125V4-20mARangeUsed` below. Integer values after 4mA offset subtraction are listed in column 2. :ref:`AI<ref-IEC10xslAI>`.\ :ref:`ZeroDeadband<ref-IEC10xslAIZeroDeadband>` \
-attribute value of 2 is used for this example resulting Integer values 1 and 2 being forced to 0, functionality is 
-shown in column 3. Integer values after :ref:`AI<ref-IEC10xslAI>`.\ :ref:`NonZeroOffset<ref-IEC10xslAINonZeroOffset>` \ adjustment are listed in the column 4. Voltage values 
-at the transducer input are listed in the column 5.   
+attribute value of 2 is used for this example resulting Integer values 1 and 2 being forced to 0, functionality is
+shown in column 3. Integer values after :ref:`AI<ref-IEC10xslAI>`.\ :ref:`NonZeroOffset<ref-IEC10xslAINonZeroOffset>` \ adjustment are listed in the column 4. Voltage values
+at the transducer input are listed in the column 5.
 
 .. _ref-AISampleValuesIf75-125V4-20mARangeUsed:
 
@@ -719,4 +751,4 @@ at the transducer input are listed in the column 5.
      :val3:    No
      :val4:    65533
      :val5:    125V
-     
+
