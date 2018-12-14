@@ -87,12 +87,12 @@ element node.
 
    * :attr:     Bit 0
      :val:      xxxx.xxx0
-     :desc:     **Ignore** [:lectext1:`Responding AP Title`] and [:lectext1:`Responding AE Qualifier`] of the received [:lectext1:`AARE APDU`] message.
+     :desc:     **Ignore** [:lectext1:`Responding AP Title`] and [:lectext1:`Responding AE Qualifier`] of the received [:lectext1:`AARE APDU`] message. (default value)
 
    * :(attr):
      :val:      xxxx.xxx1
      :desc:     **Check** [:lectext1:`Responding AP Title`] and [:lectext1:`Responding AE Qualifier`] of the received [:lectext1:`AARE APDU`] message.
-		Communication will not be established if the received values doesn't match "OSI-AP-Title" and "OSI-AE-Qualifier" values in SCL file.
+		Communication will not be established if the received values don't match "OSI-AP-Title" and "OSI-AE-Qualifier" in the SCL file.
 
    * :attr:     Bits 1...7
      :val:      Any

@@ -149,13 +149,15 @@ This node contains settings of a serial port.
    :header-rows: 1
    :spec: |C{0.2}|C{0.4}|C{0.4}|
 
-   * :hw,14:	Hardware
-     :com1,14:	:ref:`<ref-UARTCOM>` = 1
-     :com2,14:	:ref:`<ref-UARTCOM>` = 2
-     :com3,14:	:ref:`<ref-UARTCOM>` = 3
-     :com4,14:	:ref:`<ref-UARTCOM>` = 4
-     :com5,14:	:ref:`<ref-UARTCOM>` = 5
-     :com6,14:	:ref:`<ref-UARTCOM>` = 6
+   * :hw,11:	Hardware
+     :com1,11:	:ref:`<ref-UARTCOM>` = 1
+     :com2,11:	:ref:`<ref-UARTCOM>` = 2
+     :com3,11:	:ref:`<ref-UARTCOM>` = 3
+     :com4,11:	:ref:`<ref-UARTCOM>` = 4
+     :com5,11:	:ref:`<ref-UARTCOM>` = 5
+     :com6,11:	:ref:`<ref-UARTCOM>` = 6
+     :com7,11:	:ref:`<ref-UARTCOM>` = 7
+     :com8,11:	:ref:`<ref-UARTCOM>` = 8
 
    * :hw:	LEANDC-2/3(4) (UNO-1150G)
      :com1:	/dev/ttyS0
@@ -164,6 +166,8 @@ This node contains settings of a serial port.
      :com4:	/dev/ttyS1 (LEANDC-2/4 only)
      :com5:	n/a
      :com6:	n/a
+     :com7:	n/a
+     :com8:	n/a
 
    * :hw:	LEANDC-2/5 (ARK-3202F)
      :com1:	/dev/ttyS0
@@ -172,6 +176,8 @@ This node contains settings of a serial port.
      :com4:	variable
      :com5:	variable
      :com6:	n/a
+     :com7:	n/a
+     :com8:	n/a
 
    * :hw:	LEIODC-x
      :com1:	/dev/ttyAPP0
@@ -180,6 +186,8 @@ This node contains settings of a serial port.
      :com4:	/dev/ttyAPP3 (internal)
      :com5:	n/a
      :com6:	n/a
+     :com7:	n/a
+     :com8:	n/a
 
    * :hw:	LEANDC-3/6 (ARK-2120F)
      :com1:	/dev/ttyS0
@@ -188,6 +196,8 @@ This node contains settings of a serial port.
      :com4:	variable
      :com5:	variable
      :com6:	variable
+     :com7:	n/a
+     :com8:	n/a
 
    * :hw:	LEANDC-3/6 (ARK-3360F)
      :com1:	/dev/ttyS0
@@ -196,4 +206,16 @@ This node contains settings of a serial port.
      :com4:	variable
      :com5:	variable
      :com6:	variable
+     :com7:	n/a
+     :com8:	n/a
+
+   * :hw:	LEANDC-4/8 (UNO-2484F)
+     :com1:	/dev/ttyS0
+     :com2:	/dev/ttyS1
+     :com3:	/dev/ttyS2
+     :com4:	/dev/ttyS3
+     :com5:	/dev/ttyS4
+     :com6:	/dev/ttyS5
+     :com7:	/dev/ttyS6
+     :com8:	/dev/ttyS7
 

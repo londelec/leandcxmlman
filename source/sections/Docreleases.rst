@@ -16,9 +16,9 @@ This manual was published with the following leandc firmware release.
      :val,20:  Date
      :osv,60:  Required Operating System version
 
-   * :attr:    4.09
-     :val:     2018-03-05 15:55:30
-     :osv:     V3.0
+   * :attr:    4.10
+     :val:     2018-12-12 13:14:10
+     :osv:     V3.0 or V4.0
 
 .. tip::
 
@@ -35,6 +35,11 @@ This manual was published with the following leandc firmware release.
      :fdate,10:	Firmware date
      :doc,10:	Manual version(s)
      :osv,10:	Operating System version
+
+   * :fw:       4.09
+     :fdate:    2018-03-05 15:55:30
+     :doc:      V33
+     :osv:      V3.0
 
    * :fw:       4.08
      :fdate:    2018-02-26 16:06:36
@@ -186,6 +191,24 @@ This manual was published with the following leandc firmware release.
      :date,5:	Date
      :by,5:	By
      :desc,85:	Comments
+
+   * :ver:	V34
+     :date:	14/12/2018
+     :by:	AK
+     :desc:	| > :xmlref:`orCat` and :xmlref:`orIdent` attributes added to :ref:`<ref-IEC61850clAppSettings>` node. Values are used for sending control commands to IED;
+		| > Bit[2] added to :ref:`<ref-IEC61850clAppSettings>`.\ :ref:`<ref-IEC61850clAppFlags>` attribute, use millisecond accuracy of timetags received from IED;
+		| > Bit[4] added to :ref:`<ref-IEC61850clAppSettings>`.\ :ref:`<ref-IEC61850clAppFlags>` attribute, Ignore Resv attribute value of the Unbufferred report control block received from IED;
+		| > Bit[8] added to :ref:`<ref-IEC61850clAppSettings>`.\ :ref:`<ref-IEC61850clAppFlags>` attribute, enable all report control block found in the SCL file;
+		| > :ref:`<ref-IEC61850clPresentationSettings>`.\ :ref:`<ref-IEC61850clPresentationFlags>` attribute created;
+		| > Bit[0] of the :ref:`<ref-IEC61850clTransportSettings>`.\ :ref:`Flags<ref-IEC61850clTransportFlagsBits>` attribute controls destination reference checks and Bit[1] - Calling/Called Transport Selector checks;
+		| > Bit[0] of the :ref:`<ref-IEC61850clSessionSettings>`.\ :ref:`Flags<ref-IEC61850clSessionFlagsBits>` attribute controls Calling/Called Session Selector checks and Bit[1] - keeping transport connection open after finishig session;
+		| > Bit[6] added to IEC61850 client :ref:`DI<ref-IEC61850clDI>`.\ :ref:`Qualifier<ref-IEC61850clDIqualifierBits>` and :ref:`AI<ref-IEC61850clAI>`.\ :ref:`Qualifier<ref-IEC61850clAIqualifierBits>` attributes, non-persistent dynamic dataset support;
+		| > Bit[6] added to IEC61850 client :ref:`DO<ref-IEC61850clDO>`.\ :ref:`Qualifier<ref-IEC61850clDOqualifierBits>` and :ref:`AO<ref-IEC61850clAO>`.\ :ref:`Qualifier<ref-IEC61850clAOqualifierBits>` attributes, control Test bit support;
+		| > Bit[1] Synchrocheck and Bit[2] Interlock added to IEC61850 client :ref:`AO<ref-IEC61850clAO>`.\ :ref:`Qualifier<ref-IEC61850clAOqualifierBits>` attribute
+		| Decode AI as 32bit Integer and 16bit Binary Coded Decimal (BCD) options added to Modbus Master :ref:`AI<ref-ModbusmaAI>`.\ :ref:`<ref-ModbusmaAIType>` attribute;
+		| Encode date and time as 16bit Binary Coded Decimal (BCD) little endian option added to Modbus Master :ref:`<ref-ModbusmaTimeSettings>` types;
+		| > Bit[6] added to :ref:`<ref-CommsCfgPCAPLOG>`.\ :ref:`<ref-CommsCfgPCAPLOGLogFlags>` attribute, SSH (TCP port 22) traffic capture enable flag;
+		| > System log levels can be enabled Bits[0..2] of the :ref:`<ref-SYSLOGFILE>`.\ :ref:`<ref-SYSLOGFILELogFlags>` attribute.
 
    * :ver:	V33
      :date:	21/03/2018

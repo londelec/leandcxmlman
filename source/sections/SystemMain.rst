@@ -162,7 +162,9 @@ This node contains settings of a system-wide logfile.
 
 .. include-file:: sections/Include/table_attrs.rstinc "" "SYSLOGFILE attributes"
 
-   * :attr:     :xmlref:`LogFlags`
+   * :attr:     .. _ref-SYSLOGFILELogFlags:
+
+                :xmlref:`LogFlags`
      :val:      0...255 or 0x00...0xFF
      :def:	0x00
      :desc:     Select type of system messages to be logged. See table :numref:`docref-SYSLOGFILELogFlagsAttab` for description. Logfile will not be created if the value is 0.
@@ -184,15 +186,29 @@ This node contains settings of a system-wide logfile.
 
    * :attr:     Bit 0
      :val:      xxxx.xxx0
-     :desc:     System information recording to logfile **disabled**
+     :desc:     Error message recording to logfile **disabled**
 
    * :(attr):
      :val:      xxxx.xxx1
-     :desc:     System information recording to logfile **enabled**
+     :desc:     Error message recording to logfile **enabled**
 
-.. include-file:: sections/Include/hidden_SyslogFlagsBit1.rstinc "internal"
+   * :attr:     Bit 1
+     :val:      xxxx.xx0x
+     :desc:     Warning message recording to logfile **disabled**
 
-   * :attr:     Bits 1...7
+   * :(attr):
+     :val:      xxxx.xx1x
+     :desc:     Warning message recording to logfile **enabled**
+
+   * :attr:     Bit 2
+     :val:      xxxx.x0xx
+     :desc:     Information message recording to logfile **disabled**
+
+   * :(attr):
+     :val:      xxxx.x1xx
+     :desc:     Information message recording to logfile **enabled**
+
+   * :attr:     Bits 3...7
      :val:      Any
      :desc:     Bits reserved for future use
 

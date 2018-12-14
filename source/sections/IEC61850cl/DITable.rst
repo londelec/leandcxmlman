@@ -85,6 +85,17 @@ DI.Qualifier
      :val:      xx1x.xxxx
      :desc:     Use time tag of the **first** event if Intermediate state of the Double Point object was not reported (because Intermediate state didn't exceed :ref:`<ref-IEC61850clDIInterDelay>`). e.g. in transition ON->INTER->OFF time tag of the ON->INTER event will be used.
 
+   * :attr:     Bit 6
+     :val:      x0xx.xxxx
+     :desc:     Include this DI in **persistent** dynamic dataset.
+		IED retains persistent dynamically created datasets if communication to IEC61850 client is lost until IED is restarted/powered off.
+
+   * :(attr):
+     :val:      x1xx.xxxx
+     :desc:     Include this DI in **non-persistent** dynamic dataset.
+		IED automatically deletes non-persistent dynamically created datasets when communication to IEC61850 client is lost.
+		This option only applies if IED supports dynamic dataset creation.
+
    * :attr:     Bit 7
      :val:      0xxx.xxxx
      :desc:     DI is **enabled** and will be processed when received
@@ -93,6 +104,6 @@ DI.Qualifier
      :val:      1xxx.xxxx
      :desc:     DI is **disabled** and will be discarded when received
 
-   * :attr:     Bits 1;2;4;6
+   * :attr:     Bits 1;2;4
      :val:      Any
      :desc:     Bits reserved for future use

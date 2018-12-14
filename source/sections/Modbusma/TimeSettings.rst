@@ -118,6 +118,10 @@ Table below shows position of a sample value '85' (0x55) in a Modbus message dep
      :desc:     Encode value as 16bit Binary Coded Decimal (BCD) big endian.
 		For example value '2018' will appear in Modbus message as follows: {01 10 ... **20 18** ...}
 
+   * :val:      98
+     :desc:     Encode value as 16bit Binary Coded Decimal (BCD) little endian.
+		For example value '2018' will appear in Modbus message as follows: {01 10 ... **18 20** ...}
+
    * :val:      Other
      :desc:     Value is not used
 

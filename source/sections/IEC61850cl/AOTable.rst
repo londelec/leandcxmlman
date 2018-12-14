@@ -57,6 +57,30 @@ AO.Qualifier
 
 .. include-file:: sections/Include/table_flags.rstinc "" "IEC61850 Client AO internal qualifier" ":ref:`<ref-IEC61850clAOqualifier>`" "AO internal qualifier"
 
+   * :attr:     Bit 1
+     :val:      xxxx.xx0x
+     :desc:     [:lectext1:`Synchrocheck`] control bit is **disabled** in outgoing AO command
+
+   * :(attr):
+     :val:      xxxx.xx1x
+     :desc:     [:lectext1:`Synchrocheck`] control bit is **enabled** in outgoing AO command
+
+   * :attr:     Bit 2
+     :val:      xxxx.x0xx
+     :desc:     [:lectext1:`Interlock`] control bit is **disabled** in outgoing AO command
+
+   * :(attr):
+     :val:      xxxx.x1xx
+     :desc:     [:lectext1:`Interlock`] control bit is **enabled** in outgoing AO command
+
+   * :attr:     Bit 6
+     :val:      x0xx.xxxx
+     :desc:     [:lectext1:`Test`] bit of the control structure is **cleared**
+
+   * :(attr):
+     :val:      x1xx.xxxx
+     :desc:     [:lectext1:`Test`] bit of the control structure is **set**
+
    * :attr:     Bit 7
      :val:      0xxx.xxxx
      :desc:     AO is **enabled**, command will be sent to IED
@@ -65,6 +89,6 @@ AO.Qualifier
      :val:      1xxx.xxxx
      :desc:     AO is **disabled**, command will not be sent to IED
 
-   * :attr:     Bits 0...6
+   * :attr:     Bits 0;3;4
      :val:      Any
      :desc:     Bits reserved for future use

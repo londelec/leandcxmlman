@@ -145,6 +145,22 @@ AI.Type
      :desc:     Decode data as 16bit Signed Integer little endian.
 		For example received Modbus data {01 04 ... **11 FF** ...} will be decoded as '-239'
 
+   * :val:      37
+     :desc:     Decode data as 32bit Unsigned Integer byte order [3210].
+		For example received Modbus data {01 04 ... **00 01 00 05** ...} will be decoded as '65541'
+
+   * :val:      38
+     :desc:     Decode data as 32bit Unsigned Integer byte order [1032].
+		For example received Modbus data {01 04 ... **00 01 00 05** ...} will be decoded as '327681'
+
+   * :val:      39
+     :desc:     Decode data as 32bit Unsigned Integer byte order [2301].
+		For example received Modbus data {01 04 ... **00 01 00 05** ...} will be decoded as '16778496'
+
+   * :val:      40
+     :desc:     Decode data as 32bit Unsigned Integer byte order [0123].
+		For example received Modbus data {01 04 ... **00 01 00 05** ...} will be decoded as '83886336'
+
    * :val:      65
      :desc:     Decode data as Short floating point number byte order [3210].
 		For example received Modbus data {01 04 ... **40 00 10 80** ...} will be decoded as '2.001007'
@@ -160,6 +176,14 @@ AI.Type
    * :val:      68
      :desc:     Decode data as Short floating point number byte order [0123].
 		For example received Modbus data {01 04 ... **80 10 00 40** ...} will be decoded as '2.001007'
+
+   * :val:      97
+     :desc:     Decode data as 16bit Binary Coded Decimal (BCD) big endian.
+		For example received Modbus data {01 04 ... **12 34** ...} will be decoded as '1234'
+
+   * :val:      98
+     :desc:     Decode data as 16bit Binary Coded Decimal (BCD) little endian.
+		For example received Modbus data {01 04 ... **12 34** ...} will be decoded as '3412'
 
    * :val:	Other
      :desc:	Not used

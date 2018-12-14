@@ -6,13 +6,13 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Leandc series XML configuration manual V33</title>
+    <title>Leandc series XML configuration manual V34</title>
     
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     'V33',
+        VERSION:     'V34',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -11102,13 +11102,15 @@ Any testing data received will also be recorded to a communication logfile, if l
 <table border="1" class="table table-condensed table-bordered table-left table-center-all docutils" id="ref-serialhardwares">
 <caption><strong>Table 2.2 Supported hardwares and serial port numbers</strong></caption>
 <colgroup>
-<col width="14%" />
-<col width="14%" />
-<col width="14%" />
-<col width="14%" />
-<col width="14%" />
-<col width="14%" />
-<col width="14%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head"><strong>Hardware</strong></th>
@@ -11118,6 +11120,8 @@ Any testing data received will also be recorded to a communication logfile, if l
 <th class="head"><a class="reference internal" href="#ref-uartcom"><em>COM</em></a><strong> = 4</strong></th>
 <th class="head"><a class="reference internal" href="#ref-uartcom"><em>COM</em></a><strong> = 5</strong></th>
 <th class="head"><a class="reference internal" href="#ref-uartcom"><em>COM</em></a><strong> = 6</strong></th>
+<th class="head"><a class="reference internal" href="#ref-uartcom"><em>COM</em></a><strong> = 7</strong></th>
+<th class="head"><a class="reference internal" href="#ref-uartcom"><em>COM</em></a><strong> = 8</strong></th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -11128,6 +11132,8 @@ Any testing data received will also be recorded to a communication logfile, if l
 <td>/dev/ttyS1 (LEANDC-2/4 only)</td>
 <td>n/a</td>
 <td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
 </tr>
 <tr class="row-odd"><td>LEANDC-2/5 (ARK-3202F)</td>
 <td>/dev/ttyS0</td>
@@ -11136,12 +11142,16 @@ Any testing data received will also be recorded to a communication logfile, if l
 <td>variable</td>
 <td>variable</td>
 <td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
 </tr>
 <tr class="row-even"><td>LEIODC-x</td>
 <td>/dev/ttyAPP0</td>
 <td>/dev/ttyAPP1</td>
 <td>/dev/ttyAPP2</td>
 <td>/dev/ttyAPP3 (internal)</td>
+<td>n/a</td>
+<td>n/a</td>
 <td>n/a</td>
 <td>n/a</td>
 </tr>
@@ -11152,6 +11162,8 @@ Any testing data received will also be recorded to a communication logfile, if l
 <td>variable</td>
 <td>variable</td>
 <td>variable</td>
+<td>n/a</td>
+<td>n/a</td>
 </tr>
 <tr class="row-even"><td>LEANDC-3/6 (ARK-3360F)</td>
 <td>/dev/ttyS0</td>
@@ -11160,6 +11172,18 @@ Any testing data received will also be recorded to a communication logfile, if l
 <td>variable</td>
 <td>variable</td>
 <td>variable</td>
+<td>n/a</td>
+<td>n/a</td>
+</tr>
+<tr class="row-odd"><td>LEANDC-4/8 (UNO-2484F)</td>
+<td>/dev/ttyS0</td>
+<td>/dev/ttyS1</td>
+<td>/dev/ttyS2</td>
+<td>/dev/ttyS3</td>
+<td>/dev/ttyS4</td>
+<td>/dev/ttyS5</td>
+<td>/dev/ttyS6</td>
+<td>/dev/ttyS7</td>
 </tr>
 </tbody>
 </table>
@@ -12172,7 +12196,8 @@ Please see sample <a class="reference internal" href="#ref-syslogfile"><em>SYSLO
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><span class="xmlref">LogFlags</span></td>
+<tr class="row-even"><td><p class="first last" id="ref-syslogfilelogflags"><span class="xmlref">LogFlags</span></p>
+</td>
 <td>0...255 or 0x00...0xFF</td>
 <td>0x00</td>
 <td>Select type of system messages to be logged. See table <a href="#docref-syslogfilelogflagsattab">2.17</a> for description. Logfile will not be created if the value is 0.</td>
@@ -12240,12 +12265,26 @@ Logfile will not be created if the value is 0.</td>
 </tr>
 <tr class="row-odd"><td rowspan="2">Bit 0</td>
 <td>xxxx.xxx0</td>
-<td>System information recording to logfile <strong>disabled</strong></td>
+<td>Error message recording to logfile <strong>disabled</strong></td>
 </tr>
 <tr class="row-even"><td>xxxx.xxx1</td>
-<td>System information recording to logfile <strong>enabled</strong></td>
+<td>Error message recording to logfile <strong>enabled</strong></td>
 </tr>
-<tr class="row-odd"><td>Bits 1...7</td>
+<tr class="row-odd"><td rowspan="2">Bit 1</td>
+<td>xxxx.xx0x</td>
+<td>Warning message recording to logfile <strong>disabled</strong></td>
+</tr>
+<tr class="row-even"><td>xxxx.xx1x</td>
+<td>Warning message recording to logfile <strong>enabled</strong></td>
+</tr>
+<tr class="row-odd"><td rowspan="2">Bit 2</td>
+<td>xxxx.x0xx</td>
+<td>Information message recording to logfile <strong>disabled</strong></td>
+</tr>
+<tr class="row-even"><td>xxxx.x1xx</td>
+<td>Information message recording to logfile <strong>enabled</strong></td>
+</tr>
+<tr class="row-odd"><td>Bits 3...7</td>
 <td>Any</td>
 <td>Bits reserved for future use</td>
 </tr>
@@ -16010,7 +16049,8 @@ Quality marking of station&#8217;s DI/AI objects will be changed after configure
 </tr>
 <tr class="row-odd"><td>2</td>
 <td><strong>Substitute future</strong> timetags of events received from outstation with the local time.
-Timetags of received events will be substituted only if a received timetag is in future compared to the local time.</td>
+Timetags of received events will be substituted only if a received timetag is in future compared to the local time.
+There is no threshold, if the received timetag is in future by at least 1 millisecond, it will be substituted.</td>
 </tr>
 <tr class="row-even"><td rowspan="2"><span class="xmlref">SUthroughoutDST</span></td>
 <td>0</td>
@@ -16778,7 +16818,8 @@ Quality marking of station&#8217;s DI/AI objects will be changed after configure
 </tr>
 <tr class="row-even"><td>2</td>
 <td><strong>Substitute future</strong> timetags of events received from outstation with the local time.
-Timetags of received events will be substituted only if a received timetag is in future compared to the local time.</td>
+Timetags of received events will be substituted only if a received timetag is in future compared to the local time.
+There is no threshold, if the received timetag is in future by at least 1 millisecond, it will be substituted.</td>
 </tr>
 <tr class="row-odd"><td rowspan="2"><span class="xmlref">SUthroughoutDST</span></td>
 <td>0</td>
@@ -18474,7 +18515,8 @@ Quality marking of station&#8217;s DI/AI objects will be changed after configure
 </tr>
 <tr class="row-even"><td>2</td>
 <td><strong>Substitute future</strong> timetags of events received from outstation with the local time.
-Timetags of received events will be substituted only if a received timetag is in future compared to the local time.</td>
+Timetags of received events will be substituted only if a received timetag is in future compared to the local time.
+There is no threshold, if the received timetag is in future by at least 1 millisecond, it will be substituted.</td>
 </tr>
 <tr class="row-odd"><td rowspan="2"><span class="xmlref">SUthroughoutDST</span></td>
 <td>0</td>
@@ -20003,7 +20045,11 @@ For example value &#8216;2018&#8217; will appear in Modbus message as follows: {
 <td>Encode value as 16bit Binary Coded Decimal (BCD) big endian.
 For example value &#8216;2018&#8217; will appear in Modbus message as follows: {01 10 ... <strong>20 18</strong> ...}</td>
 </tr>
-<tr class="row-even"><td>Other</td>
+<tr class="row-even"><td>98</td>
+<td>Encode value as 16bit Binary Coded Decimal (BCD) little endian.
+For example value &#8216;2018&#8217; will appear in Modbus message as follows: {01 10 ... <strong>18 20</strong> ...}</td>
+</tr>
+<tr class="row-odd"><td>Other</td>
 <td>Value is not used</td>
 </tr>
 </tbody>
@@ -21005,6 +21051,22 @@ For example received Modbus data {01 04 ... <strong>11 FF</strong> ...} will be 
 <td>Decode data as 16bit Signed Integer little endian.
 For example received Modbus data {01 04 ... <strong>11 FF</strong> ...} will be decoded as &#8216;-239&#8217;</td>
 </tr>
+<tr class="row-odd"><td>37</td>
+<td>Decode data as 32bit Unsigned Integer byte order [3210].
+For example received Modbus data {01 04 ... <strong>00 01 00 05</strong> ...} will be decoded as &#8216;65541&#8217;</td>
+</tr>
+<tr class="row-even"><td>38</td>
+<td>Decode data as 32bit Unsigned Integer byte order [1032].
+For example received Modbus data {01 04 ... <strong>00 01 00 05</strong> ...} will be decoded as &#8216;327681&#8217;</td>
+</tr>
+<tr class="row-odd"><td>39</td>
+<td>Decode data as 32bit Unsigned Integer byte order [2301].
+For example received Modbus data {01 04 ... <strong>00 01 00 05</strong> ...} will be decoded as &#8216;16778496&#8217;</td>
+</tr>
+<tr class="row-even"><td>40</td>
+<td>Decode data as 32bit Unsigned Integer byte order [0123].
+For example received Modbus data {01 04 ... <strong>00 01 00 05</strong> ...} will be decoded as &#8216;83886336&#8217;</td>
+</tr>
 <tr class="row-odd"><td>65</td>
 <td>Decode data as Short floating point number byte order [3210].
 For example received Modbus data {01 04 ... <strong>40 00 10 80</strong> ...} will be decoded as &#8216;2.001007&#8217;</td>
@@ -21020,6 +21082,14 @@ For example received Modbus data {01 04 ... <strong>00 40 80 10</strong> ...} wi
 <tr class="row-even"><td>68</td>
 <td>Decode data as Short floating point number byte order [0123].
 For example received Modbus data {01 04 ... <strong>80 10 00 40</strong> ...} will be decoded as &#8216;2.001007&#8217;</td>
+</tr>
+<tr class="row-odd"><td>97</td>
+<td>Decode data as 16bit Binary Coded Decimal (BCD) big endian.
+For example received Modbus data {01 04 ... <strong>12 34</strong> ...} will be decoded as &#8216;1234&#8217;</td>
+</tr>
+<tr class="row-even"><td>98</td>
+<td>Decode data as 16bit Binary Coded Decimal (BCD) little endian.
+For example received Modbus data {01 04 ... <strong>12 34</strong> ...} will be decoded as &#8216;3412&#8217;</td>
 </tr>
 <tr class="row-odd"><td>Other</td>
 <td>Not used</td>
@@ -21245,7 +21315,7 @@ please see the sample below.</p>
 </div>
 <p><a class="reference internal" href="#ref-iec61850cldi"><em>DITable</em></a>; <a class="reference internal" href="#ref-iec61850clai"><em>AITable</em></a>; <a class="reference internal" href="#ref-iec61850cldo"><em>DOTable</em></a>; <a class="reference internal" href="#ref-iec61850clao"><em>AOTable</em></a> group nodes form the IO object table
 of the IEC61850 Client communication protocol instance. Please
-refer to the tables <a href="#ref-iec61850cldiattributes">11.19</a>; <a href="#ref-iec61850claiattributes">11.21</a>; <a href="#ref-iec61850cldoattributes">11.24</a> and <a href="#ref-iec61850claoattributes">11.26</a> for their attributes.</p>
+refer to the tables <a href="#ref-iec61850cldiattributes">11.20</a>; <a href="#ref-iec61850claiattributes">11.22</a>; <a href="#ref-iec61850cldoattributes">11.25</a> and <a href="#ref-iec61850claoattributes">11.27</a> for their attributes.</p>
 <div class="section" id="protocolcfg-group-node">
 <span id="ref-iec61850clprotocolcfg"></span><h3>ProtocolCfg group node</h3>
 <p><a class="reference internal" href="#ref-iec61850clprotocolcfg"><em>ProtocolCfg</em></a> group and its child element nodes contain protocol-related settings of the IEC61850 Client instance.</p>
@@ -21320,7 +21390,7 @@ Quality marking of station&#8217;s DI/AI objects will be changed after configure
 <p>Settings of the Transport layer (ISO8073) can be specified using attributes of <a class="reference internal" href="#ref-iec61850cltransportsettings"><em>TransportSettings</em></a>
 element node.</p>
 <p>Please see sample <a class="reference internal" href="#ref-iec61850cltransportsettings"><em>TransportSettings</em></a> node and all its attributes in the table below.</p>
-<div class="highlight-none"><div class="highlight"><pre>&lt;TransportSettings CallingTSEL=&quot;1&quot; SourceREF=&quot;15&quot; Flags=&quot;0x00&quot;/&gt;
+<div class="highlight-none"><div class="highlight"><pre>&lt;TransportSettings CallingTSEL=&quot;0001&quot; SourceREF=&quot;15&quot; Flags=&quot;0x00&quot;/&gt;
 </pre></div>
 </div>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="docref-iec61850cltransportsettingsattab">
@@ -21339,25 +21409,27 @@ element node.</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><span class="xmlref">CallingTSEL</span></td>
-<td>1...65535</td>
-<td>1</td>
-<td>Identifier of the calling Transport-Selector used for outgoing Connection Request [CR-TPDU] message.</td>
+<tr class="row-even"><td><p class="first last" id="ref-iec61850clcallingtsel"><span class="xmlref">CallingTSEL</span></p>
+</td>
+<td>Up to 8 hexadecimal characters 0...F</td>
+<td>0001</td>
+<td>Identifier of the calling Transport-Selector used for outgoing Connection Request [<span class="lectext1">CR-TPDU</span>] message.</td>
 </tr>
 <tr class="row-odd"><td><span class="xmlref">SourceREF</span></td>
 <td>1...65535</td>
 <td>10</td>
-<td>Reference selected by the transport entity initiating the Connection Request [CR-TPDU] message to identify the requested transport connection.</td>
+<td>Reference selected by the transport entity initiating the Connection Request [<span class="lectext1">CR-TPDU</span>] message to identify the requested transport connection.</td>
 </tr>
 <tr class="row-even"><td><p class="first last" id="ref-iec61850cltransportflags"><span class="xmlref">Flags</span></p>
 </td>
 <td>0...255 or 0x00...0xFF</td>
 <td>0x00</td>
-<td>Miscellaneous settings of the Transport layer. See table <a href="#docref-iec61850cltransportflagsbits">11.3</a> for description.</td>
+<td>Miscellaneous settings of the Transport layer.
+See table <a href="#ref-iec61850cltransportflagsbits">11.3</a> for description.</td>
 </tr>
 </tbody>
 </table>
-<table border="1" class="table table-condensed table-bordered longtable docutils" id="docref-iec61850cltransportflagsbits">
+<table border="1" class="table table-condensed table-bordered longtable docutils" id="ref-iec61850cltransportflagsbits">
 <caption><strong>Table 11.3 Transport layer flags</strong></caption>
 <colgroup>
 <col width="10%" />
@@ -21377,13 +21449,22 @@ element node.</p>
 </tr>
 <tr class="row-odd"><td rowspan="2">Bit 0</td>
 <td>xxxx.xxx0</td>
-<td>Calling and called Transport-Selector identifiers of the received Connection Confirm [CC-TPDU] message will be <strong>ignored</strong> (default value)</td>
+<td><strong>Ignore</strong> destination reference [<span class="lectext1">DST-REF</span>] of the received [<span class="lectext1">CC-TPDU</span>] message (default value)</td>
 </tr>
 <tr class="row-even"><td>xxxx.xxx1</td>
-<td>Calling and called Transport-Selector identifiers of the received Connection Confirm [CC-TPDU] message will be <strong>checked</strong>.
-Connection will be aborted if identifiers are incorrect.</td>
+<td><strong>Check</strong> destination reference [<span class="lectext1">DST-REF</span>] of the received [<span class="lectext1">CC-TPDU</span>] message.
+Communication will not be established if reference is incorrect.</td>
 </tr>
-<tr class="row-odd"><td>Bits 1...7</td>
+<tr class="row-odd"><td rowspan="2">Bit 1</td>
+<td>xxxx.xx0x</td>
+<td><strong>Ignore</strong> [<span class="lectext1">Calling Transport Selector</span>] and [<span class="lectext1">Called Transport Selector</span>] identifiers of the received [<span class="lectext1">CC-TPDU</span>] message (default value)</td>
+</tr>
+<tr class="row-even"><td>xxxx.xx1x</td>
+<td><strong>Check</strong> [<span class="lectext1">Calling Transport Selector</span>] and [<span class="lectext1">Called Transport Selector</span>] identifiers of the received [<span class="lectext1">CC-TPDU</span>] message.
+Communication will not be established if the received [<span class="lectext1">Calling Transport Selector</span>] doesn&#8217;t match &#8220;OSI-TSEL&#8221; in the SCL file or
+[<span class="lectext1">Called Transport Selector</span>] is different from [<span class="lectext1">CR-TPDU</span>] message value.</td>
+</tr>
+<tr class="row-odd"><td>Bits 2...7</td>
 <td>Any</td>
 <td>Bits reserved for future use</td>
 </tr>
@@ -21395,7 +21476,7 @@ Connection will be aborted if identifiers are incorrect.</td>
 <p>Settings of the Session layer (ISO8327) can be specified using attributes of <a class="reference internal" href="#ref-iec61850clsessionsettings"><em>SessionSettings</em></a>
 element node.</p>
 <p>Please see sample <a class="reference internal" href="#ref-iec61850clsessionsettings"><em>SessionSettings</em></a> node and all its attributes in the table below.</p>
-<div class="highlight-none"><div class="highlight"><pre>&lt;SessionSettings CallingSSEL=&quot;1&quot; Flags=&quot;0x00&quot;/&gt;
+<div class="highlight-none"><div class="highlight"><pre>&lt;SessionSettings CallingSSEL=&quot;0001&quot; Flags=&quot;0x00&quot;/&gt;
 </pre></div>
 </div>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="docref-iec61850clsessionsettingsattab">
@@ -21414,20 +21495,22 @@ element node.</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><span class="xmlref">CallingSSEL</span></td>
-<td>1...65535</td>
-<td>1</td>
-<td>Calling Session Selector used for outgoing [CONNECT (CN) SPDU] message</td>
+<tr class="row-even"><td><p class="first last" id="ref-iec61850clcallingssel"><span class="xmlref">CallingSSEL</span></p>
+</td>
+<td>Up to 16 hexadecimal characters 0...F</td>
+<td>0001</td>
+<td>Calling Session Selector used for outgoing [<span class="lectext1">CONNECT (CN) SPDU</span>] message</td>
 </tr>
 <tr class="row-odd"><td><p class="first last" id="ref-iec61850clsessionflags"><span class="xmlref">Flags</span></p>
 </td>
 <td>0...255 or 0x00...0xFF</td>
 <td>0x00</td>
-<td>Miscellaneous settings of the Session layer. See table <a href="#docref-iec61850clsessionflagsbits">11.5</a> for description</td>
+<td>Miscellaneous settings of the Session layer.
+See table <a href="#ref-iec61850clsessionflagsbits">11.5</a> for description</td>
 </tr>
 </tbody>
 </table>
-<table border="1" class="table table-condensed table-bordered longtable docutils" id="docref-iec61850clsessionflagsbits">
+<table border="1" class="table table-condensed table-bordered longtable docutils" id="ref-iec61850clsessionflagsbits">
 <caption><strong>Table 11.5 Session layer flags</strong></caption>
 <colgroup>
 <col width="10%" />
@@ -21447,12 +21530,21 @@ element node.</p>
 </tr>
 <tr class="row-odd"><td rowspan="2">Bit 0</td>
 <td>xxxx.xxx0</td>
-<td>Transport connection is <strong>released</strong> when sending [FINISH (FN) SPDU] message (default value)</td>
+<td><strong>Ignore</strong> [<span class="lectext1">Calling Session Selector</span>] and [<span class="lectext1">Called Session Selector</span>] identifiers of the received [<span class="lectext1">ACCEPT (AC) SPDU</span>] message (default value)</td>
 </tr>
 <tr class="row-even"><td>xxxx.xxx1</td>
-<td>Transport connection is <strong>kept</strong> when sending [FINISH (FN) SPDU] message</td>
+<td><strong>Check</strong> [<span class="lectext1">Calling Session Selector</span>] and [<span class="lectext1">Called Session Selector</span>] identifiers of the received [<span class="lectext1">ACCEPT (AC) SPDU</span>] message.
+Communication will not be established if the received [<span class="lectext1">Calling Session Selector</span>] doesn&#8217;t match &#8220;OSI-SSEL&#8221; in the SCL file or
+[<span class="lectext1">Called Session Selector</span>] is different from [<span class="lectext1">CONNECT (CC) SPDU</span>] message value.</td>
 </tr>
-<tr class="row-odd"><td>Bits 1...7</td>
+<tr class="row-odd"><td rowspan="2">Bit 1</td>
+<td>xxxx.xx0x</td>
+<td>Transport connection is <strong>released</strong> when sending [<span class="lectext1">FINISH (FN) SPDU</span>] message (default value)</td>
+</tr>
+<tr class="row-even"><td>xxxx.xx1x</td>
+<td>Transport connection is <strong>kept</strong> when sending [<span class="lectext1">FINISH (FN) SPDU</span>] message</td>
+</tr>
+<tr class="row-odd"><td>Bits 2...7</td>
 <td>Any</td>
 <td>Bits reserved for future use</td>
 </tr>
@@ -21464,7 +21556,7 @@ element node.</p>
 <p>Settings of the Presentation layer (ISO8823) can be specified using attributes of <a class="reference internal" href="#ref-iec61850clpresentationsettings"><em>PresentationSettings</em></a>
 element node.</p>
 <p>Please see sample <a class="reference internal" href="#ref-iec61850clpresentationsettings"><em>PresentationSettings</em></a> node and all its attributes in the table below.</p>
-<div class="highlight-none"><div class="highlight"><pre>&lt;PresentationSettings CallingPSEL=&quot;1&quot; /&gt;
+<div class="highlight-none"><div class="highlight"><pre>&lt;PresentationSettings CallingPSEL=&quot;0001&quot; Flags=&quot;0x00&quot;/&gt;
 </pre></div>
 </div>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="docref-iec61850clpresentationsettingsattab">
@@ -21483,10 +21575,50 @@ element node.</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><span class="xmlref">CallingPSEL</span></td>
-<td>1...2<sup>32</sup> - 1</td>
-<td>1</td>
-<td>Calling Presentation Selector used for outgoing [CP PPDU] message</td>
+<tr class="row-even"><td><p class="first last" id="ref-iec61850clcallingpsel"><span class="xmlref">CallingPSEL</span></p>
+</td>
+<td>Up to 16 hexadecimal characters 0...F</td>
+<td>0001</td>
+<td>Calling Presentation Selector used for outgoing [<span class="lectext1">CP-PPDU</span>] message</td>
+</tr>
+<tr class="row-odd"><td><p class="first last" id="ref-iec61850clpresentationflags"><span class="xmlref">Flags</span></p>
+</td>
+<td>0...255 or 0x00...0xFF</td>
+<td>0x00</td>
+<td>Miscellaneous settings of the Presentation layer.
+See table <a href="#ref-iec61850clpresentationflagsbits">11.7</a> for description.</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="table table-condensed table-bordered longtable docutils" id="ref-iec61850clpresentationflagsbits">
+<caption><strong>Table 11.7 Presentation layer flags</strong></caption>
+<colgroup>
+<col width="10%" />
+<col width="10%" />
+<col width="80%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><strong>Bits</strong></th>
+<th class="head"><strong>Value</strong></th>
+<th class="head"><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><a class="reference internal" href="#ref-iec61850clpresentationflags"><em>Flags</em></a> [xxxx.xxxx]</td>
+<td>0x00...0xFF</td>
+<td>Presentation layer flags is 8 bit encoded variable. Decimal 0...255 and hex 0x00...0xFF values supported</td>
+</tr>
+<tr class="row-odd"><td rowspan="2">Bit 0</td>
+<td>xxxx.xxx0</td>
+<td><strong>Ignore</strong> [<span class="lectext1">Responding presentation selector</span>] of the received [<span class="lectext1">CPA-PPDU</span>] message (default value)</td>
+</tr>
+<tr class="row-even"><td>xxxx.xxx1</td>
+<td><strong>Check</strong> [<span class="lectext1">Responding presentation selector</span>] of the received [<span class="lectext1">CPA-PPDU</span>] message.
+Communication will not be established if the received value doesn&#8217;t match &#8220;OSI-PSEL&#8221; in the SCL file.</td>
+</tr>
+<tr class="row-odd"><td>Bits 1...7</td>
+<td>Any</td>
+<td>Bits reserved for future use</td>
 </tr>
 </tbody>
 </table>
@@ -21500,7 +21632,7 @@ element node.</p>
 </pre></div>
 </div>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="docref-iec61850classociationsettingsattab">
-<caption><strong>Table 11.7 IEC61850 Client AssociationSettings attributes</strong></caption>
+<caption><strong>Table 11.8 IEC61850 Client AssociationSettings attributes</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="10%" />
@@ -21530,7 +21662,7 @@ element node.</p>
 <td>0...255 or 0x00...0xFF</td>
 <td>0x00</td>
 <td>Enabled fields of the outgoing [<span class="lectext1">AARQ APDU</span>] message.
-See table <a href="#docref-iec61850claarqfieldsbits">11.8</a> for description</td>
+See table <a href="#docref-iec61850claarqfieldsbits">11.9</a> for description</td>
 </tr>
 <tr class="row-odd"><td><span class="xmlref">MMSversion</span></td>
 <td>1; 2 or 3</td>
@@ -21542,12 +21674,12 @@ See table <a href="#docref-iec61850claarqfieldsbits">11.8</a> for description</t
 <td>0...255 or 0x00...0xFF</td>
 <td>0x00</td>
 <td>Miscellaneous Association Control Service settings.
-See table <a href="#docref-iec61850classocflagsbits">11.9</a> for description.</td>
+See table <a href="#docref-iec61850classocflagsbits">11.10</a> for description.</td>
 </tr>
 </tbody>
 </table>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="docref-iec61850claarqfieldsbits">
-<caption><strong>Table 11.8 Enabled AARQfields</strong></caption>
+<caption><strong>Table 11.9 Enabled AARQfields</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="10%" />
@@ -21592,7 +21724,7 @@ See table <a href="#docref-iec61850classocflagsbits">11.9</a> for description.</
 </tbody>
 </table>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="docref-iec61850classocflagsbits">
-<caption><strong>Table 11.9 Specific Association Control Service flags</strong></caption>
+<caption><strong>Table 11.10 Specific Association Control Service flags</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="10%" />
@@ -21611,11 +21743,11 @@ See table <a href="#docref-iec61850classocflagsbits">11.9</a> for description.</
 </tr>
 <tr class="row-odd"><td rowspan="2">Bit 0</td>
 <td>xxxx.xxx0</td>
-<td><strong>Ignore</strong> [<span class="lectext1">Responding AP Title</span>] and [<span class="lectext1">Responding AE Qualifier</span>] of the received [<span class="lectext1">AARE APDU</span>] message.</td>
+<td><strong>Ignore</strong> [<span class="lectext1">Responding AP Title</span>] and [<span class="lectext1">Responding AE Qualifier</span>] of the received [<span class="lectext1">AARE APDU</span>] message. (default value)</td>
 </tr>
 <tr class="row-even"><td>xxxx.xxx1</td>
 <td><strong>Check</strong> [<span class="lectext1">Responding AP Title</span>] and [<span class="lectext1">Responding AE Qualifier</span>] of the received [<span class="lectext1">AARE APDU</span>] message.
-Communication will not be established if the received values doesn&#8217;t match &#8220;OSI-AP-Title&#8221; and &#8220;OSI-AE-Qualifier&#8221; values in SCL file.</td>
+Communication will not be established if the received values don&#8217;t match &#8220;OSI-AP-Title&#8221; and &#8220;OSI-AE-Qualifier&#8221; in the SCL file.</td>
 </tr>
 <tr class="row-odd"><td>Bits 1...7</td>
 <td>Any</td>
@@ -21632,7 +21764,7 @@ Communication will not be established if the received values doesn&#8217;t match
 </pre></div>
 </div>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="docref-iec61850clscsmsettingsattab">
-<caption><strong>Table 11.10 IEC61850 Client ScsmSettings attributes</strong></caption>
+<caption><strong>Table 11.11 IEC61850 Client ScsmSettings attributes</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="10%" />
@@ -21664,7 +21796,7 @@ Communication will not be established if the received values doesn&#8217;t match
 <td>Optional Fields for Buffered Report Control Blocks.
 [OptFlds] of all used Report Control Blocks will be set to this value.
 Applies to all Report Control Blocks - defined in SCL and received from IED during initialization.
-See table <a href="#docref-iec61850clscsmoptfldsbits">11.11</a> for description.</td>
+See table <a href="#docref-iec61850clscsmoptfldsbits">11.12</a> for description.</td>
 </tr>
 <tr class="row-odd"><td><p class="first last" id="ref-iec61850clscsmuoptflds"><span class="xmlref">UOptFlds</span></p>
 </td>
@@ -21673,19 +21805,19 @@ See table <a href="#docref-iec61850clscsmoptfldsbits">11.11</a> for description.
 <td>Optional Fields for Unbuffered Report Control Blocks.
 [OptFlds] of all used Report Control Blocks will be set to this value.
 Applies to all Report Control Blocks - defined in SCL and received from IED during initialization.
-See table <a href="#docref-iec61850clscsmoptfldsbits">11.11</a> for description.</td>
+See table <a href="#docref-iec61850clscsmoptfldsbits">11.12</a> for description.</td>
 </tr>
 <tr class="row-even"><td><p class="first last" id="ref-iec61850clscsmflags"><span class="xmlref">Flags</span></p>
 </td>
 <td>0...65535 or 0x00...0xFFFF</td>
 <td>0x0000</td>
 <td>Miscellaneous Specific Communication Service Mapping settings.
-See table <a href="#docref-iec61850clscsmflagsbits">11.12</a> for description.</td>
+See table <a href="#docref-iec61850clscsmflagsbits">11.13</a> for description.</td>
 </tr>
 </tbody>
 </table>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="docref-iec61850clscsmoptfldsbits">
-<caption><strong>Table 11.11 [OptFlds] of Report Control Blocks</strong></caption>
+<caption><strong>Table 11.12 [OptFlds] of Report Control Blocks</strong></caption>
 <colgroup>
 <col width="20%" />
 <col width="20%" />
@@ -21765,7 +21897,7 @@ See table <a href="#docref-iec61850clscsmflagsbits">11.12</a> for description.</
 </tbody>
 </table>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="docref-iec61850clscsmflagsbits">
-<caption><strong>Table 11.12 Specific Communication Service Mapping flags</strong></caption>
+<caption><strong>Table 11.13 Specific Communication Service Mapping flags</strong></caption>
 <colgroup>
 <col width="20%" />
 <col width="20%" />
@@ -21824,11 +21956,11 @@ Basic Types are not read by default, only in circumstatnces described above.</td
 <span id="ref-iec61850clappsettings"></span><h4>AppSettings</h4>
 <p>Application layer settings can be specified using attributes of <a class="reference internal" href="#ref-iec61850clappsettings"><em>AppSettings</em></a> element node.</p>
 <p>Please see sample <a class="reference internal" href="#ref-iec61850clappsettings"><em>AppSettings</em></a> node and all its attributes in the table below.</p>
-<div class="highlight-none"><div class="highlight"><pre>&lt;AppSettings IgnoreTimetags=&quot;1&quot; AIDeadband=&quot;2&quot; AIPercent=&quot;0.5&quot; DIEventStartup=&quot;1&quot; AIEventStartup=&quot;1&quot; ForwardGI=&quot;1&quot; bufTime=&quot;0&quot; Flags=&quot;0x0000&quot;/&gt;
+<div class="highlight-none"><div class="highlight"><pre>&lt;AppSettings IgnoreTimetags=&quot;1&quot; AIDeadband=&quot;2&quot; AIPercent=&quot;0.5&quot; DIEventStartup=&quot;1&quot; AIEventStartup=&quot;1&quot; ForwardGI=&quot;1&quot; bufTime=&quot;0&quot; orCat=&quot;3&quot; orIdent=&quot;LEANDC&quot; Flags=&quot;0x0000&quot;/&gt;
 </pre></div>
 </div>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="docref-iec61850clappsettingsattab">
-<caption><strong>Table 11.13 IEC61850 Client AppSettings attributes</strong></caption>
+<caption><strong>Table 11.14 IEC61850 Client AppSettings attributes</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="10%" />
@@ -21853,7 +21985,8 @@ Basic Types are not read by default, only in circumstatnces described above.</td
 </tr>
 <tr class="row-even"><td>2</td>
 <td><strong>Substitute future</strong> timetags of events received from outstation with the local time.
-Timetags of received events will be substituted only if a received timetag is in future compared to the local time.</td>
+Timetags of received events will be substituted only if a received timetag is in future compared to the local time.
+There is no threshold, if the received timetag is in future by at least 1 millisecond, it will be substituted.</td>
 </tr>
 <tr class="row-odd"><td><p class="first last" id="ref-iec61850clappsettingsaideadband"><span class="xmlref">AIDeadband</span></p>
 </td>
@@ -21897,17 +22030,28 @@ Timetags of received events will be substituted only if a received timetag is in
 <td>Interval in milliseconds for the buffering of internal notifications before Information Report is generated [IEC61850-7-2:2010].
 Value 0 disables buffering and Information Reports are generated instantly.</td>
 </tr>
+<tr class="row-even"><td><span class="xmlref">orCat</span></td>
+<td>1...8</td>
+<td>3</td>
+<td>Originator category value for outgoing commands [IEC61850-7-3:2011].
+Default value 3 = [<span class="lectext1">remote-control</span>]</td>
+</tr>
+<tr class="row-odd"><td><span class="xmlref">orIdent</span></td>
+<td>64 chars</td>
+<td>LEANDC</td>
+<td>Originator identification value for outgoing commands [IEC61850-7-3:2011].</td>
+</tr>
 <tr class="row-even"><td><p class="first last" id="ref-iec61850clappflags"><span class="xmlref">Flags</span></p>
 </td>
 <td>0...65535 or 0x00...0xFFFF</td>
 <td>0x0000</td>
 <td>Miscellaneous settings of the Application layer.
-See table <a href="#docref-iec61850clappflagsbits">11.14</a> for description.</td>
+See table <a href="#ref-iec61850clappflagsbits">11.15</a> for description.</td>
 </tr>
 </tbody>
 </table>
-<table border="1" class="table table-condensed table-bordered longtable docutils" id="docref-iec61850clappflagsbits">
-<caption><strong>Table 11.14 Application layer flags</strong></caption>
+<table border="1" class="table table-condensed table-bordered longtable docutils" id="ref-iec61850clappflagsbits">
+<caption><strong>Table 11.15 Application layer flags</strong></caption>
 <colgroup>
 <col width="20%" />
 <col width="20%" />
@@ -21942,7 +22086,33 @@ Object directory received from IED will be matched against SCL file and any inco
 This bit has to be used only for IEDs that doesn&#8217;t generate a report when Enhanced security Direct or SBO command is complete.
 If not set command will be removed only after Application timeout expiration.</td>
 </tr>
-<tr class="row-odd"><td>Bits 2...15</td>
+<tr class="row-odd"><td rowspan="2">Bit 2</td>
+<td>xxxx.xxxx xxxx.x0xx</td>
+<td><strong>Ignore</strong> millisecond accuracy of timetags received from IED (default value)</td>
+</tr>
+<tr class="row-even"><td>xxxx.xxxx xxxx.x1xx</td>
+<td><strong>Use</strong> millisecond accuracy of timetags received from IED.
+Some IEDs report lower accuracy if the IED is not synchronized.
+Enabling this setting will result in rounding of milliseconds based on the accuracy and the timetag may appear different from the value IED has recorded in the internal event list.</td>
+</tr>
+<tr class="row-odd"><td rowspan="2">Bit 4</td>
+<td>xxxx.xxxx xxx0.xvxx</td>
+<td><strong>Use</strong> [<span class="lectext1">Resv</span>] attribute value of the Unbufferred report control block received from IED (default value)
+IEC61850 client tries to reserve only unbuffered report control blocks that are not already reserved by another client.</td>
+</tr>
+<tr class="row-even"><td>xxxx.xxxx xxx1.xxxx</td>
+<td><strong>Ignore</strong> [<span class="lectext1">Resv</span>] attribute value of the Unbufferred report control block received from IED.
+IEC61850 client tries to reserve unbuffered report control blocks even if already reserved by another client.</td>
+</tr>
+<tr class="row-odd"><td rowspan="2">Bit 8</td>
+<td>xxxx.xxx0 xxxx.xxxx</td>
+<td>Enable only Report Blocks with linked static datasets that contain <strong>defined DI/AI objects</strong> (default value)</td>
+</tr>
+<tr class="row-even"><td>xxxx.xxx1 xxxx.xxxx</td>
+<td>Enable <strong>all</strong> Report Blocks that exist in the SCL file.
+This setting applies only to Report Blocks that are defined in the SCL file.</td>
+</tr>
+<tr class="row-odd"><td>Bits 3;5...7;9...15</td>
 <td>Any</td>
 <td>Bits reserved for future use</td>
 </tr>
@@ -21957,7 +22127,7 @@ If not set command will be removed only after Application timeout expiration.</t
 </pre></div>
 </div>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="docref-iec61850clservicesettingsattab">
-<caption><strong>Table 11.15 IEC61850 Client ServiceSettings attributes</strong></caption>
+<caption><strong>Table 11.16 IEC61850 Client ServiceSettings attributes</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="10%" />
@@ -21975,12 +22145,12 @@ If not set command will be removed only after Application timeout expiration.</t
 <tr class="row-even"><td><span class="xmlref">EventMask</span></td>
 <td>0...255 or 0x00...0xFF</td>
 <td>0x00</td>
-<td>Disable spontaneous reporting (events) of DI/AI objects when communication state of the station changes. See table <a href="#docref-iec61850clserviceeventmaskattab">11.16</a> for event mask description. (default 0x00 - DI/AI events are always generated - none masked) <span class="inlinetip">Note quality bits of static DI/AI qualifier will still be set even if event reporting is masked by</span> <span class="xmlref">EventMask</span> <span class="inlinetip">attribute</span></td>
+<td>Disable spontaneous reporting (events) of DI/AI objects when communication state of the station changes. See table <a href="#docref-iec61850clserviceeventmaskattab">11.17</a> for event mask description. (default 0x00 - DI/AI events are always generated - none masked) <span class="inlinetip">Note quality bits of static DI/AI qualifier will still be set even if event reporting is masked by</span> <span class="xmlref">EventMask</span> <span class="inlinetip">attribute</span></td>
 </tr>
 </tbody>
 </table>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="docref-iec61850clserviceeventmaskattab">
-<caption><strong>Table 11.16 Service event masking bits</strong></caption>
+<caption><strong>Table 11.17 Service event masking bits</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="10%" />
@@ -22040,7 +22210,7 @@ If not set command will be removed only after Application timeout expiration.</t
 </pre></div>
 </div>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="docref-iec61850cltimeoutsattab">
-<caption><strong>Table 11.17 IEC61850 Client Timeouts attributes</strong></caption>
+<caption><strong>Table 11.18 IEC61850 Client Timeouts attributes</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="10%" />
@@ -22091,7 +22261,7 @@ Connection to IED will be closed if no response to a sent message has been recei
 </pre></div>
 </div>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="docref-iec61850clperiodicattab">
-<caption><strong>Table 11.18 IEC61850 Client Periodic attributes</strong></caption>
+<caption><strong>Table 11.19 IEC61850 Client Periodic attributes</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="10%" />
@@ -22147,7 +22317,7 @@ Please refer to the section <a class="reference internal" href="#docref-iec10xsl
 <div class="section" id="di-attributes">
 <h4>DI attributes</h4>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="ref-iec61850cldiattributes">
-<caption><strong>Table 11.19 IEC61850 Client DI attributes</strong></caption>
+<caption><strong>Table 11.20 IEC61850 Client DI attributes</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="10%" />
@@ -22208,7 +22378,7 @@ It may contain either single level name e.g. &#8216;Pos&#8217; or multiple level
 <td>0...255 or 0x00...0xFF</td>
 <td>0x00</td>
 <td>Internal object qualifier to enable customized data processing.
-See table <a href="#ref-iec61850cldiqualifierbits">11.20</a> for internal object qualifier description.
+See table <a href="#ref-iec61850cldiqualifierbits">11.21</a> for internal object qualifier description.
 <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
 </tr>
 <tr class="row-even"><td><p class="first last" id="ref-iec61850cldiinterdelay"><span class="xmlref">InterDelay</span></p>
@@ -22250,7 +22420,7 @@ It is recommended not to use this attribute, unless you fully understand implica
 <td>0...255 or 0x00...0xFF</td>
 <td>0x00</td>
 <td>Information Report trigger options.
-See table <a href="#ref-iec61850cltrgops">11.23</a> for Trigger Options description.
+See table <a href="#ref-iec61850cltrgops">11.24</a> for Trigger Options description.
 <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
 </tr>
 <tr class="row-odd"><td><p class="first last" id="ref-iec61850cldiintgpd"><span class="xmlref">intgPd</span></p>
@@ -22272,7 +22442,7 @@ Value 0 disables integrity reports.
 <div class="section" id="di-qualifier">
 <h4>DI.Qualifier</h4>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="ref-iec61850cldiqualifierbits">
-<caption><strong>Table 11.20 IEC61850 Client DI internal qualifier</strong></caption>
+<caption><strong>Table 11.21 IEC61850 Client DI internal qualifier</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="10%" />
@@ -22310,6 +22480,16 @@ Value 0 disables integrity reports.
 <tr class="row-even"><td>xx1x.xxxx</td>
 <td>Use time tag of the <strong>first</strong> event if Intermediate state of the Double Point object was not reported (because Intermediate state didn&#8217;t exceed <a class="reference internal" href="#ref-iec61850cldiinterdelay"><em>InterDelay</em></a>). e.g. in transition ON-&gt;INTER-&gt;OFF time tag of the ON-&gt;INTER event will be used.</td>
 </tr>
+<tr class="row-odd"><td rowspan="2">Bit 6</td>
+<td>x0xx.xxxx</td>
+<td>Include this DI in <strong>persistent</strong> dynamic dataset.
+IED retains persistent dynamically created datasets if communication to IEC61850 client is lost until IED is restarted/powered off.</td>
+</tr>
+<tr class="row-even"><td>x1xx.xxxx</td>
+<td>Include this DI in <strong>non-persistent</strong> dynamic dataset.
+IED automatically deletes non-persistent dynamically created datasets when communication to IEC61850 client is lost.
+This option only applies if IED supports dynamic dataset creation.</td>
+</tr>
 <tr class="row-odd"><td rowspan="2">Bit 7</td>
 <td>0xxx.xxxx</td>
 <td>DI is <strong>enabled</strong> and will be processed when received</td>
@@ -22317,7 +22497,7 @@ Value 0 disables integrity reports.
 <tr class="row-even"><td>1xxx.xxxx</td>
 <td>DI is <strong>disabled</strong> and will be discarded when received</td>
 </tr>
-<tr class="row-odd"><td>Bits 1;2;4;6</td>
+<tr class="row-odd"><td>Bits 1;2;4</td>
 <td>Any</td>
 <td>Bits reserved for future use</td>
 </tr>
@@ -22349,7 +22529,7 @@ Please refer to the section <a class="reference internal" href="#docref-iec10xsl
 <div class="section" id="ai-attributes">
 <h4>AI attributes</h4>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="ref-iec61850claiattributes">
-<caption><strong>Table 11.21 IEC61850 Client AI attributes</strong></caption>
+<caption><strong>Table 11.22 IEC61850 Client AI attributes</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="10%" />
@@ -22410,7 +22590,7 @@ It may contain either single level name e.g. &#8216;Pos&#8217; or multiple level
 <td>0...255 or 0x00...0xFF</td>
 <td>0x00</td>
 <td>Internal object qualifier to enable customized data processing.
-See table <a href="#ref-iec61850claiqualifierbits">11.22</a> for internal object qualifier description.
+See table <a href="#ref-iec61850claiqualifierbits">11.23</a> for internal object qualifier description.
 <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
 </tr>
 <tr class="row-even"><td><p class="first last" id="ref-iec61850claicoeff"><span class="xmlref">Coeff</span></p>
@@ -22509,7 +22689,7 @@ It is recommended not to use this attribute, unless you fully understand implica
 <td>0...255 or 0x00...0xFF</td>
 <td>0x00</td>
 <td>Information Report trigger options.
-See table <a href="#ref-iec61850cltrgops">11.23</a> for Trigger Options description.
+See table <a href="#ref-iec61850cltrgops">11.24</a> for Trigger Options description.
 <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
 </tr>
 <tr class="row-odd"><td><p class="first last" id="ref-iec61850claiintgpd"><span class="xmlref">intgPd</span></p>
@@ -22537,7 +22717,7 @@ Annexes <a class="reference internal" href="#docref-aiscalingwithoutstartoffset"
 <div class="section" id="ai-qualifier">
 <h4>AI.Qualifier</h4>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="ref-iec61850claiqualifierbits">
-<caption><strong>Table 11.22 IEC61850 Client AI internal qualifier</strong></caption>
+<caption><strong>Table 11.23 IEC61850 Client AI internal qualifier</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="10%" />
@@ -22561,6 +22741,16 @@ Annexes <a class="reference internal" href="#docref-aiscalingwithoutstartoffset"
 <tr class="row-even"><td>xxxx.1xxx</td>
 <td><strong>Substitute</strong> timetag with local time when event is received from IED</td>
 </tr>
+<tr class="row-odd"><td rowspan="2">Bit 6</td>
+<td>x0xx.xxxx</td>
+<td>Include this AI in <strong>persistent</strong> dynamic dataset.
+IED retains persistent dynamically created datasets if communication to IEC61850 client is lost until IED is restarted/powered off.</td>
+</tr>
+<tr class="row-even"><td>x1xx.xxxx</td>
+<td>Include this AI in <strong>non-persistent</strong> dynamic dataset.
+IED automatically deletes non-persistent dynamically created datasets when communication to IEC61850 client is lost.
+This option only applies if IED supports dynamic dataset creation.</td>
+</tr>
 <tr class="row-odd"><td rowspan="2">Bit 7</td>
 <td>0xxx.xxxx</td>
 <td>AI is <strong>enabled</strong> and will be processed when received</td>
@@ -22568,7 +22758,7 @@ Annexes <a class="reference internal" href="#docref-aiscalingwithoutstartoffset"
 <tr class="row-even"><td>1xxx.xxxx</td>
 <td>AI is <strong>disabled</strong> and will be discarded when received</td>
 </tr>
-<tr class="row-odd"><td>Bits 0...2;4...6</td>
+<tr class="row-odd"><td>Bits 0...2;4...5</td>
 <td>Any</td>
 <td>Bits reserved for future use</td>
 </tr>
@@ -22578,7 +22768,7 @@ Annexes <a class="reference internal" href="#docref-aiscalingwithoutstartoffset"
 <div class="section" id="di-ai-trgops">
 <h4>DI/AI.TrgOps</h4>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="ref-iec61850cltrgops">
-<caption><strong>Table 11.23 IEC61850 Client Trigger Options</strong></caption>
+<caption><strong>Table 11.24 IEC61850 Client Trigger Options</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="10%" />
@@ -22642,7 +22832,7 @@ Please refer to the section <a class="reference internal" href="#docref-iec10xsl
 <div class="section" id="do-attributes">
 <h4>DO attributes</h4>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="ref-iec61850cldoattributes">
-<caption><strong>Table 11.24 IEC61850 Client DO attributes</strong></caption>
+<caption><strong>Table 11.25 IEC61850 Client DO attributes</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="10%" />
@@ -22703,7 +22893,7 @@ It may contain either single level name e.g. &#8216;Pos&#8217; or multiple level
 <td>0...255 or 0x00...0xFF</td>
 <td>0x00</td>
 <td>Internal object qualifier to enable customized data processing.
-See table <a href="#ref-iec61850cldoqualifierbits">11.25</a> for internal object qualifier description.
+See table <a href="#ref-iec61850cldoqualifierbits">11.26</a> for internal object qualifier description.
 <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
 </tr>
 <tr class="row-even"><td><span class="xmlref">Name</span></td>
@@ -22717,7 +22907,7 @@ See table <a href="#ref-iec61850cldoqualifierbits">11.25</a> for internal object
 <div class="section" id="do-qualifier">
 <h4>DO.Qualifier</h4>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="ref-iec61850cldoqualifierbits">
-<caption><strong>Table 11.25 IEC61850 Client DO internal qualifier</strong></caption>
+<caption><strong>Table 11.26 IEC61850 Client DO internal qualifier</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="10%" />
@@ -22743,17 +22933,24 @@ See table <a href="#ref-iec61850cldoqualifierbits">11.25</a> for internal object
 </tr>
 <tr class="row-odd"><td rowspan="2">Bit 1</td>
 <td>xxxx.xx0x</td>
-<td>[Synchrocheck] control bit is <strong>disabled</strong> in outgoing DO command</td>
+<td>[<span class="lectext1">Synchrocheck</span>] control bit is <strong>disabled</strong> in outgoing DO command</td>
 </tr>
 <tr class="row-even"><td>xxxx.xx1x</td>
-<td>[Synchrocheck] control bit is <strong>enabled</strong> in outgoing DO command</td>
+<td>[<span class="lectext1">Synchrocheck</span>] control bit is <strong>enabled</strong> in outgoing DO command</td>
 </tr>
 <tr class="row-odd"><td rowspan="2">Bit 2</td>
 <td>xxxx.x0xx</td>
-<td>[Interlock] control bit is <strong>disabled</strong> in outgoing DO command</td>
+<td>[<span class="lectext1">Interlock</span>] control bit is <strong>disabled</strong> in outgoing DO command</td>
 </tr>
 <tr class="row-even"><td>xxxx.x1xx</td>
-<td>[Interlock] control bit is <strong>enabled</strong> in outgoing DO command</td>
+<td>[<span class="lectext1">Interlock</span>] control bit is <strong>enabled</strong> in outgoing DO command</td>
+</tr>
+<tr class="row-odd"><td rowspan="2">Bit 6</td>
+<td>x0xx.xxxx</td>
+<td>[<span class="lectext1">Test</span>] bit of the control structure is <strong>cleared</strong></td>
+</tr>
+<tr class="row-even"><td>x1xx.xxxx</td>
+<td>[<span class="lectext1">Test</span>] bit of the control structure is <strong>set</strong></td>
 </tr>
 <tr class="row-odd"><td rowspan="2">Bit 7</td>
 <td>0xxx.xxxx</td>
@@ -22762,7 +22959,7 @@ See table <a href="#ref-iec61850cldoqualifierbits">11.25</a> for internal object
 <tr class="row-even"><td>1xxx.xxxx</td>
 <td>DO is <strong>disabled</strong>, command will not be sent to IED</td>
 </tr>
-<tr class="row-odd"><td>Bits 3...6</td>
+<tr class="row-odd"><td>Bits 3...5</td>
 <td>Any</td>
 <td>Bits reserved for future use</td>
 </tr>
@@ -22794,7 +22991,7 @@ Please refer to the section <a class="reference internal" href="#docref-iec10xsl
 <div class="section" id="ao-attributes">
 <h4>AO attributes</h4>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="ref-iec61850claoattributes">
-<caption><strong>Table 11.26 IEC61850 Client AO attributes</strong></caption>
+<caption><strong>Table 11.27 IEC61850 Client AO attributes</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="10%" />
@@ -22855,7 +23052,7 @@ It may contain either single level name e.g. &#8216;Mod&#8217; or multiple level
 <td>0...255 or 0x00...0xFF</td>
 <td>0x00</td>
 <td>Internal object qualifier to enable customized data processing.
-See table <a href="#ref-iec61850claoqualifierbits">11.27</a> for internal object qualifier description.
+See table <a href="#ref-iec61850claoqualifierbits">11.28</a> for internal object qualifier description.
 <span class="inlinetip">Attribute is optional and doesn&#8217;t have to be included in configuration, default value will be used if omitted.</span></td>
 </tr>
 <tr class="row-even"><td><p class="first last" id="ref-iec61850claocoeff"><span class="xmlref">Coeff</span></p>
@@ -22876,7 +23073,7 @@ See table <a href="#ref-iec61850claoqualifierbits">11.27</a> for internal object
 <div class="section" id="ao-qualifier">
 <h4>AO.Qualifier</h4>
 <table border="1" class="table table-condensed table-bordered longtable docutils" id="ref-iec61850claoqualifierbits">
-<caption><strong>Table 11.27 IEC61850 Client AO internal qualifier</strong></caption>
+<caption><strong>Table 11.28 IEC61850 Client AO internal qualifier</strong></caption>
 <colgroup>
 <col width="10%" />
 <col width="10%" />
@@ -22893,6 +23090,27 @@ See table <a href="#ref-iec61850claoqualifierbits">11.27</a> for internal object
 <td>0x00...0xFF</td>
 <td>AO internal qualifier is 8 bit encoded variable. Decimal 0...255 and hex 0x00...0xFF values supported</td>
 </tr>
+<tr class="row-odd"><td rowspan="2">Bit 1</td>
+<td>xxxx.xx0x</td>
+<td>[<span class="lectext1">Synchrocheck</span>] control bit is <strong>disabled</strong> in outgoing AO command</td>
+</tr>
+<tr class="row-even"><td>xxxx.xx1x</td>
+<td>[<span class="lectext1">Synchrocheck</span>] control bit is <strong>enabled</strong> in outgoing AO command</td>
+</tr>
+<tr class="row-odd"><td rowspan="2">Bit 2</td>
+<td>xxxx.x0xx</td>
+<td>[<span class="lectext1">Interlock</span>] control bit is <strong>disabled</strong> in outgoing AO command</td>
+</tr>
+<tr class="row-even"><td>xxxx.x1xx</td>
+<td>[<span class="lectext1">Interlock</span>] control bit is <strong>enabled</strong> in outgoing AO command</td>
+</tr>
+<tr class="row-odd"><td rowspan="2">Bit 6</td>
+<td>x0xx.xxxx</td>
+<td>[<span class="lectext1">Test</span>] bit of the control structure is <strong>cleared</strong></td>
+</tr>
+<tr class="row-even"><td>x1xx.xxxx</td>
+<td>[<span class="lectext1">Test</span>] bit of the control structure is <strong>set</strong></td>
+</tr>
 <tr class="row-odd"><td rowspan="2">Bit 7</td>
 <td>0xxx.xxxx</td>
 <td>AO is <strong>enabled</strong>, command will be sent to IED</td>
@@ -22900,7 +23118,7 @@ See table <a href="#ref-iec61850claoqualifierbits">11.27</a> for internal object
 <tr class="row-even"><td>1xxx.xxxx</td>
 <td>AO is <strong>disabled</strong>, command will not be sent to IED</td>
 </tr>
-<tr class="row-odd"><td>Bits 0...6</td>
+<tr class="row-odd"><td>Bits 0;3;4</td>
 <td>Any</td>
 <td>Bits reserved for future use</td>
 </tr>
@@ -23262,7 +23480,14 @@ Address from <a class="reference internal" href="#ref-tcpserver"><em>TCPSERVER</
 <td>Capture filter by port number is  <strong>enabled</strong>. Only messages with matching Source or Destination Port number will be captured.
 Port number from <a class="reference internal" href="#ref-tcpserver"><em>TCPSERVER</em></a>.<a class="reference internal" href="#ref-tcpserverport"><em>Port</em></a> ; <a class="reference internal" href="#ref-tcpclient"><em>TCPCLIENT</em></a>.<a class="reference internal" href="#ref-tcpclientport"><em>Port</em></a> or <a class="reference internal" href="#ref-udp"><em>UDP</em></a>.<a class="reference internal" href="#ref-udpremoteport"><em>RemotePort</em></a> attribute is used as a filter.</td>
 </tr>
-<tr class="row-odd"><td>Bits 3...7</td>
+<tr class="row-odd"><td rowspan="2">Bit 6</td>
+<td>x0xx.xxxx</td>
+<td>SSH (TCP port 22) traffic capture <strong>disabled</strong></td>
+</tr>
+<tr class="row-even"><td>x1xx.xxxx</td>
+<td>SSH (TCP port 22) traffic capture <strong>enabled</strong></td>
+</tr>
+<tr class="row-odd"><td>Bits 3...5;7</td>
 <td>Any</td>
 <td>Bits reserved for future use</td>
 </tr>
@@ -33643,9 +33868,9 @@ names, etc.</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>4.09</td>
-<td>2018-03-05 15:55:30</td>
-<td>V3.0</td>
+<tr class="row-even"><td>4.10</td>
+<td>2018-12-12 13:14:10</td>
+<td>V3.0 or V4.0</td>
 </tr>
 </tbody>
 </table>
@@ -33670,142 +33895,147 @@ names, etc.</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>4.08</td>
+<tr class="row-even"><td>4.09</td>
+<td>2018-03-05 15:55:30</td>
+<td>V33</td>
+<td>V3.0</td>
+</tr>
+<tr class="row-odd"><td>4.08</td>
 <td>2018-02-26 16:06:36</td>
 <td>V32</td>
 <td>V3.0</td>
 </tr>
-<tr class="row-odd"><td>4.07</td>
+<tr class="row-even"><td>4.07</td>
 <td>2017-08-14 17:02:51</td>
 <td>V31</td>
 <td>V3.0</td>
 </tr>
-<tr class="row-even"><td>4.06</td>
+<tr class="row-odd"><td>4.06</td>
 <td>2017-07-31 14:37:41</td>
 <td>V31</td>
 <td>V3.0</td>
 </tr>
-<tr class="row-odd"><td>4.05</td>
+<tr class="row-even"><td>4.05</td>
 <td>2017-03-16 06:32:27</td>
 <td>V31</td>
 <td>V3.0</td>
 </tr>
-<tr class="row-even"><td>4.04</td>
+<tr class="row-odd"><td>4.04</td>
 <td>2017-02-02 17:08:45</td>
 <td>V30</td>
 <td>V3.0</td>
 </tr>
-<tr class="row-odd"><td>4.03</td>
+<tr class="row-even"><td>4.03</td>
 <td>2016-07-25 17:04:55</td>
 <td>V29</td>
 <td>V3.0</td>
 </tr>
-<tr class="row-even"><td>4.02</td>
+<tr class="row-odd"><td>4.02</td>
 <td>2016-07-14 19:27:51</td>
 <td>V29</td>
 <td>V3.0</td>
 </tr>
-<tr class="row-odd"><td>4.01</td>
+<tr class="row-even"><td>4.01</td>
 <td>2016-05-18 12:57:20</td>
 <td>V28</td>
 <td>V3.0</td>
 </tr>
-<tr class="row-even"><td>4.00</td>
+<tr class="row-odd"><td>4.00</td>
 <td>2016-05-08 11:22:30</td>
 <td>V27</td>
 <td>V3.0</td>
 </tr>
-<tr class="row-odd"><td>3.14</td>
+<tr class="row-even"><td>3.14</td>
 <td>2015-09-04 10:05:40</td>
 <td>V26</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-even"><td>3.13</td>
+<tr class="row-odd"><td>3.13</td>
 <td>2015-08-24 21:04:07</td>
 <td>V25</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-odd"><td>3.12</td>
+<tr class="row-even"><td>3.12</td>
 <td>2015-08-11 12:36:44</td>
 <td>V25</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-even"><td>3.11</td>
+<tr class="row-odd"><td>3.11</td>
 <td>2015-07-08 14:07:37</td>
 <td>V24</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-odd"><td>3.10</td>
+<tr class="row-even"><td>3.10</td>
 <td>2015-06-29 15:52:23</td>
 <td>V24</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-even"><td>3.09</td>
+<tr class="row-odd"><td>3.09</td>
 <td>2015-03-25 10:57:25</td>
 <td>V23</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-odd"><td>3.08</td>
+<tr class="row-even"><td>3.08</td>
 <td>2015-03-24 21:06:41</td>
 <td>V23</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-even"><td>3.07</td>
+<tr class="row-odd"><td>3.07</td>
 <td>2015-02-15 17:55:25</td>
 <td>V22</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-odd"><td>3.06</td>
+<tr class="row-even"><td>3.06</td>
 <td>2014-12-01 08:47:07</td>
 <td>V21</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-even"><td>3.05</td>
+<tr class="row-odd"><td>3.05</td>
 <td>2014-11-28 11:39:37</td>
 <td>V21</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-odd"><td>3.04</td>
+<tr class="row-even"><td>3.04</td>
 <td>2014-10-08 15:43:46</td>
 <td>V20</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-even"><td>3.02</td>
+<tr class="row-odd"><td>3.02</td>
 <td>2014-06-26 14:48:34</td>
 <td>V19</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-odd"><td>3.01</td>
+<tr class="row-even"><td>3.01</td>
 <td>2014-05-28 12:20:12</td>
 <td>V18</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-even"><td>3.00</td>
+<tr class="row-odd"><td>3.00</td>
 <td>2014-05-26 21:19:06</td>
 <td>V18</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-odd"><td>2.07</td>
+<tr class="row-even"><td>2.07</td>
 <td>2014-04-08 20:59:57</td>
 <td>V17</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-even"><td>2.06</td>
+<tr class="row-odd"><td>2.06</td>
 <td>2014-03-31 14:58:09</td>
 <td>V16</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-odd"><td>2.05</td>
+<tr class="row-even"><td>2.05</td>
 <td>2014-02-26 20:20:30</td>
 <td>V15</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-even"><td>2.04</td>
+<tr class="row-odd"><td>2.04</td>
 <td>2013-12-18 08:55:06</td>
 <td>V13, V14</td>
 <td>V2.0</td>
 </tr>
-<tr class="row-odd"><td>2.01</td>
+<tr class="row-even"><td>2.01</td>
 <td>2013-10-16 17:21:27</td>
 <td>V12</td>
 <td>V2.0</td>
@@ -33828,7 +34058,28 @@ names, etc.</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>V33</td>
+<tr class="row-even"><td>V34</td>
+<td>14/12/2018</td>
+<td>AK</td>
+<td><div class="first last line-block">
+<div class="line">&gt; <span class="xmlref">orCat</span> and <span class="xmlref">orIdent</span> attributes added to <a class="reference internal" href="#ref-iec61850clappsettings"><em>AppSettings</em></a> node. Values are used for sending control commands to IED;</div>
+<div class="line">&gt; Bit[2] added to <a class="reference internal" href="#ref-iec61850clappsettings"><em>AppSettings</em></a>.<a class="reference internal" href="#ref-iec61850clappflags"><em>Flags</em></a> attribute, use millisecond accuracy of timetags received from IED;</div>
+<div class="line">&gt; Bit[4] added to <a class="reference internal" href="#ref-iec61850clappsettings"><em>AppSettings</em></a>.<a class="reference internal" href="#ref-iec61850clappflags"><em>Flags</em></a> attribute, Ignore Resv attribute value of the Unbufferred report control block received from IED;</div>
+<div class="line">&gt; Bit[8] added to <a class="reference internal" href="#ref-iec61850clappsettings"><em>AppSettings</em></a>.<a class="reference internal" href="#ref-iec61850clappflags"><em>Flags</em></a> attribute, enable all report control block found in the SCL file;</div>
+<div class="line">&gt; <a class="reference internal" href="#ref-iec61850clpresentationsettings"><em>PresentationSettings</em></a>.<a class="reference internal" href="#ref-iec61850clpresentationflags"><em>Flags</em></a> attribute created;</div>
+<div class="line">&gt; Bit[0] of the <a class="reference internal" href="#ref-iec61850cltransportsettings"><em>TransportSettings</em></a>.<a class="reference internal" href="#ref-iec61850cltransportflagsbits"><em>Flags</em></a> attribute controls destination reference checks and Bit[1] - Calling/Called Transport Selector checks;</div>
+<div class="line">&gt; Bit[0] of the <a class="reference internal" href="#ref-iec61850clsessionsettings"><em>SessionSettings</em></a>.<a class="reference internal" href="#ref-iec61850clsessionflagsbits"><em>Flags</em></a> attribute controls Calling/Called Session Selector checks and Bit[1] - keeping transport connection open after finishig session;</div>
+<div class="line">&gt; Bit[6] added to IEC61850 client <a class="reference internal" href="#ref-iec61850cldi"><em>DI</em></a>.<a class="reference internal" href="#ref-iec61850cldiqualifierbits"><em>Qualifier</em></a> and <a class="reference internal" href="#ref-iec61850clai"><em>AI</em></a>.<a class="reference internal" href="#ref-iec61850claiqualifierbits"><em>Qualifier</em></a> attributes, non-persistent dynamic dataset support;</div>
+<div class="line">&gt; Bit[6] added to IEC61850 client <a class="reference internal" href="#ref-iec61850cldo"><em>DO</em></a>.<a class="reference internal" href="#ref-iec61850cldoqualifierbits"><em>Qualifier</em></a> and <a class="reference internal" href="#ref-iec61850clao"><em>AO</em></a>.<a class="reference internal" href="#ref-iec61850claoqualifierbits"><em>Qualifier</em></a> attributes, control Test bit support;</div>
+<div class="line">&gt; Bit[1] Synchrocheck and Bit[2] Interlock added to IEC61850 client <a class="reference internal" href="#ref-iec61850clao"><em>AO</em></a>.<a class="reference internal" href="#ref-iec61850claoqualifierbits"><em>Qualifier</em></a> attribute</div>
+<div class="line">Decode AI as 32bit Integer and 16bit Binary Coded Decimal (BCD) options added to Modbus Master <a class="reference internal" href="#ref-modbusmaai"><em>AI</em></a>.<a class="reference internal" href="#ref-modbusmaaitype"><em>Type</em></a> attribute;</div>
+<div class="line">Encode date and time as 16bit Binary Coded Decimal (BCD) little endian option added to Modbus Master <a class="reference internal" href="#ref-modbusmatimesettings"><em>TimeSettings</em></a> types;</div>
+<div class="line">&gt; Bit[6] added to <a class="reference internal" href="#ref-commscfgpcaplog"><em>PCAPLOG</em></a>.<a class="reference internal" href="#ref-commscfgpcaploglogflags"><em>LogFlags</em></a> attribute, SSH (TCP port 22) traffic capture enable flag;</div>
+<div class="line">&gt; System log levels can be enabled Bits[0..2] of the <a class="reference internal" href="#ref-syslogfile"><em>SYSLOGFILE</em></a>.<a class="reference internal" href="#ref-syslogfilelogflags"><em>LogFlags</em></a> attribute.</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td>V33</td>
 <td>21/03/2018</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -33836,7 +34087,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td>V32</td>
+<tr class="row-even"><td>V32</td>
 <td>20/03/2018</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -33849,7 +34100,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td>V31</td>
+<tr class="row-odd"><td>V31</td>
 <td>16/03/2017</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -33858,7 +34109,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td>V30</td>
+<tr class="row-even"><td>V30</td>
 <td>02/02/2017</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -33868,7 +34119,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td>V29</td>
+<tr class="row-odd"><td>V29</td>
 <td>14/07/2016</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -33878,7 +34129,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td>V28</td>
+<tr class="row-even"><td>V28</td>
 <td>18/05/2016</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -33886,7 +34137,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td>V27</td>
+<tr class="row-odd"><td>V27</td>
 <td>08/05/2016</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -33905,7 +34156,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td>V26</td>
+<tr class="row-even"><td>V26</td>
 <td>04/09/2015</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -33913,7 +34164,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td>V25</td>
+<tr class="row-odd"><td>V25</td>
 <td>11/08/2015</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -33924,7 +34175,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td>V24</td>
+<tr class="row-even"><td>V24</td>
 <td>29/06/2015</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -33938,7 +34189,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td>V23</td>
+<tr class="row-odd"><td>V23</td>
 <td>24/03/2015</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -33946,7 +34197,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td>V22</td>
+<tr class="row-even"><td>V22</td>
 <td>15/02/2015</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -33964,7 +34215,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td>V21</td>
+<tr class="row-odd"><td>V21</td>
 <td>28/11/2014</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -33973,12 +34224,12 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td>V20</td>
+<tr class="row-even"><td>V20</td>
 <td>09/10/2014</td>
 <td>AK</td>
 <td><span class="xmlref">DIEventStartup</span> attribute added to IEC60870-5-101/3/4 Master protocol configuration;</td>
 </tr>
-<tr class="row-even"><td>V19</td>
+<tr class="row-odd"><td>V19</td>
 <td>26/06/2014</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -33991,7 +34242,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td>V18</td>
+<tr class="row-even"><td>V18</td>
 <td>28/05/2014</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -34009,7 +34260,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td>V17</td>
+<tr class="row-odd"><td>V17</td>
 <td>08/04/2014</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -34024,7 +34275,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td>V16</td>
+<tr class="row-even"><td>V16</td>
 <td>31/03/2014</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -34044,7 +34295,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td>V15</td>
+<tr class="row-odd"><td>V15</td>
 <td>26/02/2014</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -34065,12 +34316,12 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td>V14</td>
+<tr class="row-even"><td>V14</td>
 <td>18/01/2014</td>
 <td>AK</td>
 <td>Version control element node added</td>
 </tr>
-<tr class="row-even"><td>V13</td>
+<tr class="row-odd"><td>V13</td>
 <td>18/12/2013</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -34085,7 +34336,7 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td>V12</td>
+<tr class="row-even"><td>V12</td>
 <td>18/11/2013</td>
 <td>AK</td>
 <td><div class="first last line-block">
@@ -34108,57 +34359,57 @@ names, etc.</p>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td>V11</td>
+<tr class="row-odd"><td>V11</td>
 <td>10/06/2013</td>
 <td>AK</td>
 <td>Offline reporting delay timer added</td>
 </tr>
-<tr class="row-odd"><td>V10</td>
+<tr class="row-even"><td>V10</td>
 <td>01/06/2013</td>
 <td>AK</td>
 <td>Timezone configuration option added</td>
 </tr>
-<tr class="row-even"><td>V9</td>
+<tr class="row-odd"><td>V9</td>
 <td>21/05/2013</td>
 <td>AK</td>
 <td>SpeedUpStarted configuration option added</td>
 </tr>
-<tr class="row-odd"><td>V8</td>
+<tr class="row-even"><td>V8</td>
 <td>14/05/2013</td>
 <td>AK</td>
 <td>Automatic DI and AI object sorting for &#8216;Master&#8217; and DO object sorting for &#8216;Slave&#8217; communication protocol instances; SummerTime flag configuration added; Communication Status reporting address for Auto-configuration mode added; CommsFlags attribute added; Service DO commands added;</td>
 </tr>
-<tr class="row-even"><td>V7</td>
+<tr class="row-odd"><td>V7</td>
 <td>12/04/2013</td>
 <td>AK</td>
 <td>Minor formatting corrections; Appendix A – Analogue value processing added</td>
 </tr>
-<tr class="row-odd"><td>V6</td>
+<tr class="row-even"><td>V6</td>
 <td>13/03/2013</td>
 <td>AK</td>
 <td>HourLimit attribute description added; AI offset, AI zero deadband and 75-125 input transducer offset compensation added</td>
 </tr>
-<tr class="row-even"><td>V5</td>
+<tr class="row-odd"><td>V5</td>
 <td>01/03/2013</td>
 <td>AK</td>
 <td>Range and Automatic configuration features added; GlobalTimeSync now available; changes to logfile specification</td>
 </tr>
-<tr class="row-odd"><td>V4</td>
+<tr class="row-even"><td>V4</td>
 <td>03/12/2012</td>
 <td>AK</td>
 <td>AI value offset for 4mA transducer input compensation added to Slave protocol instances</td>
 </tr>
-<tr class="row-even"><td>V3</td>
+<tr class="row-odd"><td>V3</td>
 <td>13/11/2012</td>
 <td>AK</td>
 <td>Minor changes to DO object address sequence, new DO execution policy added</td>
 </tr>
-<tr class="row-odd"><td>V2</td>
+<tr class="row-even"><td>V2</td>
 <td>03/10/2012</td>
 <td>AK</td>
 <td>New features added, changes in DI and AI Event attribute configuration</td>
 </tr>
-<tr class="row-even"><td>V1</td>
+<tr class="row-odd"><td>V1</td>
 <td>17/08/2012</td>
 <td>AK</td>
 <td>Initial version</td>
@@ -34276,7 +34527,7 @@ fUtHVztj9BMNwCVrPGuGqpyH+IPAGATai0CJ94qv3R3KZtb6wO+qrSdbVG4WdLDAIJBjFfURmoDK
 " alt="Logo"/>
             </a></p>
     <span class="sidebar-title">Leandc series XML configuration manual</span>
-    <span class="sidebar-subtitle" title="Version V33, docbuild(v0.1.0)">Version V33</span>
+    <span class="sidebar-subtitle" title="Version V34, docbuild(v0.1.0)">Version V34</span>
 
   <h3><a href="#document-index">Table Of Contents</a></h3>
   <ul>
@@ -34602,7 +34853,7 @@ fUtHVztj9BMNwCVrPGuGqpyH+IPAGATai0CJ94qv3R3KZtb6wO+qrSdbVG4WdLDAIJBjFfURmoDK
 
     <div class="footer">
         &copy; Copyright 2018, Londelec UK Ltd.
-      Last updated on 21 Mar 2018.
+      Last updated on 14 Dec 2018.
     </div>
   </body>
 </html>

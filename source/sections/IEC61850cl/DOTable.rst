@@ -66,19 +66,27 @@ DO.Qualifier
 
    * :attr:     Bit 1
      :val:      xxxx.xx0x
-     :desc:     [Synchrocheck] control bit is **disabled** in outgoing DO command
+     :desc:     [:lectext1:`Synchrocheck`] control bit is **disabled** in outgoing DO command
 
    * :(attr):
      :val:      xxxx.xx1x
-     :desc:     [Synchrocheck] control bit is **enabled** in outgoing DO command
+     :desc:     [:lectext1:`Synchrocheck`] control bit is **enabled** in outgoing DO command
 
    * :attr:     Bit 2
      :val:      xxxx.x0xx
-     :desc:     [Interlock] control bit is **disabled** in outgoing DO command
+     :desc:     [:lectext1:`Interlock`] control bit is **disabled** in outgoing DO command
 
    * :(attr):
      :val:      xxxx.x1xx
-     :desc:     [Interlock] control bit is **enabled** in outgoing DO command
+     :desc:     [:lectext1:`Interlock`] control bit is **enabled** in outgoing DO command
+
+   * :attr:     Bit 6
+     :val:      x0xx.xxxx
+     :desc:     [:lectext1:`Test`] bit of the control structure is **cleared**
+
+   * :(attr):
+     :val:      x1xx.xxxx
+     :desc:     [:lectext1:`Test`] bit of the control structure is **set**
 
    * :attr:     Bit 7
      :val:      0xxx.xxxx
@@ -88,6 +96,6 @@ DO.Qualifier
      :val:      1xxx.xxxx
      :desc:     DO is **disabled**, command will not be sent to IED
 
-   * :attr:     Bits 3...6
+   * :attr:     Bits 3...5
      :val:      Any
      :desc:     Bits reserved for future use

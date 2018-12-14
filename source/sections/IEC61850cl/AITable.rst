@@ -79,6 +79,17 @@ AI.Qualifier
      :val:      xxxx.1xxx
      :desc:     **Substitute** timetag with local time when event is received from IED
 
+   * :attr:     Bit 6
+     :val:      x0xx.xxxx
+     :desc:     Include this AI in **persistent** dynamic dataset.
+		IED retains persistent dynamically created datasets if communication to IEC61850 client is lost until IED is restarted/powered off.
+
+   * :(attr):
+     :val:      x1xx.xxxx
+     :desc:     Include this AI in **non-persistent** dynamic dataset.
+		IED automatically deletes non-persistent dynamically created datasets when communication to IEC61850 client is lost.
+		This option only applies if IED supports dynamic dataset creation.
+
    * :attr:     Bit 7
      :val:      0xxx.xxxx
      :desc:     AI is **enabled** and will be processed when received
@@ -87,6 +98,6 @@ AI.Qualifier
      :val:      1xxx.xxxx
      :desc:     AI is **disabled** and will be discarded when received
 
-   * :attr:     Bits 0...2;4...6
+   * :attr:     Bits 0...2;4...5
      :val:      Any
      :desc:     Bits reserved for future use

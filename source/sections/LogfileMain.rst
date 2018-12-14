@@ -259,7 +259,15 @@ PCAPLOG.LogFlags
      :desc:     Capture filter by port number is  **enabled**. Only messages with matching Source or Destination Port number will be captured.
 		Port number from :ref:`<ref-TCPSERVER>`.\ :ref:`<ref-TCPSERVERPort>` \; :ref:`<ref-TCPCLIENT>`.\ :ref:`<ref-TCPCLIENTPort>` \ or :ref:`<ref-UDP>`.\ :ref:`<ref-UDPRemotePort>` \ attribute is used as a filter.
 
-   * :attr:     Bits 3...7
+   * :attr:     Bit 6
+     :val:      x0xx.xxxx
+     :desc:     SSH (TCP port 22) traffic capture **disabled**
+
+   * :(attr):
+     :val:      x1xx.xxxx
+     :desc:     SSH (TCP port 22) traffic capture **enabled**
+
+   * :attr:     Bits 3...5;7
      :val:      Any
      :desc:     Bits reserved for future use
 
