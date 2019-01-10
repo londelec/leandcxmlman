@@ -32,7 +32,7 @@ The first object will have information address as specified and following object
 
 .. _ref-IEC10xslAUTOAttributes:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-101/104 Slave AUTO attributes"
+.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-101/104 Slave AUTO attributes" ":spec: |C{0.20}|C{0.16}|C{0.1}|S{0.54}|"
 
    * :attr:     .. _ref-IEC10xslAUTOSource:
 
@@ -82,7 +82,7 @@ The first object will have information address as specified and following object
      :val:      0...255 or 0x00...0xFF
      :def:      0x00
      :desc:     Internal DI object qualifier to enable customized data processing.
-		See table :numref:`ref-IEC10xslDIqualifierBits` for internal object qualifier description.
+		See table :numref:`docref-IEC10xslDIqualifierBits` for internal object qualifier description.
 		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
 
    * :attr:     .. _ref-IEC10xslAUTOAIqual:
@@ -91,7 +91,7 @@ The first object will have information address as specified and following object
      :val:      0...255 or 0x00...0xFF
      :def:      0x00
      :desc:     Internal AI object qualifier to enable customized data processing.
-		See table :numref:`ref-IEC10xslAIqualifierBits` for internal object qualifier description.
+		See table :numref:`docref-IEC10xslAIqualifierBits` for internal object qualifier description.
 		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
 
    * :attr:     .. _ref-IEC10xslAUTODOqual:
@@ -100,7 +100,7 @@ The first object will have information address as specified and following object
      :val:      0...255 or 0x00...0xFF
      :def:      0x00
      :desc:     Internal DO object qualifier to enable customized data processing.
-		See table :numref:`ref-IEC10xslDOqualifierBits` for internal object qualifier description.
+		See table :numref:`docref-IEC10xslDOqualifierBits` for internal object qualifier description.
 		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
 
    * :attr:     .. _ref-IEC10xslAUTOAOqual:
@@ -109,7 +109,7 @@ The first object will have information address as specified and following object
      :val:      0...255 or 0x00...0xFF
      :def:      0x00
      :desc:     Internal AO object qualifier to enable customized data processing.
-		See table :numref:`ref-IEC10xslAOqualifierBits` for internal object qualifier description.
+		See table :numref:`docref-IEC10xslAOqualifierBits` for internal object qualifier description.
 		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
 
    * :attr:     .. _ref-IEC10xslAUTODIGroupMask:
@@ -119,7 +119,7 @@ The first object will have information address as specified and following object
      :def:      0x0000
      :desc:     Include DI objects in Interrogation group/groups.
 		Each bit of the group mask attribute needs to be set in order to include object in a particular interrogation group.
-		Please refer to the table :numref:`ref-IEC10xslGroupMask` for more information.
+		Please refer to the table :numref:`docref-IEC10xslGroupMask` for more information.
 		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
 
    * :attr:     .. _ref-IEC10xslAUTOAIGroupMask:
@@ -129,7 +129,7 @@ The first object will have information address as specified and following object
      :def:      0x0000
      :desc:     Include AI objects in Interrogation group/groups.
 		Each bit of the group mask attribute needs to be set in order to include object in a particular interrogation group.
-		Please refer to the table :numref:`ref-IEC10xslGroupMask` for more information.
+		Please refer to the table :numref:`docref-IEC10xslGroupMask` for more information.
 		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
 
    * :attr:     .. _ref-IEC10xslAUTOPolicy:
@@ -137,7 +137,7 @@ The first object will have information address as specified and following object
                 :xmlref:`Policy`
      :val:      0...255
      :def:      0
-     :desc:     Command execution policy, see table :numref:`ref-IEC10xslPolicy` for description.
+     :desc:     Command execution policy, see table :numref:`docref-IEC10xslPolicy` for description.
 		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
 
    * :attr:     .. _ref-IEC10xslAUTOCommsOnlineAddr:

@@ -3,3 +3,10 @@
 .. role:: inlineattention
 .. role:: xmlref
 .. role:: underline
+
+.. |leandcxml| replace:: **leandc.xml**
+.. |leloggerxml| replace:: **lelogger.xml**
+.. |leandcapp| replace:: /home/leandc/app
+.. |leandcunit| replace:: LEANDC unit
+.. |sshmanual| replace:: Leandc SSH manual
+.. |htmlmanual| replace:: HTML manual

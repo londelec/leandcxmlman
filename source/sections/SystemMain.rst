@@ -3,15 +3,14 @@
 System configuration
 ====================
 
-Configuration file **leandc.xml**
----------------------------------
+Configuration file |leandcxml|
+------------------------------
 
-XML configuration file **leandc.xml** contains overall system settings of the leandc firmware and it is the first file
-loaded upon system startup. The configuration file name is fixed, it must be stored in the same directory as
-leandc firmware and its path can't be changed. If 'leandc.xml' file is not found upon leandc firmware startup,
-firmware terminates with an error message indicating the cause of fail.
+XML configuration file |leandcxml| contains overall system settings of the leandc firmware and it is the first file loaded upon system startup.
+The name of this file is fixed, it must be stored in the default application directory |leandcapp| .
+If |leandcxml| file is not found upon firmware startup, the firmware terminates with an error message indicating the cause of fail.
 
-**leandc.xml** configuration file consists of a root object node :xmlref:`MainConfig` which has 3 mandatory child group
+|leandcxml| configuration file consists of a root object node :xmlref:`MainConfig` which has 3 mandatory child group
 object nodes :ref:`VersionControl<ref-VersionControl>`; :ref:`HardwareCfg<ref-HardwareCfg>` and :ref:`CommunicationCfg<ref-CommunicationCfg>` and 3 optional child group object nodes
 :ref:`TraceCfg<ref-TraceCfg>` and :ref:`ClientFilterCfg<ref-ClientFilterCfg>` and :ref:`SupervisionCfg<ref-SupervisionCfg>`, please see the sample below.
 
@@ -57,11 +56,11 @@ Attributes of these nodes contain interface's settings.
 .. code-block:: none
 
    <HardwareCfg>
-	<UART Index="1" Devpath="/dev/ttyUSB0" Baudrate="9600"... />
-	<UART Index="2" Devpath="/dev/ttyUSB1" Baudrate="9600"... />
-	<TCPSERVER Index="33" ServerIPaddr="127.0.0.1" Port="2404"... />
-	<TCPCLIENT Index="44" ServerIPaddr="127.0.0.1" Port="2404"... />
-	<UDP Index="55" RemoteIPaddr="127.0.0.1" RemotePort="64950"... />
+	<UART Index="1" Devpath="/dev/ttyUSB0" Baudrate="9600" … />
+	<UART Index="2" Devpath="/dev/ttyUSB1" Baudrate="9600" … />
+	<TCPSERVER Index="33" ServerIPaddr="127.0.0.1" Port="2404" … />
+	<TCPCLIENT Index="44" ServerIPaddr="127.0.0.1" Port="2404" … />
+	<UDP Index="55" RemoteIPaddr="127.0.0.1" RemotePort="64950" … />
    </HardwareCfg>
 
 .. important::
@@ -134,9 +133,9 @@ TraceCfg group
 --------------
 
 Generic diagnostic information and error messages can be recorded to a system logfile.
-Group object node :xmlref:`TraceCfg` and its child element node :xmlref:`SYSLOGFILE` contains settings to enable the system-wide logfile.
-:xmlref:`Settings` node contains common settings for all logfiles.
-:xmlref:`TraceCfg` may contain only one :xmlref:`SYSLOGFILE` and one :xmlref:`Settings` element node as shown in the sample below.
+Group object node :xmlref:`TraceCfg` and its child element node :ref:`<ref-SYSLOGFILE>` contains settings to enable the system-wide logfile.
+:ref:`<ref-LogSettings>` node contains common settings for all logfiles.
+:xmlref:`TraceCfg` may contain only one :ref:`<ref-SYSLOGFILE>` and one :ref:`<ref-LogSettings>` element node as shown in the sample below.
 
 .. code-block:: none
 
@@ -160,7 +159,7 @@ This node contains settings of a system-wide logfile.
 
 .. _docref-SYSLOGFILEAttab:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "SYSLOGFILE attributes"
+.. include-file:: sections/Include/table_attrs.rstinc "" "SYSLOGFILE attributes" ":spec: |C{0.14}|C{0.12}|C{0.1}|S{0.64}|"
 
    * :attr:     .. _ref-SYSLOGFILELogFlags:
 
@@ -228,7 +227,7 @@ This node contains common settings for all logfiles.
 
 .. _docref-LogSettingsAttab:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "Log Settings attributes"
+.. include-file:: sections/Include/table_attrs.rstinc "" "Log Settings attributes" ":spec: |C{0.16}|C{0.12}|C{0.1}|S{0.62}|"
 
    * :attr:     .. _ref-SettingsCleanOlder:
 
@@ -273,7 +272,7 @@ This will allow clients from either IP address 192.168.2.14 or 192.168.2.55 to c
 
 .. _docref-ClientFilterCfgIPv4Attab:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "IPv4 Client filter attributes"
+.. include-file:: sections/Include/table_attrs.rstinc "" "IPv4 Client filter attributes" ":spec: |C{0.14}|C{0.17}|C{0.1}|S{0.59}|"
 
    * :attr:     :xmlref:`FilterID`
      :val:      1...255
@@ -307,6 +306,9 @@ This will allow clients from either IP address 192.168.2.14 or 192.168.2.55 to c
 Network subnets created by various :ref:`<ref-ClientFilterCfgIpv4Mask>` attribute values are summarized in the table below.
 It is assumed user has a good understanding of network addressing fundamentals.
 Please refer to external sources (e.g. http://www.subnet-calculator.com) for additional information on network addressing and subnet definition.
+
+.. include-html:: ../_html/netcalc.html
+   :latex-tip: Interactive network mask calculator can be found in the current HTML manual
 
 | Table columns are defined as follows:
 | Column 1 contains :ref:`<ref-ClientFilterCfgIpv4Mask>` attribute values;

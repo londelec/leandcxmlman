@@ -14,4 +14,4 @@ Communication buffer sizes can be specified in this node.
 
 :include-arg:`3`
 
-.. include-file:: sections/Include/table_attrs.rstinc "" ":include-arg:`4`"
+.. include-file:: sections/Include/table_attrs.rstinc "" ":include-arg:`4`" ":spec: |C{0.18}|C{0.1}|C{0.1}|S{0.62}|"

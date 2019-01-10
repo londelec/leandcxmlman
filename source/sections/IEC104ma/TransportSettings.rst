@@ -14,7 +14,7 @@ Protocol transport interface settings such as timeouts and message window sizes 
 
 .. _docref-IEC104maTransportSettingsAttab:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-104 Master TransportSettings attributes"
+.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-104 Master TransportSettings attributes" ":spec: |C{0.1}|C{0.12}|C{0.1}|S{0.68}|"
 
    * :attr:     :xmlref:`T0`
      :val:      1...65535

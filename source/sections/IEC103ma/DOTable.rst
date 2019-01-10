@@ -13,7 +13,7 @@ and forwards to destination DO information object. Then current communication pr
 sends command to the outstation based on DO information object settings. Please refer to the
 section :ref:`DOTable<ref-IEC10xslDOTable>` for more information on how to use DO information object as a destination.
 
-In order to send a control command to downstream outstation [:lectext1:`FUNCTION TYPE`] and [:lectext1:`INFORMATION NUMBER`]
+In order to send a control command to downstream outstation [:lemonobgtext:`FUNCTION TYPE`] and [:lemonobgtext:`INFORMATION NUMBER`]
 has to be specified in :ref:`<ref-IEC103maDOFUN>` \ and :ref:`<ref-IEC103maDOINF>` \ attributes.
 
 Please see sample :ref:`DOTable<ref-IEC103maDOTable>` group and :ref:`DO<ref-IEC103maDO>` child element nodes below.
@@ -39,9 +39,9 @@ There are 5 DO information objects configured using 4 :ref:`DO<ref-IEC103maDO>` 
 DO attributes
 ^^^^^^^^^^^^^
 
-.. _ref-IEC103maDOAttributes:
+.. _docref-IEC103maDOAttributes:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-103 Master DO attributes"
+.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-103 Master DO attributes" ":spec: |C{0.12}|C{0.14}|C{0.1}|S{0.64}|"
 
 .. include-file:: sections/Include/ma_Index.rstinc "" ".. _ref-IEC103maDOIndex:" "DO"
 
@@ -53,7 +53,7 @@ DO attributes
      :val:      0...255 or 0x00...0xFF
      :def:      0x00
      :desc:     Internal object qualifier to enable customized data processing.
-		See table :numref:`ref-IEC103maDOQualifierBits` for internal object qualifier description.
+		See table :numref:`docref-IEC103maDOQualifierBits` for internal object qualifier description.
 		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
 
 .. include-file:: sections/Include/Total.rstinc "" ".. _ref-IEC103maDOTotal:" ":ref:`<ref-IEC103maDOIndex>` and :ref:`<ref-IEC103maDOINF>`" ":ref:`DO<ref-IEC103maDO>`" "254"
@@ -63,7 +63,7 @@ DO attributes
 DO.Qualifier
 ^^^^^^^^^^^^
 
-.. _ref-IEC103maDOQualifierBits:
+.. _docref-IEC103maDOQualifierBits:
 
 .. include-file:: sections/Include/table_flags.rstinc "" "IEC60870-5-103 Master DO internal Qualifier" ":ref:`<ref-IEC103maDOQualifier>`" "DO internal qualifier"
 

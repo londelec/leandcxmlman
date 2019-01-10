@@ -14,7 +14,7 @@ Application layer settings can be specified using attributes of :ref:`<ref-IEC10
 
 .. _docref-IEC101slASDUSettingsAttab:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-101 Slave ASDUSettings attributes"
+.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-101 Slave ASDUSettings attributes" ":spec: |C{0.19}|C{0.12}|C{0.14}|S{0.55}|"
 
 .. include-file:: sections/Include/IEC60870_ASDUsizes.rstinc "" ".. _ref-IEC101slASDUSettingsCOTSize:" ".. _ref-IEC101slASDUSettingsCAASize:" ".. _ref-IEC101slASDUSettingsIOASize:"
 
@@ -23,14 +23,18 @@ Application layer settings can be specified using attributes of :ref:`<ref-IEC10
 .. include-file:: sections/Include/IEC60870_SUthroughoutDST.rstinc
 
    * :attr:     :xmlref:`DIEventType`
-     :val:      See table :numref:`ref-IEC10xslDITypeIDValues`
-     :def:      2 [M_SP_TA_1]
-     :desc:     Use this ASDU type to send DI events which don't have :ref:`DI<ref-IEC10xslDI>`.\ :ref:`<ref-IEC10xslDITypeID>` \ attribute specified in their element node. This setting also affects ASDU type of the static data (e.g. Single or Double status information) reported to a General Interrogation request. (default value 2 – 'Single-point Information', DI event will be sent using ASDU type 2 [M_SP_TA_1], **CP24time2A**, msec and min)
+     :val:      See table :numref:`docref-IEC10xslDITypeIDValues`
+     :def:      2 [:lemonobgtext:`M_SP_TA_1`]
+     :desc:     Use this ASDU type to send DI events which don't have :ref:`DI<ref-IEC10xslDI>`.\ :ref:`<ref-IEC10xslDITypeID>` \ attribute specified in their element node.
+		This setting also affects ASDU type of the static data (e.g. Single or Double status information) reported to a General Interrogation request.
+		(default value 2 – 'Single-point Information', DI event will be sent using ASDU type 2 [:lemonobgtext:`M_SP_TA_1`], **CP24time2A**, msec and min)
 
    * :attr:     :xmlref:`AIEventType`
-     :val:      See table :numref:`ref-IEC10xslAITypeIDValues`
-     :def:      14 [M_ME_TC_1]
-     :desc:     Use this ASDU type to send AI events which don't have :ref:`AI<ref-IEC10xslAI>`.\ :ref:`<ref-IEC10xslAITypeID>` \ attribute specified in their element node. This setting also affects ASDU type of the static data (e.g. Normalized, Scaled, Short floating point) reported to a General Interrogation request. (default value 14 – 'Short floating point', AI event will be sent using ASDU type 14 [M_ME_TC_1], **CP24time2A**, msec and min)
+     :val:      See table :numref:`docref-IEC10xslAITypeIDValues`
+     :def:      14 [:lemonobgtext:`M_ME_TC_1`]
+     :desc:     Use this ASDU type to send AI events which don't have :ref:`AI<ref-IEC10xslAI>`.\ :ref:`<ref-IEC10xslAITypeID>` \ attribute specified in their element node.
+		This setting also affects ASDU type of the static data (e.g. Normalized, Scaled, Short floating point) reported to a General Interrogation request.
+		(default value 14 – 'Short floating point', AI event will be sent using ASDU type 14 [:lemonobgtext:`M_ME_TC_1`], **CP24time2A**, msec and min)
 
 .. include-file:: sections/Include/IEC10xsl_ASDU.rstinc "" ".. _ref-IEC101slASDUSettingsTranspTypes:"
 

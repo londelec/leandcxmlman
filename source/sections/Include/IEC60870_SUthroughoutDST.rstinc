@@ -1,10 +1,10 @@
    * :attr:    :xmlref:`SUthroughoutDST`
      :val:     0
      :def:     0
-     :desc:    Summer Time [:lectext1:`SU`] bit in the time-tag of any outgoing message will be set ('1') to indicate **last hour of the Summer Time** before a clock adjustment at the end of the Daylight Saving Time (DST) (this is when clock is turned back one hour)
+     :desc:    Summer Time [:lemonobgtext:`SU`] bit in the time-tag of any outgoing message will be set ('1') to indicate **last hour of the Summer Time** before a clock adjustment at the end of the Daylight Saving Time (DST) (this is when clock is turned back one hour)
 
    * :(attr):
      :val:     1
      :(def):
-     :desc:    Summer Time [:lectext1:`SU`] bit in the time-tag of any outgoing message **will always be set ('1')** if the date and time of the tag is Summer Time. :inlinetip:`Please note this functionality is deviation from communication standard and option should be avoided.`
+     :desc:    Summer Time [:lemonobgtext:`SU`] bit in the time-tag of any outgoing message **will always be set ('1')** if the date and time of the tag is Summer Time. :inlinetip:`Please note this functionality is deviation from communication standard and option should be avoided.`
 

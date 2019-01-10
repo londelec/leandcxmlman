@@ -33,7 +33,7 @@ MSG attributes
 
 .. _docref-InitMessageAttributes:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "Modbus Master Initialization message attributes"
+.. include-file:: sections/Include/table_attrs.rstinc "" "Modbus Master Initialization message attributes" ":spec: |C{0.1}|C{0.16}|C{0.1}|S{0.64}|"
 
 .. include-file:: sections/Include/Modbusma_Msgid.rstinc "" ".. _ref-InitMsgId:" ":xmlref:`InitMsg`"
 
@@ -67,7 +67,7 @@ whether :ref:`<ref-InitMsgReg>` attribute must be specified when particular Modb
 
 .. field-list-table:: Modbus Master Initialization message functions
    :class: table table-condensed table-bordered longtable
-   :spec: |C{0.10}|C{0.13}|S{0.77}|
+   :spec: |C{0.10}|C{0.14}|S{0.5}|
    :header-rows: 1
 
    * :val,10:   :ref:`<ref-InitMsgFunc>`
@@ -76,27 +76,27 @@ whether :ref:`<ref-InitMsgReg>` attribute must be specified when particular Modb
 
    * :val:      3
      :reg:	Yes
-     :name:     [:lectext1:`Read Holding Registers`]
+     :name:     [:lemonobgtext:`Read Holding Registers`]
 
    * :val:      4
      :reg:	Yes
-     :name:     [:lectext1:`Read Input Registers`]
+     :name:     [:lemonobgtext:`Read Input Registers`]
 
    * :val:      5
      :reg:	Yes
-     :name:     [:lectext1:`Force Single Coil`]
+     :name:     [:lemonobgtext:`Force Single Coil`]
 
    * :val:      6
      :reg:	Yes
-     :name:     [:lectext1:`Preset Single Register`]
+     :name:     [:lemonobgtext:`Preset Single Register`]
 
    * :val:      16
      :reg:	Yes
-     :name:     [:lectext1:`Preset Multiple Registers`]
+     :name:     [:lemonobgtext:`Preset Multiple Registers`]
 
    * :val:      17
      :reg:	No
-     :name:     [:lectext1:`Report Slave ID`]
+     :name:     [:lemonobgtext:`Report Slave ID`]
 
    * :val:      Other
      :reg:	---
@@ -116,7 +116,7 @@ MSG.Flags
    * :(attr):
      :val:	xxxx.xxx1
      :desc:	Data received from outstation has to **contain** contents of the :ref:`<ref-InitMsgData>` attribute.
-		This option is normally used with :lectext1:`Report Server ID [17]` message and 
+		This option is normally used with :lemonobgtext:`Report Server ID [17]` message and 
 		enables to check only portion of the received reply.
 		For example if :ref:`<ref-InitMsgData>`\="41 42 43" (represents string "ABC") a reply from outstation 
 		{01 17 08 41 42 43 20 56 31 2E 30 ...} (represents string "ABC V1.0") is considered valid.

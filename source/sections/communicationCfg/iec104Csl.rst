@@ -20,7 +20,7 @@ Cloned IEC60870-5-104 station will have identical number of ASDUs and can be lin
 .. field-list-table:: IEC104Csl node
    :class: table table-condensed table-bordered longtable
    :header-rows: 1
-   :spec: |C{0.20}|C{0.25}|S{0.55}|
+   :spec: |C{0.18}|C{0.12}|S{0.7}|
 
    * :attr,10: Attribute
      :val,15:  Values or range

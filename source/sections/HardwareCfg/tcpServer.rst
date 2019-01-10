@@ -15,14 +15,15 @@ TCP server socket is used to accept connections from remote hosts.
 
 .. _ref-TCPSERVERAttributes:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "Leandc TCPSERVER node"
+.. include-file:: sections/Include/table_attrs.rstinc "" "Leandc TCPSERVER node" ":spec: |C{0.14}|C{0.17}|C{0.1}|S{0.59}|"
 
    * :attr:     .. _ref-TCPSERVERIndex:
 
                 :xmlref:`Index`
      :val:      1...254
      :def:      n/a
-     :desc:     Index is a unique identifier of the hardware node. It is used as a reference to link a communication protocol instance to this node. :inlinetip:`Indexes don't have to be in a sequential order.`
+     :desc:     Index is a unique identifier of the hardware node.
+		It is used as a reference to link a communication protocol instance to this node. :inlinetip:`Indexes don't have to be in a sequential order.`
 
    * :attr:     .. _ref-TCPSERVERIPaddr:
 
@@ -37,7 +38,9 @@ TCP server socket is used to accept connections from remote hosts.
 		:xmlref:`Port`
      :val:      1...65534
      :def:      n/a
-     :desc:     TCP port number. Unlimited number of incoming TCP connection requests will be accepted on this port as long as there is a communication protocol or supervision instance available to handle the new connection. (default port for IEC60870-5-104 is 2404)
+     :desc:     TCP port number.
+		Unlimited number of incoming TCP connection requests will be accepted on this port as long as there is a communication protocol or supervision instance available to handle the new connection.
+		(default port for IEC60870-5-104 is 2404)
 
 .. include-file:: sections/Include/TCPser_Timeouts.rstinc "" ":ref:`<ref-TCPSERVER>`" ".. _ref-TCPSERVERIdleTimeout:" 
 

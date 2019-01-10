@@ -15,7 +15,7 @@ UDP socket is used to send/receive packets to/from remote host without establish
 
 .. _ref-UDPAttributes:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "Leandc UDP node"
+.. include-file:: sections/Include/table_attrs.rstinc "" "Leandc UDP node" ":spec: |C{0.17}|C{0.17}|C{0.13}|S{0.53}|"
 
    * :attr:     .. _ref-UDPIndex:
 

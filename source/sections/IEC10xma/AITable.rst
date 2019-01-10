@@ -13,10 +13,10 @@ Please refer to the section :ref:`docref-IEC10xslAITable` for more information o
 In order to receive analog information from the downstream outstation information object address (IOA) needs to be
 specified in the :ref:`<ref-IEC10xmaAIInfAddr>` \ attribute.
 Analog information is processed when received with any of the following ASDU types:
-5 [:lectext1:`M_ST_NA_1`]; 6 [:lectext1:`M_ST_TA_1`]; 32 [:lectext1:`M_ST_TB_1`];
-9 [:lectext1:`M_ME_NA_1`]; 10 [:lectext1:`M_ME_TA_1`]; 34 [:lectext1:`M_ME_TD_1`];
-11 [:lectext1:`M_ME_NB_1`]; 12 [:lectext1:`M_ME_TB_1`]; 35 [:lectext1:`M_ME_TE_1`];
-13 [:lectext1:`M_ME_NC_1`]; 14 [:lectext1:`M_ME_TC_1`]; 36 [:lectext1:`M_ME_TF_1`]
+5 [:lemonobgtext:`M_ST_NA_1`]; 6 [:lemonobgtext:`M_ST_TA_1`]; 32 [:lemonobgtext:`M_ST_TB_1`];
+9 [:lemonobgtext:`M_ME_NA_1`]; 10 [:lemonobgtext:`M_ME_TA_1`]; 34 [:lemonobgtext:`M_ME_TD_1`];
+11 [:lemonobgtext:`M_ME_NB_1`]; 12 [:lemonobgtext:`M_ME_TB_1`]; 35 [:lemonobgtext:`M_ME_TE_1`];
+13 [:lemonobgtext:`M_ME_NC_1`]; 14 [:lemonobgtext:`M_ME_TC_1`]; 36 [:lemonobgtext:`M_ME_TF_1`]
 
 Please see sample :ref:`AITable<ref-IEC10xmaAITable>` group and :ref:`AI<ref-IEC10xmaAI>` child element nodes below.
 There are 5 AI information objects configured using 4 :ref:`AI<ref-IEC10xmaAI>` element nodes.
@@ -41,9 +41,9 @@ There are 5 AI information objects configured using 4 :ref:`AI<ref-IEC10xmaAI>` 
 AI attributes
 ^^^^^^^^^^^^^
 
-.. _ref-IEC10xmaAIAttributes:
+.. _docref-IEC10xmaAIAttributes:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-101/104 Master AI attributes"
+.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-101/104 Master AI attributes" ":spec: |C{0.18}|C{0.16}|C{0.12}|S{0.54}|"
 
 .. include-file:: sections/Include/ma_Index.rstinc "" ".. _ref-IEC10xmaAIIndex:" "AI"
 
@@ -55,7 +55,7 @@ AI attributes
      :val:      0...255 or 0x00...0xFF
      :def:      0x00
      :desc:     Internal object qualifier to enable customized data processing.
-		See table :numref:`ref-IEC10xmaAIqualifierBits` for internal object qualifier description.
+		See table :numref:`docref-IEC10xmaAIqualifierBits` for internal object qualifier description.
 		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
 
 .. include-file:: sections/Include/AI_Coeff.rstinc "" ".. _ref-IEC10xmaAICoeff:"
@@ -67,7 +67,7 @@ AI attributes
    * :attr:     .. _ref-IEC10xmaAITypeID:
 
 		:xmlref:`TypeID`
-     :val:      See table :numref:`ref-IEC10xmaAITypeIDValues`
+     :val:      See table :numref:`docref-IEC10xmaAITypeIDValues`
      :def:      transparent
      :desc:     Use this ASDU type to send a DI object upstream, if transparent ASDUs are enabled in Slave protocol instance with :ref:`<ref-IEC101slASDUSettings>`.\ :ref:`<ref-IEC101slASDUSettingsTranspTypes>` \ attribute.
 		This ASDU type will be used to report object regardless of the received ASDU type.
@@ -79,16 +79,12 @@ AI attributes
 
 .. include-file:: sections/Include/Name.rstinc ""
 
-.. tip::
-
-   \* Please refer to annex :ref:`docref-ReceivedAIProcessing` for additional information on AI processing 
-   options and application examples using :ref:`<ref-IEC10xmaAIDeadband>` \ and :ref:`<ref-IEC10xmaAIPercent>` \ attributes.
-   Annexes :ref:`docref-AIScalingWithoutStartOffset` and :ref:`docref-AIScalingWithStartOffset` for additional information on AI scaling.
+.. include-file:: sections/Include/ma_AI_Annex.rstinc "" ":ref:`<ref-IEC10xmaAIDeadband>`" ":ref:`<ref-IEC10xmaAIPercent>`"
 
 AI.qualifier
 ^^^^^^^^^^^^
 
-.. _ref-IEC10xmaAIqualifierBits:
+.. _docref-IEC10xmaAIqualifierBits:
 
 .. include-file:: sections/Include/table_flags.rstinc "" "IEC60870-5-101/104 Master AI internal qualifier" ":ref:`<ref-IEC10xmaAIqualifier>`" "AI internal qualifier"
 
@@ -105,13 +101,13 @@ AI.qualifier
 
    * :attr:     Bit 2
      :val:      xxxx.x0xx
-     :desc:	Event is generated if an AI object is received from outstation with a **'spontaneous'** Cause Of Transmission ([:lectext1:`COT`] = 3)
+     :desc:	Event is generated if an AI object is received from outstation with a **'spontaneous'** Cause Of Transmission ([:lemonobgtext:`COT`] = 3)
 		or received value exceeds deadband/percent limit.
 
    * :(attr):
      :val:      xxxx.x1xx
      :desc:	Event is generated **every time** AI object is received from outstation regardless of the Cause Of Transmission.
-		Also invalid [:lectext1:`IV`] flag is automatically cleared when outstation goes online which ensures this AI object is always valid.
+		Also invalid [:lemonobgtext:`IV`] flag is automatically cleared when outstation goes online which ensures this AI object is always valid.
 		:inlinetip:`This option is only used for backward compatibility.`
 
    * :attr:     Bit 3
@@ -142,4 +138,4 @@ AI.qualifier
      :val:      Any
      :desc:     Bits reserved for future use
 
-.. include-file:: sections/Include/IEC60870_AI_TypeID.rstinc "" ".. _ref-IEC10xmaAITypeIDValues:" "IEC60870-5-101/104 Master AI TypeID"
+.. include-file:: sections/Include/IEC60870_AI_TypeID.rstinc "" ".. _docref-IEC10xmaAITypeIDValues:" "IEC60870-5-101/104 Master AI TypeID"

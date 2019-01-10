@@ -10,7 +10,7 @@ Group node :ref:`DOTable<ref-IEC10xslDOTable>` and child element nodes :ref:`DO<
 commands from the upstream Master station.
 Each created DO information object needs to have a destination to forward the control command.
 The destination is created by linking DO information object to a :ref:`DO<ref-IEC10xslDO>` node of any Master protocol instance.
-(Master protocol instances are defined in :ref:`CommunicationCfg<ref-CommunicationCfg>` group in **leandc.xml** file)
+(Master protocol instances are defined in :ref:`CommunicationCfg<ref-CommunicationCfg>` group in |leandcxml| file)
 
 The link is created using :ref:`DO<ref-IEC10xslDO>`.\ :ref:`<ref-IEC10xslDODevice>` \ and :ref:`DO<ref-IEC10xslDO>`.\ :ref:`<ref-IEC10xslDOIndex>` \ attributes.
 The first step is to select the **destination Master protocol instance**, use value of the :ref:`<ref-IEC101maIndex>` attribute of any Master protocol instance.
@@ -43,9 +43,9 @@ There are 5 DO information objects configured using 4 :ref:`DO<ref-IEC10xslDO>` 
 DO attributes
 ^^^^^^^^^^^^^
 
-.. _ref-IEC10xslDOAttributes:
+.. _docref-IEC10xslDOAttributes:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-101/104 Slave DO attributes"
+.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-101/104 Slave DO attributes" ":spec: |C{0.14}|C{0.16}|C{0.1}|S{0.6}|"
 
 .. include-file:: sections/Include/IEC10xsl_Device.rstinc "" ".. _ref-IEC10xslDODevice:" "DO" "destination" "Destination"
 
@@ -58,7 +58,7 @@ DO attributes
 		Use value of the :ref:`DO<ref-IEC10xmaDO>`.\ :ref:`Index<ref-IEC10xmaDOIndex>` \ attribute of any DO object listed in the IO table of the selected Master protocol instance.
 		In addition to regular DOs there are internal controls available.
 		Internal controls are used to change real-time state of the destination protocol instance.
-		Each internal control has a service index and they are summarized in the table :numref:`ref-IEC10xslDOServiceIndex`.
+		Each internal control has a service index and they are summarized in the table :numref:`docref-IEC10xslDOServiceIndex`.
 		:inlinetip:`Indexes don't have to be arranged in ascending order.`
 
 .. include-file:: sections/Include/IEC10xsl_IOA.rstinc "" ".. _ref-IEC10xslDOInfAddr:" "DO" "receive command from"
@@ -69,7 +69,7 @@ DO attributes
      :val:      0...255 or 0x00...0xFF
      :def:      0x00
      :desc:     Internal object qualifier to enable customized data processing.
-		See table :numref:`ref-IEC10xslDOqualifierBits` for internal object qualifier description.
+		See table :numref:`docref-IEC10xslDOqualifierBits` for internal object qualifier description.
 		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
 
    * :attr:     .. _ref-IEC10xslDOPolicy:
@@ -77,13 +77,13 @@ DO attributes
                 :xmlref:`Policy`
      :val:      0...255
      :def:      0
-     :desc:     Command execution policy, see table :numref:`ref-IEC10xslPolicy` for description.
+     :desc:     Command execution policy, see table :numref:`docref-IEC10xslPolicy` for description.
 		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
 
    * :attr:     .. _ref-IEC10xslDOTypeID:
 
                 :xmlref:`TypeID`
-     :val:      See table :numref:`ref-IEC10xslDOTypeIDValues`
+     :val:      See table :numref:`docref-IEC10xslDOTypeIDValues`
      :def:      0 = any
      :desc:     Only accept command if received with this ASDU Type.
 		Value 0 disables ASDU type checking and any command is accepted.
@@ -107,7 +107,7 @@ DO attributes
 DO.qualifier
 ^^^^^^^^^^^^
 
-.. _ref-IEC10xslDOqualifierBits:
+.. _docref-IEC10xslDOqualifierBits:
 
 .. include-file:: sections/Include/table_flags.rstinc "" "IEC60870-5-101/104 Slave DO internal qualifier" ":ref:`<ref-IEC10xslDOqualifier>`" "DO internal qualifier"
 
@@ -150,36 +150,36 @@ DO.qualifier
 DO.TypeID
 ^^^^^^^^^
 
-.. _ref-IEC10xslDOTypeIDValues:
+.. _docref-IEC10xslDOTypeIDValues:
 
 .. field-list-table:: IEC60870-5-101/104 Slave DO TypeID
    :class: table table-condensed table-bordered longtable
-   :spec: |C{0.20}|S{0.80}|
+   :spec: |C{0.16}|S{0.84}|
    :header-rows: 1
 
    * :attr,10: TypeID Value
      :desc,90: Description
 
    * :attr:     45
-     :desc:     Only 'Single command' will be accepted and processed (ASDU type 45 [:lectext1:`C_SC_NA_1`])
+     :desc:     Only 'Single command' will be accepted and processed (ASDU type 45 [:lemonobgtext:`C_SC_NA_1`])
 
    * :attr:     46
-     :desc:     Only 'Double command' will be accepted and processed (ASDU type 46 [:lectext1:`C_DC_NA_1`])
+     :desc:     Only 'Double command' will be accepted and processed (ASDU type 46 [:lemonobgtext:`C_DC_NA_1`])
 
    * :attr:     47
-     :desc:     Only 'Regulating step command' will be accepted and processed (ASDU type 47 [:lectext1:`C_RC_NA_1`])
+     :desc:     Only 'Regulating step command' will be accepted and processed (ASDU type 47 [:lemonobgtext:`C_RC_NA_1`])
 
    * :attr:     58
      :desc:     Only applicable to IEC60870-5-104 Slave protocol instance;
-                Only time-tagged 'Single command' will be accepted and processed (ASDU type 58 [:lectext1:`C_SC_TA_1`])
+                Only time-tagged 'Single command' will be accepted and processed (ASDU type 58 [:lemonobgtext:`C_SC_TA_1`])
 
    * :attr:     59
      :desc:     Only applicable to IEC60870-5-104 Slave protocol instance;
-                Only time-tagged 'Double command' will be accepted and processed (ASDU type 59 [:lectext1:`C_DC_TA_1`])
+                Only time-tagged 'Double command' will be accepted and processed (ASDU type 59 [:lemonobgtext:`C_DC_TA_1`])
 
    * :attr:     60
      :desc:     Only applicable to IEC60870-5-104 Slave protocol instance;
-                Only time-tagged 'Regulating step command' will be accepted and processed (ASDU type 59 [:lectext1:`C_RC_TA_1`])
+                Only time-tagged 'Regulating step command' will be accepted and processed (ASDU type 59 [:lemonobgtext:`C_RC_TA_1`])
 
    * :attr:     Other
      :desc:     Undefined, control command received with any ASDU type will be accepted
@@ -191,11 +191,11 @@ DO Service Indexes
 Service digital outputs are internal controls that enable to change operation state of communication protocol instances.
 Service controls have negative index values and can be used just as any regular DO indexes.
 
-.. _ref-IEC10xslDOServiceIndex:
+.. _docref-IEC10xslDOServiceIndex:
 
 .. field-list-table:: IEC60870-5-101/104 Slave Service DO indexes
    :class: table table-condensed table-bordered longtable
-   :spec: |C{0.25}|C{0.25}|S{0.5}|
+   :spec: |C{0.19}|C{0.14}|S{0.67}|
    :header-rows: 1
 
    * :attr,10: Index value
@@ -228,7 +228,7 @@ Service controls have negative index values and can be used just as any regular 
    * :attr:     -5
                 (0xFFFFFFFB)
      :val:      ON or OFF
-     :desc:     Only applicable to IEC60870-5-101/104 Master communication protocol instances; Send **Reset Process** command (ASDU type 105 [:lectext1:`C_RP_NA_1`]) to the downstream station
+     :desc:     Only applicable to IEC60870-5-101/104 Master communication protocol instances; Send **Reset Process** command (ASDU type 105 [:lemonobgtext:`C_RP_NA_1`]) to the downstream station
 
    * :attr:     -1 and -6...-8
      :val:      Any
@@ -237,5 +237,5 @@ Service controls have negative index values and can be used just as any regular 
 .. tip::
 
    | \* This service command only applies to the following protocol instances:
-   | IEC60870-5-104 controlling station (Master) send [:lectext1:`STARTDT_act`] or [:lectext1:`STOPDT_act`] to the downstream station;
-   | IEC61850 Client send MMS [:lectext1:`Initiate-RequestPDU`] or [:lectext1:`Conclude-RequestPDU`] to the IED;
+   | IEC60870-5-104 controlling station (Master) send [:lemonobgtext:`STARTDT_act`] or [:lemonobgtext:`STOPDT_act`] to the downstream station;
+   | IEC61850 Client send MMS [:lemonobgtext:`Initiate-RequestPDU`] or [:lemonobgtext:`Conclude-RequestPDU`] to the IED;

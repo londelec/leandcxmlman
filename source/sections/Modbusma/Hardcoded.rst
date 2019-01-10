@@ -14,7 +14,7 @@ Hardcoded device type can be specified in this node.
 
 .. _docref-ModbusmaHardcodedAttab:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "Modbus Master Hardcoded attributes"
+.. include-file:: sections/Include/table_attrs.rstinc "" "Modbus Master Hardcoded attributes" ":spec: |C{0.1}|C{0.12}|C{0.1}|S{0.68}|"
 
    * :attr:     .. _ref-ModbusmaHardcodedType:
 

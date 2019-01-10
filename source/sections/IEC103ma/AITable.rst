@@ -10,7 +10,7 @@ Each created AI information object can be used as source of information for any 
 If used as a source, analog information received from an outstation will be forwarded to AI information object of the Slave protocol instance and then to the upstream Master station.
 Please refer to the section :ref:`docref-IEC10xslAITable` for more information on how to use AI information object as a source.
 
-In order to receive an analog information from downstream outstation [:lectext1:`FUNCTION TYPE`] and [:lectext1:`INFORMATION NUMBER`]
+In order to receive an analog information from downstream outstation [:lemonobgtext:`FUNCTION TYPE`] and [:lemonobgtext:`INFORMATION NUMBER`]
 has to be specified in :ref:`<ref-IEC103maAIFUN>` \ and :ref:`<ref-IEC103maAIINF>` \ attributes.
 It also essential to select particular measurement from the incoming message as IEC60870-5-103 station sends multiple measurands in one message.
 Particular analog value is selected with :ref:`<ref-IEC103maAIMEA>` \ attribute.
@@ -38,9 +38,9 @@ There are 5 AI information objects configured using 4 :ref:`AI<ref-IEC103maAI>` 
 AI attributes
 ^^^^^^^^^^^^^
 
-.. _ref-IEC103maAIAttributes:
+.. _docref-IEC103maAIAttributes:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-103 Master AI attributes"
+.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-103 Master AI attributes" ":spec: |C{0.18}|C{0.16}|C{0.1}|S{0.56}|"
 
 .. include-file:: sections/Include/ma_Index.rstinc "" ".. _ref-IEC103maAIIndex:" "AI"
 
@@ -61,7 +61,7 @@ AI attributes
      :val:      0...255 or 0x00...0xFF
      :def:      0x00
      :desc:     Internal object qualifier to enable customized data processing.
-		See table :numref:`ref-IEC103maAIQualifierBits` for internal object qualifier description.
+		See table :numref:`docref-IEC103maAIQualifierBits` for internal object qualifier description.
 		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
 
 .. include-file:: sections/Include/AI_Coeff.rstinc "" ".. _ref-IEC103maAICoeff:"
@@ -87,23 +87,19 @@ AI attributes
      :def:      0
      :desc:     Value of the object used for logical conjunction/disjunction (AND/OR function).
 		Please note all DI values have to be treated as DPIs (ON = 2; OFF = 1) if used for logic functions.
-		Quality flags (e.g. [:lectext1:`IV`]) are not part of the logical processing, DI values are used regardless of state of the quality flags.
+		Quality flags (e.g. [:lemonobgtext:`IV`]) are not part of the logical processing, DI values are used regardless of state of the quality flags.
 		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
 
 .. include-file:: sections/Include/Total.rstinc "" ".. _ref-IEC103maAITotal:" ":ref:`<ref-IEC103maAIIndex>` and :ref:`<ref-IEC103maAIMEA>`" ":ref:`AI<ref-IEC103maAI>`" "254"
 
 .. include-file:: sections/Include/Name.rstinc ""
 
-.. tip::
-
-   \* Please refer to annex :ref:`docref-ReceivedAIProcessing` for additional information on AI processing 
-   options and application examples using :ref:`Deadband<ref-IEC103maAIDeadband>` \ and :ref:`Percent<ref-IEC103maAIPercent>` \ attributes.
-   Annexes :ref:`docref-AIScalingWithoutStartOffset` and :ref:`docref-AIScalingWithStartOffset` for additional information on AI scaling.
+.. include-file:: sections/Include/ma_AI_Annex.rstinc "" ":ref:`<ref-IEC103maAIDeadband>`" ":ref:`<ref-IEC103maAIPercent>`"
 
 AI.Qualifier
 ^^^^^^^^^^^^
 
-.. _ref-IEC103maAIQualifierBits:
+.. _docref-IEC103maAIQualifierBits:
 
 .. include-file:: sections/Include/table_flags.rstinc "" "IEC60870-5-103 Master AI internal Qualifier" ":ref:`<ref-IEC103maAIQualifier>`" "AI internal qualifier"
 
@@ -120,13 +116,13 @@ AI.Qualifier
 
    * :attr:     Bit 2
      :val:      xxxx.x0xx
-     :desc:	Event is generated if an AI object is received from outstation with a **'spontaneous'** Cause Of Transmission ([:lectext1:`COT`] = 1)
+     :desc:	Event is generated if an AI object is received from outstation with a **'spontaneous'** Cause Of Transmission ([:lemonobgtext:`COT`] = 1)
 		or received value exceeds deadband/percent limit.
 
    * :(attr):
      :val:      xxxx.x1xx
      :desc:	Event is generated **every time** AI object is received from outstation regardless of the Cause Of Transmission.
-		Also invalid [:lectext1:`IV`] flag is automatically cleared when outstation goes online which ensures this AI object is always valid.
+		Also invalid [:lemonobgtext:`IV`] flag is automatically cleared when outstation goes online which ensures this AI object is always valid.
 		:inlinetip:`This option is only used for backward compatibility.`
 
    * :attr:     Bit 6

@@ -30,9 +30,9 @@ Please see sample :ref:`DOTable<ref-IEC61850clDO>` group and :ref:`DO<ref-IEC618
 DO attributes
 ^^^^^^^^^^^^^
 
-.. _ref-IEC61850clDOAttributes:
+.. _docref-IEC61850clDOAttributes:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "IEC61850 Client DO attributes"
+.. include-file:: sections/Include/table_attrs.rstinc "" "IEC61850 Client DO attributes" ":spec: |C{0.12}|C{0.14}|C{0.1}|S{0.64}|"
 
 .. include-file:: sections/Include/ma_Index.rstinc "" ".. _ref-IEC61850clDOIndex:" "DO"
 
@@ -44,7 +44,7 @@ DO attributes
      :val:      0...255 or 0x00...0xFF
      :def:      0x00
      :desc:     Internal object qualifier to enable customized data processing.
-		See table :numref:`ref-IEC61850clDOqualifierBits` for internal object qualifier description.
+		See table :numref:`docref-IEC61850clDOqualifierBits` for internal object qualifier description.
 		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
 
 .. include-file:: sections/Include/Name.rstinc ""
@@ -52,7 +52,7 @@ DO attributes
 DO.Qualifier
 ^^^^^^^^^^^^
 
-.. _ref-IEC61850clDOqualifierBits:
+.. _docref-IEC61850clDOqualifierBits:
 
 .. include-file:: sections/Include/table_flags.rstinc "" "IEC61850 Client DO internal qualifier" ":ref:`<ref-IEC61850clDOQualifier>`" "DO internal qualifier"
 
@@ -66,27 +66,27 @@ DO.Qualifier
 
    * :attr:     Bit 1
      :val:      xxxx.xx0x
-     :desc:     [:lectext1:`Synchrocheck`] control bit is **disabled** in outgoing DO command
+     :desc:     [:lemonobgtext:`Synchrocheck`] control bit is **disabled** in outgoing DO command
 
    * :(attr):
      :val:      xxxx.xx1x
-     :desc:     [:lectext1:`Synchrocheck`] control bit is **enabled** in outgoing DO command
+     :desc:     [:lemonobgtext:`Synchrocheck`] control bit is **enabled** in outgoing DO command
 
    * :attr:     Bit 2
      :val:      xxxx.x0xx
-     :desc:     [:lectext1:`Interlock`] control bit is **disabled** in outgoing DO command
+     :desc:     [:lemonobgtext:`Interlock`] control bit is **disabled** in outgoing DO command
 
    * :(attr):
      :val:      xxxx.x1xx
-     :desc:     [:lectext1:`Interlock`] control bit is **enabled** in outgoing DO command
+     :desc:     [:lemonobgtext:`Interlock`] control bit is **enabled** in outgoing DO command
 
    * :attr:     Bit 6
      :val:      x0xx.xxxx
-     :desc:     [:lectext1:`Test`] bit of the control structure is **cleared**
+     :desc:     [:lemonobgtext:`Test`] bit of the control structure is **cleared**
 
    * :(attr):
      :val:      x1xx.xxxx
-     :desc:     [:lectext1:`Test`] bit of the control structure is **set**
+     :desc:     [:lemonobgtext:`Test`] bit of the control structure is **set**
 
    * :attr:     Bit 7
      :val:      0xxx.xxxx

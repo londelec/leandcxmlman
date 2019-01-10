@@ -1,0 +1,180 @@
+	<div>
+		<style type="text/css">
+			.lenetcalc {
+				border: 1px solid #DDDDDD;
+				padding-bottom: 4px;
+			}
+			.lenetcalc td {
+				padding: 1px 6px 1px 6px;
+			}
+			.lenetcalc .iperrmessage {
+				color: red;
+			}
+			.lenetcalc .lencbordered {
+				border: 1px solid #AEAEAE;
+				margin: 0px;
+				padding: 1px 4px 1px 4px;
+			}
+		</style>
+		<table class="lenetcalc" align="left">
+			<tr>
+				<td class="cinfoHdL">IP address</td>
+				<td class="cinfoHdL">Subnet Mask</td>
+				<td class="cinfoHdL">Network Address</td>
+				<td class="cinfoHdL">Broadcast Address</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="text" id="leipddr" value="192.168.1.1" class="inlonger" title="Enter IPv4 address dot-decimal notation e.g. 192.168.0.1" onkeyup="lenetcalcevent();"/>
+				</td>
+				<td>
+					<select name="csubnet" id="lesubnet" title="Select subnet mask. Mask is shown in dot-decimal (255.255.255.0) and decimal (/24) notations. Use decimal value in XML Mask attribute e.g. Mask=&quot;24&quot;" onchange="lenetcalcevent();">
+						<option value="32">255.255.255.255 /32</option>
+						<option value="31">255.255.255.254 /31</option>
+						<option value="30">255.255.255.252 /30</option>
+						<option value="29">255.255.255.248 /29</option>
+						<option value="28">255.255.255.240 /28</option>
+						<option value="27">255.255.255.224 /27</option>
+						<option value="26">255.255.255.192 /26</option>
+						<option value="25">255.255.255.128 /25</option>
+						<option value="24">255.255.255.0 /24</option>
+						<option value="23">255.255.254.0 /23</option>
+						<option value="22">255.255.252.0 /22</option>
+						<option value="21">255.255.248.0 /21</option>
+						<option value="20">255.255.240.0 /20</option>
+						<option value="19">255.255.224.0 /19</option>
+						<option value="18">255.255.192.0 /18</option>
+						<option value="17">255.255.128.0 /17</option>
+						<option value="16">255.255.0.0 /16</option>
+						<option value="15">255.254.0.0 /15</option>
+						<option value="14">255.252.0.0 /14</option>
+						<option value="13">255.248.0.0 /13</option>
+						<option value="12">255.240.0.0 /12</option>
+						<option value="11">255.224.0.0 /11</option>
+						<option value="10">255.192.0.0 /10</option>
+						<option value="9">255.128.0.0 /9</option>
+						<option value="8">255.0.0.0 /8</option>
+						<option value="7">254.0.0.0 /7</option>
+						<option value="6">252.0.0.0 /6</option>
+						<option value="5">248.0.0.0 /5</option>
+						<option value="4">240.0.0.0 /4</option>
+						<option value="3">224.0.0.0 /3</option>
+						<option value="2">192.0.0.0 /2</option>
+						<option value="1">128.0.0.0 /1</option>
+					</select>
+				</td>
+				<td>
+					<p id="lenetaddr" class="lencbordered" title="Calculated network base address. This is the smallest address of the subnet."/>
+				</td>
+				<td>
+					<p id="lebcaddr" class="lencbordered" title="Calculated broadcast address. This is the largest address of the subnet."/>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<span id="iperrmessage" class="iperrmessage">Error message</span>
+				</td>
+				<td class="cinfoHd">Binary Subnet Mask</td>
+				<td/>
+				<td/>
+			</tr>
+			<tr>
+				<td/>
+				<td>
+					<p id="lebinarymask" class="lencbordered" title="Subnet mask in binary notation (just for reference)"/>
+				</td>
+				<td/>
+				<td/>
+			</tr>
+			<script>
+				//console.log("Loaded:)");
+				function octetToInt(valArray) {
+					var ival = 0;
+					for (var i = 0; i < 4; i++) {
+						ival <<= 8;
+						ival |= parseInt(valArray[i]);
+					}
+					return ival;
+				}
+
+				function intToDotdec(ival) {
+					var ipText;
+					ipText = ((ival >> 24) & 0xFF) + '.';
+					ipText += ((ival >> 16) & 0xFF) + '.';
+					ipText += ((ival >> 8) & 0xFF) + '.';
+					ipText += (ival & 0xFF);
+					return ipText;
+				}
+
+				function calcBinary(subnVal) {
+					var subnInt = -1, byteval;
+					var subnText = '';
+					subnInt <<= (32 - subnVal);
+					var sbinElem = document.getElementById("lebinarymask");
+
+					for (var i = 0; i < 32; i++) {
+						if (subnInt & (1 << (31 - i)))
+							subnText += '1';
+						else
+							subnText += '0';
+						if ((i < 31) && ((i & 0x7) === 7))
+							subnText += '.';
+					}
+					sbinElem.textContent = subnText;
+					return subnInt;
+				}
+
+				function updateTexts(message, ipval, subnVal) {
+					var msgElem = document.getElementById("iperrmessage");
+					var netElem = document.getElementById("lenetaddr");
+					var bcElem = document.getElementById("lebcaddr");
+					var subnInt = calcBinary(subnVal);
+
+					if (message) {
+						if (netElem)
+							netElem.textContent = '?';
+						if (bcElem)
+							bcElem.textContent = '?';
+					}
+					else {
+						if (netElem)
+							netElem.textContent = intToDotdec(ipval & subnInt);
+						if (bcElem)
+							bcElem.textContent = intToDotdec(ipval | ~subnInt);
+					}
+					msgElem.textContent = message;
+				}
+
+				window.lenetcalcevent = function() {
+					//console.log("Event");
+					var addrElem = document.getElementById("leipddr");
+					var maskElem = document.getElementById("lesubnet");
+
+					var ipText = addrElem.value;
+					var subnVal = maskElem.value;
+					//ipText = ipText.replace(/	/g, "").replace(/ /g, "").replace(/,/g, "");
+					var octets = ipText.split('.');
+					if (octets.length !== 4) {
+						updateTexts("Invalid IP address", 0, subnVal);
+						return;
+					}
+
+					for (var i = 0; i < 4; i++) {
+						if (
+							(octets[i] === "") || 
+							(isNaN(octets[i])) ||
+							(parseInt(octets[i]) < 0)) {
+							updateTexts("Invalid IP address", 0, subnVal);
+							return;
+						}
+					}
+					updateTexts("", octetToInt(octets), subnVal);
+				}
+
+				var maskElem = document.getElementById("lesubnet");
+				if (maskElem)				
+					maskElem.value = "24";
+				window.lenetcalcevent();
+			</script>
+		</table>
+	</div>

@@ -14,29 +14,29 @@ Link layer settings can be specified using attributes of :ref:`<ref-IEC101slLink
 
 .. _docref-IEC101slLinkSettingsAttab:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-101 Slave LinkSettings attributes"
+.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-101 Slave LinkSettings attributes" ":spec: |C{0.21}|C{0.12}|C{0.1}|S{0.57}|"
 
 .. include-file:: sections/Include/IEC60870_LinkAddrSize.rstinc "" ".. _ref-IEC101slLinkSettingsLinkAddrSize:"
 
    * :attr:     :xmlref:`ACDLinkStatusResp`
      :val:      0
      :def:      0
-     :desc:     [ACD] bit (link control field) value of the 'status of link' response message (**no access demand**)
+     :desc:     [:lemonobgtext:`ACD`] bit (link control field) value of the 'status of link' response message (**no access demand**)
 
    * :(attr):
      :val:      1
      :(def):
-     :desc:     [ACD] bit (link control field) value of the 'status of link' response message (**access demand**)
+     :desc:     [:lemonobgtext:`ACD`] bit (link control field) value of the 'status of link' response message (**access demand**)
 
    * :attr:     :xmlref:`ACDAlways`
      :val:      0
      :def:      0
-     :desc:     [ACD] bit (link control field) in response messages gets set **only if Class 1 data is available**
+     :desc:     [:lemonobgtext:`ACD`] bit (link control field) in response messages gets set **only if Class 1 data is available**
 
    * :(attr):
      :val:      1
      :(def):
-     :desc:     [ACD] bit (link control field) in response messages is **always** set
+     :desc:     [:lemonobgtext:`ACD`] bit (link control field) in response messages is **always** set
 
    * :attr:     :xmlref:`ClassIgnore`
      :val:      0
@@ -55,10 +55,10 @@ Link layer settings can be specified using attributes of :ref:`<ref-IEC101slLink
      :val:      0...255 or 0x00...0xFF
      :def:      0x00
      :desc:     Various settings to enable customized data processing.
-		See table :numref:`ref-IEC101slLinkFlagsBits` for description.
+		See table :numref:`docref-IEC101slLinkFlagsBits` for description.
 
 
-.. _ref-IEC101slLinkFlagsBits:
+.. _docref-IEC101slLinkFlagsBits:
 
 .. include-file:: sections/Include/table_flags.rstinc "" "IEC60870-5-101 Slave Link flags" ":ref:`<ref-IEC101slLinkSettingsFlags>`" "Link flags"
 
@@ -74,11 +74,12 @@ Link layer settings can be specified using attributes of :ref:`<ref-IEC101slLink
 
    * :attr:     Bit 2
      :val:      xxxx.x0xx
-     :desc:     [FCB] bit (link control field) **must be zero** in 'status of link' request received from Master station. Leandc will not reply to the 'status of link' request if [FCB] bit is set. 
+     :desc:     [:lemonobgtext:`FCB`] bit (link control field) **must be zero** in 'status of link' request received from Master station.
+		Leandc will not reply to the 'status of link' request if [:lemonobgtext:`FCB`] bit is set. 
 
    * :(attr):
      :val:      xxxx.x1xx
-     :desc:     [FCB] bit (link control field) **is ignored** in 'status of link' request received from Master station
+     :desc:     [:lemonobgtext:`FCB`] bit (link control field) **is ignored** in 'status of link' request received from Master station
 
    * :attr:     Bits 3...7
      :val:      Any

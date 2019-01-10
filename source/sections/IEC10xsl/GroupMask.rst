@@ -2,11 +2,11 @@
 DI/AI.GroupMask
 ---------------
 
-.. _ref-IEC10xslGroupMask:
+.. _docref-IEC10xslGroupMask:
 
 .. field-list-table:: IEC60870-5-101/104 Slave DI/AI GroupMask
    :class: table table-condensed table-bordered longtable
-   :spec: |C{0.24}|C{0.24}|S{0.52}|
+   :spec: |C{0.22}|C{0.22}|S{0.56}|
    :header-rows: 1
 
    * :attr,10: Bits

@@ -14,7 +14,7 @@ Link layer settings can be specified using attributes of :ref:`<ref-IEC103maLink
 
 .. _docref-IEC103maLinkSettingsAttab:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-103 Master LinkSettings attributes"
+.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-103 Master LinkSettings attributes" ":spec: |C{0.12}|C{0.12}|C{0.1}|S{0.66}|"
 
    * :attr:     .. _ref-IEC103maLinkSettingsFlags:
 
@@ -22,9 +22,9 @@ Link layer settings can be specified using attributes of :ref:`<ref-IEC103maLink
      :val:      0...255 or 0x00...0xFF
      :def:      0x00
      :desc:     Various settings to enable customized data processing.
-		See table :numref:`ref-IEC103maLinkFlagsBits` for description.
+		See table :numref:`docref-IEC103maLinkFlagsBits` for description.
 
-.. _ref-IEC103maLinkFlagsBits:
+.. _docref-IEC103maLinkFlagsBits:
 
 .. include-file:: sections/Include/table_flags.rstinc "" "IEC60870-5-103 Master Link flags" ":ref:`<ref-IEC103maLinkSettingsFlags>`" "Link flags"
 
@@ -33,12 +33,12 @@ Link layer settings can be specified using attributes of :ref:`<ref-IEC103maLink
    * :attr:     Bit 4
      :val:      xxx0.xxxx
      :desc:     Use **'Reset of remote link'** message to check if station is online.
-		('Reset of remote link' message has function code 0x40)
+		([:lemonobgtext:`Reset of remote link`] message has function code 0x40)
 
    * :(attr):
      :val:      xxx1.xxxx
      :desc:     Use **'Reset FCB'** message to check if station is online.
-		('Reset FCB' message has function code 0x47. This message is defined only in IEC60870-5-103 standard)
+		([:lemonobgtext:`Reset FCB`] message has function code 0x47. This message is defined only in IEC60870-5-103 standard)
 
    * :attr:     Bits 1...3;5...7
      :val:      Any

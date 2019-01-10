@@ -1,10 +1,10 @@
    * :attr:     :xmlref:`DOType`
-     :val:      See table :numref:`ref-IEC10xslDOTypeIDValues`
+     :val:      See table :numref:`docref-IEC10xslDOTypeIDValues`
      :def:      0 = any
      :desc:     Only accept command if received with this ASDU Type (e.g. Single or Double command) if DO object doesn't have :ref:`DO<ref-IEC10xslDO>`.\ :ref:`<ref-IEC10xslDOTypeID>` \ attribute specified in the element node. (default value 0 – accept command with any ASDU type)
 
    * :attr:     :xmlref:`AOType`
-     :val:      See table :numref:`ref-IEC10xslAOTypeIDValues`
+     :val:      See table :numref:`docref-IEC10xslAOTypeIDValues`
      :def:      0 = any
      :desc:     Only accept setpoint command if received with this ASDU Type (e.g. Normalized or Scaled setpoint) if AO object doesn't have :ref:`AO<ref-IEC10xslAO>`.\ :ref:`<ref-IEC10xslAOTypeID>` \ attribute specified in the element node. (default value 0 – accept command with any ASDU type)
 

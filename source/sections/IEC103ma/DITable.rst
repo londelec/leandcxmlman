@@ -12,7 +12,7 @@ status information received from an outstation will be forwarded to DI informati
 instance and then to the upstream Master station. Please refer to the
 section :ref:`docref-IEC10xslDITable` for more information on how to use DI information object as a source.
 
-In order to receive a status information from downstream outstation [:lectext1:`FUNCTION TYPE`] and [:lectext1:`INFORMATION NUMBER`]
+In order to receive a status information from downstream outstation [:lemonobgtext:`FUNCTION TYPE`] and [:lemonobgtext:`INFORMATION NUMBER`]
 has to be specified in :ref:`<ref-IEC103maDIFUN>` \ and :ref:`<ref-IEC103maDIINF>` \ attributes.
 
 Please see sample :ref:`DITable<ref-IEC103maDITable>` group and :ref:`DI<ref-IEC103maDI>` child element nodes below.
@@ -38,9 +38,9 @@ There are 5 DI information objects configured using 4 :ref:`DI<ref-IEC103maDI>` 
 DI attributes
 ^^^^^^^^^^^^^
 
-.. _ref-IEC103maDIAttributes:
+.. _docref-IEC103maDIAttributes:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-103 Master DI attributes"
+.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-103 Master DI attributes" ":spec: |C{0.12}|C{0.14}|C{0.1}|S{0.64}|"
 
 .. include-file:: sections/Include/ma_Index.rstinc "" ".. _ref-IEC103maDIIndex:" "DI"
 
@@ -52,7 +52,7 @@ DI attributes
      :val:      0...255 or 0x00...0xFF
      :def:      0x00
      :desc:     Internal object qualifier to enable customized data processing.
-		See table :numref:`ref-IEC103maDIQualifierBits` for internal object qualifier description.
+		See table :numref:`docref-IEC103maDIQualifierBits` for internal object qualifier description.
 		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
 
 .. include-file:: sections/Include/DI_Idelays.rstinc "" ".. _ref-IEC103maDIInterDelay:" ".. _ref-IEC103maDIIndetDelay:"
@@ -64,7 +64,7 @@ DI attributes
 DI.Qualifier
 ^^^^^^^^^^^^
 
-.. _ref-IEC103maDIQualifierBits:
+.. _docref-IEC103maDIQualifierBits:
 
 .. include-file:: sections/Include/table_flags.rstinc "" "IEC60870-5-103 Master DI internal Qualifier" ":ref:`<ref-IEC103maDIQualifier>`" "DI internal qualifier"
 
@@ -91,7 +91,7 @@ DI.Qualifier
    * :(attr):
      :val:      xxxx.x1xx
      :desc:	Event is generated **every time** DI object is received from outstation.
-		Also invalid [:lectext1:`IV`] flag is automatically cleared when outstation goes online which ensures this DI object is always valid.
+		Also invalid [:lemonobgtext:`IV`] flag is automatically cleared when outstation goes online which ensures this DI object is always valid.
 		:inlinetip:`This option is only used for backward compatibility.`
 
    * :attr:     Bit 5

@@ -48,6 +48,6 @@ IEC60870-5-104 Master configuration file (e.g. '**IEC104ma_test.xml**') must hav
 
 :ref:`DITable<ref-IEC10xmaDITable>`; :ref:`AITable<ref-IEC10xmaAITable>`; :ref:`DOTable<ref-IEC10xmaDOTable>`; :ref:`AOTable<ref-IEC10xmaAOTable>` group nodes compose an IO object table and they are common for
 IEC60870-5-101 and IEC60870-5-104 controlling station (Master) communication protocol instances. Please
-refer to the tables :numref:`ref-IEC10xmaDIAttributes`; :numref:`ref-IEC10xmaAIAttributes`; :numref:`ref-IEC10xmaDOAttributes` and :numref:`ref-IEC10xmaAOAttributes` for their attributes.
+refer to the tables :numref:`docref-IEC10xmaDIAttributes`; :numref:`docref-IEC10xmaAIAttributes`; :numref:`docref-IEC10xmaDOAttributes` and :numref:`docref-IEC10xmaAOAttributes` for their attributes.
 
 .. include:: IEC104ma/ProtocolCfg.rst

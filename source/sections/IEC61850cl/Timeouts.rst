@@ -14,7 +14,7 @@ Command processing timeouts are specified in this node.
 
 .. _docref-IEC61850clTimeoutsAttab:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "IEC61850 Client Timeouts attributes"
+.. include-file:: sections/Include/table_attrs.rstinc "" "IEC61850 Client Timeouts attributes" ":spec: |C{0.12}|C{0.1}|C{0.1}|S{0.68}|"
 .. include-file:: sections/Include/ma_TimeoutsAppCmd.rstinc
 .. include-file:: sections/Include/SelectTimeout.rstinc
 

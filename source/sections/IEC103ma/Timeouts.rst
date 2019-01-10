@@ -14,6 +14,6 @@ Command processing timeouts are specified in this node.
 
 .. _docref-IEC103maTimeoutsAttab:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-103 Master Timeouts attributes"
+.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-103 Master Timeouts attributes" ":spec: |C{0.12}|C{0.1}|C{0.1}|S{0.68}|"
 
 .. include-file:: sections/Include/ma_TimeoutsAppCmd.rstinc

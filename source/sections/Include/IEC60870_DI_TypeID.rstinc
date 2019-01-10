@@ -5,7 +5,7 @@ DI.TypeID
 
 .. field-list-table:: :include-arg:`2`
    :class: table table-condensed table-bordered longtable
-   :spec: |C{0.25}|C{0.25}|S{0.5}|
+   :spec: |C{0.18}|C{0.18}|S{0.64}|
    :header-rows: 1
 
    * :attr,10: TypeID Value for IEC60870-5-101
@@ -14,33 +14,33 @@ DI.TypeID
 
    * :attr:     1
      :val:      1
-     :desc:     Static DI 'Single-point Information' will be sent using ASDU type 1 [:lectext1:`M_SP_NA_1`] DI event will be sent using ASDU type 1 [:lectext1:`M_SP_NA_1`], **no time-tag**
+     :desc:     Static DI 'Single-point Information' will be sent using ASDU type 1 [:lemonobgtext:`M_SP_NA_1`] DI event will be sent using ASDU type 1 [:lemonobgtext:`M_SP_NA_1`], **no time-tag**
 
    * :attr:     2
      :val:      N/A
-     :desc:     Static DI 'Single-point Information' will be sent using ASDU type 1 [:lectext1:`M_SP_NA_1`] DI event will be sent using ASDU type 2 [:lectext1:`M_SP_TA_1`], **CP24time2A**, msec and min
+     :desc:     Static DI 'Single-point Information' will be sent using ASDU type 1 [:lemonobgtext:`M_SP_NA_1`] DI event will be sent using ASDU type 2 [:lemonobgtext:`M_SP_TA_1`], **CP24time2A**, msec and min
 
    * :attr:     3
      :val:      3
-     :desc:     Static DI 'Double-point Information' will be sent using ASDU type 3 [:lectext1:`M_DP_NA_1`] DI event will be sent using ASDU type 3 [:lectext1:`M_DP_NA_1`], **no time-tag**
+     :desc:     Static DI 'Double-point Information' will be sent using ASDU type 3 [:lemonobgtext:`M_DP_NA_1`] DI event will be sent using ASDU type 3 [:lemonobgtext:`M_DP_NA_1`], **no time-tag**
 
    * :attr:     4
      :val:      N/A
-     :desc:     Static DI 'Double-point Information' will be sent using ASDU type 3 [:lectext1:`M_DP_NA_1`] DI event will be sent using ASDU type 4 [:lectext1:`M_DP_TA_1`], **CP24time2A**, msec and min
+     :desc:     Static DI 'Double-point Information' will be sent using ASDU type 3 [:lemonobgtext:`M_DP_NA_1`] DI event will be sent using ASDU type 4 [:lemonobgtext:`M_DP_TA_1`], **CP24time2A**, msec and min
 
    * :attr:     30
      :val:      30
-     :desc:     Static DI 'Single-point Information' will be sent using ASDU type 1 [:lectext1:`M_SP_NA_1`] DI event will be sent using ASDU type 30 [:lectext1:`M_SP_TB_1`], **CP56time2A**, full time
+     :desc:     Static DI 'Single-point Information' will be sent using ASDU type 1 [:lemonobgtext:`M_SP_NA_1`] DI event will be sent using ASDU type 30 [:lemonobgtext:`M_SP_TB_1`], **CP56time2A**, full time
 
    * :attr:     31
      :val:      31
-     :desc:     Static DI 'Double-point Information' will be sent using ASDU type 3 [:lectext1:`M_DP_NA_1`] DI event will be sent using ASDU type 31 [:lectext1:`M_DP_TB_1`], **CP56time2A**, full time
+     :desc:     Static DI 'Double-point Information' will be sent using ASDU type 3 [:lemonobgtext:`M_DP_NA_1`] DI event will be sent using ASDU type 31 [:lemonobgtext:`M_DP_TB_1`], **CP56time2A**, full time
 
    * :attr:     Other
      :val:      Other
      :desc:     Undefined, default values will be used:
-		IEC60870-5-101 default ASDU type 2 [:lectext1:`M_SP_TA_1`], **CP24time2A**, msec and min
-		IEC60870-5-104 default ASDU type 30 [:lectext1:`M_SP_TB_1`], **CP56time2A**, full time
+		IEC60870-5-101 default ASDU type 2 [:lemonobgtext:`M_SP_TA_1`], **CP24time2A**, msec and min
+		IEC60870-5-104 default ASDU type 30 [:lemonobgtext:`M_SP_TB_1`], **CP56time2A**, full time
 
 .. tip::
 

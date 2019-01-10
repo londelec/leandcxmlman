@@ -12,6 +12,8 @@ Abbreviations used in this document are listed in the following table.
 
    * :abbr,10: Abbreviation
      :desc,90: Description
+   * :abbr:    ADC
+     :desc:    Analog Digital Converter
    * :abbr:    AI
      :desc:    Analog Input
    * :abbr:    AO
@@ -23,11 +25,11 @@ Abbreviations used in this document are listed in the following table.
    * :abbr:    ASDU
      :desc:    Application Service Data Unit
    * :abbr:    CAA
-     :desc:    Common address of ASDU
+     :desc:    Common Address of ASDU
    * :abbr:    CID
      :desc:    Configured IED Description
    * :abbr:    COT
-     :desc:    Cause of transmission
+     :desc:    Cause Of Transmission
    * :abbr:    DI
      :desc:    Digital Input
    * :abbr:    DO
@@ -40,6 +42,8 @@ Abbreviations used in this document are listed in the following table.
      :desc:    Human Machine Interface
    * :abbr:    IANA
      :desc:    Internet Assigned Numbers Authority
+   * :abbr:    ICD
+     :desc:    IED Capabilities Description
    * :abbr:    IED
      :desc:    Intelligent Electronic Device
    * :abbr:    IO
@@ -77,13 +81,13 @@ Text styles used in this manual:
 
 :xmlref:`Dark blue used for XML nodes and attributes`
 
-:underline-bold:`Links to tables and manual sections are bold underlined`
+:leubold:`Links to tables and manual sections are bold underlined`
 
 :inlinetip:`Notes in green for additional information on how to use attribute/setting`
 
 :inlineimportant:`Important information on how to use attribute/setting in red`
 
-:lectext1:`Highlighted text refers to definitions in communication standards`
+:lemonobgtext:`Highlighted text refers to keywords found in communication standards`
 
 .. tip:: Generic tips in a green box
 

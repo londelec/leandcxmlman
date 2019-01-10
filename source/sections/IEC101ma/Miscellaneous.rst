@@ -14,7 +14,7 @@ Miscellaneous and project-specific settings can be specified in this node.
 
 .. _docref-IEC101maMiscellaneousAttab:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-101 Master Miscellaneous attributes"
+.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-101 Master Miscellaneous attributes" ":spec: |C{0.14}|C{0.14}|C{0.1}|S{0.62}|"
 
    * :attr:     :xmlref:`TimeSyncIOA`
      :val:      0...16777215

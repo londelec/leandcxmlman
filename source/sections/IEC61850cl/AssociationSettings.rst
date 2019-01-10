@@ -15,30 +15,30 @@ element node.
 
 .. _docref-IEC61850clAssociationSettingsAttab:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "IEC61850 Client AssociationSettings attributes"
+.. include-file:: sections/Include/table_attrs.rstinc "" "IEC61850 Client AssociationSettings attributes" ":spec: |C{0.18}|C{0.18}|C{0.1}|S{0.54}|"
 
    * :attr:     :xmlref:`CallingAPtitle`
      :val:      1...64 chars
      :def:      1,1,1,999
-     :desc:     [:lectext1:`Calling AP Title`] used for outgoing [:lectext1:`AARQ APDU`] message
+     :desc:     [:lemonobgtext:`Calling AP Title`] used for outgoing [:lemonobgtext:`AARQ APDU`] message
 
    * :attr:     :xmlref:`CallingAEqualifier`
      :val:      1...255
      :def:      12
-     :desc:     [:lectext1:`Calling AE Qualifier`] used for outgoing [:lectext1:`AARQ APDU`] message
+     :desc:     [:lemonobgtext:`Calling AE Qualifier`] used for outgoing [:lemonobgtext:`AARQ APDU`] message
 
    * :attr:     .. _ref-IEC61850clAARQfields:
 
                 :xmlref:`AARQfields`
      :val:      0...255 or 0x00...0xFF
      :def:      0x00
-     :desc:     Enabled fields of the outgoing [:lectext1:`AARQ APDU`] message.
+     :desc:     Enabled fields of the outgoing [:lemonobgtext:`AARQ APDU`] message.
 		See table :numref:`docref-IEC61850clAARQfieldsBits` for description
 
    * :attr:     :xmlref:`MMSversion`
      :val:      1; 2 or 3
      :def:      1
-     :desc:     MMS version number as part of Application Context Name of outgoing [:lectext1:`AARQ APDU`] message
+     :desc:     MMS version number as part of Application Context Name of outgoing [:lemonobgtext:`AARQ APDU`] message
 
    * :attr:     .. _ref-IEC61850clAssociationFlags:
 
@@ -55,27 +55,27 @@ element node.
 
    * :attr:     Bit 0
      :val:      xxxx.xxx0
-     :desc:     [:lectext1:`Calling AP Title`] field of outgoing [:lectext1:`AARQ APDU`] message is **disabled** (default value)
+     :desc:     [:lemonobgtext:`Calling AP Title`] field of outgoing [:lemonobgtext:`AARQ APDU`] message is **disabled** (default value)
 
    * :(attr):
      :val:      xxxx.xxx1
-     :desc:     [:lectext1:`Calling AP Title`] field of outgoing [:lectext1:`AARQ APDU`] message is **enabled**
+     :desc:     [:lemonobgtext:`Calling AP Title`] field of outgoing [:lemonobgtext:`AARQ APDU`] message is **enabled**
 
    * :attr:     Bit 1
      :val:      xxxx.xx0x
-     :desc:     [:lectext1:`Calling AE Qualifier`] field of outgoing [:lectext1:`AARQ APDU`] message is **disabled** (default value)
+     :desc:     [:lemonobgtext:`Calling AE Qualifier`] field of outgoing [:lemonobgtext:`AARQ APDU`] message is **disabled** (default value)
 
    * :(attr):
      :val:      xxxx.xx1x
-     :desc:     [:lectext1:`Calling AE Qualifier`] field of outgoing [:lectext1:`AARQ APDU`] message is **enabled**
+     :desc:     [:lemonobgtext:`Calling AE Qualifier`] field of outgoing [:lemonobgtext:`AARQ APDU`] message is **enabled**
 
    * :attr:     Bit 6
      :val:      x0xx.xxxx
-     :desc:     [:lectext1:`direct-reference`] (ISO8825-1) in [:lectext1:`Association-information`] field of outgoing [:lectext1:`AARQ APDU`] message is **disabled** (default value)
+     :desc:     [:lemonobgtext:`direct-reference`] (ISO8825-1) in [:lemonobgtext:`Association-information`] field of outgoing [:lemonobgtext:`AARQ APDU`] message is **disabled** (default value)
 
    * :(attr):
      :val:      x1xx.xxxx
-     :desc:     [:lectext1:`direct-reference`] (ISO8825-1) in [:lectext1:`Association-information`] field of outgoing [:lectext1:`AARQ APDU`] message is **enabled**
+     :desc:     [:lemonobgtext:`direct-reference`] (ISO8825-1) in [:lemonobgtext:`Association-information`] field of outgoing [:lemonobgtext:`AARQ APDU`] message is **enabled**
 
    * :attr:     Bits 2...5;7
      :val:      Any
@@ -87,11 +87,11 @@ element node.
 
    * :attr:     Bit 0
      :val:      xxxx.xxx0
-     :desc:     **Ignore** [:lectext1:`Responding AP Title`] and [:lectext1:`Responding AE Qualifier`] of the received [:lectext1:`AARE APDU`] message. (default value)
+     :desc:     **Ignore** [:lemonobgtext:`Responding AP Title`] and [:lemonobgtext:`Responding AE Qualifier`] of the received [:lemonobgtext:`AARE APDU`] message. (default value)
 
    * :(attr):
      :val:      xxxx.xxx1
-     :desc:     **Check** [:lectext1:`Responding AP Title`] and [:lectext1:`Responding AE Qualifier`] of the received [:lectext1:`AARE APDU`] message.
+     :desc:     **Check** [:lemonobgtext:`Responding AP Title`] and [:lemonobgtext:`Responding AE Qualifier`] of the received [:lemonobgtext:`AARE APDU`] message.
 		Communication will not be established if the received values don't match "OSI-AP-Title" and "OSI-AE-Qualifier" in the SCL file.
 
    * :attr:     Bits 1...7

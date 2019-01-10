@@ -36,7 +36,7 @@ AI attributes
 
 .. _docref-ModbusmaAIAttributes:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "Modbus Master AI attributes"
+.. include-file:: sections/Include/table_attrs.rstinc "" "Modbus Master AI attributes" ":spec: |C{0.18}|C{0.16}|C{0.1}|S{0.56}|"
 
 .. include-file:: sections/Include/ma_Index.rstinc "" ".. _ref-ModbusmaAIIndex:" "AI"
 
@@ -86,12 +86,7 @@ AI attributes
 
 .. include-file:: sections/Include/Name.rstinc ""
 
-.. tip::
-
-   \* Please refer to annex :ref:`docref-ReceivedAIProcessing` for additional information on AI processing
-   options and application examples using :ref:`<ref-ModbusmaAIDeadband>` \ and :ref:`<ref-ModbusmaAIPercent>` \ attributes.
-   Annexes :ref:`docref-AIScalingWithoutStartOffset` and :ref:`docref-AIScalingWithStartOffset` for additional information on AI scaling.
-
+.. include-file:: sections/Include/ma_AI_Annex.rstinc "" ":ref:`<ref-ModbusmaAIDeadband>`" ":ref:`<ref-ModbusmaAIPercent>`"
 
 AI.Qualifier
 ^^^^^^^^^^^^

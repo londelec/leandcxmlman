@@ -4,5 +4,5 @@
      :val:      Max 100 chars
      :desc:     XML configuration file name and path.
 		This file contains IO object table as well as additional settings.
-		File path may be omitted if XML file is stored in the default directory (/home/leandc/app)
+		File path may be omitted if XML file is stored in the default directory (|leandcapp|)
 		:inlineimportant:`Attribute is case sensitive, observe case of the path and file name when specifying.`

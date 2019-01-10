@@ -29,9 +29,9 @@ Please see sample :ref:`DITable<ref-IEC61850clDI>` group and :ref:`DI<ref-IEC618
 DI attributes
 ^^^^^^^^^^^^^
 
-.. _ref-IEC61850clDIAttributes:
+.. _docref-IEC61850clDIAttributes:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "IEC61850 Client DI attributes"
+.. include-file:: sections/Include/table_attrs.rstinc "" "IEC61850 Client DI attributes" ":spec: |C{0.12}|C{0.14}|C{0.1}|S{0.64}|"
 
 .. include-file:: sections/Include/ma_Index.rstinc "" ".. _ref-IEC61850clDIIndex:" "DI"
 
@@ -43,21 +43,21 @@ DI attributes
      :val:      0...255 or 0x00...0xFF
      :def:      0x00
      :desc:     Internal object qualifier to enable customized data processing.
-		See table :numref:`ref-IEC61850clDIqualifierBits` for internal object qualifier description.
+		See table :numref:`docref-IEC61850clDIqualifierBits` for internal object qualifier description.
 		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
 
 .. include-file:: sections/Include/DI_Idelays.rstinc "" ".. _ref-IEC61850clDIInterDelay:" ".. _ref-IEC61850clDIIndetDelay:"
 
 .. include-file:: sections/Include/hidden_qtname.rstinc "internal"
 
-.. include-file:: sections/Include/IEC61850cl_DIAI.rstinc "" ".. _ref-IEC61850clDIDSnum:" ".. _ref-IEC61850clDITrgOps:" ".. _ref-IEC61850clDIintgPd:" ":numref:`ref-IEC61850clTrgOps`" "stVal"
+.. include-file:: sections/Include/IEC61850cl_DIAI.rstinc "" ".. _ref-IEC61850clDIDSnum:" ".. _ref-IEC61850clDITrgOps:" ".. _ref-IEC61850clDIintgPd:" ":numref:`docref-IEC61850clTrgOps`" "stVal"
 
 .. include-file:: sections/Include/Name.rstinc ""
 
 DI.Qualifier
 ^^^^^^^^^^^^
 
-.. _ref-IEC61850clDIqualifierBits:
+.. _docref-IEC61850clDIqualifierBits:
 
 .. include-file:: sections/Include/table_flags.rstinc "" "IEC61850 Client DI internal qualifier" ":ref:`<ref-IEC61850clDIQualifier>`" "DI internal qualifier"
 

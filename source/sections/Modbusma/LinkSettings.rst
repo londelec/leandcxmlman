@@ -14,7 +14,7 @@ Link layer settings can be specified using attributes of :ref:`<ref-ModbusmaLink
 
 .. _docref-ModbusmaLinkSettingsAttab:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "Modbus Master LinkSettings attributes"
+.. include-file:: sections/Include/table_attrs.rstinc "" "Modbus Master LinkSettings attributes" ":spec: |C{0.12}|C{0.12}|C{0.1}|S{0.66}|"
 
    * :attr:     .. _ref-ModbusmaLinkSettingsFrame:
 

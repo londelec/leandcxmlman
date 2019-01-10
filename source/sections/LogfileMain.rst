@@ -6,11 +6,11 @@ Logfiles
 ========
 
 Leandc features a raw communication traffic and decoded application level information recording
-to logfiles for supervision and maintenance purposes. Fixed name XML configuration file **lelogger.xml**
-contains settings to enable logfiles. This file must be kept in the same directory as **leandc.xml**
+to logfiles for supervision and maintenance purposes. Fixed name XML configuration file |leloggerxml|
+contains settings to enable logfiles. This file must be kept in the same directory as |leandcxml|
 file. Its path and name can't be changed.
 
-**lelogger.xml** configuration file consists of a root object node :xmlref:`SystemConfig` which has 3 optional child group
+|leloggerxml| configuration file consists of a root object node :xmlref:`SystemConfig` which has 3 optional child group
 object nodes :ref:`VersionControl<ref-VersionControl>`; :ref:`CommsCfg<ref-CommsCfg>`; :ref:`EventCfg<ref-EventCfg>`, please see the sample below.
 
 .. code-block:: none
@@ -31,7 +31,7 @@ object nodes :ref:`VersionControl<ref-VersionControl>`; :ref:`CommsCfg<ref-Comms
    </SystemConfig>
 
 .. tip::
-   | **lelogger.xml** configuration file is optional and leandc is able to run normally without it.
+   | |leloggerxml| configuration file is optional and leandc is able to run normally without it.
    | Node names are case sensitive.
 
 .. _ref-CommsCfg:
@@ -75,7 +75,7 @@ LOGGER and HWLOG attributes
 
 .. _docref-LOGGERAttab:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "LOGGER and HWLOG attributes"
+.. include-file:: sections/Include/table_attrs.rstinc "" "LOGGER and HWLOG attributes" ":spec: |C{0.12}|C{0.12}|C{0.1}|S{0.66}|"
 
    * :attr:     :xmlref:`Index`
      :val:      1...254
@@ -198,7 +198,7 @@ PCAPLOG attributes
 
 .. _docref-PCAPLOGAttab:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "PCAPLOG attributes"
+.. include-file:: sections/Include/table_attrs.rstinc "" "PCAPLOG attributes" ":spec: |C{0.12}|C{0.12}|C{0.1}|S{0.66}|"
 
    * :attr:     :xmlref:`HWIndex`
      :val:      1...254
@@ -313,7 +313,7 @@ EVENTLOG and HWEVENTLOG attributes
 
 .. _docref-EventCfgEVENTLOGAttab:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "EVENTLOG and HWEVENTLOG attributes"
+.. include-file:: sections/Include/table_attrs.rstinc "" "EVENTLOG and HWEVENTLOG attributes" ":spec: |C{0.12}|C{0.12}|C{0.1}|S{0.66}|"
 
    * :attr:     :xmlref:`Index`
      :val:      1...254
@@ -471,10 +471,10 @@ Example below shows 2 lists of files created if leandc runs continuously and if 
    This is a sample list of files created, if leandc was restarted at 14:04:13 and 14:07:32 and then switched off at 17:00:00 and started at 21:10:10.
 
    * 'logfile_2013-04-12_12.log'
-   * 'logfile_2013-04-12_140413.log'	← new file created after leandc restart at 14:04:13, time-tag is added because file created within a 4 hour range (at 12:00:00) exists
-   * 'logfile_2013-04-12_140732.log'	← new file created after leandc restart at 14:04:13, time-tag is added because file created within a 4 hour range (at 12:00:00) exists
+   * 'logfile_2013-04-12_140413.log'	<- new file created after leandc restart at 14:04:13, time-tag is added because file created within a 4 hour range (at 12:00:00) exists
+   * 'logfile_2013-04-12_140732.log'	<- new file created after leandc restart at 14:04:13, time-tag is added because file created within a 4 hour range (at 12:00:00) exists
    * 'logfile_2013-04-12_16.log'
-   * 'logfile_2013-04-12_20.log'	← new file created when leandc started at 21:10:10, no time-tag because there are no files created within a 4 hour range (from 20:00:00 to 23:59:59)
+   * 'logfile_2013-04-12_20.log'	<- new file created when leandc started at 21:10:10, no time-tag because there are no files created within a 4 hour range (from 20:00:00 to 23:59:59)
 
 Default settings of the event files are slightly different.
 New event logfile is created every 6 hours based on the default value of the :ref:`EVENTLOG<ref-EventCfgEVENTLOG>`.\ :ref:`<ref-EventCfgEVENTLOGHourLimit>` \ attribute.
@@ -489,7 +489,7 @@ Example below shows the list of files created if leandc runs continuously and if
 
    * 'eventfile_2013-04-12_00.event'
    * 'eventfile_2013-04-12_06.event'
-   * 'eventfile_2013-04-12_12.event'	← leandc restart at 14:04:13, no new file is created because file within a 6 hour range exists. New entries are appended to this file.
+   * 'eventfile_2013-04-12_12.event'	<- leandc restart at 14:04:13, no new file is created because file within a 6 hour range exists. New entries are appended to this file.
    * 'eventfile_2013-04-12_18.event'
 
 
@@ -551,7 +551,7 @@ List of columns of the event logfile is shown in the table below:
 
 .. field-list-table:: Event logfile columns
    :class: table table-condensed table-bordered longtable
-   :spec: |C{0.1}|S{0.8}|
+   :spec: |C{0.12}|S{0.88}|
    :header-rows: 1
 
    * :attr,15: Column
@@ -592,7 +592,7 @@ List of columns of the event logfile is shown in the table below:
 
 .. field-list-table:: Event logfile Info types
    :class: table table-condensed table-bordered longtable
-   :spec: |C{0.1}|S{0.8}|
+   :spec: |C{0.14}|S{0.86}|
    :header-rows: 1
 
    * :attr,15: Info

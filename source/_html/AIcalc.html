@@ -1,0 +1,1481 @@
+	<div _style="display:flex;flex-flow:column;">
+<!--start_rangecalc-->	<div style="overflow-x:auto;position:relative;">
+		<style type="text/css">
+			.leFontClass {
+				font-size:13px;
+			}
+			.leIncorrectClass {
+				background-color:#f3a098;
+			}
+			.leRangeInputClass {
+				width:100px;
+				padding: 0px 2px 0px 2px;
+			}
+			.leAIErrorClass {
+				font-size:14px;
+				color:red;
+			}
+			.leAiTableClass {
+				border:1px solid #DDDDDD;
+				border-collapse:separate;
+				padding: 2px 3px 2px 3px;
+			}
+			.leAiTableBodyClass>tr>td {
+				text-align:center;
+			}
+			.leAiBodyPadClass>tr>td {
+				padding: 2px 3px 2px 3px;
+			}
+		</style>
+		<table class="leAiTableClass leFontClass" align="center" style="position:relative">
+		<tbody>
+			<tr>
+				<td>
+					<span style="float:left;">Input Range</span>
+				</td>
+				<td>
+					<span style="float:left;">Output Range</span>
+				</td>
+				<td/>
+			</tr>
+			<tr>
+				<td>
+					<table class="leFontClass">
+					<tbody class="leAiBodyPadClass">
+						<tr>
+							<td>
+								<span>Max</span>
+							</td>
+							<td>
+								<input id="leInputMax" type="text" value="100" class="leRangeInputClass" autocomplete="off" title="Enter input range maximal value"/>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<span>Min</span>
+							</td>
+							<td>
+								<input id="leInputMin" type="text" value="0" class="leRangeInputClass" autocomplete="off" title="Enter input range minimal value"/>
+							</td>
+						</tr>
+					</tbody>
+					</table>
+				</td>
+				<td>
+					<table class="leFontClass">
+					<tbody class="leAiBodyPadClass">
+						<tr>
+							<td>
+								<span>Max</span>
+							</td>
+							<td>
+								<input id="leOutputMax" type="text" value="100" class="leRangeInputClass" autocomplete="off" title="Enter output range maximal value"/>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<span>Min</span>
+							</td>
+							<td>
+								<input id="leOutputMin" type="text" value="0" class="leRangeInputClass" autocomplete="off" title="Enter output range minimal value"/>
+							</td>
+						</tr>
+					</tbody>
+					</table>
+				</td>
+				<td>
+					<button id="leRangeCalcButt" style="margin-left:5px;" title="Calculate XML Coeff=&quot;&quot; and Offset=&quot;&quot; attributes based on entered ranges" onclick="LeAIcalc.rangeButtonEvent();">Calculate</button>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3">
+					<span id="lerangerrmessage" class="leAIErrorClass">&nbsp </span>
+				</td>
+			</tr>
+		</tbody>
+		</table>
+	</div><!--end_rangecalc-->
+	<br/>
+<!--start_scaling-->	<div style="overflow-x:auto;position:relative;">
+		<style type="text/css">
+			.leChangedClass {
+				background-color: #f7f77e;
+			}
+			.leScalingInputClass {
+				width: 100px;
+				padding: 0px 2px 0px 2px;
+			}
+			.leResultInputClass {
+				width: 100px;
+				color: black;
+				padding: 0px 2px 0px 2px;
+			}
+			.leInputBoldClass {
+				color: black;
+				font-weight:bold;
+			}
+		</style>
+		<table class="leAiTableClass leFontClass" align="center">
+		<tbody class="leAiTableBodyClass">
+			<tr>
+				<td>
+					<button id="leCopyClipButt" title="Copy XML attributes with values to clipboard" onclick="LeAIcalc.copyClipboard();">Copy</button>
+				</td>
+			</tr>
+			<tr>
+				<td/>
+				<td class="xmlref">StartOffset</td>
+				<td/>
+				<td class="xmlref">ZeroDeadband</td>
+				<td/>
+				<td class="xmlref">Offset</td>
+				<td/>
+				<td class="xmlref">OffsetDeadband</td>
+				<td/>
+				<td class="xmlref">NonZeroOffset</td>
+				<td/>
+				<td class="xmlref">Coeff</td>
+				<td/>
+			</tr>
+			<tr>
+				<td>Start value</td>
+				<td>
+					<input id="leStartOffset" type="text" value="0" min="1" class="leScalingInputClass" autocomplete="off" title="Enter Start Offset, it will be substituted from received value" onkeyup="LeAIcalc.scaleProcEvent(this, false);"/>
+				</td>
+				<td/>
+				<td>
+					<input id="leZeroDeadband" type="text" value="0" min="1" lenegative="1" class="leScalingInputClass" autocomplete="off" title="Enter Zero Deadband, value will be forced to 0 if it is smaller than entered" onkeyup="LeAIcalc.scaleProcEvent(this, false);"/>
+				</td>
+				<td/>
+				<td>
+					<input id="leOffset" type="text" value="0" class="leScalingInputClass" autocomplete="off" title="Enter Offset, will be added to value" onkeyup="LeAIcalc.scaleProcEvent(this, false);"/>
+				</td>
+				<td/>
+				<td>
+					<input id="leOffsetDeadband" type="text" value="0" min="1" class="leScalingInputClass" autocomplete="off" title="Enter Offset Deadband, value will be forced to 0 if it is smaller than entered" onkeyup="LeAIcalc.scaleProcEvent(this, false);"/>
+				</td>
+				<td/>
+				<td>
+					<input id="leNonZeroOffset" type="text" value="0" class="leScalingInputClass" autocomplete="off" title="Enter Non-zero Offset, will be added to value if value is not 0" onkeyup="LeAIcalc.scaleProcEvent(this, false);"/>
+				</td>
+				<td/>
+				<td>
+					<input id="leCoeff" type="text" value="1" class="leScalingInputClass" autocomplete="off" title="Enter coefficient, will be multiplied by value" onkeyup="LeAIcalc.scaleProcEvent(this, false);"/>
+				</td>
+				<td>Result</td>
+			</tr>
+			<tr>
+				<td>
+					<input id="leScalingSourceV" type="text" value="0" class="leScalingInputClass" autocomplete="off" title="Enter value leandc receives" onkeyup="LeAIcalc.scaleProcEvent(this, false);"/>
+				</td>
+				<td>
+					<span id="mathStartOffset" class="leMathClass" align="center"/>
+				</td>
+				<td>
+					<input id="afterStartOffset" type="text" disabled="true" class="leResultInputClass" autocomplete="off" title="Calculated value after StartOffset"/>
+				</td>
+				<td>
+					<span id="mathZeroDeadband" class="leMathClass" align="center"/>
+				</td>
+				<td>
+					<input id="afterZeroDeadband" type="text" disabled="true" class="leResultInputClass" autocomplete="off" title="Calculated value after ZeroDeadband"/>
+				</td>
+				<td>
+					<span id="mathOffset" class="leMathClass" align="center"/>
+				</td>
+				<td>
+					<input id="afterOffset" type="text" disabled="true" class="leResultInputClass" autocomplete="off" title="Calculated value after Offset"/>
+				</td>
+				<td>
+					<span id="mathOffsetDeadband" class="leMathClass" align="center"/>
+				</td>
+				<td>
+					<input id="afterOffsetDeadband" type="text" disabled="true" class="leResultInputClass" autocomplete="off" title="Calculated value after OffsetDeadband"/>
+				</td>
+				<td>
+					<span id="mathNonZeroOffset" class="leMathClass" align="center"/>
+				</td>
+				<td>
+					<input id="afterNonZeroOffset" type="text" disabled="true" class="leResultInputClass" autocomplete="off" title="Calculated value after NonZeroOffset"/>
+				</td>
+				<td>
+					<span id="mathCoeff" class="leMathClass" align="center"/>
+				</td>
+				<td>
+					<input id="leScaleResult" type="text" disabled="true" class="leResultInputClass leInputBoldClass" autocomplete="off" title="Resulting value after scaling"/>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="13">
+					<span id="lescaleerrmessage" class="leAIErrorClass">&nbsp </span>
+				</td>
+			</tr>
+		</tbody>
+		</table>
+	</div><!--end_scaling-->
+	<br/>
+<!--start_applsample1-->	<div style="overflow-x:auto;position:relative;">
+		<style type="text/css">
+			.leAppInputClass {
+				width:100px;
+				padding-left:2px;
+				display:block;
+				margin-left:auto;
+				margin-right:auto;
+			}
+			.leAppSelectClass {
+				display:block;
+				margin:2px 0 2px 0;
+				margin-left:auto;
+				margin-right:auto;
+			}
+			.leInvalidFlagClass {
+				color: red;
+			}
+			.leAppRelClass {
+				position: relative;
+				display:flex;
+				flex-flow:row;
+			}
+			.leAppAbsClass {
+				position:absolute;
+				top:0;
+				bottom:0;
+				left:0;
+				right:0;
+				display:flex;
+				justify-content:space-between;
+			}
+			.leAppVmiddleClass {
+				display:flex;
+ 				align-items:center;
+			}
+			.leAppTextLeftClass {
+				text-align:left;
+			}
+			#leLeandcTab p {
+				text-align:right;
+    				margin-block-start: 0px;
+    				margin-block-end: 0px;
+			}
+			.leAppColumnClass {
+				margin-left:auto;
+				margin-right:auto;
+				white-space:nowrap;
+			}
+			.leVtDivClass #leXformerInUp {
+				margin-top:70px
+			}
+			.leVtDivClass #leXformerInLow {
+				margin-bottom:20px
+			}
+			.leCtDivClass #leXformerRangesDiv {
+				margin-top:12px
+			}
+			.leCtDivClass #leXformerInUp {
+				margin-top:0px
+			}
+			.leCtDivClass #leXformerInLow {
+				margin-bottom:28px
+			}
+		</style>
+		<table class="leAiTableClass leFontClass" align="center">
+		<tbody class="leAiTableBodyClass">
+			<tr>
+				<td>
+					<div class="leAppColumnClass">
+						<label for="leTransformerSel" style="padding-left:5px;">Transformer</label>
+						<select id="leTransformerSel" disabled="true" autocomplete="off" title="Select Voltage or Current transfomrer" onchange="LeAIcalc.aplEnahwEvent(this);">
+							<option value="N">None</option>
+							<option value="V">Voltage</option>
+							<option value="I">Current</option>
+						</select>
+					</div>
+				</td>
+				<td>
+					<div class="leAppColumnClass">
+						<label for="leTransdCheck" style="padding-left:5px;">Transducer</label>
+						<input id="leTransdCheck" type="checkbox" class="leAplInputClass" autocomplete="off" title="Enable/Disable transducer" onchange="LeAIcalc.aplEnahwEvent(this);"/>
+
+					</div>
+				</td>
+				<td>
+					<div class="leAppColumnClass">
+						<label for="leAimCheck" style="white-space:nowrap;padding-left:5px;">Analog Input Module</label>
+						<!--select id="leAimSel" autocomplete="off" title="Select Analog Input Module or IED" onchange="LeAIcalc.aplEnahwEvent(this);">
+							<option value="AIM">AI Module</option>
+							<option value="IED">IED</option>
+							<option value="N">None</option>
+						</select-->
+						<input id="leAimCheck" type="checkbox" checked="true" class="leAplInputClass" autocomplete="off" title="Enable/Disable Analog Input Module" onchange="LeAIcalc.aplEnahwEvent(this);"/>
+					</div>
+				</td>
+				<td>
+					<!--span>LEANDC</span-->
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div id="leXformerTab" class="leAppRelClass" style="display:none;">
+						<div class="leAppVmiddleClass">
+							<input id="leXformerInV" type="text" value="0" class="leAppInputClass" autocomplete="off" title="Transformer primary side value" onkeyup="LeAIcalc.aplProcEvent(this, false);"/>
+						</div>
+						<div style="position:relative;">
+							<svg
+							   style="display:none;"
+							   xmlns:svg="http://www.w3.org/2000/svg"
+							   xmlns="http://www.w3.org/2000/svg"
+							   width="236"
+							   height="216"
+							   id="AI_VT"
+							   version="1.1">
+							  <path
+							     style="fill:#e8eff9;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+							     d="m 77,100 -20,6 -31,20 0,80 186,0 0,-80 -31,-20 -20,-6 z"
+							     id="path3389"
+							     inkscape:connector-curvature="0"
+							     sodipodi:nodetypes="ccccccccc" />
+							  <path
+							     id="path5116"
+							     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+							     d="m 46,206 0,-78 c 0,-2.4 -1.6,-3.1 -4,-3.2 -2.3,0 -5.2,2.4 -6,3 l -10,8 m 166,70.2 0,-78 c 0,-2 2,-3 4,-3.1 2,0 3.2,0.9 6,3.1 l 10,8"
+							     inkscape:connector-curvature="0"
+							     sodipodi:nodetypes="csssccsssc" />
+							  <path
+							     id="path5183"
+							     style="fill:#e8eff9;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+							     d="M 16.135813,2.2130376 19.91935,0.36422923 21.552743,3.7087484 17.769206,5.5575566 Z M 13.949914,7.4448714 25.388596,1.8554377 31.19143,13.737262 19.752748,19.326685 Z m 2.78988,58.8459496 C 70.017618,40.256991 70.061595,40.235481 70.061595,40.235481 M 52.778978,93.384697 69.510321,85.194126 M 31.300002,98.499992 86.500006,71.59999 M 48.784118,84.482454 64.886232,76.614256 m -19.211347,0.720638 15.35422,-7.502728 M 24.190443,82.327752 77.99615,56.035934 M 41.566754,68.086262 56.327007,60.873753 M 38.662184,61.302014 52.652546,54.46572 M 34.589808,51.736105 47.700272,45.329768 M 31.563495,45.093103 44.585938,38.729752 M 8.8707209,50.512879 62.588406,24.264071 M 27.228163,35.546668 39.414745,29.591786 M 24.462776,29.103222 36.121418,23.406304 M 1.0476566,34.494421 54.633346,8.310098 M 19.77406,19.322357 0.3120414,34.86697 24.503466,29.074634 27.289254,35.428066 8.0791679,50.770877 31.55143,45.151105 34.468119,51.801846 15.845362,66.675259 38.599886,61.226135 41.646052,68.17611 23.61249,82.579156 45.64785,77.302596 48.824919,84.549901 31.300002,98.499992 52.778978,93.384697 55.539024,99.90568 72.943432,91.533329 69.510321,85.194126 86.500006,71.59999 64.926323,76.710654 61.139658,69.704009 78.751506,55.635832 56.427092,60.982062 52.794416,54.261464 70.984382,39.731924 47.926868,45.253954 44.450101,38.818445 63.217192,23.828027 39.427578,29.525362 36.105351,23.376847 55.450068,7.9241191 31.22837,13.725272 m 25.271634,92.274718 -0.96098,-6.09431 17.404408,-8.372351 4.069773,8.466663"
+							     inkscape:connector-curvature="0"
+							     sodipodi:nodetypes="cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc" />
+							  <use
+							     x="0"
+							     y="0"
+							     xlink:href="#path5183"
+							     id="use5186"
+							     transform="matrix(-1,0,0,1,238.25,0)"
+							     width="100%"
+							     height="100%" />
+							  <path
+							     style="fill:#e8eff9;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+							     d="m 30,207 0,8.5 3,0 0,-5.5 1,-1 17,0 1,1 0,5.5 3,0 0,-8.5 z"
+							     id="path4196"
+							     inkscape:connector-curvature="0" />
+							  <use
+							     x="0"
+							     y="0"
+							     xlink:href="#path4196"
+							     id="use4204"
+							     transform="translate(153,0)"
+							     width="100%"
+							     height="100%" />
+							  <text
+							     x="8"
+							     y="113"
+							     style="font-weight:bold;font-size:14px;font-family:Arial"
+							     id="text18">IN</text>
+							  <text
+							     x="203"
+							     y="113"
+							     style="font-weight:bold;font-size:14px;font-family:Arial"
+							     id="text13">OUT</text>
+							</svg>
+							<svg
+							   style="display:none;"
+							   xmlns:svg="http://www.w3.org/2000/svg"
+							   xmlns="http://www.w3.org/2000/svg"
+							   width="160"
+							   height="250"
+							   id="AI_CT"
+							   version="1.1">
+							  <path
+							     id="path4454"
+							     style="opacity:1;fill:#e8eff9;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+							     d="m 124,246 9,0 0,3.5 -13,0 -10,-17.5 6,0 z m -88,0 -9,0 0,3.5 13,0 10,-17.5 -6,0 z m 25,-57 0,-4 c 0,-1.8 1.4,-3 3,-3 l 32,0 c 1.6,0 3,1.2 3,3 l 0,4 m -85,0 132,0 0,43 -132,0 z m 6,4 120,0 0,35 -120,0 z"
+							     inkscape:connector-curvature="0"
+							     sodipodi:nodetypes="cccccccccccccccssssccccccccccc" />
+							  <path
+							     id="path4477"
+							     style="opacity:1;fill:#e8eff9;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+							     d="m 6,35 -5.5,0 0,6 5.5,0 z m 8,-5 -8,0 0,16 8,0 z m 140,5 5.5,0 0,6 -5.5,0 z m -8,-5 8,0 0,16 -8,0 z m 0,-24.5 c 0,3.7 -35,5 -66,5 -31,0 -66,-1.3 -66,-5 0,-3.7 35,-5 66,-5 31,0 66,1.3 66,5 z M 14,6 14,79 c 18.1,4.8 45.9,4 61,4 14.4,-0.04 55.8,1.1 71,-4 l 0,-73"
+							     inkscape:connector-curvature="0"
+							     sodipodi:nodetypes="cccccccccccccccccccccscscccccc" />
+							  <path
+							     id="path4502"
+							     style="fill:#e8eff9;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+							     d="m 67,177 0,5 26,0 0,-5 m 0,-87 0,-7 -26,0 0,7 m 36.94707,6.80785 c 1.91132,0.0154 1.0425,-1.60412 -0.25615,-2.11529 -3.29064,-1.89897 -6.882083,-3.01439 -10.378023,-4.34687 l 0,-4e-5 c -8.87527,0.0146 -17.75053,0.0069 -26.6258,0 l 0,4e-5 c -3.49594,1.33248 -7.08736,2.4479 -10.37802,4.34687 -1.29864,0.51117 -2.16747,2.13066 -0.25615,2.11529 16.489201,-0.0016 32.685155,-2.3e-5 47.894143,0 z m -4.084483,4.25305 c 1.585333,0.0101 0.864683,-1.06352 -0.21247,-1.40241 -2.72937,-1.259 -5.70825,-1.99851 -8.6079,-2.88192 l 0,-3e-5 c -7.361479,0.01012 -14.722951,0.0048 -22.08443,0 l 0,3e-5 c -2.89965,0.88341 -5.87853,1.62292 -8.6079,2.88192 -1.07716,0.33889 -1.7978,1.41259 -0.21246,1.40241 13.120354,-0.001 27.912562,-1e-5 39.72516,0 z m 4.084483,6.50431 c 1.91132,0.0154 1.0425,-1.60413 -0.25615,-2.11529 -3.29064,-1.89898 -6.882083,-3.01439 -10.378023,-4.34688 l 0,-5e-5 c -8.87527,0.0146 -17.75053,0.007 -26.6258,0 l 0,5e-5 c -3.49594,1.33249 -7.08736,2.4479 -10.37802,4.34688 -1.29864,0.51116 -2.16747,2.13065 -0.25615,2.11529 16.489201,-0.002 32.685155,-2e-5 47.894143,0 z m -4.084483,4.25304 c 1.585333,0.0101 0.864683,-1.06351 -0.21247,-1.40241 -2.72937,-1.259 -5.70825,-1.9985 -8.6079,-2.88192 l 0,-3e-5 c -7.361479,0.0101 -14.722951,0.005 -22.08443,0 l 0,3e-5 c -2.89965,0.88342 -5.87853,1.62292 -8.6079,2.88192 -1.07716,0.3389 -1.7978,1.41259 -0.21246,1.40241 13.676748,-0.001 27.110269,-2e-5 39.72516,0 z m 4.084483,6.57155 c 1.91132,0.0154 1.0425,-1.60413 -0.25615,-2.1153 -3.29064,-1.89897 -6.882083,-3.01439 -10.378023,-4.34688 l 0,-3e-5 c -8.87527,0.0146 -17.75053,0.007 -26.6258,0 l 0,3e-5 c -3.49594,1.33249 -7.08736,2.44791 -10.37802,4.34688 -1.29864,0.51117 -2.16747,2.13065 -0.25615,2.1153 16.489201,-0.002 32.685155,-2e-5 47.894143,0 z m -4.084483,4.25305 c 1.585333,0.0101 0.864683,-1.06353 -0.21247,-1.40242 -2.72937,-1.259 -5.70825,-1.99851 -8.6079,-2.88192 l 0,-4e-5 c -7.361479,0.0101 -14.722951,0.005 -22.08443,0 l 0,4e-5 c -2.89965,0.88341 -5.87853,1.62292 -8.6079,2.88192 -1.07716,0.33889 -1.7978,1.41259 -0.21246,1.40242 13.120354,-10e-4 27.912562,-2e-5 39.72516,0 z m 4.084483,6.57153 c 1.91132,0.0154 1.0425,-1.60413 -0.25615,-2.11529 -3.29064,-1.89897 -6.882083,-3.01439 -10.378023,-4.34687 l 0,-5e-5 c -8.87527,0.0146 -17.75053,0.007 -26.6258,0 l 0,5e-5 c -3.49594,1.33248 -7.08736,2.4479 -10.37802,4.34687 -1.29864,0.51116 -2.16747,2.13066 -0.25615,2.11529 16.489201,-0.002 32.685155,-2e-5 47.894143,0 z m -4.084483,4.25305 c 1.585333,0.0101 0.864683,-1.06351 -0.21247,-1.40242 -2.72937,-1.259 -5.70825,-1.99849 -8.6079,-2.88192 l 0,-2e-5 c -7.361479,0.0101 -14.722951,0.005 -22.08443,0 l 0,2e-5 c -2.89965,0.88343 -5.87853,1.62292 -8.6079,2.88192 -1.07716,0.33891 -1.7978,1.41259 -0.21246,1.40242 13.120354,-0.001 27.912562,-2e-5 39.72516,0 z m 4.084483,6.57154 c 1.91132,0.0154 1.0425,-1.60413 -0.25615,-2.11529 -3.29064,-1.89898 -6.882083,-3.01439 -10.378023,-4.34688 l 0,-4e-5 c -8.87527,0.0146 -17.75053,0.007 -26.6258,0 l 0,4e-5 c -3.49594,1.33249 -7.08736,2.4479 -10.37802,4.34688 -1.29864,0.51116 -2.16747,2.13065 -0.25615,2.11529 16.489201,-0.002 32.685155,-2e-5 47.894143,0 z m -4.084483,4.25304 c 1.585333,0.0101 0.864683,-1.06351 -0.21247,-1.40241 -2.72937,-1.259 -5.70825,-1.9985 -8.6079,-2.88192 l 0,-3e-5 c -7.361479,0.0101 -14.722951,0.005 -22.08443,0 l 0,3e-5 c -2.89965,0.88342 -5.87853,1.62292 -8.6079,2.88192 -1.07716,0.3389 -1.7978,1.41259 -0.21246,1.40241 13.676748,-0.001 27.110269,-2e-5 39.72516,0 z m 4.084483,6.50431 c 1.91132,0.0154 1.0425,-1.60413 -0.25615,-2.11529 -3.29064,-1.89897 -6.882083,-3.0144 -10.378023,-4.34687 l 0,-5e-5 c -8.87527,0.0146 -17.75053,0.007 -26.6258,0 l 0,5e-5 c -3.49594,1.33247 -7.08736,2.4479 -10.37802,4.34687 -1.29864,0.51116 -2.16747,2.13066 -0.25615,2.11529 16.489201,-0.002 32.685155,-2e-5 47.894143,0 z m -4.084483,4.25305 c 1.585333,0.0101 0.864683,-1.06352 -0.21247,-1.40242 -2.72937,-1.259 -5.70825,-1.99849 -8.6079,-2.88192 l 0,-2e-5 c -7.361479,0.0101 -14.722951,0.005 -22.08443,0 l 0,2e-5 c -2.89965,0.88343 -5.87853,1.62292 -8.6079,2.88192 -1.07716,0.3389 -1.7978,1.41259 -0.21246,1.40242 13.120354,-0.001 27.912562,-1e-5 39.72516,0 z m 4.084493,6.54734 c 1.91132,0.0154 1.04249,-1.60414 -0.25615,-2.11529 -3.29065,-1.89898 -6.882083,-3.0144 -10.378023,-4.34688 l 0,-5e-5 c -8.875273,0.0146 -17.750536,0.007 -26.62581,0 l 0,5e-5 c -3.49593,1.33248 -7.08736,2.4479 -10.37802,4.34688 -1.29864,0.51115 -2.16747,2.13065 -0.25615,2.11529 15.81839,-0.002 33.652425,-2e-5 47.894153,0 z m -4.084483,4.25304 c 1.585323,0.0101 0.864683,-1.06351 -0.21247,-1.40241 -2.72938,-1.259 -5.70826,-1.9985 -8.6079,-2.88193 l 0,-2e-5 c -7.361482,0.0101 -14.722958,0.005 -22.08444,0 l 0,2e-5 c -2.89964,0.88343 -5.87853,1.62293 -8.6079,2.88193 -1.07716,0.3389 -1.7978,1.41259 -0.21246,1.40241 13.676749,-0.001 27.110265,-2e-5 39.72517,0 z m 4.084483,6.57154 c 1.91132,0.0154 1.0425,-1.60412 -0.25615,-2.11529 -3.29065,-1.89897 -6.882093,-3.01439 -10.378023,-4.34688 l 0,-4e-5 c -8.875273,0.0146 -17.750536,0.007 -26.62581,0 l 0,4e-5 c -3.49594,1.33249 -7.08737,2.44791 -10.37802,4.34688 -1.29865,0.51117 -2.16747,2.13065 -0.25615,2.11529 16.489204,-0.002 32.685146,-2e-5 47.894153,0 z m -4.084483,4.25305 c 1.585323,0.0101 0.864683,-1.06352 -0.21247,-1.40242 -2.72938,-1.259 -5.70825,-1.9985 -8.6079,-2.88192 l 0,-3e-5 c -7.361482,0.0101 -14.722958,0.005 -22.08444,0 l 0,3e-5 c -2.89965,0.88342 -5.87853,1.62292 -8.6079,2.88192 -1.07716,0.3389 -1.7978,1.41259 -0.21246,1.40242 13.120354,-0.001 27.912558,-1e-5 39.72517,0 z"
+							     inkscape:connector-curvature="0"
+							     sodipodi:nodetypes="cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc" />
+							  <text
+							     x="8"
+							     y="130"
+							     style="font-weight:bold;font-size:14px;font-family:Arial"
+							     id="text18">IN</text>
+							  <text
+							     x="124"
+							     y="130"
+							     style="font-weight:bold;font-size:14px;font-family:Arial"
+							     id="text13">OUT</text>
+							</svg>
+							<div id="leXformerDiv" class="leAppAbsClass" style="flex-flow:column;">
+								<div id="leXformerRangesDiv">
+									<span>Range</span>
+									<select id="leVoltageSel" style="display:none;" class="leAppSelectClass" autocomplete="off" title="Select voltage transformer input range" onchange="LeAIcalc.aplChangeLimitEvent(this, 'leXformerInUp', 'leXformerInLow');">
+										<option value="1">137.5kV - 0kV</option>
+										<option value="2">25kV - 0kV</option>
+										<option value="3">12.5kV - 0kV</option>
+										<option value="0">Custom</option>
+									</select>
+									<select id="leCurrentSel" style="display:none;" class="leAppSelectClass" autocomplete="off" title="Select current transformer input range" onchange="LeAIcalc.aplChangeLimitEvent(this, 'leXformerInUp', 'leXformerInLow');">
+										<option value="1">600A - 0A</option>
+										<option value="2">300A - 0A</option>
+										<option value="3">100A - 0A</option>
+										<option value="0">Custom</option>
+									</select>
+									<input id="leXformerInUp" type="text" value="0" min="1" disabled="true" autocomplete="off" class="leAppInputClass" title="Transformer primary side maximal value" onkeyup="LeAIcalc.aplProcEvent(this, false);"/>
+								</div>
+								<div>
+									<input id="leXformerInLow" type="text" value="0" min="1" disabled="true" autocomplete="off" class="leAppInputClass" title="Transformer primary side minimal value" onkeyup="LeAIcalc.aplProcEvent(this, false);"/>
+								</div>
+							</div>
+						</div>
+					</div>
+				</td>
+				<td>
+					<div id="leTransdTab" class="leAppRelClass" style="display:none;">
+						<div class="leAppVmiddleClass">
+							<input id="leTransdInV" type="text" value="0" class="leAppInputClass" autocomplete="off" title="Value at transducer input" onkeyup="LeAIcalc.aplProcEvent(this, false);"/>
+						</div>
+						<div style="position:relative;">
+							<svg
+							   xmlns:svg="http://www.w3.org/2000/svg"
+							   xmlns="http://www.w3.org/2000/svg"
+							   width="250"
+							   height="250"
+							   id="AItransducer"
+							   version="1.1">
+							  <path
+							     id="path_border"
+							     style="opacity:0.97000002;fill:#e8eff9;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+							     d="m 239,46 -228,0 0,149 228,0 z M 1,1 l 0,239 24,0 0,9 224,0 0,-238 -24,0 0,-10 z m 248,34 -24,0 0,-24 M 1,216 l 24,0 0,24"
+							     inkscape:connector-curvature="0"
+							     sodipodi:nodetypes="cccccccccccccccccccc" />
+							  <path
+							     id="path_screw"
+							     style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+							     d="m 16.6,232.4 c -0.1,0.1 -3.9,-2.5 -4,-2.5 -0.1,0 -3.9,2.6 -4,2.5 -0.1,-0.1 2.5,-3.9 2.5,-4 0,-0.1 -2.6,-3.9 -2.5,-4 0.1,-0.1 3.9,2.5 4,2.5 0.1,0 3.9,-2.6 4,-2.5 0.1,0.1 -2.5,3.9 -2.5,4 0,0.1 2.6,3.9 2.5,4 z m 5,-4 c 0,5 -4,9 -9,9 -5,0 -9,-4 -9,-9 0,-5 4,-9 9,-9 5,0 9,4 9,9 z"
+							     inkscape:connector-curvature="0"
+							     sodipodi:nodetypes="ssssssssssssss" />
+							  <path
+							     id="path_terminals"
+							     style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+							     d="m 224.6,227.4 c -0.1,0.1 -2.9,-1.5 -3,-1.5 -0.1,0 -2.9,1.6 -3,1.5 -0.1,-0.1 1.5,-2.9 1.5,-3 0,-0.1 -1.6,-2.9 -1.5,-3 0.1,-0.1 2.9,1.5 3,1.5 0.1,0 2.9,-1.6 3,-1.5 0.1,0.1 -1.5,2.9 -1.5,3 0,0.1 1.6,2.9 1.5,3 z m 4,-3 c 0,3.5 -3.5,7 -7,7 -3.5,0 -7,-3.5 -7,-7 0,-3.5 3.5,-7 7,-7 3.5,0 7,3.5 7,7 z m 2,0 c 0,5 -4,9 -9,9 -5,0 -9,-4 -9,-9 0,-5 4,-9 9,-9 5,0 9,4 9,9 z m -40,3 c -0.1,0.1 -2.9,-1.5 -3,-1.5 -0.1,0 -2.9,1.6 -3,1.5 -0.1,-0.1 1.5,-2.9 1.5,-3 0,-0.1 -1.6,-2.9 -1.5,-3 0.1,-0.1 2.9,1.5 3,1.5 0.1,0 2.9,-1.6 3,-1.5 0.1,0.1 -1.5,2.9 -1.5,3 0,0.1 1.6,2.9 1.5,3 z m 4,-3 c 0,3.5 -3.5,7 -7,7 -3.5,0 -7,-3.5 -7,-7 0,-3.5 3.5,-7 7,-7 3.5,0 7,3.5 7,7 z m 2,0 c 0,5 -4,9 -9,9 -5,0 -9,-4 -9,-9 0,-5 4,-9 9,-9 5,0 9,4 9,9 z m -40,3 c -0.1,0.1 -2.9,-1.5 -3,-1.5 -0.1,0 -2.9,1.6 -3,1.5 -0.1,-0.1 1.5,-2.9 1.5,-3 0,-0.1 -1.6,-2.9 -1.5,-3 0.1,-0.1 2.9,1.5 3,1.5 0.1,0 2.9,-1.6 3,-1.5 0.1,0.1 -1.5,2.9 -1.5,3 0,0.1 1.6,2.9 1.5,3 z m 4,-3 c 0,3.5 -3.5,7 -7,7 -3.5,0 -7,-3.5 -7,-7 0,-3.5 3.5,-7 7,-7 3.5,0 7,3.5 7,7 z m 2,0 c 0,5 -4,9 -9,9 -5,0 -9,-4 -9,-9 0,-5 4,-9 9,-9 5,0 9,4 9,9 z m -40,3 c -0.1,0.1 -2.9,-1.5 -3,-1.5 -0.1,0 -2.9,1.6 -3,1.5 -0.1,-0.1 1.5,-2.9 1.5,-3 0,-0.1 -1.6,-2.9 -1.5,-3 0.1,-0.1 2.9,1.5 3,1.5 0.1,0 2.9,-1.6 3,-1.5 0.1,0.1 -1.5,2.9 -1.5,3 0,0.1 1.6,2.9 1.5,3 z m 4,-3 c 0,3.5 -3.5,7 -7,7 -3.5,0 -7,-3.5 -7,-7 0,-3.5 3.5,-7 7,-7 3.5,0 7,3.5 7,7 z m 2,0 c 0,5 -4,9 -9,9 -5,0 -9,-4 -9,-9 0,-5 4,-9 9,-9 5,0 9,4 9,9 z m -40,3 c -0.1,0.1 -2.9,-1.5 -3,-1.5 -0.1,0 -2.9,1.6 -3,1.5 -0.1,-0.1 1.5,-2.9 1.5,-3 0,-0.1 -1.6,-2.9 -1.5,-3 0.1,-0.1 2.9,1.5 3,1.5 0.1,0 2.9,-1.6 3,-1.5 0.1,0.1 -1.5,2.9 -1.5,3 0,0.1 1.6,2.9 1.5,3 z m 4,-3 c 0,3.5 -3.5,7 -7,7 -3.5,0 -7,-3.5 -7,-7 0,-3.5 3.5,-7 7,-7 3.5,0 7,3.5 7,7 z m 2,0 c 0,5 -4,9 -9,9 -5,0 -9,-4 -9,-9 0,-5 4,-9 9,-9 5,0 9,4 9,9 z m -40,3 c -0.1,0.1 -2.9,-1.5 -3,-1.5 -0.1,0 -2.9,1.6 -3,1.5 -0.1,-0.1 1.5,-2.9 1.5,-3 0,-0.1 -1.6,-2.9 -1.5,-3 0.1,-0.1 2.9,1.5 3,1.5 0.1,0 2.9,-1.6 3,-1.5 0.1,0.1 -1.5,2.9 -1.5,3 0,0.1 1.6,2.9 1.5,3 z m 4,-3 c 0,3.5 -3.5,7 -7,7 -3.5,0 -7,-3.5 -7,-7 0,-3.5 3.5,-7 7,-7 3.5,0 7,3.5 7,7 z m 2,0 c 0,5 -4,9 -9,9 -5,0 -9,-4 -9,-9 0,-5 4,-9 9,-9 5,0 9,4 9,9 z"
+							     inkscape:connector-curvature="0" />
+							  <use
+							     x="0"
+							     y="0"
+							     xlink:href="#path_terminals"
+							     id="use4144"
+							     transform="translate(-21,-201)"
+							     width="100%"
+							     height="100%" />
+							  <use
+							     x="0"
+							     y="0"
+							     xlink:href="#path_screw"
+							     id="use4138"
+							     transform="translate(224.5,-205)"
+							     width="100%"
+							     height="100%" />
+							  <text
+							     x="16"
+							     y="131"
+							     style="font-weight:bold;font-size:14px;font-family:Arial"
+							     id="text18">IN</text>
+							  <text
+							     x="201"
+							     y="131"
+							     style="font-weight:bold;font-size:14px;font-family:Arial"
+							     id="text13">OUT</text>
+							</svg>
+							<div class="leAppAbsClass" style="flex-flow:row;padding:48px 20px 60px 20px;">
+								<div style="display:flex;flex-flow:column;justify-content:space-between;">
+									<div>
+										<span>Input</span>
+										<select id="leTransdInSel" class="leAppSelectClass" autocomplete="off" title="Select transducer input range" onchange="LeAIcalc.aplChangeLimitEvent(this, 'leTransdInUp', 'leTransdInLow');">
+											<option value="1">125 - 0</option>
+											<option value="2">100 - 0</option>
+											<option value="3">5 - 0</option>
+											<option value="4">1 - 0</option>
+											<option value="0">Custom</option>
+										</select>
+										<input id="leTransdInUp" type="text" value="0" min="1" disabled="true" class="leAppInputClass" autocomplete="off" title="Transducer input maximal value" onkeyup="LeAIcalc.aplProcEvent(this, false);"/>
+									</div>
+									<div>
+										<input id="leTransdInLow" type="text" value="0" disabled="true" class="leAppInputClass" autocomplete="off" title="Transducer input minimal value" onkeyup="LeAIcalc.aplProcEvent(this, false);"/>
+									</div>
+								</div>
+								<div style="display:flex;flex-flow:column;justify-content:space-between;">
+									<div>
+										<span>Output</span>
+										<select id="leTransdOutSel" class="leAppSelectClass" autocomplete="off" title="Select transducer output range" onchange="LeAIcalc.aplChangeLimitEvent(this, 'leTransdOutUp', 'leTransdOutLow');">
+											<option value="1">20mA - 4mA</option>
+											<option value="2">20mA - 0mA</option>
+											<option value="3">5mA - 0mA</option>
+											<option value="0">Custom</option>
+										</select>
+										<input id="leTransdOutUp" type="text" value="0" min="1" disabled="true" class="leAppInputClass" autocomplete="off" title="Transducer output maximal value" onkeyup="LeAIcalc.aplProcEvent(this, false);"/>
+									</div>
+									<div>
+										<input id="leTransdOutLow" type="text" value="0" disabled="true" class="leAppInputClass" autocomplete="off" title="Transducer output minimal value" onkeyup="LeAIcalc.aplProcEvent(this, false);"/>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</td>
+				<td>
+					<div id="leAimTab" class="leAppRelClass">
+						<div class="leAppVmiddleClass">
+							<input id="leAimInV" type="text" value="0" class="leAppInputClass" autocomplete="off" title="Value at Analog Input Module input (mA)" onkeyup="LeAIcalc.aplProcEvent(this, false);"/>
+						</div>
+						<div style="position:relative;">
+							<svg
+							   xmlns:svg="http://www.w3.org/2000/svg"
+							   xmlns="http://www.w3.org/2000/svg"
+							   version="1.1"
+							   width="320"
+							   height="160"
+							   id="AI_ADC">
+							  <path
+							     d="m 0,80 10,0 m 300,0 10,0 M 66,1 310,1 310,159 66,159 10,80 Z"
+							     id="path6"
+							     inkscape:connector-curvature="0"
+							     style="fill:#e8eff9;stroke:#000000;stroke-width:2px"
+							     sodipodi:nodetypes="cccccccccc" />
+							  <text
+							     x="20"
+							     y="85"
+							     style="font-weight:bold;font-size:14px;font-family:Arial"
+							     id="text14">IN</text>
+							  <text
+							     x="160"
+							     y="18"
+							     style="font-weight:bold;font-size:16px;line-height:100%;font-family:Arial"
+							     id="text16">ADC</text>
+							  <text
+							     x="273"
+							     y="85"
+							     style="font-weight:bold;font-size:14px;font-family:Arial"
+							     id="text18">OUT</text>
+							</svg>
+							<div class="leAppAbsClass" style="flex-flow:row;padding:5px 20px 6px 70px;">
+								<div style="display:flex;flex-flow:column;justify-content:space-between;">
+									<div>
+										<span>Input range</span>
+										<select id="leaiCurrentSel" class="leAppSelectClass" autocomplete="off" title="Select Analog Input range" onchange="LeAIcalc.aplChangeLimitEvent(this, 'leaInUp', 'leaInLow');">
+											<option value="1">20mA</option>
+											<option value="2">5mA</option>
+											<option value="0">Custom</option>
+										</select>
+										<input id="leaInUp" type="text" value="20" min="1" disabled="true" class="leAppInputClass" autocomplete="off" title="Maximal mA value" onkeyup="LeAIcalc.aplProcEvent(this, false);"/>
+									</div>
+									<div>
+										<input id="leaInLow" type="text" value="-20" disabled="true" class="leAppInputClass" autocomplete="off" title="Minimal mA value" onkeyup="LeAIcalc.aplProcEvent(this, false);"/>
+									</div>
+								</div>
+								<div style="display:flex;flex-flow:column;justify-content:space-between;">
+									<div>
+										<span>ADC config</span>
+										<select id="leaiADCbitSel" class="leAppSelectClass" autocomplete="off" title="Select ADC bit count" onchange="LeAIcalc.aplChangeLimitEvent(this, 'leaADCUp', 'leaADCLow');">
+											<option value="1">+/- 15bit</option>
+											<option value="2">16bit </option>
+											<option value="0">Custom</option>
+										</select>
+										<input id="leaADCUp" type="text" value="32767" min="1" disabled="true" class="leAppInputClass" autocomplete="off" title="Maximal ADC integer value" onkeyup="LeAIcalc.aplProcEvent(this, false);"/>
+									</div>
+									<div>
+										<input id="leaADCLow" type="text" value="-32768" disabled="true" class="leAppInputClass" autocomplete="off" title="Minimal ADC integer value" onkeyup="LeAIcalc.aplProcEvent(this, false);"/>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</td>
+				<td>
+					<div id="leLeandcTab" class="leAppRelClass">
+						<div class="leAppVmiddleClass">
+							<input id="leAplInV" type="text" value="0" class="leAppInputClass" disabled="true" autocomplete="off" title="Value leandc receives" onkeyup="LeAIcalc.aplProcEvent(this, false);"/>
+						</div>
+						<div style="position:relative;">
+							<svg
+							   xmlns:svg="http://www.w3.org/2000/svg"
+							   xmlns="http://www.w3.org/2000/svg"
+							   version="1.1"
+							   width="180"
+							   height="160"
+							   id="AI_LEANDC">
+							  <path
+							     d="m 0,80 10,0 m 160,0 10,0 M 10,1 l 160,0 0,158 -160,0 z"
+							     id="path6"
+							     inkscape:connector-curvature="0"
+							     style="fill:#e8eff9;stroke:#000000;stroke-width:2px"
+							     sodipodi:nodetypes="ccccccccc" />
+							  <text
+							     x="15"
+							     y="85"
+							     style="font-weight:bold;font-size:14px;font-family:'Liberation Sans'"
+							     id="text14">IN</text>
+							  <text
+							     x="58"
+							     y="18"
+							     style="font-weight:bold;font-size:16px;line-height:100%;font-family:'Liberation Sans'"
+							     id="text16">LEANDC</text>
+							  <text
+							     x="134"
+							     y="85"
+							     style="font-weight:bold;font-size:14px;font-family:'Liberation Sans'"
+							     id="text18">OUT</text>
+							</svg>
+							<div class="leAppAbsClass" style="flex-flow:column;">
+								<div>
+									<button id="leCalcButt2" style="margin-top:28px" title="Calculate XML StartOffset=&quot;&quot; Coeff=&quot;&quot; Offset=&quot;&quot; and NonZeroOffset=&quot;&quot; attributes based on application sample" onclick="LeAIcalc.aplButtonEvent();">Calculate</button>
+								</div>
+							</div>
+						</div>
+						<div class="leAppVmiddleClass">
+							<input id="leAplResult" type="text" value="0" class="leAppInputClass leInputBoldClass" disabled="true" autocomplete="off" title="Resulting value after scaling"/>
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="4">
+					<span id="leaplerrmessage" class="leAIErrorClass">&nbsp </span>
+				</td>
+			</tr>
+		</tbody>
+		</table>
+	</div>
+	<script>
+		//console.log("Loaded:)");
+		window.LeAIcalc = {};
+		window.LeAIcalc.myChangeEv = document.createEvent("HTMLEvents");
+		window.LeAIcalc.myKeyUpEv = document.createEvent("HTMLEvents");
+		window.LeAIcalc.myChangeEv.initEvent("change", true, true);
+		window.LeAIcalc.myKeyUpEv.initEvent("keyup", true, true);
+		function strip(str) { return str.replace(/^\s+/, '').replace(/\s+$/, ''); };
+		function hasClassName(element, className) { return (element.className.length > 0 && (element.className == className || new RegExp("(^|\\s)" + className.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&") + "(\\s|$)").test(element.className))); };
+		function addClassName(element, className) { if (!this.hasClassName(element, className)) element.className += (element.className ? ' ' : '') + className; };
+		function removeClassName(element, className) { element.className = strip(element.className.replace(new RegExp("(^|\\s+)" + className + "(\\s+|$)"), ' ')); };
+		function defValue(elem, def) { return isNaN(elem.value) ? def : elem.value;};
+
+		function setMessage(message, emsgid) {
+			var msgElem = document.getElementById(emsgid);
+			if (msgElem)
+				msgElem.innerHTML = message;
+		}
+
+		function printFloat(fval) {
+			var ftext;
+			if ((Math.abs(fval) >= 1000000) || (fval && (Math.abs(fval) < 0.001)))
+				ftext = fval.toExponential(6);
+			else if ((Math.abs(fval) < 1) && (Math.abs(fval) >= 0.001))
+				ftext = parseFloat(fval.toFixed(7));
+			else
+				ftext = parseFloat(fval.toPrecision(7));
+			return ftext;
+		}
+
+		function fallbackCopyTextToClipboard(elem, text) {
+			var textArea = document.createElement("textarea");
+			var emsg= '';
+			textArea.value = text;
+			//document.body.appendChild(textArea);
+			elem.parentElement.appendChild(textArea);
+			textArea.focus();
+			textArea.select();
+
+			try {
+				if (!document.execCommand('copy'))
+					emsg = 'Fallback: Copying to cliboard failed document.execCommand(\'copy\') failed';
+			} catch (err) {
+				emsg = 'Fallback: Unable to copy to clipboard' + err;
+			}
+			//document.body.removeChild(textArea);
+			elem.parentElement.removeChild(textArea);
+			return emsg;
+		}
+
+		function validateLimits(sourceo, workval) {
+			if (!(sourceo.vals[2] - sourceo.vals[1])) {
+				addClassName(sourceo.elems[2], 'leIncorrectClass');
+				addClassName(sourceo.elems[1], 'leIncorrectClass');
+				setMessage('Values must not be equal', 'leaplerrmessage');
+				return true;
+			}
+			if (!(sourceo.vals[4] - sourceo.vals[3])) {
+				addClassName(sourceo.elems[4], 'leIncorrectClass');
+				addClassName(sourceo.elems[3], 'leIncorrectClass');
+				setMessage('Values must not be equal', 'leaplerrmessage');
+				return true;
+			}
+			if (sourceo.vals[2] > sourceo.vals[1]) {
+				addClassName(sourceo.elems[2], 'leIncorrectClass');
+				setMessage('Value too large', 'leaplerrmessage');
+				return true;
+			}
+			if (sourceo.vals[4] > sourceo.vals[3]) {
+				addClassName(sourceo.elems[4], 'leIncorrectClass');
+				setMessage('Value too large', 'leaplerrmessage');
+				return true;
+			}
+			/*if (sourceo.vals[2] >= 0) {	// Lower limit positive
+				if ((Math.abs(workval) > sourceo.vals[1]) || (Math.abs(workval) < sourceo.vals[2])) {
+					addClassName(sourceo.elems[0], 'leIncorrectClass');
+					setMessage('Value out of range', 'leaplerrmessage');
+					return true;
+				}
+			}
+			else */
+			if ((workval > sourceo.vals[1]) || (workval < sourceo.vals[2])) {	// Lower limit negative
+				addClassName(sourceo.elems[0], 'leIncorrectClass');
+				setMessage('Value out of range', 'leaplerrmessage');
+				return true;
+			}
+			return false;
+		}
+
+		function getElements(elids, elems, emsgid) {
+			var fail = false;
+			for (var i = 0; i < elids.length; i++) {
+				if (!(elems[i] = document.getElementById(elids[i]))) {
+					if (!fail)
+						setMessage('"' + elids[i] + '" element missing', emsgid);
+					fail = true;
+				}
+			}
+			return fail;
+		}
+
+		function setDisplayText(element, rtext) {
+			switch (element.nodeName) {
+			case "INPUT":
+				element.value = rtext;
+				break;
+			case "P":
+			default:
+				element.innerHTML = rtext;
+				break;
+			}
+		}
+
+		function getUserEntries(elids, emsgid, retainChanged) {
+			var sourceo = {vals:[], elems:[]};
+			var rdv;
+			setMessage('&nbsp ', emsgid);
+			var fail = getElements(elids, sourceo.elems, emsgid);
+
+			for (var i = 0; i < elids.length; i++) {
+				if (!(sourceo.elems[i])) 
+					continue;
+
+				removeClassName(sourceo.elems[i], 'leIncorrectClass');
+				if (!retainChanged)
+					removeClassName(sourceo.elems[i], 'leChangedClass');
+
+				rdv = parseFloat(sourceo.elems[i].value);
+				if (isNaN(rdv)) {
+					addClassName(sourceo.elems[i], 'leIncorrectClass');
+					if (!fail)
+						setMessage('Invalid value entered', emsgid);
+					fail = true;
+					continue;
+				}
+				else if ((sourceo.elems[i].min) && (rdv < 0)) {	// Min attribute is set for elements that must have positive values
+					addClassName(sourceo.elems[i], 'leIncorrectClass');
+					if (!fail)
+						setMessage('Value can\'t be negative', emsgid);
+					fail = true;
+					continue;
+				}
+				else
+					sourceo.vals[i] = rdv;
+			}
+			if (fail)
+				return null;
+			return sourceo;
+		}
+
+		function getUserScaling(retainChanged) {
+			return getUserEntries(['leScalingSourceV', 'leStartOffset', 'leZeroDeadband', 'leOffset', 'leOffsetDeadband', 'leNonZeroOffset', 'leCoeff'], 'lescaleerrmessage', retainChanged);
+		}
+
+		function setMathText(elids, targeto, emsgid) {
+			var elems = [], rtext;
+			var fail = getElements(elids, elems, emsgid);
+
+			for (var i = 0; i < elids.length; i++) {
+				if (!(elems[i]))
+					continue;
+
+				if (!targeto.math.length) 
+					rtext = '';
+				else if (i < targeto.math.length) {
+					rtext = targeto.math[i];
+				}
+				else 
+					rtext = '?';
+
+				setDisplayText(elems[i], rtext);
+			}
+		}
+
+		function setResults(elids, targeto, emsgid, chClass) {
+			var elems = [], rtext;
+			var fail = getElements(elids, elems, emsgid);
+
+			for (var i = 0; i < elids.length; i++) {
+				if (!(elems[i]))
+					continue;
+				removeClassName(elems[i], 'leInvalidFlagClass');
+
+				if (!targeto.vals.length) 
+					rtext = '';
+				else if (i < targeto.vals.length) {
+					rtext = printFloat(targeto.vals[i]);
+					if (targeto.qlty[i] & 0x80) {
+						rtext += ' [IV]';
+						addClassName(elems[i], 'leInvalidFlagClass');
+					}
+				}
+				else 
+					rtext = '?';
+
+				setDisplayText(elems[i], rtext);
+				if (chClass)
+					addClassName(elems[i], chClass);
+			}
+			return fail;
+		}
+
+		function calcXformer() {
+			var voltsAmps;
+			var elems = [];
+			var deltaIn;
+			var sourceo = getUserEntries(['leXformerInV', 'leXformerInUp', 'leXformerInLow', 'leTransdInUp', 'leTransdInLow'], 'leaplerrmessage', false);
+			if (sourceo === null)
+				return null;
+			if (getElements(['leTransdInV'], elems, 'leaplerrmessage'))
+				return null;
+
+			voltsAmps = sourceo.vals[0];
+			if (validateLimits(sourceo, voltsAmps))
+				return null;
+
+			// Upper and Lower limits are always positive, however negative input values allowed
+			if ((Math.abs(voltsAmps) > sourceo.vals[1]) || (Math.abs(voltsAmps) < sourceo.vals[2])) {
+				addClassName(sourceo.elems[0], 'leIncorrectClass');
+				setMessage('Value out of range', 'leaplerrmessage');
+				return null;
+			}
+			if (!(deltaIn = sourceo.vals[1] - sourceo.vals[2]))
+				voltsAmps = 0;
+			else
+				voltsAmps = ((voltsAmps >= 0) ? (voltsAmps - sourceo.vals[2]) : (voltsAmps + sourceo.vals[2])) / deltaIn;
+
+			voltsAmps *= (sourceo.vals[3]);
+			elems[0].value = printFloat(voltsAmps);
+			return calcTransducer(voltsAmps);
+		}
+
+		function calcTransducer(voltsAmps) {
+			var elems = [];
+			var mAmps;
+			var deltaIn;
+			var sourceo = getUserEntries(['leTransdInV', 'leTransdInUp', 'leTransdInLow', 'leTransdOutUp', 'leTransdOutLow'], 'leaplerrmessage', false);
+			if (sourceo === null)
+				return null;
+			if (getElements(['leAimInV'], elems, 'leaplerrmessage'))
+				return null;
+
+			if (voltsAmps === null)
+				mAmps = sourceo.vals[0];
+			else
+				mAmps = voltsAmps;
+			if (validateLimits(sourceo, mAmps))
+				return null;
+
+			if (!(deltaIn = sourceo.vals[1] - sourceo.vals[2]))
+				mAmps = 0;
+			else if (sourceo.vals[2] >= 0)	// Lower limit positive
+				mAmps = ((mAmps >= 0) ? (mAmps - sourceo.vals[2]) : (mAmps + sourceo.vals[2])) / deltaIn;
+			else	// Lower limit negative
+				mAmps = (mAmps - sourceo.vals[2]) / deltaIn;
+
+			mAmps *= (sourceo.vals[3] - sourceo.vals[4]);
+			if (mAmps >= 0)
+				mAmps += sourceo.vals[4];
+			else
+				mAmps -= sourceo.vals[4];
+			elems[0].value = printFloat(mAmps);
+			return calcAimodule(mAmps);
+		}
+
+		function calcAimodule(mAmps) {
+			var elems = [];
+			var workval;
+			var deltaIn;
+			var sourceo = getUserEntries(['leAimInV', 'leaInUp', 'leaInLow', 'leaADCUp', 'leaADCLow'], "leaplerrmessage", false);
+			if (sourceo === null)
+				return null;
+			if (getElements(['leAplInV'], elems, 'leaplerrmessage'))
+				return null;
+
+			if (mAmps === null)
+				workval = sourceo.vals[0];
+			else
+				workval = mAmps;
+			if (validateLimits(sourceo, workval))
+				return null;
+
+			if (!(deltaIn = sourceo.vals[1] - sourceo.vals[2]))
+				workval = 0;
+			else
+				workval = (workval - sourceo.vals[2]) / deltaIn;
+
+			if ((sourceo.vals[3] + sourceo.vals[4]) === -1) {	// e.g. Up = 32767, Low = -32768
+				if (workval >= 0.5)
+					workval = (workval - 0.5) * 2 * sourceo.vals[3];
+				else
+					workval = (0.5 - workval) * 2 * sourceo.vals[4];
+			}
+			else {	//  e.g. Up = 65535, Low = 0
+				workval *= (sourceo.vals[3] - sourceo.vals[4]);
+				if (workval >= 0)
+					workval += sourceo.vals[4];
+				else
+					workval -= sourceo.vals[4];
+			}
+			elems[0].value = workval.toFixed(0);
+			return workval;
+		}
+
+		function calcLondelec(sourceo, targeto) {
+			// Start Offset
+			if (sourceo.vals[1]) {
+				if (sourceo.vals[0] >= 0) {
+					targeto.vals[0] = sourceo.vals[0] - sourceo.vals[1];
+					targeto.math[0] = '-' + printFloat(sourceo.vals[1]) + '=';
+				}
+				else {
+					targeto.vals[0] = sourceo.vals[0] + sourceo.vals[1];
+					targeto.math[0] = '+' + printFloat(sourceo.vals[1]) + '=';
+				}
+
+
+				if (sourceo.vals[2]) {	// Zero Deadband if Start Offset <> 0
+					if (sourceo.vals[0] >= 0) {
+						if (Math.abs(sourceo.vals[0] - sourceo.vals[1]) <= sourceo.vals[2]) {
+							targeto.vals[1] = 0;
+							targeto.math[1] = '<=' + printFloat(sourceo.vals[2]);
+						}
+						else if (targeto.vals[0] < 0) {
+							targeto.vals[1] = 0;
+							targeto.qlty[1] = 0x80;
+							targeto.math[1] = '>' + printFloat(sourceo.vals[2]);
+						}
+						else {
+							targeto.vals[1] = targeto.vals[0];
+							targeto.qlty[1] = targeto.qlty[0];
+							targeto.math[1] = '=';
+						}
+					}
+					else {
+						if (Math.abs(sourceo.vals[0] + sourceo.vals[1]) <= sourceo.vals[2]) {
+							targeto.vals[1] = 0;
+							targeto.math[1] = '<=' + printFloat(sourceo.vals[2]);
+						}
+						else if (targeto.vals[0] > 0) {
+							targeto.vals[1] = 0;
+							targeto.qlty[1] = 0x80;
+							targeto.math[1] = '>' + printFloat(sourceo.vals[2]);
+						}
+						else {
+							targeto.vals[1] = targeto.vals[0];
+							targeto.qlty[1] = targeto.qlty[0];
+							targeto.math[1] = '=';
+						}
+					}
+				}
+				else {
+					if (Math.abs(sourceo.vals[0]) < sourceo.vals[1]) {
+						targeto.vals[0] = 0;
+						targeto.qlty[0] = 0x80;
+						targeto.math[0] = '<=' + printFloat(sourceo.vals[1]);
+					}
+					targeto.vals[1] = targeto.vals[0];
+					targeto.qlty[1] = targeto.qlty[0];
+					targeto.math[1] = '=';
+				}
+			}
+			else {	// Zero Deadband if Start Offset = 0
+				targeto.vals[0] = sourceo.vals[0];
+				targeto.math[0] = '=';
+				if (sourceo.vals[2] && (Math.abs(targeto.vals[0]) <= sourceo.vals[2])) {
+					targeto.vals[1] = 0;
+					targeto.math[1] = '<=' + printFloat(sourceo.vals[2]);
+				}
+				else {
+					targeto.vals[1] = targeto.vals[0];
+					targeto.math[1] = '=';
+				}
+			}
+
+			// Offset
+			targeto.vals[2] = targeto.vals[1] + sourceo.vals[3];
+			targeto.qlty[2] = targeto.qlty[1];
+			targeto.math[2] = ((sourceo.vals[3] >= 0) ? '+' : '') + printFloat(sourceo.vals[3]) + '=';
+
+			// Offset Deadband
+			if (sourceo.vals[4] && (Math.abs(targeto.vals[2]) <= sourceo.vals[4])) {
+				targeto.vals[3] = 0;
+				targeto.math[3] = '<=' + printFloat(sourceo.vals[4]);
+			}
+			else {
+				targeto.vals[3] = targeto.vals[2];
+				targeto.math[3] = '=';
+			}
+			targeto.qlty[3] = targeto.qlty[2];
+
+			// Non-zero Offset
+			if (sourceo.vals[5]) {
+				if (targeto.vals[3] > 0) {
+					targeto.vals[4] = targeto.vals[3] + sourceo.vals[5];
+					targeto.math[4] = ((sourceo.vals[5] >= 0) ? '+' : '') + printFloat(sourceo.vals[5]) + '=';
+				}
+				else if (targeto.vals[3] < 0) {
+					targeto.vals[4] = targeto.vals[3] - sourceo.vals[5];
+					targeto.math[4] = ((sourceo.vals[5] >= 0) ? '-' : '+') + printFloat(Math.abs(sourceo.vals[5])) + '=';
+				}
+				else {
+					targeto.vals[4] = 0;
+					targeto.math[4] = '=';
+				}
+			}
+			else {
+				targeto.vals[4] = targeto.vals[3];
+				targeto.math[4] = '=';
+			}
+			targeto.qlty[4] = targeto.qlty[3];
+
+			// Coeff
+			targeto.vals[5] = targeto.vals[4] * sourceo.vals[6];
+			targeto.qlty[5] = targeto.qlty[4];
+			targeto.math[5] = '*' + printFloat(sourceo.vals[6]) + '=';
+		}
+
+		window.LeAIcalc.copyClipboard = function() {
+			var attrText = '', emsg;
+			var elems = [];
+			if (getElements(['leStartOffset', 'leZeroDeadband', 'leOffset', 'leOffsetDeadband', 'leNonZeroOffset', 'leCoeff'], elems, 'lescaleerrmessage'))
+				return null;
+
+			attrText += 'StartOffset="' + defValue(elems[0], "0") + '" ';
+			attrText += 'ZeroDeadband="' + defValue(elems[1], "0")  + '" ';
+			attrText += 'Offset="' + defValue(elems[2], "0") + '" ';
+			attrText += 'OffsetDeadband="' + defValue(elems[3], "0") + '" ';
+			attrText += 'NonZeroOffset="' + defValue(elems[4], "0")  + '" ';
+			attrText += 'Coeff="' + defValue(elems[5], "1") + '" ';
+ 			if (navigator.clipboard) {
+				navigator.clipboard.writeText(attrText).then(function() {
+					// console.log('Debug: Copying to clipboard was successful!');
+				}, function(err) {
+					console.error('Could not copy text to clipboard: ', err);
+				});;
+			}
+			else {	// Opera doesn't have 'navigator.clipboard'
+				if ((emsg = fallbackCopyTextToClipboard(elems[0], attrText)))
+					console.error(emsg);
+			}
+		}
+
+		window.LeAIcalc.rangeButtonEvent = function() {
+			//console.log("Event");
+			var deltaIn, deltaOut;
+			var targeto = {vals:[], qlty:[], math:[]};
+			var sourceo = getUserEntries(['leInputMax', 'leInputMin', 'leOutputMax', 'leOutputMin'], 'lerangerrmessage', false);
+			if (sourceo === null)
+				return;
+
+			if (!(deltaIn = sourceo.vals[0] - sourceo.vals[1])) {
+				addClassName(sourceo.elems[0], 'leIncorrectClass');
+				addClassName(sourceo.elems[1], 'leIncorrectClass');
+				setMessage('Values must not be equal', 'lerangerrmessage');
+				return;
+			}
+			if (!(deltaOut = sourceo.vals[2] - sourceo.vals[3])) {
+				addClassName(sourceo.elems[2], 'leIncorrectClass');
+				addClassName(sourceo.elems[3], 'leIncorrectClass');
+				setMessage('Values must not be equal', 'lerangerrmessage');
+				return;
+			}
+			targeto.vals[0] = deltaOut / deltaIn;
+			if ((sourceo.vals[3] - sourceo.vals[1])) {
+				targeto.vals[1] = (sourceo.vals[3] / targeto.vals[0]) - sourceo.vals[1];
+			}
+			else
+				targeto.vals[1] = 0;
+			setResults(['leCoeff', 'leOffset'], targeto, 'lescaleerrmessage', 'leChangedClass');
+			LeAIcalc.scaleProcEvent(null, true);
+		}
+
+		window.LeAIcalc.scaleProcEvent = function(element, retainChanged) {
+			var targeto = {vals:[], qlty:[], math:[]};
+			var sourceo = getUserScaling(retainChanged);
+
+			if (sourceo !== null) {
+				calcLondelec(sourceo, targeto);
+			}
+			setResults(['afterStartOffset', 'afterZeroDeadband', 'afterOffset', 'afterOffsetDeadband', 'afterNonZeroOffset', 'leScaleResult'], targeto, 'lescaleerrmessage', '');
+			setMathText(['mathStartOffset', 'mathZeroDeadband', 'mathOffset', 'mathOffsetDeadband', 'mathNonZeroOffset', 'mathCoeff'], targeto, 'lescaleerrmessage');
+		}
+
+		window.LeAIcalc.aplChangeLimitEvent = function(element, maxid, minid) {
+			var elems = [];
+			var fail = false, prevdis;
+			//console.log(element.id + '.onchange()');
+			if (getElements([maxid, minid], elems, 'leaplerrmessage') || !element)
+				return;
+			removeClassName(element, 'leIncorrectClass');
+
+			if (element.value === '0') {
+				elems[0].disabled = false;
+				elems[1].disabled = false;
+			}
+			else {
+				elems[0].disabled = true;
+				elems[1].disabled = true;
+				switch (element.id) {
+				case 'leaiADCbitSel':
+					switch (element.value) {
+					case '1':
+						elems[0].value = '32767';
+						elems[1].value = '-32768';
+						break;
+					case '2':
+						elems[0].value = '65535';
+						elems[1].value = '0';
+						break;
+					default:
+						elems[0].disabled = false;
+						elems[1].disabled = false;
+						break;
+					}
+					var pairel = [], csel = null;
+					if (getElements(['leaiCurrentSel', 'leaInLow'], pairel, 'leaplerrmessage'))
+						return;
+					if ((elems[0].disabled === true) && (elems[0].disabled === true)) {
+						for (var i = 0; i < pairel[0].childElementCount; i++) {
+							if (pairel[0].options[i].value === pairel[0].value) {
+								csel = pairel[0].options[i].text;
+								break;
+							}
+						}
+						if (pairel[0].value !== '0') {
+							if ((csel === null) || isNaN(csel = parseFloat(csel))) {
+								fail = true;
+								break;
+							}
+							if (elems[1].value >= 0)
+								pairel[1].value = 0;
+							else
+								pairel[1].value = 0 - csel;
+						}
+					}
+					break;
+				default:
+					var rgarr = [];
+					for (var i = 0; i < element.childElementCount; i++) {
+						if (element.options[i].value === element.value) {
+							rgarr = element.options[i].text.split("-");
+							break;
+						}
+					}
+					switch (rgarr.length) {
+					case 1:
+						if (isNaN(rgarr[0] = parseFloat(rgarr[0]))) {
+							fail = true;
+							break;
+						}
+						elems[0].value = rgarr[0];
+						elems[1].value = 0;
+						if (element.id === 'leaiCurrentSel') {
+							var pairel = [];
+							if (getElements(['leaADCLow'], pairel, 'leaplerrmessage'))
+								return;
+							if (isNaN(rgarr[1] = parseFloat(pairel[0].value))) {
+								fail = true;
+								break;
+							}
+							if (rgarr[1] < 0)
+								elems[1].value = 0 - rgarr[0];
+						}
+						break;
+					case 2:
+						if (isNaN(rgarr[0] = parseFloat(rgarr[0])) || isNaN(rgarr[1] = parseFloat(rgarr[1]))) {
+							fail = true;
+							break;
+						}
+						elems[0].value = rgarr[0];
+						elems[1].value = rgarr[1];
+						break;
+					default:
+						fail = true;
+						break;
+					}
+					break;
+				}
+			}
+			if (fail) {
+				setMessage('Can\'t resolve default ranges', 'leaplerrmessage');
+				addClassName(element, 'leIncorrectClass');
+			}
+			else {
+				// Mozilla doesn't call onkeyup() handler if element is disabled
+				if ((prevdis = elems[0].disabled))
+					elems[0].disabled = false;
+				elems[0].dispatchEvent(LeAIcalc.myKeyUpEv);
+				elems[0].disabled = prevdis;
+				if ((prevdis = elems[1].disabled))
+					elems[1].disabled = false;
+				elems[1].dispatchEvent(LeAIcalc.myKeyUpEv);
+				elems[1].disabled = prevdis;
+			}
+		}
+
+		window.LeAIcalc.aplEnahwEvent = function(element) {
+			var elems = [];
+			var elids = ['leXformerTab', 'leTransdTab', 'leAimTab', 'leTransformerSel', 'leTransdCheck', 'leAimCheck'];
+			setMessage('&nbsp ', 'leaplerrmessage');
+			switch (element.id) {
+			case 'leTransformerSel':
+				elids.push('leTransdInV', 'leVoltageSel', 'leCurrentSel', 'AI_VT', 'AI_CT', 'leXformerDiv');
+				if (getElements(elids, elems, 'leaplerrmessage'))
+					return;
+				switch (element.value) {
+				case 'V':
+					elems[0].style.display = '';
+					elems[6].disabled = true;
+					elems[7].style.display = '';
+					elems[7].dispatchEvent(LeAIcalc.myChangeEv);
+					elems[8].style.display = 'none';
+					elems[9].style.display = '';
+					elems[10].style.display = 'none';
+					addClassName(elems[11], 'leVtDivClass');
+					removeClassName(elems[11], 'leCtDivClass');
+					break;
+				case 'I':
+					elems[0].style.display = '';
+					elems[6].disabled = true;
+					elems[7].style.display = 'none';
+					elems[8].style.display = '';
+					elems[8].dispatchEvent(LeAIcalc.myChangeEv);
+					elems[9].style.display = 'none';
+					elems[10].style.display = '';
+					removeClassName(elems[11], 'leVtDivClass');
+					addClassName(elems[11], 'leCtDivClass');
+					break;
+				case 'N':
+				default:
+					elems[0].style.display = 'none';
+					elems[6].disabled = false;
+					elems[7].style.display = 'none';
+					elems[8].style.display = 'none';
+					elems[9].style.display = 'none';
+					elems[10].style.display = 'none';
+					removeClassName(elems[11], 'leVtDivClass');
+					removeClassName(elems[11], 'leCtDivClass');
+					break;
+				}
+				break;
+			case 'leTransdCheck':
+				elids.push('leTransdInV', 'leAimInV', 'leTransdInSel', 'leTransdOutSel');
+				if (getElements(elids, elems, 'leaplerrmessage'))
+					return;
+				if (element.checked) {
+					elems[1].style.display = '';
+					elems[3].disabled = false;
+					elems[6].disabled = false;
+					elems[7].disabled = true;
+					elems[8].dispatchEvent(LeAIcalc.myChangeEv);
+					elems[9].dispatchEvent(LeAIcalc.myChangeEv);
+				}
+				else {
+					elems[0].style.display = 'none';
+					elems[1].style.display = 'none';
+					elems[3].value = 'N';
+					elems[3].disabled = true;
+					elems[7].disabled = false;
+				}
+				break;
+			case 'leAimCheck':
+				elids.push('leAimInV', 'leAplInV', 'leaiCurrentSel', 'leaiADCbitSel');
+				if (getElements(elids, elems, 'leaplerrmessage'))
+					return;
+				if (element.checked) {
+					elems[2].style.display = '';
+					elems[4].disabled = false;
+					elems[6].disabled = false;
+					elems[7].disabled = true;
+					elems[8].dispatchEvent(LeAIcalc.myChangeEv);
+					elems[9].dispatchEvent(LeAIcalc.myChangeEv);
+				}
+				else {
+					elems[0].style.display = 'none';
+					elems[1].style.display = 'none';
+					elems[2].style.display = 'none';
+					elems[3].value = 'N';
+					elems[3].disabled = true;
+					elems[4].checked = false;
+					elems[4].disabled = true;
+					elems[7].disabled = false;
+				}
+				break;
+			case 'leAimSel':
+				elids.push('leAimInV', 'leAplInV', 'leaiCurrentSel', 'leaiADCbitSel');
+				if (getElements(elids, elems, 'leaplerrmessage'))
+					return;
+				switch (element.value) {
+				case 'AIM':
+					elems[2].style.display = '';
+					elems[4].disabled = false;
+					elems[6].disabled = false;
+					elems[7].disabled = true;
+					elems[8].dispatchEvent(LeAIcalc.myChangeEv);
+					elems[9].dispatchEvent(LeAIcalc.myChangeEv);
+					break;
+				case 'IED':
+					break;
+				case 'N':
+				default:
+					elems[0].style.display = 'none';
+					elems[1].style.display = 'none';
+					elems[2].style.display = 'none';
+					elems[3].value = 'N';
+					elems[3].disabled = true;
+					elems[4].checked = false;
+					elems[4].disabled = true;
+					elems[7].disabled = false;
+					break;
+				}
+				break;
+			default:
+				break;
+			}
+		}
+
+		window.LeAIcalc.aplProcEvent = function(element, retainChanged) {
+			var elems = [];
+			var sourceo;
+			if (getElements(['leXformerTab', 'leTransdTab', 'leAimTab', 'leScalingSourceV', 'leScaleResult', 'leAplResult'], elems, 'leaplerrmessage'))
+				return;
+
+			if (elems[0].style.display !== 'none') {
+				if ((calcXformer(null)) === null)
+					return;
+			}
+			else if (elems[1].style.display !== 'none') {
+				if ((calcTransducer(null)) === null)
+					return;
+			}
+			else if (elems[2].style.display !== 'none') {
+				if ((calcAimodule(null)) === null)
+					return;
+			}
+			if ((sourceo = getUserEntries(['leAplInV',], 'leaplerrmessage', false)) === null)
+				return;
+
+			elems[3].value = printFloat(sourceo.vals[0]);
+			LeAIcalc.scaleProcEvent(null, retainChanged);
+			elems[5].value = elems[4].value;
+			if (hasClassName(elems[4], 'leInvalidFlagClass'))
+				addClassName(elems[5], 'leInvalidFlagClass')
+			else
+				removeClassName(elems[5], 'leInvalidFlagClass')
+		}
+
+		window.LeAIcalc.aplButtonEvent = function() {
+			var elems = [];
+			var sourceo;
+			var workstof = 0, workoffs = null, worknzof = null, workInmul = null, workOutmul = null;
+			var targeto = {vals:[], qlty:[], math:[]};
+			if (getElements(['leXformerTab', 'leTransdTab', 'leAimTab'], elems, 'leaplerrmessage'))
+				return;
+
+			if (elems[0].style.display !== 'none') {
+				if ((sourceo = getUserEntries(['leXformerInUp', 'leXformerInLow'], 'leaplerrmessage', false)) === null)
+					return;
+				workInmul = (sourceo.vals[0] - sourceo.vals[1]);
+				//workoffs = sourceo.vals[1];
+			}
+			if (elems[1].style.display !== 'none') {
+				if ((sourceo = getUserEntries(['leTransdInUp', 'leTransdInLow', 'leTransdOutUp', 'leTransdOutLow', 'leaInUp', 'leaInLow'], 'leaplerrmessage', false)) === null)
+					return;
+				if (workInmul === null)
+					workInmul = (sourceo.vals[0] - sourceo.vals[1]);
+				else if (sourceo.vals[1])	// Transducer input Lower limit positive
+					workInmul *= (sourceo.vals[0] - sourceo.vals[1]) / sourceo.vals[0];
+				workOutmul = (sourceo.vals[2] - sourceo.vals[3]);
+
+				if (sourceo.vals[1] >= 0) {		// Transducer input Lower limit positive, use Non-zero Offset
+					if (worknzof === null)
+						worknzof = sourceo.vals[1] * workInmul / (sourceo.vals[0] - sourceo.vals[1]);
+					if (sourceo.vals[3] < 0) {	// Transducer output Lower limit negative, add additional Offset
+						if (workoffs === null)
+							workoffs = workInmul / workOutmul * Math.abs(sourceo.vals[3]);
+					}
+				}
+				else {	// Transducer input Lower limit negative, use simple Offset
+					if (workoffs === null) {
+						if (sourceo.vals[3] >= 0)	// Transducer output Lower limit positive
+							workoffs = sourceo.vals[1] * workInmul / (sourceo.vals[0] - sourceo.vals[1]);
+						else
+							workoffs = (workInmul / workOutmul * Math.abs(sourceo.vals[3])) + (workInmul / (sourceo.vals[0] - sourceo.vals[1]) * sourceo.vals[1]);
+					}
+				}
+
+				if ((sourceo.vals[3] > 0) && (sourceo.vals[4] !== sourceo.vals[5])) {	// Transducer output Lower limit positive
+					if (sourceo.vals[5] >= 0)	// Analog input Lower limit positive
+						workstof = (sourceo.vals[3] - sourceo.vals[5]) / (sourceo.vals[4] - sourceo.vals[5]);
+					else
+						workstof = (sourceo.vals[3]) / (sourceo.vals[4]);
+				}
+			}
+			if (elems[2].style.display !== 'none') {
+				if ((sourceo = getUserEntries(['leaInUp', 'leaInLow', 'leaADCUp', 'leaADCLow'], 'leaplerrmessage', false)) === null)
+					return;
+				if (workInmul === null)
+					workInmul = (sourceo.vals[0] - sourceo.vals[1]);
+				else
+					workInmul *= (sourceo.vals[0] - sourceo.vals[1]) / workOutmul;
+				if (sourceo.vals[2] - sourceo.vals[3])
+					workInmul /= (sourceo.vals[2] - sourceo.vals[3]);
+
+				workstof *= sourceo.vals[2];
+
+				if (workoffs !== null)
+					workoffs /= workInmul;
+
+				if (worknzof !== null)
+					worknzof /= workInmul;
+			}
+
+			targeto.vals[0] = parseInt(workstof.toFixed(0));
+			targeto.vals[1] = (workoffs === null) ? 0 : workoffs;
+			targeto.vals[2] = (worknzof === null) ? 0 : worknzof;
+			targeto.vals[3] = (workInmul === null) ? 1 : workInmul;
+			setResults(['leStartOffset', 'leOffset', 'leNonZeroOffset', 'leCoeff'], targeto, 'lescaleerrmessage', 'leChangedClass');
+			LeAIcalc.aplProcEvent(null, true);
+		}
+	</script><!--end_applsample1-->
+	</div>

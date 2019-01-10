@@ -15,7 +15,7 @@ element node.
 
 .. _docref-IEC104maCommsSettingsAttab:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-104 Master CommsSettings attributes"
+.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-104 Master CommsSettings attributes" ":spec: |C{0.18}|C{0.1}|C{0.1}|S{0.62}|"
 
    * :attr:     .. _ref-IEC104maCommsSettingsOfflineDelay:
 

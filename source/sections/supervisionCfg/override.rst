@@ -23,7 +23,7 @@ the table listing all available attributes below.
 
 .. field-list-table:: Leandc OVERRIDE node
    :class: table table-condensed table-bordered longtable
-   :spec: |C{0.20}|C{0.25}|S{0.55}|
+   :spec: |C{0.16}|C{0.12}|S{0.72}|
    :header-rows: 1
 
    * :attr,10: Attribute

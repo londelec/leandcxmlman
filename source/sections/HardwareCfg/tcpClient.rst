@@ -15,14 +15,15 @@ TCP client socket is used to connect to a remote host.
 
 .. _ref-TCPCLIENTAttributes:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "Leandc TCPCLIENT node"
+.. include-file:: sections/Include/table_attrs.rstinc "" "Leandc TCPCLIENT node" ":spec: |C{0.17}|C{0.17}|C{0.1}|S{0.56}|"
 
    * :attr:     .. _ref-TCPCLIENTIndex:
 
                 :xmlref:`Index`
      :val:      1...254
      :def:      n/a
-     :desc:     Index is a unique identifier of the hardware node. It is used as a reference to link a communication protocol instance to this node. :inlinetip:`Indexes don't have to be in a sequential order.`
+     :desc:     Index is a unique identifier of the hardware node. It is used as a reference to link a communication protocol instance to this node.
+		:inlinetip:`Indexes don't have to be in a sequential order.`
 
    * :attr:     .. _ref-TCPCLIENTIPaddr:
 
@@ -36,12 +37,15 @@ TCP client socket is used to connect to a remote host.
 		:xmlref:`Port`
      :val:      1...65534
      :def:      n/a
-     :desc:     TCP port number. TCP connection will be established to this remote port. (default port for IEC60870-5-104 is 2404)
+     :desc:     TCP port number.
+		TCP connection will be established to this remote port. (default port for IEC60870-5-104 is 2404)
 
    * :attr:     :xmlref:`ConnectTimeout`
      :val:      1...2\ :sup:`32`\  - 1
      :def:      5 sec
-     :desc:     TCP socket reconnection timeout in seconds. Connection request (SYN) message will be sent after this timeout which starts when existing connection fails. If it is impossible to connect to a remote Server, connection request (SYN) messages will be sent at these intervals. :inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
+     :desc:     TCP socket reconnection timeout in seconds. Connection request (SYN) message will be sent after this timeout which starts when existing connection fails.
+		If it is impossible to connect to a remote Server, connection request (SYN) messages will be sent at these intervals.
+		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
 
 .. include-file:: sections/Include/TCPser_Timeouts.rstinc "" ":ref:`<ref-TCPCLIENT>`" ".. _ref-TCPCLIENTIdleTimeout:" 
 
@@ -50,6 +54,8 @@ TCP client socket is used to connect to a remote host.
                 :xmlref:`Keepalive`
      :val:      0...2\ :sup:`32`\  - 1
      :def:      0 sec
-     :desc:     Keepalive message seding interval normally used for IEC61850 Client instance. TCP Socket will be closed if the remote host fails to reply to a keepalive message within configured number of seconds. (default is 20 seconds for IEC61850 Client instance) :inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
+     :desc:     Keepalive message seding interval normally used for IEC61850 Client instance.
+		TCP Socket will be closed if the remote host fails to reply to a keepalive message within configured number of seconds.
+		(default is 20 seconds for IEC61850 Client instance) :inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
 
 .. include-file:: sections/Include/Name.rstinc ""

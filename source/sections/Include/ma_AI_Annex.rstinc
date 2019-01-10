@@ -1,0 +1,6 @@
+.. tip::
+
+   \* Please refer to annex :ref:`docref-ReceivedAIProcessing` for additional information on AI processing
+   options and application examples using :include-arg:`1` \ and :include-arg:`2` \ attributes.
+   Annex :ref:`docref-AIScaling` for information on analog value scaling.
+

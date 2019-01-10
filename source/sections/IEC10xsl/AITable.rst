@@ -10,7 +10,7 @@ Group node :ref:`AITable<ref-IEC10xslAITable>` and child element nodes :ref:`AI<
 analogue values and analog events to the upstream Master station.
 Each created AI information object needs to have a source of information.
 The source is created by linking AI information object to an :ref:`AI<ref-IEC10xslAI>` node of any Master protocol instance.
-(Master protocol instances are defined in :ref:`CommunicationCfg<ref-CommunicationCfg>` group in **leandc.xml** file)
+(Master protocol instances are defined in :ref:`CommunicationCfg<ref-CommunicationCfg>` group in |leandcxml| file)
 
 The link is created using :ref:`AI<ref-IEC10xslAI>`.\ :ref:`<ref-IEC10xslAIDevice>` \ and :ref:`AI<ref-IEC10xslAI>`.\ :ref:`<ref-IEC10xslAIIndex>` \ attributes.
 The first step is to select the **source Master protocol instance**, use value of the :ref:`<ref-IEC101maIndex>` attribute of any Master protocol instance.
@@ -43,9 +43,9 @@ There are 5 AI information objects configured using 4 :ref:`AI<ref-IEC10xslAI>` 
 AI attributes
 ^^^^^^^^^^^^^
 
-.. _ref-IEC10xslAIAttributes:
+.. _docref-IEC10xslAIAttributes:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-101/104 Slave AI attributes"
+.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-101/104 Slave AI attributes" ":spec: |C{0.18}|C{0.16}|C{0.15}|S{0.51}|"
 
 .. include-file:: sections/Include/IEC10xsl_Device.rstinc "" ".. _ref-IEC10xslAIDevice:" "AI" "source" "Source"
 
@@ -66,13 +66,13 @@ AI attributes
      :val:      0...255 or 0x00...0xFF
      :def:      0x00
      :desc:     Internal object qualifier to enable customized data processing.
-		See table :numref:`ref-IEC10xslAIqualifierBits` for internal object qualifier description.
+		See table :numref:`docref-IEC10xslAIqualifierBits` for internal object qualifier description.
 		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
 
    * :attr:     .. _ref-IEC10xslAICoeff:
 
                 :xmlref:`Coeff`
-     :val:      0 or ±1.18×10\ :sup:`-38`\ ...±3.4×10\ :sup:`38`\
+     :val:      0 or ±1.18×10\ :sup:`-38` \ ... ±3.4×10\ :sup:`38`\
      :def:      1
      :desc:     Coefficient to multiply the analog object value before sending to upstream Master station.
 		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
@@ -82,10 +82,10 @@ AI attributes
 		:xmlref:`StartOffset`
 
 		\*
-     :val:      0 or ±1.18×10\ :sup:`-38`\ ...±3.4×10\ :sup:`38`\
+     :val:      0 or ±1.18×10\ :sup:`-38` \ ... ±3.4×10\ :sup:`38`\
      :def:      0
      :desc:     Start offset is normally used to adjust 4-20mA transducer output range, e.g. offset by a value that represents 4mA.
-		AI will be forced to 0 and Invalid [:lectext1:`IV`] bit set if the received value is smaller than this offset.
+		AI will be forced to 0 and Invalid [:lemonobgtext:`IV`] bit set if the received value is smaller than this offset.
 		:xmlref:`StartOffset` will be subtracted from the received value if the received value is greater or equal to this offset.
 		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
 
@@ -94,7 +94,7 @@ AI attributes
 		:xmlref:`ZeroDeadband`
 
 		\*
-     :val:      0 or ±1.18×10\ :sup:`-38`\ ...±3.4×10\ :sup:`38`\
+     :val:      0 or ±1.18×10\ :sup:`-38` \ ... ±3.4×10\ :sup:`38`\
      :def:      0
      :desc:     Zero Deadband is used to filter noise by forcing low AI values to 0.
 		AI will be forced to 0 if its real-time absolute value (+/-) falls below :xmlref:`ZeroDeadband` attribute.
@@ -105,7 +105,7 @@ AI attributes
 		:xmlref:`Offset`
 
 		\*
-     :val:      0 or ±1.18×10\ :sup:`-38`\ ...±3.4×10\ :sup:`38`\
+     :val:      0 or ±1.18×10\ :sup:`-38` \ ... ±3.4×10\ :sup:`38`\
      :def:      0
      :desc:     Offset AI value **after** :xmlref:`ZeroDeadband` has been applied.
 		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
@@ -115,7 +115,7 @@ AI attributes
 		:xmlref:`OffsetDeadband`
 
 		\*
-     :val:      0 or ±1.18×10\ :sup:`-38`\ ...±3.4×10\ :sup:`38`\
+     :val:      0 or ±1.18×10\ :sup:`-38` \ ... ±3.4×10\ :sup:`38`\
      :def:      0
      :desc:     Offset Zero Deadband is used to filter noise around 0 value **after** applying :xmlref:`Offset`.
 		AI will be forced to 0 if its absolute value (+/-) after offsetting falls below :xmlref:`OffsetDeadband` attribute.
@@ -126,7 +126,7 @@ AI attributes
 		:xmlref:`NonZeroOffset`
 
 		\*
-     :val:      0 or ±1.18×10\ :sup:`-38`\ ...±3.4×10\ :sup:`38`\
+     :val:      0 or ±1.18×10\ :sup:`-38` \ ... ±3.4×10\ :sup:`38`\
      :def:      0
      :desc:     Offset only non-zero values **after** :xmlref:`ZeroDeadband`; :xmlref:`Offset` and :xmlref:`OffsetDeadband` has been applied.
 		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
@@ -138,14 +138,14 @@ AI attributes
      :def:      0x0000
      :desc:     Include object in Interrogation group/groups.
 		Each bit of the group mask attribute needs to be set in order to include object in a particular interrogation group.
-		Please refer to the table :numref:`ref-IEC10xslGroupMask` for more information.
+		Please refer to the table :numref:`docref-IEC10xslGroupMask` for more information.
 		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
 
-   * :attr:    .. _ref-IEC10xslAITypeID:
+   * :attr:     .. _ref-IEC10xslAITypeID:
 
                 :xmlref:`TypeID`
-     :val:      See table :numref:`ref-IEC10xslAITypeIDValues`
-     :def:      14 [:lectext1:`M_ME_TC_1`] or 36 [:lectext1:`M_ME_TF_1`]
+     :val:      See table :numref:`docref-IEC10xslAITypeIDValues`
+     :def:      14 [:lemonobgtext:`M_ME_TC_1`] or 36 [:lemonobgtext:`M_ME_TF_1`]
      :desc:     Use this ASDU Type to send a AI event.
 		Attribute also affects ASDU type of the static data (e.g. Normalized, Scaled, Short floating point value) being reported to General interrogation request
 		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
@@ -156,24 +156,14 @@ AI attributes
 
 .. tip::
 
-   \* Please refer to annexes :ref:`docref-AIScalingWithoutStartOffset` and :ref:`docref-AIScalingWithStartOffset` 
-   for additional information on AI scaling and application examples using
+   \* Please refer to annex :ref:`docref-AIScaling` for information on analog value scaling and application examples using
    :ref:`<ref-IEC10xslAIStartOffset>` \; :ref:`<ref-IEC10xslAIZeroDeadband>` \; :ref:`<ref-IEC10xslAIOffset>` \; :ref:`<ref-IEC10xslAIOffsetDeadband>` \; :ref:`<ref-IEC10xslAINonZeroOffset>` \ attributes.
 
 AI.qualifier
 ^^^^^^^^^^^^
-.. _ref-IEC10xslAIqualifierBits:
+.. _docref-IEC10xslAIqualifierBits:
 
 .. include-file:: sections/Include/table_flags.rstinc "" "IEC60870-5-101/104 Slave AI internal qualifier" ":ref:`<ref-IEC10xslAIqualifier>`" "AI internal qualifier"
-
-   * :attr:     Bit 0\*
-     :val:      xxxx.xxx0
-     :desc:     :ref:`StartOffset<ref-IEC10xslAIStartOffset>` \ attribute will be used for AI scaling.
-
-   * :(attr):
-     :val:      xxxx.xxx1
-     :desc:     Fixed offset (6554) will be loaded to :ref:`StartOffset<ref-IEC10xslAIStartOffset>` \ attribute in order to compensate 4-20mA transducer output offset.
-		Applies to positive or negative AI values.
 
    * :attr:     Bit 1
      :val:      xxxx.xx0x
@@ -215,13 +205,8 @@ AI.qualifier
      :val:      1xxx.xxxx
      :desc:     AI is **disabled** and will not be sent upstream
 
-   * :attr:     Bits 4;5
+   * :attr:     Bits 0;4;5
      :val:      Any
      :desc:     Bits reserved for future use
 
-.. tip::
-
-   \* Please refer to annexes :ref:`docref-AIScalingWithoutStartOffset` and :ref:`docref-AIScalingWithStartOffset` 
-   for additional information on AI scaling and application examples using :ref:`<ref-IEC10xslAIqualifier>` \ Bit[0].
-
-.. include-file:: sections/Include/IEC60870_AI_TypeID.rstinc "" ".. _ref-IEC10xslAITypeIDValues:" "IEC60870-5-101/104 Slave AI TypeID"
+.. include-file:: sections/Include/IEC60870_AI_TypeID.rstinc "" ".. _docref-IEC10xslAITypeIDValues:" "IEC60870-5-101/104 Slave AI TypeID"

@@ -37,7 +37,7 @@ DO attributes
 
 .. _docref-ModbusmaDOAttributes:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "Modbus Master DO attributes"
+.. include-file:: sections/Include/table_attrs.rstinc "" "Modbus Master DO attributes" ":spec: |C{0.14}|C{0.14}|C{0.1}|S{0.62}|"
 
 .. include-file:: sections/Include/ma_Index.rstinc "" ".. _ref-ModbusmaDOIndex:" "DO"
 

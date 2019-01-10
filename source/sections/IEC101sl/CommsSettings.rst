@@ -14,12 +14,13 @@ Communication state change behavior and related delays can be specified in this 
 
 .. _docref-IEC101slCommsSettingsAttab:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-101 Slave CommsSettings attributes"
+.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-101 Slave CommsSettings attributes" ":spec: |C{0.18}|C{0.1}|C{0.1}|S{0.62}|"
 
    * :attr:     :xmlref:`OfflineDelay`
      :val:      1...2\ :sup:`32`\  - 1
      :def:      60 sec
-     :desc:     Delay in seconds before resetting the link if there is no request from Master station. Reset remote link message is required after communication loss exceeding configured offline delay in order to restart communication.
+     :desc:     Delay in seconds before resetting the link if there is no request from Master station.
+		Reset remote link message is required after communication loss exceeding configured offline delay in order to restart communication.
 
 .. include-file:: sections/Include/IEC10xsl_StartupGIDelay.rstinc
 

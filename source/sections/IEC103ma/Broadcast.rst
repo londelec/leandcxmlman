@@ -14,7 +14,7 @@ Broadcast common address of ASDU (CAA) usage for various commands can be specifi
 
 .. _docref-IEC103maBroadcastAttab:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-103 Master Broadcast attributes"
+.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-103 Master Broadcast attributes" ":spec: |C{0.12}|C{0.1}|C{0.1}|S{0.68}|"
 
 .. include-file:: sections/Include/IEC10xma_BroadcastGI.rstinc "" ".. _ref-IEC103maBroadcastGI:" "Broadcast address is 255"
 

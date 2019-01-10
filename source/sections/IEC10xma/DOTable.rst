@@ -34,9 +34,9 @@ There are 5 DO information objects configured using 4 :ref:`DO<ref-IEC10xmaDO>` 
 DO attributes
 ^^^^^^^^^^^^^
 
-.. _ref-IEC10xmaDOAttributes:
+.. _docref-IEC10xmaDOAttributes:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-101/104 Master DO attributes"
+.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-101/104 Master DO attributes" ":spec: |C{0.12}|C{0.14}|C{0.12}|S{0.62}|"
 
 .. include-file:: sections/Include/ma_Index.rstinc "" ".. _ref-IEC10xmaDOIndex:" "DO"
 
@@ -48,7 +48,7 @@ DO attributes
      :val:      0...255 or 0x00...0xFF
      :def:      0x00
      :desc:     Internal object qualifier to enable customized data processing.
-		See table :numref:`ref-IEC10xmaDOqualifierBits` for internal object qualifier description.
+		See table :numref:`docref-IEC10xmaDOqualifierBits` for internal object qualifier description.
 		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
 
    * :attr:     .. _ref-IEC10xmaDOQOC:
@@ -57,13 +57,13 @@ DO attributes
      :val:      0...255 or 0x00...0xFF
      :def:      0
      :desc:     Qualifier Of Command (QOC) is used to define specify short/long pulse information for the outgoing command.
-		See table :numref:`ref-IEC10xmaDOQOCValues` values.
+		See table :numref:`docref-IEC10xmaDOQOCValues` values.
 		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
 
    * :attr:     .. _ref-IEC10xmaDOTypeID:
 
                 :xmlref:`TypeID`
-     :val:      See table :numref:`ref-IEC10xmaDOTypeIDValues`
+     :val:      See table :numref:`docref-IEC10xmaDOTypeIDValues`
      :def:      transparent
      :desc:     Send command with the defined ASDU Type.
 		ASDU type is transparent if neither this attribute nor communication protocol generic attribute (e.g. IEC101ma or IEC104ma :ref:`<ref-IEC101maASDUSettings>`.\ :ref:`<ref-IEC101maASDUSettingsDOType>` \) is used.
@@ -76,7 +76,7 @@ DO attributes
 DO.qualifier
 ^^^^^^^^^^^^
 
-.. _ref-IEC10xmaDOqualifierBits:
+.. _docref-IEC10xmaDOqualifierBits:
 
 .. include-file:: sections/Include/table_flags.rstinc "" " IEC60870-5-101/104 Master DO internal qualifier" ":ref:`<ref-IEC10xmaDOqualifier>`" "DO internal qualifier"
 
@@ -111,36 +111,36 @@ DO.qualifier
 DO.TypeID
 ^^^^^^^^^
 
-.. _ref-IEC10xmaDOTypeIDValues:
+.. _docref-IEC10xmaDOTypeIDValues:
 
 .. field-list-table:: IEC60870-5-101/104 Master DO TypeID
    :class: table table-condensed table-bordered longtable
-   :spec: |C{0.20}|S{0.80}|
+   :spec: |C{0.16}|S{0.84}|
    :header-rows: 1
 
    * :attr,10: TypeID Value
      :desc,90: Description
 
    * :attr:     45
-     :desc:     'Single command' will be sent (ASDU type 45 [:lectext1:`C_SC_NA_1`])
+     :desc:     'Single command' will be sent (ASDU type 45 [:lemonobgtext:`C_SC_NA_1`])
 
    * :attr:     46
-     :desc:     'Double command' will be sent (ASDU type 46 [:lectext1:`C_DC_NA_1`])
+     :desc:     'Double command' will be sent (ASDU type 46 [:lemonobgtext:`C_DC_NA_1`])
 
    * :attr:     47
-     :desc:     'Regulating step command' will be sent (ASDU type 47 [:lectext1:`C_RC_NA_1`])
+     :desc:     'Regulating step command' will be sent (ASDU type 47 [:lemonobgtext:`C_RC_NA_1`])
 
    * :attr:     58
      :desc:     Only applicable to IEC60870-5-104 Master protocol instance;
-                Time-tagged 'Single command' will be sent (ASDU type 58 [:lectext1:`C_SC_TA_1`])
+                Time-tagged 'Single command' will be sent (ASDU type 58 [:lemonobgtext:`C_SC_TA_1`])
 
    * :attr:     59
      :desc:     Only applicable to IEC60870-5-104 Master protocol instance;
-                Time-tagged 'Double command' will be sent (ASDU type 59 [:lectext1:`C_DC_TA_1`])
+                Time-tagged 'Double command' will be sent (ASDU type 59 [:lemonobgtext:`C_DC_TA_1`])
 
    * :attr:     60
      :desc:     Only applicable to IEC60870-5-104 Master protocol instance;
-                Time-tagged 'Regulating step command' will be sent (ASDU type 60 [:lectext1:`C_RC_TA_1`])
+                Time-tagged 'Regulating step command' will be sent (ASDU type 60 [:lemonobgtext:`C_RC_TA_1`])
 
    * :attr:     Other
      :desc:     Transparent, ASDU TypeID of the outgoing command will be the same as received from upstream Master station
@@ -148,33 +148,33 @@ DO.TypeID
 DO.QOC
 ^^^^^^
 
-.. _ref-IEC10xmaDOQOCValues:
+.. _docref-IEC10xmaDOQOCValues:
 
 .. field-list-table:: IEC60870-5-101/104 Master QOC
    :class: table table-condensed table-bordered longtable
-   :spec: |C{0.20}|S{0.80}|
+   :spec: |C{0.16}|S{0.84}|
    :header-rows: 1
 
    * :attr,10: QOC Values
      :desc,90: Description
 
    * :attr:     0
-     :desc:     Command will be sent with [:lectext1:`no additional definition`]
+     :desc:     Command will be sent with [:lemonobgtext:`no additional definition`]
 
    * :attr:     1
-     :desc:     Command will be sent with [:lectext1:`short-pulse duration`]
+     :desc:     Command will be sent with [:lemonobgtext:`short-pulse duration`]
 
    * :attr:     2
-     :desc:     Command will be sent with [:lectext1:`long-pulse duration`]
+     :desc:     Command will be sent with [:lemonobgtext:`long-pulse duration`]
 
    * :attr:     3
-     :desc:     Command will be sent with [:lectext1:`persistent output`]
+     :desc:     Command will be sent with [:lemonobgtext:`persistent output`]
 
    * :attr:     128
      :desc:     Command will be sent with the same information as received from upstream station. This is a transparent mode.
 
    * :attr:     4...31
-     :desc:     Reserved for [:lectext1:`compatible range`] and [:lectext1:`private range`] as per IEC60870-5-101 standard
+     :desc:     Reserved for [:lemonobgtext:`compatible range`] and [:lemonobgtext:`private range`] as per IEC60870-5-101 standard
 
    * :attr:     Other
      :desc:     Undefined, don't use

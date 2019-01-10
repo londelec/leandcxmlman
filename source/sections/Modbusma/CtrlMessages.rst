@@ -32,7 +32,7 @@ MSG attributes
 
 .. _docref-CtrlMessageAttributes:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "Modbus Master Control message attributes"
+.. include-file:: sections/Include/table_attrs.rstinc "" "Modbus Master Control message attributes" ":spec: |C{0.16}|C{0.16}|C{0.1}|S{0.58}|"
 
 .. include-file:: sections/Include/Modbusma_Msgid.rstinc "" ".. _ref-CtrlMsgId:" ":xmlref:`CtrlMsg`"
 
@@ -74,7 +74,7 @@ whether :ref:`<ref-CtrlMsgData>` attribute must be specified when particular Mod
 
 .. field-list-table:: Modbus Master Control message functions
    :class: table table-condensed table-bordered longtable
-   :spec: |C{0.10}|C{0.10}|C{0.13}|S{0.67}|
+   :spec: |C{0.10}|C{0.10}|C{0.14}|S{0.66}|
    :header-rows: 1
 
    * :val,10:   :ref:`<ref-CtrlMsgFunc>`
@@ -85,50 +85,50 @@ whether :ref:`<ref-CtrlMsgData>` attribute must be specified when particular Mod
    * :val:      3
      :type:	n/a
      :data:	No
-     :name:     [:lectext1:`Read Holding Registers`] message will be sent and
+     :name:     [:lemonobgtext:`Read Holding Registers`] message will be sent and
 		data received from outstation can be modified and used for the following write message.
 		This message should be followed by a write message with :ref:`<ref-CtrlMsgType>`\ ="1".
 
    * :val:      4
      :type:	n/a
      :data:	No
-     :name:     [:lectext1:`Read Input Registers`] message will be sent and
+     :name:     [:lemonobgtext:`Read Input Registers`] message will be sent and
 		data received from outstation can be modified and used for the following write message.
 		This message should be followed by a write message with :ref:`<ref-CtrlMsgType>`\ ="1".
 
    * :val:      5
      :type:	0
      :data:	Yes
-     :name:     [:lectext1:`Force Single Coil`] message with contents of the :ref:`<ref-CtrlMsgData>` attribute will be sent.
+     :name:     [:lemonobgtext:`Force Single Coil`] message with contents of the :ref:`<ref-CtrlMsgData>` attribute will be sent.
 
    * :(val):
      :type:	1
      :data:	No
-     :name:     [:lectext1:`Force Single Coil`] message will contain data received from outstation in a previous read message and
+     :name:     [:lemonobgtext:`Force Single Coil`] message will contain data received from outstation in a previous read message and
 		the bit specified in :ref:`DO<ref-ModbusmaDO>`.\ :ref:`<ref-ModbusmaDOBitOffset>` attribute will be set.
 		If no read message is used, data is initialized to 0 and bit specified in :ref:`DO<ref-ModbusmaDO>`.\ :ref:`<ref-ModbusmaDOBitOffset>` attribute is set.
 
    * :val:      6
      :type:	0
      :data:	Yes
-     :name:     [:lectext1:`Preset Single Register`] message with contents of the :ref:`<ref-CtrlMsgData>` attribute will be sent.
+     :name:     [:lemonobgtext:`Preset Single Register`] message with contents of the :ref:`<ref-CtrlMsgData>` attribute will be sent.
 
    * :(val):
      :type:	1
      :data:	No
-     :name:	[:lectext1:`Preset Single Register`] message will contain data received from outstation in a previous read message and
+     :name:	[:lemonobgtext:`Preset Single Register`] message will contain data received from outstation in a previous read message and
 		the bit specified in :ref:`DO<ref-ModbusmaDO>`.\ :ref:`<ref-ModbusmaDOBitOffset>` attribute will be set.
 		If no read message is used, data is initialized to 0 and bit specified in :ref:`DO<ref-ModbusmaDO>`.\ :ref:`<ref-ModbusmaDOBitOffset>` attribute is set.
 
    * :val:      16
      :type:	0
      :data:	Yes
-     :name:     [:lectext1:`Preset Multiple Registers`] message with contents of the :ref:`<ref-CtrlMsgData>` attribute will be sent.
+     :name:     [:lemonobgtext:`Preset Multiple Registers`] message with contents of the :ref:`<ref-CtrlMsgData>` attribute will be sent.
 
    * :(val):
      :type:	1
      :data:	No
-     :name:     [:lectext1:`Preset Multiple Registers`] message will contain data received from outstation in a previous read message and
+     :name:     [:lemonobgtext:`Preset Multiple Registers`] message will contain data received from outstation in a previous read message and
 		the bit specified in :ref:`DO<ref-ModbusmaDO>`.\ :ref:`<ref-ModbusmaDOBitOffset>` attribute will be set.
 		If no read message is used, data is initialized to 0 and bit specified in :ref:`DO<ref-ModbusmaDO>`.\ :ref:`<ref-ModbusmaDOBitOffset>` attribute is set.
 

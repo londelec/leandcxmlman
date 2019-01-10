@@ -29,9 +29,9 @@ Please see sample :ref:`AOTable<ref-IEC61850clAO>` group and :ref:`AO<ref-IEC618
 AO attributes
 ^^^^^^^^^^^^^
 
-.. _ref-IEC61850clAOAttributes:
+.. _docref-IEC61850clAOAttributes:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "IEC61850 Client AO attributes"
+.. include-file:: sections/Include/table_attrs.rstinc "" "IEC61850 Client AO attributes" ":spec: |C{0.12}|C{0.14}|C{0.1}|S{0.64}|"
 
 .. include-file:: sections/Include/ma_Index.rstinc "" ".. _ref-IEC61850clAOIndex:" "AO"
 
@@ -43,7 +43,7 @@ AO attributes
      :val:      0...255 or 0x00...0xFF
      :def:      0x00
      :desc:     Internal object qualifier to enable customized data processing.
-		See table :numref:`ref-IEC61850clAOqualifierBits` for internal object qualifier description.
+		See table :numref:`docref-IEC61850clAOqualifierBits` for internal object qualifier description.
 		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
 
 .. include-file:: sections/Include/AO_Coeff.rstinc "" ".. _ref-IEC61850clAOCoeff:"
@@ -53,33 +53,33 @@ AO attributes
 AO.Qualifier
 ^^^^^^^^^^^^
 
-.. _ref-IEC61850clAOqualifierBits:
+.. _docref-IEC61850clAOqualifierBits:
 
 .. include-file:: sections/Include/table_flags.rstinc "" "IEC61850 Client AO internal qualifier" ":ref:`<ref-IEC61850clAOqualifier>`" "AO internal qualifier"
 
    * :attr:     Bit 1
      :val:      xxxx.xx0x
-     :desc:     [:lectext1:`Synchrocheck`] control bit is **disabled** in outgoing AO command
+     :desc:     [:lemonobgtext:`Synchrocheck`] control bit is **disabled** in outgoing AO command
 
    * :(attr):
      :val:      xxxx.xx1x
-     :desc:     [:lectext1:`Synchrocheck`] control bit is **enabled** in outgoing AO command
+     :desc:     [:lemonobgtext:`Synchrocheck`] control bit is **enabled** in outgoing AO command
 
    * :attr:     Bit 2
      :val:      xxxx.x0xx
-     :desc:     [:lectext1:`Interlock`] control bit is **disabled** in outgoing AO command
+     :desc:     [:lemonobgtext:`Interlock`] control bit is **disabled** in outgoing AO command
 
    * :(attr):
      :val:      xxxx.x1xx
-     :desc:     [:lectext1:`Interlock`] control bit is **enabled** in outgoing AO command
+     :desc:     [:lemonobgtext:`Interlock`] control bit is **enabled** in outgoing AO command
 
    * :attr:     Bit 6
      :val:      x0xx.xxxx
-     :desc:     [:lectext1:`Test`] bit of the control structure is **cleared**
+     :desc:     [:lemonobgtext:`Test`] bit of the control structure is **cleared**
 
    * :(attr):
      :val:      x1xx.xxxx
-     :desc:     [:lectext1:`Test`] bit of the control structure is **set**
+     :desc:     [:lemonobgtext:`Test`] bit of the control structure is **set**
 
    * :attr:     Bit 7
      :val:      0xxx.xxxx

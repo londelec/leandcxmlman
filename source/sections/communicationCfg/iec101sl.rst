@@ -17,7 +17,7 @@ General settings of the IEC60870-5-101 controlled station (Slave) communication 
 .. field-list-table:: IEC101sl node
    :class: table table-condensed table-bordered longtable
    :header-rows: 1
-   :spec: |C{0.20}|C{0.25}|S{0.55}|
+   :spec: |C{0.14}|C{0.12}|S{0.74}|
 
    * :attr,10: Attribute
      :val,15:  Values or range

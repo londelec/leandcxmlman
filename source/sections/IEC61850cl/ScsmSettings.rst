@@ -14,7 +14,7 @@ Specific Communication Service Mapping settings can be specified using attribute
 
 .. _docref-IEC61850clScsmSettingsAttab:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "IEC61850 Client ScsmSettings attributes"
+.. include-file:: sections/Include/table_attrs.rstinc "" "IEC61850 Client ScsmSettings attributes" ":spec: |C{0.14}|C{0.18}|C{0.1}|S{0.58}|"
 
    * :attr:     :xmlref:`Bdyndsname`
      :val:      Max 16 chars
@@ -62,67 +62,67 @@ Specific Communication Service Mapping settings can be specified using attribute
 
    * :attr:     Bit 0
      :val:      xxxx.xxxx xxxx.xxx0
-     :desc:     **Exclude** [:lectext1:`entryID`] field from Reports (default value)
+     :desc:     **Exclude** [:lemonobgtext:`entryID`] field from Reports (default value)
 
    * :(attr):
      :val:      xxxx.xxxx xxxx.xxx1
-     :desc:     **Include** [:lectext1:`entryID`] field in Reports
+     :desc:     **Include** [:lemonobgtext:`entryID`] field in Reports
 
    * :attr:     Bit 1
      :val:      xxxx.xxxx xxxx.xx0x
-     :desc:     **Exclude** [:lectext1:`buffer-overflow`] field from Reports (default value)
+     :desc:     **Exclude** [:lemonobgtext:`buffer-overflow`] field from Reports (default value)
 
    * :(attr):
      :val:      xxxx.xxxx xxxx.xx1x
-     :desc:     **Include** [:lectext1:`buffer-overflow`] field in Reports
+     :desc:     **Include** [:lemonobgtext:`buffer-overflow`] field in Reports
 
    * :attr:     Bit 2
      :val:      xxxx.xxxx xxxx.x0xx
-     :desc:     **Exclude** [:lectext1:`data-reference`] field from Reports (default value)
+     :desc:     **Exclude** [:lemonobgtext:`data-reference`] field from Reports (default value)
 
    * :(attr):
      :val:      xxxx.xxxx xxxx.x1xx
-     :desc:     **Include** [:lectext1:`data-reference`] field in Reports
+     :desc:     **Include** [:lemonobgtext:`data-reference`] field in Reports
 
    * :attr:     Bit 3
      :val:      xxxx.xxxx xxxx.0xxx
-     :desc:     **Exclude** [:lectext1:`data-set-name`] field from Reports (default value)
+     :desc:     **Exclude** [:lemonobgtext:`data-set-name`] field from Reports (default value)
 
    * :(attr):
      :val:      xxxx.xxxx xxxx.1xxx
-     :desc:     **Include** [:lectext1:`data-set-name`] field in Reports
+     :desc:     **Include** [:lemonobgtext:`data-set-name`] field in Reports
 
    * :attr:     Bit 4
      :val:      xxxx.xxxx xxx0.xxxx
-     :desc:     **Exclude** [:lectext1:`reason-for-inclusion`] field from Reports (default value)
+     :desc:     **Exclude** [:lemonobgtext:`reason-for-inclusion`] field from Reports (default value)
 
    * :(attr):
      :val:      xxxx.xxxx xxx1.xxxx
-     :desc:     **Include** [:lectext1:`reason-for-inclusion`] field in Reports
+     :desc:     **Include** [:lemonobgtext:`reason-for-inclusion`] field in Reports
 
    * :attr:     Bit 5
      :val:      xxxx.xxxx xx0x.xxxx
-     :desc:     **Exclude** [:lectext1:`report-time-stamp`] field from Reports (default value)
+     :desc:     **Exclude** [:lemonobgtext:`report-time-stamp`] field from Reports (default value)
 
    * :(attr):
      :val:      xxxx.xxxx xx1x.xxxx
-     :desc:     **Include** [:lectext1:`report-time-stamp`] field in Reports
+     :desc:     **Include** [:lemonobgtext:`report-time-stamp`] field in Reports
 
    * :attr:     Bit 6
      :val:      xxxx.xxxx x0xx.xxxx
-     :desc:     **Exclude** [:lectext1:`sequence-number`] field from Reports (default value for Unbuffered Reports)
+     :desc:     **Exclude** [:lemonobgtext:`sequence-number`] field from Reports (default value for Unbuffered Reports)
 
    * :(attr):
      :val:      xxxx.xxxx x1xx.xxxx
-     :desc:     **Include** [:lectext1:`sequence-number`] field in Reports (default value for Buffered Reports)
+     :desc:     **Include** [:lemonobgtext:`sequence-number`] field in Reports (default value for Buffered Reports)
 
    * :attr:     Bit 15
      :val:      0xxx.xxxx xxxx.xxxx
-     :desc:     **Exclude** [:lectext1:`conf-revision`] field from Reports (default value)
+     :desc:     **Exclude** [:lemonobgtext:`conf-revision`] field from Reports (default value)
 
    * :(attr):
      :val:      1xxx.xxxx xxxx.xxxx
-     :desc:     **Include** [:lectext1:`conf-revision`] field in Reports
+     :desc:     **Include** [:lemonobgtext:`conf-revision`] field in Reports
 
    * :attr:     Bits 8...14
      :val:      Any
@@ -144,23 +144,23 @@ Specific Communication Service Mapping settings can be specified using attribute
 
    * :attr:     Bit 1
      :val:      xxxx.xxxx xxxx.xx0x
-     :desc:     **Don't set** [:lectext1:`PurgeBuf`] bit if [:lectext1:`EntryID`] setting fails during Report Control Block initialization (default value)
+     :desc:     **Don't set** [:lemonobgtext:`PurgeBuf`] bit if [:lemonobgtext:`EntryID`] setting fails during Report Control Block initialization (default value)
 
    * :(attr):
      :val:      xxxx.xxxx xxxx.xx1x
-     :desc:     **Set** [:lectext1:`PurgeBuf`] bit if [:lectext1:`EntryID`] setting fails during Report Control Block initialization.
-		Setting [:lectext1:`PurgeBuf`] bit will remove all Buffered reports including those that might have not been sent to Client.
+     :desc:     **Set** [:lemonobgtext:`PurgeBuf`] bit if [:lemonobgtext:`EntryID`] setting fails during Report Control Block initialization.
+		Setting [:lemonobgtext:`PurgeBuf`] bit will remove all Buffered reports including those that might have not been sent to Client.
 
    * :attr:     Bit 2
      :val:      xxxx.xxxx xxxx.x0xx
-     :desc:     | Read Basic Types of **objects that don't exist in SCL** when station goes online. In case IEC61850 server has any objects that don't appear in SCL file, Basic Types of those objects will be read with [:lectext1:`GetDataDirectory`] (default value)
+     :desc:     | Read Basic Types of **objects that don't exist in SCL** when station goes online. In case IEC61850 server has any objects that don't appear in SCL file, Basic Types of those objects will be read with [:lemonobgtext:`GetDataDirectory`] (default value)
 		| Basic Types are not read by default, but only if either of following conditions is met:
-		| / :ref:`<ref-IEC61850clAppSettings>`.\ :ref:`<ref-IEC61850clAppFlags>` \ Bit[0] is set which forces to always read LD directory with [:lectext1:`GetLogicalDeviceDirectory`];
+		| / :ref:`<ref-IEC61850clAppSettings>`.\ :ref:`<ref-IEC61850clAppFlags>` \ Bit[0] is set which forces to always read LD directory with [:lemonobgtext:`GetLogicalDeviceDirectory`];
 		| / IED supports Dynamic Datasets and Dynamic Report Blocks (with empty DatSet="") are not specified in the SCL file.
 
    * :(attr):
      :val:      xxxx.xxxx xxxx.x1xx
-     :desc:     Read Basic Types of **all** objects when station goes online with [:lectext1:`GetDataDirectory`]
+     :desc:     Read Basic Types of **all** objects when station goes online with [:lemonobgtext:`GetDataDirectory`]
 		Basic Types are not read by default, only in circumstatnces described above.
 
    * :attr:     Bits 3...15

@@ -43,7 +43,7 @@ SCADA settings are stored in a separate XML file and this file is defined in :re
      :val:      Max 100 chars
      :desc:     XML configuration file name and path.
 		This file contains webscada settings and is used by 'lehmi' binary.
-		File path may be omitted if XML file is stored in the default directory (/home/leandc/app)
+		File path may be omitted if XML file is stored in the default directory (|leandcapp|)
 		:inlineimportant:`Attribute is case sensitive, observe case of the path and file name when specifying.`
 
 .. include-file:: sections/Include/Name_wodef.rstinc ""

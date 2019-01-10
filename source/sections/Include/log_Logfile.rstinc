@@ -5,7 +5,7 @@
      :def:      n/a
      :desc:     Name of a logfile excluding extension (e.g. ':include-arg:`2`').
 		It is possible to specify relative or absolute path as part of the file name.
-		Logfile will be created in the default directory (/home/leandc/app) if path is not specified.
+		Logfile will be created in the default directory (|leandcapp|) if path is not specified.
 		Date when the file was created and extension ':include-arg:`2`' will be appended to the file name automatically.
 		Logfile will not be created if this attribute is left blank.
 		:include-arg:`3`

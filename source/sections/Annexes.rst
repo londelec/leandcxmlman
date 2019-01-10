@@ -1,3 +1,4 @@
+.. include:: global.roles
 
 #######
 Annexes

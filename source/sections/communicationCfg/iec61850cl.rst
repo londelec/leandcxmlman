@@ -17,7 +17,7 @@ General settings of the IEC61850 client communication protocol instance.
 .. field-list-table:: IEC61850cl node
    :class: table table-condensed table-bordered longtable
    :header-rows: 1
-   :spec: |C{0.20}|C{0.25}|S{0.55}|
+   :spec: |C{0.14}|C{0.12}|S{0.74}|
 
    * :attr,10: Attribute
      :val,15:  Values or range
@@ -39,7 +39,7 @@ General settings of the IEC61850 client communication protocol instance.
      :val:      Max 100 chars
      :desc:     IED CID or SCD file name and path. This file contains communication capabilites and settings of the IED.
 		It is normaly exported from the IED configuration tool.
-		File path may be omitted if XML file is stored in the default directory (/home/leandc/app)
+		File path may be omitted if XML file is stored in the default directory (|leandcapp|)
 		:inlineimportant:`Attribute is case sensitive, observe case of the path and file name when specifying.`
 
    * :attr:     .. _ref-IEC61850clIEDname:

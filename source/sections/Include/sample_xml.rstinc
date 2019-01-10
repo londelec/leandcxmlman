@@ -1,6 +1,6 @@
 Name and location path of the XML configuration file is not predefined, it can be chosen freely.
 File name '**:include-arg:`1`**' is used as a sample.
-Enter name of the XML file in :include-arg:`2`.\ :include-arg:`3` attribute of a communication protocol instance created in **leandc.xml** as follows:
+Enter name of the XML file in :include-arg:`2`.\ :include-arg:`3` attribute of a communication protocol instance created in |leandcxml| as follows:
 :include-arg:`3`\ =":include-arg:`1`" .
-Location path doesn't have to be specified if the XML file is stored in the default directory (/home/leandc/app).
+Location path doesn't have to be specified if the XML file is stored in the default directory (|leandcapp|).
 

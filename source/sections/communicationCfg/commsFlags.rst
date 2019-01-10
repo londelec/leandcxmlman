@@ -7,7 +7,7 @@ CommsFlags attribute
 Communication flags contain initialization settings of communication protocol instances. 
 For example, outstation polling can be permanently disabled on leandc startup and enabled manually by user issuing a service command.
 
-.. _ref-CommsFlagsAttribute:
+.. _docref-CommsFlagsAttribute:
 
 .. include-file:: sections/Include/table_flags.rstinc "" "CommsFlags attribute" ":xmlref:`CommsFlags`" "Communication initialization flags"
 
@@ -25,15 +25,20 @@ For example, outstation polling can be permanently disabled on leandc startup an
 
    * :(attr):
      :val:      xxx1.xxxx
-     :desc:     Protocol instance **doesn't** start data exchange on leandc startup. Data exchange will not start automatically, service command (Index="-4") may be used to start data exchange at any time. Please see table :numref:`ref-IEC10xslDOServiceIndex` for more information on service commands.
+     :desc:     Protocol instance **doesn't** start data exchange on leandc startup.
+		Data exchange will not start automatically, service command (:xmlref:`Index="-4"`) may be used to start data exchange at any time.
+		Please see table :numref:`docref-IEC10xslDOServiceIndex` for more information on service commands.
 
    * :attr:     Bit 7
      :val:      0xxx.xxxx
-     :desc:     Protocol instance is **enabled** on leandc startup. Communication will start automatically (default value)
+     :desc:     Protocol instance is **enabled** on leandc startup.
+		Communication will start automatically (default value)
 
    * :(attr):
      :val:      1xxx.xxxx
-     :desc:     Protocol instance is **disabled** on leandc startup. Commnication will not start automatically, service command (Index="-3") may be used to enable communication at any time. Please see table :numref:`ref-IEC10xslDOServiceIndex` for more information on service commands.
+     :desc:     Protocol instance is **disabled** on leandc startup.
+		Commnication will not start automatically, service command (:xmlref:`Index="-3"`) may be used to enable communication at any time.
+		Please see table :numref:`docref-IEC10xslDOServiceIndex` for more information on service commands.
 
    * :attr:     Bits 0...2;5;6
      :val:      Any

@@ -14,7 +14,7 @@ Application layer settings can be specified using attributes of :ref:`<ref-IEC61
 
 .. _docref-IEC61850clAppSettingsAttab:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "IEC61850 Client AppSettings attributes"
+.. include-file:: sections/Include/table_attrs.rstinc "" "IEC61850 Client AppSettings attributes" ":spec: |C{0.18}|C{0.16}|C{0.1}|S{0.56}|"
 
 .. include-file:: sections/Include/ma_IgnoreTimetags.rstinc
 
@@ -34,7 +34,7 @@ Application layer settings can be specified using attributes of :ref:`<ref-IEC61
      :val:      1...8
      :def:      3
      :desc:     Originator category value for outgoing commands [IEC61850-7-3:2011].
-		Default value 3 = [:lectext1:`remote-control`]
+		Default value 3 = [:lemonobgtext:`remote-control`]
 
    * :attr:     :xmlref:`orIdent`
      :val:      64 chars
@@ -44,23 +44,23 @@ Application layer settings can be specified using attributes of :ref:`<ref-IEC61
    * :attr:     .. _ref-IEC61850clAppFlags:
 
                 :xmlref:`Flags`
-     :val:      0...65535 or 0x00...0xFFFF
+     :val:      0...65535 or 0x0000...0xFFFF
      :def:      0x0000
      :desc:     Miscellaneous settings of the Application layer.
-		See table :numref:`ref-IEC61850clAppFlagsBits` for description.
+		See table :numref:`docref-IEC61850clAppFlagsBits` for description.
 
 
-.. _ref-IEC61850clAppFlagsBits:
+.. _docref-IEC61850clAppFlagsBits:
 
 .. include-file:: sections/Include/table_flags16bit.rstinc "" "Application layer flags" ":ref:`<ref-IEC61850clAppFlags>`" "Application layer flags"
 
    * :attr:     Bit 0
      :val:      xxxx.xxxx xxxx.xxx0
-     :desc:     **Don't read** the LD directory [:lectext1:`GetLogicalDeviceDirectory`] when station goes online if IED supports only static datasets (default value)
+     :desc:     **Don't read** the LD directory [:lemonobgtext:`GetLogicalDeviceDirectory`] when station goes online if IED supports only static datasets (default value)
 
    * :(attr):
      :val:      xxxx.xxxx xxxx.xxx1
-     :desc:     **Read** the LD directory [:lectext1:`GetLogicalDeviceDirectory`] when station goes online even if IED supports only static datasets.
+     :desc:     **Read** the LD directory [:lemonobgtext:`GetLogicalDeviceDirectory`] when station goes online even if IED supports only static datasets.
 		IED initialization will take longer if this bit is enabled, however it offers extra checks.
 		Object directory received from IED will be matched against SCL file and any inconsistencies will be reported.
 
@@ -86,12 +86,12 @@ Application layer settings can be specified using attributes of :ref:`<ref-IEC61
 
    * :attr:     Bit 4
      :val:      xxxx.xxxx xxx0.xvxx
-     :desc:     **Use** [:lectext1:`Resv`] attribute value of the Unbufferred report control block received from IED (default value)
+     :desc:     **Use** [:lemonobgtext:`Resv`] attribute value of the Unbufferred report control block received from IED (default value)
 		IEC61850 client tries to reserve only unbuffered report control blocks that are not already reserved by another client.
 
    * :(attr):
      :val:      xxxx.xxxx xxx1.xxxx
-     :desc:     **Ignore** [:lectext1:`Resv`] attribute value of the Unbufferred report control block received from IED.
+     :desc:     **Ignore** [:lemonobgtext:`Resv`] attribute value of the Unbufferred report control block received from IED.
 		IEC61850 client tries to reserve unbuffered report control blocks even if already reserved by another client.
 
    * :attr:     Bit 8

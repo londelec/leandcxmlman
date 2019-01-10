@@ -29,9 +29,9 @@ Please see sample :ref:`AITable<ref-IEC61850clAI>` group and :ref:`AI<ref-IEC618
 AI attributes
 ^^^^^^^^^^^^^
 
-.. _ref-IEC61850clAIAttributes:
+.. _docref-IEC61850clAIAttributes:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "IEC61850 Client AI attributes"
+.. include-file:: sections/Include/table_attrs.rstinc "" "IEC61850 Client AI attributes" ":spec: |C{0.18}|C{0.16}|C{0.12}|S{0.54}|"
 
 .. include-file:: sections/Include/ma_Index.rstinc "" ".. _ref-IEC61850clAIIndex:" "AI"
 
@@ -43,7 +43,7 @@ AI attributes
      :val:      0...255 or 0x00...0xFF
      :def:      0x00
      :desc:     Internal object qualifier to enable customized data processing.
-		See table :numref:`ref-IEC61850clAIqualifierBits` for internal object qualifier description.
+		See table :numref:`docref-IEC61850clAIqualifierBits` for internal object qualifier description.
 		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
 
 .. include-file:: sections/Include/AI_Coeff.rstinc "" ".. _ref-IEC61850clAICoeff:"
@@ -54,20 +54,16 @@ AI attributes
 
 .. include-file:: sections/Include/hidden_qtname.rstinc "internal"
 
-.. include-file:: sections/Include/IEC61850cl_DIAI.rstinc "" ".. _ref-IEC61850clAIDSnum:" ".. _ref-IEC61850clAITrgOps:" ".. _ref-IEC61850clAIintgPd:" ":numref:`ref-IEC61850clTrgOps`" "cVal.mag.f"
+.. include-file:: sections/Include/IEC61850cl_DIAI.rstinc "" ".. _ref-IEC61850clAIDSnum:" ".. _ref-IEC61850clAITrgOps:" ".. _ref-IEC61850clAIintgPd:" ":numref:`docref-IEC61850clTrgOps`" "cVal.mag.f"
 
 .. include-file:: sections/Include/Name.rstinc ""
 
-.. tip::
-
-   \* Please refer to annex :ref:`docref-ReceivedAIProcessing` for additional information on AI processing 
-   options and application examples using :ref:`Deadband<ref-IEC61850clAIDeadband>` \ and :ref:`Percent<ref-IEC61850clAIPercent>` attributes.
-   Annexes :ref:`docref-AIScalingWithoutStartOffset` and :ref:`docref-AIScalingWithStartOffset` for additional information on AI scaling.
+.. include-file:: sections/Include/ma_AI_Annex.rstinc "" ":ref:`<ref-IEC61850clAIDeadband>`" ":ref:`<ref-IEC61850clAIPercent>`"
 
 AI.Qualifier
 ^^^^^^^^^^^^
 
-.. _ref-IEC61850clAIqualifierBits:
+.. _docref-IEC61850clAIqualifierBits:
 
 .. include-file:: sections/Include/table_flags.rstinc "" "IEC61850 Client AI internal qualifier" ":ref:`<ref-IEC61850clAIQualifier>`" "AI internal qualifier"
 

@@ -47,6 +47,6 @@ IEC60870-5-104 Slave configuration file (e.g. 'IEC104sl_test.xml') must have a r
 
 :ref:`DITable<ref-IEC10xslDITable>`; :ref:`AITable<ref-IEC10xslAITable>`; :ref:`DOTable<ref-IEC10xslDOTable>`; :ref:`AOTable<ref-IEC10xslAOTable>` group nodes compose an IO object table and they are common for
 IEC60870-5-101 and IEC60870-5-104 controlled station (Slave) communication protocol instances. Please refer to the tables
-:numref:`ref-IEC10xslDIAttributes`; :numref:`ref-IEC10xslAIAttributes`; :numref:`ref-IEC10xslDOAttributes` and :numref:`ref-IEC10xslAOAttributes` for their attributes.
+:numref:`docref-IEC10xslDIAttributes`; :numref:`docref-IEC10xslAIAttributes`; :numref:`docref-IEC10xslDOAttributes` and :numref:`docref-IEC10xslAOAttributes` for their attributes.
 
 .. include:: IEC104sl/ProtocolCfg.rst

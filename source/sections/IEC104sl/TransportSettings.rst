@@ -14,6 +14,6 @@ Protocol transport interface settings such as timeout and message window sizes c
 
 .. _docref-IEC104slTransportSettingsAttab:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-104 Slave TransportSettings attributes"
+.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-104 Slave TransportSettings attributes" ":spec: |C{0.1}|C{0.12}|C{0.1}|S{0.68}|"
 
 .. include-file:: sections/Include/IEC60870_Transport.rstinc

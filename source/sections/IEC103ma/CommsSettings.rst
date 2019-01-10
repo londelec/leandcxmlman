@@ -14,7 +14,7 @@ Communication state (e.g. online and offline) change behavior and related delays
 
 .. _docref-IEC103maCommsSettingsAttab:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-103 Master CommsSettings attributes"
+.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-103 Master CommsSettings attributes" ":spec: |C{0.18}|C{0.1}|C{0.1}|S{0.62}|"
 
 .. include-file:: sections/Include/serma_CommsSettings.rstinc "" ".. _ref-IEC103maCommsSettingsNoRespCount:" ".. _ref-IEC103maCommsSettingsDegradedRetries:" ".. _ref-IEC103maCommsSettingsDegradedTimeout:" ":ref:`<ref-IEC103maCommsSettingsOfflineDelay>`" ":ref:`<ref-IEC103maCommsSettingsDegradedTimeout>`" ":ref:`<ref-IEC103maCommsSettingsDegradedRetries>`"
 

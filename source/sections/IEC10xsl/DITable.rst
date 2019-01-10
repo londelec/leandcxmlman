@@ -10,7 +10,7 @@ Group node :ref:`DITable<ref-IEC10xslDITable>` and child element nodes :ref:`DI<
 information and status change events to the upstream Master station.
 Each created DI information object needs to have a source of information.
 The source is created by linking DI information object to a :ref:`DI<ref-IEC10xslDI>` node of any Master protocol instance. 
-(Master protocol instances are defined in :ref:`CommunicationCfg<ref-CommunicationCfg>` group in **leandc.xml** file)
+(Master protocol instances are defined in :ref:`CommunicationCfg<ref-CommunicationCfg>` group in |leandcxml| file)
 
 The link is created using :ref:`DI<ref-IEC10xslDI>`.\ :ref:`<ref-IEC10xslDIDevice>` \ and :ref:`DI<ref-IEC10xslDI>`.\ :ref:`<ref-IEC10xslDIIndex>` \ attributes.
 The first step is to select the **source Master protocol instance**, use value of the :ref:`<ref-IEC101maIndex>` attribute of any Master protocol instance.
@@ -43,9 +43,9 @@ There are 5 DI information objects configured using 4 :ref:`DI<ref-IEC10xslDI>` 
 DI attributes
 ^^^^^^^^^^^^^
 
-.. _ref-IEC10xslDIAttributes:
+.. _docref-IEC10xslDIAttributes:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-101/104 Slave DI attributes"
+.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-101/104 Slave DI attributes" ":spec: |C{0.14}|C{0.16}|C{0.15}|S{0.55}|"
 
 .. include-file:: sections/Include/IEC10xsl_Device.rstinc "" ".. _ref-IEC10xslDIDevice:" "DI" "source" "Source"
 
@@ -58,7 +58,7 @@ DI attributes
 		Use value of the :ref:`DI<ref-IEC10xmaDI>`.\ :ref:`<ref-IEC10xmaDIIndex>` \ attribute of any DI object listed in the IO table of the selected Master protocol instance.
 		In addition to regular DIs there are internal indications available.
 		Internal indications are used to monitor real-time status of the source protocol instance.
-		Each internal indication has a service index and they are summarized in the table :numref:`ref-IEC10xslDIServiceIndex`.
+		Each internal indication has a service index and they are summarized in the table :numref:`docref-IEC10xslDIServiceIndex`.
 		:inlinetip:`Indexes don't have to be arranged in ascending order.`
 
 .. include-file:: sections/Include/IEC10xsl_IOA.rstinc "" ".. _ref-IEC10xslDIInfAddr:" "DI" "send object to"
@@ -69,7 +69,7 @@ DI attributes
      :val:      0...255 or 0x00...0xFF
      :def:      0x00
      :desc:     Internal object qualifier to enable customized data processing.
-		See table :numref:`ref-IEC10xslDIqualifierBits` for internal object qualifier description.
+		See table :numref:`docref-IEC10xslDIqualifierBits` for internal object qualifier description.
 		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
 
    * :attr:     .. _ref-IEC10xslDIGroupMask:
@@ -79,14 +79,14 @@ DI attributes
      :def:      0x0000
      :desc:     Include object in Interrogation group/groups.
 		Each bit of the group mask attribute needs to be set in order to include object in a particular interrogation group.
-		Please refer to the table :numref:`ref-IEC10xslGroupMask` for more information.
+		Please refer to the table :numref:`docref-IEC10xslGroupMask` for more information.
 		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
 
    * :attr:     .. _ref-IEC10xslDITypeID:
 
                 :xmlref:`TypeID`
-     :val:      See table :numref:`ref-IEC10xslDITypeIDValues`
-     :def:      2 [M_SP_TA_1] or 30 [M_SP_TB_1]
+     :val:      See table :numref:`docref-IEC10xslDITypeIDValues`
+     :def:      2 [:lemonobgtext:`M_SP_TA_1`] or 30 [:lemonobgtext:`M_SP_TB_1`]
      :desc:     Use this ASDU Type to send a DI event.
 		Attribute also affects ASDU type of the static data (e.g. Single or Double status information) being reported to General interrogation request.
 		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
@@ -99,7 +99,7 @@ DI attributes
      :desc:     DI object index of the second single point used as a source for conversion to double status indication.
 		Resulting Double point will have ON value when source DI object specified in :ref:`<ref-IEC10xslDIIndex>` attribute is ON.
 		Resulting Double point will have OFF value when source DI object specified in :xmlref:`OffIndex` attribute is ON.
-		See table :numref:`ref-IEC10xslDISPIDPI` for additional information.
+		See table :numref:`docref-IEC10xslDISPIDPI` for additional information.
 		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, no conversion will take place if this attribute is omitted.`
 
    * :attr:     .. _ref-IEC10xslDIInterDelay:
@@ -129,17 +129,17 @@ DI attributes
 DI.qualifier
 ^^^^^^^^^^^^
 
-.. _ref-IEC10xslDIqualifierBits:
+.. _docref-IEC10xslDIqualifierBits:
 
 .. include-file:: sections/Include/table_flags.rstinc "" "IEC60870-5-101/104 Slave DI internal qualifier" ":ref:`<ref-IEC10xslDIqualifier>`" "DI internal qualifier"
 
    * :attr:     Bit 0
      :val:      xxxx.xxx0
-     :desc:     DI object **will not** be inverted (ON = 1; OFF = 0 for [:lectext1:`M_SP_NA_1`] type and ON = 2; OFF = 1; INTER = 0; INVALID = 3 for [:lectext1:`M_DP_NA_1`] type)
+     :desc:     DI object **will not** be inverted (ON = 1; OFF = 0 for [:lemonobgtext:`M_SP_NA_1`] type and ON = 2; OFF = 1; INTER = 0; INVALID = 3 for [:lemonobgtext:`M_DP_NA_1`] type)
 
    * :(attr):
      :val:      xxxx.xxx1
-     :desc:     DI object **will** be inverted (ON = 0; OFF = 1 for [:lectext1:`M_SP_NA_1`] type and ON = 1; OFF = 2; INTER = 0; INVALID = 3 for [:lectext1:`M_DP_NA_1`] type)
+     :desc:     DI object **will** be inverted (ON = 0; OFF = 1 for [:lemonobgtext:`M_SP_NA_1`] type and ON = 1; OFF = 2; INTER = 0; INVALID = 3 for [:lemonobgtext:`M_DP_NA_1`] type)
 
    * :attr:     Bit 1
      :val:      xxxx.xx0x
@@ -181,7 +181,7 @@ DI.qualifier
 
    * :(attr):
      :val:      x1xx.xxxx
-     :desc:     DI events with **OFF** values or with set [:lectext1:`IV`] bit will be discarded. :inlinetip:`This option is only used for backward compatibility.`
+     :desc:     DI events with **OFF** values or with set [:lemonobgtext:`IV`] bit will be discarded. :inlinetip:`This option is only used for backward compatibility.`
 
    * :attr:     Bit 7
      :val:      0xxx.xxxx
@@ -195,7 +195,7 @@ DI.qualifier
      :val:      Any
      :desc:     Bits reserved for future use
 
-.. include-file:: sections/Include/IEC60870_DI_TypeID.rstinc "" ".. _ref-IEC10xslDITypeIDValues:" "IEC60870-5-101/104 Slave DI TypeID"
+.. include-file:: sections/Include/IEC60870_DI_TypeID.rstinc "" ".. _docref-IEC10xslDITypeIDValues:" "IEC60870-5-101/104 Slave DI TypeID"
 
 DI Service Indexes
 ^^^^^^^^^^^^^^^^^^
@@ -203,11 +203,11 @@ DI Service Indexes
 Service digital inputs are internal indications that provide real-time status information of communication protocol instances.
 Service indications have negative index values and can be used just as any regular DI indexes.
 
-.. _ref-IEC10xslDIServiceIndex:
+.. _docref-IEC10xslDIServiceIndex:
 
 .. field-list-table:: IEC60870-5-101/104 Slave Service DI indexes
    :class: table table-condensed table-bordered longtable
-   :spec: |C{0.25}|C{0.25}|S{0.5}|
+   :spec: |C{0.19}|C{0.1}|S{0.71}|
    :header-rows: 1
 
    * :attr,10: Index value
@@ -244,11 +244,13 @@ Service indications have negative index values and can be used just as any regul
    * :attr:     -5 
                 (0xFFFFFFFB)
      :val:      ON
-     :desc:     Only used for protocol instances linked to UART hardware node; State of the UART Ring Indicator RI pin(9) is **active (+12V)**. This service DI can be used only if  :ref:`<ref-UART>`.\ :ref:`<ref-UARTCtrlRdTimer>` \ attribute is defined.
+     :desc:     Only used for protocol instances linked to UART hardware node; State of the UART Ring Indicator RI pin(9) is **active (+12V)**.
+		This service DI can be used only if :ref:`<ref-UART>`.\ :ref:`<ref-UARTCtrlRdTimer>` \ attribute is defined.
 
    * :(attr):
      :val:      OFF
-     :desc:     Only used for protocol instances linked to UART hardware node; State of the UART Ring Indicator RI pin(9) is **not active (-12V)**. This service DI can be used only if :ref:`<ref-UART>`.\ :ref:`<ref-UARTCtrlRdTimer>` \ attribute is defined.
+     :desc:     Only used for protocol instances linked to UART hardware node; State of the UART Ring Indicator RI pin(9) is **not active (-12V)**.
+		This service DI can be used only if :ref:`<ref-UART>`.\ :ref:`<ref-UARTCtrlRdTimer>` \ attribute is defined.
 
    * :attr:     -1 and -6...-8
      :val:      Any
@@ -257,9 +259,9 @@ Service indications have negative index values and can be used just as any regul
 .. tip::
 
    | \* This service indication only applies to the following protocol instances:
-   | IEC60870-5-104 controlling station (Master) communication is [:lectext1:`Started`] or [:lectext1:`Stopped`]. ON ([:lectext1:`Started`] state) indicates [:lectext1:`STARTDT_con`] has been received from outstation;
-   | IEC60870-5-104 controlled station (Slave) communication is [:lectext1:`Started`] or [:lectext1:`Stopped`]. ON ([:lectext1:`Started`] state) indicates [:lectext1:`STARTDT_act`] message has been received from upstream station;
-   | IEC61850 Client association state. ON indicates associated state i.e. [:lectext1:`Initiate-ResponsePDU`] message has been received from IED;
+   | IEC60870-5-104 controlling station (Master) communication is [:lemonobgtext:`Started`] or [:lemonobgtext:`Stopped`]. ON ([:lemonobgtext:`Started`] state) indicates [:lemonobgtext:`STARTDT_con`] has been received from outstation;
+   | IEC60870-5-104 controlled station (Slave) communication is [:lemonobgtext:`Started`] or [:lemonobgtext:`Stopped`]. ON ([:lemonobgtext:`Started`] state) indicates [:lemonobgtext:`STARTDT_act`] message has been received from upstream station;
+   | IEC61850 Client association state. ON indicates associated state i.e. [:lemonobgtext:`Initiate-ResponsePDU`] message has been received from IED;
 
 DI SPI/DPI conversion
 ^^^^^^^^^^^^^^^^^^^^^
@@ -268,11 +270,11 @@ Single to double point conversion takes place if :ref:`<ref-IEC10xslDIOffIndex>`
 Values of source DI objects and resulting DPI object are listed in the truth table below.
 
 
-.. _ref-IEC10xslDISPIDPI:
+.. _docref-IEC10xslDISPIDPI:
 
 .. field-list-table:: IEC60870-5-101/104 Slave SPI/DPI truth table
    :class: table table-condensed table-bordered longtable
-   :spec: |C{0.20}|C{0.20}|S{0.55}|
+   :spec: |C{0.14}|C{0.14}|S{0.55}|
    :header-rows: 1
 
    * :onval,18: Value of :ref:`<ref-IEC10xslDIIndex>` DI

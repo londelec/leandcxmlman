@@ -36,7 +36,7 @@ DI attributes
 
 .. _docref-ModbusmaDIAttributes:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "Modbus Master DI attributes"
+.. include-file:: sections/Include/table_attrs.rstinc "" "Modbus Master DI attributes" ":spec: |C{0.14}|C{0.14}|C{0.1}|S{0.62}|"
 
 .. include-file:: sections/Include/ma_Index.rstinc "" ".. _ref-ModbusmaDIIndex:" "DI"
 

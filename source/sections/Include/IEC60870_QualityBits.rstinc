@@ -5,36 +5,37 @@
 
    * :attr:     Bit 4
      :val:      xxx0.xxxx
-     :desc:     Blocked [BL] bit **will not be** set
+     :desc:     Blocked [:lemonobgtext:`BL`] bit **will not be** set
 
    * :(attr):
      :val:      xxx1.xxxx
-     :desc:     Blocked [BL] bit **will be** set
+     :desc:     Blocked [:lemonobgtext:`BL`] bit **will be** set
 
    * :attr:     Bit 5
      :val:      xx0x.xxxx
-     :desc:     Substituted [SB] bit **will not be** set
+     :desc:     Substituted [:lemonobgtext:`SB`] bit **will not be** set
 
    * :(attr):
      :val:      xx1x.xxxx
-     :desc:     Substituted [SB] bit **will be** set
+     :desc:     Substituted [:lemonobgtext:`SB`] bit **will be** set
 
    * :attr:     Bit 6
      :val:      x0xx.xxxx
-     :desc:     Not Topical [NT] bit **will not be** set
+     :desc:     Not Topical [:lemonobgtext:`NT`] bit **will not be** set
 
    * :(attr):
      :val:      x1xx.xxxx
-     :desc:     Not Topical [NT] bit **will be** set
+     :desc:     Not Topical [:lemonobgtext:`NT`] bit **will be** set
 
    * :attr:     Bit 7
      :val:      0xxx.xxxx
-     :desc:     Invalid [IV] bit **will not be** set
+     :desc:     Invalid [:lemonobgtext:`IV`] bit **will not be** set
 
    * :(attr):
      :val:      1xxx.xxxx
-     :desc:     Invalid [IV] bit **will be** set
+     :desc:     Invalid [:lemonobgtext:`IV`] bit **will be** set
 
    * :attr:     Bits 0...3
      :val:      xxxx.0000
-     :desc:     Bits are used for Single/Double status information and Overflow [OV] indication. leandc will not update these when communication status of the station changes.
+     :desc:     Bits are used for Single/Double status information and Overflow [:lemonobgtext:`OV`] indication.
+		leandc will not update these when communication status of the station changes.

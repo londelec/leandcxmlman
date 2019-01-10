@@ -40,7 +40,7 @@ will be shared by all instances within a redundancy group.
 .. field-list-table:: IEC104Rsl node
    :class: table table-condensed table-bordered longtable
    :header-rows: 1
-   :spec: |C{0.20}|C{0.25}|S{0.55}|
+   :spec: |C{0.2}|C{0.12}|S{0.68}|
 
    * :attr,10: Attribute
      :val,15:  Values or range

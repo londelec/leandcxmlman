@@ -5,7 +5,7 @@ TimeSettings
 
 Time settings node is used to construct a message for synchronizing Modbus device's clock.
 Modbus communication standard doesn't define a specific function for the purpose of time synchronization,
-:lectext1:`Write Multiple registers [16]` is normally used.
+:lemonobgtext:`Write Multiple registers [`\ :lemonobgtext:`16]` is normally used.
 However encoding of the date and time in Modbus registers varies greatly from one device to another.
 Attributes of the :ref:`<ref-ModbusmaTimeSettings>` node below enable to build a custom Modbus message
 where date and time values can be placed in any registers and each formatted in a different way.
@@ -19,9 +19,9 @@ where date and time values can be placed in any registers and each formatted in 
 
 .. _docref-ModbusmaTimeSettingsAttab:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "Modbus Master TimeSettings attributes"
+.. include-file:: sections/Include/table_attrs.rstinc "" "Modbus Master TimeSettings attributes" ":spec: |C{0.14}|C{0.18}|C{0.1}|S{0.58}|"
 
-.. include-file:: sections/Include/Modbusma_Func.rstinc "" ".. _ref-ModbusmaTimeSettingsFunc:" "16 [:lectext1:`Preset Multiple Registers`]"
+.. include-file:: sections/Include/Modbusma_Func.rstinc "" ".. _ref-ModbusmaTimeSettingsFunc:" "16 [:lemonobgtext:`Preset Multiple Registers`]"
 
 .. include-file:: sections/Include/Modbusma_Reg.rstinc "" ".. _ref-ModbusmaTimeSettingsReg:" "Data will be written to this register."
 

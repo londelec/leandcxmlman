@@ -1,7 +1,7 @@
 DI/AI.TrgOps
 ^^^^^^^^^^^^
 
-.. _ref-IEC61850clTrgOps:
+.. _docref-IEC61850clTrgOps:
 
 .. include-file:: sections/Include/table_flags.rstinc "" "IEC61850 Client Trigger Options" ":xmlref:`TrgOps`" "Trigger Options"
 

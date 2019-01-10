@@ -14,7 +14,7 @@ This node contains settings of a serial port.
 
 .. _ref-UARTAttributes:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "Leandc UART node"
+.. include-file:: sections/Include/table_attrs.rstinc "" "Leandc UART node" ":spec: |C{0.14}|C{0.17}|C{0.1}|S{0.59}|"
 
    * :attr:     .. _ref-UARTIndex:
 
@@ -34,7 +34,7 @@ This node contains settings of a serial port.
      :def:	n/a
      :desc:	Serial port number. 
 		Number of the inbuilt serial port when running leandc on a supported hardware.
-		Please refer to table :numref:`ref-SerialHardwares` below for a list of currently supported hardwares.
+		Please refer to table :numref:`docref-SerialHardwares` below for a list of currently supported hardwares.
 		If you are running leandc on a hardware that is not supported or want to use a serial port other than inbuilt (e.g. USB to Serial adapter), please use :xmlref:`COM="0"` and specify path of the UART device in :ref:`<ref-UARTDevpath>` attribute.
 		:ref:`<ref-UARTDevpath>` attribute has higher priority and value of :ref:`<ref-UARTCOM>` will be ignored if :ref:`<ref-UARTDevpath>` is used.
 
@@ -76,7 +76,9 @@ This node contains settings of a serial port.
      :def:      n/a
      :desc:     Timeout value in seconds. New outgoing message will be sent, if there was no reply from outstation within a configured number of seconds.
 
-   * :attr:     :xmlref:`TxDelay`
+   * :attr:     .. _ref-UARTTxDelay:
+
+		:xmlref:`TxDelay`
      :val:      0.00001...42949
      :def:      n/a
      :desc:     Transmit delay in seconds. Time interval in seconds between received and sent message.
@@ -89,14 +91,14 @@ This node contains settings of a serial port.
 		Time interval in seconds between received and sent message in case serial port is used to communicate to only one outstation.
 		Transmit delay is automatically adjusted depending on a number of outstations being communicated to via the serial port.
 		Disabled stations are excluded from dynamic transmit delay calculation.
-		Default value 0 disables dynamic transmit delay feature and :xmlref:`TxDelay` value is used.
-		:inlinetip:`Attribute is optional and doesn't have to be included in configuration,` :xmlref:`TxDelay` :inlinetip:`value value will be used if omitted.`
+		Default value 0 disables dynamic transmit delay feature and :ref:`<ref-UARTTxDelay>` value is used.
+		:inlinetip:`Attribute is optional and doesn't have to be included in configuration,` :ref:`<ref-UARTTxDelay>` \ :inlinetip:`value value will be used if omitted.`
 
    * :attr:     :xmlref:`MaxStations`
      :val:      1...64
      :def:      8
      :desc:     Maximal number of stations for a dynamic transmit delay.
-		If a number of outstations exceed the configured value, automatic transmit delay adjustment is disabled and :xmlref:`TxDelay` value is used.
+		If a number of outstations exceed the configured value, automatic transmit delay adjustment is disabled and :ref:`<ref-UARTTxDelay>` value is used.
 		Disabled stations are excluded from dynamic transmit delay calculation.
 		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
 
@@ -140,14 +142,14 @@ This node contains settings of a serial port.
 
 .. include-file:: sections/Include/Name.rstinc ""
 
-\* Supported hardwares on which :ref:`<ref-UARTCOM>` attribute can be used are listed in the table :numref:`ref-SerialHardwares` below:
+\* Supported hardwares on which :ref:`<ref-UARTCOM>` attribute can be used are listed in the table :numref:`docref-SerialHardwares` below:
 
-.. _ref-SerialHardwares:
+.. _docref-SerialHardwares:
 
 .. field-list-table:: Supported hardwares and serial port numbers
    :class: table table-condensed table-bordered table-left table-center-all
    :header-rows: 1
-   :spec: |C{0.2}|C{0.4}|C{0.4}|
+   :spec: |C{0.14}|C{0.11}|C{0.11}|C{0.11}|C{0.11}|C{0.11}|C{0.11}|C{0.11}|C{0.11}|
 
    * :hw,11:	Hardware
      :com1,11:	:ref:`<ref-UARTCOM>` = 1

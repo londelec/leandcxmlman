@@ -3,7 +3,7 @@
 		:xmlref:`Deadband`
 
 		\*
-     :val:      0 or ±1.18×10\ :sup:`-38`\ ...±3.4×10\ :sup:`38`\
+     :val:      0 or ±1.18×10\ :sup:`-38` \ ... ±3.4×10\ :sup:`38`\
      :def:      0
      :desc:     Absolute (static) deadband for a real-time analog value.
 		AI value will be updated and an event will be generated if last received analog value exceeds the value stored in the leandc database plus/minus defined :xmlref:`Deadband`.
@@ -17,7 +17,7 @@
 		:xmlref:`Percent`
 
 		\*
-     :val:      0 or ±1.18×10\ :sup:`-38`\ ...±3.4×10\ :sup:`38`\
+     :val:      0 or ±1.18×10\ :sup:`-38` \ ... ±3.4×10\ :sup:`38`\
      :def:      0
      :desc:     Percent (dynamic) deadband for a real-time analog value.
 		AI value will be updated and an event will be generated if last received analog value exceeds the value stored in the leandc database plus/minus defined :xmlref:`Percent`.

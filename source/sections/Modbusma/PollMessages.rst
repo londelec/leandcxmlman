@@ -33,7 +33,7 @@ MSG attributes
 
 .. _docref-PollMessageAttributes:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "Modbus Master Poll message attributes"
+.. include-file:: sections/Include/table_attrs.rstinc "" "Modbus Master Poll message attributes" ":spec: |C{0.1}|C{0.16}|C{0.1}|S{0.64}|"
 
 .. include-file:: sections/Include/Modbusma_Msgid.rstinc "" ".. _ref-PollMsgId:" ":xmlref:`PollMsg`"
 
@@ -54,17 +54,17 @@ Table below shows supported values of the :ref:`<ref-PollMsgFunc>` attribute.
 
 .. field-list-table:: Modbus Master Poll message functions
    :class: table table-condensed table-bordered longtable
-   :spec: |C{0.10}|S{0.80}|
+   :spec: |C{0.1}|S{0.5}|
    :header-rows: 1
 
    * :val,10:   :ref:`<ref-PollMsgFunc>`
      :name,80:  Function Name
 
    * :val:      3
-     :name:     [:lectext1:`Read Holding Registers`]
+     :name:     [:lemonobgtext:`Read Holding Registers`]
 
    * :val:      4
-     :name:     [:lectext1:`Read Input Registers`]
+     :name:     [:lemonobgtext:`Read Input Registers`]
 
    * :val:      Other
      :name:     Function is not supported

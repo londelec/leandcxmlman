@@ -14,7 +14,7 @@ Application layer settings can be specified using attributes of :ref:`<ref-IEC10
 
 .. _docref-IEC101maASDUSettingsAttab:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-101 Master ASDUSettings attributes"
+.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-101 Master ASDUSettings attributes" ":spec: |C{0.19}|C{0.14}|C{0.12}|S{0.55}|"
 
 .. include-file:: sections/Include/IEC60870_ASDUsizes.rstinc "" ".. _ref-IEC101maASDUSettingsCOTSize:" ".. _ref-IEC101maASDUSettingsCAASize:" ".. _ref-IEC101maASDUSettingsIOASize:"
 
@@ -38,8 +38,8 @@ Application layer settings can be specified using attributes of :ref:`<ref-IEC10
      :val:      0...600
      :def:      240 sec
      :desc:     Received time-tag hour forward-backward adjustment range.
-		If the short time-tag [:lectext1:`CP24Time2a`] of the event received from outstation is closer to full hour (0 mins 0 secs) than the specified range in seconds, the hour value of the resulting timestamp will be automatically adjusted if event is received late.
-		This functionality ensures correct hour value is attached to the short time-tags [:lectext1:`CP24Time2a`] as they carry only minutes and milliseconds.
+		If the short time-tag [:lemonobgtext:`CP24Time2a`] of the event received from outstation is closer to full hour (0 mins 0 secs) than the specified range in seconds, the hour value of the resulting timestamp will be automatically adjusted if event is received late.
+		This functionality ensures correct hour value is attached to the short time-tags [:lemonobgtext:`CP24Time2a`] as they carry only minutes and milliseconds.
 		Hour, day, month and year values are attached from leandc's internal time.
 		If the time value of the received time-tag is just before a full hour (e.g. min:msec = 59:58000) and there is a delay in a communication channel,
 		event might get received only after internal hour has already changed (e.g. hh:min:msec = 13:00:10000).

@@ -40,7 +40,7 @@ sample below.
 
 :ref:`DITable<ref-IEC103maDITable>`; :ref:`AITable<ref-IEC103maAITable>`; :ref:`DOTable<ref-IEC103maDOTable>` group nodes compose an IO object table of the IEC60870-5-103 controlling station
 (Master) communication protocol instance. Please
-refer to the tables :numref:`ref-IEC103maDIAttributes`; :numref:`ref-IEC103maAIAttributes` and :numref:`ref-IEC103maDOAttributes` for their attributes.
+refer to the tables :numref:`docref-IEC103maDIAttributes`; :numref:`docref-IEC103maAIAttributes` and :numref:`docref-IEC103maDOAttributes` for their attributes.
 
 .. include:: IEC103ma/ProtocolCfg.rst
 .. include:: IEC103ma/DITable.rst

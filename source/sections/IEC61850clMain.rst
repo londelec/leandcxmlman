@@ -17,9 +17,9 @@ It becomes very useful if multiple outstations have identical sets of IO objects
 
 Name and location path of the configuration files is not predefined, it can be chosen freely.
 Files '**IED_IO.xml**' and '**IED.cid**' are used as a sample.
-Enter names of the files in :ref:`<ref-IEC61850cl>`.\ :ref:`<ref-IEC61850clXMLpath>` \ and :ref:`<ref-IEC61850cl>`.\ :ref:`<ref-IEC61850clCIDpath>` \ attributes of a communication protocol instance created in **leandc.xml** as follows:
+Enter names of the files in :ref:`<ref-IEC61850cl>`.\ :ref:`<ref-IEC61850clXMLpath>` \ and :ref:`<ref-IEC61850cl>`.\ :ref:`<ref-IEC61850clCIDpath>` \ attributes of a communication protocol instance created in |leandcxml| as follows:
 :ref:`<ref-IEC61850clXMLpath>`\ ="IED_IO.xml" and :ref:`<ref-IEC61850clCIDpath>`\ ="IED.cid" .
-Location path doesn't have to be specified if the files are stored in the default directory (/home/leandc/app).
+Location path doesn't have to be specified if the files are stored in the default directory (|leandcapp|).
 
 IEC61850 Client configuration file (e.g. '**IED_IO.xml**') must have a root object node :xmlref:`IEC61850clConfig` which has
 2 mandatory child group object nodes :ref:`VersionControl<ref-VersionControl>`; :ref:`ProtocolCfg<ref-IEC61850clProtocolCfg>`
@@ -55,7 +55,7 @@ please see the sample below.
 
 :ref:`DITable<ref-IEC61850clDI>`; :ref:`AITable<ref-IEC61850clAI>`; :ref:`DOTable<ref-IEC61850clDO>`; :ref:`AOTable<ref-IEC61850clAO>` group nodes form the IO object table
 of the IEC61850 Client communication protocol instance. Please
-refer to the tables :numref:`ref-IEC61850clDIAttributes`; :numref:`ref-IEC61850clAIAttributes`; :numref:`ref-IEC61850clDOAttributes` and :numref:`ref-IEC61850clAOAttributes` for their attributes.
+refer to the tables :numref:`docref-IEC61850clDIAttributes`; :numref:`docref-IEC61850clAIAttributes`; :numref:`docref-IEC61850clDOAttributes` and :numref:`docref-IEC61850clAOAttributes` for their attributes.
 
 .. include:: IEC61850cl/ProtocolCfg.rst
 .. include:: IEC61850cl/DITable.rst

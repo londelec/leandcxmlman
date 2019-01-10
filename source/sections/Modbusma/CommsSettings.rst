@@ -14,7 +14,7 @@ Communication state (e.g. online and offline) change behavior and related delays
 
 .. _docref-ModbusmaCommsSettingsAttab:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "Modbus Master CommsSettings attributes"
+.. include-file:: sections/Include/table_attrs.rstinc "" "Modbus Master CommsSettings attributes" ":spec: |C{0.18}|C{0.1}|C{0.1}|S{0.62}|"
 
 .. include-file:: sections/Include/serma_CommsSettings.rstinc "" ".. _ref-ModbusmaCommsSettingsNoRespCount:" ".. _ref-ModbusmaCommsSettingsDegradedRetries:" ".. _ref-ModbusmaCommsSettingsDegradedTimeout:" ":ref:`<ref-ModbusmaCommsSettingsOfflineDelay>`" ":ref:`<ref-ModbusmaCommsSettingsDegradedTimeout>`" ":ref:`<ref-ModbusmaCommsSettingsDegradedRetries>`"
 

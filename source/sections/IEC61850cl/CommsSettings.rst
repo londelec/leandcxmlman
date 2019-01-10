@@ -13,7 +13,7 @@ Communication state (e.g. online and offline) change behavior and related delays
 
 .. _docref-IEC61850clCommsSettingsAttab:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "IEC61850 Client CommsSettings attributes"
+.. include-file:: sections/Include/table_attrs.rstinc "" "IEC61850 Client CommsSettings attributes" ":spec: |C{0.18}|C{0.1}|C{0.1}|S{0.62}|"
 
    * :attr:     .. _ref-IEC61850clCommsSettingsOfflineDelay:
 

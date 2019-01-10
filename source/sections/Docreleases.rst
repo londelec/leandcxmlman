@@ -9,7 +9,7 @@ This manual was published with the following leandc firmware release.
 
 .. field-list-table:: Compatibility with leandc firmware
    :class: table table-condensed table-bordered longtable
-   :spec: |C{0.25}|C{0.25}|
+   :spec: |C{0.2}|C{0.22}|C{0.35}|
    :header-rows: 1
 
    * :attr,20: Firmware version
@@ -28,7 +28,7 @@ This manual was published with the following leandc firmware release.
 
 .. field-list-table:: Previous Firmware releases
    :class: table table-condensed table-bordered longtable
-   :spec: |C{0.15}|C{0.15}|C{0.15}|S{0.55}|
+   :spec: |C{0.12}|C{0.22}|C{0.15}|C{0.15}|
    :header-rows: 1
 
    * :fw,10:	Firmware version
@@ -39,7 +39,7 @@ This manual was published with the following leandc firmware release.
    * :fw:       4.09
      :fdate:    2018-03-05 15:55:30
      :doc:      V33
-     :osv:      V3.0
+     :osv:      V3.0 or V4.0
 
    * :fw:       4.08
      :fdate:    2018-02-26 16:06:36
@@ -184,13 +184,19 @@ This manual was published with the following leandc firmware release.
 
 .. field-list-table:: Document version control
    :class: table table-condensed table-bordered version-control longtable
-   :spec: |C{0.15}|C{0.15}|C{0.15}|S{0.55}|
+   :spec: |C{0.1}|C{0.12}|C{0.06}|S{0.72}|
    :header-rows: 1
 
    * :ver,5:	Version
      :date,5:	Date
      :by,5:	By
      :desc,85:	Comments
+
+   * :ver:	V35
+     :date:	10/01/2019
+     :by:	AK
+     :desc:	| Interactive analog value scaling calculator and application example created. 
+		| > :inlineimportant:`Bit[0] removed from the IEC60870-5-101/104 Slave protocol` :ref:`AI<ref-IEC10xslAI>`.\ :ref:`<ref-IEC10xslAIqualifier>` :inlineimportant:`From now on use` :ref:`<ref-IEC10xslAIStartOffset>` :inlineimportant:`attribute value 6553 instead.`
 
    * :ver:	V34
      :date:	14/12/2018
@@ -200,11 +206,11 @@ This manual was published with the following leandc firmware release.
 		| > Bit[4] added to :ref:`<ref-IEC61850clAppSettings>`.\ :ref:`<ref-IEC61850clAppFlags>` attribute, Ignore Resv attribute value of the Unbufferred report control block received from IED;
 		| > Bit[8] added to :ref:`<ref-IEC61850clAppSettings>`.\ :ref:`<ref-IEC61850clAppFlags>` attribute, enable all report control block found in the SCL file;
 		| > :ref:`<ref-IEC61850clPresentationSettings>`.\ :ref:`<ref-IEC61850clPresentationFlags>` attribute created;
-		| > Bit[0] of the :ref:`<ref-IEC61850clTransportSettings>`.\ :ref:`Flags<ref-IEC61850clTransportFlagsBits>` attribute controls destination reference checks and Bit[1] - Calling/Called Transport Selector checks;
-		| > Bit[0] of the :ref:`<ref-IEC61850clSessionSettings>`.\ :ref:`Flags<ref-IEC61850clSessionFlagsBits>` attribute controls Calling/Called Session Selector checks and Bit[1] - keeping transport connection open after finishig session;
-		| > Bit[6] added to IEC61850 client :ref:`DI<ref-IEC61850clDI>`.\ :ref:`Qualifier<ref-IEC61850clDIqualifierBits>` and :ref:`AI<ref-IEC61850clAI>`.\ :ref:`Qualifier<ref-IEC61850clAIqualifierBits>` attributes, non-persistent dynamic dataset support;
-		| > Bit[6] added to IEC61850 client :ref:`DO<ref-IEC61850clDO>`.\ :ref:`Qualifier<ref-IEC61850clDOqualifierBits>` and :ref:`AO<ref-IEC61850clAO>`.\ :ref:`Qualifier<ref-IEC61850clAOqualifierBits>` attributes, control Test bit support;
-		| > Bit[1] Synchrocheck and Bit[2] Interlock added to IEC61850 client :ref:`AO<ref-IEC61850clAO>`.\ :ref:`Qualifier<ref-IEC61850clAOqualifierBits>` attribute
+		| > Bit[0] of the :ref:`<ref-IEC61850clTransportSettings>`.\ :ref:`<ref-IEC61850clTransportFlags>` attribute controls destination reference checks and Bit[1] - Calling/Called Transport Selector checks;
+		| > Bit[0] of the :ref:`<ref-IEC61850clSessionSettings>`.\ :ref:`<ref-IEC61850clSessionFlags>` attribute controls Calling/Called Session Selector checks and Bit[1] - keeping transport connection open after finishig session;
+		| > Bit[6] added to IEC61850 client :ref:`DI<ref-IEC61850clDI>`.\ :ref:`<ref-IEC61850clDIQualifier>` and :ref:`AI<ref-IEC61850clAI>`.\ :ref:`<ref-IEC61850clAIQualifier>` attributes, non-persistent dynamic dataset support;
+		| > Bit[6] added to IEC61850 client :ref:`DO<ref-IEC61850clDO>`.\ :ref:`<ref-IEC61850clDOQualifier>` and :ref:`AO<ref-IEC61850clAO>`.\ :ref:`<ref-IEC61850clAOqualifier>` attributes, control Test bit support;
+		| > Bit[1] Synchrocheck and Bit[2] Interlock added to IEC61850 client :ref:`AO<ref-IEC61850clAO>`.\ :ref:`<ref-IEC61850clAOqualifier>` attribute
 		| Decode AI as 32bit Integer and 16bit Binary Coded Decimal (BCD) options added to Modbus Master :ref:`AI<ref-ModbusmaAI>`.\ :ref:`<ref-ModbusmaAIType>` attribute;
 		| Encode date and time as 16bit Binary Coded Decimal (BCD) little endian option added to Modbus Master :ref:`<ref-ModbusmaTimeSettings>` types;
 		| > Bit[6] added to :ref:`<ref-CommsCfgPCAPLOG>`.\ :ref:`<ref-CommsCfgPCAPLOGLogFlags>` attribute, SSH (TCP port 22) traffic capture enable flag;
@@ -253,13 +259,13 @@ This manual was published with the following leandc firmware release.
    * :ver:	V27
      :date:	08/05/2016
      :by:	AK
-     :desc:	| :inlineimportant:`Bit[5] of the IEC60870-5-101/104 Slave protocol` :ref:`DO<ref-IEC10xslDO>`.\ :ref:`qualifier<ref-IEC10xslDOqualifierBits>` :inlineimportant:`and` :ref:`AO<ref-IEC10xslAO>`.\ :ref:`qualifier<ref-IEC10xslAOqualifierBits>` :inlineimportant:`is inverted. From now on Direct and Select-before-Execute commands will be accepted by default, i.e. if the DO/AO qualifier is not specified or 0x00. Use value 0x20 to accept only Direct commands.`
+     :desc:	| :inlineimportant:`Bit[5] of the IEC60870-5-101/104 Slave protocol` :ref:`DO<ref-IEC10xslDO>`.\ :ref:`<ref-IEC10xslDOqualifier>` :inlineimportant:`and` :ref:`AO<ref-IEC10xslAO>`.\ :ref:`<ref-IEC10xslAOqualifier>` :inlineimportant:`is inverted. From now on Direct and Select-before-Execute commands will be accepted by default, i.e. if the DO/AO qualifier is not specified or 0x00. Use value 0x20 to accept only Direct commands.`
 		| > :xmlref:`IEC61850cl` (Client) communication protocol instance added;
 		| > :xmlref:`DOProc` and :xmlref:`AOProc` attributes added to IEC60870-5-101/104 Slave :ref:`<ref-IEC101slASDUSettings>` node;
 		| > :ref:`<ref-IEC101maASDUSettingsTimetagFBrange>` attribute added to IEC60870-5-101 Master :ref:`<ref-IEC101maASDUSettings>` node;
 		| > :ref:`<ref-IEC101maASDUSettingsFlags>` attribute added to IEC60870-5-101/104 Master :ref:`<ref-IEC101maASDUSettings>` node;
 		| > :ref:`<ref-IEC10xmaDIInterDelay>` and :ref:`<ref-IEC10xmaDIIndetDelay>` attributes added to IEC60870-5-101/103/104 Master :ref:`DI<ref-IEC10xmaDI>` node;
-		| > Bit[5] added to the IEC60870-5-101/103/104 Master protocol :ref:`DI<ref-IEC10xmaDI>`.\ :ref:`qualifier<ref-IEC10xmaDIqualifierBits>`, it enables to select First or Last time tag for DPI reporting if Intermediate state is masked;
+		| > Bit[5] added to the IEC60870-5-101/103/104 Master protocol :ref:`DI<ref-IEC10xmaDI>`.\ :ref:`<ref-IEC10xmaDIqualifier>`, it enables to select First or Last time tag for DPI reporting if Intermediate state is masked;
 		| > :ref:`<ref-UARTWatchdog>` attribute added to :ref:`<ref-UART>` node;
 		| > New :ref:`<ref-LogSettings>` node created with attributes :ref:`<ref-SettingsCleanOlder>` and :ref:`<ref-SettingsMinFreespace>`;
 		| > New :ref:`<ref-CommsCfgPCAPLOG>` node created which enables to capture traffic through Ethernet interfaces in a pcap format;

@@ -14,7 +14,7 @@ Application layer settings can be specified using attributes of :ref:`<ref-IEC10
 
 .. _docref-IEC103maASDUSettingsAttab:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-103 Master ASDUSettings attributes"
+.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-103 Master ASDUSettings attributes" ":spec: |C{0.19}|C{0.14}|C{0.1}|S{0.57}|"
 
 .. include-file:: sections/Include/IEC60870_InvalidEvent.rstinc
 

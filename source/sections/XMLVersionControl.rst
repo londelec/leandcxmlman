@@ -24,7 +24,7 @@ VersionControl attributes
 
 .. field-list-table:: VersionControl attributes
    :class: table table-condensed table-bordered longtable
-   :spec: |C{0.20}|C{0.25}|S{0.55}|
+   :spec: |C{0.1}|C{0.25}|S{0.65}|
    :header-rows: 1
 
    * :attr,10: Attribute

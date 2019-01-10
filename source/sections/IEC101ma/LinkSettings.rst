@@ -14,7 +14,7 @@ Link layer settings can be specified using attributes of :ref:`<ref-IEC101maLink
 
 .. _docref-IEC101maLinkSettingsAttab:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-101 Master LinkSettings attributes"
+.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-101 Master LinkSettings attributes" ":spec: |C{0.2}|C{0.12}|C{0.1}|S{0.58}|"
 
 .. include-file:: sections/Include/IEC60870_LinkAddrSize.rstinc "" ".. _ref-IEC101maLinkSettingsLinkAddrSize:"
 
@@ -44,10 +44,10 @@ Link layer settings can be specified using attributes of :ref:`<ref-IEC101maLink
      :val:      0...255 or 0x00...0xFF
      :def:      0x00
      :desc:     Various settings to enable customized data processing.
-		See table :numref:`ref-IEC101maLinkFlagsBits` for description.
+		See table :numref:`docref-IEC101maLinkFlagsBits` for description.
 
 
-.. _ref-IEC101maLinkFlagsBits:
+.. _docref-IEC101maLinkFlagsBits:
 
 .. include-file:: sections/Include/table_flags.rstinc "" "IEC60870-5-101 Master Link flags" ":ref:`<ref-IEC101maLinkSettingsFlags>`" "Link flags"
 

@@ -34,9 +34,9 @@ There are 5 AO information objects configured using 4 :ref:`AO<ref-IEC10xmaAO>` 
 AO attributes
 ^^^^^^^^^^^^^
 
-.. _ref-IEC10xmaAOAttributes:
+.. _docref-IEC10xmaAOAttributes:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-101/104 Master AO attributes"
+.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-101/104 Master AO attributes" ":spec: |C{0.12}|C{0.16}|C{0.12}|S{0.6}|"
 
 .. include-file:: sections/Include/ma_Index.rstinc "" ".. _ref-IEC10xmaAOIndex:" "AO"
 
@@ -48,7 +48,7 @@ AO attributes
      :val:      0...255 or 0x00...0xFF
      :def:      0x00
      :desc:     Internal object qualifier to enable customized data processing.
-		See table :numref:`ref-IEC10xmaAOqualifierBits` for internal object qualifier description.
+		See table :numref:`docref-IEC10xmaAOqualifierBits` for internal object qualifier description.
 		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
 
 .. include-file:: sections/Include/AO_Coeff.rstinc "" ".. _ref-IEC10xmaAOCoeff:"
@@ -56,7 +56,7 @@ AO attributes
    * :attr:     .. _ref-IEC10xmaAOTypeID:
 
                 :xmlref:`TypeID`
-     :val:      See table :numref:`ref-IEC10xmaAOTypeIDValues`
+     :val:      See table :numref:`docref-IEC10xmaAOTypeIDValues`
      :def:      transparent
      :desc:     Send command with the defined ASDU Type.
 		ASDU type is transparent if neither this attribute nor communication protocol generic attribute (e.g. IEC101ma or IEC104ma :ref:`<ref-IEC101maASDUSettings>`.\ :ref:`<ref-IEC101maASDUSettingsAOType>` \) is used.
@@ -69,7 +69,7 @@ AO attributes
 AO.qualifier
 ^^^^^^^^^^^^
 
-.. _ref-IEC10xmaAOqualifierBits:
+.. _docref-IEC10xmaAOqualifierBits:
 
 .. include-file:: sections/Include/table_flags.rstinc "" "IEC60870-5-101/104 Master AO internal qualifier" ":ref:`<ref-IEC10xmaAOqualifier>`" "AO internal qualifier"
 
@@ -96,36 +96,36 @@ AO.qualifier
 AO.TypeID
 ^^^^^^^^^
 
-.. _ref-IEC10xmaAOTypeIDValues:
+.. _docref-IEC10xmaAOTypeIDValues:
 
 .. field-list-table:: IEC60870-5-101/104 Master AO TypeID
    :class: table table-condensed table-bordered longtable
-   :spec: |C{0.20}|S{0.80}|
+   :spec: |C{0.16}|S{0.84}|
    :header-rows: 1
 
    * :attr,10: TypeID Value
      :desc,90: Description
 
    * :attr:     48
-     :desc:     'Normalized setpoint command' will be sent (ASDU type 48 [:lectext1:`C_SE_NA_1`])
+     :desc:     'Normalized setpoint command' will be sent (ASDU type 48 [:lemonobgtext:`C_SE_NA_1`])
 
    * :attr:     49
-     :desc:     'Scaled setpoint command' will be sent (ASDU type 49 [:lectext1:`C_SE_NB_1`])
+     :desc:     'Scaled setpoint command' will be sent (ASDU type 49 [:lemonobgtext:`C_SE_NB_1`])
 
    * :attr:     50
-     :desc:     'Short floating point setpoint command' will be sent (ASDU type 50 [:lectext1:`C_SE_NC_1`])
+     :desc:     'Short floating point setpoint command' will be sent (ASDU type 50 [:lemonobgtext:`C_SE_NC_1`])
 
    * :attr:     61
      :desc:     Only applicable to IEC60870-5-104 Master protocol instance;
-                Time-tagged 'Normalized setpoint command' will be sent (ASDU type 61 [:lectext1:`C_SE_TA_1`])
+                Time-tagged 'Normalized setpoint command' will be sent (ASDU type 61 [:lemonobgtext:`C_SE_TA_1`])
 
    * :attr:     62
      :desc:     Only applicable to IEC60870-5-104 Master protocol instance;
-                Time-tagged 'Scaled setpoint command' will be sent (ASDU type 62 [:lectext1:`C_SE_TB_1`])
+                Time-tagged 'Scaled setpoint command' will be sent (ASDU type 62 [:lemonobgtext:`C_SE_TB_1`])
 
    * :attr:     63
      :desc:     Only applicable to IEC60870-5-104 Master protocol instance;
-                Time-tagged 'Short floating point setpoint command' will be sent (ASDU type 63 [:lectext1:`C_SE_TC_1`])
+                Time-tagged 'Short floating point setpoint command' will be sent (ASDU type 63 [:lemonobgtext:`C_SE_TC_1`])
 
    * :attr:     Other
      :desc:     Transparent, ASDU TypeID of the outgoing command will be the same as received from upstream Master station

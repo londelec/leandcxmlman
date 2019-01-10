@@ -13,7 +13,7 @@ Communication and event buffer sizes can be specified in this node.
 
 .. _docref-IEC101slBufferSizesAttab:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-101 Slave BufferSizes attributes"
+.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-101 Slave BufferSizes attributes" ":spec: |C{0.1}|C{0.1}|C{0.1}|S{0.7}|"
 
 .. include-file:: sections/Include/hidden_BufferEVsize.rstinc "internal" ".. _ref-IEC101slBufferDIevsize:" ":xmlref:`DIEVsize`" "DI"
 

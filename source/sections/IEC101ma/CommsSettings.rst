@@ -15,7 +15,7 @@ Please see sample :ref:`<ref-IEC101maCommsSettings>` node and the table listing 
 
 .. _docref-IEC101maCommsSettingsAttab:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-101 Master CommsSettings attributes"
+.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-101 Master CommsSettings attributes" ":spec: |C{0.18}|C{0.1}|C{0.1}|S{0.62}|"
 
 .. include-file:: sections/Include/serma_CommsSettings.rstinc "" ".. _ref-IEC101maCommsSettingsNoRespCount:" ".. _ref-IEC101maCommsSettingsDegradedRetries:" ".. _ref-IEC101maCommsSettingsDegradedTimeout:" ":ref:`<ref-IEC101maCommsSettingsOfflineDelay>`" ":ref:`<ref-IEC101maCommsSettingsDegradedTimeout>`" ":ref:`<ref-IEC101maCommsSettingsDegradedRetries>`"
 
