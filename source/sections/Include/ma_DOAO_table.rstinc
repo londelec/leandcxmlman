@@ -1,0 +1,8 @@
+| :include-arg:`1` group and its elements :include-arg:`2` are used to define :include-arg:`6` commands that can be sent to :include-arg:`7`. 
+  Each :include-arg:`2` element can be linked to :include-arg:`5` information objects (one or more) defined in the IO table of a Slave protocol instance.
+  Procedure for sending a :include-arg:`6` command is as follows:
+| > Slave protocol instance receives the :include-arg:`6` command from upstream Master station and forwards it to the linked :include-arg:`2` node defined here.
+| > Current communication protocol instance prepares the command based on settings in the :include-arg:`3` and sends the command to :include-arg:`7`.
+| Please refer to the :include-arg:`4` section of a Slave protocol instance for more information on how to link :include-arg:`5` information objects.
+
+

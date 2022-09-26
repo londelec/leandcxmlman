@@ -1,0 +1,5 @@
+   * :attr:	:xmlattr:`FilterID`
+     :val:	|filteridrange|
+     :desc:	Identifier of a predefined filter to allow only certain TCP client IP addresses to establish connection to this protocol instance.
+		Please refer to the :numref:`tabid-filterIPv4` for filter settings.
+		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, clients from any IP address will be able to connect if attribute omitted.`

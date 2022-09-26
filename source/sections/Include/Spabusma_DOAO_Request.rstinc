@@ -1,0 +1,7 @@
+   * :attr:	:include-arg:`1`
+     :val:	see description
+     :def:	n/a
+     :desc:	| Spabus request to send :include-arg:`2` command to outstation. Attribute has the following format [:lemonobgtext:`Channel`][:lemonobgtext:`Category`][:lemonobgtext:`Data Number`].
+		| Range of [:lemonobgtext:`Channel`] values 0..999
+		| [:lemonobgtext:`Category`] is one of :lemonobgtext:`I`, :lemonobgtext:`M`, :lemonobgtext:`O`, :lemonobgtext:`S`, :lemonobgtext:`V`
+		| Range of [:lemonobgtext:`Data Number`] values 1..999999

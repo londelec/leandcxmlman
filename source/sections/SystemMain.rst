@@ -1,57 +1,60 @@
 .. include:: global.roles
 
+.. _xmlgroup-MainConfig: lelabel=MainConfig
+
 System configuration
 ====================
 
 Configuration file |leandcxml|
 ------------------------------
 
-XML configuration file |leandcxml| contains overall system settings of the leandc firmware and it is the first file loaded upon system startup.
+XML configuration file |leandcxml| contains overall system settings of the |leandcfw| firmware and it is the first file loaded upon system startup.
 The name of this file is fixed, it must be stored in the default application directory |leandcapp| .
-If |leandcxml| file is not found upon firmware startup, the firmware terminates with an error message indicating the cause of fail.
+If |leandcxml| file is not found on startup, the firmware terminates with an error message indicating the cause.
 
-|leandcxml| configuration file consists of a root object node :xmlref:`MainConfig` which has 3 mandatory child group
-object nodes :ref:`VersionControl<ref-VersionControl>`; :ref:`HardwareCfg<ref-HardwareCfg>` and :ref:`CommunicationCfg<ref-CommunicationCfg>` and 3 optional child group object nodes
-:ref:`TraceCfg<ref-TraceCfg>` and :ref:`ClientFilterCfg<ref-ClientFilterCfg>` and :ref:`SupervisionCfg<ref-SupervisionCfg>`, please see the sample below.
-
-.. tip:: Node names are not case sensitive.
+|leandcxml| configuration file consists of a root node :ref:`xmlgroup-MainConfig` which has 3 mandatory groups
+:ref:`xmlelem-VersionControl`; :ref:`xmlgroup-HardwareCfg` and :ref:`xmlgroup-CommunicationCfg` and 4 optional groups
+:ref:`xmlgroup-TraceCfg`; :ref:`xmlgroup-clientfilter`; :ref:`xmlgroup-SupervisionCfg` and :ref:`xmlgroup-InternalCfg`, please see the sample below.
 
 .. code-block:: none
 
-   <MainConfig  xmlns="http://www.londelec.com/xmlschemas/leandc/main" … version="2.00">
-         <VersionControl conf="4" date="2014-01-18" time="10:08:09"/>
-         <HardwareCfg>
-            <UART Index="1" Devpath="/dev/ttyS0" Baudrate="9600" DataBits="8" Parity="E" … />
+ <MainConfig xmlns="http://www.londelec.com/xmlschemas/leandc/main" … version="1.00">
+   <VersionControl conf="4.00" date="2022-05-31" time="10:08:09"/>
+   <HardwareCfg>
+     <UART Index="1" COM="1" Baudrate="9600" DataBits="8" Parity="E" … />
             …
-         </HardwareCfg>
-         <CommunicationCfg>
-            <IEC101ma Index="10" HWIndex="100" XMLpath="IEC101ma_test.xml" LinkAddr="1"/>
+   </HardwareCfg>
+   <CommunicationCfg>
+     <IEC101ma Index="10" HWIndex="100" XMLpath="IEC101ma_test.xml" LinkAddr="1"/>
             …
-         </CommunicationCfg>
-         <TraceCfg>
-            <SYSLOGFILE LogFlags="0x00" Mode="0" HourLimit="0" Logfile="Syslog/syslog"/>
+   </CommunicationCfg>
+   <TraceCfg>
+     <SYSLOGFILE LogFlags="0x00" Mode="0" HourLimit="0" Logfile="Syslog/syslog"/>
             …
-         </TraceCfg>
-         <ClientFilterCfg>
-            <IPv4 FilterID="1" ClientIPaddr="10.19.0.21" Mask="32"/>
+   </TraceCfg>
+   <ClientFilterCfg>
+     <IPv4 FilterID="1" ClientIPaddr="10.19.0.21" Mask="32"/>
             …
-         </ClientFilterCfg>
-         <SupervisionCfg>
-            <MONRAW SrcHWIndex="11" DstHWIndex="10" SrvHWIndex="9"/>
+   </ClientFilterCfg>
+   <SupervisionCfg>
+     <MONRAW SrcHWIndex="11" DstHWIndex="10" SrvHWIndex="9"/>
             …
-         </SupervisionCfg>
-   </MainConfig>
+   </SupervisionCfg>
+   <InternalCfg>
+     <PLC Index="99" XMLpath="myplc.xml"/>
+   </InternalCfg>
+ </MainConfig>
 
-.. _ref-HardwareCfg:
+.. _xmlgroup-HardwareCfg: lelabel=HardwareCfg
 
-HardwareCfg group node
-----------------------
+HardwareCfg group
+-----------------
 
-:ref:`HardwareCfg<ref-HardwareCfg>` group node contains definitions of physical interfaces such as serial ports and network sockets.
-Following XML element nodes are available to define physical interfaces (e.g. Serial ports) or sockets (e.g. TCP server) required for communication:
-:ref:`<ref-UART>`; :ref:`<ref-TCPSERVER>`; :ref:`<ref-TCPCLIENT>` and :ref:`<ref-UDP>`.
-Attributes of these nodes contain interface's settings.
-:ref:`HardwareCfg<ref-HardwareCfg>` group can have multiple child element nodes as shown in the sample below.
+:ref:`xmlgroup-HardwareCfg` group contains definitions of physical interfaces such as serial ports and network sockets.
+The following elements are available to define physical interfaces (e.g. Serial ports) or sockets (e.g. TCP server) required for communication:
+:ref:`xmlelem-uart`; :ref:`xmlelem-tcpserver`; :ref:`xmlelem-tcpclient` and :ref:`xmlelem-udp`.
+Attributes of these elements contain interface's settings.
+:ref:`xmlgroup-HardwareCfg` group can have multiple child elements as shown in the sample below.
 
 .. code-block:: none
 
@@ -64,32 +67,31 @@ Attributes of these nodes contain interface's settings.
    </HardwareCfg>
 
 .. important::
-   | There must be one and only one :ref:`HardwareCfg<ref-HardwareCfg>` group in the root node :xmlref:`MainConfig`.
-   | Hardware interfaces defined in the :ref:`HardwareCfg<ref-HardwareCfg>` group must be arranged in the following order:
+   | There must be one and only one :ref:`xmlgroup-HardwareCfg` group in the root node :ref:`xmlgroup-MainConfig`.
+   | Hardware interfaces defined in the :ref:`xmlgroup-HardwareCfg` group must be arranged in the following order:
 
-   | :ref:`<ref-UART>`
-   | :ref:`<ref-TCPSERVER>`
-   | :ref:`<ref-TCPCLIENT>`
-   | :ref:`<ref-UDP>`
+   | :ref:`xmlelem-uart`
+   | :ref:`xmlelem-tcpserver`
+   | :ref:`xmlelem-tcpclient`
+   | :ref:`xmlelem-udp`
 
 .. include:: HardwareCfg/uart.rst
 .. include:: HardwareCfg/tcpServer.rst
 .. include:: HardwareCfg/tcpClient.rst
 .. include:: HardwareCfg/udp.rst
 
-.. _ref-CommunicationCfg:
+.. _xmlgroup-CommunicationCfg: lelabel=CommunicationCfg
 
-CommunicationCfg group node
----------------------------
+CommunicationCfg group
+----------------------
 
-:ref:`CommunicationCfg<ref-CommunicationCfg>` node is used to initialize communication protocol instances and link to physical hardware
-interface. Leandc firmware is able to receive data from downstream outstations via various communication
-protocols, process the received information and report it upstream to SCADA system our any other data
-acquisition unit. Every logical communication link to outstation or upstream Master station has a definition
-'communication protocol instance' within this manual and leandc firmware. It represents communication channel
-for receiving or sending the data to/from leandc. Communication protocol instances have to be configured under
-:ref:`CommunicationCfg<ref-CommunicationCfg>` node, please refer to the sample below containing 4 different communication protocols
-(instances).
+:ref:`xmlgroup-CommunicationCfg` group is used to initialize communication protocol instances and link to physical hardware interface.
+Leandc firmware is able to receive data from downstream outstations using various communication protocols,
+process the received information and report it upstream to SCADA our any other data acquisition entity.
+Every logical communication link to outstation or upstream station has a definition 'communication protocol instance' within this manual.
+It represents communication channel for receiving or sending the data.
+Communication protocol instances are defined in :ref:`xmlgroup-CommunicationCfg` group,
+please refer to the sample below containing 4 different communication protocols (instances).
 
 .. code-block:: none
 
@@ -101,22 +103,24 @@ for receiving or sending the data to/from leandc. Communication protocol instanc
    </CommunicationCfg>
 
 .. important::
-   | There must be one and only one :ref:`CommunicationCfg<ref-CommunicationCfg>` group in the root object node :xmlref:`MainConfig`.
-   | Communication protocol instances defined in the :ref:`CommunicationCfg<ref-CommunicationCfg>` group must be arranged in the following order:
+   | There must be one and only one :ref:`xmlgroup-CommunicationCfg` group in the root node :ref:`xmlgroup-MainConfig`.
+   | Communication protocol instances defined in the :ref:`xmlgroup-CommunicationCfg` group must be arranged in the following order:
 
-   | :ref:`<ref-Modbusma>`
-   | :ref:`<ref-IEC61850cl>`
-   | :ref:`<ref-IEC101ma>`
-   | :ref:`<ref-IEC101sl>`
-   | :ref:`<ref-IEC103ma>`
-   | :ref:`<ref-IEC104ma>`
-   | :ref:`<ref-IEC104sl>`
-   | :ref:`<ref-IEC104Rsl>`
-   | :ref:`<ref-IEC104Csl>`
+   | :ref:`xmlelem-gpmodbusma`
+   | :ref:`xmlelem-gpspabusma`
+   | :ref:`xmlelem-gp61850cl`
+   | :ref:`xmlelem-gp101ma`
+   | :ref:`xmlelem-gp101sl`
+   | :ref:`xmlelem-gp103ma`
+   | :ref:`xmlelem-gp104ma`
+   | :ref:`xmlelem-gp104sl`
+   | :ref:`xmlelem-gp104rsl`
+   | :ref:`xmlelem-gp104csl`
 
-Every communication protocol instance has a unique element node and settings are described in the following paragraphs.
+Every communication protocol instance has a unique element and settings are described in the following sections.
 
 .. include:: communicationCfg/modbusma.rst
+.. include:: communicationCfg/spabusma.rst
 .. include:: communicationCfg/iec61850cl.rst
 .. include:: communicationCfg/iec101ma.rst
 .. include:: communicationCfg/iec101sl.rst
@@ -127,15 +131,15 @@ Every communication protocol instance has a unique element node and settings are
 .. include:: communicationCfg/iec104Csl.rst
 .. include:: communicationCfg/commsFlags.rst
 
-.. _ref-TraceCfg:
+.. _xmlgroup-TraceCfg: lelabel=TraceCfg
 
 TraceCfg group
 --------------
 
 Generic diagnostic information and error messages can be recorded to a system logfile.
-Group object node :xmlref:`TraceCfg` and its child element node :ref:`<ref-SYSLOGFILE>` contains settings to enable the system-wide logfile.
-:ref:`<ref-LogSettings>` node contains common settings for all logfiles.
-:xmlref:`TraceCfg` may contain only one :ref:`<ref-SYSLOGFILE>` and one :ref:`<ref-LogSettings>` element node as shown in the sample below.
+:ref:`xmlgroup-TraceCfg` group and its child element :ref:`xmlelem-syslogfile` contains settings to enable the system-wide logfile.
+:ref:`xmlelem-logsettings` contains common settings that apply to all logfiles.
+:ref:`xmlgroup-TraceCfg` may contain only one :ref:`xmlelem-syslogfile` and one :ref:`xmlelem-logsettings` element as shown in the sample below.
 
 .. code-block:: none
 
@@ -144,119 +148,111 @@ Group object node :xmlref:`TraceCfg` and its child element node :ref:`<ref-SYSLO
 	<Settings CleanOlder="60" MinFreespace="5.5"/>
    </TraceCfg>
 
-.. _ref-SYSLOGFILE:
+.. _xmlelem-syslogfile:
 
 SYSLOGFILE
 ^^^^^^^^^^
 
-This node contains settings of a system-wide logfile.
-.. include-file:: sections/Include/sample_node.rstinc "" ":ref:`<ref-SYSLOGFILE>`"
+This element contains settings of a system-wide logfile.
+.. include-file:: sections/Include/sample_node.rstinc "" ":ref:`xmlelem-syslogfile`"
 
 .. code-block:: none
 
    <SYSLOGFILE LogFlags="0" Logfile="Syslog/syslog" Mode="0" HourLimit="4" TimeZone="UTC"/>
 
 
-.. _docref-SYSLOGFILEAttab:
+.. include-file:: sections/Include/table_attrs.rstinc "" "tabid-syslogfile" "SYSLOGFILE attributes" ":spec: |C{0.14}|C{0.12}|C{0.1}|S{0.64}|"
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "SYSLOGFILE attributes" ":spec: |C{0.14}|C{0.12}|C{0.1}|S{0.64}|"
-
-   * :attr:     .. _ref-SYSLOGFILELogFlags:
-
-                :xmlref:`LogFlags`
-     :val:      0...255 or 0x00...0xFF
+   * :attr:	:xmlattr:`LogFlags`
+     :val:	|flags8range|
      :def:	0x00
-     :desc:     Select type of system messages to be logged. See table :numref:`docref-SYSLOGFILELogFlagsAttab` for description. Logfile will not be created if the value is 0.
+     :desc:	Select type of system messages to be logged. See :numref:`tabid-syslogfileLogFlags` for description. Logfile will not be created if the value is 0.
 
-.. include-file:: sections/Include/log_Logfile.rstinc "" ".. _ref-SYSLOGLogfile:" ".log" "(default value 'Syslog/syslog' where 'Syslog' is the name of the folder and 'syslog' is the name of the file)"
+.. include-file:: sections/Include/log_Logfile.rstinc "" ".log" "(default value 'Syslog/syslog' where 'Syslog' is the name of the folder and 'syslog' is the name of the file)"
 
-.. include-file:: sections/Include/log_ModeHourLimit.rstinc "" ".. _ref-SYSLOGFILEMode:" ".. _ref-SYSLOGFILEHourLimit:" "0x00" "0" "(default 0 – only 1 logfile a day will be created)"
+.. include-file:: sections/Include/log_ModeHourLimit.rstinc "" "0x00" "0" "(default 0 – only 1 logfile a day will be created)"
 
 .. include-file:: sections/Include/log_TimeZone.rstinc ""
 
-.. include-file:: sections/Include/hidden_LogDebugFlags.rstinc "internal" ":numref:`docref-LOGGERDebugFlagsAttab`"
+.. include-file:: sections/Include/hidden_LogDebugFlags.rstinc "internal" ":numref:`tabid-syslogfileDebugFlags`"
 
-.. tip:: \* There are few samples on how files are created with various :ref:`Mode<ref-SYSLOGFILEMode>` \ and :ref:`HourLimit<ref-SYSLOGFILEHourLimit>` \ attribute settings in section :ref:`docref-LogfileSampleList`.
+.. tip:: \* There are few samples on how files are created with various :ref:`xmlattr-syslogfileMode` \ and :ref:`xmlattr-syslogfileHourLimit` \ attribute settings in section :ref:`docref-LogfileSampleList`.
 
-.. _docref-SYSLOGFILELogFlagsAttab:
 
-.. include-file:: sections/Include/table_flags.rstinc "" "System logfile flags" ":xmlref:`LogFlags`" "Logger flags"
+.. include-file:: sections/Include/table_flags8.rstinc "" "tabid-syslogfileLogFlags" "System logfile flags" ":ref:`xmlattr-syslogfileLogFlags`" "Logger flags"
 		Logfile will not be created if the value is 0.
 
-   * :attr:     Bit 0
-     :val:      xxxx.xxx0
-     :desc:     Error message recording to logfile **disabled**
+   * :attr:	Bit 0
+     :val:	xxxx.xxx0
+     :desc:	Error message recording to logfile **disabled**
 
    * :(attr):
-     :val:      xxxx.xxx1
-     :desc:     Error message recording to logfile **enabled**
+     :val:	xxxx.xxx1
+     :desc:	Error message recording to logfile **enabled**
 
-   * :attr:     Bit 1
-     :val:      xxxx.xx0x
-     :desc:     Warning message recording to logfile **disabled**
-
-   * :(attr):
-     :val:      xxxx.xx1x
-     :desc:     Warning message recording to logfile **enabled**
-
-   * :attr:     Bit 2
-     :val:      xxxx.x0xx
-     :desc:     Information message recording to logfile **disabled**
+   * :attr:	Bit 1
+     :val:	xxxx.xx0x
+     :desc:	Warning message recording to logfile **disabled**
 
    * :(attr):
-     :val:      xxxx.x1xx
-     :desc:     Information message recording to logfile **enabled**
+     :val:	xxxx.xx1x
+     :desc:	Warning message recording to logfile **enabled**
 
-   * :attr:     Bits 3...7
-     :val:      Any
-     :desc:     Bits reserved for future use
+   * :attr:	Bit 2
+     :val:	xxxx.x0xx
+     :desc:	Information message recording to logfile **disabled**
 
-.. include-file:: sections/Include/hidden_LogDebugFlagTable.rstinc "internal" ".. _docref-LOGGERDebugFlagsAttab:"
+   * :(attr):
+     :val:	xxxx.x1xx
+     :desc:	Information message recording to logfile **enabled**
 
-.. _ref-LogSettings:
+   * :attr:	Bits 3...7
+     :val:	Any
+     :desc:	Bits reserved for future use
+
+
+.. include-file:: sections/Include/hidden_LogDebugFlagTable.rstinc "internal" "tabid-syslogfileDebugFlags" ":ref:`xmlattr-syslogfileDebugFlags`"
+
+.. _xmlelem-logsettings:
 
 Settings
 ^^^^^^^^
 
-This node contains common settings for all logfiles.
-.. include-file:: sections/Include/sample_node.rstinc "" ":ref:`<ref-LogSettings>`"
+This element contains common settings that apply to all logfiles.
+.. include-file:: sections/Include/sample_node.rstinc "" ":ref:`xmlelem-logsettings`"
 
 .. code-block:: none
 
    <Settings CleanOlder="60" MinFreespace="5.5"/>
 
-.. _docref-LogSettingsAttab:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "Log Settings attributes" ":spec: |C{0.16}|C{0.12}|C{0.1}|S{0.62}|"
+.. include-file:: sections/Include/table_attrs.rstinc "" "tabid-LogSettings" "Log Settings attributes" ":spec: |C{0.16}|C{0.12}|C{0.1}|S{0.62}|"
 
-   * :attr:     .. _ref-SettingsCleanOlder:
-
-  		:xmlref:`CleanOlder`
-     :val:      0...255
+   * :attr:	:xmlattr:`CleanOlder`
+     :val:	0...255
      :def:	60 days
-     :desc:     Remove logfiles which are older than specified number of days.
+     :desc:	Remove logfiles which are older than specified number of days.
 		Value 0 disables automatic cleanup functionality.
 		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
 
-   * :attr:     .. _ref-SettingsMinFreespace:
-
-		:xmlref:`MinFreespace`
-     :val:      0...100
+   * :attr:	:xmlattr:`MinFreespace`
+     :val:	0...100
      :def:	2%
-     :desc:     Minimal hard drive free space required to record logfiles in percent.
+     :desc:	Minimal hard drive free space required to record logfiles in percent.
 		Logfiles will not be recoreded if available space is less than specified percentage.
 		Value 0 disables free space checking and logfiles are recorded until hard drive is full.
 		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
 
 
-.. _ref-ClientFilterCfg:
+.. _xmlgroup-clientfilter: lelabel=ClientFilterCfg
+.. _xmlelem-filterIPv4: lelabel=IPv4
 
-ClientFilterCfg group and IPv4 node
------------------------------------
+ClientFilterCfg group
+---------------------
 
-Group object node :xmlref:`ClientFilterCfg` and its child element nodes :xmlref:`IPv4` are used to create filters for
-remote 'Client' IP address which are allowed to connect to leandc.
-.. include-file:: sections/Include/sample_node.rstinc "" ":xmlref:`IPv4`"
+:ref:`xmlgroup-clientfilter` group and its child element :ref:`xmlelem-filterIPv4` are used to create filters for
+remote 'Client' IP address which are allowed to connect to our TCP Server sockets.
+.. include-file:: sections/Include/sample_node.rstinc "" ":ref:`xmlelem-filterIPv4`"
 
 .. code-block:: none
 
@@ -266,44 +262,39 @@ remote 'Client' IP address which are allowed to connect to leandc.
 	<IPv4 FilterID="2" ClientIPaddr="192.168.5.0" Mask="24" Name="IP address range"/>
    </ClientFilterCfg>
 
-There are 3 :xmlref:`IPv4` filter nodes configured in the example above.
-Please note 2 :xmlref:`IPv4` nodes have the same filter identifier "1".
+There are 3 :ref:`xmlelem-filterIPv4` filters configured in the example above.
+Please note 2 :ref:`xmlelem-filterIPv4` nodes have the same filter identifier "1".
 This will allow clients from either IP address 192.168.2.14 or 192.168.2.55 to connect.
 
-.. _docref-ClientFilterCfgIPv4Attab:
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "IPv4 Client filter attributes" ":spec: |C{0.14}|C{0.17}|C{0.1}|S{0.59}|"
+.. include-file:: sections/Include/table_attrs.rstinc "" "tabid-filterIPv4" "IPv4 Client filter attributes" ":spec: |C{0.14}|C{0.17}|C{0.1}|S{0.59}|"
 
-   * :attr:     :xmlref:`FilterID`
-     :val:      1...255
-     :def:      n/a
-     :desc:     Filter identifier.
+   * :attr:	:xmlattr:`FilterID`
+     :val:	|filteridrange|
+     :def:	n/a
+     :desc:	Filter identifier.
 		More than one filter may have the same identifier which enables to define multiple addresses or address ranges.
-		In order to apply the filter, use this identifier in communication protocol instance attributes :ref:`<ref-IEC104sl>`.\ :ref:`<ref-IEC104slFilterID>`\; :ref:`<ref-IEC104Rsl>`.\ :ref:`<ref-IEC104RslFilterID>` \ or :ref:`<ref-IEC104Csl>`.\ :ref:`<ref-IEC104CslFilterID>`\.
+		In order to apply the filter, use this identifier in communication protocol instance attributes :ref:`xmlelem-gp104sl`.\ :ref:`xmlattr-gp104slFilterID`\; :ref:`xmlelem-gp104Rsl`.\ :ref:`xmlattr-gp104RslFilterID` \ or :ref:`xmlelem-gp104Csl`.\ :ref:`xmlattr-gp104CslFilterID`\.
 
-   * :attr:     .. _ref-ClientFilterCfgIpv4ClientIPaddr:
-
-                :xmlref:`ClientIPaddr`
-     :val:      0.0.0.0 ... 255.255.255.255
-     :def:      n/a
-     :desc:     IPv4 TCP client IP address allowed to connect.
+   * :attr:	:xmlattr:`ClientIPaddr`
+     :val:	0.0.0.0 ... 255.255.255.255
+     :def:	n/a
+     :desc:	IPv4 TCP client IP address allowed to connect.
 		It is possible to define a network subnet and all IP addresses of the subnet will be able to connect.
-		Please refer to :ref:`<ref-ClientFilterCfgIpv4Mask>` attribute for network subnet configuration.
+		Please refer to :ref:`xmlattr-filterIPv4Mask` attribute for network subnet configuration.
 		(address 0.0.0.0 can be used to allow connection from any IP address)
 
-   * :attr:     .. _ref-ClientFilterCfgIpv4Mask:
-
-                :xmlref:`Mask`
-     :val:      0...32
-     :def:      32
-     :desc:     Network mask is used in conjunction with :ref:`<ref-ClientFilterCfgIpv4ClientIPaddr>` attribute in order to create a network subnet.
+   * :attr:	:xmlattr:`Mask`
+     :val:	0...32
+     :def:	32
+     :desc:	Network mask is used in conjunction with :ref:`xmlattr-filterIPv4ClientIPaddr` attribute in order to create a network subnet.
 		All IP addresses of the subnet will be able to connect.
-		Network mask attribute is a decimal notation of the subnet mask, sometimes called network prefix, refer to table :numref:`docref-NetworkMask` for more information.
-		(Mask 0 will allow connection from any IP address; mask 32 will allow connection only from one IP address specified in :ref:`<ref-ClientFilterCfgIpv4ClientIPaddr>` attribute)
+		Network mask attribute is a decimal notation of the subnet mask, sometimes called network prefix, refer to :numref:`tabid-NetworkMask` for more information.
+		(Mask 0 will allow connection from any IP address; mask 32 will allow connection only from one IP address specified in :ref:`xmlattr-filterIPv4ClientIPaddr` attribute)
 
 .. include-file:: sections/Include/Name.rstinc ""
 
-Network subnets created by various :ref:`<ref-ClientFilterCfgIpv4Mask>` attribute values are summarized in the table below.
+Network subnets created by various :ref:`xmlattr-filterIPv4Mask` attribute values are summarized in the table below.
 It is assumed user has a good understanding of network addressing fundamentals.
 Please refer to external sources (e.g. http://www.subnet-calculator.com) for additional information on network addressing and subnet definition.
 
@@ -311,17 +302,17 @@ Please refer to external sources (e.g. http://www.subnet-calculator.com) for add
    :latex-tip: Interactive network mask calculator can be found in the current HTML manual
 
 | Table columns are defined as follows:
-| Column 1 contains :ref:`<ref-ClientFilterCfgIpv4Mask>` attribute values;
+| Column 1 contains :ref:`xmlattr-filterIPv4Mask` attribute values;
 | Column 2 contains subnet mask in dotted decimal notation;
 | Columns 3...6 show network mask in binary notation (just for reference);
 | Column 7 contains range of client IP address allowed to connect.
 
-Table is designed as a guidance of how network subnets are created based on sample IP address 192.168.1.1 specified in the :ref:`<ref-ClientFilterCfgIpv4ClientIPaddr>` attribute.
+Table is designed as a guidance of how network subnets are created based on sample IP address 192.168.1.1 specified in the :ref:`xmlattr-filterIPv4ClientIPaddr` attribute.
 
-.. _docref-NetworkMask:
 
 .. field-list-table:: Network Mask sample values
    :class: table table-condensed table-bordered longtable
+   :name: tabid-NetworkMask
    :spec: |C{0.1}|C{0.2}|C{0.1}|C{0.1}|C{0.1}|C{0.1}|C{0.3}|
    :definition-row: 1
    :header-rows: 1
@@ -451,38 +442,60 @@ Table is designed as a guidance of how network subnets are created based on samp
      :bval4:         1111 1111
      :iprange:       Only 192.168.1.1 allowed to connect
 
-.. _ref-SupervisionCfg:
 
-SupervisionCfg group node
--------------------------
+.. _xmlgroup-SupervisionCfg: lelabel=SupervisionCfg
 
-Group object node :ref:`SupervisionCfg<ref-SupervisionCfg>` is used to configure leandc serial port or socket real-time traffic monitoring
-and also enables serial server functionality. Real-time traffic monitoring and serial server functionality has
-designated supervision instances which are configured under :ref:`SupervisionCfg<ref-SupervisionCfg>` group node, please refer to the
+SupervisionCfg group
+--------------------
+
+:ref:`xmlgroup-SupervisionCfg` group is used to enable real-time monitoring of the serial port or socket traffic
+and also provides serial server functionality. Real-time traffic monitoring and serial server functionality has
+designated supervision instances which are configured under :ref:`xmlgroup-SupervisionCfg` group, please refer to the
 sample below containing 4 different supervision instances.
 
 .. code-block:: none
 
-   <SupervisionCfg>
-	<MONRAW SrcHWIndex="1" DstHWIndex="51" Name="Raw monitoring instance"/>
-	<MONCOMP SrcHWIndex="2" DstHWIndex="52" SrvHWIndex="53" Name="Compatible mon instance"/>
-	<REDIRECT SrcHWIndex="4" DstHWIndex="61" Name="UART redirect instance"/>
-	<OVERRIDE SrcHWIndex="3" DstHWIndex="62" SrvHWIndex="63" Name="UART override instance"/>
-   </SupervisionCfg>
+ <SupervisionCfg>
+   <MONRAW SrcHWIndex="1" DstHWIndex="51" Name="Raw monitoring instance"/>
+   <MONCOMP SrcHWIndex="2" DstHWIndex="52" SrvHWIndex="53" Name="Compatible mon instance"/>
+   <REDIRECT SrcHWIndex="4" DstHWIndex="61" Name="UART redirect instance"/>
+   <OVERRIDE SrcHWIndex="3" DstHWIndex="62" SrvHWIndex="63" Name="UART override instance"/>
+ </SupervisionCfg>
 
-Every supervision instance has a unique element node and its configuration is described in the following paragraphs.
+Every supervision instance has a unique element and its configuration is described in the following sections.
 
 .. important::
-   | Supervision instances must be listed under :ref:`SupervisionCfg<ref-SupervisionCfg>` group node in the following order:
+   | Supervision instances must be listed under :ref:`xmlgroup-SupervisionCfg` group in the following order:
 
-   | :ref:`<ref-MONRAW>`
-   | :ref:`<ref-MONCOMP>`
-   | :ref:`<ref-REDIRECT>`
-   | :ref:`<ref-OVERRIDE>`
+   | :ref:`xmlelem-monraw`
+   | :ref:`xmlelem-moncomp`
+   | :ref:`xmlelem-redirect`
+   | :ref:`xmlelem-override`
 
 .. include:: supervisionCfg/monraw.rst
 .. include:: supervisionCfg/moncomp.rst
 .. include:: supervisionCfg/redirect.rst
 .. include:: supervisionCfg/override.rst
 
-.. include hmiCfg/hmiMain.rst
+
+.. _xmlgroup-InternalCfg: lelabel=InternalCfg
+
+InternalCfg group
+-----------------
+
+:ref:`xmlgroup-InternalCfg` group is used to enable internal data processing.
+This includes performing logic operations such as 'OR' and 'AND' - a simplified PLC functionality.
+At the moment :ref:`xmlgroup-InternalCfg` group can have only one element :ref:`xmlelem-gpplc` and its configuration is described in the following section.
+More elements will be added in the future.
+Please refer to the sample below containing a :ref:`xmlelem-gpplc` instance.
+
+.. code-block:: none
+
+ <InternalCfg>
+   <PLC Index="99" XMLpath="myplc.xml"/>
+ </InternalCfg>
+
+.. important:: Only one :ref:`xmlelem-gpplc` element can be defined in :ref:`xmlgroup-InternalCfg` group.
+
+
+.. include:: internalCfg/plc.rst

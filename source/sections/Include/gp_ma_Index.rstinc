@@ -1,0 +1,6 @@
+   * :attr:	:xmlattr:`Index`
+     :val:	|gpindexrange|
+     :desc:	Index is a unique identifier of the communication protocol instance.
+		It is used to reference protocol instance from other configuration files e.g. IO object tables
+		(please see :ref:`xmlelem-IEC10xslDI`.\ :ref:`xmlattr-IEC10xslDIDevice`\; :ref:`xmlelem-IEC10xslAI`.\ :ref:`xmlattr-IEC10xslAIDevice`\; :ref:`xmlelem-IEC10xslDO`.\ :ref:`xmlattr-IEC10xslDODevice`\; :ref:`xmlelem-IEC10xslAO`.\ :ref:`xmlattr-IEC10xslAODevice` \ attributes of the Slave protocol instance).
+		:inlinetip:`Indexes don't have to be in a sequential order.`

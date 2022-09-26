@@ -1,0 +1,9 @@
+   * :attr:	:xmlattr:`TypeID`
+     :val:	See :include-arg:`2`
+     :def:	transparent
+     :desc:	Use this ASDU type to send a :include-arg:`1` object upstream, if transparent ASDUs are enabled in IEC101 or IEC104 Slave protocol instance with :ref:`xmlelem-IEC101slAsdu`.\ :ref:`xmlattr-IEC101slAsduTranspTypes` \ attribute.
+		This ASDU type will be used to send object regardless of the received ASDU type.
+		There is no default value, attribute must not be specified if not used.
+		:inlinetip:`Attribute is optional and doesn't have to be included in configuration.
+		ASDU type received from outstation will be used to report object upstream if transparent ASDUs are enabled in Slave protocol instance with` :ref:`xmlelem-IEC101slAsdu`.\ :ref:`xmlattr-IEC101slAsduTranspTypes` \ :inlinetip:`attribute.`
+

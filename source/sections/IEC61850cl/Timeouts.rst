@@ -1,26 +1,24 @@
-.. _ref-IEC61850clTimeouts:
+.. _xmlelem-IEC61850clTimeouts:
 
 Timeouts
 ^^^^^^^^
 
 Command processing timeouts are specified in this node.
 
-.. include-file:: sections/Include/sample_node.rstinc "" ":ref:`<ref-IEC61850clTimeouts>`"
+.. include-file:: sections/Include/sample_node.rstinc "" ":ref:`xmlelem-IEC61850clTimeouts`"
 
 .. code-block:: none
 
    <Timeouts Application="30" Command="10" Select="30" Response="5"/>
 
 
-.. _docref-IEC61850clTimeoutsAttab:
+.. include-file:: sections/Include/table_attrs.rstinc "" "tabid-IEC61850clTimeouts" "IEC61850 Client Timeouts attributes" ":spec: |C{0.12}|C{0.1}|C{0.1}|S{0.68}|"
+.. include-file:: sections/Include/ma_TimeoutsAppCmd.rstinc ""
+.. include-file:: sections/Include/SelectTimeout.rstinc ""
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "IEC61850 Client Timeouts attributes" ":spec: |C{0.12}|C{0.1}|C{0.1}|S{0.68}|"
-.. include-file:: sections/Include/ma_TimeoutsAppCmd.rstinc
-.. include-file:: sections/Include/SelectTimeout.rstinc
-
-   * :attr:     :xmlref:`Response`
-     :val:      1...2\ :sup:`32`\  - 1
-     :def:      5 sec
-     :desc:     Response timeout in seconds.
+   * :attr:	:xmlattr:`Response`
+     :val:	|uint32range|
+     :def:	5 sec
+     :desc:	Response timeout in seconds.
 		Connection to IED will be closed if no response to a sent message has been received within this timeout.
 

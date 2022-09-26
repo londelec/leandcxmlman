@@ -1,12 +1,11 @@
-   * :attr:    :include-arg:`1`
-
-               :xmlref:`Reset`
-     :val:     0
-     :def:     0
-     :desc:    Send Reset Process [:lemonobgtext:`C_RP_NA_1`] commands with **individual** Common Addresses of ASDU (CAA)
+   * :attr:	:xmlattr:`Reset`
+     :val:	0
+     :def:	0
+     :desc:	Send Reset Process [:lemonobgtext:`C_RP_NA_1`] commands with **individual** Common Addresses of ASDU (CAA)
 
    * :(attr):
-     :val:     1
+     :val:	1
      :(def):
-     :desc:    Send Reset Process [:lemonobgtext:`C_RP_NA_1`] commands with **broadcast** Common Address of ASDU (CAA). :include-arg:`2`
+     :desc:	Send Reset Process [:lemonobgtext:`C_RP_NA_1`] commands with **broadcast** Common Address of ASDU (CAA).
+		:include-arg:`1`
 

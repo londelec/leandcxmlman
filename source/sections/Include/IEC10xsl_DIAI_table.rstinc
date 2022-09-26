@@ -1,0 +1,4 @@
+Group node :include-arg:`1` and element nodes :include-arg:`2` are used to define :include-arg:`4` information objects that provide :include-arg:`5` to upstream Master station.
+Each :include-arg:`2` node must have a source :include-arg:`4` information object to obtain the :include-arg:`5` from.
+The source is created by linking :include-arg:`2` node to a :include-arg:`4` information object of any Master protocol instance.
+(Master protocol instances are defined in :ref:`xmlgroup-CommunicationCfg` group in |leandcxml| file)

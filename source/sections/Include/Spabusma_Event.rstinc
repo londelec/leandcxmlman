@@ -1,0 +1,6 @@
+   * :attr:	:include-arg:`1`
+     :val:	0...999E0...63
+     :def:	n/a
+     :desc:	Spabus Event that corresponds to :include-arg:`2` position.
+		Spabus Event carries a timestamp and if this Event is received before the change of position is received by polling data, the resulting position change will have a timestamp received with this Event.
+		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`

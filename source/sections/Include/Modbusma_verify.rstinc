@@ -1,0 +1,4 @@
+Read message will be sent afterwards in order to verify the written data.
+Value :include-arg:`1` is read from outstation in this example which matches the written data.
+Positive command termination will be generated in this case.
+If data received from outstation in a read message doesn't match written data, negative command termination will be generated.

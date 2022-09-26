@@ -1,12 +1,10 @@
-   * :attr:     :include-arg:`1`
-
-                :xmlref:`Logfile`
-     :val:      Max 200 chars
-     :def:      n/a
-     :desc:     Name of a logfile excluding extension (e.g. ':include-arg:`2`').
+   * :attr:	:xmlattr:`Logfile`
+     :val:	Max 200 chars
+     :def:	n/a
+     :desc:	Name of a logfile excluding extension (e.g. ':include-arg:`1`').
 		It is possible to specify relative or absolute path as part of the file name.
 		Logfile will be created in the default directory (|leandcapp|) if path is not specified.
-		Date when the file was created and extension ':include-arg:`2`' will be appended to the file name automatically.
+		Date when the file was created and extension ':include-arg:`1`' will be appended to the file name automatically.
 		Logfile will not be created if this attribute is left blank.
-		:include-arg:`3`
+		:include-arg:`2`
 		:inlineimportant:`Attribute is case sensitive, observe case of the path and name when specifying.`

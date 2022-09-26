@@ -1,0 +1,5 @@
+   * :attr:	:xmlattr:`Policy`
+     :val:	0...255
+     :def:	0
+     :desc:	Command execution policy, see :numref:`tabid-IEC10xslPolicy` for description.
+		|optinalattr|

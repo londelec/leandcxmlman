@@ -14,7 +14,7 @@ operating system directory:
 
 \ */usr/share/zoneinfo*
 
-leandc firmware will attempt to locate a TZ file matching the name specified in a :xmlref:`TimeZone` attribute in this
+leandc firmware will attempt to locate a TZ file matching the name specified in a :ref:`xmlattr-IEC101maTimeSettingsTimeZone` attribute in this
 system folder. If a matching file is not found, leandc firmware will use System default time zone which means the
 timestamps for the particular communication protocol instance will not be adjusted. Please find the list of most
 commonly used time zones below:

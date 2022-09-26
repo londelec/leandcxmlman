@@ -1,7 +1,0 @@
-   * :attr:     :include-arg:`1`
-
-                :xmlref:`FilterID`
-     :val:      1...255
-     :desc:     Identifier of a predefined filter to allow only certain TCP client IP addresses to establish connection to this protocol instance.
-		Please refer to the table :numref:`docref-ClientFilterCfgIPv4Attab` for filter settings.
-		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, clients from any IP address will be able to connect if attribute omitted.`

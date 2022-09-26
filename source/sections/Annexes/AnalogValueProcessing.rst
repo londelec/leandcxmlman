@@ -7,30 +7,31 @@ Analog value processing
 This annex contains information about analog value processing, scaling options and application examples.
 All analog values are converted to Short Floating-point (32bit) numbers internally before scaling takes place.
 All AI scaling attributes used in this document:
-:xmlref:`Coeff`, :xmlref:`Deadband`, :xmlref:`Percent`, :xmlref:`StartOffset`, :xmlref:`ZeroDeadband`, :xmlref:`Offset`, :xmlref:`OffsetDeadband`, :xmlref:`NonZeroOffset`
+:ref:`xmlattr-IEC10xmaAICoeff`, :ref:`xmlattr-IEC10xmaAIDeadband`, :ref:`xmlattr-IEC10xmaAIPercent`, :ref:`xmlattr-IEC10xmaAIStartOffset`, :ref:`xmlattr-IEC10xmaAIZeroDeadband`, :ref:`xmlattr-IEC10xmaAIOffset`, :ref:`xmlattr-IEC10xmaAIOffsetDeadband`, :ref:`xmlattr-IEC10xmaAINonZeroOffset`
 are Short Floating-point numbers.
 The value range is given for each of these attributes and values have to be specified either in decimal or scientific notation.
 Sample values are shown in the table below.
 
 .. field-list-table:: Analog value notations
    :class: table table-condensed table-bordered table-left table-center-all
+   :name: tabid-analognotation
    :spec: |C{0.14}|C{0.14}|
    :header-rows: 1
 
    * :dec,10: Decimal
      :sci,10: Scientific
 
-   * :dec:    1520.3
-     :sci:    1.5203e3
+   * :dec:	1520.3
+     :sci:	1.5203e3
 
-   * :dec:    -11
-     :sci:    -1.1e1
+   * :dec:	-11
+     :sci:	-1.1e1
 
-   * :dec:    0.00152
-     :sci:    1.52e-3
+   * :dec:	0.00152
+     :sci:	1.52e-3
 
-   * :dec:    -0.0456
-     :sci:     -4.56e-2
+   * :dec:	-0.0456
+     :sci:	-4.56e-2
 
 .. important::
    Precision of the Short Floating-point number is **7** decimal digits regardless of position of the decimal point.
@@ -44,24 +45,25 @@ Analog value scaling
 --------------------
 
 Analog value scaling attributes 
-:xmlref:`Coeff`, :xmlref:`StartOffset`, :xmlref:`ZeroDeadband`, :xmlref:`Offset`, :xmlref:`OffsetDeadband`, :xmlref:`NonZeroOffset`
+:ref:`xmlattr-IEC10xmaAICoeff`, :ref:`xmlattr-IEC10xmaAIStartOffset`, :ref:`xmlattr-IEC10xmaAIZeroDeadband`, :ref:`xmlattr-IEC10xmaAIOffset`, :ref:`xmlattr-IEC10xmaAIOffsetDeadband`, :ref:`xmlattr-IEC10xmaAINonZeroOffset`
 exist in Master and Slave protocol instances and scaling processes are independent of each other.
 This means analog value received from an outstation will be scaled at Master protocol instance first and then by a Slave protocol instance before sending the value out.
 It is recommended to enable scaling at Master protocol instances that receive analog values from outstations, but there are no restrictions that would prevent using scaling at Slave protocol instances.
 Analog value scaling sequence in shown in the flowchart below.
 
 .. figure:: ../_images/AI_scaling_flow.*
+   :name: figid-aiscaling
    :figclass: figure-left
 
    AI scaling sequence
 
 .. tip::
 
-   :xmlref:`StartOffset` attribute automatically sets Invalid [:lemonobgtext:`IV`] quality flag when forcing analog value to zero '0'.
+   :ref:`xmlattr-IEC10xmaAIStartOffset` attribute automatically sets Invalid [:lemonobgtext:`IV`] quality flag when forcing analog value to zero '0'.
    This is designed to detect failure of a 4-20mA tranducer (or similar) connected to an Analog Input.
    4mA current is expecet when transducer is connected even if it is not measuring anything.
    If the current drops below 4mA Invalid [:lemonobgtext:`IV`] quality flag is used to indicate a transducer failure or disconnect.
-   :xmlref:`ZeroDeadband` attribute works alongside :xmlref:`StartOffset` in order to suppress noise around 4mA value and its use is receommended.
+   :ref:`xmlattr-IEC10xmaAIZeroDeadband` attribute works alongside :ref:`xmlattr-IEC10xmaAIStartOffset` in order to suppress noise around 4mA value and its use is receommended.
 
 Scaling calculator below shows how leandc analog scaling actually works.
 Enter a numeric value in the box 'Start value' and the 'Result' box will show the value after scaling has been applied.
@@ -77,10 +79,10 @@ They will be formated in XML syntax and can be pasted directly into XML file.
    :caption: AI scaling calculator
    :latex-tip: Interactive scaling attribute calculator can be found in the current HTML manual
 
-Range calculator shown below enables to calculate :xmlref:`Offset` and :xmlref:`Coeff` attribute values based on ranges of analog values before and after scaling.
+Range calculator shown below enables to calculate :ref:`xmlattr-IEC10xmaAIOffset` and :ref:`xmlattr-IEC10xmaAICoeff` attribute values based on ranges of analog values before and after scaling.
 The range of values before scaling takes place (e.g. range of values expected to be received from outstation) have to be entered into 'Input Range' boxes
 and the range of resulting values (e.g. expected from leandc) have to be entered into 'Output Range' boxes.
-'Calculate' button will update :xmlref:`Offset` and :xmlref:`Coeff` attributes of the scaling calculator above.
+'Calculate' button will update :ref:`xmlattr-IEC10xmaAIOffset` and :ref:`xmlattr-IEC10xmaAICoeff` attributes of the scaling calculator above.
 Updated attributes will be highlighted yellow.
 
 .. include-html:: ../_html/AIcalc.html
@@ -89,12 +91,12 @@ Updated attributes will be highlighted yellow.
    :caption: AI range calculator
    :latex-tip: Interactive scaling range calculator can be found in the current HTML manual
 
-Application example shown below can be used to calculate :xmlref:`StartOffset`, :xmlref:`Offset`, :xmlref:`NonZeroOffset` and :xmlref:`Coeff` attributes by selecting various devices as a source of an analog value.
+Application example shown below can be used to calculate :ref:`xmlattr-IEC10xmaAIStartOffset`, :ref:`xmlattr-IEC10xmaAIOffset`, :ref:`xmlattr-IEC10xmaAINonZeroOffset` and :ref:`xmlattr-IEC10xmaAICoeff` attributes by selecting various devices as a source of an analog value.
 LEANDC box performs scaling based on attributes of the scaling calculator above.
 'Analog Input Module' checkbox simulates the Analog Input Module connected to LEANDC.
 Its input range in milliamps and output integer range (based on ADC bit count) can be selected.
 Changing analog value at Analog Module Input will update value at Module output and LEANDC output (after scaling).  
-The 'Calculate' button must be pressed when devices are enabled/disabled or input/output ranges changed in order to update :xmlref:`StartOffset`, :xmlref:`Offset`, :xmlref:`NonZeroOffset` and :xmlref:`Coeff` attributes of the scaling calculator above.
+The 'Calculate' button must be pressed when devices are enabled/disabled or input/output ranges changed in order to update :ref:`xmlattr-IEC10xmaAIStartOffset`, :ref:`xmlattr-IEC10xmaAIOffset`, :ref:`xmlattr-IEC10xmaAINonZeroOffset` and :ref:`xmlattr-IEC10xmaAICoeff` attributes of the scaling calculator above.
 Updated attributes will be highlighted yellow.
 Measuring transducer and Voltage/Current transformer can be enabled/disabled with drop-down box and checkbox respectively.
 Please note the transducer can be enabled only if Analog Input Module is already enabled and Voltage/Current transformer can be enabled if both transducer and Analog Input Module are enabled.
@@ -120,23 +122,23 @@ annexes for additional information on AI scaling.
 
    Received AI processing flowchart
 
-The figure below shows how a real time value received from outstation will be processed if :ref:`AI<ref-IEC10xmaAI>`.\ :ref:`Deadband<ref-IEC10xmaAIDeadband>` \
+The figure below shows how a real time value received from outstation will be processed if :ref:`xmlelem-IEC10xmaAI`.\ :ref:`xmlattr-IEC10xmaAIDeadband` \
 attribute is enabled. Internal database will be updated and AI event will get generated every time a real time
 value exceeds 'static deadband'. Thresholds of the 'static deadband' are calculated based on previous value
-stored in the database. Attribute :ref:`AI<ref-IEC10xmaAI>`.\ :ref:`Deadband<ref-IEC10xmaAIDeadband>` \ = 2 is used as an example.
+stored in the database. Attribute :ref:`xmlelem-IEC10xmaAI`.\ :ref:`xmlattr-IEC10xmaAIDeadband` \ = 2 is used as an example.
 
 .. figure:: ../_images/AI_processing_3.*
    :align: center
 
-   :xmlref:`AI.Deadband` processing sample
+   :ref:`xmlattr-IEC10xmaAIDeadband` processing sample
 
-The figure below shows how a real time value received from outstation will be processed if :ref:`AI<ref-IEC10xmaAI>`.\ :ref:`Percent<ref-IEC10xmaAIPercent>` \ attribute
+The figure below shows how a real time value received from outstation will be processed if :ref:`xmlelem-IEC10xmaAI`.\ :ref:`xmlattr-IEC10xmaAIPercent` \ attribute
 is enabled. Internal database will be updated and AI event will get generated every time a real time value
 exceeds 'dynamic deadband'. Thresholds of the 'dynamic deadband' are calculated based on previous value
-stored in the database. Attribute :ref:`AI<ref-IEC10xmaAI>`.\ :ref:`Percent<ref-IEC10xmaAIPercent>` \ = 20 is used as an example.
+stored in the database. Attribute :ref:`xmlelem-IEC10xmaAI`.\ :ref:`xmlattr-IEC10xmaAIPercent` \ = 20 is used as an example.
 
 .. figure:: ../_images/AI_processing_4.*
    :align: center
 
-   :xmlref:`AI.Percent` processing sample
+   :ref:`xmlattr-IEC10xmaAIPercent` processing sample
 

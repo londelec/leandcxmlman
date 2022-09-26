@@ -1,45 +1,47 @@
-   * :attr:     :xmlref:`EventMask`
-     :val:      0...255 or 0x00...0xFF
-     :def:      0x00
-     :desc:     Disable spontaneous reporting (events) of DI/AI objects when communication state of the station changes. See table :include-arg:`2` for event mask description. (default 0x00 - DI/AI events are always generated - none masked) :inlinetip:`Note quality bits of static DI/AI qualifier will still be set even if event reporting is masked by` :xmlref:`EventMask` :inlinetip:`attribute`
+   * :attr:	:xmlattr:`EventMask`
+     :val:	0...255 or 0x00...0xFF
+     :def:	0x00
+     :desc:	Disable spontaneous reporting (events) of DI/AI objects when communication state of the station changes.
+		See :include-arg:`3` for event mask description.
+		(default 0x00 - DI/AI events are always generated - none masked)
+		:inlinetip:`Note quality bits of static DI/AI qualifier will still be set even if event reporting is masked by` :include-arg:`1` :inlinetip:`attribute`
 
 
-:include-arg:`1`
+.. include-file:: sections/Include/table_flags8.rstinc "" ":include-arg:`2`" " Service event masking bits" :include-arg:`1` "Event mask"
 
-.. include-file:: sections/Include/table_flags.rstinc "" " Service event masking bits" ":xmlref:`EventMask`" "Event mask"
-
-   * :attr:     Bit 0
-     :val:      xxxx.xxx0
-     :desc:     DI/AI events **will be** generated if station is not initialized (doesn't reply and gets marked OFFLINE) on leandc startup
-
-   * :(attr):
-     :val:      xxxx.xxx1
-     :desc:     DI/AI events **will not be** generated if station is not initialized (doesn't reply and gets marked OFFLINE) on leandc startup
-
-   * :attr:     Bit 1
-     :val:      xxxx.xx0x
-     :desc:     DI/AI events **will be** generated when station gets Disabled with a Service command
+   * :attr:	Bit 0
+     :val:	xxxx.xxx0
+     :desc:	DI/AI events **will be** generated if station is not initialized (doesn't reply and gets marked OFFLINE) on |leandcfw| startup.
+		Events will be sent after :include-arg:`4` timer expires.
 
    * :(attr):
-     :val:      xxxx.xx1x
-     :desc:     DI/AI events **will not be** generated when station gets Disabled with a Service command
+     :val:	xxxx.xxx1
+     :desc:	DI/AI events **will not be** generated if station is not initialized (doesn't reply and gets marked OFFLINE) on |leandcfw| startup.
 
-   * :attr:     Bit 2
-     :val:      xxxx.x0xx
-     :desc:     DI/AI events **will be** generated when station status changes to OFFLINE (after :include-arg:`3` timer expires) 
-
-   * :(attr):
-     :val:      xxxx.x1xx
-     :desc:     DI/AI events **will not be** generated when station status changes to OFFLINE (after :include-arg:`3` timer expires)
-
-   * :attr:     Bit 3
-     :val:      xxxx.0xxx
-     :desc:     DI/AI events **will be** generated after :include-arg:`4` timer expires
+   * :attr:	Bit 1
+     :val:	xxxx.xx0x
+     :desc:	DI/AI events **will be** generated when station gets Disabled with a Service command.
 
    * :(attr):
-     :val:      xxxx.1xxx
-     :desc:     DI/AI events **will not be** generated after :include-arg:`4` timer expires
+     :val:	xxxx.xx1x
+     :desc:	DI/AI events **will not be** generated when station gets Disabled with a Service command.
 
-   * :attr:     Bits 4...7
-     :val:      Any
-     :desc:     Bits reserved for future use
+   * :attr:	Bit 2
+     :val:	xxxx.x0xx
+     :desc:	DI/AI events **will be** generated when station status changes to OFFLINE (after :include-arg:`4` timer expires).
+
+   * :(attr):
+     :val:	xxxx.x1xx
+     :desc:	DI/AI events **will not be** generated when station status changes to OFFLINE (after :include-arg:`4` timer expires).
+
+   * :attr:	Bit 3
+     :val:	xxxx.0xxx
+     :desc:	DI/AI events **will be** generated after :include-arg:`5` timer expires.
+
+   * :(attr):
+     :val:	xxxx.1xxx
+     :desc:	DI/AI events **will not be** generated after :include-arg:`5` timer expires.
+
+   * :attr:	Bits 4...7
+     :val:	Any
+     :desc:	Bits reserved for future use

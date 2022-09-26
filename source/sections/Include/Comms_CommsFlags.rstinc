@@ -1,5 +1,0 @@
-   * :attr:     :xmlref:`CommsFlags`
-     :val:      0...255 or 0x00...0xFF
-     :desc:     Initialization settings of the protocol instance.
-		See table :numref:`docref-CommsFlagsAttribute` for description.
-		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default system settings will be used if omitted.`

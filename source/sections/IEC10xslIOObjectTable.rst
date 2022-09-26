@@ -1,14 +1,12 @@
 .. include:: global.roles
 
-.. _ref-IEC10xslIO:
-
 IEC60870-5-101/104 Slave IO table
 =================================
 
 This section describes how to configure IO object table for IEC60870-5-101 and IEC60870-5-104 controlled station (Slave) communication protocol instance.
-Group object nodes :ref:`DITable<ref-IEC10xslDITable>`; :ref:`AITable<ref-IEC10xslAITable>`; :ref:`DOTable<ref-IEC10xslDOTable>`; :ref:`AOTable<ref-IEC10xslAOTable>` are 
+Group object nodes :ref:`xmlgroup-IEC10xslDI`; :ref:`xmlgroup-IEC10xslAI`; :ref:`xmlgroup-IEC10xslDO`; :ref:`xmlgroup-IEC10xslAO` are 
 included in XML configuration files of the IEC60870-5-101 and IEC60870-5-104 controlled station (Slave) communication protocol instances as described in previous 
-sections :ref:`docref-IEC101slConfig` and :ref:`docref-IEC104slConfig`.
+sections :ref:`docref-IEC101sl` and :ref:`docref-IEC104sl`.
    
 .. include:: IEC10xsl/DITable.rst
 .. include:: IEC10xsl/AITable.rst

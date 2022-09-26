@@ -1,0 +1,5 @@
+   * :attr:	:xmlattr:`Index`
+     :val:	|gpindexrange|
+     :desc:	Index is a unique identifier of the communication protocol instance.
+		It is used to reference protocol instance from other configuration files e.g. logger configuration XML file.
+		:inlinetip:`Indexes don't have to be in a sequential order.`

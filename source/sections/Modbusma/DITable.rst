@@ -1,18 +1,16 @@
 
-.. _ref-ModbusmaDI:
+.. _xmlgroup-ModbusmaDI: lelabel=DITable
+.. _xmlelem-ModbusmaDI: lelabel=DI
 
-DITable group and DI node
--------------------------
+DITable group
+-------------
 
-Group node :ref:`DITable<ref-ModbusmaDI>` and child element nodes :ref:`DI<ref-ModbusmaDI>` are used to create information objects to receive status information from outstation.
-Each created DI can be used as a source for any DI information object defined in the IO table of any Slave protocol instance.
-Data received from outstation will be forwarded to the DI information object of the Slave protocol instance and then to the upstream Master station.
-Please refer to the section :ref:`docref-IEC10xslDITable` for more information on how to use DI information object as a source.
+.. include-file:: sections/Include/ma_DIAI_table.rstinc "" ":ref:`xmlgroup-ModbusmaDI`" ":ref:`xmlelem-ModbusmaDI`" ":numref:`tabid-ModbusmaDI`" ":ref:`docref-IEC10xslDI`" "DI" "status information" "outstation"
 
-.. tip:: \ :ref:`DITable<ref-ModbusmaDI>` group and :ref:`DI<ref-ModbusmaDI>` nodes are optional if :ref:`<ref-ModbusmaHardcoded>`.\ :ref:`<ref-ModbusmaHardcodedType>` is used. DI information objects are initialized automatically for hardcoded devices.
+.. tip:: \ :ref:`xmlgroup-ModbusmaDI` group and :ref:`xmlelem-ModbusmaDI` nodes are optional if :ref:`xmlelem-ModbusmaHardcoded`.\ :ref:`xmlattr-ModbusmaHardcodedType` is used. DI information objects are initialized automatically for hardcoded devices.
 
-Please see sample :ref:`DITable<ref-ModbusmaDI>` group and :ref:`DI<ref-ModbusmaDI>` child element nodes below.
-There are 5 DI information objects configured using 4 :ref:`DI<ref-ModbusmaDI>` element nodes.
+Please see sample :ref:`xmlgroup-ModbusmaDI` group and :ref:`xmlelem-ModbusmaDI` element nodes below.
+There are 5 status information objects defined with 4 :ref:`xmlelem-ModbusmaDI` element nodes.
 
 .. code-block:: none
 
@@ -23,162 +21,183 @@ There are 5 DI information objects configured using 4 :ref:`DI<ref-ModbusmaDI>` 
 	<DI Index="3" PollMsg="1" BitOffset="4" Type="1" Total="2"/>
    </DITable>
 
-.. include-file:: sections/Include/sample_node.rstinc "" ":ref:`DI<ref-ModbusmaDI>`"
+.. include-file:: sections/Include/sample_node.rstinc "" ":ref:`xmlelem-ModbusmaDI`"
 
 .. code-block:: none
 
-   <DI Index="0" PollMsg="1" BitOffset="0" Type="1" Qualifier="0" ChatterFilter="100" Total="1" Name="Input 1" />
+   <DI Index="0" PollMsg="1" BitOffset="0" Type="1" Qualifier="0" ChatterFilter="100" OnValues="0x01 0x02" OffValues="5,6" Total="1" Name="Input 1" />
 
-.. include-file:: sections/Include/tip_order.rstinc "" ":ref:`DI<ref-ModbusmaDI>`"
+.. include-file:: sections/Include/tip_order.rstinc "" ":ref:`xmlelem-ModbusmaDI`"
 
 DI attributes
 ^^^^^^^^^^^^^
 
-.. _docref-ModbusmaDIAttributes:
+.. include-file:: sections/Include/table_attrs.rstinc "" "tabid-ModbusmaDI" "Modbus Master DI attributes" ":spec: |C{0.14}|C{0.14}|C{0.1}|S{0.62}|"
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "Modbus Master DI attributes" ":spec: |C{0.14}|C{0.14}|C{0.1}|S{0.62}|"
+.. include-file:: sections/Include/ma_Index.rstinc "" "DI"
 
-.. include-file:: sections/Include/ma_Index.rstinc "" ".. _ref-ModbusmaDIIndex:" "DI"
+.. include-file:: sections/Include/Modbusma_PollMsg.rstinc ""
 
-   * :attr:     .. _ref-ModbusmaDIPollMsg:
+   * :attr:	:xmlattr:`BitOffset`
+     :val:	0...1023 or 0x00...0x3FF
+     :def:	0
+     :desc:	Offset of the bit that carries status information.
+		See :numref:`tabid-ModbusmaBitOffset` for examples of offset values.
+		:inlineimportant:`Attribute is optional only if` :ref:`xmlelem-ModbusmaHardcoded`.\ :ref:`xmlattr-ModbusmaHardcodedType` :inlineimportant:`is used.`
 
-                :xmlref:`PollMsg`
-     :val:      1...65534
-     :def:      0
-     :desc:     Identifier of the message that is used to poll data from outstation.
-		Use value of the :ref:`MSG<ref-PollMessages>`.\ :ref:`<ref-PollMsgId>` attribute.
-		Value 0 means no poll message is selected.
-		:inlineimportant:`Attribute is optional only if` :ref:`<ref-ModbusmaHardcoded>`.\ :ref:`<ref-ModbusmaHardcodedType>` :inlineimportant:`is used.`
+   * :attr:	:xmlattr:`Type`
+     :val:	See :numref:`tabid-ModbusDIType`
+     :def:	1
+     :desc:	Select format of the received data.
+		:inlineimportant:`Attribute is optional only if` :ref:`xmlelem-ModbusmaHardcoded`.\ :ref:`xmlattr-ModbusmaHardcodedType` :inlineimportant:`is used.`
 
-   * :attr:     .. _ref-ModbusmaDIBitOffset:
+.. include-file:: sections/Include/Qualifier.rstinc "" ":numref:`tabid-ModbusmaDIQualifier`"
 
-                :xmlref:`BitOffset`
-     :val:      0...1023 or 0x00...0x3FF
-     :def:      0
-     :desc:     Offset of the bit that carries status information.
-		See table :numref:`docref-ModbusmaBitOffsetTab` for examples of offset values.
-		:inlineimportant:`Attribute is optional only if` :ref:`<ref-ModbusmaHardcoded>`.\ :ref:`<ref-ModbusmaHardcodedType>` :inlineimportant:`is used.`
-
-   * :attr:     .. _ref-ModbusmaDIType:
-
-                :xmlref:`Type`
-     :val:      See table :numref:`docref-ModbusDITypeTab`
-     :def:      1
-     :desc:     Select format of the received data.
-		:inlineimportant:`Attribute is optional only if` :ref:`<ref-ModbusmaHardcoded>`.\ :ref:`<ref-ModbusmaHardcodedType>` :inlineimportant:`is used.`
-
-   * :attr:     .. _ref-ModbusmaDIQualifier:
-
-                :xmlref:`Qualifier`
-     :val:      0...255 or 0x00...0xFF
-     :def:      0x00
-     :desc:     Internal object qualifier to enable customized data processing.
-		See table :numref:`docref-ModbusmaDIqualifierBits` for internal object qualifier description.
-		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
-
-   * :attr:     .. _ref-ModbusmaDIChatterFilter:
-
-                :xmlref:`ChatterFilter`
-     :val:      1...65535
-     :def:      50 msec
-     :desc:     Chatter filter in milliseconds for Digital Inputs.
+   * :attr:	:xmlattr:`ChatterFilter`
+     :val:	1...65535
+     :def:	50 msec
+     :desc:	Chatter filter in milliseconds for Digital Inputs.
 		State change of the digital input will be reported only if remains stable for the period that exceeds configured filter.
 		:inlinetip:`This attribute applies only to LEIODC series units.`
 
-.. include-file:: sections/Include/Total.rstinc "" ".. _ref-ModbusmaDITotal:" ":ref:`<ref-ModbusmaDIIndex>` and :ref:`<ref-ModbusmaDIBitOffset>`" ":ref:`DI<ref-ModbusmaDI>`" "254"
+   * :attr:	:xmlattr:`OnValues`
+     :val:	0...65535 or 0x00...0xFFFF (up to 32)
+     :def:	n/a
+     :desc:	Values received from station will result in a DI state ON.
+		The DI will have ON state, if a register data received from station matches one of the values specified in this attribute.
+		Up to 32 values can be specified in decimal or hexadecimal notation separated by whitespaces or commas
+		e.g. "2,3 0x05 0xf1".
+		:inlineimportant:`Either`
+		:ref:`xmlattr-ModbusmaDIOnValues`
+		:inlineimportant:`or`
+		:ref:`xmlattr-ModbusmaDIOffValues`
+		:inlineimportant:`attribute must be specified if`
+		:ref:`xmlelem-ModbusmaDI`.\ :ref:`xmlattr-ModbusmaDIType`\ 
+		:inlineimportant:`="5" is used.`
+		:inlinetip:`If`
+		:ref:`xmlattr-ModbusmaDIOffValues`
+		:inlinetip:`attribute is not used, any value received from station that is not included in`
+		:ref:`xmlattr-ModbusmaDIOnValues`
+		:inlinetip:`list will result in a DI state OFF. If`
+		:ref:`xmlattr-ModbusmaDIOffValues`
+		:inlinetip:`attribute is used, any value received from station that is not included in either attributes will result in a DI state INTER.`
+
+   * :attr:	:xmlattr:`OffValues`
+     :val:	0...65535 or 0x00...0xFFFF (up to 32)
+     :def:	n/a
+     :desc:	Values received from station will result in a  DI state OFF.
+		The DI will have OFF state, if a register data received from station matches one of the values specified in this attribute.
+		Up to 32 values can be specified in decimal or hexadecimal notation separated by whitespaces or commas
+		e.g. "2,3 0x05 0xf1"
+		:inlineimportant:`Either`
+		:ref:`xmlattr-ModbusmaDIOnValues`
+		:inlineimportant:`or`
+		:ref:`xmlattr-ModbusmaDIOffValues`
+		:inlineimportant:`attribute must be specified if`
+		:ref:`xmlelem-ModbusmaDI`.\ :ref:`xmlattr-ModbusmaDIType`\ 
+		:inlineimportant:`="5" is used.`
+		:inlinetip:`If`
+		:ref:`xmlattr-ModbusmaDIOnValues`
+		:inlinetip:`attribute is not used, any value received from station that is not included in`
+		:ref:`xmlattr-ModbusmaDIOffValues`
+		:inlinetip:`list will result in a DI state ON. If`
+		:ref:`xmlattr-ModbusmaDIOnValues`
+		:inlinetip:`attribute is used, any value received from station that is not included in either attributes will result in a DI state INTER.`
+
+
+.. include-file:: sections/Include/Total.rstinc "" ":ref:`xmlattr-ModbusmaDIIndex` and :ref:`xmlattr-ModbusmaDIBitOffset`" ":ref:`xmlelem-ModbusmaDI`" "254"
 
 .. include-file:: sections/Include/Name.rstinc ""
 
 DI.Qualifier
 ^^^^^^^^^^^^
 
-.. _docref-ModbusmaDIqualifierBits:
+.. include-file:: sections/Include/table_flags8.rstinc "" "tabid-ModbusmaDIQualifier" "Modbus Master DI internal qualifier" ":ref:`xmlattr-ModbusmaDIQualifier`" "DI internal qualifier"
 
-.. include-file:: sections/Include/table_flags.rstinc "" "Modbus Master DI internal qualifier" ":ref:`<ref-ModbusmaDIQualifier>`" "DI internal qualifier"
-
-   * :attr:     Bit 0
-     :val:      xxxx.xxx0
-     :desc:     DI object **will not** be inverted (ON = 1; OFF = 0)
+   * :attr:	Bit 0
+     :val:	xxxx.xxx0
+     :desc:	DI object **will not** be inverted (ON = 1; OFF = 0)
 
    * :(attr):
-     :val:      xxxx.xxx1
-     :desc:     DI object **will** be inverted (ON = 0; OFF = 1)
+     :val:	xxxx.xxx1
+     :desc:	DI object **will** be inverted (ON = 0; OFF = 1)
 
-   * :attr:     Bit 7
-     :val:      0xxx.xxxx
-     :desc:     DI is **enabled** and will be processed when received
+   * :attr:	Bit 7
+     :val:	0xxx.xxxx
+     :desc:	DI is **enabled** and will be processed when received
 
    * :(attr):
-     :val:      1xxx.xxxx
-     :desc:     DI is **disabled** and will be discarded when received
+     :val:	1xxx.xxxx
+     :desc:	DI is **disabled** and will be discarded when received
 
-   * :attr:     Bits 1..6
-     :val:      Any
-     :desc:     Bits reserved for future use
+   * :attr:	Bits 1..6
+     :val:	Any
+     :desc:	Bits reserved for future use
 
 
 DI.Type
 ^^^^^^^
 
-.. _docref-ModbusDITypeTab:
-
 .. field-list-table:: Modbus Master DI decode types
    :class: table table-condensed table-bordered longtable
-   :spec: |C{0.10}|S{0.90}|
+   :name: tabid-ModbusDIType
+   :spec: |C{0.07}|S{0.93}|
    :header-rows: 1
 
-   * :val,10:   Type value
+   * :val,10:   :ref:`xmlattr-ModbusmaDIType`
      :desc,90:  Description
 
    * :val:	0
      :desc:	Not used
 
    * :val:	1
-     :desc:	Select one bit from the received data based on :ref:`<ref-ModbusmaDIBitOffset>` attribute.
-		See table :numref:`docref-ModbusmaBitOffsetTab` for examples of offset values.
+     :desc:	Select one bit from the received data based on :ref:`xmlattr-ModbusmaDIBitOffset` attribute.
+		See :numref:`tabid-ModbusmaBitOffset` for examples of offset values.
+
+   * :val:	5
+     :desc:	Values specified in :ref:`xmlattr-ModbusmaDIOnValues` and :ref:`xmlattr-ModbusmaDIOffValues` attributes will be used to determine the state of the DI object.
 
    * :val:	Other
      :desc:	Not used
 
 
-Table below shows the selected bit '\ **B**\' based on the :ref:`DI<ref-ModbusmaDI>`.\ :ref:`<ref-ModbusmaDIBitOffset>` or :ref:`DO<ref-ModbusmaDO>`.\ :ref:`<ref-ModbusmaDOBitOffset>` value.
+Table below shows the selected bit '\ **B**\' based on the :ref:`xmlelem-ModbusmaDI`.\ :ref:`xmlattr-ModbusmaDIBitOffset` or :ref:`xmlelem-ModbusmaDO`.\ :ref:`xmlattr-ModbusmaDOBitOffset` value.
 The sample has 4 bytes of data in the order as it would be received from or sent to outstation.
 Each byte is shown as 'xxxx.xxxx' where 'x' represents one bit of the byte.
 
-.. _docref-ModbusmaBitOffsetTab:
-
 .. field-list-table:: Modbus Master Bit Offset sample values
    :class: table table-condensed table-bordered longtable
-   :spec: |C{0.10}|S{0.90}|
+   :name: tabid-ModbusmaBitOffset
+   :spec: |C{0.10}|S{0.50}|
    :header-rows: 1
 
-   * :val,10:   BitOffset
+   * :val,10:   :ref:`xmlattr-ModbusmaDIBitOffset`
      :desc,90:  Modbus Message
 
-   * :val:      0
-     :desc:     {... xxxx.xxxx xxxx.xxx\ **B** xxxx.xxxx xxxx.xxxx ...}
+   * :val:	0
+     :desc:	{... xxxx.xxxx xxxx.xxx\ **B** xxxx.xxxx xxxx.xxxx ...}
 
-   * :val:      1
-     :desc:     {... xxxx.xxxx xxxx.xx\ **B**\x xxxx.xxxx xxxx.xxxx ...}
+   * :val:	1
+     :desc:	{... xxxx.xxxx xxxx.xx\ **B**\x xxxx.xxxx xxxx.xxxx ...}
 
-   * :val:      2
-     :desc:     {... xxxx.xxxx xxxx.x\ **B**\xx xxxx.xxxx xxxx.xxxx ...}
+   * :val:	2
+     :desc:	{... xxxx.xxxx xxxx.x\ **B**\xx xxxx.xxxx xxxx.xxxx ...}
 
-   * :val:      3
-     :desc:     {... xxxx.xxxx xxxx.\ **B**\xxx xxxx.xxxx xxxx.xxxx ...}
+   * :val:	3
+     :desc:	{... xxxx.xxxx xxxx.\ **B**\xxx xxxx.xxxx xxxx.xxxx ...}
 
-   * :val:      4
-     :desc:     {... xxxx.xxxx xxx\ **B**\.xxxx xxxx.xxxx xxxx.xxxx ...}
+   * :val:	4
+     :desc:	{... xxxx.xxxx xxx\ **B**\.xxxx xxxx.xxxx xxxx.xxxx ...}
 
-   * :val:      8
-     :desc:     {... xxxx.xxx\ **B** xxxx.xxxx xxxx.xxxx xxxx.xxxx ...}
+   * :val:	8
+     :desc:	{... xxxx.xxx\ **B** xxxx.xxxx xxxx.xxxx xxxx.xxxx ...}
 
-   * :val:      16
-     :desc:     {... xxxx.xxxx xxxx.xxxx xxxx.xxxx xxxx.xxx\ **B** ...}
+   * :val:	16
+     :desc:	{... xxxx.xxxx xxxx.xxxx xxxx.xxxx xxxx.xxx\ **B** ...}
 
-   * :val:      24
-     :desc:     {... xxxx.xxxx xxxx.xxxx xxxx.xxx\ **B** xxxx.xxxx ...}
+   * :val:	24
+     :desc:	{... xxxx.xxxx xxxx.xxxx xxxx.xxx\ **B** xxxx.xxxx ...}
 
-   * :val:      31
-     :desc:     {... xxxx.xxxx xxxx.xxxx **B**\xxx.xxxx xxxx.xxxx ...}
+   * :val:	31
+     :desc:	{... xxxx.xxxx xxxx.xxxx **B**\xxx.xxxx xxxx.xxxx ...}
 

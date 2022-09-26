@@ -1,0 +1,14 @@
+.. field-list-table:: :include-arg:`2`
+   :class: table table-condensed table-bordered longtable
+   :name: :include-arg:`1`
+   :spec: |C{0.21}|C{0.20}|S{0.59}|
+   :header-rows: 1
+
+   * :attr,20: Bits
+     :val,20:  Value
+     :desc,60: Description
+
+   * :attr:	:include-arg:`3` [xxxx.xxxx.xxxx.xxxx]
+     :val:	0x0000...0xFFFF
+     :desc:	:include-arg:`4` is 16 bit encoded variable.
+		Decimal 0...65535 and hex 0x0000...0xFFFF values supported

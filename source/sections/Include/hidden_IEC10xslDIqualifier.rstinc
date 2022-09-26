@@ -1,8 +1,9 @@
-   * :attr:     Bit 4
-     :val:      xxx0.xxxx
-     :desc:     **Use** PLC DPI object if source DI has it. :inlineattention:`This bit is excluded from user documentation.`
+   * :attr:	Bit 4
+     :val:	xxx0.xxxx
+     :desc:	**Use** PLC DPI object if source DI has it.
+		|internalbit|
 
    * :(attr):
-     :val:      xxx1.xxxx
-     :desc:     **Don't use** PLC DPI object even if source DI has it. :inlineattention:`This bit is excluded from user documentation.`
-
+     :val:	xxx1.xxxx
+     :desc:	**Don't use** PLC DPI object even if source DI has it.
+		|internalbit|

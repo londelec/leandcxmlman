@@ -1,0 +1,7 @@
+   * :attr:	:include-arg:`1`
+     :val:	|flags16range|
+     :def:	0x0000
+     :desc:	Include :include-arg:`2` in Interrogation group/groups.
+		Each bit of the group mask attribute needs to be set in order to include object in a particular interrogation group.
+		Please refer to the :numref:`tabid-IEC10xslGroupMask` for more information.
+		|optinalattr|

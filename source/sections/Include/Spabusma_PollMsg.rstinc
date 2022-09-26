@@ -1,0 +1,5 @@
+   * :attr:	:xmlattr:`PollMsg`
+     :val:	|sermamessagerange|
+     :def:	0
+     :desc:	Identifier of the message that is used to poll data from outstation.
+		Use value of the :ref:`xmlelem-SpabusmaPollMsg`.\ :ref:`xmlattr-SpabusmaPollMsgPollMsg` attribute.

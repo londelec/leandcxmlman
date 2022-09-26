@@ -1,0 +1,5 @@
+   * :attr:	:include-arg:`1`
+     :val:	|sermamessagerange|
+     :def:	0
+     :desc:	Identifier of the Control message that is used to send :include-arg:`2` command to outstation.
+		Use value of the :ref:`xmlelem-SpabusmaCtrlMsg`.\ :ref:`xmlattr-SpabusmaCtrlMsgCtrlMsg` attribute.

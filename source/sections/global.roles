@@ -1,12 +1,26 @@
 .. role:: inlinetip
 .. role:: inlineimportant
 .. role:: inlineattention
-.. role:: xmlref
 .. role:: underline
 
+.. |leandcfw| replace:: leandc
 .. |leandcxml| replace:: **leandc.xml**
 .. |leloggerxml| replace:: **lelogger.xml**
 .. |leandcapp| replace:: /home/leandc/app
 .. |leandcunit| replace:: LEANDC unit
 .. |sshmanual| replace:: Leandc SSH manual
 .. |htmlmanual| replace:: HTML manual
+.. |hwindexrange| replace:: 1...254
+.. |gpindexrange| replace:: 1...254
+.. |filteridrange| replace:: 1...255
+.. |maindexrange| replace:: 0...2\ :sup:`24` - 1
+.. |slindexrange| replace:: -8...2\ :sup:`24` - 1
+.. |flags8range| replace:: 0...255 or 0x00...0xFF
+.. |flags16range| replace:: 0...65535 or 0x0000...0xFFFF
+.. |uint32range| replace:: 0...2\ :sup:`32`\  - 1
+.. |sermamessagerange| replace:: 1...65534
+.. |optinalattr| replace:: :inlinetip:`Attribute is optional and doesn't have to be included in configuration.`
+.. |internalattr| replace:: :inlineattention:`This attribute is excluded from user documentation.`
+.. |internalbit| replace:: :inlineattention:`This bit is excluded from user documentation.`
+.. |bittrue| replace:: \  = 1
+.. |bitfalse| replace:: \  = 0

@@ -1,2 +1,1 @@
-.. tip:: Attributes of the :include-arg:`1` element node can be arranged in any order, it doesn't affect XML file validation.
-
+.. tip:: Attributes of the :include-arg:`1` element can be arranged in any order, it doesn't affect XML file validation.

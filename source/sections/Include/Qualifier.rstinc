@@ -1,0 +1,7 @@
+   * :attr:	:xmlattr:`Qualifier`
+     :val:	|flags8range|
+     :def:	0x00
+     :desc:	Internal object qualifier to enable customized data processing.
+		See :include-arg:`1` for internal object qualifier description.
+		|optinalattr|
+

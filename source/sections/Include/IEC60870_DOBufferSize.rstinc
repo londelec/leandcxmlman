@@ -1,9 +1,9 @@
-   * :attr:     :xmlref:`DO`
-     :val:      1...8
-     :def:      1 command
-     :desc:     Control command buffer size in entries.
+   * :attr:	:xmlattr:`DO`
+     :val:	1...8
+     :def:	1 command
+     :desc:	Control command buffer size in entries.
 		Communication protocol instances use designated buffer to keep received control commands until their execution is complete.
 		It is possible to create a queue, where commands are buffered and executed sequentially one after another.
 		(default value 1 - only one control command will be processed by a protocol instance at any time.
 		New command that arrives before already processed command execution is complete will be rejected)
-		:inlineattention:`This attribute is excluded from user documentation.`
+		|internalattr|

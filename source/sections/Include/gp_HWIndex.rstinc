@@ -1,0 +1,4 @@
+   * :attr:	:xmlattr:`HWIndex`
+     :val:	|hwindexrange|
+     :desc:	Hardware Index is used to link the communication protocol instance to a hardware node.
+		Use value of the :include-arg:`1` attribute as a hardware index in order to link the protocol instance.

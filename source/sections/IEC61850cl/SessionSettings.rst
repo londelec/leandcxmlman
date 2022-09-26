@@ -1,60 +1,66 @@
-.. _ref-IEC61850clSessionSettings:
+.. _xmlelem-IEC61850clSession:
 
 SessionSettings
 ^^^^^^^^^^^^^^^
 
-Settings of the Session layer (ISO8327) can be specified using attributes of :ref:`<ref-IEC61850clSessionSettings>` 
-element node.
+Settings of the Session layer (ISO8327) can be specified using attributes of :ref:`xmlelem-IEC61850clSession` element node.
 
-.. include-file:: sections/Include/sample_node.rstinc "" ":ref:`<ref-IEC61850clSessionSettings>`"
+.. include-file:: sections/Include/sample_node.rstinc "" ":ref:`xmlelem-IEC61850clSession`"
 
 .. code-block:: none
 
-   <SessionSettings CallingSSEL="0001" Flags="0x00"/>
+   <SessionSettings CallingSSEL="0001" TIMtimeout="2" Flags="0x00" LogFlags="0x00"/>
 
 
-.. _docref-IEC61850clSessionSettingsAttab:
+.. include-file:: sections/Include/table_attrs.rstinc "" "tabid-IEC61850clSession" "IEC61850 Client SessionSettings attributes" ":spec: |C{0.14}|C{0.18}|C{0.1}|S{0.58}|"
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "IEC61850 Client SessionSettings attributes" ":spec: |C{0.14}|C{0.18}|C{0.1}|S{0.58}|"
+   * :attr:	:xmlattr:`CallingSSEL`
+     :val:	Up to 16 hexadecimal characters 0...F
+     :def:	0001
+     :desc:	[:lemonobgtext:`Calling Session Selector`] field value for outgoing [:lemonobgtext:`CONNECT (CN) SPDU`].
 
-   * :attr:     .. _ref-IEC61850clCallingSSEL:
+   * :attr:	:xmlattr:`TIMtimeout`
+     :val:	1...65535
+     :def:	5 sec
+     :desc:	| Disconnection and abort timer [:lemonobgtext:`TIM`] in seconds. Timer is stated when sending [:lemonobgtext:`ABORT (AB) SPDU`].
+		| Network connection will be closed if timer expires before either:
+		| > No [:lemonobgtext:`T-DISCONNECT`] is received from Transport layer in case if Transport connection is **released** (:ref:`bitref-IEC61850clSessionFlagsBit2`\ |bitfalse|) or
+		| > No [:lemonobgtext:`ABORT ACCEPT (AA) SPDU`] is received from IED in case if Transport connection is **kept** (:ref:`bitref-IEC61850clSessionFlagsBit2`\ |bittrue|).
 
-                :xmlref:`CallingSSEL`
-     :val:      Up to 16 hexadecimal characters 0...F
-     :def:      0001
-     :desc:     Calling Session Selector used for outgoing [:lemonobgtext:`CONNECT (CN) SPDU`] message
+.. include-file:: sections/Include/IEC61850cl_Flags.rstinc "" ":numref:`tabid-IEC61850clSessionFlags`" "Session"
 
-   * :attr:     .. _ref-IEC61850clSessionFlags:
-
-                :xmlref:`Flags`
-     :val:      0...255 or 0x00...0xFF
-     :def:      0x00
-     :desc:     Miscellaneous settings of the Session layer.
-		See table :numref:`docref-IEC61850clSessionFlagsBits` for description
+.. include-file:: sections/Include/IEC61850_LogFlags.rstinc "" ":numref:`tabid-IEC61850clLogFlags`" "Session"
 
 
-.. _docref-IEC61850clSessionFlagsBits:
+.. include-file:: sections/Include/table_flags8.rstinc "" "tabid-IEC61850clSessionFlags" "Session layer flags" ":ref:`xmlattr-IEC61850clSessionFlags`" "Session layer flags"
 
-.. include-file:: sections/Include/table_flags.rstinc "" "Session layer flags" ":ref:`<ref-IEC61850clSessionFlags>`" "Session layer flags"
-
-   * :attr:     Bit 0
-     :val:      xxxx.xxx0
-     :desc:     **Ignore** [:lemonobgtext:`Calling Session Selector`] and [:lemonobgtext:`Called Session Selector`] identifiers of the received [:lemonobgtext:`ACCEPT (AC) SPDU`] message (default value)
+   * :attr:	:bitdef:`0`
+     :val:	xxxx.xxx0
+     :desc:	**Ignore** [:lemonobgtext:`Calling Session Selector`] and [:lemonobgtext:`Called Session Selector`] identifiers of the received [:lemonobgtext:`ACCEPT (AC) SPDU`]. (default value)
 
    * :(attr):
-     :val:      xxxx.xxx1
-     :desc:     **Check** [:lemonobgtext:`Calling Session Selector`] and [:lemonobgtext:`Called Session Selector`] identifiers of the received [:lemonobgtext:`ACCEPT (AC) SPDU`] message.
-		Communication will not be established if the received [:lemonobgtext:`Calling Session Selector`] doesn't match "OSI-SSEL" in the SCL file or
-		[:lemonobgtext:`Called Session Selector`] is different from [:lemonobgtext:`CONNECT (CC) SPDU`] message value.
+     :val:	xxxx.xxx1
+     :desc:	**Check** [:lemonobgtext:`Calling Session Selector`] and [:lemonobgtext:`Called Session Selector`] identifiers of the received [:lemonobgtext:`ACCEPT (AC) SPDU`].
+		Communication will not be established if the received [:lemonobgtext:`Calling Session Selector`] doesn't match "OSI-SSEL" defined in the SCL file or
+		[:lemonobgtext:`Called Session Selector`] doesn't match :ref:`xmlattr-IEC61850clSessionCallingSSEL`.
 
-   * :attr:     Bit 1
-     :val:      xxxx.xx0x
-     :desc:     Transport connection is **released** when sending [:lemonobgtext:`FINISH (FN) SPDU`] message (default value)
+   * :attr:	:bitdef:`1`
+     :val:	xxxx.xx0x
+     :desc:	Transport connection is **released** when sending [:lemonobgtext:`FINISH (FN) SPDU`]. (default value)
 
    * :(attr):
-     :val:      xxxx.xx1x
-     :desc:     Transport connection is **kept** when sending [:lemonobgtext:`FINISH (FN) SPDU`] message
+     :val:	xxxx.xx1x
+     :desc:	Transport connection is **kept** when sending [:lemonobgtext:`FINISH (FN) SPDU`].
 
-   * :attr:     Bits 2...7
-     :val:      Any
-     :desc:     Bits reserved for future use
+   * :attr:	:bitdef:`2`
+     :val:	xxxx.x0xx
+     :desc:	Transport connection is **released** when sending [:lemonobgtext:`ABORT (AB) SPDU`]. (default value)
+
+   * :(attr):
+     :val:	xxxx.x1xx
+     :desc:	Transport connection is **kept** when sending [:lemonobgtext:`ABORT (AB) SPDU`].
+
+   * :attr:	Bits 3...7
+     :val:	Any
+     :desc:	Bits reserved for future use
+

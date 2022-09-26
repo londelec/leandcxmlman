@@ -1,0 +1,6 @@
+   * :attr:	:include-arg:`1`
+     :val:	0...65535
+     :def:	:include-arg:`2`
+     :desc:	Received data value that corresponds to :include-arg:`3` position.
+		This attribute doesn't support 2 data values. The same specified value will be used for both data values if double status information is reported with 2 different Spabus channel or data numbers.
+		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`

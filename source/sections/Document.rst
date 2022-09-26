@@ -7,81 +7,86 @@ Abbreviations used in this document are listed in the following table.
 
 .. field-list-table:: Abbreviations
    :class: table table-condensed table-bordered longtable
+   :name: tabid-Abbreviations
    :spec: |C{0.3}|S{0.7}|
    :header-rows: 1
 
-   * :abbr,10: Abbreviation
-     :desc,90: Description
-   * :abbr:    ADC
-     :desc:    Analog Digital Converter
-   * :abbr:    AI
-     :desc:    Analog Input
-   * :abbr:    AO
-     :desc:    Analog Output
-   * :abbr:    APCI
-     :desc:    Application Protocol Control Interface
-   * :abbr:    APDU
-     :desc:    Application Protocol Data Unit
-   * :abbr:    ASDU
-     :desc:    Application Service Data Unit
-   * :abbr:    CAA
-     :desc:    Common Address of ASDU
-   * :abbr:    CID
-     :desc:    Configured IED Description
-   * :abbr:    COT
-     :desc:    Cause Of Transmission
-   * :abbr:    DI
-     :desc:    Digital Input
-   * :abbr:    DO
-     :desc:    Digital Output
-   * :abbr:    DPI
-     :desc:    Double Point Information
-   * :abbr:    DST
-     :desc:    Daylight Saving Time
-   * :abbr:    HMI
-     :desc:    Human Machine Interface
-   * :abbr:    IANA
-     :desc:    Internet Assigned Numbers Authority
-   * :abbr:    ICD
-     :desc:    IED Capabilities Description
-   * :abbr:    IED
-     :desc:    Intelligent Electronic Device
-   * :abbr:    IO
-     :desc:    Input/Output
-   * :abbr:    IP
-     :desc:    Internet Protocol
-   * :abbr:    IOA
-     :desc:    Information Object Address
-   * :abbr:    LD
-     :desc:    Logical Device (for IEC61850)
-   * :abbr:    LN
-     :desc:    Logical Node (for IEC61850)
-   * :abbr:    LRU
-     :desc:    Logical Remote Unit
-   * :abbr:    PID
-     :desc:    Running Process Identifier
-   * :abbr:    OS
-     :desc:    Operating System
-   * :abbr:    SCADA
-     :desc:    Supervisory Control And Data Acqusition system
-   * :abbr:    SCD
-     :desc:    Substation Configuration Description
-   * :abbr:    SCL
-     :desc:    System Configuration description Language
-   * :abbr:    SPI
-     :desc:    Single Point Information
-   * :abbr:    SSH
-     :desc:    Secure shell
-   * :abbr:    TCP
-     :desc:    Transmission Control Protocol
-   * :abbr:    UDP
-     :desc:    User Datagram Protocol
+   * :abbr,10:	Abbreviation
+     :desc,90:	Description
+   * :abbr:	ADC
+     :desc:	Analog Digital Converter
+   * :abbr:	AI
+     :desc:	Analog Input
+   * :abbr:	AO
+     :desc:	Analog Output
+   * :abbr:	APCI
+     :desc:	Application Protocol Control Interface
+   * :abbr:	APDU
+     :desc:	Application Protocol Data Unit
+   * :abbr:	ASDU
+     :desc:	Application Service Data Unit
+   * :abbr:	CAA
+     :desc:	Common Address of ASDU
+   * :abbr:	CID
+     :desc:	Configured IED Description
+   * :abbr:	COT
+     :desc:	Cause Of Transmission
+   * :abbr:	DI
+     :desc:	Digital Input
+   * :abbr:	DO
+     :desc:	Digital Output
+   * :abbr:	DPI
+     :desc:	Double Point Information
+   * :abbr:	DST
+     :desc:	Daylight Saving Time
+   * :abbr:	HMI
+     :desc:	Human Machine Interface
+   * :abbr:	IANA
+     :desc:	Internet Assigned Numbers Authority
+   * :abbr:	ICD
+     :desc:	IED Capabilities Description
+   * :abbr:	IED
+     :desc:	Intelligent Electronic Device
+   * :abbr:	IO
+     :desc:	Input/Output
+   * :abbr:	IP
+     :desc:	Internet Protocol
+   * :abbr:	IOA
+     :desc:	Information Object Address
+   * :abbr:	LD
+     :desc:	Logical Device (for IEC61850)
+   * :abbr:	LN
+     :desc:	Logical Node (for IEC61850)
+   * :abbr:	LRU
+     :desc:	Logical Remote Unit
+   * :abbr:	PID
+     :desc:	Running Process Identifier
+   * :abbr:	PLC
+     :desc:	Programmable Logic Controller
+   * :abbr:	OS
+     :desc:	Operating System
+   * :abbr:	SCADA
+     :desc:	Supervisory Control And Data Acqusition system
+   * :abbr:	SCD
+     :desc:	Substation Configuration Description
+   * :abbr:	SCL
+     :desc:	System Configuration description Language
+   * :abbr:	SPI
+     :desc:	Single Point Information
+   * :abbr:	SSH
+     :desc:	Secure shell
+   * :abbr:	TCP
+     :desc:	Transmission Control Protocol
+   * :abbr:	UDP
+     :desc:	User Datagram Protocol
 
 Text styles used in this manual:
 
-:xmlref:`Dark blue used for XML nodes and attributes`
+:xmlstyle:`Dark blue used for XML elements and attributes`
 
 :leubold:`Links to tables and manual sections are bold underlined`
+
+:bitref:`Links to bits of bit encoded attributes are italic underlined`
 
 :inlinetip:`Notes in green for additional information on how to use attribute/setting`
 

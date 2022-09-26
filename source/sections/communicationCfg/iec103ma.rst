@@ -1,60 +1,42 @@
 
-.. _ref-IEC103ma:
+.. _xmlelem-gp103ma:
 
 IEC103ma
 ^^^^^^^^
 
 General settings of the IEC60870-5-103 controlling station (Master) communication protocol instance.
-.. include-file:: sections/Include/sample_node.rstinc "" ":ref:`<ref-IEC103ma>`"
+.. include-file:: sections/Include/sample_node.rstinc "" ":ref:`xmlelem-gp103ma`"
 
 .. code-block:: none
 
    <IEC103ma Index="20" HWIndex="3" XMLpath="Feeder_F1.xml" LinkAddr="5" ASDUAddr="5" CommsFlags="0x80" Name="Feeder_IED1"/>
 
 
-.. _ref-IEC103maAttributes:
+.. include-file:: sections/Include/table_gp.rstinc "" "tabid-gp103ma" "IEC103ma"
 
-.. field-list-table:: IEC103ma node
-   :class: table table-condensed table-bordered longtable
-   :header-rows: 1
-   :spec: |C{0.14}|C{0.12}|S{0.74}|
+.. include-file:: sections/Include/gp_ma_Index.rstinc "" 
 
-   * :attr,10: Attribute
-     :val,15:  Values or range
-     :desc,75: Description
+.. include-file:: sections/Include/gp_HWIndex.rstinc "" ":ref:`xmlelem-uart`.\ :ref:`xmlattr-UARTIndex`\; :ref:`xmlelem-tcpserver`.\ :ref:`xmlattr-TCPSERVERIndex`\; :ref:`xmlelem-tcpclient`.\ :ref:`xmlattr-TCPCLIENTIndex` or :ref:`xmlelem-udp`.\ :ref:`xmlattr-UDPIndex`"
+		:inlinetip:`Multiple` :ref:`xmlelem-gp103ma` :inlinetip:`instances can share the same hardware node.`
 
-   * :attr:     :xmlref:`Index`
-     :val:      1...254
-     :desc:     Index is a unique identifier of the communication protocol instance.
-		It is used to reference protocol instance from other configuration files e.g. IO object tables
-		(please see :ref:`DI<ref-IEC10xslDI>`.\ :ref:`<ref-IEC10xslDIDevice>`\; :ref:`AI<ref-IEC10xslAI>`.\ :ref:`<ref-IEC10xslAIDevice>`\; :ref:`DO<ref-IEC10xslDO>`.\ :ref:`<ref-IEC10xslDODevice>`\; :ref:`AO<ref-IEC10xslAO>`.\ :ref:`<ref-IEC10xslAODevice>` \ attributes of the Slave protocol instance)
-		:inlinetip:`Indexes don't have to be in a sequential order.`
+.. include-file:: sections/Include/gp_XMLpath.rstinc ""
 
-   * :attr:     :xmlref:`HWIndex`
-     :val:      1...254
-     :desc:     Hardware Index is used to link the communication protocol instance to a hardware node.
-		Use value of the :ref:`<ref-UART>`.\ :ref:`<ref-UARTIndex>`\; :ref:`<ref-TCPSERVER>`.\ :ref:`<ref-TCPSERVERIndex>`\; :ref:`<ref-TCPCLIENT>`.\ :ref:`<ref-TCPCLIENTIndex>` \ or :ref:`<ref-UDP>`.\ :ref:`<ref-UDPIndex>` \ attribute as a hardware index in order to link the protocol instance.
-		:inlinetip:`Multiple` :ref:`<ref-IEC103ma>` :inlinetip:`communication protocol instances can share the same hardware node.`
-
-.. include-file:: sections/Include/Comms_XMLpath.rstinc "" ".. _ref-IEC103maXMLpath:"
-
-   * :attr:    .. _ref-IEC103maLinkAddr:
-
-                :xmlref:`LinkAddr`
-     :val:      1...254
-     :desc:     Link layer address of the communication protocol instance.
+   * :attr:	:xmlattr:`LinkAddr`
+     :val:	1...254
+     :desc:	Link layer address of the communication protocol instance.
 		Address of the connected IEC60870-5-103 Slave station (e.g. IED) must be the same.
 		Please note value 255 is Broadcast address and can't be used.
 
-   * :attr:     :xmlref:`ASDUAddr`
-     :val:      1...254
-     :desc:     Common address of ASDU (CAA).
+   * :attr:	:xmlattr:`ASDUAddr`
+     :val:	1...254
+     :desc:	Common address of ASDU (CAA).
 		Only one ASDU per IEC60870-5-103 Master station is supported.
 		Address of the connected IEC60870-5-103 Slave station (e.g. IED) must be the same.
 		Please note value 255 is Broadcast address and can't be used.
-		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, value of the` :ref:`LinkAddr<ref-IEC103maLinkAddr>` :inlinetip:`will be used if omitted.`
+		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, value of the` :ref:`xmlattr-gp103maLinkAddr` :inlinetip:`will be used if omitted.`
 
-.. include-file:: sections/Include/Comms_CommsFlags.rstinc ""
+.. include-file:: sections/Include/gp_CommsFlags.rstinc ""
 
 .. include-file:: sections/Include/Name_wodef.rstinc ""
 
+.. include-file:: sections/Include/gp_section.rstinc "" ":ref:`xmlattr-gp103maXMLpath`" ":ref:`docref-IEC103ma`"

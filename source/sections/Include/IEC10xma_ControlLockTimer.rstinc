@@ -1,10 +1,8 @@
-   * :attr:	:include-arg:`1`
-
-		:xmlref:`ControlLockTimer`
+   * :attr:	:xmlattr:`ControlLockTimer`
      :val:	0...120
      :def:	20 sec
      :desc:	Control command lock timer is used to poll only one outstation for a configured number of seconds after sending a control command.
-		All other outstations that share the same hardware channel (e.g. serial port) are temporary excluded from polling while :xmlref:`ControlLockTimer` operates.
+		All other outstations that share the same hardware channel (e.g. serial port) are temporary excluded from polling while :include-arg:`1` operates.
 		This feature enables to speed up reception of a control command feedback. 
-		:xmlref:`ControlLockTimer` can only be used if more than one outstation share the hardware channel.
+		:include-arg:`1` can only be used if more than one outstation share the hardware channel.
 		Value 0 disables control lock timer feature.

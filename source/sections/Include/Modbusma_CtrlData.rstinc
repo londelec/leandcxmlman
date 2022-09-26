@@ -1,0 +1,1 @@
+Please note :ref:`xmlelem-ModbusmaCtrlMsg`.\ :ref:`xmlattr-ModbusmaCtrlMsgData` attribute must always be present for messasge types that expect to write more than one Modbus register (more than 2 bytes).

@@ -1,0 +1,2 @@
+Settings specific to the communication protocol and IO object tables are defined in a separate XML file specified in :include-arg:`1` attribute.
+Contents of this XML file are described in the section :include-arg:`2`.

@@ -1,6 +1,7 @@
-.. field-list-table:: :include-arg:`1`
+.. field-list-table:: :include-arg:`2`
    :class: table table-condensed table-bordered longtable
-   :include-arg:`2`
+   :name: :include-arg:`1`
+   :include-arg:`3`
    :header-rows: 1
 
    * :attr,10: Attribute

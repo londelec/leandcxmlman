@@ -12,17 +12,18 @@ XML file parse settings such as information object address validation can be spe
    <XMLSettings IOAOverlap="1" />
 
 
-:include-arg:`3`
+.. include-file:: sections/Include/table_attrs.rstinc "" ":include-arg:`3`" ":include-arg:`4`" ":spec: |C{0.13}|C{0.1}|C{0.1}|S{0.67}|"
 
-.. include-file:: sections/Include/table_attrs.rstinc "" ":include-arg:`4`" ":spec: |C{0.13}|C{0.1}|C{0.1}|S{0.67}|"
-
-   * :attr:     :xmlref:`IOAOverlap`
-     :val:      0
-     :def:      0
-     :desc:     Each information object (DI/AI/DO/AO) specified in an IO table must have unique information object address (IOA). Error message will be generated and IO object table will be purged if address duplication is detected.
+   * :attr:	:xmlattr:`IOAOverlap`
+     :val:	0
+     :def:	0
+     :desc:	Each information object (DI/AI/DO/AO) specified in an IO table must have unique information object address (IOA).
+		Error message will be generated and IO object table will be purged if address duplication is detected.
 
    * :(attr):
-     :val:      1
+     :val:	1
      :(def):
-     :desc:     Information address duplication is checked only within confines of a particular object type (DI/AI/DO/AO). Objects of different types are allowed to reuse same information addresses. Error message will be generated and objects of a particular type will be purged if address duplication is detected.
+     :desc:	Information address duplication is checked only within confines of a particular object type (DI/AI/DO/AO).
+		Objects of different types are allowed to reuse same information addresses.
+		Error message will be generated and objects of a particular type will be purged if address duplication is detected.
 

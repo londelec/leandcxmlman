@@ -1,34 +1,26 @@
-   * :attr:     :include-arg:`1`
-
-                :xmlref:`DOQOC`
-     :val:      See table :numref:`docref-IEC10xmaDOQOCValues`
-     :def:      0
-     :desc:     Qualifier Of Command [:lemonobgtext:`QOC`] is used to set additional information (e.g. [:lemonobgtext:`no additional definition`]; [:lemonobgtext:`short-pulse duration`]) when command is being sent to the DO object which doesn't have :ref:`DO<ref-IEC10xmaDO>`.\ :ref:`<ref-IEC10xmaDOQOC>` \ attribute specified in its element node.
-		Refer to table :numref:`docref-IEC10xmaDOQOCValues` for :xmlref:`QOC` values.
+   * :attr:	:xmlattr:`DOQOC`
+     :val:	See :numref:`tabid-IEC10xmaDOQOC`
+     :def:	0
+     :desc:	Qualifier Of Command [:lemonobgtext:`QOC`] is used to set additional information (e.g. [:lemonobgtext:`no additional definition`]; [:lemonobgtext:`short-pulse duration`]) when command is being sent to the DO object which doesn't have :ref:`xmlelem-IEC10xmaDO`.\ :ref:`xmlattr-IEC10xmaDOQOC` \ attribute specified in its element node.
+		Refer to :numref:`tabid-IEC10xmaDOQOC` for available values.
 		(default value 0 [:lemonobgtext:`no additional definition`])
 
-   * :attr:     :include-arg:`2`
+   * :attr:	:xmlattr:`DOType`
+     :val:	See :numref:`tabid-IEC10xmaDOTypeID`
+     :def:	transparent
+     :desc:	DO ASDU type is used when command is being sent to the DO object which doesn't have :ref:`xmlelem-IEC10xmaDO`.\ :ref:`xmlattr-IEC10xmaDOTypeID` \ attribute specified in its element node.
+		Refer to :numref:`tabid-IEC10xmaDOTypeID` for values.
+		ASDU type is transparent if neither this attribute nor :ref:`xmlelem-IEC10xmaDO`.\ :ref:`xmlattr-IEC10xmaDOTypeID` \ attribute is used.
 
-                :xmlref:`DOType`
-     :val:      See table :numref:`docref-IEC10xmaDOTypeIDValues`
-     :def:      transparent
-     :desc:     DO ASDU type is used when command is being sent to the DO object which doesn't have :ref:`DO<ref-IEC10xmaDO>`.\ :ref:`<ref-IEC10xmaDOTypeID>` \ attribute specified in its element node.
-		Refer to table :numref:`docref-IEC10xmaDOTypeIDValues` for values.
-		ASDU type is transparent if neither this attribute nor :ref:`DO<ref-IEC10xmaDO>`.\ :ref:`<ref-IEC10xmaDOTypeID>` \ attribute is used.
+   * :attr:	:xmlattr:`AOType`
+     :val:	See :numref:`tabid-IEC10xmaAOTypeID`
+     :def:	transparent
+     :desc:	AO ASDU type is used when command is being sent to the AO object which doesn't have :ref:`xmlelem-IEC10xmaAO`.\ :ref:`xmlattr-IEC10xmaAOTypeID` \ attribute specified in its element node.
+		Refer to :numref:`tabid-IEC10xmaAOTypeID` for values.
+		ASDU type is transparent if neither this attribute nor :ref:`xmlelem-IEC10xmaAO`.\ :ref:`xmlattr-IEC10xmaAOTypeID` \ attribute is used.
 
-   * :attr:     :include-arg:`3`
-
-                :xmlref:`AOType`
-     :val:      See table :numref:`docref-IEC10xmaAOTypeIDValues`
-     :def:      transparent
-     :desc:     AO ASDU type is used when command is being sent to the AO object which doesn't have :ref:`AO<ref-IEC10xmaAO>`.\ :ref:`<ref-IEC10xmaAOTypeID>` \ attribute specified in its element node.
-		Refer to table :numref:`docref-IEC10xmaAOTypeIDValues` for values.
-		ASDU type is transparent if neither this attribute nor :ref:`AO<ref-IEC10xmaAO>`.\ :ref:`<ref-IEC10xmaAOTypeID>` \ attribute is used.
-
-   * :attr:     :include-arg:`4`
-
-                :xmlref:`Flags`
-     :val:      0...255 or 0x00...0xFF
-     :def:      0x00
-     :desc:     Various settings to enable customized data processing.
-		See table :include-arg:`5` for description.
+   * :attr:	:xmlattr:`Flags`
+     :val:	|flags8range|
+     :def:	0x00
+     :desc:	Various settings to enable customized data processing.
+		See :include-arg:`1` for description.

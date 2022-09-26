@@ -1,0 +1,4 @@
+This section contains details on how to configure :include-arg:`1` communication protocol instance. 
+Each :include-arg:`1` instance must have XML configuration file where IO object table and additional protocol-related settings are stored.
+One XML file can be used for multiple communication protocol instances.
+This may be useful if identical set of IO objects :include-arg:`2`.

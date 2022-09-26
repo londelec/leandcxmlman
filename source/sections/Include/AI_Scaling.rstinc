@@ -1,53 +1,33 @@
-   * :attr:     :include-arg:`1`
-
-		:xmlref:`StartOffset`
-
-		\*
-     :val:      0 or +1.18×10\ :sup:`-38` \ ... +3.4×10\ :sup:`38`\
-     :def:      0
-     :desc:     Start offset is normally used to adjust 4-20mA transducer output range, e.g. offset by a value that represents 4mA.
+   * :attr:	:xmlattr:`StartOffset` \*
+     :val:	0 or +1.18×10\ :sup:`-38` \ ... +3.4×10\ :sup:`38`\
+     :def:	0
+     :desc:	Start offset is normally used to adjust 4-20mA transducer output range, e.g. offset by a value that represents 4mA.
 		AI will be forced to 0 and Invalid [:lemonobgtext:`IV`] bit set if the received value is smaller than this offset.
-		:xmlref:`StartOffset` will be subtracted from the received value if the received value is greater or equal to this offset.
-		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
+		:include-arg:`1` will be subtracted from the received value if the received value is greater or equal to this offset.
+		|optinalattr|
 
-   * :attr:     :include-arg:`2`
+   * :attr:	:xmlattr:`ZeroDeadband` \*
+     :val:	0 or +1.18×10\ :sup:`-38` \ ... +3.4×10\ :sup:`38`\
+     :def:	0
+     :desc:	Zero Deadband is used to filter noise by forcing low AI values to 0.
+		AI will be forced to 0 if its real-time absolute value (+/-) falls below :include-arg:`2` attribute.
+		|optinalattr|
 
-		:xmlref:`ZeroDeadband`
+   * :attr:	:xmlattr:`Offset` \*
+     :val:	0 or ±1.18×10\ :sup:`-38` \ ... ±3.4×10\ :sup:`38`\
+     :def:	0
+     :desc:	Offset AI value **after** :include-arg:`2` has been applied. 
+		|optinalattr|
 
-		\*
-     :val:      0 or +1.18×10\ :sup:`-38` \ ... +3.4×10\ :sup:`38`\
-     :def:      0
-     :desc:     Zero Deadband is used to filter noise by forcing low AI values to 0.
-		AI will be forced to 0 if its real-time absolute value (+/-) falls below :xmlref:`ZeroDeadband` attribute.
-		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
+   * :attr:	:xmlattr:`OffsetDeadband` \*
+     :val:	0 or +1.18×10\ :sup:`-38` \ ... +3.4×10\ :sup:`38`\
+     :def:	0
+     :desc:	Offset Zero Deadband is used to filter noise around 0 value **after** applying :include-arg:`3`.
+		AI will be forced to 0 if its absolute value (+/-) after offsetting falls below :include-arg:`4` attribute.
+		|optinalattr|
 
-   * :attr:     :include-arg:`3`
-
-		:xmlref:`Offset`
-
-		\*
-     :val:      0 or ±1.18×10\ :sup:`-38` \ ... ±3.4×10\ :sup:`38`\
-     :def:      0
-     :desc:     Offset AI value **after** :xmlref:`ZeroDeadband` has been applied. 
-		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
-
-   * :attr:     :include-arg:`4`
-
-		:xmlref:`OffsetDeadband`
-
-		\*
-     :val:      0 or +1.18×10\ :sup:`-38` \ ... +3.4×10\ :sup:`38`\
-     :def:      0
-     :desc:     Offset Zero Deadband is used to filter noise around 0 value **after** applying :xmlref:`Offset`.
-		AI will be forced to 0 if its absolute value (+/-) after offsetting falls below :xmlref:`OffsetDeadband` attribute.
-		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
-
-   * :attr:     :include-arg:`5`
-
-		:xmlref:`NonZeroOffset`
-
-		\*
-     :val:      0 or ±1.18×10\ :sup:`-38` \ ... ±3.4×10\ :sup:`38`\
-     :def:      0
-     :desc:     Offset only non-zero values **after** :xmlref:`ZeroDeadband`; :xmlref:`Offset` and :xmlref:`OffsetDeadband` has been applied.
-		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
+   * :attr:	:xmlattr:`NonZeroOffset` \*
+     :val:	0 or ±1.18×10\ :sup:`-38` \ ... ±3.4×10\ :sup:`38`\
+     :def:	0
+     :desc:	Offset only non-zero values **after** :include-arg:`2`; :include-arg:`3` and :include-arg:`4` has been applied.
+		|optinalattr|

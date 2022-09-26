@@ -1,7 +1,7 @@
-   * :attr:     :xmlref:`TimeZone`
-     :val:      Max 200 chars
-     :def:      n/a
-     :desc:     Adjust time-tags of the recorded information based on the specified time zone.
+   * :attr:	:xmlattr:`TimeZone`
+     :val:	Max 200 chars
+     :def:	n/a
+     :desc:	Adjust time-tags of the recorded information based on the specified time zone.
 		:inlineimportant:`Attribute must not be used if not required, there is no default value. Time-tags will not be adjusted if attribute omitted.`
 		:inlinetip:`Please see` :ref:`docref-TimeZoneSpecification` :inlinetip:`for additional information.`
 

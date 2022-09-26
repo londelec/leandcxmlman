@@ -1,6 +1,5 @@
-   * :attr:	:include-arg:`1`
-
-		:xmlref:`Reg`
-     :val:	0...65535 or 0x0000...0xFFFF
+   * :attr:	:xmlattr:`Reg`
+     :val:	|flags16range|
      :def:	0
-     :desc:	Modbus register number. :include-arg:`2`
+     :desc:	Modbus register number.
+		:include-arg:`1`

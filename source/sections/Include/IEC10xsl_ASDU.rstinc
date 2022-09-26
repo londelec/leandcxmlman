@@ -1,57 +1,61 @@
-   * :attr:     :xmlref:`DOType`
-     :val:      See table :numref:`docref-IEC10xslDOTypeIDValues`
-     :def:      0 = any
-     :desc:     Only accept command if received with this ASDU Type (e.g. Single or Double command) if DO object doesn't have :ref:`DO<ref-IEC10xslDO>`.\ :ref:`<ref-IEC10xslDOTypeID>` \ attribute specified in the element node. (default value 0 – accept command with any ASDU type)
+   * :attr:	:xmlattr:`DOType`
+     :val:	See :numref:`tabid-IEC10xslDOTypeID`
+     :def:	0 = any
+     :desc:	Only accept command if received with this ASDU Type (e.g. Single or Double command) if DO object doesn't have :ref:`xmlelem-IEC10xslDO`.\ :ref:`xmlattr-IEC10xslDOTypeID` \ attribute specified in the element node. (default value 0 – accept command with any ASDU type)
 
-   * :attr:     :xmlref:`AOType`
-     :val:      See table :numref:`docref-IEC10xslAOTypeIDValues`
-     :def:      0 = any
-     :desc:     Only accept setpoint command if received with this ASDU Type (e.g. Normalized or Scaled setpoint) if AO object doesn't have :ref:`AO<ref-IEC10xslAO>`.\ :ref:`<ref-IEC10xslAOTypeID>` \ attribute specified in the element node. (default value 0 – accept command with any ASDU type)
+   * :attr:	:xmlattr:`AOType`
+     :val:	See :numref:`tabid-IEC10xslAOTypeID`
+     :def:	0 = any
+     :desc:	Only accept setpoint command if received with this ASDU Type (e.g. Normalized or Scaled setpoint) if AO object doesn't have :ref:`xmlelem-IEC10xslAO`.\ :ref:`xmlattr-IEC10xslAOTypeID` \ attribute specified in the element node. (default value 0 – accept command with any ASDU type)
 
-   * :attr:     :xmlref:`DOProc`
-     :val:      0; 1 or 2
-     :def:      0 = any
-     :desc:     Enabled command procedures (e.g. Direct Execute or Select-Before-Execute) if DO object doesn't have :ref:`DO<ref-IEC10xslDO>`.\ :ref:`<ref-IEC10xslDOqualifier>` \ attribute specified in the element node. Values: 0 – accept any command procedure; 1 – accept only Direct Execute; 2 – accept only Select-Before-Execute; 
+   * :attr:	:xmlattr:`DOProc`
+     :val:	0; 1 or 2
+     :def:	0 = any
+     :desc:	Enabled command procedures (e.g. Direct Execute or Select-Before-Execute) if DO object doesn't have :ref:`xmlelem-IEC10xslDO`.\ :ref:`xmlattr-IEC10xslDOqualifier` \ attribute specified in the element node. Values: 0 – accept any command procedure; 1 – accept only Direct Execute; 2 – accept only Select-Before-Execute; 
 
-   * :attr:     :xmlref:`AOProc`
-     :val:      0; 1 or 2
-     :def:      0 = any
-     :desc:     Enabled command procedures (e.g. Direct Execute or Select-Before-Execute) if AO object doesn't have :ref:`AO<ref-IEC10xslAO>`.\ :ref:`<ref-IEC10xslAOqualifier>` \ attribute specified in the element node. Values: 0 – accept any command procedure; 1 – accept only Direct Execute; 2 – accept only Select-Before-Execute; 
+   * :attr:	:xmlattr:`AOProc`
+     :val:	0; 1 or 2
+     :def:	0 = any
+     :desc:	Enabled command procedures (e.g. Direct Execute or Select-Before-Execute) if AO object doesn't have :ref:`xmlelem-IEC10xslAO`.\ :ref:`xmlattr-IEC10xslAOqualifier` \ attribute specified in the element node. Values: 0 – accept any command procedure; 1 – accept only Direct Execute; 2 – accept only Select-Before-Execute; 
 
-   * :attr:     :xmlref:`DIInterDelay`
-     :val:      0...2\ :sup:`32`\  - 1
-     :def:      10000 msec
-     :desc:     Intermediate state reporting delay in milliseconds used when single status information objects are converted to double status objects. Intermediate state of the resulting DPI will not be reported if it doesn't exceed configured delay. This attribute is used for DI objects which don't have :ref:`DI<ref-IEC10xslDI>`.\ :ref:`<ref-IEC10xslDIInterDelay>` \ attribute. (default value 10000 - event will be generated if Intermediate state lasts longer than 10 seconds)
+   * :attr:	:xmlattr:`DIInterDelay`
+     :val:	0...2\ :sup:`32`\  - 1
+     :def:	10000 msec
+     :desc:	Intermediate state reporting delay in milliseconds used when single status information objects are converted to double status objects. Intermediate state of the resulting DPI will not be reported if it doesn't exceed configured delay. This attribute is used for DI objects which don't have :ref:`xmlelem-IEC10xslDI`.\ :ref:`xmlattr-IEC10xslDIInterDelay` \ attribute. (default value 10000 - event will be generated if Intermediate state lasts longer than 10 seconds)
 
-   * :attr:     :xmlref:`DIIndetDelay`
-     :val:      0...2\ :sup:`32`\  - 1
-     :def:      5000 msec
-     :desc:     Indeterminate (error) state reporting delay in milliseconds used when single status information objects are converted to double status objects. Indeterminate (error) state of the resulting DPI will not be reported if it doesn't exceed configured delay. This attribute is used for DI objects which don't have :ref:`DI<ref-IEC10xslDI>`.\ :ref:`<ref-IEC10xslDIIndetDelay>` \ attribute. (default value 5000 - event will be generated if Indeterminate (error) state lasts longer than 5 seconds)
+   * :attr:	:xmlattr:`DIIndetDelay`
+     :val:	0...2\ :sup:`32`\  - 1
+     :def:	5000 msec
+     :desc:	Indeterminate (error) state reporting delay in milliseconds used when single status information objects are converted to double status objects. Indeterminate (error) state of the resulting DPI will not be reported if it doesn't exceed configured delay. This attribute is used for DI objects which don't have :ref:`xmlelem-IEC10xslDI`.\ :ref:`xmlattr-IEC10xslDIIndetDelay` \ attribute. (default value 5000 - event will be generated if Indeterminate (error) state lasts longer than 5 seconds)
 
-.. include-file:: sections/Include/IEC60870_ASDU_EventStartup.rstinc
+.. include-file:: sections/Include/IEC60870_ASDU_EventStartup.rstinc ""
 
-   * :attr:     :xmlref:`TimeSync`
-     :val:      0
-     :def:      0
-     :desc:     **Reject** incoming clock synchronization messages.
-
-   * :(attr):
-     :val:      1
-     :(def):
-     :desc:     **Accept** incoming clock synchronization messages and synchronize internal real time clock. :inlinetip:`Please note internal real time clock will be synchronized immediately if a time difference between received time stamp and the internal clock is greater than 1 hour. If a time difference is less than 1 hour, internal clock will be adjusted only once an hour.`
-
-   * :attr:     :include-arg:`1`
-
-                :xmlref:`TranspTypes`
-     :val:      0
-     :def:      0
-     :desc:     ASDU type of every DI/AI object is determined by XML configuration settings.
+   * :attr:	:xmlattr:`TimeSync`
+     :val:	0
+     :def:	0
+     :desc:	**Reject** incoming clock synchronization messages.
 
    * :(attr):
-     :val:      1
+     :val:	1
      :(def):
-     :desc:     ASDU type of every DI/AI object will be made transparent whenever possible.
+     :desc:	**Accept** incoming clock synchronization messages and synchronize internal real time clock. :inlinetip:`Please note internal real time clock will be synchronized immediately if a time difference between received time stamp and the internal clock is greater than 1 hour. If a time difference is less than 1 hour, internal clock will be adjusted only once an hour.`
+
+   * :attr:	:xmlattr:`TranspTypes`
+     :val:	0
+     :def:	0
+     :desc:	ASDU type of every DI/AI object is determined by XML configuration settings.
+
+   * :(attr):
+     :val:	1
+     :(def):
+     :desc:	ASDU type of every DI/AI object will be made transparent whenever possible.
 		The same ASDU type will be used to report DI/AI object to upstream station as received from downstream outstation,
 		providing both source and destination communication protocol instances are compatible.
 		Otherwise default ASDU type will be used.
 		:inlinetip:`Please note object will be excluded from General Interrogation response before it is received from downstream outstation on leandc startup. This is because it is impossible to determine ASDU type of the object before is has been received from outstation.`
+
+   * :attr:	:xmlattr:`Flags`
+     :val:	|flags8range|
+     :def:	0x00
+     :desc:	Various settings to enable customized data processing.
+		See :include-arg:`1` for description.

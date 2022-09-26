@@ -1,6 +1,6 @@
-   * :attr:     :xmlref:`CtrlRdDebounce`
-     :val:      4...127
-     :def:      8
-     :desc:     UART control line debounce counter.
+   * :attr:	:xmlattr:`CtrlRdDebounce`
+     :val:	4...127
+     :def:	8
+     :desc:	UART control line debounce counter.
 		Control line has to remain in the same state for a configured number of successive reads before state change event is generated.
-		:inlineattention:`This attribute is excluded from user documentation.`
+		|internalattr|

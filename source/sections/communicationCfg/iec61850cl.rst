@@ -1,56 +1,40 @@
 
-.. _ref-IEC61850cl:
+.. _xmlelem-gp61850cl:
 
 IEC61850cl
 ^^^^^^^^^^
 
 General settings of the IEC61850 client communication protocol instance.
-.. include-file:: sections/Include/sample_node.rstinc "" ":ref:`<ref-IEC61850cl>`"
+.. include-file:: sections/Include/sample_node.rstinc "" ":ref:`xmlelem-gp61850cl`"
 
 .. code-block:: none
 
-   <IEC61850cl Index="20" HWIndex="2" XMLpath="REF_IO.xml" CIDpath="REF.cid" IEDname="IED1" CommsFlags="0x10" Name="IED"/>
+   <IEC61850cl Index="20" HWIndex="2" XMLpath="REF_IO.xml" SCLpath="REF.cid" IEDname="IED1" CommsFlags="0x10" Name="IED"/>
 
 
-.. _ref-IEC61850clAttributes:
+.. include-file:: sections/Include/table_gp.rstinc "" "tabid-gp61850cl" "IEC61850cl"
 
-.. field-list-table:: IEC61850cl node
-   :class: table table-condensed table-bordered longtable
-   :header-rows: 1
-   :spec: |C{0.14}|C{0.12}|S{0.74}|
+.. include-file:: sections/Include/gp_ma_Index.rstinc "" 
 
-   * :attr,10: Attribute
-     :val,15:  Values or range
-     :desc,75: Description
+.. include-file:: sections/Include/gp_HWIndex.rstinc "" ":ref:`xmlelem-tcpclient`.\ :ref:`xmlattr-TCPCLIENTIndex`"
 
-   * :attr:     :xmlref:`Index`
-     :val:      1...254
-     :desc:     Index is a unique identifier of the communication protocol instance. It is used to reference protocol instance from other configuration files e.g. IO object tables (please see :ref:`DI<ref-IEC10xslDI>`.\ :ref:`<ref-IEC10xslDIDevice>`\; :ref:`AI<ref-IEC10xslAI>`.\ :ref:`<ref-IEC10xslAIDevice>`\; :ref:`DO<ref-IEC10xslDO>`.\ :ref:`<ref-IEC10xslDODevice>`\; :ref:`AO<ref-IEC10xslAO>`.\ :ref:`<ref-IEC10xslAODevice>` \ attributes of the Slave protocol instance) :inlinetip:`Indexes don't have to be in a sequential order.`
+.. include-file:: sections/Include/gp_XMLpath.rstinc ""
 
-   * :attr:     :xmlref:`HWIndex`
-     :val:      1...254
-     :desc:     Hardware Index is used to link the communication protocol instance to a hardware node. Use value of the :ref:`<ref-TCPCLIENT>`.\ :ref:`<ref-TCPCLIENTIndex>` \ attribute as a hardware index in order to link the protocol instance.
-
-.. include-file:: sections/Include/Comms_XMLpath.rstinc "" ".. _ref-IEC61850clXMLpath:"
-
-   * :attr:     .. _ref-IEC61850clCIDpath:
-
-                :xmlref:`CIDpath`
-     :val:      Max 100 chars
-     :desc:     IED CID or SCD file name and path. This file contains communication capabilites and settings of the IED.
+   * :attr:	:xmlattr:`SCLpath`
+     :val:	Max 100 chars
+     :desc:	IED CID or SCD file name and path. This file contains communication capabilites and settings of the IED.
 		It is normaly exported from the IED configuration tool.
-		File path may be omitted if XML file is stored in the default directory (|leandcapp|)
+		Path may be omitted if the file is located in the default directory (|leandcapp|)
 		:inlineimportant:`Attribute is case sensitive, observe case of the path and file name when specifying.`
 
-   * :attr:     .. _ref-IEC61850clIEDname:
-
-                :xmlref:`IEDname`
-     :val:      Max 64 chars
-     :desc:     IED name as specified in the SCL file.
-		:xmlref:`IEDname` must be specified if SCL file contains more than one IED.
+   * :attr:	:xmlattr:`IEDname`
+     :val:	Max 64 chars
+     :desc:	IED name as specified in the SCL file.
+		Attribute is mandatory if SCL file contains more than one IED.
 		:inlineimportant:`Attribute is case sensitive, observe case of the IED name when specifying.`
 
-.. include-file:: sections/Include/Comms_CommsFlags.rstinc ""
+.. include-file:: sections/Include/gp_CommsFlags.rstinc ""
 
 .. include-file:: sections/Include/Name_wodef.rstinc ""
 
+.. include-file:: sections/Include/gp_section.rstinc "" ":ref:`xmlattr-gp61850clXMLpath`" ":ref:`docref-IEC61850cl`"

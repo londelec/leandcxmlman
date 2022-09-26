@@ -1,0 +1,7 @@
+   * :attr:	:xmlattr:`FollowCtrlMsg`
+     :val:	|sermamessagerange|
+     :def:	0
+     :desc:	Identifier of the Control message that will be sent before this message.
+		Current message will be sent after Control message with the identifier specified in this attribute is complete.
+		Value 0 means this message is sent on its own and doesn't follow any messages.
+		:inlinetip:`Attribute is optional and doesn't have to be included in configuration.`

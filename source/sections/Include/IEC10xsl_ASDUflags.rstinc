@@ -1,0 +1,17 @@
+   * :attr:	Bit 3
+     :val:	xxxx.0xxx
+     :desc:	Use **internal time** when sending delayed INTER or INDET state event.
+		This setting applies only to 2 Single Point object conversion to a Double Point.
+		In case Intermediate/Indeterminate state reporting is delayed with :ref:`xmlelem-IEC10xslDI`.\ :ref:`xmlattr-IEC10xslDIInterDelay` or :ref:`xmlelem-IEC10xslDI`.\ :ref:`xmlattr-IEC10xslDIIndetDelay` attributes,
+		the INTER/INDET state event's time tag will contain the current time i.e. the time when this event is generated.
+
+   * :(attr):
+     :val:	xxxx.1xxx
+     :desc:	Use **original time tag of the event** that resulted in INTER or INDET state.
+		This setting applies only to 2 Single Point object conversion to a Double Point.
+		In case Intermediate/Indeterminate state reporting is delayed with :ref:`xmlelem-IEC10xslDI`.\ :ref:`xmlattr-IEC10xslDIInterDelay` or :ref:`xmlelem-IEC10xslDI`.\ :ref:`xmlattr-IEC10xslDIIndetDelay` attributes,
+		the INTER/INDET state event will contain original time tag of the event (received before the delay) that resulted in INTER/INDET state.
+
+   * :attr:	Bits 0...2;4...7
+     :val:	Any
+     :desc:	Bits reserved for future use

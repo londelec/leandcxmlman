@@ -1,7 +1,5 @@
-   * :attr:     :include-arg:`1`
-
-                :xmlref:`Source`
-     :val:      1...254
-     :desc:     Source communication protocol instance index.
-		IO objects without individual :ref:`DI<ref-IEC10xslDI>`.\ :ref:`<ref-IEC10xslDIDevice>`\; :ref:`AI<ref-IEC10xslAI>`.\ :ref:`<ref-IEC10xslAIDevice>`\; :ref:`DO<ref-IEC10xslDO>`.\ :ref:`<ref-IEC10xslDODevice>`\; :ref:`AO<ref-IEC10xslAO>`.\ :ref:`<ref-IEC10xslAODevice>` \ attributes will be linked to Master protocol instance specified in :xmlref:`Source`.
-		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, IO object` :ref:`DI<ref-IEC10xslDI>`.\ :ref:`<ref-IEC10xslDIDevice>`\; :ref:`AI<ref-IEC10xslAI>`.\ :ref:`<ref-IEC10xslAIDevice>`\; :ref:`DO<ref-IEC10xslDO>`.\ :ref:`<ref-IEC10xslDODevice>`\; :ref:`AO<ref-IEC10xslAO>`.\ :ref:`<ref-IEC10xslAODevice>` \ :inlinetip:`attributes will be used if omitted.`
+   * :attr:	:xmlattr:`Source`
+     :val:	|gpindexrange|
+     :desc:	Source communication protocol instance index.
+		IO objects without individual :ref:`xmlelem-IEC10xslDI`.\ :ref:`xmlattr-IEC10xslDIDevice`\; :ref:`xmlelem-IEC10xslAI`.\ :ref:`xmlattr-IEC10xslAIDevice`\; :ref:`xmlelem-IEC10xslDO`.\ :ref:`xmlattr-IEC10xslDODevice`\; :ref:`xmlelem-IEC10xslAO`.\ :ref:`xmlattr-IEC10xslAODevice` \ attributes will be linked to the Master protocol instance specified in this attribute.
+		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, IO object` :ref:`xmlelem-IEC10xslDI`.\ :ref:`xmlattr-IEC10xslDIDevice`\; :ref:`xmlelem-IEC10xslAI`.\ :ref:`xmlattr-IEC10xslAIDevice`\; :ref:`xmlelem-IEC10xslDO`.\ :ref:`xmlattr-IEC10xslDODevice`\; :ref:`xmlelem-IEC10xslAO`.\ :ref:`xmlattr-IEC10xslAODevice` \ :inlinetip:`attributes will be used if omitted.`

@@ -1,27 +1,21 @@
-   * :attr:     :include-arg:`1`
-
-                :xmlref:`NoRespCount`
-     :val:      1...255
-     :def:      5 retries
-     :desc:     Outstation no-response counter.
+   * :attr:	:xmlattr:`NoRespCount`
+     :val:	1...255
+     :def:	5 retries
+     :desc:	Outstation no-response counter.
 		Station status will be changed to OFFLINE when outstation fails to reply to a configured number of subsequent requests.
-		Station status will be changed to OFFLINE instantly, unless additional delay is configured in :include-arg:`4` attribute.
+		Station status will be changed to OFFLINE instantly, unless additional delay is configured in :include-arg:`1` attribute.
 		(default 5 retries - outgoing message will be retried 5 times before station status is changed to OFFLINE)
 
-   * :attr:     :include-arg:`2`
-
-                :xmlref:`DegradedRetries`
-     :val:      0...255
-     :def:      5 retries
-     :desc:     Outgoing message retries before activating :include-arg:`5`.
+   * :attr:	:xmlattr:`DegradedRetries`
+     :val:	0...255
+     :def:	5 retries
+     :desc:	Outgoing message retries before activating :include-arg:`2`.
 		Outstation will be temporarily excluded from polling if it fails to reply to a configured number of requests.
 		Value 0 disables degraded timeout functionality.
 
-   * :attr:     :include-arg:`3`
-
-                :xmlref:`DegradedTimeout`
-     :val:      0...2\ :sup:`32`\  - 1
-     :def:      600 sec
-     :desc:     Degraded timeout in seconds.
-		Outstation is excluded from polling for a configured number of seconds if it has failed to reply to a number of requests configured in :include-arg:`6` attribute.
+   * :attr:	:xmlattr:`DegradedTimeout`
+     :val:	0...2\ :sup:`32`\  - 1
+     :def:	:include-arg:`4`
+     :desc:	Degraded timeout in seconds.
+		Outstation is excluded from polling for a configured number of seconds if it has failed to reply to a number of requests configured in :include-arg:`3` attribute.
 		Value 0 disables degraded timeout functionality.

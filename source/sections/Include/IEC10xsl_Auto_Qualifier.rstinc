@@ -1,0 +1,7 @@
+   * :attr:	:include-arg:`1`
+     :val:	|flags8range|
+     :def:	0x00
+     :desc:	Internal :include-arg:`3` object qualifier to enable customized data processing.
+		See :include-arg:`2` for internal object qualifier description.
+		|optinalattr|
+

@@ -1,0 +1,7 @@
+   * :attr:	:xmlattr:`TypeID`
+     :val:	See :include-arg:`1`
+     :def:	transparent
+     :desc:	Send command with the defined ASDU Type.
+		ASDU type is transparent if neither this attribute nor communication protocol generic attribute (e.g. IEC101ma or IEC104ma :ref:`xmlelem-IEC101maAsdu`.\ :include-arg:`2` \) is used.
+		:inlinetip:`Attribute is optional and doesn't have to be included in configuration.`
+

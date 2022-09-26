@@ -1,8 +1,0 @@
-   * :attr:	:include-arg:`1`
-
-		:include-arg:`2`
-     :val:	1...65534
-     :def:	n/a
-     :desc:	This is a unique identifier of the message. 
-		:inlineimportant:`Message numbering must start with 1 and messages must be arranged in an ascending order.
-		This restriction has been put in place to prevent insertion of a new message because it affects object mapping to messages.`	

@@ -1,0 +1,7 @@
+   * :attr:	:xmlattr:`Hostname`
+     :val:	Max 200 chars
+     :def:	n/a
+     :desc:	:include-arg:`3` if IP address can be resolved from this host name.
+		If it is impossible to resolve the IP address, the next attempt will take place after number of seconds specified in :include-arg:`2` attribute.
+		This attribute has lower priority than :include-arg:`1`, IP address will be uses if both attributes are specified.
+		|internalattr|

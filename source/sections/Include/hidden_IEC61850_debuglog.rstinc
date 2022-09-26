@@ -1,0 +1,9 @@
+   * :attr:	Bit 7
+     :val:	0xxx.xxxx
+     :desc:	Debug level of logging **Disabled**.
+		|internalbit|
+
+   * :(attr):
+     :val:	1xxx.xxxx
+     :desc:	Debug level of logging **Enabled**.
+		|internalbit|

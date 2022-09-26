@@ -1,0 +1,10 @@
+   * :attr:	:include-arg:`1`
+     :val:	0...65535 or 0...65535/0...65535
+     :def:	:include-arg:`3`
+     :desc:	| Received data value that corresponds to :include-arg:`4` position. Data can be specified in any of the following ways:
+		| > Single data value :include-arg:`2`\ ="1";
+		| > 2 data values for double status information that is reported with 2 different Spabus channel or data numbers e.g. :include-arg:`2`\ ="0/1";
+		| > A list of up to 32 values separated by commas e.g. :include-arg:`2`\ ="2,3,7".
+		    Any list value received from IED will result in DI :include-arg:`4` position;
+		| > Wildcard :include-arg:`2`\ ="*" means any value will be accepted.
+		| :inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`

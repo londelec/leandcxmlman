@@ -1,0 +1,5 @@
+   * :attr:	:xmlattr:`RatioP0`
+     :val:	1...255
+     :def:	2
+     :desc:	Polling ratio between :include-arg:`1` 0 and 1 messages.
+		Default value 2 means Priority 1 message will be sent after every two Priority 0 messages.

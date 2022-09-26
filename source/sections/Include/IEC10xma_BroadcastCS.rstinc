@@ -1,12 +1,10 @@
-   * :attr:     :include-arg:`1`
-
-                :xmlref:`TimeSync`
-     :val:      0
-     :def:      0
-     :desc:     Send Time Synchronization [:lemonobgtext:`C_CS_NA_1`] commands with **individual** link and Common Addresses of ASDU (CAA)
+   * :attr:	:xmlattr:`TimeSync`
+     :val:	0
+     :def:	0
+     :desc:	Send Time Synchronization [:lemonobgtext:`C_CS_NA_1`] commands with **individual** link and Common Addresses of ASDU (CAA)
 
    * :(attr):
-     :val:      1
+     :val:	1
      :(def):
-     :desc:     Send Time Synchronization [:lemonobgtext:`C_CS_NA_1`] commands with **broadcast** link and Common Address of ASDU (CAA).
-		:include-arg:`2`
+     :desc:	Send Time Synchronization [:lemonobgtext:`C_CS_NA_1`] commands with **broadcast** link and Common Address of ASDU (CAA).
+		:include-arg:`1`

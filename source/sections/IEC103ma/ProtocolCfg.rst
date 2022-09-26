@@ -1,22 +1,22 @@
-.. _ref-IEC103maProtocolCfg:
+.. _xmlgroup-IEC103maProtocolCfg: lelabel=ProtocolCfg
 
-ProtocolCfg group node
-----------------------
+ProtocolCfg group
+-----------------
 
-.. include-file:: sections/Include/ProtocolCfg.rstinc "" "IEC60870-5-103 controlling station (Master)" ":ref:`ProtocolCfg<ref-IEC103maProtocolCfg>`"
+.. include-file:: sections/Include/ProtocolCfg.rstinc "" "IEC60870-5-103 controlling station (Master)" ":ref:`xmlgroup-IEC103maProtocolCfg`"
 
 .. code-block:: none
 
-   <ProtocolCfg>
-      <LinkSettings … />
-      <CommsSettings … />
-      <ASDUSettings … />
-      <ServiceSettings … />
-      <Timeouts … />
-      <TimeSettings … />
-      <Broadcast … />
-      <Periodic … />
-   </ProtocolCfg>
+ <ProtocolCfg>
+   <LinkSettings … />
+   <CommsSettings … />
+   <ASDUSettings … />
+   <ServiceSettings … />
+   <Timeouts … />
+   <TimeSettings … />
+   <Broadcast … />
+   <Periodic … />
+ </ProtocolCfg>
 
 .. tip:: All element nodes are optional, default values will be used for attributes of omitted nodes.
 
@@ -24,11 +24,14 @@ ProtocolCfg group node
 .. include:: IEC103ma/CommsSettings.rst
 .. include:: IEC103ma/ASDUSettings.rst
 
-.. include-file:: sections/Include/ma_ServiceSettings.rstinc "" ".. _ref-IEC103maServiceSettings:" ":ref:`<ref-IEC103maServiceSettings>`" ".. _docref-IEC103maServiceSettingsAttab:" "IEC60870-5-103 Master ServiceSettings attributes"
-.. include-file:: sections/Include/EventMask.rstinc "" ".. _docref-IEC103maServiceEventMaskAttab:" ":numref:`docref-IEC103maServiceEventMaskAttab`" ":ref:`<ref-IEC103maCommsSettingsOfflineDelay>`" ":ref:`<ref-IEC103maCommsSettingsPostOfflineDelay>`"
+.. include-file:: sections/Include/ma_ServiceSettings.rstinc "" ".. _xmlelem-IEC103maService:" ":ref:`xmlelem-IEC103maService`" "tabid-IEC103maService" "IEC60870-5-103 Master ServiceSettings attributes"
+.. include-file:: sections/Include/EventMask.rstinc "" ":ref:`xmlattr-IEC103maServiceEventMask`" "tabid-IEC103maServiceEventMask" ":numref:`tabid-IEC103maServiceEventMask`" ":ref:`xmlattr-IEC103maCommOfflineDelay`" ":ref:`xmlattr-IEC103maCommPostOfflineDelay`"
 
-.. include:: IEC103ma/Timeouts.rst
-.. include-file:: sections/Include/IEC60870_TimeSettings.rstinc "" ".. _ref-IEC103maTimeSettings:" ":ref:`<ref-IEC103maTimeSettings>`" ".. _docref-IEC103maTimeSettingsAttab:" "IEC60870-5-103 Master TimeSettings attributes" ".. _ref-IEC103maTimeSettingsTimeZone:"
+.. include-file:: sections/Include/serma_Timeouts.rstinc "" ".. _xmlelem-IEC103maTimeouts:" ":ref:`xmlelem-IEC103maTimeouts`" "tabid-IEC103maTimeouts" "IEC60870-5-103 Master Timeouts attributes"
+.. include-file:: sections/Include/ma_TimeoutsAppCmd.rstinc ""
+
+.. include-file:: sections/Include/IEC60870_TimeSettings.rstinc "" ".. _xmlelem-IEC103maTimeSettings:" ":ref:`xmlelem-IEC103maTimeSettings`"
+.. include-file:: sections/Include/TimeZone.rstinc "" "tabid-IEC103maTimeSettings" "IEC60870-5-103 Master TimeSettings attributes"
 
 .. include:: IEC103ma/Broadcast.rst
 .. include:: IEC103ma/Periodic.rst

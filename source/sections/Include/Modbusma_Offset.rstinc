@@ -1,7 +1,5 @@
    * :attr:	:include-arg:`1`
-
-		:include-arg:`2`
      :val:	0...1023 or 0x00...0x3FF
      :def:	0
-     :desc:     Shift the :include-arg:`3` number left by the specified number of bits. 
-		See table :numref:`docref-ModbusmaTimeOffsetTab` for examples.
+     :desc:	Shift the :include-arg:`2` number left by the specified number of bits. 
+		See :numref:`tabid-ModbusmaTimeOffset` for examples.

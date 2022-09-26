@@ -1,10 +1,6 @@
-   * :attr:     :include-arg:`1`
-
-                :xmlref:`Device`
-     :val:      1...254
-     :def:      n/a
-     :desc:     :include-arg:`4` communication protocol instance.
-		Any Master protocol instance listed in :ref:`CommunicationCfg<ref-CommunicationCfg>` group can be used as a :include-arg:`3`.
-		Use value of the :ref:`<ref-IEC101maIndex>` attribute in order to select Master protocol instance as a :include-arg:`3` for this :include-arg:`2` object.
-		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, value of the` :ref:`<ref-IEC101sl>`.\ :ref:`<ref-IEC101slSource>` \ :inlinetip:`or` :ref:`<ref-IEC104sl>`.\ :ref:`<ref-IEC104slSource>` \ :inlinetip:`attributes will be used if omitted.`
-
+   * :attr:	:include-arg:`1`
+     :val:	|gpindexrange|
+     :def:	n/a
+     :desc:	:include-arg:`3` communication protocol instance, any Master protocol instance listed in :ref:`xmlgroup-CommunicationCfg` group.
+		Use value of the :ref:`xmlattr-gp101maIndex` attribute in order to select Master protocol instance as the :include-arg:`2`.
+		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, value of the` :ref:`xmlelem-gp101sl`.\ :ref:`xmlattr-gp101slSource` \ :inlinetip:`or` :ref:`xmlelem-gp104sl`.\ :ref:`xmlattr-gp104slSource` \ :inlinetip:`attributes will be used if omitted.`

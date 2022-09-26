@@ -1,5 +1,5 @@
 
-.. _ref-IEC104Rsl:
+.. _xmlelem-gp104Rsl:
 
 IEC104Rsl
 ^^^^^^^^^
@@ -14,58 +14,42 @@ in a 'Started state' which means it is exchanging the application data with lean
 (Masters) are in a 'Stopped state', they only monitor availability of the communication channel and do not 
 exchange the application data.
 
-In order to explain how to configure a redundancy group in leandc there are two terms 'Main' (:ref:`<ref-IEC104sl>` node) 
-and 'Redundant' (:ref:`<ref-IEC104Rsl>` node) communication protocol instance used throughout this manual. There is no 
+In order to explain how to configure a redundancy group in leandc there are two terms 'Main' (:ref:`xmlelem-gp104sl` node) 
+and 'Redundant' (:ref:`xmlelem-gp104Rsl` node) communication protocol instance used throughout this manual. There is no 
 functional difference between 'Main' and 'Redundant' communication protocol instance as far as communication 
 standard is concerned, these are only used to reference different types of nodes in leandc configuration.
 
-IEC60870-5-104 controlled station (Slave) redundancy group in leandc is enabled as follows: any :ref:`<ref-IEC104sl>` 
+IEC60870-5-104 controlled station (Slave) redundancy group in leandc is enabled as follows: any :ref:`xmlelem-gp104sl` 
 node can be chosen as 'Main' communication protocol instance and redundancy is automatically enabled if one 
-or more :ref:`<ref-IEC104Rsl>` nodes are linked to the 'Main' communication protocol instance. It is possible to link up to 15 
+or more :ref:`xmlelem-gp104Rsl` nodes are linked to the 'Main' communication protocol instance. It is possible to link up to 15 
 'Redundant' communication protocol instances to the same 'Main' communication protocol instance, thus 
 creating a redundancy group of 16. This allows for up to 16 controlling (Master) stations to connect to leandc.
 
 No IO object XML configuration is required for 'Redundant' communication protocol instance, because it is 
 always linked to 'Main' communication protocol instance, which has an IO object table and the application data 
 will be shared by all instances within a redundancy group. 
-.. include-file:: sections/Include/sample_node.rstinc "" ":ref:`<ref-IEC104Rsl>`"
+.. include-file:: sections/Include/sample_node.rstinc "" ":ref:`xmlelem-gp104Rsl`"
 
 .. code-block:: none
 
    <IEC104Rsl Index="13" HWIndex="3" RedundantToIndex="12" FilterID="0" CommsFlags="0x80" Name="SCADA"/>
 
 
-.. _ref-IEC104RslAttributes:
+.. include-file:: sections/Include/table_gp.rstinc "" "tabid-gp104Rsl" "IEC104Rsl"
 
-.. field-list-table:: IEC104Rsl node
-   :class: table table-condensed table-bordered longtable
-   :header-rows: 1
-   :spec: |C{0.2}|C{0.12}|S{0.68}|
+.. include-file:: sections/Include/gp_sl_Index.rstinc "" 
 
-   * :attr,10: Attribute
-     :val,15:  Values or range
-     :desc,75: Description
+.. include-file:: sections/Include/gp_HWIndex.rstinc "" ":ref:`xmlelem-tcpserver`.\ :ref:`xmlattr-TCPSERVERIndex`"
+		:inlinetip:`Multiple` :ref:`xmlelem-gp104Rsl` :inlinetip:`instances can share the same hardware node.`
 
-   * :attr:     :xmlref:`Index`
-     :val:      1...254
-     :desc:     Index is a unique identifier of the communication protocol instance.
-		It is used to reference protocol instance from other configuration files e.g. logfile configuration XML file.
-		:inlinetip:`Indexes don't have to be in a sequential order.`
+   * :attr:	:xmlattr:`RedundantToIndex`
+     :val:	|gpindexrange|
+     :desc:	Link 'Redundant' protocol instance to 'Main' instance.
+		Use value of the :ref:`xmlelem-gp104sl`.\ :ref:`xmlattr-gp104slIndex` attribute.
 
-   * :attr:     :xmlref:`HWIndex`
-     :val:      1...254
-     :desc:     Hardware Index is used to link the communication protocol instance to a hardware node.
-		Use value of the :ref:`<ref-TCPSERVER>`.\ :ref:`<ref-TCPSERVERIndex>` \ attribute as a hardware index in order to link the protocol instance.
-		:inlinetip:`Multiple` :ref:`IEC104Rsl<ref-IEC104Rsl>` :inlinetip:`communication protocol instances can share the same hardware node.`
+.. include-file:: sections/Include/gp_FilterID.rstinc ""
 
-   * :attr:     :xmlref:`RedundantToIndex`
-     :val:      1...254
-     :desc:     Link 'Redundant' communication protocol instance to 'Main' instance.
-		Use value of the :ref:`<ref-IEC104sl>`.\ :ref:`<ref-IEC104slIndex>` \ attribute.
-
-.. include-file:: sections/Include/Comms_FilterID.rstinc "" ".. _ref-IEC104RslFilterID:"
-
-.. include-file:: sections/Include/Comms_CommsFlags.rstinc ""
+.. include-file:: sections/Include/gp_CommsFlags.rstinc ""
 
 .. include-file:: sections/Include/Name_wodef.rstinc ""
 

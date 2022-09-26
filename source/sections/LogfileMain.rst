@@ -1,6 +1,6 @@
 .. include:: global.roles
 
-.. _ref-LogfileConfig:
+.. _xmlgroup-Logfiles: lelabel=SystemConfig
 
 Logfiles
 ========
@@ -10,8 +10,8 @@ to logfiles for supervision and maintenance purposes. Fixed name XML configurati
 contains settings to enable logfiles. This file must be kept in the same directory as |leandcxml|
 file. Its path and name can't be changed.
 
-|leloggerxml| configuration file consists of a root object node :xmlref:`SystemConfig` which has 3 optional child group
-object nodes :ref:`VersionControl<ref-VersionControl>`; :ref:`CommsCfg<ref-CommsCfg>`; :ref:`EventCfg<ref-EventCfg>`, please see the sample below.
+|leloggerxml| configuration file consists of a root object node :ref:`xmlgroup-Logfiles` which has 3 optional child group
+object nodes :ref:`xmlelem-VersionControl`; :ref:`xmlgroup-CommsCfg`; :ref:`xmlgroup-EventCfg`, please see the sample below.
 
 .. code-block:: none
 
@@ -34,23 +34,23 @@ object nodes :ref:`VersionControl<ref-VersionControl>`; :ref:`CommsCfg<ref-Comms
    | |leloggerxml| configuration file is optional and leandc is able to run normally without it.
    | Node names are case sensitive.
 
-.. _ref-CommsCfg:
-.. _ref-CommsCfgLOGGER:
-.. _ref-CommsCfgHWLOG:
+.. _xmlgroup-CommsCfg: lelabel=CommsCfg
+.. _xmlelem-CommsHWlog: lelabel=HWLOG
+.. _xmlelem-CommsLogger: lelabel=LOGGER
 
 LOGGER and HWLOG nodes
 ----------------------
 
-:ref:`LOGGER<ref-CommsCfgLOGGER>` and :ref:`HWLOG<ref-CommsCfgHWLOG>` nodes contain settings for raw communication traffic logging and these nodes are children of :ref:`CommsCfg<ref-CommsCfg>` group node.
+:ref:`xmlelem-CommsLogger` and :ref:`xmlelem-CommsHWlog` nodes contain settings for raw communication traffic logging and these nodes are children of :ref:`xmlgroup-CommsCfg` group node.
 Following functionality is available:
 
-* Record all raw traffic over a serial/Ethernet interface - :ref:`HWLOG<ref-CommsCfgHWLOG>` node;
-* Filter and record traffic related to a specific communication protocol instance - :ref:`LOGGER<ref-CommsCfgLOGGER>` node;
+* Record all raw traffic over a serial/Ethernet interface - :ref:`xmlelem-CommsHWlog` node;
+* Filter and record traffic related to a specific communication protocol instance - :ref:`xmlelem-CommsLogger` node;
 
 Configuration may contain both nodes at the same time in any combination.
 However only 1 logfile per protocol instance and 1 logfile per hardware interface is allowed.
 
-Please see sample :ref:`CommsCfg<ref-CommsCfg>` group node and :ref:`LOGGER<ref-CommsCfgLOGGER>` and :ref:`HWLOG<ref-CommsCfgHWLOG>` child element nodes below.
+Please see sample :ref:`xmlgroup-CommsCfg` group node and :ref:`xmlelem-CommsLogger` and :ref:`xmlelem-CommsHWlog` child element nodes below.
 The sample below shows 2 logfiles for recording filtered traffic related to particular communication protocol instance and 1 logfile for recording all traffic over a serial interface.
 
 .. code-block:: none
@@ -61,7 +61,7 @@ The sample below shows 2 logfiles for recording filtered traffic related to part
       <HWLOG HWIndex="1" LogFlags="0x06" Logfile="Log/COM1" Mode="0x00" HourLimit="0"/>
    </CommsCfg>
 
-Please see all available attributes of the :ref:`LOGGER<ref-CommsCfgLOGGER>` and :ref:`HWLOG<ref-CommsCfgHWLOG>` nodes below:
+Please see all available attributes of the :ref:`xmlelem-CommsLogger` and :ref:`xmlelem-CommsHWlog` nodes below:
 
 .. code-block:: none
 
@@ -73,109 +73,135 @@ Please see all available attributes of the :ref:`LOGGER<ref-CommsCfgLOGGER>` and
 LOGGER and HWLOG attributes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. _docref-LOGGERAttab:
+.. include-file:: sections/Include/table_attrs.rstinc "" "tabid-CommsLogger" "LOGGER and HWLOG attributes" ":spec: |C{0.12}|C{0.12}|C{0.1}|S{0.66}|"
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "LOGGER and HWLOG attributes" ":spec: |C{0.12}|C{0.12}|C{0.1}|S{0.66}|"
-
-   * :attr:     :xmlref:`Index`
-     :val:      1...254
-     :def:      n/a
-     :desc:     Attribute is used to enable logging for a specific communication protocol instance.
-		Use value of the :ref:`<ref-IEC101maIndex>` attribute of any communication protocol instance to enable logging.
-		:inlineimportant:`Attribute is mandatory for` :ref:`LOGGER<ref-CommsCfgLOGGER>` :inlineimportant:`node and must not be used for` :ref:`HWLOG<ref-CommsCfgHWLOG>` :inlineimportant:`node.`
+   * :attr:	:xmlattr:`Index`
+     :val:	|gpindexrange|
+     :def:	n/a
+     :desc:	Attribute is used to enable logging for a specific communication protocol instance.
+		Use value of the :ref:`xmlattr-gp101maIndex` attribute of any communication protocol instance to enable logging.
+		:inlineimportant:`Attribute is mandatory for` :ref:`xmlelem-CommsLogger` :inlineimportant:`node and must not be used for` :ref:`xmlelem-CommsHWlog` :inlineimportant:`node.`
 		:inlinetip:`Indexes don't have to be in a sequential order.`
 
-   * :attr:     :xmlref:`HWIndex`
-     :val:      1...254
-     :def:      n/a
-     :desc:     Attribute is used to enable logging for a hardware node.
-		Use value of the :ref:`<ref-UART>`.\ :ref:`<ref-UARTIndex>` \; :ref:`<ref-TCPSERVER>`.\ :ref:`<ref-TCPSERVERIndex>` \; :ref:`<ref-TCPCLIENT>`.\ :ref:`<ref-TCPCLIENTIndex>` \ or :ref:`<ref-UDP>`.\ :ref:`<ref-UDPIndex>` \ attribute to enable logging.
-		:inlineimportant:`Attribute is mandatory for` :ref:`HWLOG<ref-CommsCfgHWLOG>` :inlineimportant:`node and must not be used for` :ref:`LOGGER<ref-CommsCfgLOGGER>` :inlineimportant:`node.`
+   * :attr:	:xmlattr:`HWIndex`
+     :val:	|hwindexrange|
+     :def:	n/a
+     :desc:	Attribute is used to enable logging for a hardware node.
+		Use value of the :ref:`xmlelem-uart`.\ :ref:`xmlattr-UARTIndex` \; :ref:`xmlelem-tcpserver`.\ :ref:`xmlattr-TCPSERVERIndex` \; :ref:`xmlelem-tcpclient`.\ :ref:`xmlattr-TCPCLIENTIndex` \ or :ref:`xmlelem-udp`.\ :ref:`xmlattr-UDPIndex` \ attribute to enable logging.
+		:inlineimportant:`Attribute is mandatory for` :ref:`xmlelem-CommsHWlog` :inlineimportant:`node and must not be used for` :ref:`xmlelem-CommsLogger` :inlineimportant:`node.`
 		:inlinetip:`Indexes don't have to be in a sequential order.`
 
-   * :attr:     .. _ref-CommsCfgLOGGERLogFlags:
-
-		:xmlref:`LogFlags`
-     :val:      0...255 or 0x00...0xFF
+   * :attr:	:xmlattr:`LogFlags`
+     :val:	|flags8range|
      :def:	0x00
-     :desc:     Select type of the messages to be logged.
-		See table :numref:`docref-CommsCfgLogFlagsBits` for description.
+     :desc:	Select type of the messages to be logged.
+		See :numref:`tabid-CommsLoggerLogFlags` for description.
 		Logfile will not be created if the value is 0.
 
-.. include-file:: sections/Include/log_Logfile.rstinc "" ".. _ref-CommsCfgLOGGERLogfile:" ".log" "(sample value 'Log/abc', where 'Log' is the name of the folder and 'abc' is the name of the file)"
+.. include-file:: sections/Include/log_Logfile.rstinc "" ".log" "(sample value 'Log/abc', where 'Log' is the name of the folder and 'abc' is the name of the file)"
 
-.. include-file:: sections/Include/log_ModeHourLimit.rstinc "" ".. _ref-CommsCfgLOGGERMode:" ".. _ref-CommsCfgLOGGERHourLimit:" "0x00" "4" "(default 4 hours – total of 6 files will be created daily at 00:00, 04:00, 08:00, 12:00, 16:00, 20:00)"
+.. include-file:: sections/Include/log_ModeHourLimit.rstinc "" "0x00" "4" "(default 4 hours – total of 6 files will be created daily at 00:00, 04:00, 08:00, 12:00, 16:00, 20:00)"
 
 .. include-file:: sections/Include/log_TimeZone.rstinc ""
 
-.. include-file:: sections/Include/hidden_LogDebugFlags.rstinc "internal" ":numref:`docref-LOGGERDebugFlagsAttab`"
+.. include-file:: sections/Include/hidden_LogDebugFlags.rstinc "internal" ":numref:`tabid-syslogfileDebugFlags`"
 
 .. include-file:: sections/Include/Name.rstinc ""
 
-.. tip:: \* List of files created with various :ref:`<ref-CommsCfgLOGGERMode>` \ and :ref:`<ref-CommsCfgLOGGERHourLimit>` \ attribute settings can be found in section :ref:`docref-LogfileSampleList`.
+.. tip:: \* List of files created with various :ref:`xmlattr-CommsLoggerMode` \ and :ref:`xmlattr-CommsLoggerHourLimit` \ attribute settings can be found in section :ref:`docref-LogfileSampleList`.
 
 
 LOGGER.LogFlags
 ^^^^^^^^^^^^^^^
-.. _docref-CommsCfgLogFlagsBits:
 
-.. include-file:: sections/Include/table_flags.rstinc "" "Communication logfile flags" ":ref:`<ref-CommsCfgLOGGERLogFlags>`" "Logger flags"
+.. include-file:: sections/Include/table_flags8.rstinc "" "tabid-CommsLoggerLogFlags" "Communication logfile flags" ":ref:`xmlattr-CommsLoggerLogFlags`" "Communication logger flags"
 		Logfile will not be created, if the value is 0.
+		Some bits are not used for all communication protocols.
+		For those bits applicable protocols are listed.
 
-   * :attr:     Bit 0
-     :val:      xxxx.xxx0
-     :desc:     Link layer (of the IEC60870-5-101 communication protocol) or Transport layer (of the IEC60870-5-104 communication protocol) message recording **disabled**
-
-   * :(attr):
-     :val:      xxxx.xxx1
-     :desc:     Link layer (of the IEC60870-5-101 communication protocol) or Transport layer (of the IEC60870-5-104 communication protocol) message recording **enabled**
-
-   * :attr:     Bit 1
-     :val:      xxxx.xx0x
-     :desc:     Incoming message logging **disabled**
+   * :attr:	Bit 0
+     :val:	xxxx.xxx0
+     :desc:	| IEC60870-5-101/3 Link layer message recording **disabled**
+		| IEC60870-5-104 Transport layer message recording **disabled**
 
    * :(attr):
-     :val:      xxxx.xx1x
-     :desc:     Incoming message logging **enabled**
+     :val:	xxxx.xxx1
+     :desc:	| IEC60870-5-101/3 Link layer message recording **enabled**
+		| IEC60870-5-104 Transport layer message recording **enabled**
 
-   * :attr:     Bit 2
-     :val:      xxxx.x0xx
-     :desc:     Outgoing message logging **disabled**
-
-   * :(attr):
-     :val:      xxxx.x1xx
-     :desc:     Outgoing message logging **enabled**
-
-   * :attr:     Bit 4
-     :val:      xxx0.xxxx
-     :desc:     Socket connection status and [Started]; [Stopped] state information of the IEC60870-5-104 protocol instance or link layer state information of the IEC60870-5-101 protocol instance logging **disabled**
+   * :attr:	Bit 1
+     :val:	xxxx.xx0x
+     :desc:	Incoming message logging **disabled**.
+		Applies to IEC60870-5-101/3/4; Modbus and Spabus protocols.
 
    * :(attr):
-     :val:      xxx1.xxxx
-     :desc:     Socket connection status and [Started]; [Stopped] state information of the IEC60870-5-104 protocol instance or link layer state information of the IEC60870-5-101 protocol instance logging **enabled**
+     :val:	xxxx.xx1x
+     :desc:	Incoming message logging **enabled**.
+		Applies to IEC60870-5-101/3/4; Modbus and Spabus protocols.
 
-   * :attr:     Bit 7
-     :val:      0xxx.xxxx
-     :desc:     Only applicable to IEC60870-5-101 protocol instances, **don't** log the transmitted message echo (if it exists)
+   * :attr:	Bit 2
+     :val:	xxxx.x0xx
+     :desc:	Outgoing message logging **disabled**.
+		Applies to IEC60870-5-101/3/4; Modbus and Spabus protocols.
 
    * :(attr):
-     :val:      1xxx.xxxx
-     :desc:     Only applicable to IEC60870-5-101 protocol instances, **log** the transmitted message echo (if it exists)
+     :val:	xxxx.x1xx
+     :desc:	Outgoing message logging **enabled**.
+		Applies to IEC60870-5-101/3/4; Modbus and Spabus protocols.
 
-   * :attr:     Bits 3;5;6
-     :val:      Any
-     :desc:     Bits reserved for future use
+   * :attr:	Bit 4
+     :val:	xxx0.xxxx
+     :desc:	Error message recording **disabled**.
+
+   * :(attr):
+     :val:	xxx1.xxxx
+     :desc:	Error message recording **enabled**.
+		These are communication errors arrising from corrupted messages and timeouts.
+		Also includes incorrect or unexpected received data.
+
+   * :attr:	Bit 5
+     :val:	xx0x.xxxx
+     :desc:	| Warning message recording **disabled**.
+
+   * :(attr):
+     :val:	xx1x.xxxx
+     :desc:	| Warning message recording **enabled**.
+
+   * :attr:	Bit 6
+     :val:	x0xx.xxxx
+     :desc:	| Informative message recording **disabled**.
+
+   * :(attr):
+     :val:	x1xx.xxxx
+     :desc:	| Informative message recording **enabled**.
+		  These messages include station communication states (ONLINE, OFFLINE, etc.) and bit applies to all protocols. 
+		| IEC60870-5-104 [:lemonobgtext:`Started`]; [:lemonobgtext:`Stopped`] messages.
+		| IEC61850 underlying layer information messages can be enabled for each particular layer.
+
+   * :attr:	Bit 7
+     :val:	0xxx.xxxx
+     :desc:	| IEC60870-5-101/3 **don't log** the transmitted message echo (if it exists).
+		| IEC61850 Debug message recording **disabled**.
+
+   * :(attr):
+     :val:	1xxx.xxxx
+     :desc:	| IEC60870-5-101/3 **log** the transmitted message echo (if it exists).
+		| IEC61850 Debug message recording **enabled**.
+
+   * :attr:	Bits 3
+     :val:	Any
+     :desc:	Bits reserved for future use
 
 
-.. _ref-CommsCfgPCAPLOG:
+.. _xmlelem-pcaplog:
 
 PCAPLOG
 -------
 
-:ref:`<ref-CommsCfgPCAPLOG>` node enables to capture traffic through a specific or any Ethernet interfaces in a pcap format.
-:ref:`<ref-CommsCfgPCAPLOG>` node is a child of :ref:`CommsCfg<ref-CommsCfg>` group node.
+:ref:`xmlelem-pcaplog` node enables to capture traffic through a specific or any Ethernet interfaces in a pcap format.
+:ref:`xmlelem-pcaplog` node is a child of :ref:`xmlgroup-CommsCfg` group node.
 
-Please see sample :ref:`CommsCfg<ref-CommsCfg>` group and :ref:`<ref-CommsCfgPCAPLOG>` child element node below.
+Please see sample :ref:`xmlgroup-CommsCfg` group and :ref:`xmlelem-pcaplog` child element node below.
 
 .. code-block:: none
 
@@ -183,112 +209,113 @@ Please see sample :ref:`CommsCfg<ref-CommsCfg>` group and :ref:`<ref-CommsCfgPCA
       <PCAPLOG HWIndex="1" LogFlags="0x07" Logfile="Log/trace" Mode="0x00" HourLimit="0"/>
    </CommsCfg>
 
-.. important:: Group node :ref:`CommsCfg<ref-CommsCfg>` may contain only one :ref:`<ref-CommsCfgPCAPLOG>` node. :ref:`<ref-CommsCfgPCAPLOG>` must be the last in the group after all :ref:`LOGGER<ref-CommsCfgLOGGER>` and :ref:`HWLOG<ref-CommsCfgHWLOG>` nodes, if there are any.
+.. important:: Group node :ref:`xmlgroup-CommsCfg` may contain only one :ref:`xmlelem-pcaplog` node. :ref:`xmlelem-pcaplog` must be the last in the group after all :ref:`xmlelem-CommsLogger` and :ref:`xmlelem-CommsHWlog` nodes, if there are any.
 
-Please see all available attributes of the :ref:`<ref-CommsCfgPCAPLOG>` node below:
+Please see all available attributes of the :ref:`xmlelem-pcaplog` node below:
 
 .. code-block:: none
 
-   <PCAPLOG HWIndex="1" LogFlags="0x07" Logfile="Log/trace" Mode="0" HourLimit="4" Name="pcap trace" />
+   <PCAPLOG HWIndex="1" LogFlags="0x07" Logfile="Log/trace" Mode="0" HourLimit="4" Filter="vlan 0" Name="pcap trace" />
 
 .. tip:: Attributes can be arranged in any order, it will not affect the XML file validation.
 
 PCAPLOG attributes
 ^^^^^^^^^^^^^^^^^^
 
-.. _docref-PCAPLOGAttab:
+.. include-file:: sections/Include/table_attrs.rstinc "" "tabid-pcaplog" "PCAPLOG attributes" ":spec: |C{0.12}|C{0.12}|C{0.1}|S{0.66}|"
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "PCAPLOG attributes" ":spec: |C{0.12}|C{0.12}|C{0.1}|S{0.66}|"
+   * :attr:	:xmlattr:`HWIndex`
+     :val:	|hwindexrange|
+     :def:	n/a
+     :desc:	Capture traffic through Ethernet interface used by this Hardware node.
+		Use value of the :ref:`xmlelem-tcpserver`.\ :ref:`xmlattr-TCPSERVERIndex` \; :ref:`xmlelem-tcpclient`.\ :ref:`xmlattr-TCPCLIENTIndex` \ or :ref:`xmlelem-udp`.\ :ref:`xmlattr-UDPIndex` \ attribute to enable capture.
+		:inlineimportant:`Only one` :ref:`xmlelem-pcaplog` :inlineimportant:`node can be defined.`
+		:inlinetip:`Use` :ref:`xmlattr-pcaplogLogFlags` :inlinetip:`attribute to enable capture on all Ethernet interfaces, if required.`
 
-   * :attr:     :xmlref:`HWIndex`
-     :val:      1...254
-     :def:      n/a
-     :desc:     Capture traffic through Ethernet interface used by this Hardware node.
-		Use value of the :ref:`<ref-TCPSERVER>`.\ :ref:`<ref-TCPSERVERIndex>` \; :ref:`<ref-TCPCLIENT>`.\ :ref:`<ref-TCPCLIENTIndex>` \ or :ref:`<ref-UDP>`.\ :ref:`<ref-UDPIndex>` \ attribute to enable capture.
-		:inlineimportant:`Only one` :ref:`<ref-CommsCfgPCAPLOG>` :inlineimportant:`node can be defined.`
-		:inlinetip:`Use` :ref:`<ref-CommsCfgPCAPLOGLogFlags>` :inlinetip:`attribute to enable capture on all Ethernet interfaces, if required.`
-
-   * :attr:     .. _ref-CommsCfgPCAPLOGLogFlags:
-
-		:xmlref:`LogFlags`
-     :val:      0...255 or 0x00...0xFF
+   * :attr:	:xmlattr:`LogFlags`
+     :val:	|flags8range|
      :def:	0x00
-     :desc:     Capture filter specifications.
-		See table :numref:`docref-CommsCfgPCAPLogFlagsBits` for description.
+     :desc:	Capture filter specifications.
+		See :numref:`tabid-pcaplogLogFlags` for description.
 		Capture is disabled if value is 0.
 
-.. include-file:: sections/Include/log_Logfile.rstinc "" ".. _ref-CommsCfgPCAPLOGLogfile:" ".pcap" "(sample value 'Log/abc', where 'Log' is the name of the folder and 'abc' is the name of the file)"
+.. include-file:: sections/Include/log_Logfile.rstinc "" ".pcap" "(sample value 'Log/abc', where 'Log' is the name of the folder and 'abc' is the name of the file)"
 
-.. include-file:: sections/Include/log_ModeHourLimit.rstinc "" ".. _ref-CommsCfgPCAPLOGMode:" ".. _ref-CommsCfgPCAPLOGHourLimit:" "0x00" "4" "(default 4 hours – total of 6 files will be created daily at 00:00, 04:00, 08:00, 12:00, 16:00, 20:00)"
+.. include-file:: sections/Include/log_ModeHourLimit.rstinc "" "0x00" "4" "(default 4 hours – total of 6 files will be created daily at 00:00, 04:00, 08:00, 12:00, 16:00, 20:00)"
+
+   * :attr:	:xmlattr:`Filter`
+     :val:	1...200 chars
+     :def:	n/a
+     :desc:	Custom capture filter e.g. "vlan 0".
+		See pcap-filter(7) manual for more information.
 
 .. include-file:: sections/Include/Name.rstinc ""
 
-.. tip:: \* List of files created with various :ref:`<ref-CommsCfgPCAPLOGMode>` \ and :ref:`<ref-CommsCfgPCAPLOGHourLimit>` \ attribute settings can be found in section :ref:`docref-LogfileSampleList`.
+.. tip:: \* List of files created with various :ref:`xmlattr-pcaplogMode` \ and :ref:`xmlattr-pcaplogHourLimit` \ attribute settings can be found in section :ref:`docref-LogfileSampleList`.
 
 
 PCAPLOG.LogFlags
 ^^^^^^^^^^^^^^^^
-.. _docref-CommsCfgPCAPLogFlagsBits:
 
-.. include-file:: sections/Include/table_flags.rstinc "" "Capture filter flags" ":ref:`<ref-CommsCfgPCAPLOGLogFlags>`" "Filter flags"
+.. include-file:: sections/Include/table_flags8.rstinc "" "tabid-pcaplogLogFlags" "Capture filter flags" ":ref:`xmlattr-pcaplogLogFlags`" "PCAP logger flags"
 		Capture is disabled if the value is 0.
 
-   * :attr:     Bits 0,1
-     :val:      xxxx.xx00
-     :desc:     Reserved - don't use.
+   * :attr:	Bits 0,1
+     :val:	xxxx.xx00
+     :desc:	Reserved - don't use.
 
    * :(attr):
-     :val:      xxxx.xx01
-     :desc:     Capture traffic through **all** available Ethernet interfaces. Traffic will not be filtered by IP address.
+     :val:	xxxx.xx01
+     :desc:	Capture traffic through **all** available Ethernet interfaces. Traffic will not be filtered by IP address.
 
    * :(attr):
-     :val:      xxxx.xx10
-     :desc:     Capture traffic trough a **single** Ethernet interface, the one used for communication.
+     :val:	xxxx.xx10
+     :desc:	Capture traffic trough a **single** Ethernet interface, the one used for communication.
 
    * :(attr):
-     :val:      xxxx.xx11
-     :desc:     Filter captured traffic by **IP address**. Only messages with matching Source or Destination IP address will be captured.
-		Address from :ref:`<ref-TCPSERVER>`.\ :ref:`<ref-TCPSERVERIPaddr>` \; :ref:`<ref-TCPCLIENT>`.\ :ref:`<ref-TCPCLIENTIPaddr>` \ or :ref:`<ref-UDP>`.\ :ref:`<ref-UDPRemoteIPaddr>` \ attribute is used as a filter.
+     :val:	xxxx.xx11
+     :desc:	Filter captured traffic by **IP address**. Only messages with matching Source or Destination IP address will be captured.
+		Address from :ref:`xmlelem-tcpserver`.\ :ref:`xmlattr-TCPSERVERServerIPaddr` \; :ref:`xmlelem-tcpclient`.\ :ref:`xmlattr-TCPCLIENTServerIPaddr` \ or :ref:`xmlelem-udp`.\ :ref:`xmlattr-UDPRemoteIPaddr` \ attribute is used as a filter.
 
-   * :attr:     Bit 2
-     :val:      xxxx.x0xx
-     :desc:     Capture filter by port number is **disabled**
-
-   * :(attr):
-     :val:      xxxx.x1xx
-     :desc:     Capture filter by port number is  **enabled**. Only messages with matching Source or Destination Port number will be captured.
-		Port number from :ref:`<ref-TCPSERVER>`.\ :ref:`<ref-TCPSERVERPort>` \; :ref:`<ref-TCPCLIENT>`.\ :ref:`<ref-TCPCLIENTPort>` \ or :ref:`<ref-UDP>`.\ :ref:`<ref-UDPRemotePort>` \ attribute is used as a filter.
-
-   * :attr:     Bit 6
-     :val:      x0xx.xxxx
-     :desc:     SSH (TCP port 22) traffic capture **disabled**
+   * :attr:	Bit 2
+     :val:	xxxx.x0xx
+     :desc:	Capture filter by port number is **disabled**
 
    * :(attr):
-     :val:      x1xx.xxxx
-     :desc:     SSH (TCP port 22) traffic capture **enabled**
+     :val:	xxxx.x1xx
+     :desc:	Capture filter by port number is  **enabled**. Only messages with matching Source or Destination Port number will be captured.
+		Port number from :ref:`xmlelem-tcpserver`.\ :ref:`xmlattr-TCPSERVERPort` \; :ref:`xmlelem-tcpclient`.\ :ref:`xmlattr-TCPCLIENTPort` \ or :ref:`xmlelem-udp`.\ :ref:`xmlattr-UDPRemotePort` \ attribute is used as a filter.
 
-   * :attr:     Bits 3...5;7
-     :val:      Any
-     :desc:     Bits reserved for future use
+   * :attr:	:bitdef:`6`
+     :val:	x0xx.xxxx
+     :desc:	SSH (TCP/UDP port 22) traffic capture **disabled**
+
+   * :(attr):
+     :val:	x1xx.xxxx
+     :desc:	SSH (TCP/UDP port 22) traffic capture **enabled**
+
+   * :attr:	Bits 3...5;7
+     :val:	Any
+     :desc:	Bits reserved for future use
 
 
-.. _ref-EventCfg:
-.. _ref-EventCfgEVENTLOG:
-.. _ref-EventCfgHWEVENTLOG:
+.. _xmlgroup-EventCfg: lelabel=EventCfg
+.. _xmlelem-HWeventLog: lelabel=HWEVENTLOG
+.. _xmlelem-EventLog: lelabel=EVENTLOG
 
 EVENTLOG and HWEVENTLOG nodes
 -----------------------------
 
-:ref:`EVENTLOG<ref-EventCfgEVENTLOG>` and :ref:`HWEVENTLOG<ref-EventCfgHWEVENTLOG>` nodes contain settings for decoded application level information (DI/AI/DO/AO object types, addresses, values, etc) logging and these nodes are children of :ref:`EventCfg<ref-EventCfg>` group node.
+:ref:`xmlelem-EventLog` and :ref:`xmlelem-HWeventLog` nodes contain settings for decoded application level information (DI/AI/DO/AO object types, addresses, values, etc) logging and these nodes are children of :ref:`xmlgroup-EventCfg` group node.
 Following functionality is available:
 
-* Record all decoded information over a serial/Ethernet interface - :ref:`HWEVENTLOG<ref-EventCfgHWEVENTLOG>` node;
-* Filter and record decoded information related to a specific communication protocol instance - :ref:`EVENTLOG<ref-EventCfgEVENTLOG>` node;
+* Record all decoded information over a serial/Ethernet interface - :ref:`xmlelem-HWeventLog` node;
+* Filter and record decoded information related to a specific communication protocol instance - :ref:`xmlelem-EventLog` node;
 
 Configuration may contain both nodes at the same time in any combination.
 However only 1 logfile per protocol instance and 1 logfile per hardware interface is allowed.
 
-Please see sample :ref:`EventCfg<ref-EventCfg>` group node and :ref:`EVENTLOG<ref-EventCfgEVENTLOG>` and :ref:`HWEVENTLOG<ref-EventCfgHWEVENTLOG>` child element nodes below.
+Please see sample :ref:`xmlgroup-EventCfg` group node and :ref:`xmlelem-EventLog` and :ref:`xmlelem-HWeventLog` child element nodes below.
 The sample below shows 2 logfiles for recording decoded information of a particular communication protocol instance and 1 logfile for recording decoded information over a serial interface.
 
 .. code-block:: none
@@ -299,7 +326,7 @@ The sample below shows 2 logfiles for recording decoded information of a particu
       <HWEVENTLOG HWIndex="1" LogFlags="0x40" Logfile="Events/COM1_events" HourLimit="0"/>
    </EventCfg>
 
-Please see all available attributes of the :ref:`EVENTLOG<ref-EventCfgEVENTLOG>` and :ref:`HWEVENTLOG<ref-EventCfgHWEVENTLOG>` nodes below:
+Please see all available attributes of the :ref:`xmlelem-EventLog` and :ref:`xmlelem-HWeventLog` nodes below:
 
 .. code-block:: none
 
@@ -311,138 +338,130 @@ Please see all available attributes of the :ref:`EVENTLOG<ref-EventCfgEVENTLOG>`
 EVENTLOG and HWEVENTLOG attributes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. _docref-EventCfgEVENTLOGAttab:
+.. include-file:: sections/Include/table_attrs.rstinc "" "tabid-EventLog" "EVENTLOG and HWEVENTLOG attributes" ":spec: |C{0.12}|C{0.12}|C{0.1}|S{0.66}|"
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "EVENTLOG and HWEVENTLOG attributes" ":spec: |C{0.12}|C{0.12}|C{0.1}|S{0.66}|"
-
-   * :attr:     :xmlref:`Index`
-     :val:      1...254
-     :def:      n/a
-     :desc:     Attribute is used to enable logging for a specific communication protocol instance.
-		Use value of the :ref:`<ref-IEC101maIndex>` attribute of any communication protocol instance to enable logging.
-		:inlineimportant:`Attribute is mandatory for` :ref:`EVENTLOG<ref-EventCfgEVENTLOG>` :inlineimportant:`node and must not be used for` :ref:`HWEVENTLOG<ref-EventCfgHWEVENTLOG>` :inlineimportant:`node.`
+   * :attr:	:xmlattr:`Index`
+     :val:	|gpindexrange|
+     :def:	n/a
+     :desc:	Attribute is used to enable logging for a specific communication protocol instance.
+		Use value of the :ref:`xmlattr-gp101maIndex` attribute of any communication protocol instance to enable logging.
+		:inlineimportant:`Attribute is mandatory for` :ref:`xmlelem-EventLog` :inlineimportant:`node and must not be used for` :ref:`xmlelem-HWeventLog` :inlineimportant:`node.`
 		:inlinetip:`Indexes don't have to be in a sequential order.`
 
-   * :attr:     :xmlref:`HWIndex`
-     :val:      1...254
-     :def:      n/a
-     :desc:     Attribute is used to enable logging for a hardware node.
-		Use value of the :ref:`<ref-UART>`.\ :ref:`<ref-UARTIndex>` \; :ref:`<ref-TCPSERVER>`.\ :ref:`<ref-TCPSERVERIndex>` \; :ref:`<ref-TCPCLIENT>`.\ :ref:`<ref-TCPCLIENTIndex>` \ or :ref:`<ref-UDP>`.\ :ref:`<ref-UDPIndex>` \ attribute to enable logging.
-		:inlineimportant:`Attribute is mandatory for` :ref:`HWEVENTLOG<ref-EventCfgHWEVENTLOG>` :inlineimportant:`node and must not be used for` :ref:`EVENTLOG<ref-EventCfgEVENTLOG>` :inlineimportant:`node.`
+   * :attr:	:xmlattr:`HWIndex`
+     :val:	|hwindexrange|
+     :def:	n/a
+     :desc:	Attribute is used to enable logging for a hardware node.
+		Use value of the :ref:`xmlelem-uart`.\ :ref:`xmlattr-UARTIndex` \; :ref:`xmlelem-tcpserver`.\ :ref:`xmlattr-TCPSERVERIndex` \; :ref:`xmlelem-tcpclient`.\ :ref:`xmlattr-TCPCLIENTIndex` \ or :ref:`xmlelem-udp`.\ :ref:`xmlattr-UDPIndex` \ attribute to enable logging.
+		:inlineimportant:`Attribute is mandatory for` :ref:`xmlelem-HWeventLog` :inlineimportant:`node and must not be used for` :ref:`xmlelem-EventLog` :inlineimportant:`node.`
 		:inlinetip:`Indexes don't have to be in a sequential order.`
 
-   * :attr:     .. _ref-CommsCfgEVENTLOGLogFlags:
-
-		:xmlref:`LogFlags`
-     :val:      0...255 or 0x00...0xFF
+   * :attr:	:xmlattr:`LogFlags`
+     :val:	|flags8range|
      :def:	0x00
-     :desc:     Select type of the decoded information to be logged.
-		See table :numref:`docref-EventCfgLogFlagsBits` for description.
+     :desc:	Select type of the decoded information to be logged.
+		See :numref:`tabid-EventLogLogFlags` for description.
 		Logfile will not be created if value is 0.
 
-.. include-file:: sections/Include/log_Logfile.rstinc "" ".. _ref-EventCfgEVENTLOGLogfile:" ".event" "(sample value 'Events/abc', where 'Events' is the name of the folder and 'abc' is the name of the file)"
+.. include-file:: sections/Include/log_Logfile.rstinc "" ".event" "(sample value 'Events/abc', where 'Events' is the name of the folder and 'abc' is the name of the file)"
 
-.. include-file:: sections/Include/log_ModeHourLimit.rstinc "" ".. _ref-EventCfgEVENTLOGMode:" ".. _ref-EventCfgEVENTLOGHourLimit:" "0x01" "6" "(default 6 hours – total of 4 files will be created daily at 00:00, 06:00, 12:00, 18:00)"
+.. include-file:: sections/Include/log_ModeHourLimit.rstinc "" "0x01" "6" "(default 6 hours – total of 4 files will be created daily at 00:00, 06:00, 12:00, 18:00)"
 
 .. include-file:: sections/Include/log_TimeZone.rstinc ""
 
-.. include-file:: sections/Include/hidden_LogDebugFlags.rstinc "internal" ":numref:`docref-LOGGERDebugFlagsAttab`"
+.. include-file:: sections/Include/hidden_LogDebugFlags.rstinc "internal" ":numref:`tabid-syslogfileDebugFlags`"
 
 .. include-file:: sections/Include/Name.rstinc ""
 
-.. tip:: \* List of files created with various :ref:`<ref-EventCfgEVENTLOGMode>` \ and :ref:`<ref-EventCfgEVENTLOGHourLimit>` \ attribute settings can be found in section :ref:`docref-LogfileSampleList`.
+.. tip:: \* List of files created with various :ref:`xmlattr-EventLogMode` \ and :ref:`xmlattr-EventLogHourLimit` \ attribute settings can be found in section :ref:`docref-LogfileSampleList`.
 
 
 EVENTLOG.LogFlags
 ^^^^^^^^^^^^^^^^^
 
-.. _docref-EventCfgLogFlagsBits:
-
-.. include-file:: sections/Include/table_flags.rstinc "" "Event logfile flags" ":ref:`<ref-CommsCfgEVENTLOGLogFlags>`" "Logger flags"
+.. include-file:: sections/Include/table_flags8.rstinc "" "tabid-EventLogLogFlags" "Event logfile flags" ":ref:`xmlattr-EventLogLogFlags`" "Event logger flags"
 		Logfile will not be created, if the value is 0.
 
-   * :attr:     Bit 0
-     :val:      xxxx.xxx0
-     :desc:     Received/sent spontaneous (event) DI information **will not be** logged
+   * :attr:	Bit 0
+     :val:	xxxx.xxx0
+     :desc:	Received/sent spontaneous (event) DI information **will not be** logged
 
    * :(attr):
-     :val:      xxxx.xxx1
-     :desc:     Received/sent spontaneous (event) DI information **will be** logged
+     :val:	xxxx.xxx1
+     :desc:	Received/sent spontaneous (event) DI information **will be** logged
 
-   * :attr:     Bit 1
-     :val:      xxxx.xx0x
-     :desc:     Received/sent spontaneous (event) AI information **will not be** logged
-
-   * :(attr):
-     :val:      xxxx.xx1x
-     :desc:     Received/sent spontaneous (event) AI information **will be** logged
-
-   * :attr:     Bit 2
-     :val:      xxxx.x0xx
-     :desc:     Received/sent control/setpoint command information **will not be** logged
+   * :attr:	Bit 1
+     :val:	xxxx.xx0x
+     :desc:	Received/sent spontaneous (event) AI information **will not be** logged
 
    * :(attr):
-     :val:      xxxx.x1xx
-     :desc:     Received/sent control/setpoint command information **will be** logged
+     :val:	xxxx.xx1x
+     :desc:	Received/sent spontaneous (event) AI information **will be** logged
 
-   * :attr:     Bit 3
-     :val:      xxxx.0xxx
-     :desc:     Processed command information and error messages **will not be** logged
-
-   * :(attr):
-     :val:      xxxx.1xxx
-     :desc:     Processed command information and error messages **will be** logged
-
-   * :attr:     Bit 4
-     :val:      xxx0.xxxx
-     :desc:     Received/sent static (General Interrogation) DI information **will not be** logged
+   * :attr:	Bit 2
+     :val:	xxxx.x0xx
+     :desc:	Received/sent control/setpoint command information **will not be** logged
 
    * :(attr):
-     :val:      xxx1.xxxx
-     :desc:     Received/sent static (General Interrogation) DI information **will be** logged
+     :val:	xxxx.x1xx
+     :desc:	Received/sent control/setpoint command information **will be** logged
 
-   * :attr:     Bit 5
-     :val:      xx0x.xxxx
-     :desc:     Received/sent static (General Interrogation) AI information **will not be** logged
-
-   * :(attr):
-     :val:      xx1x.xxxx
-     :desc:     Received/sent static (General Interrogation) AI information **will be** logged
-
-   * :attr:     Bit 6
-     :val:      x0xx.xxxx
-     :desc:     Received/sent cyclic AI information **will not be** recorded to event logfile
+   * :attr:	Bit 3
+     :val:	xxxx.0xxx
+     :desc:	Processed command information and error messages **will not be** logged
 
    * :(attr):
-     :val:      x1xx.xxxx
-     :desc:     Received/sent cyclic AI information **will be** logged
+     :val:	xxxx.1xxx
+     :desc:	Processed command information and error messages **will be** logged
 
-   * :attr:     Bit 7
-     :val:      Any
-     :desc:     Bits reserved for future use
+   * :attr:	Bit 4
+     :val:	xxx0.xxxx
+     :desc:	Received/sent static (General Interrogation) DI information **will not be** logged
+
+   * :(attr):
+     :val:	xxx1.xxxx
+     :desc:	Received/sent static (General Interrogation) DI information **will be** logged
+
+   * :attr:	Bit 5
+     :val:	xx0x.xxxx
+     :desc:	Received/sent static (General Interrogation) AI information **will not be** logged
+
+   * :(attr):
+     :val:	xx1x.xxxx
+     :desc:	Received/sent static (General Interrogation) AI information **will be** logged
+
+   * :attr:	Bit 6
+     :val:	x0xx.xxxx
+     :desc:	Received/sent cyclic AI information **will not be** recorded to event logfile
+
+   * :(attr):
+     :val:	x1xx.xxxx
+     :desc:	Received/sent cyclic AI information **will be** logged
+
+   * :attr:	Bit 7
+     :val:	Any
+     :desc:	Bits reserved for future use
 
 
 LOGGER.Mode and EVENTLOG.Mode
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. _docref-LoggerModeBits:
+.. include-file:: sections/Include/table_flags8.rstinc "" "tabid-LoggerMode" "Logfile initialization Mode" ":ref:`xmlattr-CommsLoggerMode`" "Logfile initialization Mode"
 
-.. include-file:: sections/Include/table_flags.rstinc "" "Logfile initialization Mode" ":xmlref:`Mode`" "Logfile initialization Mode"
-
-   * :attr:     Bit 0
-     :val:      xxxx.xxx0
-     :desc:     New logfile **will be** created every time leandc is being started/restarted.
+   * :attr:	Bit 0
+     :val:	xxxx.xxx0
+     :desc:	New logfile **will be** created every time leandc is being started/restarted.
 		This means total number of files created each day will reflect how many times leandc was started/restarted.
 
    * :(attr):
-     :val:      xxxx.xxx1
-     :desc:     New file **will not be** created if there is a logfile which was created the same date upon leandc start/restart.
+     :val:	xxxx.xxx1
+     :desc:	New file **will not be** created if there is a logfile which was created the same date upon leandc start/restart.
 		New messages will be appended at the end of the existing file.
 		This means there will be only one file created each day, regardless of how many times leandc was started/restarted.
 
-   * :attr:     Bits 1...7
-     :val:      Any
-     :desc:     Bits reserved for future use
+   * :attr:	Bits 1...7
+     :val:	Any
+     :desc:	Bits reserved for future use
 
 
 .. _docref-LogfileSampleList:
@@ -452,13 +471,13 @@ Logfile samples
 
 This section provides information on how communication and event logfiles are created based on default settings as well as contents of each file.
 
-New communication logfile is created every 4 hours based on the default value of the :ref:`LOGGER<ref-CommsCfgLOGGER>`.\ :ref:`<ref-CommsCfgLOGGERHourLimit>` \ attribute.
-In addition to that new file will be created every time leandc is started/restarted based on the default value "0x00" of the :ref:`LOGGER<ref-CommsCfgLOGGER>`.\ :ref:`<ref-CommsCfgLOGGERMode>` \ attribute.
+New communication logfile is created every 4 hours based on the default value of the :ref:`xmlelem-CommsLogger`.\ :ref:`xmlattr-CommsLoggerHourLimit` \ attribute.
+In addition to that new file will be created every time leandc is started/restarted based on the default value "0x00" of the :ref:`xmlelem-CommsLogger`.\ :ref:`xmlattr-CommsLoggerMode` \ attribute.
 Example below shows 2 lists of files created if leandc runs continuously and if being restarted.
 
 .. tip::
 
-   File creation date and hour (yyyy-mm-dd_hh) is automatically added to the name of the file specified in :ref:`LOGGER<ref-CommsCfgLOGGER>`.\ :ref:`<ref-CommsCfgLOGGERLogfile>` \ attribute.
+   File creation date and hour (yyyy-mm-dd_hh) is automatically added to the name of the file specified in :ref:`xmlelem-CommsLogger`.\ :ref:`xmlattr-CommsLoggerLogfile` \ attribute.
    This is a sample list of files created, if leandc is running continuously without being restarted.
 
    * 'logfile_2013-04-12_00.log'
@@ -477,14 +496,14 @@ Example below shows 2 lists of files created if leandc runs continuously and if 
    * 'logfile_2013-04-12_20.log'	<- new file created when leandc started at 21:10:10, no time-tag because there are no files created within a 4 hour range (from 20:00:00 to 23:59:59)
 
 Default settings of the event files are slightly different.
-New event logfile is created every 6 hours based on the default value of the :ref:`EVENTLOG<ref-EventCfgEVENTLOG>`.\ :ref:`<ref-EventCfgEVENTLOGHourLimit>` \ attribute.
-However new file will not be created upon leandc restart based on the default value "0x01" of the :ref:`EVENTLOG<ref-EventCfgEVENTLOG>`.\ :ref:`<ref-EventCfgEVENTLOGMode>` \ attribute.
+New event logfile is created every 6 hours based on the default value of the :ref:`xmlelem-EventLog`.\ :ref:`xmlattr-EventLogHourLimit` \ attribute.
+However new file will not be created upon leandc restart based on the default value "0x01" of the :ref:`xmlelem-EventLog`.\ :ref:`xmlattr-EventLogMode` \ attribute.
 If an existing file created within the same hour range (6 hours) is found after leandc restart, new entires will appended to that file.
 Example below shows the list of files created if leandc runs continuously and if being restarted.
 
 .. tip::
 
-   File creation date and hour (yyyy-mm-dd_hh) is automatically added to the name of the file specified in :ref:`EVENTLOG<ref-EventCfgEVENTLOG>`.\ :ref:`<ref-EventCfgEVENTLOGLogfile>` \ attribute.
+   File creation date and hour (yyyy-mm-dd_hh) is automatically added to the name of the file specified in :ref:`xmlelem-EventLog`.\ :ref:`xmlattr-EventLogLogfile` \ attribute.
    This is a sample list of files created, if leandc was restarted at 14:04:13.
 
    * 'eventfile_2013-04-12_00.event'
@@ -511,20 +530,21 @@ Log entry type may contain values listed in the table below:
 
 .. field-list-table:: Logfile entry types
    :class: table table-condensed table-bordered table-left
+   :name: tabid-LogfileEntries
    :spec: |C{0.1}|S{0.8}|
    :header-rows: 1
 
    * :attr,15: Entry Type
      :desc,70: Description
 
-   * :attr:     COMM
-     :desc:     Successfully decoded protocol message
+   * :attr:	COMM
+     :desc:	Successfully decoded protocol message
 
-   * :attr:     INFO
-     :desc:     Additional status information e.g. ONLINE, OFFLINE, etc
+   * :attr:	INFO
+     :desc:	Additional status information e.g. ONLINE, OFFLINE, etc
 
-   * :attr:     ERR
-     :desc:     Failed protocol messages and timeouts
+   * :attr:	ERR
+     :desc:	Failed protocol messages and timeouts
 
 | Direction identifier shows incoming/outgoing direction of a message as follows:
 | <-  Outgoing message (sent by leandc)
@@ -535,14 +555,14 @@ Contents of a typical event logfile is shown below:
 
 .. code-block:: none
 
-       Time        	Info	Type	ASDUadr	InfAddr	Value	QualHex	TimeTag                	Description
-   12:00:09.470 SU	SPNTAI	36	400	2101	63.88	0x00	2015-07-31 09:00:09.470
-   12:00:12.943 SU	SPNTAI	36	400	39	8.45	0x00	2015-07-31 09:00:12.942
-   12:00:12.943 SU	SPNTAI	34	400	57	24	0x00	2015-07-31 09:00:12.942
-   12:00:12.943 SU	SPNTDI	31	400	1002	OFF	0x01	2015-07-31 09:00:14.873
-   12:02:59.720		>CMD	45	400	6001	5	0x05				Direct execute command received, validated and forwarded to Master protocol
-   12:02:59.846		<CMD	45	400	6001	5	0x05				Execute Confirmation sent successfully
-   12:02:01.347		<CMD	45	400	6001	5	0x05				Termination sent successfully
+       Time        	Info	Type	CAA	InfAddr	Value	QualHex	Quality	TimeTag                	Description
+   12:00:09.470 SU	SPNTAI	36	400	2101	63.88	0x00	GOOD	2015-07-31 09:00:09.470
+   12:00:12.943 SU	SPNTAI	36	400	39	8.45	0x00	GOOD	2015-07-31 09:00:12.942
+   12:00:12.943 SU	SPNTAI	34	400	57	24	0x81	IV OV	2015-07-31 09:00:12.942
+   12:00:12.943 SU	SPNTDI	31	400	1002	OFF	0x41	NT	2015-07-31 09:00:14.873
+   12:02:59.720		>CMD	45	400	6001	5	0x05	SHORT				Direct execute command received, validated and forwarded to Master protocol
+   12:02:59.846		<CMD	45	400	6001	5	0x05	SHORT				Execute Confirmation sent successfully
+   12:02:01.347		<CMD	45	400	6001	5	0x05	SHORT				Termination sent successfully
 
 Decoded information is arranged in a tab separated columns.
 The layout of the file is aimed to present a decoded information readable without additional tools,
@@ -551,92 +571,105 @@ List of columns of the event logfile is shown in the table below:
 
 .. field-list-table:: Event logfile columns
    :class: table table-condensed table-bordered longtable
+   :name: tabid-EventLogColumns
    :spec: |C{0.12}|S{0.88}|
    :header-rows: 1
 
    * :attr,15: Column
      :desc,85: Description
 
-   * :attr:     Time
-     :desc:     Internal time when the event was received. Summer Time [SU] flag may be added to the time stamp.
+   * :attr:	Time
+     :desc:	Internal time when the event was received. Summer Time [:lemonobgtext:`SU`] flag may be added to the time stamp.
 
-   * :attr:     Info
-     :desc:     Type of the event. See table :numref:`docref-EventLogInfoTypes` for description.
+   * :attr:	Info
+     :desc:	Type of the event. See :numref:`tabid-EventLogInfoTypes` for description.
 
-   * :attr:     Type
-     :desc:     ASDU typeID of the message.
+   * :attr:	Type
+     :desc:	ASDU typeID of the message.
 
-   * :attr:     ASDUadr
-     :desc:     Common Address of ASDU [CAA].
+   * :attr:	CAA
+     :desc:	Common Address of ASDU [:lemonobgtext:`CAA`].
 
-   * :attr:     InfAddr
-     :desc:     Information object address [IOA].
+   * :attr:	InfAddr
+     :desc:	Information object address [:lemonobgtext:`IOA`].
 
-   * :attr:     Value
-     :desc:     Value of the event. Decoded Floating point and Integer analog values can be easily distinguished by presence of a decimal point.
+   * :attr:	Value
+     :desc:	Value of the event. Decoded Floating point and Integer analog values can be easily distinguished by presence of a decimal point.
 		Decimal point is only used for Floating point values, Integers doesn't have it.
 		Status information has 4 or 2 states (i.e. ON, OFF, INTER, INDET) which are shown depending on single or double message type.
-		In case of control command decimal value of command qualifier including additional information (e.g. [Short pulse]) is shown in this column.
+		In case of control command decimal value of command qualifier including additional information (e.g. [:lemonobgtext:`Short Pulse`]) is shown in this column.
 
-   * :attr:     QualHex
-     :desc:     Hexadecimal value of the object qualifier.
+   * :attr:	QualHex
+     :desc:	Hexadecimal value of the object qualifier.
 
-   * :attr:     TimeTag
-     :desc:     Time-tag of the event as received/sent to peer station. This column is populated only if event message has a time-tag. Summer Time [SU] flag may be added to the time tag.
+   * :attr:	Quality
+     :desc:	| Quality flags of the DI/AI objects and [:lemonobgtext:`Qualifier Of Command`] values. This column can have the follwing values:
+		| GOOD - No quality flags are set
+		| IV - [:lemonobgtext:`INVALID`]
+		| NT - [:lemonobgtext:`NOT TOPICAL`]
+		| SB - [:lemonobgtext:`SUBSTITUTED`]
+		| BL - [:lemonobgtext:`BLOCKED`]
+		| OV - [:lemonobgtext:`OVERFLOW`] (AI only)
+		| NODEF - [:lemonobgtext:`No additional definition`] (DO only)
+		| SHORT - [:lemonobgtext:`Short Pulse Duration`] (DO only)
+		| LONG - [:lemonobgtext:`Long Pulse Duration`] (DO only)
+		| PERS - [:lemonobgtext:`Persistent Output`] (DO only)
 
-   * :attr:     Description
-     :desc:     Additional information on the command execution progress.
+   * :attr:	TimeTag
+     :desc:	Time-tag of the event as received/sent to peer station. This column is populated only if event message has a time-tag. Summer Time [SU] flag may be added to the time tag.
 
+   * :attr:	Description
+     :desc:	Additional information on the command execution progress.
 
-.. _docref-EventLogInfoTypes:
 
 .. field-list-table:: Event logfile Info types
    :class: table table-condensed table-bordered longtable
+   :name: tabid-EventLogInfoTypes
    :spec: |C{0.14}|S{0.86}|
    :header-rows: 1
 
    * :attr,15: Info
      :desc,85: Description
 
-   * :attr:     >CMD
-     :desc:     Received control or setpoint command in the context of Slave protocol instance. Received confirmation or termination in the context of Master protocol instance.
+   * :attr:	>CMD
+     :desc:	Received control or setpoint command in the context of Slave protocol instance. Received confirmation or termination in the context of Master protocol instance.
 
-   * :attr:     <CMD
-     :desc:     Sent control or setpoint command in the context of Master protocol instance. Sent confirmation or termination in the context of Slave protocol instance.
+   * :attr:	<CMD
+     :desc:	Sent control or setpoint command in the context of Master protocol instance. Sent confirmation or termination in the context of Slave protocol instance.
 
-   * :attr:     >CMDN
-     :desc:     Received negative confirmation or termination, only applies to Master protocol instances.
+   * :attr:	>CMDN
+     :desc:	Received negative confirmation or termination, only applies to Master protocol instances.
 
-   * :attr:     <CMDN
-     :desc:     Sent negative confirmation or termination, only applies to Slave protocol instances.
+   * :attr:	<CMDN
+     :desc:	Sent negative confirmation or termination, only applies to Slave protocol instances.
 
-   * :attr:     >CMDERR
-     :desc:     Received control or setpoint command validation failed, command is immediately rejected, only applies to Slave protocol instances.
+   * :attr:	>CMDERR
+     :desc:	Received control or setpoint command validation failed, command is immediately rejected, only applies to Slave protocol instances.
 
-   * :attr:     CMD
-     :desc:     Additional information on command execution progress.
+   * :attr:	CMD
+     :desc:	Additional information on command execution progress.
 
-   * :attr:     CMDERR
-     :desc:     Internal error occurred while command being processed. Please contact vendor if this type of error appears.
+   * :attr:	CMDERR
+     :desc:	Internal error occurred while command being processed. Please contact vendor if this type of error appears.
 
-   * :attr:     SPNTDI
-     :desc:     Spontaneous status information (DI Event).
+   * :attr:	SPNTDI
+     :desc:	Spontaneous status information (DI Event).
 
-   * :attr:     DI
-     :desc:     Static status information (e.g. as a response to General Interrogation).
+   * :attr:	DI
+     :desc:	Static status information (e.g. as a response to General Interrogation).
 
-   * :attr:     SPNTAI
-     :desc:     Spontaneous analog information (AI Event).
+   * :attr:	SPNTAI
+     :desc:	Spontaneous analog information (AI Event).
 
-   * :attr:     AI
-     :desc:     Static analog information (e.g. as a response to General Interrogation).
+   * :attr:	AI
+     :desc:	Static analog information (e.g. as a response to General Interrogation).
 
-   * :attr:     AICYC
-     :desc:     Cyclic/periodic analog information.
+   * :attr:	AICYC
+     :desc:	Cyclic/periodic analog information.
 
-   * :attr:     AIBSCN
-     :desc:     Background scan analog information.
+   * :attr:	AIBSCN
+     :desc:	Background scan analog information.
 
-   * :attr:     ERR
-     :desc:     Internal error. Please contact vendor if this type of error appears.
+   * :attr:	ERR
+     :desc:	Internal error. Please contact vendor if this type of error appears.
 

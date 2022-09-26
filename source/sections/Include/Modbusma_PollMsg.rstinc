@@ -1,0 +1,7 @@
+   * :attr:	:xmlattr:`PollMsg`
+     :val:	|sermamessagerange|
+     :def:	0
+     :desc:	Identifier of the message that is used to poll data from outstation.
+		Use value of the :ref:`xmlelem-ModbusmaPollMsg`.\ :ref:`xmlattr-ModbusmaPollMsgPollMsg` attribute.
+		Value 0 means no poll message is selected.
+		:inlineimportant:`Attribute is optional only if` :ref:`xmlelem-ModbusmaHardcoded`.\ :ref:`xmlattr-ModbusmaHardcodedType` :inlineimportant:`is used.`

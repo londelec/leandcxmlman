@@ -1,18 +1,14 @@
-   * :attr:     :include-arg:`1`
-
-		:xmlref:`FUN`
-     :val:      0...255
-     :def:      n/a
-     :desc:     Function Type (FUN) of the :include-arg:`3` object.
-		This FUN will be used to :include-arg:`4` downstream outstation.
+   * :attr:	:xmlattr:`FUN`
+     :val:	0...255
+     :def:	n/a
+     :desc:	Function Type (FUN) of the :include-arg:`1` object.
+		This FUN will be used to :include-arg:`2` downstream outstation.
 		:inlinetip:`Function types don't have to be arranged in ascending order.`
 
-   * :attr:     :include-arg:`2`
-
-                :xmlref:`INF`
-     :val:      0...255
-     :def:      n/a
-     :desc:     Information Number (INF) of the :include-arg:`3` object.
-		This INF will be used to :include-arg:`4` downstream outstation.
+   * :attr:	:xmlattr:`INF`
+     :val:	0...255
+     :def:	n/a
+     :desc:	Information Number (INF) of the :include-arg:`1` object.
+		This INF will be used to :include-arg:`2` downstream outstation.
 		:inlinetip:`Information numbers don't have to be arranged in ascending order.`
 

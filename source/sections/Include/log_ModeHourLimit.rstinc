@@ -1,21 +1,16 @@
-   * :attr:     :include-arg:`1`
-
-		:xmlref:`Mode`
+   * :attr:	:xmlattr:`Mode`
 
 		\*
-     :val:      0...255 or 0x00...0xFF
-     :def:	:include-arg:`3`
-     :desc:     Logfile initialization settings. See table :numref:`docref-LoggerModeBits` for description.
+     :val:	0...255 or 0x00...0xFF
+     :def:	:include-arg:`1`
+     :desc:	Logfile initialization settings. See :numref:`tabid-LoggerMode` for description.
 		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default settings will be used if omitted.`
 
-   * :attr:     :include-arg:`2`
-
-                :xmlref:`HourLimit`
+   * :attr:	:xmlattr:`HourLimit`
 
 		\*
-     :val:      0...12
-     :def:	:include-arg:`4` hours
-     :desc:     Option to create a new file after selected number of hours in order to limit the size of a file.
-		:include-arg:`5`
+     :val:	0...12
+     :def:	:include-arg:`2` hours
+     :desc:	Option to create a new file after selected number of hours in order to limit the size of a file.
+		:include-arg:`3`
 		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default settings will be used if omitted.`
-

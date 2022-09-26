@@ -1,0 +1,6 @@
+   * :attr:	:xmlattr:`Priority`
+     :val:	0 or 1
+     :def:	0
+     :desc:	This attribute allows to assign different priorities to messages which means some messages will be sent to outstation more often than others.
+		Priority 0 messages are sent more often than priority 1 messages.
+		Polling ratio between priority 0 and 1 messages is controlled by :include-arg:`1` attribute.

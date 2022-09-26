@@ -1,0 +1,6 @@
+   * :(attr):
+     :val:	2
+     :(def):
+     :desc:	**Substitute future** timetags of events received from outstation with the local time.
+		Timetags of received events will be substituted only if a received timetag is in future compared to the local time.
+		There is no hysteresis, if the received timetag is in future by at least 1 millisecond, it will be substituted.

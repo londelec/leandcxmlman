@@ -1,0 +1,5 @@
+   * :attr:	:include-arg:`1`
+     :val:	1...16777215
+     :def:	n/a
+     :desc:	Base :include-arg:`2` information object address. Addresses of :include-arg:`2` objects will be initialized sequentially starting with this value.
+		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, objects will have the same information addresses as defined in source communication protocol object table.`

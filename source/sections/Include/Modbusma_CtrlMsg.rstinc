@@ -1,0 +1,6 @@
+   * :attr:	:xmlattr:`CtrlMsg`
+     :val:	|sermamessagerange|
+     :def:	0
+     :desc:	Identifier of the control message that is used to send command to outstation.
+		Use value of the :ref:`xmlelem-ModbusmaCtrlMsg`.\ :ref:`xmlattr-ModbusmaCtrlMsgCtrlMsg` attribute.
+		Value 0 means no Control message is selected.

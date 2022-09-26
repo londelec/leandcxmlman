@@ -1,0 +1,8 @@
+.. include-file:: sections/Include/table_attrs.rstinc "" ":include-arg:`1`" ":include-arg:`2`" ":spec: |C{0.12}|C{0.1}|C{0.1}|S{0.68}|"
+
+   * :attr:	:xmlattr:`TimeZone`
+     :val:	Max 200 chars
+     :def:	n/a
+     :desc:	Adjust time-tags of incoming and outgoing messages assuming the peer station operates in the specified time zone.
+		:inlineimportant:`Attribute must not be used if not required, there is no default value. Message time-tags will not be adjusted if attribute omitted.`
+		:inlinetip:`Please see` :ref:`docref-TimeZoneSpecification` :inlinetip:`for additional information.`

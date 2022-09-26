@@ -16,7 +16,9 @@ Leandc series XML configuration manual
    sections/IEC10xmaIOObjectTable
    sections/IEC103maMain
    sections/ModbusmaMain
+   sections/SpabusmaMain
    sections/IEC61850clMain
+   sections/PLCconfig
    sections/LogfileMain
    sections/XMLVersionControl
 

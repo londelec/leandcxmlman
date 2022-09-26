@@ -1,21 +1,21 @@
-.. _ref-ModbusmaProtocolCfg:
+.. _xmlgroup-ModbusmaProtocolCfg: lelabel=ProtocolCfg
 
-ProtocolCfg group node
-----------------------
+ProtocolCfg group
+-----------------
 
-.. include-file:: sections/Include/ProtocolCfg.rstinc "" "Modbus Master" ":ref:`ProtocolCfg<ref-ModbusmaProtocolCfg>`"
+.. include-file:: sections/Include/ProtocolCfg.rstinc "" "Modbus Master" ":ref:`xmlgroup-ModbusmaProtocolCfg`"
 
 .. code-block:: none
 
  <ProtocolCfg>
-	<LinkSettings … />
-	<CommsSettings … />
-	<Hardcoded … />
-	<AppSettings … />
-        <ServiceSettings … />
-	<Timeouts … />
-	<TimeSettings … />
-	<Periodic … />
+   <LinkSettings … />
+   <CommsSettings … />
+   <Hardcoded … />
+   <AppSettings … />
+   <ServiceSettings … />
+   <Timeouts … />
+   <TimeSettings … />
+   <Periodic … />
  </ProtocolCfg>
 
 .. tip:: All element nodes are optional, default values will be used for attributes of omitted nodes.
@@ -25,8 +25,8 @@ ProtocolCfg group node
 .. include:: Modbusma/Hardcoded.rst
 .. include:: Modbusma/AppSettings.rst
 
-.. include-file:: sections/Include/ma_ServiceSettings.rstinc "" ".. _ref-ModbusmaServiceSettings:" ":ref:`<ref-ModbusmaServiceSettings>`" ".. _docref-ModbusmaServiceSettingsAttab:" "Modbus Master ServiceSettings attributes"
-.. include-file:: sections/Include/EventMask.rstinc "" ".. _docref-ModbusmaServiceEventMaskAttab:" ":numref:`docref-ModbusmaServiceEventMaskAttab`" ":ref:`<ref-ModbusmaCommsSettingsOfflineDelay>`" ":ref:`<ref-ModbusmaCommsSettingsPostOfflineDelay>`"
+.. include-file:: sections/Include/ma_ServiceSettings.rstinc "" ".. _xmlelem-ModbusmaService:" ":ref:`xmlelem-ModbusmaService`" "tabid-ModbusmaService" "Modbus Master ServiceSettings attributes"
+.. include-file:: sections/Include/EventMask.rstinc "" ":ref:`xmlattr-ModbusmaServiceEventMask`" "tabid-ModbusmaServiceEventMask" ":numref:`tabid-ModbusmaServiceEventMask`" ":ref:`xmlattr-ModbusmaCommOfflineDelay`" ":ref:`xmlattr-ModbusmaCommPostOfflineDelay`"
 
 .. include:: Modbusma/Timeouts.rst
 .. include:: Modbusma/TimeSettings.rst

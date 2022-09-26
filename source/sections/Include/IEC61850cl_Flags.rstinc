@@ -1,0 +1,5 @@
+   * :attr:	:xmlattr:`Flags`
+     :val:	|flags8range|
+     :def:	0x00
+     :desc:	Miscellaneous settings of the :include-arg:`2` layer.
+		See :include-arg:`1` for description.

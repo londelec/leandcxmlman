@@ -1,7 +1,0 @@
-   * :attr:     :xmlref:`InvalidEvent`
-     :val:      0
-     :desc:     DI/AI events with set Invalid [IV] bit **will not be** generated
-
-   * :(attr):
-     :val:      1
-     :desc:     DI/AI events with set Invalid [IV] bit **will be** generated (default value)

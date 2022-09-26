@@ -1,7 +1,5 @@
-   * :attr:	:include-arg:`1`
-
-		:xmlref:`Count`
+   * :attr:	:xmlattr:`Count`
      :val:	0...63
      :def:	1
-     :desc:	Number of Modbus registers to :include-arg:`2` outstation.
+     :desc:	Number of Modbus registers to :include-arg:`1` outstation.
 		:inlinetip:`Attribute is optional and doesn’t have to be included in configuration, default value will be used if omitted.`

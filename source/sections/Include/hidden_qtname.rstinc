@@ -1,11 +1,11 @@
-   * :attr:     :xmlref:`qname`
-     :val:      1...64 chars
-     :def:      'q'
-     :desc:     Quality attribute from CID/SCD file.
-		:inlineattention:`This attribute is excluded from user documentation.`
+   * :attr:	:xmlattr:`qname`
+     :val:	1...64 chars
+     :def:	'q'
+     :desc:	Quality attribute from CID/SCD file.
+		|internalattr|
 
-   * :attr:     :xmlref:`tname`
-     :val:      1...64 chars
-     :def:      't'
-     :desc:     Timetag attribute from CID/SCD file.
-		:inlineattention:`This attribute is excluded from user documentation.`
+   * :attr:	:xmlattr:`tname`
+     :val:	1...64 chars
+     :def:	't'
+     :desc:	Timetag attribute from CID/SCD file.
+		|internalattr|

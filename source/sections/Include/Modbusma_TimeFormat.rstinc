@@ -1,7 +1,5 @@
    * :attr:	:include-arg:`1`
-
-		:include-arg:`2`
-     :val:	See table :numref:`docref-ModbusmaTimeTypesTab`
+     :val:	See :numref:`tabid-ModbusmaTimeTypes`
      :def:	0
-     :desc:     Format of the :include-arg:`3` number in the outgoing message.
-		Value 0 means :include-arg:`3` will be excluded from the message.
+     :desc:	Format of the :include-arg:`2` number in the outgoing message.
+		Value 0 means :include-arg:`2` will be excluded from the message.

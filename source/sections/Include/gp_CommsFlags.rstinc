@@ -1,0 +1,5 @@
+   * :attr:	:xmlattr:`CommsFlags`
+     :val:	|flags8range|
+     :desc:	Initialization settings of the protocol instance.
+		See :numref:`tabid-CommsFlags` for description.
+		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default system settings will be used if omitted.`

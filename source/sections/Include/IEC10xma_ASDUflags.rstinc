@@ -1,11 +1,27 @@
-   * :attr:     Bit 4
-     :val:      xxx0.xxxx
-     :desc:     **Check** Test bit of the received Cause Of Transmission [:lemonobgtext:`COT`]. Messages received with set [:lemonobgtext:`COT`] test bit will be discarded.
+   * :attr:	Bit 3
+     :val:	xxxx.0xxx
+     :desc:	Use **internal time** when sending delayed INTER or INDET state event.
+		This setting applies only to Double Point DI objects if Intermediate or Indeterminate state delay is enabled.
+		In case Intermediate/Indeterminate state reporting is delayed with :ref:`xmlelem-IEC10xmaDI`.\ :ref:`xmlattr-IEC10xmaDIInterDelay` or :ref:`xmlelem-IEC10xmaDI`.\ :ref:`xmlattr-IEC10xmaDIIndetDelay` attributes,
+		the INTER/INDET state event's time tag will contain the current time i.e. the time when this event is generated.
 
    * :(attr):
-     :val:      xxx1.xxxx
-     :desc:     **Ignore** Test bit of the received Cause Of Transmission [:lemonobgtext:`COT`]. Messages received with set [:lemonobgtext:`COT`] test bit will be processed as if no test bit was set.
+     :val:	xxxx.1xxx
+     :desc:	Use **original time tag of the event** that resulted in INTER or INDET state.
+		This setting applies only to Double Point DI objects if Intermediate or Indeterminate state delay is enabled.
+		In case Intermediate/Indeterminate state reporting is delayed with :ref:`xmlelem-IEC10xmaDI`.\ :ref:`xmlattr-IEC10xmaDIInterDelay` or :ref:`xmlelem-IEC10xmaDI`.\ :ref:`xmlattr-IEC10xmaDIIndetDelay` attributes,
+		the INTER/INDET state event will contain original time tag of the event (received before the delay) that resulted in INTER/INDET state.
 
-   * :attr:     Bits 0...3;5...7
-     :val:      Any
-     :desc:     Bits reserved for future use
+   * :attr:	Bit 4
+     :val:	xxx0.xxxx
+     :desc:	**Check** Test bit of the received Cause Of Transmission [:lemonobgtext:`COT`].
+		Messages received with set [:lemonobgtext:`COT`] test bit will be discarded.
+
+   * :(attr):
+     :val:	xxx1.xxxx
+     :desc:	**Ignore** Test bit of the received Cause Of Transmission [:lemonobgtext:`COT`].
+		Messages received with set [:lemonobgtext:`COT`] test bit will be processed as if no test bit was set.
+
+   * :attr:	Bits 0...2;5...7
+     :val:	Any
+     :desc:	Bits reserved for future use

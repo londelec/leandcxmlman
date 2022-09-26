@@ -1,9 +1,7 @@
-   * :attr:     :include-arg:`1`
-
-		:include-arg:`2`
-     :val:      2...32
-     :def:      4
-     :desc:     :include-arg:`3` event buffer size multiplier. 
-		Buffer size will be calculated by multiplying this attribute and the total number of :include-arg:`3` objects linked to protocol instance.
+   * :attr:	:include-arg:`1`
+     :val:	2...32
+     :def:	4
+     :desc:	:include-arg:`2` event buffer size multiplier. 
+		Buffer size will be calculated by multiplying this attribute and the total number of :include-arg:`2` objects linked to protocol instance.
 		Attribute supports decimal point and thus values such as 2.5 or 4.66 may be entered
-		(default value 4 – buffer size is initialized four times the number of :include-arg:`3` objects)
+		(default value 4 – buffer size is initialized four times the number of :include-arg:`2` objects)

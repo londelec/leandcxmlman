@@ -1,0 +1,6 @@
+   * :attr:	:include-arg:`1`
+     :val:	1...97 chars
+     :def:	:include-arg:`2`
+     :desc:	Name for dynamic datasets that are going to be linked to :include-arg:`3` Report Blocks.
+		By default dynamic datasets are created in the "LLN0" of the same Logical Device (LD) where Data Object (DO) is located.
+		In order to create datasets in a specific Logical Device, IED name and preferred Logical Device can be included e.g. "IEDLD0/:include-arg:`2`"

@@ -1,58 +1,48 @@
-.. _ref-IEC101maLinkSettings:
+.. _xmlelem-IEC101maLink:
 
 LinkSettings
 ^^^^^^^^^^^^
 
-Link layer settings can be specified using attributes of :ref:`<ref-IEC101maLinkSettings>` element node.
+Link layer settings can be specified using attributes of :ref:`xmlelem-IEC101maLink` element node.
 
-.. include-file:: sections/Include/sample_node.rstinc "" ":ref:`<ref-IEC101maLinkSettings>`"
+.. include-file:: sections/Include/sample_node.rstinc "" ":ref:`xmlelem-IEC101maLink`"
 
 .. code-block:: none
 
-   <LinkSettings LinkAddrSize="1" LinkOnlineCounter="5" IgnoreWhileLinkcnt="1" Flags="0x00"/>
+   <LinkSettings LinkAddrSize="1" LinkOnlineCounter="5" Flags="0x00"/>
 
 
-.. _docref-IEC101maLinkSettingsAttab:
+.. include-file:: sections/Include/table_attrs.rstinc "" "tabid-IEC101maLink" "IEC60870-5-101 Master LinkSettings attributes" ":spec: |C{0.2}|C{0.12}|C{0.1}|S{0.58}|"
 
-.. include-file:: sections/Include/table_attrs.rstinc "" "IEC60870-5-101 Master LinkSettings attributes" ":spec: |C{0.2}|C{0.12}|C{0.1}|S{0.58}|"
+.. include-file:: sections/Include/IEC60870_LinkAddrSize.rstinc ""
 
-.. include-file:: sections/Include/IEC60870_LinkAddrSize.rstinc "" ".. _ref-IEC101maLinkSettingsLinkAddrSize:"
+   * :attr:	:xmlattr:`LinkOnlineCounter`
+     :val:	0...65535
+     :def:	0 requests
+     :desc:	Application layer operation delay after link becomes valid. First application layer message (e.g. GI or Time Sync) will be delayed for a configured number of outgoing link messages after Reset Remote link response is received from outstation.
+		Value 0 disables delay - application layer starts running immediately after Reset Remote link response is received from outstation.
 
-   * :attr:     .. _ref-IEC101maLinkSettingsLinkOnlineCounter:
-
-                :xmlref:`LinkOnlineCounter`
-     :val:      0...65535
-     :def:      0 requests
-     :desc:     Application layer operation delay after link becomes valid. First application layer message (e.g. GI or Time Sync) will be delayed for a configured number of outgoing link messages after Reset Remote link response is received from outstation. Value 0 disables delay - application layer starts running immediately after Reset Remote link response is received from outstation.
-
-   * :attr:     .. _ref-IEC101maLinkSettingsIgnoreWhileLinkcnt:
-
-                :xmlref:`IgnoreWhileLinkcnt`
-     :val:      0
-     :def:      0
-     :desc:     **Process** received application layer messages while link online delay counter operates
-
-   * :(attr):
-     :val:      1
-     :(def):
-     :desc:     **Ignore** received application layer messages while link online delay counter operates.
-		Application message processing starts after number of link messages defined in :ref:`<ref-IEC101maLinkSettingsLinkOnlineCounter>` are received from outstation.
-
-   * :attr:     .. _ref-IEC101maLinkSettingsFlags:
-
-                :xmlref:`Flags`
-     :val:      0...255 or 0x00...0xFF
-     :def:      0x00
-     :desc:     Various settings to enable customized data processing.
-		See table :numref:`docref-IEC101maLinkFlagsBits` for description.
+   * :attr:	:xmlattr:`Flags`
+     :val:	|flags8range|
+     :def:	0x00
+     :desc:	Various settings to enable customized data processing.
+		See :numref:`tabid-IEC101maLinkFlags` for description.
 
 
-.. _docref-IEC101maLinkFlagsBits:
-
-.. include-file:: sections/Include/table_flags.rstinc "" "IEC60870-5-101 Master Link flags" ":ref:`<ref-IEC101maLinkSettingsFlags>`" "Link flags"
+.. include-file:: sections/Include/table_flags8.rstinc "" "tabid-IEC101maLinkFlags" "IEC60870-5-101 Master Link flags" ":ref:`xmlattr-IEC101maLinkFlags`" "Link flags"
 
 .. include-file:: sections/Include/IEC60870_LinkFlags.rstinc
 
-   * :attr:     Bits 1...7
+   * :attr:	:bitdef:`4`
+     :val:	xxx0.xxxx
+     :desc:	**Process** received application layer messages while link online delay counter operates.
+		This setting applies only if :ref:`xmlattr-IEC101maLinkLinkOnlineCounter` is used.
+
+   * :(attr):
+     :val:	xxx1.xxxx
+     :desc:	**Ignore** received application layer messages while link online delay counter operates.
+		Application message processing starts only after number of link messages defined in :ref:`xmlattr-IEC101maLinkLinkOnlineCounter` have been received from outstation.
+
+   * :attr:     Bits 1...3;5...7
      :val:      Any
      :desc:     Bits reserved for future use

@@ -1,9 +1,9 @@
-   * :attr:    :xmlref:`ForwardGI`
-     :val:     0
-     :def:     1
-     :desc:    **Don't forward** General Interrogation command to downstream outstations when received from upstream station (e.g. SCADA)
+   * :attr:	:xmlattr:`ForwardGI`
+     :val:	0
+     :def:	1
+     :desc:	**Don't forward** General Interrogation command to downstream outstations when received from upstream station (e.g. SCADA)
 
    * :(attr):
-     :val:     1
+     :val:	1
      :(def):
-     :desc:    **Forward** General Interrogation command to downstream outstations when received from upstream station (e.g. SCADA)
+     :desc:	**Forward** General Interrogation command to downstream outstations when received from upstream station (e.g. SCADA)
