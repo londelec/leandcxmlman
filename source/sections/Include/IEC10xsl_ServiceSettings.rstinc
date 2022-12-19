@@ -17,9 +17,9 @@ Service settings are used to control quality flags of the DI/AI events generated
    * :attr:	:xmlattr:`NotInitFlags`
      :val:	|flags8range|
      :def:	0x80 Invalid [:lemonobgtext:`IV`]
-     :desc:	Set quality bits of all DI/AI qualifiers when station is not initialized (doesn't reply and gets marked OFFLINE) on leandc startup.
+     :desc:	Set quality bits of all DI/AI qualifiers when station is not initialized (doesn't reply and gets marked OFFLINE) on |leandcfw| startup.
 		See :include-arg:`6` for quality bit description.
-		:inlinetip:`Note DI/AI qualifier quality bits (of static objects) will always be set when station status changes to OFFLINE i.e. after` :ref:`xmlattr-IEC101maCommOfflineDelay` \ :inlinetip:`timer expires on leandc startup.
+		:inlinetip:`Note DI/AI qualifier quality bits (of static objects) will always be set when station status changes to OFFLINE i.e. after` :ref:`xmlattr-IEC101maCommOfflineDelay` \ :inlinetip:`timer expires on |leandcfw| startup.
 		However DI/AI events will be generated only if not masked by` :include-arg:`3` \ :inlinetip:`attribute.`
 
    * :attr:	:xmlattr:`DisabledFlags`

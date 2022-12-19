@@ -5,7 +5,7 @@ UDP
 ^^^
 
 This node contains settings of a UDP socket.
-UDP socket is used to send/receive packets to/from remote host without establishing a connection between the source and the destination.
+UDP is used to send/receive packets to/from remote host without establishing a connection between the source and the destination.
 .. include-file:: sections/Include/sample_node.rstinc "" ":ref:`xmlelem-udp`"
 
 .. code-block:: none
@@ -18,48 +18,55 @@ UDP socket is used to send/receive packets to/from remote host without establish
    * :attr:	:xmlattr:`Index`
      :val:	|hwindexrange|
      :def:	n/a
-     :desc:	Index is a unique identifier of the hardware node. It is used as a reference to link a communication protocol instance to this node. :inlinetip:`Indexes don't have to be in a sequential order.`
+     :desc:	Index is a unique identifier of the hardware node.
+		It is used as a reference to link a communication protocol instance to this node.
+		:inlinetip:`Indexes don't have to be in a sequential order.`
 
    * :attr:	:xmlattr:`RemoteIPaddr`
      :val:	0.0.0.0 ... 255.255.255.254
      :def:	127.0.0.1 test only
-     :desc:	Remote IPv4 address. UDP socket will send messages to this remote address. (default localhost address 127.0.0.1  - for testing purposes only)
+     :desc:	Remote IPv4 address.
+		UDP messages will be sent to this remote address.
+		(default localhost address 127.0.0.1  - for testing purposes only)
 
    * :attr:	:xmlattr:`RemotePort`
      :val:	1...65534
      :def:	n/a
-     :desc:	Remote UDP port number. UDP socket will send messages to this remote port. (default port for supervision instances is 64950)
+     :desc:	Remote UDP port number.
+		UDP messages will be sent to this remote port.
+		(default port for supervision instances is 64950)
 
    * :attr:	:xmlattr:`LocalIPaddr`
      :val:	0.0.0.0 ... 255.255.255.254
      :def:	0.0.0.0
-     :desc:	| Local IPv4 address. Ethernet interface with this IP address must exist in the operating system. UDP messages will be received only through Ethernet interface with this address. 
-		| IP address 0.0.0.0 can be used to bind a UDP socket to any interface available in the operating system. This will allow leandc to receive UDP messages through any Ethernet interface. :inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
+     :desc:	| Local IPv4 address. Ethernet interface with this IP address must exist in the |opsystem|. UDP messages will be received only through Ethernet interface with this address. 
+		| IP address 0.0.0.0 can be used to listen for UDP messages on any interface available in the |opsystem|. This allows |leandcapp| to receive UDP messages through any Ethernet interface. |optinaldefattr|
 
    * :attr:	:xmlattr:`LocalPort`
      :val:	1...65534
      :def:	same as :ref:`xmlattr-UDPRemotePort`
-     :desc:	Local UDP port number. UDP messages will be accpted on this port. (default port number is equal to the :ref:`xmlattr-UDPRemotePort`) :inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
+     :desc:	Local UDP port number. UDP messages will be accepted on this port. (default port number is equal to the :ref:`xmlattr-UDPRemotePort`)
+		|optinaldefattr|
 
    * :attr:	:xmlattr:`ConnectTimeout`
      :val:	1...2\ :sup:`32`\  - 1
      :def:	5 sec
-     :desc:	Socket reconnection timeout in seconds. Communication will be suspended for a configured number of seconds if last sent UDP message was rejected. :inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
+     :desc:	Reconnection timeout in seconds.
+		Communication will be suspended for a configured number of seconds if last sent UDP message was rejected.
+		|optinaldefattr|
 
-   * :attr:	:xmlattr:`Timeout`
-     :val:	0.01...42949
-     :def:	2 sec
-     :desc:	Timeout value in seconds, only used if a serial communication instance (e.g. IEC60870-5-101) is linked to this :ref:`xmlelem-udp` node. New outgoing message will be sent, if there was no reply from outstation within a configured number of seconds. :inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
+.. include-file:: sections/Include/chan_Timeout.rstinc "" "2 sec" " (possibly arriving in multiple UDP datagrams)"
+		| > Not used for any other communication protocol instances.
+		| |optinaldefattr|
 
-   * :attr:	:xmlattr:`TxDelay`
-     :val:	0.00001...42949
-     :def:	0.1 sec
-     :desc:	Transmit delay in seconds, only used if a serial communication instance (e.g. IEC60870-5-101) is linked to this :ref:`xmlelem-udp` node. Outgoing message will be delayed for a configured number of seconds before being sent after received message. :inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
+.. include-file:: sections/Include/chan_TxDelay.rstinc ""
 
    * :attr:	:xmlattr:`IdleTimeout`
      :val:	5...2\ :sup:`32`\  - 1
      :def:	120 sec
-     :desc:	Receive idle timeout, only used if :ref:`xmlelem-override` supervision instance is linked to this :ref:`xmlelem-udp` node. TCP socket used for service commands will be closed if no data is received from a remote host within this timeout. :inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
+     :desc:	Receive idle timeout, only used if :ref:`xmlelem-override` supervision instance is linked.
+		TCP socket used for service commands will be closed if no data is received from a remote host within a configured number of seconds.
+		|optinaldefattr|
 
 .. include-file:: sections/Include/hidden_Hostname.rstinc "internal" ":ref:`xmlattr-udpRemoteIPaddr`" ":ref:`xmlattr-udpConnectTimeout`" "Host name of the UDP peer. We will send UDP messages"
 

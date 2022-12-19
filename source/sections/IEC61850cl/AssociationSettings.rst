@@ -47,7 +47,7 @@ Settings of the Association control service layer (ISO8650) can be specified usi
 
 .. include-file:: sections/Include/IEC61850cl_Flags.rstinc "" ":numref:`tabid-IEC61850clAssociationFlags`" "Association"
 
-.. include-file:: sections/Include/IEC61850_LogFlags.rstinc "" ":numref:`tabid-IEC61850clLogFlags`" "Association"
+.. include-file:: sections/Include/IEC61850_LogFlags8.rstinc "" ":numref:`tabid-IEC61850clLogFlags`" "Association"
 
 
 .. include-file:: sections/Include/table_flags16.rstinc "" "tabid-IEC61850clAssociationAARQfields" "Fields of the AARQ APDU" ":ref:`xmlattr-IEC61850clAssociationAARQfields`" "AARQ fields"

@@ -1,0 +1,19 @@
+   * :attr:	Bit 0
+     :val:	xxxx.xxxx xxxx.xxx0
+     :desc:	Debug information **will not be** recorded.
+		|internalbit|
+
+   * :(attr):
+     :val:	xxxx.xxxx xxxx.xxx1
+     :desc:	Debug information **will be** recorded.
+		|internalbit|
+
+   * :attr:	Bit 1
+     :val:	xxxx.xxxx xxxx.xx0x
+     :desc:	Progress of the main process, ACSI request events **will not be** recorded.
+		|internalbit|
+
+   * :(attr):
+     :val:	xxxx.xxxx xxxx.xx1x
+     :desc:	Progress of the main process, ACSI request events **will be** recorded.
+		|internalbit|

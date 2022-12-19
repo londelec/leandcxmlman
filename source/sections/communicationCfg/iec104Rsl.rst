@@ -4,30 +4,27 @@
 IEC104Rsl
 ^^^^^^^^^
 
-There is an option to use multiple redundant connections for communication between leandc and controlling 
-(Master) stations ensuring a failure of a single communication channel will not disrupt the exchange of data. 
-This option is currently available for leandc IEC60870-5-104 controlled station (Slave) mode and can be 
-enabled by creating a redundancy group. Redundancy group is a number of leandc communication protocol
-instances which are working together allowing several controlling stations (Masters) to receive the same data 
-over single/multiple communication channels. Only one controlling station (Master) within a redundancy group is 
-in a 'Started state' which means it is exchanging the application data with leandc. Other controlling stations 
-(Masters) are in a 'Stopped state', they only monitor availability of the communication channel and do not 
-exchange the application data.
+There is an option to use multiple redundant connections for communication between |leandcapp| and controlling
+(Master) stations ensuring a failure of a single communication channel will not disrupt the exchange of data.
+This option is currently available for IEC60870-5-104 controlled station (Slave) instances and can be enabled by creating a so-called redundancy group.
+Redundancy group is a set of communication protocol instances working together and allowing several controlling stations (Masters)
+to receive the same data over single/multiple communication channels.
+Only one controlling station (Master) within a redundancy group is in a 'Started connection' state which means only this station is sending/receiving data.
+Other controlling stations (Masters) are in a 'Stopped connection' state, they only monitor availability of the communication channel, but do not send/receive data.
 
-In order to explain how to configure a redundancy group in leandc there are two terms 'Main' (:ref:`xmlelem-gp104sl` node) 
-and 'Redundant' (:ref:`xmlelem-gp104Rsl` node) communication protocol instance used throughout this manual. There is no 
-functional difference between 'Main' and 'Redundant' communication protocol instance as far as communication 
-standard is concerned, these are only used to reference different types of nodes in leandc configuration.
+In order to explain how to set up a redundancy group 2 terms 'Main' (:ref:`xmlelem-gp104sl`) and 'Redundant' (:ref:`xmlelem-gp104Rsl`) communication protocol
+instance are used throughout this manual.
+There is no functional difference between 'Main' and 'Redundant' communication protocol instance as far as the communication standard is concerned.
+These terms are only used to differentiate communication instances in |leandcapp| configuration.
 
-IEC60870-5-104 controlled station (Slave) redundancy group in leandc is enabled as follows: any :ref:`xmlelem-gp104sl` 
-node can be chosen as 'Main' communication protocol instance and redundancy is automatically enabled if one 
-or more :ref:`xmlelem-gp104Rsl` nodes are linked to the 'Main' communication protocol instance. It is possible to link up to 15 
-'Redundant' communication protocol instances to the same 'Main' communication protocol instance, thus 
-creating a redundancy group of 16. This allows for up to 16 controlling (Master) stations to connect to leandc.
+IEC60870-5-104 controlled station (Slave) redundancy group is enabled as follows:
+any :ref:`xmlelem-gp104sl` communication protocol instance can be chosen as 'Main' and redundancy is automatically enabled if one or more
+:ref:`xmlelem-gp104Rsl` instances are linked to the 'Main' instance.
+It is possible to link up to 15 'Redundant' instances to the same 'Main' instance, thus creating a redundancy group of 16.
+This would allow up to 16 controlling (Master) stations to connect to |leandcapp|.
 
-No IO object XML configuration is required for 'Redundant' communication protocol instance, because it is 
-always linked to 'Main' communication protocol instance, which has an IO object table and the application data 
-will be shared by all instances within a redundancy group. 
+No IO object tables are required for 'Redundant' communication protocol instance, because it is always linked to a 'Main' instance which has IO object tables.
+An identical set of IO objects is shared by all instances within a redundancy group.
 .. include-file:: sections/Include/sample_node.rstinc "" ":ref:`xmlelem-gp104Rsl`"
 
 .. code-block:: none
@@ -44,7 +41,7 @@ will be shared by all instances within a redundancy group.
 
    * :attr:	:xmlattr:`RedundantToIndex`
      :val:	|gpindexrange|
-     :desc:	Link 'Redundant' protocol instance to 'Main' instance.
+     :desc:	Link 'Redundant' instance to 'Main' instance.
 		Use value of the :ref:`xmlelem-gp104sl`.\ :ref:`xmlattr-gp104slIndex` attribute.
 
 .. include-file:: sections/Include/gp_FilterID.rstinc ""

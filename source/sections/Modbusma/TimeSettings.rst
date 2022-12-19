@@ -62,8 +62,8 @@ Table below shows position of a sample value '85' (0x55) in a Modbus message dep
    :spec: |C{0.10}|S{0.90}|
    :header-rows: 1
 
-   * :val,10:   BitOffset
-     :desc,90:  Modbus Message
+   * :val,10,center:	BitOffset
+     :desc,90:		Modbus Message
 
    * :val:	0
      :desc:	{01 10 ... **00 55** 00 00 ...}
@@ -96,8 +96,8 @@ Table below shows position of a sample value '85' (0x55) in a Modbus message dep
    :spec: |C{0.10}|S{0.90}|
    :header-rows: 1
 
-   * :val,10:   Type value
-     :desc,90:  Description
+   * :val,10,center:	Type
+     :desc,90:		Description
 
    * :val:	0
      :desc:	Value is not used

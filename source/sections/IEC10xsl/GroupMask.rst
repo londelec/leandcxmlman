@@ -8,9 +8,9 @@ Interrogation GroupMask
    :spec: |C{0.22}|C{0.22}|S{0.56}|
    :header-rows: 1
 
-   * :attr,10:	Bits
-     :val,10:	Values
-     :desc,80:	Description
+   * :attr,10,center:	Bits
+     :val,10,center:	Values
+     :desc,80:		Description
 
    * :attr:	:ref:`xmlattr-IEC10xslDIGroupMask` [xxxx.xxxx.xxxx.xxxx]
      :val:	0x0000...0xFFFF

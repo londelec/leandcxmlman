@@ -26,9 +26,9 @@ VersionControl attributes
    :spec: |C{0.1}|C{0.25}|S{0.65}|
    :header-rows: 1
 
-   * :attr,10: Attribute
-     :val,15:  Values or range
-     :desc,75: Description
+   * :attr,10,center:	Attribute
+     :val,15,center:	Values or range
+     :desc,75:		Description
 
    * :attr:	:xmlattr:`conf`
      :val:	0.01...65535

@@ -39,14 +39,22 @@ TCP client socket is used to connect to a remote host.
 		If it is impossible to connect to a remote Server, connection request (SYN) messages will be sent at these intervals.
 		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
 
-.. include-file:: sections/Include/TCPser_Timeouts.rstinc "" ":ref:`xmlelem-tcpclient`"
+.. include-file:: sections/Include/chan_Timeout.rstinc "" "2 sec" " (possibly arriving in multiple TCP segments)"
+		| > IEC61850 Client instance - connection will be closed if not all TCP segments of a TPKT message have been received within a configured number of seconds.
+		| > Not used for any other communication protocol instances.
+		| |optinaldefattr|
+
+.. include-file:: sections/Include/chan_TxDelay.rstinc ""
+
+.. include-file:: sections/Include/TCP_IdleTimeout.rstinc ""
 
    * :attr:	:xmlattr:`Keepalive`
      :val:	0...2\ :sup:`32`\  - 1
      :def:	0 sec
      :desc:	Keepalive message seding interval normally used for IEC61850 Client instance.
 		TCP Socket will be closed if the remote host fails to reply to a keepalive message within configured number of seconds.
-		(default is 20 seconds for IEC61850 Client instance) :inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
+		(default is 20 seconds for IEC61850 Client instance)
+		|optinaldefattr|
 
 .. include-file:: sections/Include/hidden_Hostname.rstinc "internal" ":ref:`xmlattr-tcpclientServerIPaddr`" ":ref:`xmlattr-tcpclientConnectTimeout`" "Host name of the TCP Server. TCP connection will established"
 

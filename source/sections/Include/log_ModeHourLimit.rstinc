@@ -1,10 +1,10 @@
    * :attr:	:xmlattr:`Mode`
 
 		\*
-     :val:	0...255 or 0x00...0xFF
+     :val:	|flags8range|
      :def:	:include-arg:`1`
      :desc:	Logfile initialization settings. See :numref:`tabid-LoggerMode` for description.
-		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default settings will be used if omitted.`
+		|optinaldefattr|
 
    * :attr:	:xmlattr:`HourLimit`
 
@@ -13,4 +13,4 @@
      :def:	:include-arg:`2` hours
      :desc:	Option to create a new file after selected number of hours in order to limit the size of a file.
 		:include-arg:`3`
-		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default settings will be used if omitted.`
+		|optinaldefattr|

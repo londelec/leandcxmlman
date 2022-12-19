@@ -4,12 +4,14 @@
 .. role:: underline
 
 .. |leandcfw| replace:: leandc
+.. |leandcapp| replace:: leandc application
 .. |leandcxml| replace:: **leandc.xml**
 .. |leloggerxml| replace:: **lelogger.xml**
-.. |leandcapp| replace:: /home/leandc/app
-.. |leandcunit| replace:: LEANDC unit
+.. |leandcdir| replace:: /home/leandc/app
 .. |sshmanual| replace:: Leandc SSH manual
 .. |htmlmanual| replace:: HTML manual
+.. |opsystem| replace:: Operating System
+.. |linuxos| replace:: Linux Operating System
 .. |hwindexrange| replace:: 1...254
 .. |gpindexrange| replace:: 1...254
 .. |filteridrange| replace:: 1...255
@@ -20,6 +22,7 @@
 .. |uint32range| replace:: 0...2\ :sup:`32`\  - 1
 .. |sermamessagerange| replace:: 1...65534
 .. |optinalattr| replace:: :inlinetip:`Attribute is optional and doesn't have to be included in configuration.`
+.. |optinaldefattr| replace:: :inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
 .. |internalattr| replace:: :inlineattention:`This attribute is excluded from user documentation.`
 .. |internalbit| replace:: :inlineattention:`This bit is excluded from user documentation.`
 .. |bittrue| replace:: \  = 1

@@ -4,10 +4,10 @@
 MONRAW
 ^^^^^^
 
-Traffic through any leandc serial port or socket can be captured and sent to a remote destination for a real time monitoring.
+Traffic through any serial port can be captured and sent to a remote destination for a real time monitoring.
 Remote traffic monitoring can be enabled using so called 'raw monitoring' supervision instance which requires only 1 destination socket to send the captured data.
 Raw monitoring mode will be active as long as there is a traffic through the monitored port and remote destination is reachable.
-Please see sample :ref:`xmlelem-monraw` element node used to enable raw monitoring and the table listing all available attributes below.
+Please see sample :ref:`xmlelem-monraw` element all available attributes below.
 
 .. code-block:: none
 
@@ -17,8 +17,9 @@ Please see sample :ref:`xmlelem-monraw` element node used to enable raw monitori
 
    * :attr:	:xmlattr:`SrcHWIndex`
      :val:	|hwindexrange|
-     :desc:	Source index of the hardware node to be monitored.
-		Any of :ref:`xmlelem-uart`; :ref:`xmlelem-tcpserver`; :ref:`xmlelem-tcpclient` or :ref:`xmlelem-udp` nodes can be used as a source for traffic monitoring.
+     :desc:	Source index of the serial port to be monitored.
+		Any :ref:`xmlelem-uart` node can be used as a source for traffic monitoring.
+		Please note serial port must not be linked to any other :ref:`xmlgroup-SupervisionCfg` node.
 
    * :attr:	:xmlattr:`DstHWIndex`
      :val:	|hwindexrange|

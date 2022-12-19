@@ -57,7 +57,7 @@ DI attributes
      :val:	1...65535
      :def:	50 msec
      :desc:	Chatter filter in milliseconds for Digital Inputs.
-		State change of the digital input will be reported only if remains stable for the period that exceeds configured filter.
+		State change of the digital input will be reported only if it remains stable for the period that exceeds configured filter.
 		:inlinetip:`This attribute applies only to LEIODC series units.`
 
    * :attr:	:xmlattr:`OnValues`
@@ -104,7 +104,6 @@ DI attributes
 		:ref:`xmlattr-ModbusmaDIOnValues`
 		:inlinetip:`attribute is used, any value received from station that is not included in either attributes will result in a DI state INTER.`
 
-
 .. include-file:: sections/Include/Total.rstinc "" ":ref:`xmlattr-ModbusmaDIIndex` and :ref:`xmlattr-ModbusmaDIBitOffset`" ":ref:`xmlelem-ModbusmaDI`" "254"
 
 .. include-file:: sections/Include/Name.rstinc ""
@@ -144,8 +143,8 @@ DI.Type
    :spec: |C{0.07}|S{0.93}|
    :header-rows: 1
 
-   * :val,10:   :ref:`xmlattr-ModbusmaDIType`
-     :desc,90:  Description
+   * :val,10,center:	:ref:`xmlattr-ModbusmaDIType`
+     :desc,90:		Description
 
    * :val:	0
      :desc:	Not used
@@ -171,8 +170,8 @@ Each byte is shown as 'xxxx.xxxx' where 'x' represents one bit of the byte.
    :spec: |C{0.10}|S{0.50}|
    :header-rows: 1
 
-   * :val,10:   :ref:`xmlattr-ModbusmaDIBitOffset`
-     :desc,90:  Modbus Message
+   * :val,10,center:	:ref:`xmlattr-ModbusmaDIBitOffset`
+     :desc,90:		Modbus Message
 
    * :val:	0
      :desc:	{... xxxx.xxxx xxxx.xxx\ **B** xxxx.xxxx xxxx.xxxx ...}

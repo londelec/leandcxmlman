@@ -8,9 +8,9 @@ System configuration
 Configuration file |leandcxml|
 ------------------------------
 
-XML configuration file |leandcxml| contains overall system settings of the |leandcfw| firmware and it is the first file loaded upon system startup.
-The name of this file is fixed, it must be stored in the default application directory |leandcapp| .
-If |leandcxml| file is not found on startup, the firmware terminates with an error message indicating the cause.
+XML configuration file |leandcxml| contains main settings of the |leandcapp| and it is the first file loaded on startup.
+The name of the file is fixed and it must be stored in the default application directory |leandcdir| .
+If |leandcxml| file is not found on startup, application terminates with an error message indicating the cause.
 
 |leandcxml| configuration file consists of a root node :ref:`xmlgroup-MainConfig` which has 3 mandatory groups
 :ref:`xmlelem-VersionControl`; :ref:`xmlgroup-HardwareCfg` and :ref:`xmlgroup-CommunicationCfg` and 4 optional groups
@@ -85,8 +85,8 @@ Attributes of these elements contain interface's settings.
 CommunicationCfg group
 ----------------------
 
-:ref:`xmlgroup-CommunicationCfg` group is used to initialize communication protocol instances and link to physical hardware interface.
-Leandc firmware is able to receive data from downstream outstations using various communication protocols,
+:ref:`xmlgroup-CommunicationCfg` group is used to initialize communication protocol instances and link them to physical hardware interfaces.
+|leandcapp| is able to receive data from downstream outstations using various communication protocols,
 process the received information and report it upstream to SCADA our any other data acquisition entity.
 Every logical communication link to outstation or upstream station has a definition 'communication protocol instance' within this manual.
 It represents communication channel for receiving or sending the data.
@@ -168,7 +168,7 @@ This element contains settings of a system-wide logfile.
      :def:	0x00
      :desc:	Select type of system messages to be logged. See :numref:`tabid-syslogfileLogFlags` for description. Logfile will not be created if the value is 0.
 
-.. include-file:: sections/Include/log_Logfile.rstinc "" ".log" "(default value 'Syslog/syslog' where 'Syslog' is the name of the folder and 'syslog' is the name of the file)"
+.. include-file:: sections/Include/log_Logfile.rstinc "" ".log" "(default value 'Syslog/syslog' where 'Syslog' is the name of the directory and 'syslog' is the name of the file)"
 
 .. include-file:: sections/Include/log_ModeHourLimit.rstinc "" "0x00" "0" "(default 0 – only 1 logfile a day will be created)"
 
@@ -317,12 +317,12 @@ Table is designed as a guidance of how network subnets are created based on samp
    :definition-row: 1
    :header-rows: 1
 
-   * :mask,10:
-     :subnet,20:
-     :bval1,10:
-     :bval2,10:
-     :bval3,10:
-     :bval4,10:
+   * :mask,10,center:
+     :subnet,20,center:
+     :bval1,10,center:
+     :bval2,10,center:
+     :bval3,10,center:
+     :bval4,10,center:
      :iprange,30:
 
    * :mask:          Mask

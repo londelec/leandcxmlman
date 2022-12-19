@@ -2,6 +2,6 @@
      :val:	Max 100 chars
      :desc:	XML configuration file name and path.
 		This file contains IO object table and communication protocol settings.
-		Path may be omitted if the XML file is located in the default directory (|leandcapp|)
+		Path may be omitted if the XML file is located in the default directory (|leandcdir|)
 		:inlineimportant:`Attribute is case sensitive, observe case of the path and file name when specifying.`
 		:inlinetip:`The same XML file can be used for multiple communication protocol instances if the settings and IO object tables are identical.`

@@ -67,9 +67,9 @@ whether :ref:`xmlattr-ModbusmaInitMsgReg` attribute must be specified when parti
    :spec: |C{0.07}|C{0.10}|S{0.83}|
    :header-rows: 1
 
-   * :val,8:	:ref:`xmlattr-ModbusmaInitMsgFunc`
-     :reg,10:	:ref:`xmlattr-ModbusmaInitMsgReg` required
-     :name,82:	Function Name
+   * :val,8,center:	:ref:`xmlattr-ModbusmaInitMsgFunc`
+     :reg,10,center:	:ref:`xmlattr-ModbusmaInitMsgReg` required
+     :name,82:		Function Name
 
    * :val:	3
      :reg:	Yes

@@ -52,7 +52,7 @@ DO attributes
      :val:	1...65535
      :def:	1500 msec
      :desc:	Digital output pulse duration in milliseconds.
-		Digital output will be activated when command is sent and automatically released after configured number of milliseconds.
+		Digital output will be activated when command is received and automatically released after configured number of milliseconds.
 		:inlinetip:`This attribute applies only to LEIODC series units.`
 
    * :attr:	:xmlattr:`Step`

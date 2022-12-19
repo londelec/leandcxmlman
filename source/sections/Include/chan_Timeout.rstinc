@@ -1,0 +1,6 @@
+   * :attr:	:xmlattr:`Timeout`
+     :val:	0.01...42949
+     :def:	:include-arg:`1`
+     :desc:	| Receive timeout in seconds. Functionality depends on the linked communication protocol instance:
+		| > Serial Master instance (e.g. IEC60870-5-101/3, Modbus, Spabus) - new outgoing message will be sent if no reply is received from outstation within a configured number of seconds.
+		| > Serial Slave instance (e.g. IEC60870-5-101) - incoming message will be discarded if not all bytes :include-arg:`2` have been received within a configured number of seconds.

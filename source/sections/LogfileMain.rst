@@ -5,10 +5,10 @@
 Logfiles
 ========
 
-Leandc features a raw communication traffic and decoded application level information recording
-to logfiles for supervision and maintenance purposes. Fixed name XML configuration file |leloggerxml|
-contains settings to enable logfiles. This file must be kept in the same directory as |leandcxml|
-file. Its path and name can't be changed.
+There is an option to record raw communication traffic and decoded communication data to logfiles for troubleshooting and maintenance purposes.
+Fixed name configuration file |leloggerxml| contains settings to enable recording of communication data.
+|leloggerxml| must be kept in the same directory as |leandcxml| file.
+Its path and name can't be changed.
 
 |leloggerxml| configuration file consists of a root object node :ref:`xmlgroup-Logfiles` which has 3 optional child group
 object nodes :ref:`xmlelem-VersionControl`; :ref:`xmlgroup-CommsCfg`; :ref:`xmlgroup-EventCfg`, please see the sample below.
@@ -31,7 +31,7 @@ object nodes :ref:`xmlelem-VersionControl`; :ref:`xmlgroup-CommsCfg`; :ref:`xmlg
    </SystemConfig>
 
 .. tip::
-   | |leloggerxml| configuration file is optional and leandc is able to run normally without it.
+   | |leloggerxml| file is optional and |leandcapp| is able to run normally without it.
    | Node names are case sensitive.
 
 .. _xmlgroup-CommsCfg: lelabel=CommsCfg
@@ -98,7 +98,7 @@ LOGGER and HWLOG attributes
 		See :numref:`tabid-CommsLoggerLogFlags` for description.
 		Logfile will not be created if the value is 0.
 
-.. include-file:: sections/Include/log_Logfile.rstinc "" ".log" "(sample value 'Log/abc', where 'Log' is the name of the folder and 'abc' is the name of the file)"
+.. include-file:: sections/Include/log_Logfile.rstinc "" ".log" "(sample value 'Log/abc', where 'Log' is the name of the directory and 'abc' is the name of the file)"
 
 .. include-file:: sections/Include/log_ModeHourLimit.rstinc "" "0x00" "4" "(default 4 hours – total of 6 files will be created daily at 00:00, 04:00, 08:00, 12:00, 16:00, 20:00)"
 
@@ -239,7 +239,7 @@ PCAPLOG attributes
 		See :numref:`tabid-pcaplogLogFlags` for description.
 		Capture is disabled if value is 0.
 
-.. include-file:: sections/Include/log_Logfile.rstinc "" ".pcap" "(sample value 'Log/abc', where 'Log' is the name of the folder and 'abc' is the name of the file)"
+.. include-file:: sections/Include/log_Logfile.rstinc "" ".pcap" "(sample value 'Log/abc', where 'Log' is the name of the directory and 'abc' is the name of the file)"
 
 .. include-file:: sections/Include/log_ModeHourLimit.rstinc "" "0x00" "4" "(default 4 hours – total of 6 files will be created daily at 00:00, 04:00, 08:00, 12:00, 16:00, 20:00)"
 
@@ -363,7 +363,7 @@ EVENTLOG and HWEVENTLOG attributes
 		See :numref:`tabid-EventLogLogFlags` for description.
 		Logfile will not be created if value is 0.
 
-.. include-file:: sections/Include/log_Logfile.rstinc "" ".event" "(sample value 'Events/abc', where 'Events' is the name of the folder and 'abc' is the name of the file)"
+.. include-file:: sections/Include/log_Logfile.rstinc "" ".event" "(sample value 'Events/abc', where 'Events' is the name of the directory and 'abc' is the name of the file)"
 
 .. include-file:: sections/Include/log_ModeHourLimit.rstinc "" "0x01" "6" "(default 6 hours – total of 4 files will be created daily at 00:00, 06:00, 12:00, 18:00)"
 
@@ -450,14 +450,14 @@ LOGGER.Mode and EVENTLOG.Mode
 
    * :attr:	Bit 0
      :val:	xxxx.xxx0
-     :desc:	New logfile **will be** created every time leandc is being started/restarted.
-		This means total number of files created each day will reflect how many times leandc was started/restarted.
+     :desc:	New logfile **will be** created every time |leandcapp| is being started/restarted.
+		This means a total number of files created each day will reflect how many times application was started/restarted.
 
    * :(attr):
      :val:	xxxx.xxx1
-     :desc:	New file **will not be** created if there is a logfile which was created the same date upon leandc start/restart.
-		New messages will be appended at the end of the existing file.
-		This means there will be only one file created each day, regardless of how many times leandc was started/restarted.
+     :desc:	New file **will not be** created if there is already a logfile which was created the same day |leandcapp| is being started/restarted.
+		New information will be appended at the end of the existing file.
+		This means there will only be one file created each day regardless of how many times |leandcapp| was started/restarted.
 
    * :attr:	Bits 1...7
      :val:	Any
@@ -471,48 +471,48 @@ Logfile samples
 
 This section provides information on how communication and event logfiles are created based on default settings as well as contents of each file.
 
-New communication logfile is created every 4 hours based on the default value of the :ref:`xmlelem-CommsLogger`.\ :ref:`xmlattr-CommsLoggerHourLimit` \ attribute.
-In addition to that new file will be created every time leandc is started/restarted based on the default value "0x00" of the :ref:`xmlelem-CommsLogger`.\ :ref:`xmlattr-CommsLoggerMode` \ attribute.
-Example below shows 2 lists of files created if leandc runs continuously and if being restarted.
+New communication logfile is created every 4 hours based on the default value of the :ref:`xmlelem-CommsLogger`.\ :ref:`xmlattr-CommsLoggerHourLimit` attribute.
+In addition to that new file will be created every time |leandcapp| is started/restarted based on the default value "0x00" of the :ref:`xmlelem-CommsLogger`.\ :ref:`xmlattr-CommsLoggerMode` attribute.
+Example below shows 2 lists of files created if application runs continuously and if being restarted.
 
 .. tip::
 
-   File creation date and hour (yyyy-mm-dd_hh) is automatically added to the name of the file specified in :ref:`xmlelem-CommsLogger`.\ :ref:`xmlattr-CommsLoggerLogfile` \ attribute.
-   This is a sample list of files created, if leandc is running continuously without being restarted.
+   File creation date and hour (yyyy-mm-dd_hh) is automatically added to the file name specified in :ref:`xmlelem-CommsLogger`.\ :ref:`xmlattr-CommsLoggerLogfile` attribute.
+   The sample below shows a list of files created if application is running continuously without being restarted.
 
    * 'logfile_2013-04-12_00.log'
    * 'logfile_2013-04-12_04.log'
    * 'logfile_2013-04-12_08.log'
    * 'logfile_2013-04-12_12.log'
 
-   Time-tag (hhmmss) is added to the name of the file which is created after leandc restart.
-   Time-tag will be added to the name of the new file only if there is an existing file which was created at the same hour range (4 hours).
-   This is a sample list of files created, if leandc was restarted at 14:04:13 and 14:07:32 and then switched off at 17:00:00 and started at 21:10:10.
+   Time-tag (hhmmss) is automatically added to the name of the files created after |leandcapp| restart.
+   Time-tag will be added only if there is an existing file which was created within a 4 hour window (4 hours is a default value of the :ref:`xmlelem-CommsLogger`.\ :ref:`xmlattr-CommsLoggerHourLimit` attribute).
+   The sample below shows a list of files created if application is restarted at 14:04:13 and 14:07:32, then stopped completely at 17:00:00 and started again at 21:10:10.
 
    * 'logfile_2013-04-12_12.log'
-   * 'logfile_2013-04-12_140413.log'	<- new file created after leandc restart at 14:04:13, time-tag is added because file created within a 4 hour range (at 12:00:00) exists
-   * 'logfile_2013-04-12_140732.log'	<- new file created after leandc restart at 14:04:13, time-tag is added because file created within a 4 hour range (at 12:00:00) exists
+   * 'logfile_2013-04-12_140413.log'	<- file created after restart at 14:04:13. Time-tag is added because file created within a 4 hour window already exists (file created at 12:00:00).
+   * 'logfile_2013-04-12_140732.log'	<- file created after restart at 14:04:13. Time-tag is added because file created within a 4 hour window already exists (file created at 12:00:00).
    * 'logfile_2013-04-12_16.log'
-   * 'logfile_2013-04-12_20.log'	<- new file created when leandc started at 21:10:10, no time-tag because there are no files created within a 4 hour range (from 20:00:00 to 23:59:59)
+   * 'logfile_2013-04-12_20.log'	<- file created when application starts at 21:10:10. No time-tag is added because there is no file created within a 4 hour window (from 20:00:00 to 23:59:59).
 
-Default settings of the event files are slightly different.
-New event logfile is created every 6 hours based on the default value of the :ref:`xmlelem-EventLog`.\ :ref:`xmlattr-EventLogHourLimit` \ attribute.
-However new file will not be created upon leandc restart based on the default value "0x01" of the :ref:`xmlelem-EventLog`.\ :ref:`xmlattr-EventLogMode` \ attribute.
-If an existing file created within the same hour range (6 hours) is found after leandc restart, new entires will appended to that file.
-Example below shows the list of files created if leandc runs continuously and if being restarted.
+Default settings for event files are slightly different.
+New event logfile is created every 6 hours based on the default value of the :ref:`xmlelem-EventLog`.\ :ref:`xmlattr-EventLogHourLimit` attribute.
+However new file will not be created on |leandcapp| restart based on the default value "0x01" of the :ref:`xmlelem-EventLog`.\ :ref:`xmlattr-EventLogMode` attribute.
+New entries will appended to the existing file if there is a file created within a 6 hour window (6 hours is a default value of the :ref:`xmlelem-EventLog`.\ :ref:`xmlattr-EventLogHourLimit` attribute).
+Example below shows a list of files created if application is being restarted.
 
 .. tip::
 
-   File creation date and hour (yyyy-mm-dd_hh) is automatically added to the name of the file specified in :ref:`xmlelem-EventLog`.\ :ref:`xmlattr-EventLogLogfile` \ attribute.
-   This is a sample list of files created, if leandc was restarted at 14:04:13.
+   File creation date and hour (yyyy-mm-dd_hh) is automatically added to the file name specified in :ref:`xmlelem-EventLog`.\ :ref:`xmlattr-EventLogLogfile` attribute.
+   The sample belows shows a list of files created if application is restarted at 14:04:13.
 
    * 'eventfile_2013-04-12_00.event'
    * 'eventfile_2013-04-12_06.event'
-   * 'eventfile_2013-04-12_12.event'	<- leandc restart at 14:04:13, no new file is created because file within a 6 hour range exists. New entries are appended to this file.
+   * 'eventfile_2013-04-12_12.event'	<- restart at 14:04:13, no new file created because file within a 6 hour window already exists. New entries are appended to this file.
    * 'eventfile_2013-04-12_18.event'
 
 
-Contents of a typical communication logfile is shown below:
+Contents of a typical communication logfile are shown below:
 
 .. code-block:: none
 
@@ -523,7 +523,7 @@ Contents of a typical communication logfile is shown below:
    17:14:34.414	COMM <-	10 20 01 21 16
    17:14:34.625	COMM ->	68 09 09 68 53 01 64 01 06 01 00 00 14 D4 16
 
-Raw traffic that is captured over a communication interface is recorded to a file along with some is additional information.
+Raw traffic captured through a communication interface is recorded to a file along with some is additional information.
 Each entry (row) in the file represents successfully decoded protocol message and is prefixed with a time-tag, log entry type and direction identifier.
 Timetag represents the internal time when the message was received/sent.
 Log entry type may contain values listed in the table below:
@@ -534,8 +534,8 @@ Log entry type may contain values listed in the table below:
    :spec: |C{0.1}|S{0.8}|
    :header-rows: 1
 
-   * :attr,15: Entry Type
-     :desc,70: Description
+   * :attr,15,center:	Entry Type
+     :desc,70:		Description
 
    * :attr:	COMM
      :desc:	Successfully decoded protocol message
@@ -547,8 +547,8 @@ Log entry type may contain values listed in the table below:
      :desc:	Failed protocol messages and timeouts
 
 | Direction identifier shows incoming/outgoing direction of a message as follows:
-| <-  Outgoing message (sent by leandc)
-| ->  Incoming message (received by leandc)
+| <-  Outgoing message (sent by |leandcapp|)
+| ->  Incoming message (received by |leandcapp|)
 | Directions are the same for Slave/Master communication protocol instances.
 
 Contents of a typical event logfile is shown below:
@@ -575,8 +575,8 @@ List of columns of the event logfile is shown in the table below:
    :spec: |C{0.12}|S{0.88}|
    :header-rows: 1
 
-   * :attr,15: Column
-     :desc,85: Description
+   * :attr,15,center:	Column
+     :desc,85:		Description
 
    * :attr:	Time
      :desc:	Internal time when the event was received. Summer Time [:lemonobgtext:`SU`] flag may be added to the time stamp.
@@ -628,8 +628,8 @@ List of columns of the event logfile is shown in the table below:
    :spec: |C{0.14}|S{0.86}|
    :header-rows: 1
 
-   * :attr,15: Info
-     :desc,85: Description
+   * :attr,15,center:	Info
+     :desc,85:		Description
 
    * :attr:	>CMD
      :desc:	Received control or setpoint command in the context of Slave protocol instance. Received confirmation or termination in the context of Master protocol instance.

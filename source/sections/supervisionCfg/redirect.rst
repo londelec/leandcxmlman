@@ -8,25 +8,26 @@ Serial server functionality allows to send data from one serial port to another 
 In order to permanently enable serial server functionality so called :ref:`xmlelem-redirect` supervision instance can be used.
 It requires only 1 destination socket to send the redirected data.
 Serial data will be redirected as long as remote destination is reachable.
-Please see sample :ref:`xmlelem-redirect` element node used to enable serial server and the table listing all available attributes below.
+Please see sample :ref:`xmlelem-redirect` element and all available attributes below.
 
 .. code-block:: none
 
-   <REDIRECT SrcHWIndex="4" DstHWIndex="61" SrvHWIndex="53" Name="UART redirect instance"/>
+   <REDIRECT SrcHWIndex="4" DstHWIndex="61" SrvHWIndex="53" Name="UART redirect"/>
 
 .. include-file:: sections/Include/table_superv.rstinc "" "tabid-redirect" "REDIRECT"
 
    * :attr:	:xmlattr:`SrcHWIndex`
      :val:	|hwindexrange|
      :desc:	Index of the :ref:`xmlelem-uart` node to be redirected.
-		Data received through this UART will be redirected to a destination hardware node and data received from a destination hardware node will be redirected to this UART.
+		Data received through this serial port will be redirected to a destination hardware node and data received from a destination hardware node will be redirected to this serial port.
 		No communication protocol instances must be linked to :ref:`xmlelem-uart` node in order to use it for redirection.
+		Also serial port must not be linked to any other :ref:`xmlgroup-SupervisionCfg` node.
 
    * :attr:	:xmlattr:`DstHWIndex`
      :val:	|hwindexrange|
      :desc:	Destination index of the hardware node to redirect the data.
 		Any of :ref:`xmlelem-tcpserver`; :ref:`xmlelem-tcpclient` or :ref:`xmlelem-udp` nodes can be used as destination.
-		Data received from a destination hardware node will be redirected to UART.
+		Data received from a destination hardware node will be redirected to the serial port.
 
    * :attr:	:xmlattr:`SrvHWIndex`
      :val:	|hwindexrange|

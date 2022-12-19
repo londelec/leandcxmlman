@@ -4,11 +4,12 @@
 MONCOMP
 ^^^^^^^
 
-Traffic through any leandc serial port or socket can be captured and sent to a remote destination for a real time monitoring.
+Traffic through any serial port can be captured and sent to a remote destination for a real time monitoring.
 Remote traffic monitoring can be enabled using so called 'compatible monitoring' supervision instance which requires 2 sockets for its operation.
 The 1st socket is destination to send the captured data and the 2nd socket is used for service commands.
 Captured data will be sent only if both remote sockets are active/reachable.
-Please see sample :ref:`xmlelem-moncomp` element node used to enable compatible monitoring and the table listing all available attributes below.
+This mode is compatible with Moxa serial server driver, please refer to the latest NPort_installation manual for more information.
+Please see sample :ref:`xmlelem-moncomp` element and all available attributes below.
 
 .. code-block:: none
 
@@ -18,8 +19,9 @@ Please see sample :ref:`xmlelem-moncomp` element node used to enable compatible 
 
    * :attr:	:xmlattr:`SrcHWIndex`
      :val:	|hwindexrange|
-     :desc:	Source index of the hardware node to be monitored.
-		Any of :ref:`xmlelem-uart`; :ref:`xmlelem-tcpserver`; :ref:`xmlelem-tcpclient` or :ref:`xmlelem-udp` nodes can be used as a source for traffic monitoring.
+     :desc:	Source index of the serial port node to be monitored.
+		Any :ref:`xmlelem-uart` node can be used as a source for traffic monitoring.
+		Please note serial port must not be linked to any other :ref:`xmlgroup-SupervisionCfg` node.
 
    * :attr:	:xmlattr:`DstHWIndex`
      :val:	|hwindexrange|

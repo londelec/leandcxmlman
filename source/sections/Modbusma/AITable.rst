@@ -116,8 +116,8 @@ AI.Type
    :spec: |C{0.07}|S{0.93}|
    :header-rows: 1
 
-   * :val,10:   :ref:`xmlattr-ModbusmaAIType`
-     :desc,90:  Description
+   * :val,10,center:	:ref:`xmlattr-ModbusmaAIType`
+     :desc,90:		Description
 
    * :val:	0
      :desc:	Not used
@@ -206,8 +206,8 @@ Table below shows position of a sample value '341' (0x0155) in a Modbus message 
    :spec: |C{0.12}|S{0.5}|
    :header-rows: 1
 
-   * :val,10:   :ref:`xmlattr-ModbusmaAIRegOffset`
-     :desc,90:  Modbus Message
+   * :val,10,center:	:ref:`xmlattr-ModbusmaAIRegOffset`
+     :desc,90:		Modbus Message
 
    * :val:	0
      :desc:	{01 04 ... **01 55** 00 00 ...}

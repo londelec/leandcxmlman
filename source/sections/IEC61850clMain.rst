@@ -20,7 +20,7 @@ Name and location path of the configuration files is not predefined, it can be c
 Files 'IED_IO.xml' and 'IED.cid' are used as a sample.
 Enter names of the files in :ref:`xmlelem-gp61850cl`.\ :ref:`xmlattr-gp61850clXMLpath` \ and :ref:`xmlelem-gp61850cl`.\ :ref:`xmlattr-gp61850clSCLpath` \ attributes of the communication protocol instance created in |leandcxml| as follows:
 :ref:`xmlattr-gp61850clXMLpath`\ ="IED_IO.xml" and :ref:`xmlattr-gp61850clSCLpath`\ ="IED.cid" .
-Location path doesn't have to be specified if the files are located in the default directory (|leandcapp|).
+Location path doesn't have to be specified if the files are located in the default directory (|leandcdir|).
 
 | IEC61850 Client configuration file (e.g. 'IED_IO.xml') must have a root node :ref:`xmlgroup-IEC61850clConfig` which cosists of:
 | 2 mandatory groups :ref:`xmlelem-VersionControl` and :ref:`xmlgroup-IEC61850clProtocolCfg`;

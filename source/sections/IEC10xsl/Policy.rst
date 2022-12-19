@@ -8,8 +8,8 @@ Command Policy
    :spec: |C{0.16}|S{0.84}|
    :header-rows: 1
 
-   * :attr,10:	Policy Values
-     :desc,90:	Description
+   * :attr,10,center:	:ref:`xmlattr-IEC10xslDOPolicy`
+     :desc,90:		Description
 
    * :attr:	0
      :desc:	Select and Execute commands received from upstream Master station will be forwarded to the destination outstation.

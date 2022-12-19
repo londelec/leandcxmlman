@@ -93,8 +93,8 @@ DO.TypeID
    :spec: |C{0.16}|S{0.84}|
    :header-rows: 1
 
-   * :attr,10: TypeID Value
-     :desc,90: Description
+   * :attr,10,center:	:ref:`xmlattr-IEC10xmaDOTypeID`
+     :desc,90:		Description
 
    * :attr:	45
      :desc:	'Single command' will be sent (ASDU type 45 [:lemonobgtext:`C_SC_NA_1`])
@@ -129,8 +129,8 @@ DO.QOC
    :spec: |C{0.16}|S{0.84}|
    :header-rows: 1
 
-   * :attr,10: QOC Values
-     :desc,90: Description
+   * :attr,10,center:	:ref:`xmlattr-IEC10xmaDOQOC`
+     :desc,90:		Description
 
    * :attr:	0
      :desc:	Command will be sent with [:lemonobgtext:`no additional definition`]

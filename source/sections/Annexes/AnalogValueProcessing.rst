@@ -65,7 +65,7 @@ Analog value scaling sequence in shown in the flowchart below.
    If the current drops below 4mA Invalid [:lemonobgtext:`IV`] quality flag is used to indicate a transducer failure or disconnect.
    :ref:`xmlattr-IEC10xmaAIZeroDeadband` attribute works alongside :ref:`xmlattr-IEC10xmaAIStartOffset` in order to suppress noise around 4mA value and its use is receommended.
 
-Scaling calculator below shows how leandc analog scaling actually works.
+Scaling calculator below shows how |leandcapp| analog scaling actually works.
 Enter a numeric value in the box 'Start value' and the 'Result' box will show the value after scaling has been applied.
 Scaling attributes are arranged in the order they are applied as shown in the sequence flowchart above.
 Calculator shows intermediate values after each attribute as well as basic math that was applied in each step.
@@ -81,7 +81,7 @@ They will be formated in XML syntax and can be pasted directly into XML file.
 
 Range calculator shown below enables to calculate :ref:`xmlattr-IEC10xmaAIOffset` and :ref:`xmlattr-IEC10xmaAICoeff` attribute values based on ranges of analog values before and after scaling.
 The range of values before scaling takes place (e.g. range of values expected to be received from outstation) have to be entered into 'Input Range' boxes
-and the range of resulting values (e.g. expected from leandc) have to be entered into 'Output Range' boxes.
+and the range of resulting values (e.g. expected from |leandcapp|) have to be entered into 'Output Range' boxes.
 'Calculate' button will update :ref:`xmlattr-IEC10xmaAIOffset` and :ref:`xmlattr-IEC10xmaAICoeff` attributes of the scaling calculator above.
 Updated attributes will be highlighted yellow.
 

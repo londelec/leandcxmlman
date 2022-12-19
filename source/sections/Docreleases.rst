@@ -5,38 +5,43 @@
 Document version control
 ========================
 
-This manual was published with the following leandc firmware release. 
+This manual was published with the following |leandcapp| release.
 
-.. field-list-table:: Compatibility with leandc firmware
-   :class: table table-condensed table-bordered longtable
+.. field-list-table:: Compatibility with |leandcapp|
+   :class: table table-condensed table-bordered longtable table-left
    :name: tabid-curversion
-   :spec: |C{0.2}|C{0.22}|C{0.35}|
+   :spec: |C{0.2}|C{0.24}|C{0.26}|
    :header-rows: 1
 
-   * :attr,20:	Firmware version
-     :val,20:	Date
-     :osv,60:	Required Operating System version
+   * :attr,22,center:	Application version
+     :val,30,center:	Release date
+     :osv,30:		Required OS version
 
-   * :attr:	5.01
-     :val:	2022-09-26 08:32:58
+   * :attr:	5.02
+     :val:	2022-12-09 14:47:39
      :osv:	V3.0 or V4.0 or newer
 
 .. tip::
 
-   Use argument -v to check firmware revision and build date:
+   Use argument -v to check application version and build date:
    **leandc -v**
 
 
-.. field-list-table:: Previous Firmware releases
-   :class: table table-condensed table-bordered longtable
+.. field-list-table:: Previous releases
+   :class: table table-condensed table-bordered longtable table-width70
    :name: tabid-fwversions
-   :spec: |C{0.12}|C{0.22}|C{0.15}|C{0.15}|
+   :spec: |C{0.12}|C{0.22}|C{0.15}|C{0.26}|
    :header-rows: 1
 
-   * :fw,10:	Firmware version
-     :fdate,10:	Firmware date
-     :doc,10:	Manual version(s)
-     :osv,10:	Operating System version
+   * :fw,15,center:	Application version
+     :fdate,30,center:	Release date
+     :doc,15,center:	Manual version
+     :osv,35:		Operating system version
+
+   * :fw:	5.01
+     :fdate:	2022-09-26 08:32:58
+     :doc:	V36
+     :osv:	V3.0 or V4.0 or newer
 
    * :fw:	5.00
      :fdate:	2022-06-15 13:00:45
@@ -202,16 +207,25 @@ This manual was published with the following leandc firmware release.
 .. field-list-table:: Document version control
    :class: table table-condensed table-bordered version-control longtable
    :name: tabid-docversions
-   :spec: |C{0.1}|C{0.12}|C{0.06}|S{0.72}|
+   :spec: |C{0.09}|C{0.12}|C{0.05}|S{0.74}|
    :header-rows: 1
 
-   * :ver,5:	Version
-     :date,5:	Date
-     :by,5:	By
-     :desc,85:	Comments
+   * :ver,5,center:	Version
+     :date,5,center:	Date
+     :by,4,center:	By
+     :desc,86:		Comments
+
+   * :ver:	V37
+     :date:	19/12/2022
+     :by:	AK
+     :desc:	| IEC61850 Client:
+		|   > :ref:`bitref-IEC61850clAcsiDSFlagsBit9` added to :ref:`xmlelem-IEC61850clAcsi`.\ :ref:`xmlattr-IEC61850clAcsiDSFlags` attribute to disable Dynamic dataset creation if IED supports Dynamic datasets;
+		|   > :ref:`xmlelem-IEC61850clAcsi`.\ :ref:`xmlattr-IEC61850clAcsiLogFlags` and :ref:`xmlelem-IEC61850clScsm`.\ :ref:`xmlattr-IEC61850clScsmLogFlags` attributes included in user documentation;
+		| Introduction section created;
+		| UNO-1372G added to supported UART hardware list in :numref:`tabid-UartHardwares`;
 
    * :ver:	V36
-     :date:	xx/09/2022
+     :date:	26/09/2022
      :by:	AK
      :desc:	| Spabus Master communication protocol implemented :ref:`xmlelem-gpspabusma`;
 		| Basic PLC functionality implemented, section :ref:`docref-plc`;
@@ -449,7 +463,7 @@ This manual was published with the following leandc firmware release.
      :date:	28/05/2014
      :by:	AK
      :desc:	| Multiple ASDU configuration concept using station identifier :ref:`xmlattr-gp104slStationID` attribute added to :ref:`xmlelem-gp104sl` and :ref:`xmlelem-gp104ma`. Existing :ref:`xmlattr-gp101maLinkAddr` attribute is used as a station identifier for :ref:`xmlelem-gp101sl`; :ref:`xmlelem-gp101ma` and :ref:`xmlelem-gp103ma`.
-		| New concept of protocol setting XML element migration to attributes begins with this firmware release. First XML elements to contain setting attributes are: :ref:`xmlelem-IEC101maXMLSettings`; :ref:`xmlelem-IEC101maComm`; :ref:`xmlelem-IEC101maAsdu`; :ref:`xmlelem-IEC101maBroadcast` and :ref:`xmlelem-IEC101maPeriodic`;
+		| New concept of protocol setting XML element migration to attributes begins with this application release. First XML elements to contain setting attributes are: :ref:`xmlelem-IEC101maXMLSettings`; :ref:`xmlelem-IEC101maComm`; :ref:`xmlelem-IEC101maAsdu`; :ref:`xmlelem-IEC101maBroadcast` and :ref:`xmlelem-IEC101maPeriodic`;
 		| IEC60870-5-101/4 Master and Slave:
 		|   > All :xmllegacy:`ASDUAddr` attributes removed from DI/AI/DO/AO;
 		|   > New :ref:`xmlelem-IEC101maXMLSettings` node and :ref:`xmlattr-IEC101maXMLSettingsIOAOverlap` attribute created. Information address (IOA) sequence check across object types introduced. Sequence checks must be disabled with this attribute if the same information addresses (IOA) are used for DI/AI/DO/AO objects.

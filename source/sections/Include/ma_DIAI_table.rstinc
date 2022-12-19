@@ -3,5 +3,5 @@
   Procedure for obtaining :include-arg:`6` is as follows:
 | > Current communication protocol instance receives :include-arg:`5` :include-arg:`6` from :include-arg:`7` and processes it based on settings in the :include-arg:`3`.
 | > Processed data is forwarded to the linked :include-arg:`5` information object of the Slave protocol instance which sends it upstream to the Master station.
-| Please refer to the :include-arg:`4` section of a Slave protocol instance for more information on how to link :include-arg:`5` information object.
+| Please refer to the :include-arg:`4` section of a Slave protocol instance for more information on how to link :include-arg:`5` information objects.
 

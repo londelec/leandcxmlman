@@ -7,10 +7,10 @@
 project = u'Leandc series XML configuration manual'
 
 # The full version, including alpha/beta/rc tags.
-release = u'V36 FW V5.01'
+release = u'V37 FW V5.02'
 
 numfig = True
-numfig_format = {'table': 'Table %s', 'figure': '%s', 'code-block': '%s'}
+numfig_format = {'table': 'Table %s', 'figure': 'Figure %s', 'code-block': '%s'}
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.

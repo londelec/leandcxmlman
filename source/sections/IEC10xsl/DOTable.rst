@@ -122,8 +122,8 @@ DO.TypeID
    :spec: |C{0.16}|S{0.84}|
    :header-rows: 1
 
-   * :attr,10: TypeID Value
-     :desc,90: Description
+   * :attr,10,center:	:ref:`xmlattr-IEC10xslDOTypeID`
+     :desc,90:		Description
 
    * :attr:	45
      :desc:	Only 'Single command' will be accepted and processed (ASDU type 45 [:lemonobgtext:`C_SC_NA_1`])
@@ -162,9 +162,9 @@ Service controls have negative index values and can be used just as any regular 
    :spec: |C{0.19}|C{0.14}|S{0.67}|
    :header-rows: 1
 
-   * :attr,10: Index value
-     :val,10:  Object value
-     :desc,80: Description
+   * :attr,10,center:	:ref:`xmlattr-IEC10xslDOIndex`
+     :val,10,center:	Qualifier
+     :desc,80:		Description
 
    * :attr:	-2
 		(0xFFFFFFFE)

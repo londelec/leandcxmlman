@@ -27,15 +27,15 @@ This node contains settings of a serial port.
      :val:	0...16
      :def:	n/a
      :desc:	Serial port number. 
-		Number of the inbuilt serial port when running leandc on a supported hardware.
+		Number of the inbuilt serial port when running |leandcapp| on a supported hardware.
 		Please refer to :numref:`tabid-UartHardwares` below for a list of currently supported hardwares.
-		If you are running leandc on a hardware that is not supported or want to use a serial port other than inbuilt (e.g. USB to Serial adapter), please use :ref:`xmlattr-UARTCOM`\ ="0" and specify path of the UART device in :ref:`xmlattr-UARTDevpath` attribute.
+		If you are running |leandcapp| on a hardware that is not supported or want to use a serial port other than inbuilt (e.g. USB to Serial adapter), please use :ref:`xmlattr-UARTCOM`\ ="0" and specify path of the UART device in :ref:`xmlattr-UARTDevpath` attribute.
 		:ref:`xmlattr-UARTDevpath` attribute has higher priority and value of :ref:`xmlattr-UARTCOM` will be ignored if :ref:`xmlattr-UARTDevpath` is used.
 
    * :attr:	:xmlattr:`Devpath`
      :val:	Max 100 chars
      :def:	n/a
-     :desc:	Path of the UART device in the Linux operating system.
+     :desc:	Path of the UART device in the |linuxos|.
 		All serial ports can normally be found in '/dev' directory.
 		On standard hardwares inbuilt serial ports have names '/dev/ttyS0'; '/dev/ttyS1' and USB to Serial adapter ports '/dev/ttyUSB0'; '/dev/ttyUSB0'; etc
 		:inlineimportant:`Attribute is case sensitive, observe the case of path when specifying.`
@@ -63,10 +63,7 @@ This node contains settings of a serial port.
      :desc:	UART stop bit count 1 or 2.
 		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be used if omitted.`
 
-   * :attr:	:xmlattr:`Timeout`
-     :val:	0.01...42949
-     :def:	n/a
-     :desc:	Timeout value in seconds. New outgoing message will be sent, if there was no reply from outstation within a configured number of seconds.
+.. include-file:: sections/Include/chan_Timeout.rstinc "" "n/a" ""
 
    * :attr:	:xmlattr:`TxDelay`
      :val:	0.00001...42949
@@ -77,7 +74,7 @@ This node contains settings of a serial port.
    * :attr:	:xmlattr:`MaxTxDelay`
      :val:	0 or 0.1...42949
      :def:	0
-     :desc:	Dynamic (maximal) transmit delay in seconds. 
+     :desc:	Dynamic (maximal) transmit delay in seconds.
 		Time interval in seconds between received and sent message in case serial port is used to communicate to only one outstation.
 		Transmit delay is automatically adjusted depending on a number of outstations being communicated to via the serial port.
 		Disabled stations are excluded from dynamic transmit delay calculation.
@@ -146,7 +143,7 @@ This node contains settings of a serial port.
      :com7,11:	:ref:`xmlattr-UARTCOM` = 7
      :com8,11:	:ref:`xmlattr-UARTCOM` = 8
 
-   * :hw:	LEANDC-2/3(4) (UNO-1150G)
+   * :hw:	UNO-1150G (LEANDC-2/3(4))
      :com1:	/dev/ttyS0
      :com2:	/dev/ttyAP0
      :com3:	/dev/ttyAP1
@@ -156,7 +153,7 @@ This node contains settings of a serial port.
      :com7:	n/a
      :com8:	n/a
 
-   * :hw:	LEANDC-2/5 (ARK-3202F)
+   * :hw:	ARK-3202F (LEANDC-2/5)
      :com1:	/dev/ttyS0
      :com2:	/dev/ttyS1
      :com3:	variable
@@ -176,7 +173,7 @@ This node contains settings of a serial port.
      :com7:	n/a
      :com8:	n/a
 
-   * :hw:	LEANDC-3/6 (ARK-2120F)
+   * :hw:	ARK-2120F (LEANDC-3/6)
      :com1:	/dev/ttyS0
      :com2:	/dev/ttyS1
      :com3:	variable
@@ -186,7 +183,7 @@ This node contains settings of a serial port.
      :com7:	n/a
      :com8:	n/a
 
-   * :hw:	LEANDC-3/6 (ARK-3360F)
+   * :hw:	ARK-3360F
      :com1:	/dev/ttyS0
      :com2:	/dev/ttyS1
      :com3:	variable
@@ -196,7 +193,7 @@ This node contains settings of a serial port.
      :com7:	n/a
      :com8:	n/a
 
-   * :hw:	LEANDC-4/8 (UNO-2484F)
+   * :hw:	UNO-2484F (LEANDC-4/8)
      :com1:	/dev/ttyS0
      :com2:	/dev/ttyS1
      :com3:	/dev/ttyS2
@@ -205,4 +202,14 @@ This node contains settings of a serial port.
      :com6:	/dev/ttyS5
      :com7:	/dev/ttyS6
      :com8:	/dev/ttyS7
+
+   * :hw:	UNO-1372G (LEANDC-4/4)
+     :com1:	/dev/ttyS0
+     :com2:	/dev/ttyS1
+     :com3:	/dev/ttyS2
+     :com4:	/dev/ttyS4
+     :com5:	n/a
+     :com6:	n/a
+     :com7:	n/a
+     :com8:	n/a
 

@@ -108,8 +108,8 @@ AO.TypeID
    :spec: |C{0.16}|S{0.84}|
    :header-rows: 1
 
-   * :attr,10: TypeID Value
-     :desc,90: Description
+   * :attr,10,center:	:ref:`xmlattr-IEC10xslAOTypeID`
+     :desc,90:		Description
 
    * :attr:	48
      :desc:	Only 'Normalized setpoint command' will be accepted and processed (ASDU type 48 [:lemonobgtext:`C_SE_NA_1`])

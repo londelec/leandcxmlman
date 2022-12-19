@@ -28,8 +28,8 @@ Hardcoded device type can be specified in this node.
    :spec: |C{0.20}|S{0.80}|
    :header-rows: 1
 
-   * :attr,20:	Type
-     :desc,80:	Description
+   * :attr,20,center:	:ref:`xmlattr-ModbusmaHardcodedType`
+     :desc,80:		Description
 
    * :attr:	BCDI16
      :desc:	Brainchild Digital Input (16) module DI16. Data points are automatically created for this device as follows: DI=16, AI=0, DO=0, AO=0

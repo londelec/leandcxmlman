@@ -176,47 +176,53 @@ Service indications have negative index values and can be used just as any regul
    :spec: |C{0.19}|C{0.1}|S{0.71}|
    :header-rows: 1
 
-   * :attr,10: Index value
-     :val,10:  Object value
-     :desc,80: Description
+   * :attr,10,center:	:ref:`xmlattr-IEC10xslDIIndex`
+     :val,10,center:	Status
+     :desc,80:		Description
 
    * :attr:	-2 
 		(0xFFFFFFFE)
      :val:	ON
-     :desc:	Communication between leandc and peer station is running, peer station is **Online**. This service index can be used for any protocol instance.
+     :desc:	Communication between |leandcapp| and peer station is running, peer station is **Online**.
+		This service index can be used for any protocol instance (Master and Slave instances).
 
    * :(attr):
      :val:	OFF
-     :desc:	Communication between leandc and peer station is lost, peer station is **Offline**. This service index can be used for any protocol instance.
+     :desc:	Communication between |leandcapp| and peer station is lost, peer station is **Offline**.
+		This service index can be used for any protocol instance (Master and Slave instances).
 
    * :attr:	-3 
  		(0xFFFFFFFD)
      :val:	ON
-     :desc:	Communication between leandc and peer station is **Enabled**. This service index can be used for any protocol instance.
+     :desc:	Communication between |leandcapp| and peer station is **Enabled**.
+		This service index can be used for any protocol instance.
 
    * :(attr):
      :val:	OFF
-     :desc:	Communication  between leandc and peer station is **Disabled**. This service index can be used for any protocol instance.
+     :desc:	Communication  between |leandcapp| and peer station is **Disabled**.
+		This service index can be used for any protocol instance.
 
    * :attr:	-4\*
 		(0xFFFFFFFC)
      :val:	ON
-     :desc:	Communication to peer station is **Started**. Refer to the comment below for the list of protocol instances that provide this service indication. 
+     :desc:	Communication to peer station is **Started**.
+		Refer to the footnote below for the list of protocol instances that provide this service indication.
 
    * :(attr):
      :val:	OFF
-     :desc:	Communication to peer station is **Stopped**. Refer to the comment below for the list of protocol instances that provide this service indication.
+     :desc:	Communication to peer station is **Stopped**.
+		Refer to the footnote below for the list of protocol instances that provide this service indication.
 
    * :attr:	-5 
 		(0xFFFFFFFB)
      :val:	ON
-     :desc:	Only used for protocol instances linked to UART hardware node; State of the UART Ring Indicator RI pin(9) is **active (+12V)**.
-		This service DI can be used only if :ref:`xmlelem-uart`.\ :ref:`xmlattr-UARTCtrlRdTimer` \ attribute is defined.
+     :desc:	Only used for protocol instances linked to UART hardware node; State of the UART Ring Indicator (RI) pin(9) is **active (+12V)**.
+		This service DI can be used only if :ref:`xmlelem-uart`.\ :ref:`xmlattr-UARTCtrlRdTimer` attribute is defined.
 
    * :(attr):
      :val:	OFF
-     :desc:	Only used for protocol instances linked to UART hardware node; State of the UART Ring Indicator RI pin(9) is **not active (-12V)**.
-		This service DI can be used only if :ref:`xmlelem-uart`.\ :ref:`xmlattr-UARTCtrlRdTimer` \ attribute is defined.
+     :desc:	Only used for protocol instances linked to UART hardware node; State of the UART Ring Indicator (RI) pin(9) is **not active (-12V)**.
+		This service DI can be used only if :ref:`xmlelem-uart`.\ :ref:`xmlattr-UARTCtrlRdTimer` attribute is defined.
 
    * :attr:	-1 and -6...-8
      :val:	Any
@@ -224,7 +230,7 @@ Service indications have negative index values and can be used just as any regul
 
 .. tip::
 
-   | \* This service indication only applies to the following protocol instances:
+   | \* :ref:`xmlattr-IEC10xslDIIndex`\ ="-4" service indication only applies to the following protocol instances:
    | IEC60870-5-104 controlling station (Master) communication is [:lemonobgtext:`Started`] or [:lemonobgtext:`Stopped`]. ON ([:lemonobgtext:`Started`] state) indicates [:lemonobgtext:`STARTDT_con`] has been received from outstation;
    | IEC60870-5-104 controlled station (Slave) communication is [:lemonobgtext:`Started`] or [:lemonobgtext:`Stopped`]. ON ([:lemonobgtext:`Started`] state) indicates [:lemonobgtext:`STARTDT_act`] message has been received from upstream station;
    | IEC61850 Client association state. ON indicates associated state i.e. [:lemonobgtext:`Initiate-ResponsePDU`] message has been received from IED;
@@ -241,9 +247,9 @@ Values of source DI objects and resulting DPI object are listed in the truth tab
    :spec: |C{0.14}|C{0.14}|S{0.55}|
    :header-rows: 1
 
-   * :onval,18: Value of :ref:`xmlattr-IEC10xslDIIndex` DI
-     :offval,18:  Value of :ref:`xmlattr-IEC10xslDIOffIndex` DI
-     :result,64: Resulting DPI
+   * :onval,18,center:		Value of :ref:`xmlattr-IEC10xslDIIndex` DI
+     :offval,18,center:	Value of :ref:`xmlattr-IEC10xslDIOffIndex` DI
+     :result,64:		Resulting DPI
 
    * :onval:    OFF (0)
      :offval:   OFF (0)

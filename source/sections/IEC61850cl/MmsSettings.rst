@@ -3,7 +3,7 @@
 MMSSettings
 ^^^^^^^^^^^
 
-Settings of the Manufacturing Message Specification (ISO9506) can be specified using attributes of :ref:`xmlelem-IEC61850clMms` element node.
+Settings of the Manufacturing Message Specification (ISO9506 MMS) can be specified using attributes of :ref:`xmlelem-IEC61850clMms` element node.
 
 .. include-file:: sections/Include/sample_node.rstinc "" ":ref:`xmlelem-IEC61850clMms`"
 
@@ -25,4 +25,4 @@ Settings of the Manufacturing Message Specification (ISO9506) can be specified u
      :desc:	Protocol Data Unit (PDU) size in bytes.
 		Value will be used for [:lemonobgtext:`Local Detail Calling`] field of the [:lemonobgtext:`Initiate-RequestPDU`].
 
-.. include-file:: sections/Include/IEC61850_LogFlags.rstinc "" ":numref:`tabid-IEC61850clLogFlags`" "MMS"
+.. include-file:: sections/Include/IEC61850_LogFlags8.rstinc "" ":numref:`tabid-IEC61850clLogFlags`" "MMS"

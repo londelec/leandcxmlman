@@ -4,4 +4,3 @@
      :desc:	Informative message logging settings.
 		See :include-arg:`1` for description.
 		Informative message recording to loggfile must be enabled globally with :ref:`xmlelem-CommsLogger`.\ :ref:`xmlattr-CommsLoggerLogFlags` attribute.
-		|internalattr|

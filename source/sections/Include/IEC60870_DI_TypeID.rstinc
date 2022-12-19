@@ -7,9 +7,9 @@ DI.TypeID
    :spec: |C{0.18}|C{0.18}|S{0.64}|
    :header-rows: 1
 
-   * :attr,10: TypeID Value for IEC60870-5-101
-     :val,10:  TypeID Value for IEC60870-5-104
-     :desc,80: Description
+   * :attr,10,center:	TypeID for IEC60870-5-101
+     :val,10,center:	TypeID for IEC60870-5-104
+     :desc,80:		Description
 
    * :attr:	1
      :val:	1

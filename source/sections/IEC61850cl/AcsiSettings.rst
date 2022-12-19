@@ -3,13 +3,13 @@
 AcsiSettings
 ^^^^^^^^^^^^
 
-Abstract Communication Service Interface settings can be specified using attributes of :ref:`xmlelem-IEC61850clAcsi` element node.
+Abstract Communication Service Interface (IEC61850-7-x ACSI) settings can be specified using attributes of :ref:`xmlelem-IEC61850clAcsi` element node.
 
 .. include-file:: sections/Include/sample_node.rstinc "" ":ref:`xmlelem-IEC61850clAcsi`"
 
 .. code-block:: none
 
- <AcsiSettings Bdyndsname="dynb" Udyndsname="dynu" Maxdynds="10" BOptFlds="0x0001" UOptFlds="0x0000" orCat="3" orIdent="LEANDC" bufTime="0" Flags="0x0003" RCBFlags="0x0000" DSFlags="0x0000"/>
+ <AcsiSettings Bdyndsname="dynb" Udyndsname="dynu" Maxdynds="10" BOptFlds="0x0001" UOptFlds="0x0000" orCat="3" orIdent="LEANDC" bufTime="0" Flags="0x0003" RCBFlags="0x0000" DSFlags="0x0000" LogFlags="0x0000"/>
 
 
 .. include-file:: sections/Include/table_attrs.rstinc "" "tabid-IEC61850clAcsi" "IEC61850 Client AcsiSettings attributes" ":spec: |C{0.14}|C{0.18}|C{0.1}|S{0.58}|"
@@ -76,7 +76,7 @@ Abstract Communication Service Interface settings can be specified using attribu
      :desc:	Dataset settings.
 		See :numref:`tabid-IEC61850clAcsiDSFlags` for description.
 
-.. include-file:: sections/Include/hidden_IEC61850_LogFlags.rstinc "internal" ":numref:`tabid-IEC61850clAcsiLogFlags`"
+.. include-file:: sections/Include/IEC61850_LogFlags16.rstinc "" ":numref:`tabid-IEC61850clAcsiLogFlags`"
 
 
 .. include-file:: sections/Include/table_flags16.rstinc "" "tabid-IEC61850clAcsiOptFlds" "[OptFlds] of Report Control Blocks" ":ref:`xmlattr-IEC61850clAcsiBOptFlds` and :ref:`xmlattr-IEC61850clAcsiUOptFlds`" "[OptFlds]"
@@ -253,12 +253,14 @@ Abstract Communication Service Interface settings can be specified using attribu
 
    * :attr:	Bit 1
      :val:	xxxx.xxxx xxxx.xx0x
-     :desc:	**Delete** Dynamic datasets that are not created by us and are not required by any DI/AI. (default value)
+     :desc:	**Delete** dynamic datasets that are not created by us. (default value)
+		This means datasets with names other than :ref:`xmlattr-IEC61850clAcsiBdyndsname` or :ref:`xmlattr-IEC61850clAcsiUdyndsname` (e.g. 'dynb01', 'dynu01')
+		and names not defined by :ref:`xmlelem-IEC61850clDI`.\ :ref:`xmlattr-IEC61850clDIDSref` and :ref:`xmlelem-IEC61850clAI`.\ :ref:`xmlattr-IEC61850clAIDSref` attributes.
 		This setting applies only if IED supports Dynamic dataset creation.
 
    * :(attr):
      :val:	xxxx.xxxx xxxx.xx1x
-     :desc:	**Don't delete** Dynamic datasets that are not created by us and are not required by any DI/AI.
+     :desc:	**Don't delete** dynamic datasets that are not created by us.
 		This setting applies only if IED supports Dynamic dataset creation.
 
    * :attr:	Bit 8
@@ -273,9 +275,144 @@ Abstract Communication Service Interface settings can be specified using attribu
 		This setting applies only if IED doesn't support Dynamic datasets.
 		If IED supports Dynamic datasets, we will check and rebuild datasets according to configured DI/AIs.
 
-   * :attr:	Bits 2...7;9...15
+   * :attr:	:bitdef:`9`
+     :val:	xxxx.xx0x xxxx.xxxx
+     :desc:	Dynamic dataset functionality is **enabled** if IED supports Dynamic dataset creation. (default value)
+
+   * :(attr):
+     :val:	xxxx.xx1x xxxx.xxxx
+     :desc:	Dynamic dataset functionality is **disabled**.
+		Only static datasets will be used even if IED supports Dynamic dataset creation.
+
+   * :attr:	Bits 2...7;10...15
      :val:	Any
      :desc:	Bits reserved for future use
 
 
-.. include-file:: sections/Include/hidden_ACSI_LogFlagTable.rstinc "internal"
+.. include-file:: sections/Include/table_flags16.rstinc "" "tabid-IEC61850clAcsiLogFlags" "ACSI informative logger flags" ":ref:`xmlattr-IEC61850clAcsiLogFlags`" "Logger flags"
+
+   * :attr:	Bit 0
+     :val:	xxxx.xxxx xxxx.xxx0
+     :desc:	LD/LN/RCB/DO/DA element validation **will not be** recorded.
+
+   * :(attr):
+     :val:	xxxx.xxxx xxxx.xxx1
+     :desc:	| LD/LN/RCB/DO/DA element validation **will be** recorded. ACSI services:
+		| [:lemonobgtext:`GetServerDirectory`]
+		| [:lemonobgtext:`GetLogicalDeviceDirectory`]
+		| [:lemonobgtext:`GetLogicalNodeDirectory`] [:lemonobgtext:`ACSIClass`]="Data,BRCB,URCB,LCB,SGCB"
+
+   * :attr:	Bit 1
+     :val:	xxxx.xxxx xxxx.xx0x
+     :desc:	DS and FCDA validation **will not be** recorded.
+
+   * :(attr):
+     :val:	xxxx.xxxx xxxx.xx1x
+     :desc:	| DS and FCDA validation **will be** recorded. ACSI services:
+		| [:lemonobgtext:`GetLogicalNodeDirectory`] [:lemonobgtext:`ACSIClass`]="DATA-SET"
+		| [:lemonobgtext:`GetDataSetDirectory`]
+
+   * :attr:	Bit 2
+     :val:	xxxx.xxxx xxxx.x0xx
+     :desc:	Basic Types **will not be** recorded.
+
+   * :(attr):
+     :val:	xxxx.xxxx xxxx.x1xx
+     :desc:	| Basic Types **will be** recorded. ACSI services:
+		| [:lemonobgtext:`GetDataDirectory`]
+		| [:lemonobgtext:`GetDataDefinition`]
+
+   * :attr:	Bit 3
+     :val:	xxxx.xxxx xxxx.0xxx
+     :desc:	Data values **will not be** recorded.
+
+   * :(attr):
+     :val:	xxxx.xxxx xxxx.1xxx
+     :desc:	| Data values **will be** recorded. ACSI services:
+		| [:lemonobgtext:`GetDataValues`]
+		| [:lemonobgtext:`SetDataValues`]
+		| [:lemonobgtext:`GetDatasetValues`]
+		| [:lemonobgtext:`SetDatasetValues`]
+		| [:lemonobgtext:`GetBRCBValues`]
+		| [:lemonobgtext:`SetBRCBValues`]
+		| [:lemonobgtext:`GetURCBValues`]
+		| [:lemonobgtext:`SetURCBValues`]
+		| and all command services
+
+   * :attr:	Bit 4
+     :val:	xxxx.xxxx xxx0.xxxx
+     :desc:	Dynamically created/removed LD/LN/RCB/DO/DA elements **will not be** recorded.
+
+   * :(attr):
+     :val:	xxxx.xxxx xxx1.xxxx
+     :desc:	| Dynamically created/removed LD/LN/RCB/DO/DA elements **will be** recorded. These are differences between current SCL tree and ACSI services:
+		| [:lemonobgtext:`GetServerDirectory`]
+		| [:lemonobgtext:`GetLogicalDeviceDirectory`]
+		| [:lemonobgtext:`GetLogicalNodeDirectory`] [:lemonobgtext:`ACSIClass`]="Data,BRCB,URCB,LCB,SGCB"
+
+   * :attr:	Bit 5
+     :val:	xxxx.xxxx xx0x.xxxx
+     :desc:	Dynamically created/deleted datasets and differences in dataset contents **will not be** recorded.
+
+   * :(attr):
+     :val:	xxxx.xxxx xx1x.xxxx
+     :desc:	| Dynamically created/deleted datasets and differences in dataset contents **will be** recorded. These are differences between current SCL tree and ACSI services:
+		| [:lemonobgtext:`CreateDataSet`]
+		| [:lemonobgtext:`DeleteDataSet`]
+		| [:lemonobgtext:`GetLogicalNodeDirectory`] [:lemonobgtext:`ACSIClass`]="DATA-SET"
+		| [:lemonobgtext:`GetDataSetDirectory`]
+
+   * :attr:	Bit 6
+     :val:	xxxx.xxxx x0xx.xxxx
+     :desc:	Differences in Basic Types **will not be** recorded.
+
+   * :(attr):
+     :val:	xxxx.xxxx x1xx.xxxx
+     :desc:	| Differences in Basic Types **will be** recorded. These are differences between current SCL tree and ACSI services:
+		| [:lemonobgtext:`GetDataDirectory`]
+		| [:lemonobgtext:`GetDataDefinition`]
+
+   * :attr:	Bit 8
+     :val:	xxxx.xxx0 xxxx.xxxx
+     :desc:	Progress of the main state machine **will not be** recorded.
+
+   * :(attr):
+     :val:	xxxx.xxx1 xxxx.xxxx
+     :desc:	Progress of the main state machine **will be** recorded (Application).
+
+   * :attr:	Bit 11
+     :val:	xxxx.0xxx xxxx.xxxx
+     :desc:	Created FCDAs **will not be** recorded.
+
+   * :(attr):
+     :val:	xxxx.1xxx xxxx.xxxx
+     :desc:	Created FCDAs **will be** recorded (Application).
+
+
+   * :attr:	Bit 12
+     :val:	xxx0.xxxx xxxx.xxxx
+     :desc:	Report Control Block (RCB) initialziation process **will not be** recorded.
+
+   * :(attr):
+     :val:	xxx1.xxxx xxxx.xxxx
+     :desc:	Report Control Block (RCB) initialziation process **will be** recorded (Application).
+
+   * :attr:	Bit 13
+     :val:	xx0x.xxxx xxxx.xxxx
+     :desc:	Dataset validation against DI/AI objects **will not be** recorded.
+
+   * :(attr):
+     :val:	xx1x.xxxx xxxx.xxxx
+     :desc:	Dataset validation against DI/AI objects **will be** recorded (Application). This means FCDAs required, FCADs missing and FCDAs no longer required.
+
+   * :attr:	Bit 14
+     :val:	x0xx.xxxx xxxx.xxxx
+     :desc:	Dataset initialization process **will not be** recorded.
+
+   * :(attr):
+     :val:	x1xx.xxxx xxxx.xxxx
+     :desc:	Dataset initialization process **will be** recorded (Application).
+
+   * :attr:	Bits 7;9;10;15
+     :val:	Any
+     :desc:	Bits reserved for future use

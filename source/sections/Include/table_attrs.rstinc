@@ -4,7 +4,7 @@
    :include-arg:`3`
    :header-rows: 1
 
-   * :attr,10: Attribute
-     :val,10:  Values or range
-     :def,6:   Default
-     :desc,74: Description
+   * :attr,10,center:	Attribute
+     :val,10,center:	Values or range
+     :def,6,center:	Default
+     :desc,74:		Description

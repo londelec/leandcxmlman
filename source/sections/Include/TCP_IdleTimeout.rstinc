@@ -1,0 +1,6 @@
+   * :attr:	:xmlattr:`IdleTimeout`
+     :val:	5...2\ :sup:`32`\  - 1
+     :def:	120 sec
+     :desc:	Receive idle timeout, only used if a serial communication instance (e.g. IEC60870-5-101) or supervision instance is linked.
+		TCP socket will be closed if no data is received from the remote host within a configured number of seconds.
+		|optinaldefattr|

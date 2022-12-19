@@ -52,7 +52,7 @@
 		The same ASDU type will be used to report DI/AI object to upstream station as received from downstream outstation,
 		providing both source and destination communication protocol instances are compatible.
 		Otherwise default ASDU type will be used.
-		:inlinetip:`Please note object will be excluded from General Interrogation response before it is received from downstream outstation on leandc startup. This is because it is impossible to determine ASDU type of the object before is has been received from outstation.`
+		:inlinetip:`Please note the object will be excluded from General Interrogation response before it is received from downstream outstation on |leandcfw| startup. This is because it is impossible to determine ASDU type of the object before is has been received from outstation.`
 
    * :attr:	:xmlattr:`Flags`
      :val:	|flags8range|

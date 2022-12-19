@@ -1,0 +1,6 @@
+   * :attr:	:xmlattr:`TxDelay`
+     :val:	0.00001...42949
+     :def:	0.1 sec
+     :desc:	Transmit delay in seconds, only used if a serial communication instance (e.g. IEC60870-5-101) is linked.
+		Time interval in seconds between received and sent message.
+		|optinaldefattr|

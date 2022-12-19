@@ -4,9 +4,9 @@
    :spec: |C{0.16}|C{0.14}|S{0.7}|
    :header-rows: 1
 
-   * :attr,10: Bits
-     :val,10:  Value
-     :desc,80: Description
+   * :attr,10,center:	Bits
+     :val,10,center:	Value
+     :desc,80:		Description
 
    * :attr:	:include-arg:`3` [xxxx.xxxx]
      :val:	0x00...0xFF

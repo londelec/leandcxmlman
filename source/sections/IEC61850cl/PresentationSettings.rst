@@ -21,7 +21,7 @@ Settings of the Presentation layer (ISO8823) can be specified using attributes o
 
 .. include-file:: sections/Include/IEC61850cl_Flags.rstinc "" ":numref:`tabid-IEC61850clPresentationFlags`" "Presentation"
 
-.. include-file:: sections/Include/IEC61850_LogFlags.rstinc "" ":numref:`tabid-IEC61850clLogFlags`" "Presentation"
+.. include-file:: sections/Include/IEC61850_LogFlags8.rstinc "" ":numref:`tabid-IEC61850clLogFlags`" "Presentation"
 
 
 .. include-file:: sections/Include/table_flags8.rstinc "" "tabid-IEC61850clPresentationFlags" "Presentation layer flags" ":ref:`xmlattr-IEC61850clPresentationFlags`" "Presentation layer flags"

@@ -24,7 +24,7 @@ General settings of the IEC61850 client communication protocol instance.
      :val:	Max 100 chars
      :desc:	IED CID or SCD file name and path. This file contains communication capabilites and settings of the IED.
 		It is normaly exported from the IED configuration tool.
-		Path may be omitted if the file is located in the default directory (|leandcapp|)
+		Path may be omitted if the file is located in the default directory (|leandcdir|)
 		:inlineimportant:`Attribute is case sensitive, observe case of the path and file name when specifying.`
 
    * :attr:	:xmlattr:`IEDname`

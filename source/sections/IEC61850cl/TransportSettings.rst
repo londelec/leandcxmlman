@@ -40,7 +40,7 @@ Settings of the Transport layer (ISO8073) can be specified using attributes of :
 
 .. include-file:: sections/Include/IEC61850cl_Flags.rstinc "" ":numref:`tabid-IEC61850clTransportFlags`" "Transport"
 
-.. include-file:: sections/Include/IEC61850_LogFlags.rstinc "" ":numref:`tabid-IEC61850clLogFlags`" "Transport"
+.. include-file:: sections/Include/IEC61850_LogFlags8.rstinc "" ":numref:`tabid-IEC61850clLogFlags`" "Transport"
 
 
 .. include-file:: sections/Include/table_flags8.rstinc "" "tabid-IEC61850clTransportFlags" "Transport layer flags" ":ref:`xmlattr-IEC61850clTransportFlags`" "Transport layer flags"

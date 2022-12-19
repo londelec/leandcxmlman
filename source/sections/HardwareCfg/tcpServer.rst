@@ -24,8 +24,8 @@ TCP server socket is used to accept connections from remote hosts.
    * :attr:	:xmlattr:`ServerIPaddr`
      :val:	0.0.0.0 ... 255.255.255.254
      :def:	0.0.0.0
-     :desc:	| Server IPv4 address. Ethernet interface with this IP address must exist in the operating system. Remote TCP clients will be able to connect only through Ethernet interface with this address.
-		| IP address 0.0.0.0 can be used to bind a :ref:`xmlelem-tcpserver` socket to any interface available in the operating system. This will allow TCP clients to connect through any Ethernet interface.
+     :desc:	| Server IPv4 address. Ethernet interface with this IP address must exist in the |opsystem|. Remote TCP clients will be able to connect only through Ethernet interface with this address.
+		| IP address 0.0.0.0 can be used to bind a :ref:`xmlelem-tcpserver` socket to any interface available in the |opsystem|. This will allow TCP clients to connect through any Ethernet interface.
 
    * :attr:	:xmlattr:`Port`
      :val:	1...65534
@@ -34,6 +34,13 @@ TCP server socket is used to accept connections from remote hosts.
 		Unlimited number of incoming TCP connection requests will be accepted on this port as long as there is a communication protocol or supervision instance available to handle the new connection.
 		(default port for IEC60870-5-104 is 2404)
 
-.. include-file:: sections/Include/TCPser_Timeouts.rstinc "" ":ref:`xmlelem-tcpserver`"
+.. include-file:: sections/Include/chan_Timeout.rstinc "" "2 sec" " (possibly arriving in multiple TCP segments)"
+		| > IEC61850 instance - connection will be closed if not all TCP segments of a TPKT message have been received within a configured number of seconds.
+		| > Not used for any other communication protocol instances.
+		| |optinaldefattr|
+
+.. include-file:: sections/Include/chan_TxDelay.rstinc ""
+
+.. include-file:: sections/Include/TCP_IdleTimeout.rstinc ""
 
 .. include-file:: sections/Include/Name.rstinc ""

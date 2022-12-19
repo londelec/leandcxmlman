@@ -67,10 +67,10 @@ whether :ref:`xmlattr-ModbusmaCtrlMsgCount` and :ref:`xmlattr-ModbusmaCtrlMsgTyp
    :spec: |C{0.07}|C{0.10}|C{0.10}|S{0.73}|
    :header-rows: 1
 
-   * :val,8:    :ref:`xmlattr-ModbusmaCtrlMsgFunc`
-     :count,10: :ref:`xmlattr-ModbusmaCtrlMsgCount` required
-     :type,10:  :ref:`xmlattr-ModbusmaCtrlMsgType` required
-     :name,72:  Function Name
+   * :val,8,center:	:ref:`xmlattr-ModbusmaCtrlMsgFunc`
+     :count,10,center:	:ref:`xmlattr-ModbusmaCtrlMsgCount` required
+     :type,10,center:	:ref:`xmlattr-ModbusmaCtrlMsgType` required
+     :name,72:		Function Name
 
    * :val:	3
      :count:	Yes
@@ -114,8 +114,8 @@ Ctrl MSG.Type
    :spec: |C{0.07}|S{0.93}|
    :header-rows: 1
 
-   * :val,10:   :ref:`xmlattr-ModbusmaCtrlMsgType`
-     :desc,90:  Description
+   * :val,10,center:	:ref:`xmlattr-ModbusmaCtrlMsgType`
+     :desc,90:		Description
 
    * :val:	0
      :desc:	Send contents of the :ref:`xmlelem-ModbusmaCtrlMsg`.\ :ref:`xmlattr-ModbusmaCtrlMsgData` attribute to outstation.
@@ -212,16 +212,16 @@ Compatibility
 Table below shows compatibility between :ref:`xmlattr-ModbusmaCtrlMsgFunc` and :ref:`xmlattr-ModbusmaCtrlMsgType` attributes and
 whether :ref:`xmlattr-ModbusmaCtrlMsgData` attribute must be specified when particular message type is used.
 
-.. field-list-table:: Modbus Master Control message atrribute compatibility
+.. field-list-table:: Modbus Master Control message attribute compatibility
    :class: table table-condensed table-bordered longtable
    :name: tabid-ModbusmaCtrlMsgCompatibility
    :spec: |C{0.07}|C{0.12}|C{0.12}|S{0.69}|
    :header-rows: 1
 
-   * :val,10:   :ref:`xmlattr-ModbusmaCtrlMsgFunc`
-     :type,10:	:ref:`xmlattr-ModbusmaCtrlMsgType`
-     :data,10:	:ref:`xmlattr-ModbusmaCtrlMsgData`
-     :name,70:  Description
+   * :val,10,center:	:ref:`xmlattr-ModbusmaCtrlMsgFunc`
+     :type,10,center:	:ref:`xmlattr-ModbusmaCtrlMsgType`
+     :data,10,center:	:ref:`xmlattr-ModbusmaCtrlMsgData`
+     :name,70:		Description
 
    * :val:	3;4
      :type:	n/a

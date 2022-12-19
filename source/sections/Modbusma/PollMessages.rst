@@ -57,8 +57,8 @@ Table below shows supported values of the :ref:`xmlattr-ModbusmaPollMsgFunc` att
    :spec: |C{0.1}|S{0.5}|
    :header-rows: 1
 
-   * :val,10:   :ref:`xmlattr-ModbusmaPollMsgFunc`
-     :name,80:  Function Name
+   * :val,10,center:	:ref:`xmlattr-ModbusmaPollMsgFunc`
+     :name,80:		Function Name
 
    * :val:	3
      :name:	[:lemonobgtext:`Read Holding Registers`]

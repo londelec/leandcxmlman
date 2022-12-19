@@ -29,7 +29,7 @@ Settings of the Session layer (ISO8327) can be specified using attributes of :re
 
 .. include-file:: sections/Include/IEC61850cl_Flags.rstinc "" ":numref:`tabid-IEC61850clSessionFlags`" "Session"
 
-.. include-file:: sections/Include/IEC61850_LogFlags.rstinc "" ":numref:`tabid-IEC61850clLogFlags`" "Session"
+.. include-file:: sections/Include/IEC61850_LogFlags8.rstinc "" ":numref:`tabid-IEC61850clLogFlags`" "Session"
 
 
 .. include-file:: sections/Include/table_flags8.rstinc "" "tabid-IEC61850clSessionFlags" "Session layer flags" ":ref:`xmlattr-IEC61850clSessionFlags`" "Session layer flags"

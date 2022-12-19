@@ -20,9 +20,9 @@ This allows to perform logic operations such as 'OR' and 'AND' on the received d
    :spec: |C{0.20}|C{0.25}|S{0.55}|
    :header-rows: 1
 
-   * :attr,10:	Attribute
-     :val,15:	Values or range
-     :desc,75:	Description
+   * :attr,10,center:	Attribute
+     :val,15,center:	Values or range
+     :desc,75:		Description
 
    * :attr:	:xmlattr:`Index`
      :val:	|gpindexrange|
@@ -35,7 +35,7 @@ This allows to perform logic operations such as 'OR' and 'AND' on the received d
      :val:	Max 100 chars
      :desc:	XML configuration file name and path.
 		This file contains PLC data point table and other settings.
-		Path may be omitted if the XML file is stored in the default directory (|leandcapp|)
+		Path may be omitted if the XML file is stored in the default directory (|leandcdir|)
 		:inlineimportant:`Attribute is case sensitive, observe case of the path and file name when specifying.`
 
 .. include-file:: sections/Include/Name_wodef.rstinc ""

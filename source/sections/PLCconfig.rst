@@ -14,7 +14,7 @@ Name and location path of the XML configuration file is not predefined, it can b
 File name 'myplc.xml' is used as a sample.
 Enter name of the XML file in :ref:`xmlelem-gpplc`.\ :ref:`xmlattr-gpplcXMLpath` attribute of the PLC instance created in |leandcxml| as follows:
 :ref:`xmlattr-gpplcXMLpath` \ ="myplc.xml" .
-Location path doesn't have to be specified if the XML file is located in the default directory (|leandcapp|).
+Location path doesn't have to be specified if the XML file is located in the default directory (|leandcdir|).
 
 | PLC configuration file (e.g. 'myplc.xml') must have a root node :ref:`xmlgroup-PLCConfig` which cosists of:
 | 1 mandatory group :ref:`xmlelem-VersionControl`;
@@ -69,9 +69,9 @@ PNT attributes
    :spec: |C{0.16}|C{0.12}|S{0.72}|
    :header-rows: 1
 
-   * :attr,10:	Attribute
-     :val,15:	Values or range
-     :desc,75:	Description
+   * :attr,10,center:	Attribute
+     :val,15,center:	Values or range
+     :desc,75:		Description
 
    * :attr:	:xmlattr:`Index`
      :val:	|maindexrange|
@@ -139,8 +139,8 @@ PNT attributes
    :spec: |C{0.16}|S{0.84}|
    :header-rows: 1
 
-   * :attr,10:	Action Values
-     :desc,90:	Description
+   * :attr,10,center:	Action Values
+     :desc,90:		Description
 
    * :attr:	0
      :desc:	No Action.
