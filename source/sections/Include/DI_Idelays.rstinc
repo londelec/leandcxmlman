@@ -1,15 +1,15 @@
    * :attr:	:xmlattr:`InterDelay`
      :val:	|uint32range|
      :def:	0 msec
-     :desc:	Intermediate state reporting delay in milliseconds for Double Point Status Information (DPI) objects.
-		Intermediate state of the DPI will not be reported if it doesn't exceed configured delay.
-		(default value 0 - event will be generated instantly if DPI is in Intermediate state)
+     :desc:	Intermediate position reporting delay in milliseconds for Double Point Status Information (DPI) objects.
+		Intermediate position of the DPI will not be reported if it doesn't exceed configured delay.
+		(default value 0 - event will be generated instantly if DPI is in Intermediate position)
 		|optinalattr|
 
    * :attr:	:xmlattr:`IndetDelay`
      :val:	|uint32range|
      :def:	0 msec
-     :desc:	Indeterminate (error) state reporting delay in milliseconds for Double Point Information (DPI) objects.
-		Indeterminate (error) state of the DPI will not be reported if it doesn't exceed configured delay.
-		(default value 0 - event will be generated instantly if DPI is in Indeterminate (error) state)
+     :desc:	Indeterminate (error) position reporting delay in milliseconds for Double Point Information (DPI) objects.
+		Indeterminate (error) position of the DPI will not be reported if it doesn't exceed configured delay.
+		(default value 0 - event will be generated instantly if DPI is in Indeterminate (error) position)
 		|optinalattr|

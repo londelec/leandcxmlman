@@ -25,7 +25,7 @@ There are 5 status information objects defined with 4 :ref:`xmlelem-ModbusmaDI` 
 
 .. code-block:: none
 
-   <DI Index="0" PollMsg="1" BitOffset="0" Type="1" Qualifier="0" ChatterFilter="100" OnValues="0x01 0x02" OffValues="5,6" Total="1" Name="Input 1" />
+   <DI Index="0" PollMsg="1" BitOffset="0" Type="1" Qualifier="0" ChatterFilter="100" OnValues="0x01 0x02" OffValues="5,6" OnDelay="0" OffDelay="0" Total="1" Name="Input 1" />
 
 .. include-file:: sections/Include/tip_order.rstinc "" ":ref:`xmlelem-ModbusmaDI`"
 
@@ -103,6 +103,8 @@ DI attributes
 		:inlinetip:`list will result in a DI state ON. If`
 		:ref:`xmlattr-ModbusmaDIOnValues`
 		:inlinetip:`attribute is used, any value received from station that is not included in either attributes will result in a DI state INTER.`
+
+.. include-file:: sections/Include/DI_Odelays.rstinc ""
 
 .. include-file:: sections/Include/Total.rstinc "" ":ref:`xmlattr-ModbusmaDIIndex` and :ref:`xmlattr-ModbusmaDIBitOffset`" ":ref:`xmlelem-ModbusmaDI`" "254"
 

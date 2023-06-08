@@ -21,7 +21,7 @@ There are 2 status information objects defined in this sample.
 
 .. code-block:: none
 
-   <DI Index="0" ldInst="LD0" prefix="DA" lnClass="XCBR" lnInst="1" doName="Pos" fc="ST" Qualifier="0" InterDelay="10000" IndetDelay="0" OnValues="0x01 0x02" OffValues="5,6" daName="stVal" DSref="ABCLD/LLN0.myds" DSflags="0x00" TrgOps="0x00" intgPd="0" Name="CB position" />
+   <DI Index="0" ldInst="LD0" prefix="DA" lnClass="XCBR" lnInst="1" doName="Pos" fc="ST" Qualifier="0" InterDelay="10000" IndetDelay="0" OnDelay="0" OffDelay="0" OnValues="0x01 0x02" OffValues="5,6" daName="stVal" DSref="ABCLD/LLN0.myds" DSflags="0x00" TrgOps="0x00" intgPd="0" Name="CB position" />
 
 .. include-file:: sections/Include/tip_order.rstinc "" ":ref:`xmlelem-IEC61850clDI`"
 
@@ -37,6 +37,8 @@ DI attributes
 .. include-file:: sections/Include/Qualifier.rstinc "" ":numref:`tabid-IEC61850clDIQualifier`"
 
 .. include-file:: sections/Include/DI_Idelays.rstinc ""
+
+.. include-file:: sections/Include/DI_Odelays.rstinc ""
 
 .. include-file:: sections/Include/hidden_qtname.rstinc "internal"
 

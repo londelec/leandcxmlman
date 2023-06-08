@@ -23,7 +23,7 @@ There are 5 status information objects defined with 4 :ref:`xmlelem-SpabusmaDI` 
 
 .. code-block:: none
 
-   <DI Index="0" PollMsg="1" DataPos="1" Request="120V1" Qualifier="0x00" OnValues="2" OffValues="1" InterValue="0" IndetValue="3" InterDelay="0" IndetDelay="0" OnEvent="10E1" OffEvent="10E2" InterEvent="10E0" IndetEvent="10E3" Total="1" Name="CB position" />
+   <DI Index="0" PollMsg="1" DataPos="1" Request="120V1" Qualifier="0x00" OnValues="2" OffValues="1" InterValue="0" IndetValue="3" OnEvent="10E1" OffEvent="10E2" InterEvent="10E0" IndetEvent="10E3" InterDelay="0" IndetDelay="0" OnDelay="0" OffDelay="0" Total="1" Name="CB position" />
 
 .. include-file:: sections/Include/tip_order.rstinc "" ":ref:`xmlelem-SpabusmaDI`"
 
@@ -76,6 +76,8 @@ DI attributes
 
 .. include-file:: sections/Include/DI_Idelays.rstinc ""
 
+.. include-file:: sections/Include/DI_Odelays.rstinc ""
+
 .. include-file:: sections/Include/Total.rstinc "" ":ref:`xmlattr-SpabusmaDIIndex` and :ref:`xmlattr-SpabusmaDIDataPos`" ":ref:`xmlelem-SpabusmaDI`" "254"
 
 .. include-file:: sections/Include/Name.rstinc ""
@@ -110,6 +112,14 @@ DI.Qualifier
      :val:	xxx1.xxxx
      :desc:	**Poll this DI continuously** even if DI values are requested only during IED initialization i.e. :ref:`bitref-SpabusmaAppFlagsBit0`\ |bittrue| in :ref:`xmlelem-SpabusmaApp`.\ :ref:`xmlattr-SpabusmaAppFlags`.
 
+   * :attr:	:bitdef:`5`
+     :val:	xx0x.xxxx
+     :desc:	Use time tag of the **last** event if Intermediate state of the Double Point object was not reported (because Intermediate state didn't exceed :ref:`xmlattr-SpabusmaDIInterDelay`). e.g. in transition ON->INTER->OFF time tag of the INTER->OFF event will be used.
+
+   * :(attr):
+     :val:	xx1x.xxxx
+     :desc:	Use time tag of the **first** event if Intermediate state of the Double Point object was not reported (because Intermediate state didn't exceed :ref:`xmlattr-SpabusmaDIInterDelay`). e.g. in transition ON->INTER->OFF time tag of the ON->INTER event will be used.
+
    * :attr:	Bit 7
      :val:	0xxx.xxxx
      :desc:	DI is **enabled** and will be processed when received
@@ -118,7 +128,7 @@ DI.Qualifier
      :val:	1xxx.xxxx
      :desc:	DI is **disabled** and will be discarded when received
 
-   * :attr:	Bits 1,2,4..6
+   * :attr:	Bits 1,2,6
      :val:	Any
      :desc:	Bits reserved for future use
 

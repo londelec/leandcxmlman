@@ -25,7 +25,7 @@ There are 5 status information objects defined with 4 :ref:`xmlelem-IEC103maDI` 
 
 .. code-block:: none
 
-   <DI Index="0" FUN="1" INF="1" Qualifier="0" InterDelay="10000" IndetDelay="0" Total="2" Name="CB position" />
+   <DI Index="0" FUN="1" INF="1" Qualifier="0" InterDelay="10000" IndetDelay="0" OnDelay="0" OffDelay="0" Total="2" Name="CB position" />
 
 .. include-file:: sections/Include/tip_order.rstinc "" ":ref:`xmlelem-IEC103maDI`"
 
@@ -41,6 +41,8 @@ DI attributes
 .. include-file:: sections/Include/Qualifier.rstinc "" ":numref:`tabid-IEC103maDIQualifier`"
 
 .. include-file:: sections/Include/DI_Idelays.rstinc ""
+
+.. include-file:: sections/Include/DI_Odelays.rstinc ""
 
 .. include-file:: sections/Include/Total.rstinc "" ":ref:`xmlattr-IEC103maDIIndex` and :ref:`xmlattr-IEC103maDIINF`" ":ref:`xmlelem-IEC103maDI`" "254"
 

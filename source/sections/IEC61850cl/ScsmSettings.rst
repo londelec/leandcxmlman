@@ -96,6 +96,6 @@ Specific Communication Service Mapping (IEC61850-8 SCSM) settings can be specifi
      :desc:	Data values **will be** recorded.
 		[:lemonobgtext:`Read`] and [:lemonobgtext:`Write`] services.
 
-   * :attr:	Bits 0..3;9...15
+   * :attr:	Bits 0...3;9...15
      :val:	Any
      :desc:	Bits reserved for future use

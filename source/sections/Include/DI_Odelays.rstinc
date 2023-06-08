@@ -1,0 +1,19 @@
+   * :attr:	:xmlattr:`OnDelay`
+     :val:	|uint32range|
+     :def:	0 msec
+     :desc:	ON position reporting delay in milliseconds.
+		ON position of the DI will be reported after a configured delay.
+		This feature allows to filter out multiple position change events (e.g. OFF->ON->OFF->ON) received from outstation and
+		generate a single position change event only after ON position has remained stable for a configured number of milliseconds.
+		(default value 0 - delay disabled)
+		|optinalattr|
+
+   * :attr:	:xmlattr:`OffDelay`
+     :val:	|uint32range|
+     :def:	0 msec
+     :desc:	OFF position reporting delay in milliseconds.
+		OFF position of the DI will be reported after a configured delay.
+		This feature allows to filter out multiple position change events (e.g. ON->OFF->ON->OFF) received from outstation and
+		generate a single position change event only after OFF position has remained stable for a configured number of milliseconds.
+		(default value 0 - delay disabled)
+		|optinalattr|

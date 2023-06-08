@@ -28,7 +28,7 @@ There are 5 status information objects defined with 4 :ref:`xmlelem-IEC10xmaDI` 
 
 .. code-block:: none
 
-   <DI Index="0" InfAddr="1" qualifier="0" InterDelay="10000" IndetDelay="0" TypeID="31" Total="2" Name="CB position" />
+   <DI Index="0" InfAddr="1" qualifier="0" InterDelay="10000" IndetDelay="0" OnDelay="0" OffDelay="0" TypeID="31" Total="2" Name="CB position" />
 
 .. include-file:: sections/Include/tip_order.rstinc "" ":ref:`xmlelem-IEC10xmaDI`"
 
@@ -44,6 +44,8 @@ DI attributes
 .. include-file:: sections/Include/IEC60870_qualifier.rstinc "" ":numref:`tabid-IEC10xmaDIqualifier`"
 
 .. include-file:: sections/Include/DI_Idelays.rstinc ""
+
+.. include-file:: sections/Include/DI_Odelays.rstinc ""
 
 .. include-file:: sections/Include/IEC10xma_DIAI_TypeID.rstinc "" "DI" ":numref:`tabid-IEC10xmaDITypeID`"
 

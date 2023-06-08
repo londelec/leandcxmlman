@@ -17,8 +17,8 @@ This manual was published with the following |leandcapp| release.
      :val,30,center:	Release date
      :osv,30:		Required OS version
 
-   * :attr:	5.02
-     :val:	2022-12-09 14:47:39
+   * :attr:	5.03
+     :val:	2023-06-08 15:01:32
      :osv:	V3.0 or V4.0 or newer
 
 .. tip::
@@ -37,6 +37,11 @@ This manual was published with the following |leandcapp| release.
      :fdate,30,center:	Release date
      :doc,15,center:	Manual version
      :osv,35:		Operating system version
+
+   * :fw:	5.02
+     :fdate:	2022-12-09 14:47:39
+     :doc:	V37
+     :osv:	V3.0 or V4.0 or newer
 
    * :fw:	5.01
      :fdate:	2022-09-26 08:32:58
@@ -215,6 +220,18 @@ This manual was published with the following |leandcapp| release.
      :by,4,center:	By
      :desc,86:		Comments
 
+
+   * :ver:	V38
+     :date:	08/06/2023
+     :by:	AK
+     :desc:	| IEC60870-5-101/3/4, Modbus, Spabus Master & IEC61850 Client:
+		|   > :ref:`xmlelem-IEC10xmaDI`.\ :ref:`xmlattr-IEC10xmaDIOnDelay` and :ref:`xmlelem-IEC10xmaDI`.\ :ref:`xmlattr-IEC10xmaDIOffDelay` attributes created allowing to delay DI position change events;
+		| Spabus Master:
+		|   > :ref:`bitref-SpabusmaDIQualifierBit5` added to :ref:`xmlelem-SpabusmaDI`.\ :ref:`xmlattr-SpabusmaDIQualifier`, select First or Last time tag for DPI reporting if Intermediate state is delayed;
+		| Modbbus Master:
+		|   > LEIODC-P32-3100; LEIODC-P32-4000; LEIODC-P32-0400; LEIODC-P32-2200 types added to :ref:`xmlelem-ModbusmaHardcoded`.\ :ref:`xmlattr-ModbusmaHardcodedType` attribute;
+		| :ref:`xmlgroup-plcConditionTable` group created for basic PLC allowing to convert AI values to DI positions;
+
    * :ver:	V37
      :date:	19/12/2022
      :by:	AK
@@ -333,7 +350,7 @@ This manual was published with the following |leandcapp| release.
      :desc:	| IEC60870-5-101/3 Master:
 		|   > Default value of the :ref:`xmlattr-IEC101maCommControlLockTimer` attribute changed to 20 seconds;
 		| Modbus Master:
-		|   > LEIODC-X32-4000; LEIODC-X10-4000; LEIODC-X32-0400; LEIODC-X10-0400; LEIODC-X32-2200; LEIODC-X10-2200 types added to Modbus Master :ref:`xmlelem-ModbusmaHardcoded`.\ :ref:`xmlattr-ModbusmaHardcodedType` attribute;
+		|   > LEIODC-X32-4000; LEIODC-X10-4000; LEIODC-X32-0400; LEIODC-X10-0400; LEIODC-X32-2200; LEIODC-X10-2200 types added to :ref:`xmlelem-ModbusmaHardcoded`.\ :ref:`xmlattr-ModbusmaHardcodedType` attribute;
 		| Hardware:
 		|   > :ref:`xmlelem-uart`.\ :ref:`xmlattr-UARTCOM` attribute can have value 0;
 
