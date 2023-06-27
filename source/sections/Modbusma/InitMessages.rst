@@ -38,6 +38,12 @@ Init MSG attributes
 
 .. include-file:: sections/Include/Modbusma_Func.rstinc "" "See :numref:`tabid-ModbusmaInitMsgFunc`"
 
+   * :attr:	:xmlattr:`File`
+     :val:	1...65535 or 0x0001...0xFFFF
+     :def:	0x0001
+     :desc:	Modbus Memory file number number.
+		:inlinetip:`Attribute is used only for File Record messages` :ref:`xmlattr-ModbusmaInitMsgFunc`\ ="20" :inlinetip:`or` :ref:`xmlattr-ModbusmaInitMsgFunc`\ ="21"
+
 .. include-file:: sections/Include/Modbusma_Reg.rstinc "" "Data will be written to or read from this register."
 		:inlinetip:`See` :numref:`tabid-ModbusmaInitMsgFunc` :inlinetip:`to check if attribute is optional.`
 
@@ -75,28 +81,56 @@ whether :ref:`xmlattr-ModbusmaInitMsgReg` attribute must be specified when parti
      :reg:	Yes
      :name:	[:lemonobgtext:`Read Holding Registers`] message reads contents of one or more outstation registers.
 		Number of registers to read is set by the :ref:`xmlattr-ModbusmaInitMsgCount` attribute.
+		Contents of the :ref:`xmlattr-ModbusmaInitMsgData` attribute will be compared to the data received from outstation.
+		Initialization will not complete if received data doesn't match.
 
    * :val:	4
      :reg:	Yes
      :name:	[:lemonobgtext:`Read Input Registers`] message reads contents of one or more outstation registers.
 		Number of registers to read is set by the :ref:`xmlattr-ModbusmaInitMsgCount` attribute.
+		Contents of the :ref:`xmlattr-ModbusmaInitMsgData` attribute will be compared to the data received from outstation.
+		Initialization will not complete if received data doesn't match.
 
    * :val:	5
      :reg:	Yes
      :name:	[:lemonobgtext:`Force Single Coil`] message writes data to a single outstation register (2 bytes).
+		Contents of the :ref:`xmlattr-ModbusmaInitMsgData` attribute will be written to outstation with this function.
+		Initialization will not complete if exception is received (i.e. outstation rejects the write).
 
    * :val:	6
      :reg:	Yes
      :name:	[:lemonobgtext:`Preset Single Register`] message writes data to a single outstation register (2 bytes).
+		Contents of the :ref:`xmlattr-ModbusmaInitMsgData` attribute will be written to outstation with this function.
+		Initialization will not complete if exception is received (i.e. outstation rejects the write).
 
    * :val:	16
      :reg:	Yes
      :name:	[:lemonobgtext:`Preset Multiple Registers`] message writes data to multiple outstation registers (up to 126 bytes).
-		Number of registers to write is determined by the :ref:`xmlattr-ModbusmaInitMsgData` attribute.
+		Contents of the :ref:`xmlattr-ModbusmaInitMsgData` attribute will be written to outstation with this function.
+		Initialization will not complete if exception is received (i.e. outstation rejects the write).
+		Number of registers to write is determined by the length of the :ref:`xmlattr-ModbusmaInitMsgData` attribute.
 
    * :val:	17
      :reg:	No
      :name:	[:lemonobgtext:`Report Slave ID`] message reads Modbus device ID.
+		Contents of the :ref:`xmlattr-ModbusmaInitMsgData` attribute will be compared to the data received from outstation.
+		Initialization will not complete if received data doesn't match.
+
+   * :val:	20
+     :reg:	Yes
+     :name:	[:lemonobgtext:`Read File Record`] message reads one or more records organized in a file.
+		Number of records to read is set by the :ref:`xmlattr-ModbusmaInitMsgCount` attribute.
+		File number is set by the :ref:`xmlattr-ModbusmaInitMsgFile` attribute.
+		Contents of the :ref:`xmlattr-ModbusmaInitMsgData` attribute will be compared to the data received from outstation.
+		Initialization will not complete if received data doesn't match.
+
+   * :val:	21
+     :reg:	Yes
+     :name:	[:lemonobgtext:`Write File Record`] message writes one or more records to a file.
+		Contents of the :ref:`xmlattr-ModbusmaInitMsgData` attribute will be written to outstation with this function.
+		File number is set by the :ref:`xmlattr-ModbusmaInitMsgFile` attribute.
+		Initialization will not complete if exception is received (i.e. outstation rejects the write).
+		Number of records to write is determined by the length of the :ref:`xmlattr-ModbusmaInitMsgData` attribute.
 
    * :val:	Other
      :reg:	---
