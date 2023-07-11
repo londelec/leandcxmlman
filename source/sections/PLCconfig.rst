@@ -161,24 +161,18 @@ PNT attributes
      :desc:	No Action.
 
    * :attr:	1
-     :desc:	Send control command to DO index specified in :ref:`xmlattr-plcPNTDstIndex` of the communication protocol instance specified in :ref:`xmlattr-plcPNTDstDevice` attribute
-		every time the PLC point state transitions from OFF to ON.
-		Outgoing control command will have qualifier ON.
-		Command will be generated for every PLC point transition, which means multiple commands will be sent if the point changes state more than once even in a short period of time.
-		Commands are placed in the queue and sent to the destination protocol instance one by one.
-		This ensures outstation which receives a command has enough time to complete one command, before the next one is sent.
-		Please note, the command queue is purged instantly when outstation goes offline, which means no previous commands will be sent when outstation goes online again.
+.. include-file:: sections/Include/plc_action_event.rstinc "" "OFF to ON"
 
    * :attr:	2
-     :desc:	Send control command to DO index specified in :ref:`xmlattr-plcPNTDstIndex` of the communication protocol instance specified in :ref:`xmlattr-plcPNTDstDevice` attribute
-		every time the PLC point state transitions from ON to OFF.
-		Outgoing control command will have qualifier ON.
-		Command will be generated for every PLC point transition, which means multiple commands will be sent if the point changes state more than once even in a short period of time.
-		Commands are placed in the queue and sent to the destination protocol instance one by one.
-		This ensures outstation which receives a command has enough time to complete one command, before the next one is sent.
-		Please note, the command queue is purged instantly when outstation goes offline, which means no previous commands will be sent when outstation goes online again.
+.. include-file:: sections/Include/plc_action_event.rstinc "" "ON to OFF"
 
-   * :attr: 	3...255
+   * :attr:	3
+.. include-file:: sections/Include/plc_action_cont.rstinc "" "ON"
+
+   * :attr:	4
+.. include-file:: sections/Include/plc_action_cont.rstinc "" "OFF"
+
+   * :attr: 	5...255
      :desc:	Reserved for future use.
 
 

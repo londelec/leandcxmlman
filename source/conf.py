@@ -7,7 +7,7 @@
 project = u'Leandc series XML configuration manual'
 
 # The full version, including alpha/beta/rc tags.
-release = u'V39 FW V5.04'
+release = u'V40 FW V5.05'
 
 numfig = True
 numfig_format = {'table': 'Table %s', 'figure': 'Figure %s', 'code-block': '%s'}

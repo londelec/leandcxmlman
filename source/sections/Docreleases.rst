@@ -17,8 +17,8 @@ This manual was published with the following |leandcapp| release.
      :val,30,center:	Release date
      :osv,30:		Required OS version
 
-   * :attr:	5.04
-     :val:	2023-06-27 10:07:06
+   * :attr:	5.05
+     :val:	2023-07-11 08:45:59
      :osv:	V3.0 or V4.0 or newer
 
 .. tip::
@@ -37,6 +37,11 @@ This manual was published with the following |leandcapp| release.
      :fdate,30,center:	Release date
      :doc,15,center:	Manual version
      :osv,35:		Operating system version
+
+   * :fw:	5.04
+     :fdate:	2023-06-27 10:07:06
+     :doc:	V39
+     :osv:	V3.0 or V4.0 or newer
 
    * :fw:	5.03
      :fdate:	2023-06-08 15:01:32
@@ -224,6 +229,12 @@ This manual was published with the following |leandcapp| release.
      :date,5,center:	Date
      :by,4,center:	By
      :desc,86:		Comments
+
+   * :ver:	V40
+     :date:	11/07/2023
+     :by:	AK
+     :desc:	| Basic PLC:
+		|   > PLC point position can trigger continuous sending of commands, PLC point :ref:`xmlattr-plcPNTAction` attribute values 3 and 4;
 
    * :ver:	V39
      :date:	27/06/2023

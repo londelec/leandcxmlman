@@ -31,11 +31,6 @@ Leandc series XML configuration manual
    **Contact us**
 
    | Londelec UK Ltd
-   | 483 Green Lanes
-   | London
-   | N13 4BS
-   | United Kingdom
-
    | Phone +44 (0) 207 060 7087
    | info@londelec.com
 
