@@ -69,7 +69,7 @@ This node contains settings of a serial port.
      :val:	0.00001...42949
      :def:	n/a
      :desc:	Transmit delay in seconds. Time interval in seconds between received and sent message.
-		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be calculated based on a configured baudrate.`
+		:inlinetip:`Attribute is optional and doesn't have to be included in configuration, default value will be calculated based on a configured baudrate. The default value is calculated as 'TxDelay = 44 / baudrate' e.g. for a baudrate of 9600 the TxDelay is 4.583msec.`
 
    * :attr:	:xmlattr:`MaxTxDelay`
      :val:	0 or 0.1...42949

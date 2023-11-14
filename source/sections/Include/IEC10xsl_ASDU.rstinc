@@ -54,6 +54,13 @@
 		Otherwise default ASDU type will be used.
 		:inlinetip:`Please note the object will be excluded from General Interrogation response before it is received from downstream outstation on |leandcfw| startup. This is because it is impossible to determine ASDU type of the object before is has been received from outstation.`
 
+   * :attr:	:xmlattr:`orCat`
+     :val:	1...8
+     :def:	3
+     :desc:	Originator category value for outgoing commands [IEC61850-7-3:2011].
+		Used only for commands sent to IEC61850 Client instances.
+		Default value 3 = [:lemonobgtext:`remote-control`]
+
    * :attr:	:xmlattr:`Flags`
      :val:	|flags8range|
      :def:	0x00

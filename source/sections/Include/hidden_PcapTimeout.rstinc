@@ -1,0 +1,6 @@
+   * :attr:	:xmlattr:`Timeout`
+     :val:	0...2\ :sup:`31` - 1
+     :def:	3 msec
+     :desc:	pcap timeout in milliseconds.
+		Since libpcap 1.5.0 timeout must be set to greater than 0, because interfaces are not automatically put immediate mode.
+		|internalattr|

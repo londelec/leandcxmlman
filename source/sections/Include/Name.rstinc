@@ -1,5 +1,5 @@
    * :attr:	:xmlattr:`Name`
-     :val:	Max 100 chars
+     :val:	Max 64 chars
      :def:	n/a
      :desc:	Freely configurable name, just for reference.
 		|optinalattr|

@@ -9,7 +9,7 @@ Application layer settings can be specified using attributes of :ref:`xmlelem-IE
 
 .. code-block:: none
 
-   <ASDUSettings COTSize="1" CAASize="1" IOASize="2" InvalidEvent="1" SUthroughoutDST="1" DIEventType="2" AIEventType="14" DOType="46" AOType="50" DIInterDelay="8000" DIIndetDelay="3500" DIEventStartup="1" AIEventStartup="1" TimeSync="1" TranspTypes="1" Flags="0x00" ForwardGI="1" />
+   <ASDUSettings COTSize="1" CAASize="1" IOASize="2" InvalidEvent="1" SUthroughoutDST="1" DIEventType="2" AIEventType="14" DOType="46" AOType="50" DOProc="2" AOProc="0" DIInterDelay="8000" DIIndetDelay="3500" DIEventStartup="1" AIEventStartup="1" TimeSync="1" TranspTypes="1" orCat="3" Flags="0x00" ForwardGI="1" />
 
 
 .. include-file:: sections/Include/table_attrs.rstinc "" "tabid-IEC101slAsdu" "IEC60870-5-101 Slave ASDUSettings attributes" ":spec: |C{0.19}|C{0.12}|C{0.14}|S{0.55}|"

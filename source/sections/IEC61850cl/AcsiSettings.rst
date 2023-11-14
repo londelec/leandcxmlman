@@ -9,7 +9,7 @@ Abstract Communication Service Interface (IEC61850-7-x ACSI) settings can be spe
 
 .. code-block:: none
 
- <AcsiSettings Bdyndsname="dynb" Udyndsname="dynu" Maxdynds="10" BOptFlds="0x0001" UOptFlds="0x0000" orCat="3" orIdent="LEANDC" bufTime="0" Flags="0x0003" RCBFlags="0x0000" DSFlags="0x0000" LogFlags="0x0000"/>
+ <AcsiSettings Bdyndsname="dynb" Udyndsname="dynu" Maxdynds="10" BOptFlds="0x0001" UOptFlds="0x0000" bufTime="0" Flags="0x0003" RCBFlags="0x0000" DSFlags="0x0000" LogFlags="0x0000"/>
 
 
 .. include-file:: sections/Include/table_attrs.rstinc "" "tabid-IEC61850clAcsi" "IEC61850 Client AcsiSettings attributes" ":spec: |C{0.14}|C{0.18}|C{0.1}|S{0.58}|"
@@ -40,17 +40,6 @@ Abstract Communication Service Interface (IEC61850-7-x ACSI) settings can be spe
 		[OptFlds] of all used Report Control Blocks will be set to this value.
 		Applies to all Report Control Blocks - defined in the SCL and received from IED during initialization.
 		See :numref:`tabid-IEC61850clAcsiOptFlds` for description.
-
-   * :attr:	:xmlattr:`orCat`
-     :val:	1...8
-     :def:	3
-     :desc:	Originator category value for outgoing commands [IEC61850-7-3:2011].
-		Default value 3 = [:lemonobgtext:`remote-control`]
-
-   * :attr:	:xmlattr:`orIdent`
-     :val:	1...64 chars
-     :def:	LEANDC
-     :desc:	Originator identification value for outgoing commands [IEC61850-7-3:2011].
 
    * :attr:	:xmlattr:`bufTime`
      :val:	0...2\ :sup:`32`\  - 2

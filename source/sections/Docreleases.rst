@@ -17,8 +17,8 @@ This manual was published with the following |leandcapp| release.
      :val,30,center:	Release date
      :osv,30:		Required OS version
 
-   * :attr:	5.05
-     :val:	2023-07-11 08:45:59
+   * :attr:	5.06
+     :val:	2023-11-14 07:24:13
      :osv:	V3.0 or V4.0 or newer
 
 .. tip::
@@ -37,6 +37,11 @@ This manual was published with the following |leandcapp| release.
      :fdate,30,center:	Release date
      :doc,15,center:	Manual version
      :osv,35:		Operating system version
+
+   * :fw:	5.05
+     :fdate:	2023-07-11 08:45:59
+     :doc:	V40
+     :osv:	V3.0 or V4.0 or newer
 
    * :fw:	5.04
      :fdate:	2023-06-27 10:07:06
@@ -230,6 +235,16 @@ This manual was published with the following |leandcapp| release.
      :by,4,center:	By
      :desc,86:		Comments
 
+   * :ver:	V41
+     :date:	14/11/2023
+     :by:	AK
+     :desc:	| IEC60870-5-101/4 Slave:
+		|   > :ref:`xmlattr-IEC101slAsduorCat` attribute added to :ref:`xmlelem-IEC101slAsdu` node. Only used for sending control commands to IEC61850 Client instances;
+		| IEC61850 Client:
+		|   > :xmllegacy:`orCat` and :xmllegacy:`orIdent` attributes removed from :ref:`xmlelem-IEC61850clAcsi` node;
+		| Logger:
+		|   > :ref:`xmlattr-pcaplogBufferSize` attribute created to select size of the pcap captured data buffer in bytes;
+
    * :ver:	V40
      :date:	11/07/2023
      :by:	AK
@@ -250,7 +265,7 @@ This manual was published with the following |leandcapp| release.
 		|   > :ref:`xmlelem-IEC10xmaDI`.\ :ref:`xmlattr-IEC10xmaDIOnDelay` and :ref:`xmlelem-IEC10xmaDI`.\ :ref:`xmlattr-IEC10xmaDIOffDelay` attributes created allowing to delay DI position change events;
 		| Spabus Master:
 		|   > :ref:`bitref-SpabusmaDIQualifierBit5` added to :ref:`xmlelem-SpabusmaDI`.\ :ref:`xmlattr-SpabusmaDIQualifier`, select First or Last time tag for DPI reporting if Intermediate state is delayed;
-		| Modbbus Master:
+		| Modbus Master:
 		|   > LEIODC-P32-3100; LEIODC-P32-4000; LEIODC-P32-0400; LEIODC-P32-2200 types added to :ref:`xmlelem-ModbusmaHardcoded`.\ :ref:`xmlattr-ModbusmaHardcodedType` attribute;
 		| :ref:`xmlgroup-plcConditionTable` group created for basic PLC allowing to convert AI values to DI positions;
 
@@ -282,7 +297,7 @@ This manual was published with the following |leandcapp| release.
 		|   > :xmllegacy:`Flags` :inlineimportant:`attribute removed from` :ref:`xmlelem-IEC61850clApp` :inlineimportant:`and split into` :ref:`xmlelem-IEC61850clAcsi`.\ :ref:`xmlattr-IEC61850clAcsiFlags`; :ref:`xmlattr-IEC61850clAcsiRCBFlags`; :ref:`xmlattr-IEC61850clAcsiDSFlags`;
 		|   > :inlineimportant:`Most bits migrated from` :ref:`xmlelem-IEC61850clScsm`.\ :ref:`xmlattr-IEC61850clScsmFlags` :inlineimportant:`attribute and split between` :ref:`xmlelem-IEC61850clAcsi`.\ :ref:`xmlattr-IEC61850clAcsiFlags`; :ref:`xmlattr-IEC61850clAcsiRCBFlags`; :ref:`xmlattr-IEC61850clAcsiDSFlags`;
 		|   > :ref:`xmlattr-IEC61850clAcsiBdyndsname`; :ref:`xmlattr-IEC61850clAcsiUdyndsname`; :ref:`xmlattr-IEC61850clAcsiBOptFlds`; :ref:`xmlattr-IEC61850clAcsiUOptFlds` :inlineimportant:`attributes moved from` :ref:`xmlelem-IEC61850clScsm` :inlineimportant:`to` :ref:`xmlelem-IEC61850clAcsi`;
-		|   > :ref:`xmlattr-IEC61850clAcsiorCat`; :ref:`xmlattr-IEC61850clAcsiorIdent`; :ref:`xmlattr-IEC61850clAcsibufTime` :inlineimportant:`attributes moved from` :ref:`xmlelem-IEC61850clApp` :inlineimportant:`to` :ref:`xmlelem-IEC61850clAcsi`;
+		|   > :xmllegacy:`orCat`; :xmllegacy:`orIdent`; :ref:`xmlattr-IEC61850clAcsibufTime` :inlineimportant:`attributes moved from` :ref:`xmlelem-IEC61850clApp` :inlineimportant:`to` :ref:`xmlelem-IEC61850clAcsi`;
 		|   > :inlineimportant:`Most bits of` :ref:`xmlattr-IEC61850clAssociationAARQfields` :inlineimportant:`attribute changed, all fields of AARQ APDU can be Included/Excluded now`;
 		|   > :ref:`xmlelem-IEC61850clMms` :inlineimportant:`node created and` :xmllegacy:`MMSversion` :inlineimportant:`attribute migrated to` :ref:`xmlelem-IEC61850clMms`.\ :ref:`xmlattr-IEC61850clMmsASN`;
 		|   > :ref:`xmlattr-IEC61850clTransportPDUsize`, :ref:`xmlattr-IEC61850clTransportTS1timeout` and :ref:`xmlattr-IEC61850clTransportLogFlags` attributes added to :ref:`xmlelem-IEC61850clTransport`;
@@ -321,7 +336,7 @@ This manual was published with the following |leandcapp| release.
      :date:	14/12/2018
      :by:	AK
      :desc:	| IEC61850 Client:
-		|   > :ref:`xmlattr-IEC61850clAcsiorCat` and :ref:`xmlattr-IEC61850clAcsiorIdent` attributes added to :ref:`xmlelem-IEC61850clApp` node. Values are used for sending control commands to IED;
+		|   > :xmllegacy:`orCat` and :xmllegacy:`orIdent` attributes added to :ref:`xmlelem-IEC61850clApp` node. Values are used for sending control commands to IED;
 		|   > Bit[2] added to :ref:`xmlelem-IEC61850clApp`.\ :xmllegacy:`Flags` attribute, use millisecond accuracy of timetags received from IED;
 		|   > Bit[4] added to :ref:`xmlelem-IEC61850clApp`.\ :xmllegacy:`Flags` attribute, Ignore Resv attribute value of the Unbufferred report control block received from IED;
 		|   > Bit[8] added to :ref:`xmlelem-IEC61850clApp`.\ :xmllegacy:`Flags` attribute, enable all report control blocks found in the SCL file;

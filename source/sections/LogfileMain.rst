@@ -215,7 +215,7 @@ Please see all available attributes of the :ref:`xmlelem-pcaplog` node below:
 
 .. code-block:: none
 
-   <PCAPLOG HWIndex="1" LogFlags="0x07" Logfile="Log/trace" Mode="0" HourLimit="4" Filter="vlan 0" Name="pcap trace" />
+   <PCAPLOG HWIndex="1" LogFlags="0x07" Logfile="Log/trace" Mode="0" HourLimit="4" Filter="vlan 0" BufferSize="1048576" Name="pcap trace" />
 
 .. tip:: Attributes can be arranged in any order, it will not affect the XML file validation.
 
@@ -248,6 +248,16 @@ PCAPLOG attributes
      :def:	n/a
      :desc:	Custom capture filter e.g. "vlan 0".
 		See pcap-filter(7) manual for more information.
+
+   * :attr:	:xmlattr:`BufferSize`
+     :val:	64...268435456 bytes
+     :def:	1048576
+     :desc:	Size of the pcap captured data buffer in bytes.
+		Captured data is temporarily stored in the buffer and written to pcap file at fixed time intervals.
+		This attribute is mainly used for testing purposes and should not be changed unless recommended by the supplier.
+		Default value of 1MB is optimal for most applications.
+
+.. include-file:: sections/Include/hidden_PcapTimeout.rstinc "internal"
 
 .. include-file:: sections/Include/Name.rstinc ""
 
