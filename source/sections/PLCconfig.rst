@@ -44,10 +44,11 @@ PointTable group
 ----------------
 
 | :ref:`xmlgroup-plcPointTable` group and its elements :ref:`xmlelem-plcPNT` are used to create internal point table.
-  Each :ref:`xmlelem-plcPNT` element needs one or more sources of data to perform a logic operation.
-  DI/AI information objects defined in the IO table of any Master protocol instance are used as data sources for internal PLC points.
-| The result of the logic operation becomes value of the internal point itself and can be used by linking the internal point :ref:`xmlelem-plcPNT` to DI information objects (one or more) defined in the IO table of a Slave protocol instance.
-  Please refer to the :ref:`docref-IEC10xslDI` section of a Slave protocol instance for more information on how to link an internal data point.
+  Each :ref:`xmlelem-plcPNT` element needs one or more sources of data to perform a logic or arithmetic operation.
+  DI/AI information objects defined in IO table of any Master protocol instance can be used as data sources for internal PLC points.
+| The result of the logic or aritmetic operation becomes value of the internal data point.
+  This result can be used by linking the internal point :ref:`xmlelem-plcPNT` to DI/AI information object (one or more) defined in the IO table of a Slave protocol instance.
+  Please refer to the :ref:`docref-IEC10xslDI` and :ref:`docref-IEC10xslAI` sections of a Slave protocol instance for more information on how to link an internal data point.
 
 Please see sample :ref:`xmlgroup-plcPointTable` group and :ref:`xmlelem-plcPNT` elements below.
 There are 2 data points defined with 2 :ref:`xmlelem-plcPNT` elements.
@@ -56,7 +57,7 @@ There are 2 data points defined with 2 :ref:`xmlelem-plcPNT` elements.
 
  <PointTable>
    <PNT Index="0" PlcType="or" SrcDevices="10" SrcIndexes="0" SrcTypes="DI"/>
-   <PNT Index="1" PlcType="and" SrcDevices="10,11" SrcIndexes="0,2" SrcTypes="DI,DI"/>
+   <PNT Index="1" PlcType="add" SrcDevices="10,11" SrcIndexes="0,2" SrcTypes="AI,AI"/>
  </PointTable>
 
 .. include-file:: sections/Include/sample_node.rstinc "" ":ref:`xmlelem-plcPNT`"
@@ -87,9 +88,10 @@ PNT attributes
 		This restriction has been put in place because insertion of a new index affects mapping to Slave communication protocol instances.`
 
    * :attr:	:xmlattr:`PlcType`
-     :val:	or / and
-     :desc:	Logic operation of the data point.
-		This logic operation will be perfomed on the source data values and the result of the operation will become value of the internal data point.
+     :val:	or / and / add / mult
+     :desc:	Logic or arithmetic operation of the data point.
+		This operation will be perfomed on a source data values and the result of the operation will become value of the internal data point.
+		See :numref:`tabid-PlcType` for more information.
 
    * :attr:	:xmlattr:`SrcDevices` \*
      :val:	|gpindexrange|
@@ -110,7 +112,7 @@ PNT attributes
      :val:	DI / AI
      :desc:	Type of the source object.
 		DI/AI objects can be used as a source for a data point.
-		Normally multiple data sources are required in order to perform a logic operation, therefore multiple object types can be specified in this attribute.
+		Normally multiple data sources are required in order to perform a logic or artithmetic operation, therefore multiple object types can be specified in this attribute.
 		A list of up to 16 object types separated by commas are allowed e.g. :ref:`xmlattr-plcPNTSrcTypes`\ ="DI,DI,AI".
 
    * :attr:	:xmlattr:`CondIds` \*
@@ -144,8 +146,77 @@ PNT attributes
 .. important::
 
 	\* It is essential to specify equal number of parameters in attributes :ref:`xmlattr-plcPNTSrcDevices`; :ref:`xmlattr-plcPNTSrcIndexes`; :ref:`xmlattr-plcPNTSrcTypes` and :ref:`xmlattr-plcPNTCondIds`.
-	For example if 2 DI information objects are used as internal data point sources, each of these attributes must have 2 parameters e.g.
+	For example if 2 DI information objects are used as an internal data point sources, each of these attributes must have 2 parameters e.g.
 	:ref:`xmlattr-plcPNTSrcDevices`\ ="10,10"; :ref:`xmlattr-plcPNTSrcIndexes`\ ="0,1"; :ref:`xmlattr-plcPNTSrcTypes`\ ="DI,AI" and :ref:`xmlattr-plcPNTCondIds`\ ="0,1".
+
+PLC operation types
+^^^^^^^^^^^^^^^^^^^
+
+| There are 4 types of logic and arithmetic operations that can be performed on a DI/AI data received from outstation.
+  These are summarized in the table below.
+
+
+.. field-list-table:: PLC logic or arithmetic operations
+   :class: table table-condensed table-bordered longtable
+   :name: tabid-PlcType
+   :spec: |C{0.16}|S{0.84}|
+   :header-rows: 1
+
+   * :attr,10,center:	:ref:`xmlattr-plcPNTPlcType`
+     :desc,90:		Description
+
+   * :attr:	or
+     :desc:	| Perform logic OR operation based on a DI object state position.
+		  DI object can have 4 states - INTER; OFF; ON; INVALID but only ON and OFF (distinctive position) states are used to perform a PLC operation.
+		  If state of any of the source DI objects is INTER or INVALID the PLC data point will also have an INTER or INVALID state.
+		  Quality bits of all source DI objects are added together meaning that if any of the source DI objects have [:lemonobgtext:`IV`] bit set or
+		  outstation (where DI is received from) goes offline, the resulting PLC data point will also have [:lemonobgtext:`IV`] bit.
+		  The PLC data point is valid only if all source DI objects are valid.
+		  There are at least 2 source DI objects required to perform a logic OR operation.
+		  The resulting state of the PLC data point based on the distinctive position states (ON or OFF) of the 2 source DI objects is shown below:
+		| DI1 DI2 => PLC point:
+		| OFF OFF => OFF
+		| ON OFF => ON
+		| OFF ON => ON
+		| ON ON => ON
+
+   * :attr:	and
+     :desc:	| Perform logic AND operation based on a DI object state position.
+		  DI object can have 4 states - INTER; OFF; ON; INVALID but only ON and OFF (distinctive position) states are used to perform a PLC operation.
+		  If state of any of the source DI objects is INTER or INVALID the PLC data point will also have an INTER or INVALID state.
+		  Quality bits of all source DI objects are added together meaning that if any of the source DI objects have [:lemonobgtext:`IV`] bit set or
+		  outstation (where DI is received from) goes offline, the resulting PLC data point will also have [:lemonobgtext:`IV`] bit.
+		  The PLC data point is valid only if all source DI objects are valid.
+		  There are at least 2 source DI objects required to perform a logic AND operation.
+		  The resulting state of the PLC data point based on the distinctive position states (ON or OFF) of the 2 source DI objects is shown below:
+		| DI1 DI2 => PLC point:
+		| OFF OFF => OFF
+		| ON OFF => OFF
+		| OFF ON => OFF
+		| ON ON => ON
+
+   * :attr:	add
+     :desc:	Addition of AI object values.
+		2 or more AI values received from oustation can be added together and the sum will become value of the PLC data point.
+		Quality bits of all source AI objects are added together meaning that if any of the source AI objects have [:lemonobgtext:`IV`] bit set or
+		outstation (where AI is received from) goes offline, the resulting PLC data point will also have [:lemonobgtext:`IV`] bit.
+		The PLC data point is valid only if all source AI objects are valid.
+		Addition takes place after AI value scaling i.e. after coefficient (if any) specified in the source protocol instance is applied.
+
+   * :attr:	mult
+     :desc:	Multiplication of AI object values.
+		2 or more AI values received from oustation can be multiplied together and the product will become value of the PLC data point.
+		Quality bits of all source AI objects are added together meaning that if any of the source AI objects have [:lemonobgtext:`IV`] bit set or
+		outstation (where AI is received from) goes offline, the resulting PLC data point will also have [:lemonobgtext:`IV`] bit.
+		The PLC data point is valid only if all source AI objects are valid.
+		Multiplication takes place after AI value scaling i.e. after coefficient (if any) specified in the source protocol instance is applied.
+
+
+PNT actions
+^^^^^^^^^^^
+
+| Point actions are primarily used to trigger commands based on a value of the PLC data point.
+  Available actions are summarized in the table below.
 
 
 .. field-list-table:: PLC Action values
@@ -154,7 +225,7 @@ PNT attributes
    :spec: |C{0.16}|S{0.84}|
    :header-rows: 1
 
-   * :attr,10,center:	Action Values
+   * :attr,10,center:	:ref:`xmlattr-plcPNTAction`
      :desc,90:		Description
 
    * :attr:	0
@@ -182,16 +253,19 @@ ConditionTable group
 --------------------
 
 | :ref:`xmlgroup-plcConditionTable` group is used to define conditions for analog values of the AI objects that are used as internal data point sources.
-  There is only one condition type available at the moment - the range of analog values defined using the :ref:`xmlelem-plcRange` element.
+  There are 2 condition types available at the moment - the range of analog values defined using the :ref:`xmlelem-plcRange` element and
+  AI value substitution with :ref:`xmlelem-plcSubstitution` element.
 
-Please see sample :ref:`xmlgroup-plcConditionTable` group and :ref:`xmlelem-plcRange` element below.
-There are 2 conditions defined with 2 :ref:`xmlelem-plcRange` elements.
+Please see sample :ref:`xmlgroup-plcConditionTable` group below.
+There are 4 conditions defined with 2 :ref:`xmlelem-plcRange` and 2 :ref:`xmlelem-plcSubstitution` elements.
 
 .. code-block:: none
 
  <ConditionTable>
    <Range CondId="1" OnMin="0" OnMax="10e4" OffMin="-5" OffMax="-inf"/>
    <Range CondId="2" OnMin="100" OnMax="200"/>
+   <Substitution CondId="3" Min="-5" Max="11e6" Values="1.1 -4e-5" Result="14"/>
+   <Substitution CondId="4" Min="0" Max="200" Values="3,4,5" Result="0"/>
  </ConditionTable>
 
 Condition types and their attributes are described in the following sections.
@@ -211,7 +285,7 @@ Range element
 
 .. code-block:: none
 
-   <Range CondId="0" OnMin="0" OnMax="10e4" OffMin="-5" OffMax="-99999.9" Name="AI to DI conversion"/>
+   <Range CondId="1" OnMin="0" OnMax="10e4" OffMin="-5" OffMax="-99999.9" Name="AI to DI conversion"/>
 
 .. include-file:: sections/Include/tip_order.rstinc "" ":ref:`xmlelem-plcRange`"
 
@@ -266,3 +340,77 @@ Range attributes
 		|optinalattr|
 		:inlinetip:`Any analog value outside the range defined by` :ref:`xmlattr-plcRangeOnMin` :inlinetip:`and` :ref:`xmlattr-plcRangeOnMax` :inlinetip:`attributes will result in OFF position if this attribute is not used.`
 
+.. include-file:: sections/Include/Name_wodef.rstinc ""
+
+
+.. _xmlelem-plcSubstitution: lelabel=Substitution
+
+Substitution element
+--------------------
+
+| :ref:`xmlelem-plcSubstitution` element is used to substitute particular analog values with one specified value.
+  Whenever received analog value falls within a defined range or matches one of the listed values, it will be substituted with a specified value.
+  This functionality could be used to replace values that exceed a certain limit, for example, if a received value exceeds 100,
+  :ref:`xmlelem-plcSubstitution` element can used to replace it with 100, so that the resulting value never exceeds 100.
+
+.. include-file:: sections/Include/sample_node.rstinc "" ":ref:`xmlelem-plcSubstitution`"
+
+.. code-block:: none
+
+   <Substitution CondId="2" Min="-5" Max="11e6" Values="1 -5.47 7e12 0.004" Result="14" Name="AI value substitution"/>
+
+.. include-file:: sections/Include/tip_order.rstinc "" ":ref:`xmlelem-plcSubstitution`"
+
+Substitution attributes
+^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. field-list-table:: Substitution attributes
+   :class: table table-condensed table-bordered longtable
+   :name: tabid-plcSubstitution
+   :spec: |C{0.16}|C{0.12}|S{0.72}|
+   :header-rows: 1
+
+   * :attr,10,center:	Attribute
+     :val,15,center:	Values or range
+     :desc,75:		Description
+
+   * :attr:	:xmlattr:`CondId`
+     :val:	1...65535
+     :desc:	Condition identifier must be a unique number within a :ref:`xmlgroup-plcConditionTable` group.
+		:inlineimportant:`Identifier numbering must start with 1 and identifiers must be arranged in an ascending order.`
+
+   * :attr:	:xmlattr:`Min`
+     :val:	0 or ±1.18×10\ :sup:`-38` \ ... ±3.4×10\ :sup:`38`
+     :desc:	Minimal (inclusive) analog value that will result in AI value substitution.
+		Internal point :ref:`xmlelem-plcPNT` that uses AI as a data source will have :ref:`xmlattr-plcSubstitutionResult` value whenever received analog value is equal or exceeds this attribute and
+		is less or equal to :ref:`xmlattr-plcSubstitutionMax` attribute.
+		Positive and negative infinity values 'inf' and '-inf' can be specified.
+		Note received AI value is compared to this attribute after scaling (e.g. when any coefficient in master instance is applied)
+		|optinalattr|
+
+   * :attr:	:xmlattr:`Max`
+     :val:	0 or ±1.18×10\ :sup:`-38` \ ... ±3.4×10\ :sup:`38`
+     :desc:	Maximal (inclusive) analog value that will result in AI value substitution.
+		Internal point :ref:`xmlelem-plcPNT` that uses AI as a data source will have :ref:`xmlattr-plcSubstitutionResult` value whenever received analog value is less or equal to this attribute and
+		is equal or exceeds :ref:`xmlattr-plcSubstitutionMin` attribute.
+		Positive and negative infinity values 'inf' and '-inf' can be specified.
+		Note received AI value is compared to this attribute after scaling (e.g. when any coefficient in master instance is applied)
+		|optinalattr|
+
+   * :attr:	:xmlattr:`Values`
+     :val:	0 or ±1.18×10\ :sup:`-38` \ ... ±3.4×10\ :sup:`38` (up to 16)
+     :desc:	Match any analog value specified in this list.
+		Internal point :ref:`xmlelem-plcPNT` that uses AI as a data source will have :ref:`xmlattr-plcSubstitutionResult` value whenever received analog value matches any of the values specified in this attibute.
+		Up to 16 postive/negative floating point numbers in a standard decimal (1204.78) or scientific (3.5e3) notation can be specified separated by whitespaces or commas e.g. "1,-5.47,7e12,0.004".
+		Note received AI value is compared to this attribute after scaling (e.g. when any coefficient in master instance is applied)
+		|optinalattr|
+
+   * :attr:	:xmlattr:`Result`
+     :val:	0 or ±1.18×10\ :sup:`-38` \ ... ±3.4×10\ :sup:`38`
+     :desc:	Substitution value for the internal point :ref:`xmlelem-plcPNT`.
+		Value specified in this attribute will be used whenever received analog value falls within a range between :ref:`xmlattr-plcSubstitutionMin` and :ref:`xmlattr-plcSubstitutionMax` attributes or
+		matches one of the :ref:`xmlattr-plcSubstitutionValues` attribute.
+		:inlineimportant:`Positive and negative infinity values 'inf' and '-inf' must not be specified.`
+
+.. include-file:: sections/Include/Name_wodef.rstinc ""

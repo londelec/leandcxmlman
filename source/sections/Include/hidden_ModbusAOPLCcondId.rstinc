@@ -1,0 +1,8 @@
+   * :attr:	:xmlattr:`PLCcondId`
+     :val:	1...65535
+     :def:	n/a
+     :desc:	PLC condition used for this AO object.
+		Reference of the PLC condition from :ref:`xmlgroup-plcConditionTable` group that will be applied to analog value before sending value to outstation.
+		PLC condition is applied before scaling i.e. before coefficient attribute is used.
+		Currently used to specify :ref:`xmlelem-plcSubstitution` element in order to substitute particular negative value with postitive.
+		|internalattr|

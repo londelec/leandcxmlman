@@ -40,6 +40,8 @@ AO attributes
 
 .. include-file:: sections/Include/AO_Coeff.rstinc ""
 
+.. include-file:: sections/Include/hidden_ModbusAOPLCcondId.rstinc "internal"
+
 .. include-file:: sections/Include/Name.rstinc ""
 
 AO.Qualifier

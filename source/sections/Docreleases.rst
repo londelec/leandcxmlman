@@ -10,16 +10,16 @@ This manual was published with the following |leandcapp| release.
 .. field-list-table:: Compatibility with |leandcapp|
    :class: table table-condensed table-bordered longtable table-left
    :name: tabid-curversion
-   :spec: |C{0.2}|C{0.24}|C{0.26}|
+   :spec: |C{0.2}|C{0.24}|C{0.30}|
    :header-rows: 1
 
    * :attr,22,center:	Application version
      :val,30,center:	Release date
-     :osv,30:		Required OS version
+     :osv,34:		Required OS version
 
-   * :attr:	5.06
-     :val:	2023-11-14 07:24:13
-     :osv:	V3.0 or V4.0 or newer
+   * :attr:	5.07
+     :val:	2024-02-15 10:47:51
+     :osv:	V3.0 V4.0 V5.0 or newer
 
 .. tip::
 
@@ -30,23 +30,28 @@ This manual was published with the following |leandcapp| release.
 .. field-list-table:: Previous releases
    :class: table table-condensed table-bordered longtable table-width70
    :name: tabid-fwversions
-   :spec: |C{0.12}|C{0.22}|C{0.15}|C{0.26}|
+   :spec: |C{0.12}|C{0.22}|C{0.15}|C{0.30}|
    :header-rows: 1
 
    * :fw,15,center:	Application version
      :fdate,30,center:	Release date
      :doc,15,center:	Manual version
-     :osv,35:		Operating system version
+     :osv,36:		Operating system version
+
+   * :fw:	5.06
+     :fdate:	2023-11-14 07:24:13
+     :doc:	V41
+     :osv:	V3.0 V4.0 V5.0 or newer
 
    * :fw:	5.05
      :fdate:	2023-07-11 08:45:59
      :doc:	V40
-     :osv:	V3.0 or V4.0 or newer
+     :osv:	V3.0 V4.0 V5.0 or newer
 
    * :fw:	5.04
      :fdate:	2023-06-27 10:07:06
      :doc:	V39
-     :osv:	V3.0 or V4.0 or newer
+     :osv:	V3.0 V4.0 V5.0 or newer
 
    * :fw:	5.03
      :fdate:	2023-06-08 15:01:32
@@ -235,6 +240,15 @@ This manual was published with the following |leandcapp| release.
      :by,4,center:	By
      :desc,86:		Comments
 
+   * :ver:	V42
+     :date:	12/05/2024
+     :by:	AK
+     :desc:	| Basic PLC:
+		|   > :ref:`xmlelem-plcSubstitution` element created which allows to substitute received analog value with a specific value;
+		|   > Analog value addition and multiplication options added to :ref:`xmlattr-plcPNTPlcType` attribute;
+		| Modbus Master:
+		|   > Device address 0 can now be used for Modbus TCP stations;
+
    * :ver:	V41
      :date:	14/11/2023
      :by:	AK
@@ -329,7 +343,7 @@ This manual was published with the following |leandcapp| release.
      :by:	AK
      :desc:	| IEC60870-5-101/4 Slave:
 		|   > :inlineimportant:`Bit[0] removed from` :ref:`xmlelem-IEC10xslAI`.\ :ref:`xmlattr-IEC10xslAIqualifier` :inlineimportant:`from now on use` :ref:`xmlattr-IEC10xslAIStartOffset` :inlineimportant:`attribute value 6553 instead.`
-		| Interactive analog value scaling calculator and application example created. 
+		| Interactive analog value scaling calculator and application example created.
 
 
    * :ver:	V34
