@@ -1,11 +1,17 @@
    * :attr:	:xmlattr:`SUthroughoutDST`
      :val:	0
      :def:	0
-     :desc:	Summer Time [:lemonobgtext:`SU`] bit in the time-tag of any outgoing message will be set ('1') to indicate **last hour of the Summer Time** before a clock adjustment at the end of the Daylight Saving Time (DST) (this is when clock is turned back one hour)
+     :desc:	Summer Time [:lemonobgtext:`SU`] bit in the time-tag of outgoing messages **will not be set ('0')**.
+		Time-tags of incoming and outgoing messages are adjusted based on a timezone selected for the current communication protocol instance.
+		As it is impossible to distinguish between Standard time and Daylight Saving Time (DST) at the end of the DST
+		(this is when clock is turned back one hour)
+		all time-tags generated during the final hour of the DST are treated as Standard time.
+		For example time-tag with 01:04:00 BST will be treated as 01:04:00 GMT.
+		There is no issue at the begning of the DST (this is when clock is turned forward one hour).
 
    * :(attr):
      :val:	1
      :(def):
-     :desc:	Summer Time [:lemonobgtext:`SU`] bit in the time-tag of any outgoing message **will always be set ('1')** if the date and time of the tag is Summer Time.
-		:inlinetip:`Please note this functionality is deviation from communication standard and option should be avoided.`
-
+     :desc:	Summer Time [:lemonobgtext:`SU`] bit in the time-tag of outgoing messages **will be set ('1')** if the time-tag contains Daylight Saving Time (DST) (Summer Time).
+		It is also expected that the peer station sets Summer Time [:lemonobgtext:`SU`] bit in all time-tags containing DST.
+		If the peer station doesn't set the [:lemonobgtext:`SU`] bit it is assumed that all time-tags contain Standard time.

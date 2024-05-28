@@ -15,13 +15,23 @@
    * :attr:	Bit 4
      :val:	xxx0.xxxx
      :desc:	**Check** Test bit of the received Cause Of Transmission [:lemonobgtext:`COT`].
-		Messages received with set [:lemonobgtext:`COT`] test bit will be discarded.
+		DI/AI messages received with set test bit in the [:lemonobgtext:`COT`] will be discarded.
 
    * :(attr):
      :val:	xxx1.xxxx
      :desc:	**Ignore** Test bit of the received Cause Of Transmission [:lemonobgtext:`COT`].
-		Messages received with set [:lemonobgtext:`COT`] test bit will be processed as if no test bit was set.
+		DI/AI messages received with set test bit in the [:lemonobgtext:`COT`] will be processed as if no test bit was set.
 
-   * :attr:	Bits 0...2;5...7
+   * :attr:	:bitdef:`5`
+     :val:	xx0x.xxxx
+     :desc:	**Ignore** Originator Address [:lemonobgtext:`OA`] of the received command responses.
+		Command response will be accepted even if it has different Originator Address [:lemonobgtext:`OA`] than sent command.
+
+   * :(attr):
+     :val:	xx1x.xxxx
+     :desc:	**Check** Originator Address [:lemonobgtext:`OA`] of the received command responses.
+		Command response will be ignored if it has different Originator Address [:lemonobgtext:`OA`] than sent command.
+
+   * :attr:	Bits 0...2;6...7
      :val:	Any
      :desc:	Bits reserved for future use

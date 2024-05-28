@@ -51,12 +51,23 @@ AO.Qualifier
 
    * :attr:	Bit 0
      :val:	xxxx.xxx0
-     :desc:	**Send** AO value to outstation
+     :desc:	**Send** AO value to outstation without changes
 
    * :(attr):
      :val:	xxxx.xxx1
      :desc:	**Add/Subtract** AO value to the value received from outstation.
 		In order to use this functionality current register value must be read from outstation with :ref:`xmlattr-ModbusmaCtrlMsgFunc`\ ="3" or :ref:`xmlattr-ModbusmaCtrlMsgFunc`\ ="4" message.
+		AO command value received from upstream station will then be added to the register contents received from outstation and the result (sum) will be sent to outstation.
+
+   * :attr:	:bitdef:`1`
+     :val:	xxxx.xx0x
+     :desc:	**Send** AO value to outstation without changes
+
+   * :(attr):
+     :val:	xxxx.xx1x
+     :desc:	**Multiply** AO value to the value received from outstation.
+		In order to use this functionality current register value must be read from outstation with :ref:`xmlattr-ModbusmaCtrlMsgFunc`\ ="3" or :ref:`xmlattr-ModbusmaCtrlMsgFunc`\ ="4" message.
+		Register contents received from outstation will then be multiplied by the AO command value received from upstream station and the result (product) will be sent to outstation.
 
    * :attr:	Bit 7
      :val:	0xxx.xxxx
@@ -66,7 +77,7 @@ AO.Qualifier
      :val:	1xxx.xxxx
      :desc:	AO is **disabled**, command will not be sent to outstation
 
-   * :attr:	Bits 1..6
+   * :attr:	Bits 2..6
      :val:	Any
      :desc:	Bits reserved for future use
 

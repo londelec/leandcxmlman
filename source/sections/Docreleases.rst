@@ -17,8 +17,8 @@ This manual was published with the following |leandcapp| release.
      :val,30,center:	Release date
      :osv,34:		Required OS version
 
-   * :attr:	5.07
-     :val:	2024-02-15 10:47:51
+   * :attr:	5.08
+     :val:	2024-05-23 13:07:00
      :osv:	V3.0 V4.0 V5.0 or newer
 
 .. tip::
@@ -37,6 +37,11 @@ This manual was published with the following |leandcapp| release.
      :fdate,30,center:	Release date
      :doc,15,center:	Manual version
      :osv,36:		Operating system version
+
+   * :fw:	5.07
+     :fdate:	2024-02-15 10:47:51
+     :doc:	V41
+     :osv:	V3.0 V4.0 V5.0 or newer
 
    * :fw:	5.06
      :fdate:	2023-11-14 07:24:13
@@ -240,11 +245,21 @@ This manual was published with the following |leandcapp| release.
      :by,4,center:	By
      :desc,86:		Comments
 
+   * :ver:	V43
+     :date:	28/05/2024
+     :by:	AK
+     :desc:	| IEC60870-5-101/4 Master:
+     		|   > :ref:`bitref-IEC101maAsduFlagsBit5` added to :ref:`xmlelem-IEC101maAsdu`.\ :ref:`xmlattr-IEC101maAsduFlags` which enables Originator Address [:lemonobgtext:`OA`] check of the received command response;
+		| IEC60870-5-103 Master:
+		|   > :ref:`xmlattr-IEC103maAsduFlags` attribute created in :ref:`xmlelem-IEC103maAsdu` node;
+		| Modbus Master:
+		|   > :ref:`bitref-ModbusmaAOQualifierBit1` added to :ref:`xmlelem-ModbusmaAO`.\ :ref:`xmlattr-ModbusmaAOQualifier` which allows to multiply AO command value to the register contents received from outstation;
+
    * :ver:	V42
      :date:	12/05/2024
      :by:	AK
      :desc:	| Basic PLC:
-		|   > :ref:`xmlelem-plcSubstitution` element created which allows to substitute received analog value with a specific value;
+		|   > :ref:`xmlelem-plcSubstitution` node created which allows to substitute received analog value with a specific value;
 		|   > Analog value addition and multiplication options added to :ref:`xmlattr-plcPNTPlcType` attribute;
 		| Modbus Master:
 		|   > Device address 0 can now be used for Modbus TCP stations;
