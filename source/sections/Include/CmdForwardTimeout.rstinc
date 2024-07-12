@@ -1,0 +1,8 @@
+   * :attr:	:xmlattr:`CmdForward`
+     :val:	0...2\ :sup:`32`\  - 1
+     :def:	10 sec
+     :desc:	Command forward timeout is a maximal delay in seconds for how long communication protocol instance awaits destination (Master protocol instance) to become available for accepting a new command.
+		If destination protocol instance is in the process of executing previous command, it may not be able to accept new command before the previous command is complete.
+		The new command fails within a configured number of seconds if it can't be forwarded to the destination.
+		This timeout allows control command queueing for a short period of time and ensures pending command is automatically purged if destination protocol instance is unable to accept the new command.
+		Value 0 disables command queueing and command fails instantly if the destination protocol instance is unable to accept the new command.

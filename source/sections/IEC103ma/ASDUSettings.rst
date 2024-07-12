@@ -46,6 +46,16 @@ Application layer settings can be specified using attributes of :ref:`xmlelem-IE
      :desc:	**Ignore** Test bit of the received Cause Of Transmission [:lemonobgtext:`COT`].
 		DI/AI messages received with set test bit in the [:lemonobgtext:`COT`] will be processed as if no test bit was set.
 
-   * :attr:	Bits 0...3;5...7
+   * :attr:	:bitdef:`5`
+     :val:	xx0x.xxxx
+     :desc:	**Don't generate** DI position change event when positive command confirmation is received from outstation.
+		DI event is generated only when received from oustation with Causes Of Transmission [:lemonobgtext:`COT`]=1,9,11,12.
+
+   * :(attr):
+     :val:	xx1x.xxxx
+     :desc:	**Generate** DI position change event when positive command confirmation is received from outstation.
+		DI event is generated when command response with Cause Of Transmission [:lemonobgtext:`COT`]=20 is received.
+
+   * :attr:	Bits 0...3;6...7
      :val:	Any
      :desc:	Bits reserved for future use

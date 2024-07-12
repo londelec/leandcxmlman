@@ -1,0 +1,5 @@
+   * :attr:	:xmlattr:`NextCondId`
+     :val:	0...65535
+     :desc:	Identifier of the next condition to be applied after current condition.
+		Use identifier of any condition defined in the :ref:`xmlgroup-plcConditionTable` group.
+		|optinalattr|

@@ -1,0 +1,9 @@
+   * :attr:	:include-arg:`1`
+     :val:	0 or ±1.18×10\ :sup:`-38` \ ... ±3.4×10\ :sup:`38`
+     :desc:	:include-arg:`2` (inclusive) analog value that will result in scaling.
+		The resulting value of a PLC point :ref:`xmlelem-plcPNT` or PLC command :ref:`xmlelem-plcCMD` will have :ref:`xmlattr-plcScalingOffset` added and multiplied by the :ref:`xmlattr-plcScalingCoeff`
+		whenever the source AI/AO value falls within a range set by :ref:`xmlattr-plcScalingMin` and :ref:`xmlattr-plcScalingMax` attributes.
+		Positive and negative infinity values 'inf' and '-inf' can be specified.
+		Note, received AI/AO values are compared to this attribute after scaling in the originating protocol instance is applied
+		(e.g. coefficient in source Master instance in case of an AI and Slave instance in case of an AO)
+		|optinalattr|

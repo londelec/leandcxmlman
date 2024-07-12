@@ -57,7 +57,7 @@ DO attributes
 
    * :attr:	:xmlattr:`Step`
      :val:	0 or 1.18×10\ :sup:`-38` \ ... 3.4×10\ :sup:`38`\
-     :def:	0
+     :def:	1
      :desc:	Step value to add to/subtract from initial data value.
 		Contents of this attribute will be mathematically added to (if ON command is received from upstream station) or subtracted from (if OFF command is received from upstream station) initial data value and the result will be sent to outstation.
 		Initial data can either be read from outstation with a read message or contents of the :ref:`xmlelem-ModbusmaCtrlMsg`.\ :ref:`xmlattr-ModbusmaCtrlMsgData` attribute can be used.

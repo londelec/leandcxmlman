@@ -34,6 +34,7 @@ ProtocolCfg group
 
 .. include-file:: sections/Include/IEC10xsl_Timeouts.rstinc "" ".. _xmlelem-IEC104slTimeouts:" ":ref:`xmlelem-IEC104slTimeouts`" "tabid-IEC104slTimeouts" "IEC60870-5-104 Slave Timeouts attributes"
 .. include-file:: sections/Include/SelectTimeout.rstinc
+.. include-file:: sections/Include/CmdForwardTimeout.rstinc
 
 .. include-file:: sections/Include/IEC60870_TimeSettings.rstinc "" ".. _xmlelem-IEC104slTimeSettings:" ":ref:`xmlelem-IEC104slTimeSettings`"
 .. include-file:: sections/Include/TimeZone.rstinc "" "tabid-IEC104slTimeSettings" "IEC60870-5-104 Slave TimeSettings attributes"

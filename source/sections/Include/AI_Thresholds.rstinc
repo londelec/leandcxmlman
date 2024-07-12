@@ -5,10 +5,10 @@
 		AI value will be updated and event will be generated if the latest received analog value exceeds value stored in the database plus/minus :include-arg:`1`.
 		Defined :include-arg:`1` is added and subtracted from old analog value stored in the database in order to create the absolute deadband range.
 		Limits of this range are calculated as follows: Lower = (oldvalue - deadband); Upper = (oldvalue + deadband).
-		Incoming analog values are checked against the deadband range and event is generated if new value is outside the limits.
+		Incoming analog values are checked against the deadband range and event is generated if a new value is outside the limit.
 		Value 0 disables the deadband feature.
 		This attribute has a higher priority than :include-arg:`3`.
-		:inlinetip:`Attribute is optional and doesn't have to be included in configuration if not used.`
+		|optinalattr|
 
    * :attr:	:xmlattr:`Percent` \*
      :val:	0 or +1.18×10\ :sup:`-38` \ ... +3.4×10\ :sup:`38`\
@@ -17,7 +17,7 @@
 		AI value will be updated and event will be generated if the latest received analog value exceeds value stored in the database plus/minus :include-arg:`2`.
 		Defined :include-arg:`2` is used to calculate the dynamic deadband range based on the old analog value stored in the database.
 		Limits of this range are calculated as follows: Lower = (oldvalue - (oldvalue * percent / 100)); Upper = (oldvalue + (oldvalue * percent / 100)).
-		Incoming analog values are checked against the deadband range and event is generated if new value is outside the limits.
+		Incoming analog values are checked against the deadband range and event is generated if a new value is outside the limit.
 		Value 0 disables the percent feature.
 		This attribute has a higher priority than :include-arg:`4`.
-		:inlinetip:`Attribute is optional and doesn't have to be included in configuration if not used.`
+		|optinalattr|

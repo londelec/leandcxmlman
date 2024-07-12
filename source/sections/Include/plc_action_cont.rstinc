@@ -1,7 +1,6 @@
-     :desc:	Continuously send control commands to DO index specified in :ref:`xmlattr-plcPNTDstIndex` of the communication protocol instance :ref:`xmlattr-plcPNTDstDevice`
-		for as long as PLC point position is :include-arg:`1`.
+     :desc:	Continuously generate control commands to a PLC command with index specified in the :ref:`xmlattr-plcPNTCmdIndex` attribute for as long as PLC point position remains :include-arg:`1`.
 		Outgoing control commands will have a qualifier ON.
-		A commands will be sent to the destination protocol instance continuously with an interval of 1sec.
-		Sending of commands stops when PLC point position is no longer :include-arg:`1` or any of the quality bits [:lemonobgtext:`IV NT BL NT`] are set.
+		A new PLC command will be generated every 1sec.
+		Command generation stops when PLC point position is no longer :include-arg:`1` or any of the quality bits [:lemonobgtext:`IV NT BL NT`] are set.
 		Please note, the command queue is purged instantly when outstation goes offline.
 		This means no previous commands will be sent when outstation goes online again.

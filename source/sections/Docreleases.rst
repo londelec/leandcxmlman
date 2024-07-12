@@ -17,8 +17,8 @@ This manual was published with the following |leandcapp| release.
      :val,30,center:	Release date
      :osv,34:		Required OS version
 
-   * :attr:	5.08
-     :val:	2024-05-23 13:07:00
+   * :attr:	5.09
+     :val:	2024-07-12 18:58:28
      :osv:	V3.0 V4.0 V5.0 or newer
 
 .. tip::
@@ -37,6 +37,11 @@ This manual was published with the following |leandcapp| release.
      :fdate,30,center:	Release date
      :doc,15,center:	Manual version
      :osv,36:		Operating system version
+
+   * :fw:	5.08
+     :fdate:	2024-05-23 13:07:00
+     :doc:	V42
+     :osv:	V3.0 V4.0 V5.0 or newer
 
    * :fw:	5.07
      :fdate:	2024-02-15 10:47:51
@@ -244,6 +249,25 @@ This manual was published with the following |leandcapp| release.
      :date,5,center:	Date
      :by,4,center:	By
      :desc,86:		Comments
+
+   * :ver:	V44
+     :date:	12/07/2024
+     :by:	AK
+     :desc:	| IEC60870-5-101/4 Slave:
+     		|   > :ref:`xmlattr-IEC101slTimeoutsCmdForward` attribute created which allows to queue incoming commands for a short period of time if destination station is busy executing previous command;
+		| IEC60870-5-103 Master:
+     		|   > :ref:`bitref-IEC103maAsduFlagsBit5` added to :ref:`xmlelem-IEC103maAsdu`.\ :ref:`xmlattr-IEC103maAsduFlags` which allows to generate DI position change event when positive command confirmation is received from outstation;
+		| Modbus Master:
+     		|   > :ref:`xmlattr-ModbusmaAppForwardGI` attribute created which uses General Interrogation command received from upstream station (e.g. SCADA) to poll DI/AI values by sending all defined Poll Messages one after another without checking message priorities;
+     		|   > :ref:`xmlattr-ModbusmaAppCmdRetries` attribute created which allows to retry control command sending if Exception is received from outstation;
+		| Basic PLC:
+		|   > PLC commands created, see :ref:`xmlgroup-plcCommandTable`
+		|   > :ref:`xmlelem-plcScaling` node created which allows to scale (multiply, offset) received analog value;
+		|   > :ref:`xmlelem-plcTimeouts` node created in :ref:`xmlgroup-plcSettings` group which allows to adjust PLC command timeouts;
+     		|   > :ref:`xmlattr-plcPNTDeadband` and :ref:`xmlattr-plcPNTPercent` attributes created for analog PLC point conditioning;
+     		|   > :ref:`xmlattr-plcPNTExcludeMask` attribute created which allows to exclude source DI/AI values based on their quality;
+     		|   > :ref:`xmlattr-plcPNTCmdIndex` attribute created to generate PLC commands automatically based on PLC point value. :xmllegacy:`DstDevice` and :xmllegacy:`DstIndex` attributes removed;
+     		|   > :ref:`xmlattr-plcSubstitutionNextCondId` attribute created which allows to chain mutliple conditions so that they are applied in sequence;
 
    * :ver:	V43
      :date:	28/05/2024

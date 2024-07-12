@@ -9,7 +9,7 @@ Command processing timeouts are specified in this node.
 
 .. code-block:: none
 
-   <Timeouts Application="30" Command="10" Select="30" />
+   <Timeouts Application="30" Command="10" Select="30" CmdForward="10"/>
 
 
 .. include-file:: sections/Include/table_attrs.rstinc "" ":include-arg:`3`" ":include-arg:`4`" ":spec: |C{0.12}|C{0.1}|C{0.1}|S{0.68}|"
@@ -18,12 +18,12 @@ Command processing timeouts are specified in this node.
      :val:	1...2\ :sup:`32`\  - 1
      :def:	30 sec
      :desc:	Application timeout is a delay in seconds for how long communication protocol instance awaits response from the destination (e.g. downstream station) after control command has been sent.
-		If no response is received within a configured number of seconds, command is considered to be failed and negative response is sent to the upstream Master station.
-		Application timeout ensures pending control commands are automatically purged, if communication to the destination (e.g. downstream station) is lost.
+		If no response is received within a configured number of seconds, command is considered to be failed and negative response is sent to the upstream (Master) station.
+		Application timeout ensures pending control commands are automatically purged if communication to the destination (e.g. downstream station) is lost.
 
    * :attr:	:xmlattr:`Command`
      :val:	1...2\ :sup:`32`\  - 1
      :def:	10 sec
-     :desc:	Command timeout is a delay in seconds for how long communication protocol instance attempts to send command response to the upstream Master station.
+     :desc:	Command timeout is a delay in seconds for how long communication protocol instance attempts to send command response to the upstream (Master) station.
 		If it is not possible to send a response within a configured number of seconds, command is considered to be failed and processing is terminated (command gets removed from the buffer).
-		Command timeout ensures pending control commands are automatically purged, if communication to the upstream Master station is lost.
+		Command timeout ensures pending control commands are automatically purged if communication to upstream (Master) station is lost.
