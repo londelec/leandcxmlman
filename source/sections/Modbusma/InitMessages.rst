@@ -148,8 +148,12 @@ Init MSG.Flags
    * :(attr):
      :val:	xxxx.xxx1
      :desc:	Data received from outstation has to **contain** contents of the :ref:`xmlattr-ModbusmaInitMsgData` attribute.
-		This option is normally used with :lemonobgtext:`Report Server ID [17]` message and 
+		This option is normally used with :lemonobgtext:`Report Server ID [17]` message and
 		enables to check only portion of the received reply.
 		For example if :ref:`xmlattr-ModbusmaInitMsgData`\="41 42 43" (represents string "ABC") a reply from outstation
 		{01 17 08 41 42 43 20 56 31 2E 30 ...} (represents string "ABC V1.0") is considered valid.
+
+   * :attr:	Bits 1..7
+     :val:	Any
+     :desc:	Bits reserved for future use
 

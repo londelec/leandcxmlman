@@ -17,8 +17,8 @@ This manual was published with the following |leandcapp| release.
      :val,30,center:	Release date
      :osv,34:		Required OS version
 
-   * :attr:	5.09
-     :val:	2024-07-12 18:58:28
+   * :attr:	5.10
+     :val:	2024-08-14 10:58:00
      :osv:	V3.0 V4.0 V5.0 or newer
 
 .. tip::
@@ -37,6 +37,11 @@ This manual was published with the following |leandcapp| release.
      :fdate,30,center:	Release date
      :doc,15,center:	Manual version
      :osv,36:		Operating system version
+
+   * :fw:	5.09
+     :fdate:	2024-07-12 18:58:28
+     :doc:	V42
+     :osv:	V3.0 V4.0 V5.0 or newer
 
    * :fw:	5.08
      :fdate:	2024-05-23 13:07:00
@@ -249,6 +254,12 @@ This manual was published with the following |leandcapp| release.
      :date,5,center:	Date
      :by,4,center:	By
      :desc,86:		Comments
+
+   * :ver:	V45
+     :date:	14/08/2024
+     :by:	AK
+     :desc:	| Modbus Master:
+     		|   > :ref:`xmlelem-ModbusmaCtrlMsg`.\ :ref:`xmlattr-ModbusmaCtrlMsgFlags` attribute created which allows to set Broadcast address for outgoing Control messages;
 
    * :ver:	V44
      :date:	12/07/2024

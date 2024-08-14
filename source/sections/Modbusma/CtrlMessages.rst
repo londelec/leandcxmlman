@@ -24,7 +24,7 @@ There are 2 Modbus messages configured using 2 :ref:`xmlelem-ModbusmaCtrlMsg` el
 
 .. code-block:: none
 
-   <MSG CtrlMsg="1" Func="6" Reg="0x0100" Data="0x1122" Count="1" Type="0" FollowCtrlMsg="2" Name="Write Registers message" />
+   <MSG CtrlMsg="1" Func="6" Reg="0x0100" Data="0x1122" Count="1" Type="0" FollowCtrlMsg="2" Flags="0x00" Name="Write Registers message" />
 
 .. tip:: Attributes of the :ref:`xmlelem-ModbusmaCtrlMsg` element node can be arranged in any order, it will not affect XML file validation.
 
@@ -52,6 +52,13 @@ Ctrl MSG attributes
 		:inlinetip:`Attribute is optional only for read messages` :ref:`xmlattr-ModbusmaCtrlMsgFunc`\ ="3" :inlinetip:`and` :ref:`xmlattr-ModbusmaCtrlMsgFunc`\ ="4"
 
 .. include-file:: sections/Include/serma_FollowCtrlMsg.rstinc ""
+
+   * :attr:	:xmlattr:`Flags`
+     :val:	|flags8range|
+     :def:	0x00
+     :desc:	Flags to customize control messages.
+		See :numref:`tabid-ModbusCtrlMsgFlags` for available flags.
+		:inlinetip:`Attribute is optional and doesn’t have to be included in configuration, default value will be used if omitted.`
 
 .. include-file:: sections/Include/Name.rstinc ""
 
@@ -205,6 +212,25 @@ Ctrl MSG.Type
 .. important:: If read message (:ref:`xmlattr-ModbusmaCtrlMsgFunc`\ ="3" or :ref:`xmlattr-ModbusmaCtrlMsgFunc`\ ="4") is used, received data will be decoded based on
 	 the :ref:`xmlattr-ModbusmaCtrlMsgType` attribute of the following/preceding write message. I.e. the same way as data would be encoded for the write message.
          :ref:`xmlattr-ModbusmaCtrlMsgType` attribute must not be used for read messages.
+
+Ctrl MSG.Flags
+^^^^^^^^^^^^^^
+
+.. include-file:: sections/Include/table_flags8.rstinc "" "tabid-ModbusCtrlMsgFlags" "Modbus Control message flags" ":ref:`xmlattr-ModbusmaCtrlMsgFlags`" "Message flags"
+
+   * :attr:	Bit 4
+     :val:	xxx0.xxxx
+     :desc:	Send control message with a **device** address defined in the :ref:`xmlattr-gpmodbusmaAddress` attribute.
+
+   * :(attr):
+     :val:	xxx1.xxxx
+     :desc:	Send control message with a Modbus **broadcast** address 0.
+		No reply is expected from outstation(s) when message is sent with broadcast address.
+
+   * :attr:	Bits 0..3,5..7
+     :val:	Any
+     :desc:	Bits reserved for future use
+
 
 Compatibility
 ^^^^^^^^^^^^^
