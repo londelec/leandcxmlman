@@ -1,6 +1,7 @@
      :desc:	Generate control command to a PLC command with index specified in the :ref:`xmlattr-plcPNTCmdIndex` attribute every time the PLC point position transitions from :include-arg:`1` and none of the quality bits [:lemonobgtext:`IV NT BL NT`] are set.
 		Outgoing control command will have a qualifier ON.
-		A command will be generated for every PLC point transition, which means multiple commands may be sent if the point changes position more than once in a short period of time.
+		A command will be generated for every PLC point transition, which means multiple commands may be sent if the point changes position more than once in a short period of time
+		:include-arg:`2`
 		Commands are placed in the queue and forwarded to the PLC command one by one.
 		This ensures receiving outstation(s) have enough time to complete a previous command, before the next one is sent.
 		Please note, the command queue is purged instantly when outstation goes offline.

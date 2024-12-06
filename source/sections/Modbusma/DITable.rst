@@ -25,7 +25,7 @@ There are 5 status information objects defined with 4 :ref:`xmlelem-ModbusmaDI` 
 
 .. code-block:: none
 
-   <DI Index="0" PollMsg="1" BitOffset="0" Type="1" Qualifier="0" ChatterFilter="100" OnValues="0x01 0x02" OffValues="5,6" OnDelay="0" OffDelay="0" Total="1" Name="Input 1" />
+   <DI Index="0" PollMsg="1" BitOffset="0" Type="1" Qualifier="0" ChatterFilter="100" OnValues="0x01 0x02" OffValues="5,6" OnDelay="0" OffDelay="0" AndMask="0" OrMask="0" Total="1" Name="Input 1" />
 
 .. include-file:: sections/Include/tip_order.rstinc "" ":ref:`xmlelem-ModbusmaDI`"
 
@@ -105,6 +105,22 @@ DI attributes
 		:inlinetip:`attribute is used, any value received from station that is not included in either attributes will result in a DI state INTER.`
 
 .. include-file:: sections/Include/DI_Odelays.rstinc ""
+
+   * :attr:	:xmlattr:`AndMask`
+     :val:	0...65535 or 0x00...0xFFFF
+     :def:	0xFFFF
+     :desc:	Logic AND function for the received value.
+		Perform logic AND operation on the received data with this attribute before checking for matching values in :ref:`xmlattr-ModbusmaDIOnValues` and :ref:`xmlattr-ModbusmaDIOffValues` attributes.
+		This attribute has a higher priority than :ref:`xmlattr-ModbusmaDIOrMask`.
+		:inlinetip:`This attribute is used only if list of ON/OFF values is specified and` :ref:`xmlattr-ModbusmaDIType` :inlinetip:`="5".`
+
+   * :attr:	:xmlattr:`OrMask`
+     :val:	0...65535 or 0x00...0xFFFF
+     :def:	0
+     :desc:	Logic OR function for the received value.
+		Perform logic OR operation on the received data with this attribute before checking for matching values in :ref:`xmlattr-ModbusmaDIOnValues` and :ref:`xmlattr-ModbusmaDIOffValues` attributes.
+		This attribute has a lower priority than :ref:`xmlattr-ModbusmaDIAndMask`.
+		:inlinetip:`This attribute is used only if list of ON/OFF values is specified and` :ref:`xmlattr-ModbusmaDIType` :inlinetip:`="5".`
 
 .. include-file:: sections/Include/Total.rstinc "" ":ref:`xmlattr-ModbusmaDIIndex` and :ref:`xmlattr-ModbusmaDIBitOffset`" ":ref:`xmlelem-ModbusmaDI`" "254"
 

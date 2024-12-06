@@ -47,16 +47,22 @@ Hardcoded device type can be specified in this node.
      :desc:	Londelec LEIODC-X32-3100 unit. Data points are automatically created for this device as follows: DI=12, AI=0, DO=4, AO=0
 
    * :attr:	LEIODC-P32-3100
-     :desc:	Londelec LEIODC-X32-3100 unit. Data points are automatically created for this device as follows: DI=12, AI=0, DO=4, AO=0
+     :desc:	Londelec LEIODC-P32-3100 unit. Data points are automatically created for this device as follows: DI=12, AI=0, DO=4, AO=0
+
+   * :attr:	LEIODC-P32-3900
+     :desc:	Londelec LEIODC-P32-3900 unit. Data points are automatically created for this device as follows: DI=12, AI=0, Relays=4, AO=0
 
    * :attr:	LEIODC-X10-3100
      :desc:	Londelec LEIODC-X10-3100 unit. Data points are automatically created for this device as follows: DI=12, AI=0, DO=4, AO=0
+
+   * :attr:	LEIODC-X10-3900
+     :desc:	Londelec LEIODC-X10-3900 unit. Data points are automatically created for this device as follows: DI=12, AI=0, Relays=4, AO=0
 
    * :attr:	LEIODC-X32-4000
      :desc:	Londelec LEIODC-X32-4000 unit. Data points are automatically created for this device as follows: DI=16, AI=0, DO=0, AO=0
 
    * :attr:	LEIODC-P32-4000
-     :desc:	Londelec LEIODC-X32-4000 unit. Data points are automatically created for this device as follows: DI=16, AI=0, DO=0, AO=0
+     :desc:	Londelec LEIODC-P32-4000 unit. Data points are automatically created for this device as follows: DI=16, AI=0, DO=0, AO=0
 
    * :attr:	LEIODC-X10-4000
      :desc:	Londelec LEIODC-X10-4000 unit. Data points are automatically created for this device as follows: DI=16, AI=0, DO=0, AO=0
@@ -65,7 +71,7 @@ Hardcoded device type can be specified in this node.
      :desc:	Londelec LEIODC-X32-0400 unit. Data points are automatically created for this device as follows: DI=0, AI=0, DO=16, AO=0
 
    * :attr:	LEIODC-P32-0400
-     :desc:	Londelec LEIODC-X32-0400 unit. Data points are automatically created for this device as follows: DI=0, AI=0, DO=16, AO=0
+     :desc:	Londelec LEIODC-P32-0400 unit. Data points are automatically created for this device as follows: DI=0, AI=0, DO=16, AO=0
 
    * :attr:	LEIODC-X10-0400
      :desc:	Londelec LEIODC-X10-0400 unit. Data points are automatically created for this device as follows: DI=0, AI=0, DO=16, AO=0
@@ -74,10 +80,16 @@ Hardcoded device type can be specified in this node.
      :desc:	Londelec LEIODC-X32-2200 unit. Data points are automatically created for this device as follows: DI=8, AI=0, DO=8, AO=0
 
    * :attr:	LEIODC-P32-2200
-     :desc:	Londelec LEIODC-X32-2200 unit. Data points are automatically created for this device as follows: DI=8, AI=0, DO=8, AO=0
+     :desc:	Londelec LEIODC-P32-2200 unit. Data points are automatically created for this device as follows: DI=8, AI=0, DO=8, AO=0
+
+   * :attr:	LEIODC-P32-2A00
+     :desc:	Londelec LEIODC-P32-2A00 unit. Data points are automatically created for this device as follows: DI=8, AI=0, Relays=8, AO=0
 
    * :attr:	LEIODC-X10-2200
      :desc:	Londelec LEIODC-X10-2200 unit. Data points are automatically created for this device as follows: DI=8, AI=0, DO=8, AO=0
+
+   * :attr:	LEIODC-X10-2A00
+     :desc:	Londelec LEIODC-X10-2A00 unit. Data points are automatically created for this device as follows: DI=8, AI=0, Relays=8, AO=0
 
    * :attr:	THT2
      :desc:	| Papouch THT2 thermometer. Data points are automatically created for this device as follows: DI=0, AI=3, DO=0, AO=0. AI indexes as follows:

@@ -17,8 +17,8 @@ This manual was published with the following |leandcapp| release.
      :val,30,center:	Release date
      :osv,34:		Required OS version
 
-   * :attr:	5.10
-     :val:	2024-08-14 10:58:00
+   * :attr:	5.11
+     :val:	2024-12-06 10:32:32
      :osv:	V3.0 V4.0 V5.0 or newer
 
 .. tip::
@@ -38,19 +38,24 @@ This manual was published with the following |leandcapp| release.
      :doc,15,center:	Manual version
      :osv,36:		Operating system version
 
+   * :fw:	5.10
+     :fdate:	2024-08-14 10:58:00
+     :doc:	V45
+     :osv:	V3.0 V4.0 V5.0 or newer
+
    * :fw:	5.09
      :fdate:	2024-07-12 18:58:28
-     :doc:	V42
+     :doc:	V44
      :osv:	V3.0 V4.0 V5.0 or newer
 
    * :fw:	5.08
      :fdate:	2024-05-23 13:07:00
-     :doc:	V42
+     :doc:	V43
      :osv:	V3.0 V4.0 V5.0 or newer
 
    * :fw:	5.07
      :fdate:	2024-02-15 10:47:51
-     :doc:	V41
+     :doc:	V42
      :osv:	V3.0 V4.0 V5.0 or newer
 
    * :fw:	5.06
@@ -254,6 +259,21 @@ This manual was published with the following |leandcapp| release.
      :date,5,center:	Date
      :by,4,center:	By
      :desc,86:		Comments
+
+   * :ver:	V46
+     :date:	06/12/2024
+     :by:	AK
+     :desc:	| Modbus Master:
+     		|   > :ref:`xmlelem-ModbusmaDI`.\ :ref:`xmlattr-ModbusmaDIAndMask` and :ref:`xmlelem-ModbusmaDI`.\ :ref:`xmlattr-ModbusmaDIOrMask` attributes created which allow to perform logic AND or OR functions before matching received ON/OFF values;
+		|   > LEIODC-P32-3900; LEIODC-P32-2A00; LEIODC-X10-3900; LEIODC-X10-2A00 types added to :ref:`xmlelem-ModbusmaHardcoded`.\ :ref:`xmlattr-ModbusmaHardcodedType` attribute;
+		| Basic PLC:
+     		|   > :ref:`xmlattr-plcPNTQualifier` attribute created for customized PLC point data processing;
+     		|   > :ref:`xmlattr-plcPNTInitValue` attribute created allowing to assign specific value to the PLC point before any source DI/AI values are received from outstation;
+     		|   > :ref:`xmlattr-plcRangeFlags` attribute created for :ref:`xmlelem-plcRange`; :ref:`xmlelem-plcScaling` and :ref:`xmlelem-plcSubstitution` conditions;
+		|   > :ref:`xmlattr-plcScalingExp` and :ref:`xmlattr-plcScalingBaseexp` attributes created allowing exponentiation of the received value;
+		|   > New PLC point types 'smallest' and 'largest' can be selected in :ref:`xmlattr-plcPNTPlcType` attribute;
+		|   > PLC command can be used to set analog value of the PLC point by selecting 'AI' in the :ref:`xmlattr-plcCMDDstTypes` attribute;
+		|   > Adjustment group created :ref:`xmlgroup-plcAdjustTable` which can be used to adjust resulting PLC point values;
 
    * :ver:	V45
      :date:	14/08/2024

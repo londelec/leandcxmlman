@@ -1,0 +1,5 @@
+   * :attr:	:xmlattr:`Flags`
+     :val:	|flags8range|
+     :desc:	Miscellaneous condition settings.
+		See :numref:`tabid-PlcCondiFlags` for more information.
+		|optinalattr|

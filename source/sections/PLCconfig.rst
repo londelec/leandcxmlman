@@ -20,6 +20,7 @@ Location path doesn't have to be specified if the XML file is located in the def
 | 1 mandatory group :ref:`xmlelem-VersionControl`;
 | 1 optional settings group :ref:`xmlgroup-plcSettings`;
 | 1 optional condition group :ref:`xmlgroup-plcConditionTable`;
+| 1 optional adjustment group :ref:`xmlgroup-plcAdjustTable`;
 | 1 optional data point group :ref:`xmlgroup-plcPointTable`;
 | Please see the sample below.
 
@@ -34,6 +35,10 @@ Location path doesn't have to be specified if the XML file is located in the def
      <Range CondId="1" OnMin="0.0001" OnMax="10e20" OffMin="0" OffMax="-inf"/>
          …
    </ConditionTable>
+   <AdjustTable>
+     <ChangeRestrict AdjustId="1" AbsoluteDiff="10" MaxRestrict="1000"/>
+         …
+   </AdjustTable>
    <PointTable>
      <PNT Index="0" PlcType="or" SrcDevices="10" SrcIndexes="0" SrcTypes="DI"/>
          …
@@ -119,7 +124,7 @@ There are 2 data points defined with 2 :ref:`xmlelem-plcPNT` elements.
 
 .. code-block:: none
 
-   <PNT Index="0" PlcType="or" SrcDevices="10" SrcIndexes="0" SrcTypes="DI" CondIds="1" Deadband="12" Percent="5.4" ExcludeMask="0x80" CmdIndex="0" Action="1" Name="OR point"/>
+   <PNT Index="0" PlcType="or" SrcDevices="10" SrcIndexes="0" SrcTypes="DI" Qualifier="0x00" CondIds="1" Deadband="12" Percent="5.4" ExcludeMask="0x80" InitValue="5" CmdIndex="0" Action="1" Name="OR point"/>
 
 .. include-file:: sections/Include/tip_order.rstinc "" ":ref:`xmlelem-plcPNT`"
 
@@ -171,12 +176,25 @@ PNT attributes
 		Normally multiple data sources are required in order to perform a logic or artithmetic operation, therefore multiple object types can be specified in this attribute.
 		A list of up to 32 object types separated by commas are allowed e.g. :ref:`xmlattr-plcPNTSrcTypes`\ ="DI,DI,AI".
 
+   * :attr:	:xmlattr:`Qualifier`
+     :val:	|flags8range|
+     :desc:	Internal object qualifier to enable customized data processing.
+		See :numref:`tabid-PlcPntQualifier` for more information.
+		|optinalattr|
+
    * :attr:	:xmlattr:`CondIds` \**
      :val:	0...65535
      :desc:	Identifier of the condition defined in the :ref:`xmlgroup-plcConditionTable` group.
 		Currently used to set conditions only for source AI objects.
 		A list of up to 32 identifiers separated by commas can be specified in this attribute e.g. :ref:`xmlattr-plcPNTCondIds`\ ="0,1,9".
 		Value 0 - no condition used.
+		|optinalattr|
+
+   * :attr:	:xmlattr:`AdjustId`
+     :val:	0...65535
+     :desc:	Identifier of the adjustment defined in the :ref:`xmlgroup-plcAdjustTable` group.
+		Currently used to adjust PLC points that use source AI objects.
+		Value 0 - no adjustment used.
 		|optinalattr|
 
    * :attr:	:xmlattr:`Deadband` \*
@@ -205,6 +223,12 @@ PNT attributes
 		See :numref:`tabid-PlcPntExcludeMask` for more information.
 		|optinalattr|
 
+   * :attr:	:xmlattr:`InitValue`
+     :val:	0 or ±1.18×10\ :sup:`-38` \ ... ±3.4×10\ :sup:`38`\
+     :desc:	Initial PLC point value on system startup.
+		This value will be assigned to the PLC point before any source DI/AI values are received from outstation.
+		:inlineimportant:`This attribute must be used only if the initial value of the PLC data point is required before data is acquired from oustation(s).`
+
    * :attr:	:xmlattr:`CmdIndex`
      :val:	|maindexrange|
      :desc:	Index of the PLC command element.
@@ -231,7 +255,7 @@ PNT attributes
 PLC operation types
 ^^^^^^^^^^^^^^^^^^^
 
-| There are 6 types of logic and arithmetic operations that can be performed on a DI/AI data received from outstation.
+| There are 8 types of logic and arithmetic operations that can be performed on a DI/AI data received from outstation.
   These are summarized in the table below.
 
 .. field-list-table:: PLC logic or arithmetic operations
@@ -297,6 +321,47 @@ PLC operation types
 		  If any of the source AI values are excluded from processing based on quality by the :ref:`xmlattr-plcPNTExcludeMask` attribute,
 		  the average is calculated only from those AI values that are available and online.
 
+   * :attr:	smallest
+     :desc:	  Select smallest of the source AI object values.
+		  The smallest of 2 or more AI values received from outstation will become value of the PLC data point.
+.. include-file:: sections/Include/plc_ai_exclude_cmp.rstinc "" "AI"
+
+   * :attr:	largest
+     :desc:	  Select largest of the source AI object values.
+		  The largest of 2 or more AI values received from outstation will become value of the PLC data point.
+.. include-file:: sections/Include/plc_ai_exclude_cmp.rstinc "" "AI"
+
+
+PNT Qualifier
+^^^^^^^^^^^^^
+
+.. include-file:: sections/Include/table_flags8.rstinc "" "tabid-PlcPntQualifier" " PLC point qualifier" :ref:`xmlattr-plcPNTQualifier` "PLC point qualifier"
+
+   * :attr:	Bit 3
+     :val:	xxxx.0xxx
+     :desc:	Value of the PLC point **will not be** substituted if all source DI/AI objects are excluded from processing because of their quality or
+		outstation (where DI/AI objects are received from) is OFFLINE.
+		If all source DI/AI values are excluded from processing the resulting AI PLC point will have a valid 0 value and the resulting DI PLC point will have a valid OFF value.
+
+   * :(attr):
+     :val:	xxxx.1xxx
+     :desc:	Value of the PLC point **will be** substituted with the :ref:`xmlattr-plcPNTInitValue` attribute if all source DI/AI objects are excluded from processing because of their quality or
+		outstation (where DI/AI objects are received from) is OFFLINE.
+
+.. include-file:: sections/Include/hidden_IEC10xslDIqualifier.rstinc "internal"
+
+   * :attr:	Bit 7
+     :val:	0xxx.xxxx
+     :desc:	PLC point is **enabled**, its value will be evaluated based on the source DI/AI objects.
+
+   * :(attr):
+     :val:	1xxx.xxxx
+     :desc:	PLC point is **disabled**, it will have a constant Invalid [:lemonobgtext:`IV`] marked value.
+
+   * :attr:	Bits 0..2,4..6
+     :val:	Any
+     :desc:	Bits reserved for future use
+
 
 PNT exclusion based on quality
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -324,13 +389,13 @@ PNT exclusion based on quality
    * :attr:	Bit 3
      :val:	xxxx.0xxx
      :desc:	Invalid [:lemonobgtext:`IV`] bit of the resulting PLC point **will not be** set if all source DI/AI objects are excluded from processing because of their quality or
-		are not online i.e. not received from outstation.
+		outstation (where DI/AI object originates) is OFFLINE.
 		If all source DI/AI values are excluded from processing the resulting AI PLC point will have a valid 0 value and the resulting DI PLC point will have a valid OFF value.
 
    * :(attr):
      :val:	xxxx.1xxx
      :desc:	Invalid [:lemonobgtext:`IV`] bit of the resulting PLC point **will be** set if all source DI/AI objects are excluded from processing because of their quality or
-		are not online i.e. not received from outstation.
+		outstation (where DI/AI object originates) is OFFLINE.
 
    * :attr:	Bit 4
      :val:	xxx0.xxxx
@@ -393,10 +458,10 @@ PNT actions
      :desc:	No Action.
 
    * :attr:	1
-.. include-file:: sections/Include/plc_action_event.rstinc "" "OFF to ON"
+.. include-file:: sections/Include/plc_action_event.rstinc "" "OFF to ON or its analog value is non-zero" "or analog value changes rapidly."
 
    * :attr:	2
-.. include-file:: sections/Include/plc_action_event.rstinc "" "ON to OFF"
+.. include-file:: sections/Include/plc_action_event.rstinc "" "ON to OFF" "."
 
    * :attr:	3
 .. include-file:: sections/Include/plc_action_cont.rstinc "" "ON"
@@ -482,9 +547,11 @@ CMD attributes
 		A list of up to 32 DO/AO object indexes separated by commas are allowed e.g. :ref:`xmlattr-plcCMDDstIndexes`\ ="0,1,6".
 
    * :attr:	:xmlattr:`DstTypes` \*
-     :val:	DO / AO
+     :val:	DO / AO / AI
      :desc:	Type of the destination object.
 		DO/AO objects can be used as a destination for a PLC command.
+		It is also possible to set the AI object value based on the received PLC command.
+		Normally a PLC point should be used for setting its value by a PLC command instead of a real AI object received from outstation.
 		Multiple object types can be specified in this attribute.
 		A list of up to 32 object types separated by commas are allowed e.g. :ref:`xmlattr-plcCMDDstTypes`\ ="DO,DO,AO".
 
@@ -559,6 +626,29 @@ There are 5 conditions defined with 2 :ref:`xmlelem-plcRange`, 1 :ref:`xmlelem-p
 Condition types and their attributes are described in the following sections.
 
 
+Condition Flags
+^^^^^^^^^^^^^^^
+
+.. include-file:: sections/Include/table_flags8.rstinc "" "tabid-PlcCondiFlags" " Condition flags" :ref:`xmlattr-plcRangeFlags` "Condition flags"
+
+   * :attr:	Bit 0
+     :val:	xxxx.xxx0
+     :desc:	**Don't process** the next condition specified in :ref:`xmlattr-plcScalingNextCondId` attribute if value of the PLC point falls within a
+		:ref:`xmlattr-plcScalingMin` and :ref:`xmlattr-plcScalingMax` attributes.
+		Current condition is applied to the PLC point's value and the following conditions are ignored in this case.
+
+   * :(attr):
+     :val:	xxxx.xxx1
+     :desc:	**Process** the next condition specified in :ref:`xmlattr-plcScalingNextCondId` attribute if value of the PLC point falls within a
+		:ref:`xmlattr-plcScalingMin` and :ref:`xmlattr-plcScalingMax` attributes.
+		Current condition is applied to the PLC point's value and the next condition is then processed.
+		This setting applies to :ref:`xmlelem-plcRange`; :ref:`xmlelem-plcScaling` and :ref:`xmlelem-plcSubstitution` conditions.
+
+   * :attr:	Bits 1..7
+     :val:	Any
+     :desc:	Bits reserved for future use
+
+
 .. _xmlelem-plcRange: lelabel=Range
 
 Range element
@@ -573,13 +663,12 @@ Range element
 
 .. code-block:: none
 
-   <Range CondId="1" OnMin="0" OnMax="10e4" OffMin="-5" OffMax="-99999.9" Name="AI to DI conversion"/>
+   <Range CondId="1" OnMin="0" OnMax="10e4" OffMin="-5" OffMax="-99999.9"  NextCondId="3" Flags="0x00" Name="AI to DI conversion"/>
 
 .. include-file:: sections/Include/tip_order.rstinc "" ":ref:`xmlelem-plcRange`"
 
 Range attributes
 ^^^^^^^^^^^^^^^^
-
 
 .. field-list-table:: Range attributes
    :class: table table-condensed table-bordered longtable
@@ -628,6 +717,12 @@ Range attributes
 		|optinalattr|
 		:inlinetip:`Any analog value outside the range defined by` :ref:`xmlattr-plcRangeOnMin` :inlinetip:`and` :ref:`xmlattr-plcRangeOnMax` :inlinetip:`attributes will result in OFF position if this attribute is not used.`
 
+.. include-file:: sections/Include/plc_nextcond.rstinc ""
+		:inlinetip:`Next condition can be specified with this attribute only if current ` :ref:`xmlelem-plcRange` :inlinetip:`condition is used for analog (AI) PLC point.`
+
+
+.. include-file:: sections/Include/plc_condiflags.rstinc ""
+
 .. include-file:: sections/Include/Name_wodef.rstinc ""
 
 
@@ -637,13 +732,13 @@ Scaling element
 ---------------
 
 | :ref:`xmlelem-plcScaling` element is used to change (multiply, offset) analog values.
-  Whenever received analog value falls within a defined range it will be scaled based on specified atributes.
+  Whenever received analog value falls within a defined range it will be scaled based on the specified atributes.
 
 .. include-file:: sections/Include/sample_node.rstinc "" ":ref:`xmlelem-plcScaling`"
 
 .. code-block:: none
 
-   <Substitution CondId="2" Min="-5" Max="11e6" Offset="5" Coeff="1.1" NextCondId="3" Name="AI/AO value scaling"/>
+   <Scaling CondId="2" Min="-5" Max="11e6" Offset="5" Coeff="1.1" Exp="1" Baseexp="1" NextCondId="3" Flags="0x00" Name="AI/AO value scaling"/>
 
 .. include-file:: sections/Include/tip_order.rstinc "" ":ref:`xmlelem-plcScaling`"
 
@@ -677,11 +772,27 @@ Scaling attributes
 
    * :attr:	:xmlattr:`Coeff`
      :val:	±1.18×10\ :sup:`-38` \ ... ±3.4×10\ :sup:`38`
-     :desc:	Multiply PLC point or command by the value of this attribute.
+     :desc:	Multiply a PLC point or command by the value of this attribute.
 		This attribute has a lower priority (applied after) :ref:`xmlattr-plcScalingOffset` attribute.
 		|optinalattr|
 
+   * :attr:	:xmlattr:`Exp`
+     :val:	±1.18×10\ :sup:`-38` \ ... ±3.4×10\ :sup:`38`
+     :desc:	Exponentiate a PLC point or command by the value of this attribute.
+		PLC point or command value will be raised to the power of this attribute.
+		This attribute has a lower priority (applied after) :ref:`xmlattr-plcScalingCoeff` attribute.
+		|optinalattr|
+
+   * :attr:	:xmlattr:`Baseexp`
+     :val:	±1.18×10\ :sup:`-38` \ ... ±3.4×10\ :sup:`38`
+     :desc:	Exponentiate this attribute by a value of the PLC point or command.
+		This attribute will be raised to the power of the PLC point or command value.
+		This attribute has a lower priority (applied after) :ref:`xmlattr-plcScalingCoeff` attribute.
+		|optinalattr|
+
 .. include-file:: sections/Include/plc_nextcond.rstinc ""
+
+.. include-file:: sections/Include/plc_condiflags.rstinc ""
 
 .. include-file:: sections/Include/Name_wodef.rstinc ""
 
@@ -699,13 +810,12 @@ Substitution element
 
 .. code-block:: none
 
-   <Substitution CondId="2" Min="-5" Max="11e6" Values="1 -5.47 7e12 0.004" Result="14" NextCondId="3" Name="AI/AO value substitution"/>
+   <Substitution CondId="2" Min="-5" Max="11e6" Values="1 -5.47 7e12 0.004" Result="14" NextCondId="3" Flags="0x00" Name="AI/AO value substitution"/>
 
 .. include-file:: sections/Include/tip_order.rstinc "" ":ref:`xmlelem-plcSubstitution`"
 
 Substitution attributes
 ^^^^^^^^^^^^^^^^^^^^^^^
-
 
 .. field-list-table:: Substitution attributes
    :class: table table-condensed table-bordered longtable
@@ -745,4 +855,91 @@ Substitution attributes
 
 .. include-file:: sections/Include/plc_nextcond.rstinc ""
 
+.. include-file:: sections/Include/plc_condiflags.rstinc ""
+
 .. include-file:: sections/Include/Name_wodef.rstinc ""
+
+
+.. _xmlgroup-plcAdjustTable: lelabel=AdjustTable
+
+AdjustTable group
+-----------------
+
+| :ref:`xmlgroup-plcAdjustTable` group is used to define adjustments made to the resulting PLC analog values.
+  There is 1 adjustment type available:
+| Maximal difference by which PLC analog values are allowed to change can be restricted with :ref:`xmlelem-plcChangeRestrict` element;
+
+Please see sample :ref:`xmlgroup-plcAdjustTable` group below.
+There is 1 adjustment defined with 1 :ref:`xmlelem-plcChangeRestrict` element.
+
+.. code-block:: none
+
+ <AdjustTable>
+   <ChangeRestrict AdjustId="1" AbsoluteDiff="10" MaxRestrict="500"/>
+ </AdjustTable>
+
+Adjustment types and their attributes are described in the following sections.
+
+.. _xmlelem-plcChangeRestrict: lelabel=ChangeRestrict
+
+ChangeRestrict element
+----------------------
+
+| :ref:`xmlelem-plcChangeRestrict` element is used to specify the maxium change in analog value whenever new data is received.
+  When new data is received from outstation the existing PLC point value is compared to the new value and if the difference
+  between old and new values exceeds a maxium difference defined within this element, the new value of the PLC point will be
+  increased or decreased only by this defined difference.
+  For example, if the existing PLC point value is 10, newly received value is 20 and :ref:`xmlattr-plcChangeRestrictAbsoluteDiff`\ ="5" is specified, then
+  the new value of the PLC point will become 15, not 20. If the value 20 is received from outstation again, the PLC point value
+  will be increased from 15 to 20.
+  This functionality can be used to gradually increase or decrease analog values avoiding significant changes in the short
+  period of time if the source data fluctuates rapidly.
+
+.. include-file:: sections/Include/sample_node.rstinc "" ":ref:`xmlelem-plcChangeRestrict`"
+
+.. code-block:: none
+
+   <ChangeRestrict AdjustId="1" AbsoluteDiff="5" MaxRestrict="1100" Name="AI change restriction"/>
+
+.. include-file:: sections/Include/tip_order.rstinc "" ":ref:`xmlelem-plcChangeRestrict`"
+
+
+ChangeRestrict attributes
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. field-list-table:: Change Restriction attributes
+   :class: table table-condensed table-bordered longtable
+   :name: tabid-plcChangeRestrict
+   :spec: |C{0.16}|C{0.12}|S{0.72}|
+   :header-rows: 1
+
+   * :attr,10,center:	Attribute
+     :val,15,center:	Values or range
+     :desc,75:		Description
+
+   * :attr:	:xmlattr:`AdjustId`
+     :val:	1...65535
+     :desc:	Adjustment identifier must be a unique number within a :ref:`xmlgroup-plcAdjustTable` group.
+		:inlineimportant:`Identifier numbering must start with 1 and identifiers must be arranged in an ascending order.`
+
+   * :attr:	:xmlattr:`AbsoluteDiff`
+     :val:	0 or +1.18×10\ :sup:`-38` \ ... +3.4×10\ :sup:`38`
+     :desc:	Maximal difference the PLC point value is allowed to change.
+		Whenever new data is received from outstation the existing PLC point value is compared to the new value and if the difference
+		between old and new values exceeds this attribute, the new value of the PLC point will be increased or decreased by this attribute.
+		For example, if the existing PLC point value is 10, newly received value is 20 and :ref:`xmlattr-plcChangeRestrictAbsoluteDiff` \ ="5",
+		then the new value of the PLC point will become 15 (not 20).
+		Differences between old and new values that are less than this attribute are unaffected.
+		|optinalattr|
+
+   * :attr:	:xmlattr:`MaxRestrict`
+     :val:	0 or +1.18×10\ :sup:`-38` \ ... +3.4×10\ :sup:`38`
+     :desc:	Maximal difference between old and new values that the gradual increase or decrease by :ref:`xmlattr-plcChangeRestrictAbsoluteDiff` attribute applies.
+		If the difference between old and new PLC point values is less than this attribute, the new value will be increased or decreased by the :ref:`xmlattr-plcChangeRestrictAbsoluteDiff` attribute.
+		If the difference between old and new PLC point values exceeds this attribute the PLC point will change instantly to the new value, i.e. :ref:`xmlattr-plcChangeRestrictAbsoluteDiff` is not used.
+		This functionality allows to speed up change in the PLC point value if the new value is significantly different from an old value e.g. on system startup.
+		Value 0 disables this functionality and :ref:`xmlattr-plcChangeRestrictAbsoluteDiff` attribute is always used.
+		|optinalattr|
+
+.. include-file:: sections/Include/Name_wodef.rstinc ""
+

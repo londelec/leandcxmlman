@@ -1,0 +1,4 @@
+		  By default quality bits of all source :include-arg:`1` objects are ignored when comparing values, however the resulting PLC point will have a quality that is added together from all :include-arg:`1` objects.
+		  This means that if any of the source :include-arg:`1` objects have a set Invalid [:lemonobgtext:`IV`] bit or
+		  outstation (where the :include-arg:`1` is received from) goes offline, the resulting PLC data point will also have a set Invalid [:lemonobgtext:`IV`] bit.
+		  This can be changed by the :ref:`xmlattr-plcPNTExcludeMask` attribute.
